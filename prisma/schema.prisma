@@ -1,0 +1,154 @@
+// SHOGO:CUSTOM-START prisma-header
+// Managed by Shogo. Do not add a datasource `url` or change the generator `provider` — the database URL is configured in prisma.config.ts (Prisma 7+).
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+// SHOGO:CUSTOM-END
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  passwordHash String?
+  role      String   @default("student") // student, instructor, admin
+  avatar    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  enrollments Enrollment[]
+  progress    Progress[]
+  quizzes     QuizResult[]
+  sessions    LiveSession[]
+
+  @@map("users")
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  level       String   @default("beginner") // beginner, intermediate, advanced
+  thumbnail   String?
+  price       Float    @default(0)
+  isPublished Boolean  @default(false)
+  duration    String?  // e.g. "8 weeks"
+  rating      Float    @default(0)
+  studentCount Int     @default(0)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  modules     Module[]
+  enrollments Enrollment[]
+  sessions    LiveSession[]
+
+  @@map("courses")
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  order       Int      @default(0)
+  courseId     String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  @@map("modules")
+}
+
+model Lesson {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?  // markdown/text content
+  videoUrl  String?
+  duration  String?  // e.g. "15 min"
+  order     Int      @default(0)
+  type      String   @default("video") // video, text, quiz
+  moduleId  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  module   Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress Progress[]
+
+  @@map("lessons")
+}
+
+model Enrollment {
+  id        String   @id @default(cuid())
+  userId    String
+  courseId   String
+  status    String   @default("active") // active, completed, paused
+  enrolledAt DateTime @default(now()) @map("enrolled_at")
+  completedAt DateTime? @map("completed_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+model Progress {
+  id         String   @id @default(cuid())
+  userId     String
+  lessonId   String
+  completed  Boolean  @default(false)
+  completedAt DateTime? @map("completed_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("progress")
+}
+
+model LiveSession {
+  id        String   @id @default(cuid())
+  title     String
+  description String?
+  date      DateTime
+  duration  String?  // e.g. "1 hour"
+  meetLink  String?
+  courseId  String?
+  instructorId String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  course      Course? @relation(fields: [courseId], references: [id], onDelete: SetNull)
+  instructor  User    @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+
+  @@map("live_sessions")
+}
+
+model QuizResult {
+  id        String   @id @default(cuid())
+  userId    String
+  courseId   String
+  score     Int      // percentage 0-100
+  answers   String?  // JSON string of answers
+  completedAt DateTime @default(now()) @map("completed_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("quiz_results")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("password_reset_tokens")
+}
