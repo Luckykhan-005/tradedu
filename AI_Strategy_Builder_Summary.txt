@@ -1,0 +1,126 @@
+================================================================================
+                    AI STRATEGY BUILDER - QUICK REFERENCE
+================================================================================
+
+1. APP NAME & PURPOSE
+   • Name: AI Strategy Builder
+   • Subtitle: Real-time Crypto Analysis
+   • Purpose: AI-powered cryptocurrency trading signal generation
+   • Platform: Built with Bolt
+
+2. NAVIGATION TABS & SECTIONS
+   Top Bar:
+   ├─ Search coin box
+   ├─ BTC quick access button
+   ├─ Scan market button
+   ├─ Saved analyses/watchlists button
+   └─ Settings/theme toggle
+
+   Timeframe Buttons: 15M | 1H (active) | 4H | 1D | 1W
+
+   Left Sidebar: Indicators Panel (16+ indicators available)
+   • Active: EMA 7/21, RSI, MACD
+   • Available: Bollinger Bands, Ichimoku Cloud, Fibonacci, Support/Resistance,
+     Pivot Points, Moving Averages, Volume Analysis, Trend Lines, Supply/Demand,
+     Order Blocks, Fair Value Gaps, VWAP, ATR
+
+   Center: Trading Chart with multiple indicator overlays
+
+   Right Sidebar: AI Analysis Panel with 7 sections
+
+3. TRADING SIGNALS SHOWN
+   Example: "Bearish Setup Detected"
+   • Pair: BTCUSDT
+   • Direction: SHORT (Recommended)
+   • Indicator Support: 0 of 3 indicators confirm (with warning on MTF)
+
+4. TRADE SIGNAL FORMAT
+   ┌─────────────────────────────────────┐
+   │ BEARISH SETUP DETECTED              │
+   │ BTCUSDT • SHORT • Recommended       │
+   ├─────────────────────────────────────┤
+   │ METRICS:                            │
+   │ • Strategy Strength: 86/100         │
+   │ • Trade Probability: 90%            │
+   │ • Risk Level: Low                   │
+   │ • Holding Time: 15 min - 2 hours    │
+   │ • Best Timeframe: 15 Minutes        │
+   │ • MTF Confirm: Not Confirmed        │
+   ├─────────────────────────────────────┤
+   │ TRADE SETUP (SHORT):                │
+   │ • Entry: 71,749.10                  │
+   │ • Stop Loss: 73,077.01              │
+   │ • Exit: 68,429.33                   │
+   │ • Risk/Reward: 1 : 2.50             │
+   ├─────────────────────────────────────┤
+   │ TAKE PROFIT TARGETS:                │
+   │ • TP1: 69,757.24                    │
+   │ • TP2: 68,429.33                    │
+   │ • TP3: 66,437.47                    │
+   │ • Trailing Stop: 72,634.37          │
+   ├─────────────────────────────────────┤
+   │ ANALYSIS INCLUDES:                  │
+   │ • Market Structure Analysis         │
+   │ • AI Recommendation (text)          │
+   │ • Multi-Timeframe Analysis          │
+   │ • Individual Indicator Analysis     │
+   │ • AI Summary                        │
+   └─────────────────────────────────────┘
+
+5. UNIQUE FEATURES
+   ✓ AI-Powered Analysis Engine
+   ✓ Multi-Timeframe Analysis (5 timeframes)
+   ✓ 16+ Technical Indicators
+   ✓ Risk/Reward Calculation (automatic ratio)
+   ✓ Multiple Take-Profit Targets (TP1, TP2, TP3)
+   ✓ Market Scanning (auto finds opportunities)
+   ✓ Watchlist & Presets (save for later)
+   ✓ Real-time Crypto Data
+   ✓ Market Structure Analysis (text-based)
+   ✓ Indicator-Specific Analysis (detailed breakdown)
+   ✓ Confidence Scoring System (0-100)
+   ✓ Indicator Consensus Report (how many support direction)
+   ✓ Customizable Indicators (users select which to analyze)
+
+6. DESIGN THEME
+   Color Scheme:
+   • Primary: Dark Navy Blue (#1a2332+)
+   • Accent: Bright Cyan/Light Blue
+   • Bullish: Green/Teal
+   • Bearish: Red
+   • Warnings: Orange/Yellow
+   • Chart Indicators: Purple (MACD), Yellow (EMAs), etc.
+
+   Style: Modern Minimalist, Professional/Enterprise
+   Layout: 3-Column (Indicators | Chart | Analysis)
+   Mode: Dark Mode Native
+   Font: Sans-serif system fonts
+
+7. OVERALL USER EXPERIENCE
+   Target Users: Traders, Analysts, AI-Focused Traders
+   Key Workflow:
+   1. Select cryptocurrency (BTC in demo)
+   2. Choose timeframe (1H active)
+   3. Select indicators (3 pre-selected)
+   4. Click "Run AI Analysis"
+   5. View complete trade setup with entry/exit/TP levels
+   6. Review AI recommendation and market structure
+   7. Monitor multi-timeframe confirmation
+
+   Strengths:
+   • Comprehensive technical analysis
+   • AI-generated signals save research time
+   • Clear risk management (SL & multiple TP targets)
+   • Professional interface
+   • Real-time data
+   • Customizable for trader preferences
+
+   Warning Notes:
+   • Can warn when multi-timeframe confirmation incomplete
+   • Transparent about indicator support count
+   • Shows which indicators support/conflict
+
+8. PLATFORM BUILT WITH
+   Bolt (as indicated in "Made in Bolt" badge)
+
+================================================================================
