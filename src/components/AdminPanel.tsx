@@ -397,10 +397,15 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
   const handleSaveCourse = async (data: any) => {
     const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
     const method = editingCourse ? 'PATCH' : 'POST'
-    await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
     setShowCourseForm(false)
     setEditingCourse(null)
-    fetchData()
+    const saved = await res.json()
+    await fetchData()
+    if (!editingCourse && saved?.id) {
+      setSelectedCourseId(saved.id)
+      setActiveTab('courses')
+    }
   }
 
   const handleDeleteCourse = async (id: string) => {
