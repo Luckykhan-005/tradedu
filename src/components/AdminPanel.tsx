@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { api } from '@/lib/api'
 import {
   LayoutDashboard,
   BookOpen,
@@ -363,9 +364,9 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     setLoading(true)
     try {
       const [coursesRes, sessionsRes, statsRes] = await Promise.all([
-        fetch('/api/admin/courses', { headers: adminHeaders }),
-        fetch('/api/dashboard'),
-        fetch('/api/admin/stats', { headers: adminHeaders }),
+        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
+        fetch(api('/api/dashboard')),
+        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
       ])
       const coursesData = await coursesRes.json()
       const dashboardData = await sessionsRes.json()
@@ -394,7 +395,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   // ====== Course CRUD ======
   const handleSaveCourse = async (data: any) => {
-    const url = editingCourse ? `/api/admin/courses/${editingCourse.id}` : '/api/admin/courses'
+    const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
     const method = editingCourse ? 'PATCH' : 'POST'
     await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
     setShowCourseForm(false)
@@ -404,7 +405,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteCourse = async (id: string) => {
     if (!confirm('Delete this course and all its modules/lessons?')) return
-    await fetch(`/api/admin/courses/${id}`, { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: adminHeaders })
     if (selectedCourseId === id) setSelectedCourseId(null)
     fetchData()
   }
@@ -412,7 +413,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
   // ====== Module CRUD ======
   const handleAddModule = async (courseId: string) => {
     if (!newModuleName.trim()) return
-    await fetch(`/api/admin/courses/${courseId}/modules`, {
+    await fetch(api(`/api/admin/courses/${courseId}/modules`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' },
       body: JSON.stringify({ title: newModuleName }),
@@ -424,15 +425,15 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteModule = async (moduleId: string) => {
     if (!confirm('Delete this module and all its lessons?')) return
-    await fetch(`/api/admin/modules/${moduleId}`, { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 
   // ====== Lesson CRUD ======
   const handleSaveLesson = async (moduleId: string, data: any) => {
     const url = editingLesson
-      ? `/api/admin/lessons/${editingLesson.id}`
-      : `/api/admin/modules/${moduleId}/lessons`
+      ? api(`/api/admin/lessons/${editingLesson.id}`)
+      : api(`/api/admin/modules/${moduleId}/lessons`)
     const method = editingLesson ? 'PATCH' : 'POST'
     await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
     setShowLessonForm(null)
@@ -442,13 +443,13 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteLesson = async (lessonId: string) => {
     if (!confirm('Delete this lesson?')) return
-    await fetch(`/api/admin/lessons/${lessonId}`, { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 
   // ====== Session CRUD ======
   const handleSaveSession = async (data: any) => {
-    const url = editingSession ? `/api/admin/sessions/${editingSession.id}` : '/api/admin/sessions'
+    const url = editingSession ? api(`/api/admin/sessions/${editingSession.id}`) : api('/api/admin/sessions')
     const method = editingSession ? 'PATCH' : 'POST'
     await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
     setShowSessionForm(false)
@@ -458,7 +459,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteSession = async (id: string) => {
     if (!confirm('Delete this session?')) return
-    await fetch(`/api/admin/sessions/${id}`, { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 

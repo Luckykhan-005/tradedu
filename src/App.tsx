@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { api } from '@/lib/api'
 import { Navigation, Page } from './components/Navigation'
 import { Landing } from './components/Landing'
 import { CourseCatalog, type CourseData } from './components/CourseCatalog'
@@ -52,10 +53,10 @@ export default function App() {
   const fetchData = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/seed', { method: 'POST' })
+      const res = await fetch(api('/api/seed'), { method: 'POST' })
       await res.json()
 
-      const dashboardRes = await fetch('/api/dashboard')
+       const dashboardRes = await fetch(api('/api/dashboard'))
       const dashboardData = await dashboardRes.json()
 
       const coursesList = (dashboardData.courses || []).map((c: any) => ({
@@ -102,7 +103,7 @@ export default function App() {
 
   const handleSelectCourse = async (courseId: string) => {
     try {
-      const res = await fetch(`/api/courses/${courseId}/detail`)
+      const res = await fetch(api(`/api/courses/${courseId}/detail`))
       const data = await res.json()
       setSelectedCourse(data)
       setCurrentPage('course-detail')
@@ -141,7 +142,7 @@ export default function App() {
     // Invalidate admin session on server if admin
     if (user?.adminToken) {
       try {
-        await fetch('/api/admin/logout', {
+        await fetch(api('/api/admin/logout'), {
           method: 'POST',
           headers: { 'x-admin-token': user.adminToken },
         })

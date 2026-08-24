@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { api } from '@/lib/api'
 
 interface AuthProps {
   onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => void
@@ -56,7 +57,7 @@ export function Auth({ onAuth }: AuthProps) {
 
     if (loginAs === 'admin') {
       try {
-        const res = await fetch('/api/admin/auth', {
+        const res = await fetch(api('/api/admin/auth'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
@@ -74,7 +75,7 @@ export function Auth({ onAuth }: AuthProps) {
     } else {
       // Student login — try server first, fall back to simulated
       try {
-        const res = await fetch('/api/auth/login', {
+        const res = await fetch(api('/api/auth/login'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
@@ -98,7 +99,7 @@ export function Auth({ onAuth }: AuthProps) {
     setError('')
 
     try {
-      const res = await fetch('/api/auth/signup', {
+        const res = await fetch(api('/api/auth/signup'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, name }),
@@ -122,7 +123,7 @@ export function Auth({ onAuth }: AuthProps) {
     setError('')
 
     try {
-      const res = await fetch('/api/auth/forgot-password', {
+        const res = await fetch(api('/api/auth/forgot-password'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -155,7 +156,7 @@ export function Auth({ onAuth }: AuthProps) {
     }
 
     try {
-      const res = await fetch('/api/auth/reset-password', {
+        const res = await fetch(api('/api/auth/reset-password'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token, newPassword }),
