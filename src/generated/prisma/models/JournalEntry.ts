@@ -275,7 +275,7 @@ export type JournalEntryGroupByOutputType = {
   _max: JournalEntryMaxAggregateOutputType | null
 }
 
-export type GetJournalEntryGroupByPayload<T extends JournalEntryGroupByArgs> = Prisma.PrismaPromise<
+type GetJournalEntryGroupByPayload<T extends JournalEntryGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<JournalEntryGroupByOutputType, T['by']> &
       {

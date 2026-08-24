@@ -36,6 +36,9 @@ import type {
   PasswordResetTokenType,
   PasswordResetTokenCreateInput,
   PasswordResetTokenUpdateInput,
+  JournalEntryType,
+  JournalEntryCreateInput,
+  JournalEntryUpdateInput,
 } from './types'
 
 /** Get the API base URL */
@@ -861,6 +864,97 @@ export async function deletePasswordResetToken(args: { data: { id: string; userI
   if (!response.ok) {
     const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
     throw new Error(err.error?.message || 'Failed to delete PasswordResetToken')
+  }
+  return { success: true }
+}
+
+// ============================================================================
+// JournalEntry Client Functions
+// ============================================================================
+
+/**
+ * List all JournalEntry records
+ */
+export async function getJournalEntryList(args: { data: { userId?: string; where?: Record<string, unknown> } }): Promise<JournalEntryType[]> {
+  const params = new URLSearchParams()
+  if (args.data.userId) params.set('userId', args.data.userId)
+  if (args.data.where) {
+    for (const [key, value] of Object.entries(args.data.where)) {
+      if (value !== undefined && value !== null) params.set(key, String(value))
+    }
+  }
+  const qs = params.toString()
+  const url = `${getApiBase()}/api/journal-entries${qs ? `?${qs}` : ''}`
+  const response = await fetch(url)
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to list JournalEntry')
+  }
+  const json = await response.json()
+  return (json.items || []) as JournalEntryType[]
+}
+
+/**
+ * Get a single JournalEntry by ID
+ */
+export async function getJournalEntryById(args: { data: { id: string; userId?: string } }): Promise<JournalEntryType> {
+  const url = `${getApiBase()}/api/journal-entries/${args.data.id}`
+  const response = await fetch(url)
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'JournalEntry not found')
+  }
+  const json = await response.json()
+  return json.data as JournalEntryType
+}
+
+/**
+ * Create a new JournalEntry
+ */
+export async function createJournalEntry(args: { data: { input: JournalEntryCreateInput; userId?: string } }): Promise<JournalEntryType> {
+  const url = `${getApiBase()}/api/journal-entries`
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(args.data.input),
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to create JournalEntry')
+  }
+  const json = await response.json()
+  return json.data as JournalEntryType
+}
+
+/**
+ * Update an existing JournalEntry
+ */
+export async function updateJournalEntry(args: { data: { id: string; input: JournalEntryUpdateInput; userId?: string } }): Promise<JournalEntryType> {
+  const url = `${getApiBase()}/api/journal-entries/${args.data.id}`
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(args.data.input),
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to update JournalEntry')
+  }
+  const json = await response.json()
+  return json.data as JournalEntryType
+}
+
+/**
+ * Delete a JournalEntry
+ */
+export async function deleteJournalEntry(args: { data: { id: string; userId?: string } }): Promise<{ success: boolean }> {
+  const url = `${getApiBase()}/api/journal-entries/${args.data.id}`
+  const response = await fetch(url, {
+    method: 'DELETE',
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to delete JournalEntry')
   }
   return { success: true }
 }

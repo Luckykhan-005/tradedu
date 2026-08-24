@@ -249,7 +249,7 @@ export type CourseGroupByOutputType = {
   _max: CourseMaxAggregateOutputType | null
 }
 
-export type GetCourseGroupByPayload<T extends CourseGroupByArgs> = Prisma.PrismaPromise<
+type GetCourseGroupByPayload<T extends CourseGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<CourseGroupByOutputType, T['by']> &
       {

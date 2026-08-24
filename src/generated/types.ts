@@ -108,6 +108,23 @@ export interface PasswordResetTokenType {
   createdAt: Date
 }
 
+export interface JournalEntryType {
+  id: string
+  userId: string
+  date: Date
+  pair: string
+  direction: string
+  entry: number
+  exit?: number
+  stopLoss?: number
+  takeProfit?: number
+  size?: number
+  setup?: string
+  notes?: string
+  pnl?: number
+  createdAt: Date
+}
+
 // ============================================================================
 // Input Types
 // ============================================================================
@@ -266,6 +283,36 @@ export interface PasswordResetTokenUpdateInput {
   used?: boolean
 }
 
+export interface JournalEntryCreateInput {
+  userId: string
+  date?: Date
+  pair: string
+  direction: string
+  entry: number
+  exit?: number
+  stopLoss?: number
+  takeProfit?: number
+  size?: number
+  setup?: string
+  notes?: string
+  pnl?: number
+}
+
+export interface JournalEntryUpdateInput {
+  userId?: string
+  date?: Date
+  pair?: string
+  direction?: string
+  entry?: number
+  exit?: number
+  stopLoss?: number
+  takeProfit?: number
+  size?: number
+  setup?: string
+  notes?: string
+  pnl?: number
+}
+
 // ============================================================================
 // Hook Types
 // ============================================================================
@@ -312,4 +359,5 @@ export interface ServerFunctionHooks {
   LiveSession?: ModelHooks<LiveSessionCreateInput, LiveSessionUpdateInput, LiveSessionType>
   QuizResult?: ModelHooks<QuizResultCreateInput, QuizResultUpdateInput, QuizResultType>
   PasswordResetToken?: ModelHooks<PasswordResetTokenCreateInput, PasswordResetTokenUpdateInput, PasswordResetTokenType>
+  JournalEntry?: ModelHooks<JournalEntryCreateInput, JournalEntryUpdateInput, JournalEntryType>
 }

@@ -165,7 +165,7 @@ export type EnrollmentGroupByOutputType = {
   _max: EnrollmentMaxAggregateOutputType | null
 }
 
-export type GetEnrollmentGroupByPayload<T extends EnrollmentGroupByArgs> = Prisma.PrismaPromise<
+type GetEnrollmentGroupByPayload<T extends EnrollmentGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<EnrollmentGroupByOutputType, T['by']> &
       {
