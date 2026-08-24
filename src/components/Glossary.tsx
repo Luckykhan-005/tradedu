@@ -148,7 +148,7 @@ export function Glossary() {
             {(['all', ...Object.keys(categories)] as const).map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => setActiveCategory(cat as typeof activeCategory)}
                 className={cn(
                   'rounded-full px-4 py-2 text-sm font-medium transition-colors',
                   activeCategory === cat
@@ -156,7 +156,7 @@ export function Glossary() {
                     : 'bg-secondary text-muted-foreground hover:bg-secondary/70'
                 )}
               >
-                {cat === 'all' ? 'All' : categories[cat]}
+                {cat === 'all' ? 'All' : categories[cat as Term['category']]}
               </button>
             ))}
           </div>
