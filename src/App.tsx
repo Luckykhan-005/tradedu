@@ -9,6 +9,11 @@ import { LiveSessions } from './components/LiveSessions'
 import { Auth } from './components/Auth'
 import { AdminPanel } from './components/AdminPanel'
 import { AiToolsHub } from './components/AiToolsHub'
+import { Books } from './components/Books'
+import { RiskCalculator } from './components/RiskCalculator'
+import { Glossary } from './components/Glossary'
+import { Journal } from './components/Journal'
+import { Certificates } from './components/Certificates'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -249,6 +254,26 @@ export default function App() {
 
       {currentPage === 'ai-tools' && (
         <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+      )}
+
+      {currentPage === 'books' && (
+        <Books onBack={() => navigate('dashboard')} />
+      )}
+
+      {currentPage === 'calculator' && (
+        <RiskCalculator />
+      )}
+
+      {currentPage === 'glossary' && (
+        <Glossary />
+      )}
+
+      {currentPage === 'journal' && (
+        <Journal user={user} onSignIn={() => setShowAuth(true)} />
+      )}
+
+      {currentPage === 'certificates' && (
+        <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
       )}
 
       {currentPage === 'admin' && (

@@ -165,7 +165,7 @@ export type ProgressGroupByOutputType = {
   _max: ProgressMaxAggregateOutputType | null
 }
 
-type GetProgressGroupByPayload<T extends ProgressGroupByArgs> = Prisma.PrismaPromise<
+export type GetProgressGroupByPayload<T extends ProgressGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ProgressGroupByOutputType, T['by']> &
       {

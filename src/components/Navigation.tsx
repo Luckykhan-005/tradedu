@@ -11,11 +11,16 @@ import {
   User,
   Shield,
   Bot,
+  Library,
+  Calculator,
+  BookMarked,
+  NotebookPen,
+  Trophy,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates'
 
 interface NavigationProps {
   currentPage: Page
@@ -27,8 +32,13 @@ interface NavigationProps {
 
 const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?: boolean; studentOnly?: boolean }[] = [
   { id: 'courses', label: 'Courses', icon: BookOpen },
+  { id: 'books', label: 'Books', icon: Library },
   { id: 'ai-tools', label: 'AI Tools', icon: Bot, studentOnly: true },
+  { id: 'journal', label: 'Journal', icon: NotebookPen },
+  { id: 'calculator', label: 'Calculator', icon: Calculator },
+  { id: 'glossary', label: 'Glossary', icon: BookMarked },
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'certificates', label: 'Certificates', icon: Trophy },
   { id: 'live-sessions', label: 'Live Sessions', icon: Calendar },
   { id: 'admin', label: 'Admin', icon: Shield, adminOnly: true },
 ]

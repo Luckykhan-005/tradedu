@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۳ — دو کینڈل والے پیٹرنز</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #b8860b; text-align: center; }
+        h2 { font-size: 34px; color: #e94560; margin-top: 40px; border-bottom: 2px solid #e94560; padding-bottom: 5px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #b8860b; text-decoration: none; padding: 10px 20px; background: #0f3460; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        .pattern { background: #16213e; border-radius: 15px; padding: 25px; margin: 30px 0; border: 2px solid #0f3460; }
+        .pattern h3 { color: #b8860b; font-size: 32px; margin-top: 0; }
+        .pattern .subtitle { color: #e94560; font-size: 22px; margin-bottom: 15px; }
+        .diagram { text-align: center; background: #0f3460; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        .details div { background: #1a1a2e; padding: 10px 15px; border-radius: 8px; border-right: 3px solid #b8860b; }
+        .details .label { color: #b8860b; font-weight: bold; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .tip { background: #1b2d1b; border-right: 5px solid #4caf50; padding: 15px; border-radius: 10px; margin: 15px 0; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+        <a href="chapter4.html">اگلا باب →</a>
+    </div>
+
+    <h1>📖 باب ۳: دو کینڈل والے پیٹرنز</h1>
+
+    <p>اس باب میں ہم دو کینڈلز سے بننے والے پیٹرنز کا مطالعہ کریں گے — یہ ایک کینڈل سے زیادہ مضبوط ہوتے ہیں کیونکہ تصدیق دو کینڈلز سے ملتی ہے۔</p>
+
+    <!-- 1. Bullish Engulfing -->
+    <div class="pattern">
+        <h3>۱. بلش انگلفنگ (Bullish Engulfing)</h3>
+        <div class="subtitle">سبز کینڈل سرخ کینڈل کو نگل جاتی ہے</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بلش انگلفنگ (Bullish Engulfing)</text>
+
+                <!-- First candle: small red, left side -->
+                <line x1="180" y1="120" x2="180" y2="150" stroke="#fff" stroke-width="3"/>
+                <rect x="160" y="150" width="40" height="50" fill="#ef5350" rx="3"/>
+                <line x1="180" y1="200" x2="180" y2="230" stroke="#fff" stroke-width="3"/>
+                <text x="180" y="260" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">1: چھوٹی سرخ</text>
+
+                <!-- Second candle: big green, right side, engulfs -->
+                <line x1="340" y1="90" x2="340" y2="180" stroke="#fff" stroke-width="3"/>
+                <rect x="300" y="180" width="80" height="80" fill="#26a69a" rx="3"/>
+                <line x1="340" y1="260" x2="340" y2="320" stroke="#fff" stroke-width="3"/>
+                <text x="340" y="350" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">2: بڑی سبز</text>
+                <text x="340" y="372" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">پوری سرخ کو ڈھانپتی ہے</text>
+
+                <text x="300" y="385" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Downtrend کے آخر میں = Buy signal</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bullish Reversal</div>
+            <div><span class="label">کہاں:</span> Downtrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> سرخ کے بعد بڑی سبز جو اسے پوری ڈھانپ لے</div>
+            <div><span class="label">طاقت:</span> بہت مضبوط</div>
+        </div>
+        <p><strong>مطلب:</strong> بیچنے والوں کے بعد خریداروں نے مکمل کنٹرول سنبھال لیا — سبز کینڈل کا جسم پورے سرخ جسم کو ڈھانپ رہا ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> انگلفنگ + حجم میں اضافہ = مضبوط خریداری کا موقع۔ اسٹاپ لاس انگلفنگ کی سبز کینڈل کی نیچے والی وِک سے نیچے۔</div>
+    </div>
+
+    <!-- 2. Bearish Engulfing -->
+    <div class="pattern">
+        <h3>۲. بئیرش انگلفنگ (Bearish Engulfing)</h3>
+        <div class="subtitle">سرخ کینڈل سبز کینڈل کو نگل جاتی ہے</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بئیرش انگلفنگ (Bearish Engulfing)</text>
+
+                <!-- First candle: small green, left side -->
+                <line x1="180" y1="120" x2="180" y2="150" stroke="#fff" stroke-width="3"/>
+                <rect x="160" y="150" width="40" height="50" fill="#26a69a" rx="3"/>
+                <line x1="180" y1="200" x2="180" y2="230" stroke="#fff" stroke-width="3"/>
+                <text x="180" y="260" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">1: چھوٹی سبز</text>
+
+                <!-- Second candle: big red, right side -->
+                <line x1="340" y1="90" x2="340" y2="180" stroke="#fff" stroke-width="3"/>
+                <rect x="300" y="180" width="80" height="80" fill="#ef5350" rx="3"/>
+                <line x1="340" y1="260" x2="340" y2="320" stroke="#fff" stroke-width="3"/>
+                <text x="340" y="350" fill="#ef5350" font-size="14" font-family="sans-serif" text-anchor="middle">2: بڑی سرخ</text>
+                <text x="340" y="372" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">پوری سبز کو ڈھانپتی ہے</text>
+
+                <text x="300" y="385" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Uptrend کے آخر میں = Sell signal</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bearish Reversal</div>
+            <div><span class="label">کہاں:</span> Uptrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> سبز کے بعد بڑی سرخ جو اسے ڈھانپ لے</div>
+            <div><span class="label">طاقت:</span> بہت مضبوط</div>
+        </div>
+        <p><strong>مطلب:</strong> خریداروں کے بعد بیچنے والوں نے مکمل کنٹرول سنبھال لیا — اوپر کی حرکت ختم ہو رہی ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> بئیرش انگلفنگ + حجم = شارٹ کا مضبوط موقع۔ اسٹاپ لاس انگلفنگ کی سرخ کینڈل کی اوپر والی وِک سے اوپر۔</div>
+    </div>
+
+    <!-- 3. Bullish Harami -->
+    <div class="pattern">
+        <h3>۳. بلش ہارامی (Bullish Harami)</h3>
+        <div class="subtitle">"حاملہ" — چھوٹی کینڈل بڑی کے اندر</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بلش ہارامی (Bullish Harami)</text>
+
+                <!-- Big red candle -->
+                <line x1="220" y1="90" x2="220" y2="160" stroke="#fff" stroke-width="3"/>
+                <rect x="195" y="160" width="50" height="100" fill="#ef5350" rx="3"/>
+                <line x1="220" y1="260" x2="220" y2="310" stroke="#fff" stroke-width="3"/>
+                <text x="220" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">بڑی سرخ</text>
+
+                <!-- Small green inside -->
+                <line x1="330" y1="190" x2="330" y2="220" stroke="#fff" stroke-width="3"/>
+                <rect x="315" y="220" width="30" height="40" fill="#26a69a" rx="3"/>
+                <line x1="330" y1="260" x2="330" y2="290" stroke="#fff" stroke-width="3"/>
+                <text x="330" y="340" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">چھوٹی سبز (اندر)</text>
+
+                <text x="300" y="372" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Downtrend کے آخر میں = Buy (کمزور)</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bullish (کمزور)</div>
+            <div><span class="label">کہاں:</span> Downtrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> بڑی سرخ + اندر چھوٹی سبز</div>
+            <div><span class="label">طاقت:</span> کم — تصدیق ضروری</div>
+        </div>
+        <p><strong>مطلب:</strong> بیچنے والوں کی رفتار کمزور ہو رہی ہے — چھوٹی کینڈل بڑی کے اندر بے فیصلی دکھاتی ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> ہارامی کے بعد اگلی سبز کینڈل آئے تو خرید کریں — اکیلے ہارامی پر بھروسہ نہ کریں۔</div>
+    </div>
+
+    <!-- 4. Bearish Harami -->
+    <div class="pattern">
+        <h3>۴. بئیرش ہارامی (Bearish Harami)</h3>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بئیرش ہارامی (Bearish Harami)</text>
+
+                <!-- Big green candle -->
+                <line x1="220" y1="90" x2="220" y2="160" stroke="#fff" stroke-width="3"/>
+                <rect x="195" y="160" width="50" height="100" fill="#26a69a" rx="3"/>
+                <line x1="220" y1="260" x2="220" y2="310" stroke="#fff" stroke-width="3"/>
+                <text x="220" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">بڑی سبز</text>
+
+                <!-- Small red inside -->
+                <line x1="330" y1="190" x2="330" y2="220" stroke="#fff" stroke-width="3"/>
+                <rect x="315" y="220" width="30" height="40" fill="#ef5350" rx="3"/>
+                <line x1="330" y1="260" x2="330" y2="290" stroke="#fff" stroke-width="3"/>
+                <text x="330" y="340" fill="#ef5350" font-size="14" font-family="sans-serif" text-anchor="middle">چھوٹی سرخ (اندر)</text>
+
+                <text x="300" y="372" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Uptrend کے آخر میں = Sell (کمزور)</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bearish (کمزور)</div>
+            <div><span class="label">کہاں:</span> Uptrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> بڑی سبز + اندر چھوٹی سرخ</div>
+            <div><span class="label">طاقت:</span> کم — تصدیق ضروری</div>
+        </div>
+        <p><strong>مطلب:</strong> خریداروں کی رفتار کمزور ہو رہی ہے — ممکنہ الٹ۔</p>
+    </div>
+
+    <!-- 5. Piercing Line -->
+    <div class="pattern">
+        <h3>۵. پیئرسنگ لائن (Piercing Line)</h3>
+        <div class="subtitle">چھیدنے والی لکیر</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">پیئرسنگ لائن (Piercing Line)</text>
+
+                <!-- Big red candle -->
+                <line x1="200" y1="90" x2="200" y2="170" stroke="#fff" stroke-width="3"/>
+                <rect x="180" y="170" width="40" height="90" fill="#ef5350" rx="3"/>
+                <line x1="200" y1="260" x2="200" y2="300" stroke="#fff" stroke-width="3"/>
+                <text x="200" y="330" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">1: بڑی سرخ</text>
+
+                <!-- Green candle opens below, closes above midpoint -->
+                <line x1="340" y1="70" x2="340" y2="150" stroke="#fff" stroke-width="3"/>
+                <rect x="320" y="150" width="40" height="120" fill="#26a69a" rx="3"/>
+                <line x1="340" y1="270" x2="340" y2="320" stroke="#fff" stroke-width="3"/>
+                <text x="340" y="350" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">2: سبز — سرخ کے آدھے سے اوپر</text>
+
+                <text x="300" y="385" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Downtrend کے آخر میں = Buy signal</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bullish Reversal</div>
+            <div><span class="label">کہاں:</span> Downtrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> سرخ + سبز جو اس کے آدھے جسم سے اوپر بند ہو</div>
+            <div><span class="label">طاقت:</span> درمیانی — مضبوط</div>
+        </div>
+        <p><strong>مطلب:</strong> خریداروں نے بیچنے والوں کی آدھی سے زیادہ حرکت واپس لے لی — الٹنے کا مضبوط اشارہ۔</p>
+    </div>
+
+    <!-- 6. Dark Cloud Cover -->
+    <div class="pattern">
+        <h3>۶. ڈارک کلاؤڈ کور (Dark Cloud Cover)</h3>
+        <div class="subtitle">سیاہ بادل کا چھانا</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ڈارک کلاؤڈ کور (Dark Cloud Cover)</text>
+
+                <!-- Big green candle -->
+                <line x1="200" y1="70" x2="200" y2="150" stroke="#fff" stroke-width="3"/>
+                <rect x="180" y="150" width="40" height="120" fill="#26a69a" rx="3"/>
+                <line x1="200" y1="270" x2="200" y2="310" stroke="#fff" stroke-width="3"/>
+                <text x="200" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">1: بڑی سبز</text>
+
+                <!-- Red candle opens above, closes below midpoint -->
+                <line x1="340" y1="60" x2="340" y2="140" stroke="#fff" stroke-width="3"/>
+                <rect x="320" y="140" width="40" height="130" fill="#ef5350" rx="3"/>
+                <line x1="340" y1="270" x2="340" y2="330" stroke="#fff" stroke-width="3"/>
+                <text x="340" y="358" fill="#ef5350" font-size="14" font-family="sans-serif" text-anchor="middle">2: سرخ — سبز کے آدھے سے نیچے</text>
+
+                <text x="300" y="385" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">Uptrend کے آخر میں = Sell signal</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bearish Reversal</div>
+            <div><span class="label">کہاں:</span> Uptrend کے آخر میں</div>
+            <div><span class="label">شکل:</span> سبز + سرخ جو اس کے آدھے جسم سے نیچے بند ہو</div>
+            <div><span class="label">طاقت:</span> درمیانی — مضبوط</div>
+        </div>
+        <p><strong>مطلب:</strong> بیچنے والوں نے خریداروں کی آدھی سے زیادہ حرکت واپس لے لی — الٹنے کا بیئرش اشارہ۔</p>
+    </div>
+
+    <!-- 7. Tweezer Bottom/Top -->
+    <div class="pattern">
+        <h3>۷. ٹویزر باٹم / ٹاپ (Tweezer Bottom / Top)</h3>
+        <div class="subtitle">چمٹا — دو کینڈلز کی وِک ایک ہی سطح پر</div>
+        <div class="diagram">
+            <svg width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#0f3460" rx="10"/>
+                <text x="300" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ٹویزر باٹم (Bullish)</text>
+
+                <!-- Candle 1: red, long lower wick -->
+                <line x1="210" y1="100" x2="210" y2="140" stroke="#fff" stroke-width="3"/>
+                <rect x="190" y="140" width="40" height="50" fill="#ef5350" rx="3"/>
+                <line x1="210" y1="190" x2="210" y2="300" stroke="#fff" stroke-width="3"/>
+                <text x="210" y="330" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">1: سرخ</text>
+
+                <!-- Candle 2: green, same low level -->
+                <line x1="330" y1="110" x2="330" y2="160" stroke="#fff" stroke-width="3"/>
+                <rect x="310" y="160" width="40" height="60" fill="#26a69a" rx="3"/>
+                <line x1="330" y1="220" x2="330" y2="300" stroke="#fff" stroke-width="3"/>
+                <text x="330" y="330" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">2: سبز</text>
+
+                <text x="300" y="372" fill="#ffd700" font-size="15" font-family="sans-serif" text-anchor="middle" font-weight="bold">دونوں نیچے وِک ایک ہی سطح پر = Buy</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bottom = Buy / Top = Sell</div>
+            <div><span class="label">کہاں:</span> رجحان کے آخر میں</div>
+            <div><span class="label">شکل:</span> دو کینڈلز کی وِک ایک ہی سطح</div>
+            <div><span class="label">طاقت:</span> درمیانی</div>
+        </div>
+        <p><strong>مطلب:</strong> قیمت ایک سطح پر دو بار ٹکرا کر واپس آئی — اس سطح کو سپورٹ (باٹم) یا ریزسٹنس (ٹاپ) سمجھا جاتا ہے۔</p>
+    </div>
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+        <a href="chapter4.html">اگلا باب: تین کینڈل والے پیٹرنز →</a>
+    </div>
+
+    <div class="footer">
+        © مکمل کریپٹو ٹریڈنگ کورس — تمام حقوق محفوظ | باب ۳
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

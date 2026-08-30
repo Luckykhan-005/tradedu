@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۳ — ایف وی جی (FVG) اور امبیلنس</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1b2a; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #e0a800; padding-bottom: 5px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #00b4d8; color: #fff; }
+        .concept { background: #1b263b; border-radius: 15px; padding: 25px; margin: 30px 0; border: 2px solid #0d1b2a; }
+        .concept h3 { color: #e0a800; font-size: 32px; margin-top: 0; }
+        .concept .subtitle { color: #00b4d8; font-size: 22px; margin-bottom: 15px; }
+        .diagram { text-align: center; background: #0d1b2a; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        .details div { background: #0d1b2a; padding: 10px 15px; border-radius: 8px; border-right: 3px solid #00b4d8; }
+        .details .label { color: #e0a800; font-weight: bold; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .tip { background: #1b2d1b; border-right: 5px solid #4caf50; padding: 15px; border-radius: 10px; margin: 15px 0; }
+        .warning { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px; border-radius: 10px; margin: 15px 0; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+        <a href="chapter4.html">اگلا باب →</a>
+    </div>
+
+    <h1>📖 باب ۳: ایف وی جی (FVG) اور امبیلنس</h1>
+
+    <p>FVG (Fair Value Gap) اس وقت بنتا ہے جب قیمت بہت تیز حرکت کرتی ہے اور تین کینڈلز کے درمیان <strong>خالی جگہ (gap)</strong> رہ جاتی ہے۔ یہ خالی جگہ وہ قیمت ہے جہاں کوئی تجارت نہیں ہوئی — اور سمارٹ منی کے مطابق قیمت واپس آ کر اس خالی جگہ کو بھرتی ہے۔</p>
+
+    <div class="info-box" style="background:#1b263b; border-right:5px solid #00b4d8; padding:15px 20px; border-radius:10px; margin:20px 0;">
+        <strong>FVG کیسے بنتا ہے؟</strong> تین کینڈلز: کینڈل 1 (High) → کینڈل 2 (بڑی حرکت) → کینڈل 3 (Low) — اگر کینڈل 1 کا High اور کینڈل 3 کا Low آپس میں نہ ملیں (gap) — تو وہ FVG ہے۔
+    </div>
+
+    <!-- Bullish FVG -->
+    <div class="concept">
+        <h3>۱. بلش ایف وی جی (Bullish FVG)</h3>
+        <div class="subtitle">اوپر کا خلا — Candle 1 High اور Candle 3 Low کے درمیان</div>
+        <div class="diagram">
+            <svg width="640" height="480" viewBox="0 0 640 480">
+                <rect width="640" height="480" fill="#0d1b2a" rx="10"/>
+                <text x="320" y="35" fill="#00b4d8" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بلش ایف وی جی (Bullish FVG)</text>
+
+                <!-- Candle 1 (left) - red, with HIGH marked -->
+                <line x1="140" y1="270" x2="140" y2="300" stroke="#fff" stroke-width="2"/>
+                <rect x="120" y="300" width="40" height="60" fill="#ef5350" rx="3"/>
+                <line x1="140" y1="360" x2="140" y2="390" stroke="#fff" stroke-width="2"/>
+                <text x="140" y="420" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 1</text>
+
+                <line x1="100" y1="270" x2="180" y2="270" stroke="#ffd700" stroke-width="2" stroke-dasharray="5,4"/>
+                <text x="90" y="265" fill="#ffd700" font-size="13" font-family="sans-serif" text-anchor="end">High 1</text>
+
+                <!-- Candle 2 (middle) - big green DISPLACEMENT CANDLE -->
+                <line x1="320" y1="90" x2="320" y2="120" stroke="#fff" stroke-width="2"/>
+                <rect x="300" y="120" width="40" height="140" fill="#26a69a" rx="3"/>
+                <line x1="320" y1="260" x2="320" y2="300" stroke="#fff" stroke-width="2"/>
+                <text x="320" y="420" fill="#26a69a" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 2 (بڑی سبز)</text>
+                <text x="320" y="440" fill="#ccc" font-size="12" font-family="sans-serif" text-anchor="middle">یہ کینڈل FVG بناتی ہے</text>
+
+                <!-- Candle 3 (right) - green, with LOW marked -->
+                <line x1="500" y1="80" x2="500" y2="110" stroke="#fff" stroke-width="2"/>
+                <rect x="480" y="110" width="40" height="50" fill="#26a69a" rx="3"/>
+                <line x1="500" y1="160" x2="500" y2="190" stroke="#fff" stroke-width="2"/>
+                <text x="500" y="420" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 3</text>
+
+                <line x1="500" y1="80" x2="560" y2="80" stroke="#ffd700" stroke-width="2" stroke-dasharray="5,4"/>
+                <text x="570" y="75" fill="#ffd700" font-size="13" font-family="sans-serif">Low 3</text>
+
+                <!-- FVG ZONE: area between Candle 1 High (270) and Candle 3 Low (80) -->
+                <rect x="440" y="80" width="120" height="190" fill="#ffd700" opacity="0.25"/>
+                <rect x="440" y="80" width="120" height="190" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="6,4"/>
+                <text x="380" y="200" fill="#ffd700" font-size="16" font-family="sans-serif" text-anchor="middle">FVG</text>
+                <text x="380" y="225" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 1 High اور کینڈل 3 Low کے درمیان</text>
+                <text x="380" y="248" fill="#ccc" font-size="12" font-family="sans-serif" text-anchor="middle">یہاں کوئی تجارت نہیں ہوئی (gap)</text>
+
+                <text x="320" y="465" fill="#ffd700" font-size="14" font-family="sans-serif" text-anchor="middle">قیمت واپس آ کر اس خلا کو بھرتی ہے — پھر اوپر جاتی ہے</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> خریداری کا علاقہ</div>
+            <div><span class="label">FVG:</span> Candle 1 High اور Candle 3 Low کے درمیان</div>
+            <div><span class="label">اندراج:</span> قیمت FVG بھرے (mitigate)</div>
+            <div><span class="label">طاقت:</span> مضبوط (کنفلوینس سے)</div>
+        </div>
+        <p><strong>مطلب:</strong> بلش FVG اس وقت بنتا ہے جب کینڈل 2 (بڑی سبز) اتنی تیز اوپر جائے کہ کینڈل 1 کے High اور کینڈل 3 کے Low کے درمیان خلا رہ جائے — جہاں کوئی تجارت نہیں ہوئی۔ قیمت اس خلا کو بھرنے (fill) واپس آتی ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> FVG بھرنے پر قیمت کو OB/Order Block سے بھی تصدیق کریں — FVG + OB + CHOCH = بہترین سیٹ اپ۔</div>
+    </div>
+
+    <!-- Bearish FVG -->
+    <div class="concept">
+        <h3>۲. بئیرش ایف وی جی (Bearish FVG)</h3>
+        <div class="subtitle">نیچے کا خلا — Candle 1 Low اور Candle 3 High کے درمیان</div>
+        <div class="diagram">
+            <svg width="640" height="480" viewBox="0 0 640 480">
+                <rect width="640" height="480" fill="#0d1b2a" rx="10"/>
+                <text x="320" y="35" fill="#00b4d8" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بئیرش ایف وی جی (Bearish FVG)</text>
+
+                <!-- Candle 1 (left) - green, with LOW marked -->
+                <line x1="140" y1="80" x2="140" y2="110" stroke="#fff" stroke-width="2"/>
+                <rect x="120" y="110" width="40" height="50" fill="#26a69a" rx="3"/>
+                <line x1="140" y1="160" x2="140" y2="190" stroke="#fff" stroke-width="2"/>
+                <text x="140" y="420" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 1</text>
+
+                <line x1="100" y1="80" x2="180" y2="80" stroke="#ffd700" stroke-width="2" stroke-dasharray="5,4"/>
+                <text x="90" y="75" fill="#ffd700" font-size="13" font-family="sans-serif" text-anchor="end">Low 1</text>
+
+                <!-- Candle 2 (middle) - big red DISPLACEMENT -->
+                <line x1="320" y1="150" x2="320" y2="180" stroke="#fff" stroke-width="2"/>
+                <rect x="300" y="180" width="40" height="140" fill="#ef5350" rx="3"/>
+                <line x1="320" y1="320" x2="320" y2="350" stroke="#fff" stroke-width="2"/>
+                <text x="320" y="420" fill="#ef5350" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 2 (بڑی سرخ)</text>
+                <text x="320" y="440" fill="#ccc" font-size="12" font-family="sans-serif" text-anchor="middle">یہ کینڈل FVG بناتی ہے</text>
+
+                <!-- Candle 3 (right) - red, with HIGH marked -->
+                <line x1="500" y1="270" x2="500" y2="300" stroke="#fff" stroke-width="2"/>
+                <rect x="480" y="300" width="40" height="60" fill="#ef5350" rx="3"/>
+                <line x1="500" y1="360" x2="500" y2="390" stroke="#fff" stroke-width="2"/>
+                <text x="500" y="420" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 3</text>
+
+                <line x1="500" y1="270" x2="560" y2="270" stroke="#ffd700" stroke-width="2" stroke-dasharray="5,4"/>
+                <text x="570" y="265" fill="#ffd700" font-size="13" font-family="sans-serif">High 3</text>
+
+                <!-- FVG ZONE: between Candle 1 Low (80) and Candle 3 High (270) -->
+                <rect x="440" y="80" width="120" height="190" fill="#ffd700" opacity="0.25"/>
+                <rect x="440" y="80" width="120" height="190" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="6,4"/>
+                <text x="380" y="200" fill="#ffd700" font-size="16" font-family="sans-serif" text-anchor="middle">FVG</text>
+                <text x="380" y="225" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">کینڈل 1 Low اور کینڈل 3 High کے درمیان</text>
+                <text x="380" y="248" fill="#ccc" font-size="12" font-family="sans-serif" text-anchor="middle">یہاں کوئی تجارت نہیں ہوئی (gap)</text>
+
+                <text x="320" y="465" fill="#ffd700" font-size="14" font-family="sans-serif" text-anchor="middle">قیمت واپس آ کر اس خلا کو بھرتی ہے — پھر نیچے جاتی ہے</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> فروخت کا علاقہ</div>
+            <div><span class="label">FVG:</span> Candle 1 Low اور Candle 3 High کے درمیان</div>
+            <div><span class="label">اندراج:</span> قیمت FVG بھرے (mitigate)</div>
+            <div><span class="label">طاقت:</span> مضبوط</div>
+        </div>
+        <p><strong>مطلب:</strong> بئیرش FVG اس وقت بنتا ہے جب کینڈل 2 (بڑی سرخ) اتنی تیز نیچے جائے کہ کینڈل 1 کے Low اور کینڈل 3 کے High کے درمیان خلا رہ جائے۔ قیمت واپس آ کر اس خلا کو بھرتی ہے — پھر نیچے جاتی ہے۔</p>
+    </div>
+
+    <!-- Displacement -->
+    <div class="concept">
+        <h3>۳. ڈسپلیسمنٹ (Displacement)</h3>
+        <div class="subtitle">تیز حرکت جو FVG بناتی ہے</div>
+        <div class="diagram">
+            <svg width="640" height="380" viewBox="0 0 640 380">
+                <rect width="640" height="380" fill="#0d1b2a" rx="10"/>
+                <text x="320" y="35" fill="#00b4d8" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ڈسپلیسمنٹ (Displacement)</text>
+
+                <polyline points="60,300 120,280 180,260 240,240" fill="none" stroke="#ccc" stroke-width="3"/>
+                <text x="130" y="310" fill="#ccc" font-size="13" font-family="sans-serif">سست حرکت</text>
+
+                <polyline points="240,240 320,180 400,110" fill="none" stroke="#26a69a" stroke-width="5"/>
+                <text x="380" y="100" fill="#26a69a" font-size="15" font-family="sans-serif">ڈسپلیسمنٹ</text>
+                <text x="380" y="122" fill="#ccc" font-size="12" font-family="sans-serif">تیز + مضبوط = FVG بنتی</text>
+
+                <text x="320" y="360" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">ڈسپلیسمنٹ وہ تیز حرکت ہے جو کینڈل 2 میں ہوتی ہے — FVG اور OB بناتی ہے</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> مضبوط، تیز حرکت</div>
+            <div><span class="label">مطلب:</span> بڑے ادارے کی حرکت</div>
+            <div><span class="label">استعمال:</span> FVG/OB ڈھونڈنے کے لیے</div>
+            <div><span class="label">پہچان:</span> کینڈل 2 بہت بڑی ہو</div>
+        </div>
+        <p><strong>مطلب:</strong> ڈسپلیسمنٹ کینڈل 2 کی وہ بڑی حرکت ہے جو FVG اور آرڈر بلاک بناتی ہے — یہ ظاہر کرتی ہے کہ بڑا ادارہ (سمارٹ منی) عمل میں ہے۔</p>
+    </div>
+
+    <!-- Imbalance -->
+    <div class="concept">
+        <h3>۴. امبیلنس (Imbalance) اور ایکویلبریم (Equilibrium)</h3>
+        <div class="subtitle">بے توازنی اور توازن کی سطح</div>
+        <div class="diagram">
+            <svg width="640" height="400" viewBox="0 0 640 400">
+                <rect width="640" height="400" fill="#0d1b2a" rx="10"/>
+                <text x="320" y="35" fill="#00b4d8" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">امبیلنس اور ایکویلبریم</text>
+
+                <line x1="80" y1="200" x2="560" y2="200" stroke="#ffd700" stroke-width="3" stroke-dasharray="8,6"/>
+                <text x="580" y="205" fill="#ffd700" font-size="14" font-family="sans-serif">Equilibrium (وسط)</text>
+
+                <rect x="200" y="50" width="240" height="140" fill="#26a69a" opacity="0.15"/>
+                <text x="320" y="110" fill="#26a69a" font-size="16" font-family="sans-serif" text-anchor="middle">امبیلنس (اوپر)</text>
+                <text x="320" y="135" fill="#ccc" font-size="13" font-family="sans-serif" text-anchor="middle">قیمت وسط سے بہت اوپر</text>
+
+                <text x="320" y="330" fill="#ccc" font-size="15" font-family="sans-serif" text-anchor="middle">امبیلنس = قیمت ایک طرف بہت زیادہ حرکت کرے</text>
+                <text x="320" y="360" fill="#ccc" font-size="15" font-family="sans-serif" text-anchor="middle">ایکویلبریم = وہ وسط جہاں قیمت واپس آتی ہے</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">امبیلنس:</span> بے توازنی — تیز حرکت</div>
+            <div><span class="label">ایکویلبریم:</span> وسط — توازن کی سطح</div>
+            <div><span class="label">مطلب:</span> قیمت وسط کی طرف لوٹتی ہے</div>
+            <div><span class="label">استعمال:</span> ہدف (TP) کے لیے</div>
+        </div>
+        <p><strong>مطلب:</strong> امبیلنس (Imbalance) اس وقت ہوتا ہے جب قیمت ایک طرف بہت زیادہ حرکت کرتی ہے — اور ایکویلبریم (Equilibrium) وہ وسط ہے جہاں قیمت واپس آتی ہے۔ SMC میں اکثر ہدف ایکویلبریم پر رکھا جاتا ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> بڑے امبیلنس کے بعد قیمت عام طور پر ایکویلبریم کی طرف واپس آتی ہے — اسے TP کے طور پر استعمال کریں۔</div>
+    </div>
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+        <a href="chapter4.html">اگلا باب →</a>
+    </div>
+
+    <div class="footer">
+        © مکمل کریپٹو ٹریڈنگ کورس — تمام حقوق محفوظ | باب ۳
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

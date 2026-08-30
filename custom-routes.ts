@@ -7,6 +7,160 @@ const app = new Hono()
 app.post('/seed', async (c) => {
   // Check if data already exists
   const courseCount = await prisma.course.count()
+
+  // ===== Ensure core courses exist (runs every time, even if seeded) =====
+  async function ensureCourse(data: Parameters<typeof prisma.course.create>[0]) {
+    const existing = await prisma.course.findFirst({ where: { title: data.data.title } })
+    if (existing) return existing
+    return prisma.course.create(data)
+  }
+
+  await Promise.all([
+    ensureCourse({
+      data: {
+        title: 'Crypto Trading Mastery (Beginner to Advanced)',
+        description: 'Complete crypto trading education — 37 lectures across 3 phases. Learn blockchain fundamentals, technical analysis, order blocks, FVG, and professional SMC strategies.',
+        level: 'beginner',
+        price: 0,
+        isPublished: true,
+        duration: '12 weeks',
+        rating: 4.9,
+        studentCount: 0,
+        modules: {
+          create: [
+            {
+              title: 'Phase 1: Crypto Fundamentals',
+              order: 0,
+              lessons: {
+                create: [
+                  { title: 'What is Crypto? Bitcoin Story', type: 'video', duration: '15 min', order: 0, content: 'Learn the history of Bitcoin, what cryptocurrency is, and how it differs from traditional money.' },
+                  { title: 'Blockchain Technology', type: 'video', duration: '18 min', order: 1, content: 'How blockchain works — blocks, chains, mining, and decentralization.' },
+                  { title: 'Wallets & Security', type: 'video', duration: '20 min', order: 2, content: 'Hot vs cold wallets, private keys, seed phrases, and how to keep your coins safe.' },
+                  { title: 'Exchanges & Order Types', type: 'video', duration: '16 min', order: 3, content: 'How to buy/sell on exchanges, market vs limit orders, stop-loss and take-profit.' },
+                  { title: 'Candlestick Charts', type: 'video', duration: '14 min', order: 4, content: 'Reading candlestick charts — OHLC, green vs red candles, wicks and timeframes.' },
+                  { title: 'Fundamental vs Technical Analysis', type: 'video', duration: '12 min', order: 5, content: 'When to use FA vs TA and how to combine them.' },
+                  { title: 'Crypto Scams & Security', type: 'video', duration: '22 min', order: 6, content: 'How to avoid phishing, pump-and-dump, rug pulls, and keep your crypto safe.' },
+                ],
+              },
+            },
+            {
+              title: 'Phase 2: Technical Analysis',
+              order: 1,
+              lessons: {
+                create: [
+                  { title: 'Support & Resistance', type: 'video', duration: '18 min', order: 0, content: 'Identify key support and resistance levels — the foundation of all technical analysis.' },
+                  { title: 'Moving Averages (SMA, EMA)', type: 'video', duration: '16 min', order: 1, content: 'Simple and exponential moving averages — golden cross and death cross strategies.' },
+                  { title: 'RSI & MACD Indicators', type: 'video', duration: '20 min', order: 2, content: 'RSI overbought/oversold, divergence, MACD crossovers, and histogram analysis.' },
+                  { title: 'Bollinger Bands & Fibonacci', type: 'video', duration: '18 min', order: 3, content: 'Volatility bands, squeeze setups, and Fibonacci retracement levels (38.2%, 50%, 61.8%).' },
+                  { title: 'Candlestick Patterns', type: 'video', duration: '25 min', order: 4, content: 'Hammer, engulfing, doji, morning star, shooting star — single, double, and triple patterns.' },
+                  { title: 'Chart Patterns', type: 'video', duration: '22 min', order: 5, content: 'Head and shoulders, triangles, flags, cup and handle — continuation and reversal patterns.' },
+                  { title: 'Volume Analysis', type: 'video', duration: '14 min', order: 6, content: 'How volume confirms breakouts, divergence, and price moves.' },
+                  { title: 'Multi-Timeframe Analysis', type: 'video', duration: '16 min', order: 7, content: 'Using higher timeframe for trend, lower for entry — the MTA framework.' },
+                  { title: 'Building a Trading Plan', type: 'text', duration: '12 min', order: 8, content: 'Create a complete trading plan — entry rules, risk management, and journaling.' },
+                ],
+              },
+            },
+            {
+              title: 'Phase 3: Advanced Strategies & SMC',
+              order: 2,
+              lessons: {
+                create: [
+                  { title: 'Risk Management (The 2% Rule)', type: 'video', duration: '20 min', order: 0, content: 'Position sizing, risk per trade, risk-reward ratios — the most important lesson.' },
+                  { title: 'Trading Psychology', type: 'video', duration: '18 min', order: 1, content: 'FOMO, revenge trading, greed — how to control emotions and stay disciplined.' },
+                  { title: 'Market Structure (HH/HL, LH/LL)', type: 'video', duration: '16 min', order: 2, content: 'Higher highs and higher lows — identifying trend direction and structure.' },
+                  { title: 'BOS & CHOCH (Structure Breaks)', type: 'video', duration: '14 min', order: 3, content: 'Break of Structure and Change of Character — trend reversal signals.' },
+                  { title: 'Order Blocks', type: 'video', duration: '18 min', order: 4, content: 'Institutional order blocks — where smart money enters the market.' },
+                  { title: 'FVG (Fair Value Gap)', type: 'video', duration: '16 min', order: 5, content: 'Identifying and trading fair value gaps and imbalances.' },
+                  { title: 'Liquidity Concepts', type: 'video', duration: '18 min', order: 6, content: 'Liquidity pools, sweeps, stop hunts — how smart money hunts stop losses.' },
+                  { title: 'Leverage & Margin Trading', type: 'video', duration: '22 min', order: 7, content: 'Understanding leverage, liquidation, and when to use margin.' },
+                  { title: 'Futures & Perpetual Contracts', type: 'video', duration: '20 min', order: 8, content: 'Perpetual swaps, funding rates, and futures trading strategies.' },
+                  { title: 'Advanced Strategies', type: 'video', duration: '25 min', order: 9, content: 'Scalping, swing trading, position trading, DCA — choosing the right strategy for your style.' },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    }),
+
+    ensureCourse({
+      data: {
+        title: 'Forex Trading Fundamentals',
+        description: 'Complete forex trading course — from currency pairs to advanced strategies. Learn pip calculations, lot sizing, and forex-specific analysis techniques.',
+        level: 'beginner',
+        price: 0,
+        isPublished: true,
+        duration: '6 weeks',
+        rating: 4.7,
+        studentCount: 0,
+        modules: {
+          create: [
+            {
+              title: 'Forex Basics',
+              order: 0,
+              lessons: {
+                create: [
+                  { title: 'What is Forex?', type: 'video', duration: '14 min', order: 0, content: 'The foreign exchange market — how currency pairs work and why it is the largest market.' },
+                  { title: 'Major Currency Pairs', type: 'video', duration: '12 min', order: 1, content: 'EUR/USD, GBP/USD, USD/JPY — understanding the most traded pairs.' },
+                  { title: 'Pips & Lot Sizes', type: 'video', duration: '15 min', order: 2, content: 'Calculating pip values, position sizing for forex, and understanding leverage.' },
+                ],
+              },
+            },
+            {
+              title: 'Forex Analysis',
+              order: 1,
+              lessons: {
+                create: [
+                  { title: 'Fundamental Analysis for Forex', type: 'video', duration: '18 min', order: 0, content: 'Interest rates, economic indicators, central bank policies — how they move currency prices.' },
+                  { title: 'Technical Analysis for Forex', type: 'video', duration: '16 min', order: 1, content: 'Applying TA to forex — support/resistance, trends, and indicators for currency trading.' },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    }),
+
+    ensureCourse({
+      data: {
+        title: 'Advanced Trading Strategies',
+        description: 'Professional-level trading strategies — price action, SMC, algorithmic approaches, and advanced risk management techniques.',
+        level: 'advanced',
+        price: 49,
+        isPublished: true,
+        duration: '8 weeks',
+        rating: 4.8,
+        studentCount: 0,
+        modules: {
+          create: [
+            {
+              title: 'Smart Money Concepts',
+              order: 0,
+              lessons: {
+                create: [
+                  { title: 'Market Structure Deep Dive', type: 'video', duration: '20 min', order: 0, content: 'Advanced market structure — BOS, CHOCH, MSB, and liquidity concepts.' },
+                  { title: 'Order Block Trading', type: 'video', duration: '22 min', order: 1, content: 'Identifying and trading buy/sell order blocks with mitigation.' },
+                  { title: 'FVG + OB Confluence', type: 'video', duration: '18 min', order: 2, content: 'Combining fair value gaps with order blocks for high-probability setups.' },
+                ],
+              },
+            },
+            {
+              title: 'Advanced Techniques',
+              order: 1,
+              lessons: {
+                create: [
+                  { title: 'Scalping Strategies', type: 'video', duration: '25 min', order: 0, content: 'Fast-paced scalping techniques for short timeframes. Quick entries and exits.' },
+                  { title: 'Swing Trading Blueprint', type: 'video', duration: '22 min', order: 1, content: 'Holding positions for days — structure-based swing trading with higher RR ratios.' },
+                  { title: 'Algorithmic Trading Concepts', type: 'video', duration: '28 min', order: 2, content: 'Backtesting, automation, and building your own trading system.' },
+                ],
+              },
+            },
+          ],
+        },
+      },
+    }),
+  ])
+
   if (courseCount > 0) {
     return c.json({ message: 'Data already seeded', courses: courseCount })
   }
@@ -252,6 +406,7 @@ app.post('/seed', async (c) => {
       },
     }),
   ])
+
 
   // Create live sessions
   const tomorrow = new Date()
@@ -798,6 +953,79 @@ app.get('/admin/stats', async (c) => {
     prisma.liveSession.count(),
   ])
   return c.json({ courseCount, lessonCount, studentCount, sessionCount })
+})
+
+// ========== TRADING JOURNAL ==========
+
+// Get journal entries for a user
+app.get('/journal', async (c) => {
+  const email = c.req.header('x-user-email')
+  if (!email) return c.json({ error: 'User email required' }, 400)
+
+  const user = await prisma.user.findUnique({ where: { email } })
+  if (!user) return c.json({ entries: [] })
+
+  const entries = await prisma.journalEntry.findMany({
+    where: { userId: user.id },
+    orderBy: { date: 'desc' },
+  })
+  return c.json({ entries })
+})
+
+// Create a journal entry
+app.post('/journal', async (c) => {
+  const email = c.req.header('x-user-email')
+  if (!email) return c.json({ error: 'User email required' }, 400)
+
+  const user = await prisma.user.findUnique({ where: { email } })
+  if (!user) return c.json({ error: 'User not found' }, 404)
+
+  const body = await c.req.json()
+  const entry = await prisma.journalEntry.create({
+    data: {
+      userId: user.id,
+      pair: body.pair || 'BTC/USDT',
+      direction: body.direction || 'long',
+      entry: parseFloat(body.entry) || 0,
+      exit: body.exit ? parseFloat(body.exit) : null,
+      stopLoss: body.stopLoss ? parseFloat(body.stopLoss) : null,
+      takeProfit: body.takeProfit ? parseFloat(body.takeProfit) : null,
+      size: body.size ? parseFloat(body.size) : null,
+      setup: body.setup || null,
+      notes: body.notes || null,
+      pnl: body.pnl ? parseFloat(body.pnl) : null,
+    },
+  })
+  return c.json(entry, 201)
+})
+
+// Update a journal entry
+app.patch('/journal/:id', async (c) => {
+  const { id } = c.req.param()
+  const body = await c.req.json()
+  const entry = await prisma.journalEntry.update({
+    where: { id },
+    data: {
+      ...(body.pair !== undefined && { pair: body.pair }),
+      ...(body.direction !== undefined && { direction: body.direction }),
+      ...(body.entry !== undefined && { entry: parseFloat(body.entry) }),
+      ...(body.exit !== undefined && { exit: body.exit ? parseFloat(body.exit) : null }),
+      ...(body.stopLoss !== undefined && { stopLoss: body.stopLoss ? parseFloat(body.stopLoss) : null }),
+      ...(body.takeProfit !== undefined && { takeProfit: body.takeProfit ? parseFloat(body.takeProfit) : null }),
+      ...(body.size !== undefined && { size: body.size ? parseFloat(body.size) : null }),
+      ...(body.setup !== undefined && { setup: body.setup }),
+      ...(body.notes !== undefined && { notes: body.notes }),
+      ...(body.pnl !== undefined && { pnl: body.pnl ? parseFloat(body.pnl) : null }),
+    },
+  })
+  return c.json(entry)
+})
+
+// Delete a journal entry
+app.delete('/journal/:id', async (c) => {
+  const { id } = c.req.param()
+  await prisma.journalEntry.delete({ where: { id } })
+  return c.json({ ok: true })
 })
 
 export default app

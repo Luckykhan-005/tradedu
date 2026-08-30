@@ -53,6 +53,14 @@ prisma/dev.db
 prisma/dev.db-shm
 prisma/dev.db-wal
 
+# Root SQLite database (dev)
+dev.db
+dev.db-shm
+dev.db-wal
+
+# npm lockfile (project uses bun.lock)
+package-lock.json
+
 # Env
 .env
 .env.local

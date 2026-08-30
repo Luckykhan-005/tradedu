@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۶ — رجحان جاری رکھنے والے چارٹ پیٹرنز</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #b8860b; text-align: center; }
+        h2 { font-size: 34px; color: #e94560; margin-top: 40px; border-bottom: 2px solid #e94560; padding-bottom: 5px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #b8860b; text-decoration: none; padding: 10px 20px; background: #0f3460; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        .pattern { background: #16213e; border-radius: 15px; padding: 25px; margin: 30px 0; border: 2px solid #0f3460; }
+        .pattern h3 { color: #b8860b; font-size: 32px; margin-top: 0; }
+        .pattern .subtitle { color: #e94560; font-size: 22px; margin-bottom: 15px; }
+        .diagram { text-align: center; background: #0f3460; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        .details div { background: #1a1a2e; padding: 10px 15px; border-radius: 8px; border-right: 3px solid #b8860b; }
+        .details .label { color: #b8860b; font-weight: bold; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .tip { background: #1b2d1b; border-right: 5px solid #4caf50; padding: 15px; border-radius: 10px; margin: 15px 0; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+    </div>
+
+    <h1>📖 باب ۶: رجحان جاری رکھنے والے چارٹ پیٹرنز</h1>
+
+    <p>کینڈل سٹک پیٹرنز چھوٹے اشارے دیتے ہیں، لیکن <strong>چارٹ پیٹرنز</strong> بڑے ہوتے ہیں — یہ دنوں، ہفتوں یا مہینوں میں بنتے ہیں۔ اس باب میں ہم ان پیٹرنز کا مطالعہ کریں گے جو بتاتے ہیں کہ <strong>موجودہ رجحان جاری رہے گا</strong> — انہیں ٹرینڈ کانٹینیوایشن پیٹرنز کہتے ہیں۔</p>
+
+    <div class="info-box" style="background:#16213e; border-right:5px solid #b8860b; padding:15px 20px; border-radius:10px; margin:20px 0;">
+        <strong>سب سے اہم بات:</strong> کانٹینیوایشن پیٹرن تب کام کرتا ہے جب وہ پہلے سے چل رہے رجحان کے بعد بنے — مثلاً اوپر کا رجحان چل رہا ہو اور اسکے بعد ایسنڈنگ تکون بنے تو یہ جاری رہنے کا اشارہ ہے۔ پیٹرن کو غلط مقام پر (بغیر رجحان کے) استعمال کرنا سب سے عام غلطی ہے۔
+    </div>
+
+    <!-- 1. Flags & Pennants -->
+    <div class="pattern">
+        <h3>۱. فلیگ اور پیننٹ (Flags &amp; Pennants)</h3>
+        <div class="subtitle">جھنڈا اور جھنڈی</div>
+        <div class="diagram">
+            <svg width="620" height="360" viewBox="0 0 620 360">
+                <rect width="620" height="360" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">فلیگ (Flag) — اوپر کا رجحان جاری</text>
+
+                <!-- Flagpole: sharp rise -->
+                <polyline points="60,300 110,220 160,140" fill="none" stroke="#26a69a" stroke-width="3"/>
+                <text x="100" y="325" fill="#26a69a" font-size="14" font-family="sans-serif">فلیگ پول (تیز حرکت)</text>
+
+                <!-- Flag: parallel channel (pullback) -->
+                <line x1="180" y1="120" x2="300" y2="150" stroke="#fff" stroke-width="3"/>
+                <line x1="180" y1="180" x2="300" y2="210" stroke="#fff" stroke-width="3"/>
+                <text x="240" y="105" fill="#ffd700" font-size="13" font-family="sans-serif" text-anchor="middle">متوازی لائنیں (فلیگ)</text>
+
+                <!-- Breakout -->
+                <polyline points="300,150 380,90" fill="none" stroke="#26a69a" stroke-width="3"/>
+                <text x="400" y="80" fill="#26a69a" font-size="14" font-family="sans-serif">توڑ</text>
+                <text x="360" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">مختصر واپسی → پھر رجحان جاری</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> جاری رہنے والا (Continuation)</div>
+            <div><span class="label">شکل:</span> تیز حرکت + متوازی چینل</div>
+            <div><span class="label">اندراج:</span> توڑ کے وقت</div>
+            <div><span class="label">ہدف:</span> فلیگ پول کی لمبائی</div>
+        </div>
+        <p><strong>مطلب:</strong> تیز حرکت (فلیگ پول) کے بعد قیمت تھوڑی واپس آتی ہے (فلیگ) — یہ صرف رکاؤ ہے، رجحان جاری رہے گا۔</p>
+        <p><strong>تجرتی مشورہ:</strong> اندراج اس وقت جب قیمت فلیگ سے باہر توڑے — اسی سمت میں جس میں پہلے حرکت تھی۔ ہدف فلیگ پول کی لمبائی کے برابر۔</p>
+    </div>
+
+    <div class="pattern">
+        <h3>پیننٹ (Pennant)</h3>
+        <div class="subtitle">جھنڈی — فلیگ کی چھوٹی شکل</div>
+        <div class="diagram">
+            <svg width="620" height="360" viewBox="0 0 620 360">
+                <rect width="620" height="360" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">پیننٹ (Pennant)</text>
+
+                <!-- Flagpole -->
+                <polyline points="60,300 120,220 170,150" fill="none" stroke="#26a69a" stroke-width="3"/>
+                <text x="95" y="325" fill="#26a69a" font-size="14" font-family="sans-serif">فلیگ پول</text>
+
+                <!-- Pennant: converging lines (small triangle) -->
+                <line x1="190" y1="130" x2="300" y2="180" stroke="#fff" stroke-width="3"/>
+                <line x1="190" y1="190" x2="300" y2="150" stroke="#fff" stroke-width="3"/>
+                <text x="245" y="130" fill="#ffd700" font-size="13" font-family="sans-serif" text-anchor="middle">اکٹھی ہوتی لائنیں</text>
+
+                <!-- Breakout -->
+                <polyline points="300,165 380,100" fill="none" stroke="#26a69a" stroke-width="3"/>
+                <text x="400" y="90" fill="#26a69a" font-size="14" font-family="sans-serif">توڑ</text>
+                <text x="300" y="345" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">فلیگ اور پیننٹ دونوں جاری رہنے کے مضبوط اشارے ہیں</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> جاری رہنے والا</div>
+            <div><span class="label">شکل:</span> تیز حرکت + اکٹھی ہوتی لائنیں</div>
+            <div><span class="label">فرق:</span> فلیگ متوازی، پیننٹ اکٹھی لائنیں</div>
+            <div><span class="label">دورانیہ:</span> بہت مختصر (دن)</div>
+        </div>
+        <p><strong>مطلب:</strong> پیننٹ چھوٹی تکون کی طرح ہے — واپسی بہت کم ہے، رجحان تقریباً فوراً جاری رہتا ہے۔</p>
+    </div>
+
+    <!-- 2. Ascending Triangle -->
+    <div class="pattern">
+        <h3>۲. ایسنڈنگ تکون (Ascending Triangle)</h3>
+        <div class="subtitle">اوپر جھکتی ہوئی تکون — خریداری کا جاری رہنا</div>
+        <div class="diagram">
+            <svg width="620" height="360" viewBox="0 0 620 360">
+                <rect width="620" height="360" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ایسنڈنگ تکون (Ascending Triangle)</text>
+
+                <!-- Flat resistance top -->
+                <line x1="100" y1="110" x2="380" y2="110" stroke="#ef5350" stroke-width="3"/>
+                <text x="240" y="95" fill="#ef5350" font-size="14" font-family="sans-serif" text-anchor="middle">افقی ریزسٹنس</text>
+
+                <!-- Rising support -->
+                <line x1="100" y1="250" x2="380" y2="170" stroke="#26a69a" stroke-width="3"/>
+                <text x="240" y="295" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">اوپر اٹھتی سپورٹ</text>
+
+                <!-- Breakout up -->
+                <line x1="380" y1="110" x2="440" y2="60" stroke="#26a69a" stroke-width="4"/>
+                <text x="455" y="55" fill="#26a69a" font-size="15" font-family="sans-serif">توڑ اوپر</text>
+
+                <text x="310" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">اوپر کے رجحان کے بعد = خرید (buy)</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bullish Continuation</div>
+            <div><span class="label">شکل:</span> افقی ریزسٹنس + اوپر اٹھتی سپورٹ</div>
+            <div><span class="label">اندراج:</span> ریزسٹنس کے اوپر توڑ پر</div>
+            <div><span class="label">تصدیق:</span> حجم میں اضافہ</div>
+        </div>
+        <p><strong>مطلب:</strong> خریدار ہر بار پہلے سے اوپر خریدتے ہیں (اٹھتی سپورٹ) — دباؤ بڑھ رہا ہے، آخر کار ریزسٹنس ٹوٹتا ہے اور رجحان اوپر جاری رہتا ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> تکون ریزسٹنس کے اوپر کینڈل بند ہو تو خرید کریں — حجم زیادہ ہو تو توڑ مضبوط ہے۔</div>
+    </div>
+
+    <!-- 3. Descending Triangle -->
+    <div class="pattern">
+        <h3>۳. ڈیسنڈنگ تکون (Descending Triangle)</h3>
+        <div class="subtitle">نیچے جھکتی ہوئی تکون — بیچنے کا جاری رہنا</div>
+        <div class="diagram">
+            <svg width="620" height="360" viewBox="0 0 620 360">
+                <rect width="620" height="360" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ڈیسنڈنگ تکون (Descending Triangle)</text>
+
+                <!-- Flat support bottom -->
+                <line x1="100" y1="250" x2="380" y2="250" stroke="#26a69a" stroke-width="3"/>
+                <text x="240" y="290" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">افقی سپورٹ</text>
+
+                <!-- Falling resistance -->
+                <line x1="100" y1="110" x2="380" y2="190" stroke="#ef5350" stroke-width="3"/>
+                <text x="240" y="95" fill="#ef5350" font-size="14" font-family="sans-serif" text-anchor="middle">نیچے گرتی ریزسٹنس</text>
+
+                <!-- Breakdown down -->
+                <line x1="380" y1="250" x2="440" y2="300" stroke="#ef5350" stroke-width="4"/>
+                <text x="455" y="305" fill="#ef5350" font-size="15" font-family="sans-serif">توڑ نیچے</text>
+
+                <text x="310" y="345" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">نیچے کے رجحان کے بعد = بیچیں (sell)</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bearish Continuation</div>
+            <div><span class="label">شکل:</span> افقی سپورٹ + نیچے گرتی ریزسٹنس</div>
+            <div><span class="label">اندراج:</span> سپورٹ کے نیچے توڑ پر</div>
+            <div><span class="label">تصدیق:</span> حجم میں اضافہ</div>
+        </div>
+        <p><strong>مطلب:</strong> بیچنے والے ہر بار پہلے سے نیچے بیچتے ہیں — دباؤ بڑھ رہا ہے، آخر کار سپورٹ ٹوٹتی ہے اور رجحان نیچے جاری رہتا ہے۔</p>
+    </div>
+
+    <!-- 4. Cup and Handle -->
+    <div class="pattern">
+        <h3>۴. کپ اور ہینڈل (Cup and Handle)</h3>
+        <div class="subtitle">کپ اور ہینڈل — چائے کے کپ کی شکل</div>
+        <div class="diagram">
+            <svg width="620" height="400" viewBox="0 0 620 400">
+                <rect width="620" height="400" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">کپ اور ہینڈل (Cup and Handle) — Bullish</text>
+
+                <!-- Cup: U shape -->
+                <path d="M 100 140 Q 100 320 300 320 Q 500 320 500 140" fill="none" stroke="#26a69a" stroke-width="3"/>
+                <text x="300" y="355" fill="#26a69a" font-size="15" font-family="sans-serif" text-anchor="middle">کپ (U شکل)</text>
+
+                <!-- Handle: small dip after cup -->
+                <path d="M 500 140 Q 540 170 520 190" fill="none" stroke="#ffd700" stroke-width="3"/>
+                <text x="540" y="210" fill="#ffd700" font-size="14" font-family="sans-serif" text-anchor="middle">ہینڈل</text>
+
+                <!-- Breakout -->
+                <line x1="520" y1="190" x2="580" y2="130" stroke="#26a69a" stroke-width="4"/>
+                <text x="585" y="120" fill="#26a69a" font-size="14" font-family="sans-serif">توڑ</text>
+
+                <text x="310" y="385" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">ہینڈل کی نیچائی کپ کے نیچے سے بہت اوپر ہونی چاہیے</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> Bullish Continuation</div>
+            <div><span class="label">شکل:</span> U شکل کا کپ + چھوٹا ہینڈل</div>
+            <div><span class="label">اندراج:</span> ہینڈل کی ریزسٹنس کے اوپر</div>
+            <div><span class="label">اسٹاپ لاس:</span> ہینڈل کی نیچائی سے نیچے</div>
+        </div>
+        <p><strong>مطلب:</strong> کپ قیمت کا گول نیچے جانا اور واپسی ہے — ہینڈل اس کے بعد کی چھوٹی تصحیح۔ ہینڈل کی نیچائی کپ کے نیچے سے بہت اوپر ہونی چاہیے — یہ ظاہر کرتا ہے کہ دباؤ مضبوط ہے۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> ہینڈل کی ریزسٹنس کے اوپر خرید آرڈر رکھیں۔ ہدف کپ کی گہرائی کے برابر۔ یہ ہفتوں سے مہینوں میں بنتا ہے — صبر کریں۔</div>
+    </div>
+
+    <!-- 5. Rectangle -->
+    <div class="pattern">
+        <h3>۵. ریکٹینگل (Rectangle)</h3>
+        <div class="subtitle">مستطیل — برابر والی مارکیٹ کا رکاؤ</div>
+        <div class="diagram">
+            <svg width="620" height="360" viewBox="0 0 620 360">
+                <rect width="620" height="360" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">ریکٹینگل (Rectangle)</text>
+
+                <!-- Uptrend into rectangle -->
+                <polyline points="60,300 110,240 150,180" fill="none" stroke="#26a69a" stroke-width="3"/>
+
+                <!-- Rectangle box -->
+                <line x1="170" y1="120" x2="400" y2="120" stroke="#ef5350" stroke-width="3"/>
+                <line x1="170" y1="230" x2="400" y2="230" stroke="#26a69a" stroke-width="3"/>
+                <line x1="170" y1="120" x2="170" y2="230" stroke="#fff" stroke-width="2" stroke-dasharray="5,4"/>
+                <line x1="400" y1="120" x2="400" y2="230" stroke="#fff" stroke-width="2" stroke-dasharray="5,4"/>
+
+                <text x="285" y="180" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">مستطیل (کنسولیڈیشن)</text>
+                <text x="150" y="110" fill="#ef5350" font-size="13" font-family="sans-serif" text-anchor="middle">ریزسٹنس</text>
+                <text x="150" y="265" fill="#26a69a" font-size="13" font-family="sans-serif" text-anchor="middle">سپورٹ</text>
+
+                <!-- Breakout up -->
+                <line x1="400" y1="120" x2="460" y2="80" stroke="#26a69a" stroke-width="4"/>
+                <text x="475" y="75" fill="#26a69a" font-size="14" font-family="sans-serif">توڑ</text>
+
+                <text x="310" y="340" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">مستطیل میں جعلی توڑ عام ہیں — حجم سے تصدیق کریں</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> جاری رہنے والا (دونوں طرف)</div>
+            <div><span class="label">شکل:</span> متوازی سپورٹ + ریزسٹنس</div>
+            <div><span class="label">اندراج:</span> رجحان کی سمت میں توڑ پر</div>
+            <div><span class="label">خطرہ:</span> جعلی توڑ عام ہیں</div>
+        </div>
+        <p><strong>مطلب:</strong> قیمت متوازی سپورٹ اور ریزسٹنس کے درمیان برابر حرکت کرتی ہے — یہ صرف رکاؤ ہے، رجحان جاری رہے گا۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> ہمیشہ توڑ کا انتظار کریں — اور حجم کو اضافی تصدیق کے طور پر استعمال کریں۔ جعلی توڑ ریکٹینگل میں عام ہیں۔</div>
+    </div>
+
+    <!-- 6. Inside Day -->
+    <div class="pattern">
+        <h3>۶. انسائیڈ ڈے (Inside Day)</h3>
+        <div class="subtitle">اندر والا دن — چھوٹی کینڈل بڑی کے اندر</div>
+        <div class="diagram">
+            <svg width="620" height="380" viewBox="0 0 620 380">
+                <rect width="620" height="380" fill="#0f3460" rx="10"/>
+                <text x="310" y="40" fill="#ffd700" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">انسائیڈ ڈے (Inside Day)</text>
+
+                <!-- Big momentum candle -->
+                <line x1="230" y1="100" x2="230" y2="140" stroke="#fff" stroke-width="3"/>
+                <rect x="210" y="140" width="40" height="90" fill="#26a69a" rx="3"/>
+                <line x1="230" y1="230" x2="230" y2="270" stroke="#fff" stroke-width="3"/>
+                <text x="230" y="305" fill="#26a69a" font-size="14" font-family="sans-serif" text-anchor="middle">بڑی مومینٹم</text>
+
+                <!-- Inside day: small candle within -->
+                <line x1="370" y1="150" x2="370" y2="170" stroke="#fff" stroke-width="3"/>
+                <rect x="355" y="170" width="30" height="50" fill="#26a69a" rx="3"/>
+                <line x1="370" y1="220" x2="370" y2="250" stroke="#fff" stroke-width="3"/>
+                <text x="370" y="305" fill="#ffd700" font-size="14" font-family="sans-serif" text-anchor="middle">چھوٹی (اندر)</text>
+
+                <!-- dashed box showing range -->
+                <rect x="200" y="140" width="180" height="90" fill="none" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+                <text x="310" y="345" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">چھوٹی کینڈل مکمل طور پر بڑی کے اندر = اگلے دن توڑ کا امکان</text>
+            </svg>
+        </div>
+        <div class="details">
+            <div><span class="label">سیگنل:</span> جاری رہنے والا (مختصر)</div>
+            <div><span class="label">شکل:</span> بڑی کینڈل + اندر چھوٹی کینڈل</div>
+            <div><span class="label">اندراج:</span> اگلے دن توڑ پر</div>
+            <div><span class="label">طاقت:</span> مومینٹم رجحان میں</div>
+        </div>
+        <p><strong>مطلب:</strong> اوپر کے رجحان میں ایک چھوٹی کینڈل بڑی مومینٹم کینڈل کے اندر بنے تو اگلے دن توڑ کا مضبوط امکان۔ چھوٹی کینڈل بڑی کی اونچائی کے جتنا قریب بند ہو، اتنا بہتر۔</p>
+        <div class="tip"><strong>تجرتی مشورہ:</strong> انسائیڈ ڈے مکمل بند ہونے کے بعد چھوٹے ٹائم فریم پر اندراج تلاش کریں۔</div>
+    </div>
+
+    <h2>درست پیٹرن کیسے پہچانیں</h2>
+
+    <div class="info-box" style="background:#16213e; border-right:5px solid #b8860b; padding:15px 20px; border-radius:10px; margin:20px 0;">
+        <strong>۱. سپورٹ اور ریزسٹنس:</strong> یہ پیٹرنز کی حدود بناتے ہیں — پہلے یہ پہچانیں۔<br>
+        <strong>۲. ٹرینڈ لائنز:</strong> ان سے پیٹرن کی حدود اور توڑ کے مقام کی تصدیق کریں۔<br>
+        <strong>۳. دباؤ:</strong> اوپر کے رجحان میں اونچی نیچائیاں ریزسٹنس کے قریب — دباؤ بن رہا ہے۔<br>
+        <strong>۴. رجحان کا سیاق:</strong> پیٹرن کے پہلے رجحان ضرور دیکھیں — یہ سب سے اہم ہے۔
+    </div>
+
+    <h2>تجارتی حکمت عملی</h2>
+
+    <div class="info-box" style="background:#16213e; border-right:5px solid #b8860b; padding:15px 20px; border-radius:10px; margin:20px 0;">
+        <strong>ٹائم فریم:</strong> بڑے ٹائم فریم پر رجحان، چھوٹے پر اندراج۔<br>
+        <strong>اندراج:</strong> پیٹرن کی حد کے اوپر کینڈل مکمل بند ہو تو تجارت کریں۔<br>
+        <strong>اسٹاپ لاس:</strong> اوپر کے رجحان میں حالیہ نیچیوں کے نیچے، نیچے کے رجحان میں اونچائیوں کے اوپر۔<br>
+        <strong>ہدف:</strong> پیٹرن کی اونچائی (measured move) یا مقررہ رسک:ریوارڈ تناسب۔
+    </div>
+
+    <div class="warning" style="background:#2d1b1b; border-right:5px solid #e94560; padding:20px; border-radius:15px; margin:20px 0;">
+        <strong>⚠️ اہم انتباہ:</strong> پیٹرن کبھی ۱۰۰٪ درست نہیں ہوتے — یہ احتمال کا کھیل ہے۔ ہر تجارت پر رسک مینجمنٹ لازمی ہے (۱-۲٪ خطرہ)۔ پیٹرن کو صحیح رجحان کے سیاق میں استعمال کریں، ورنہ غلط تجارتیں ہوں گی۔ ڈیمو پر مشق کریں اور جرنل لکھیں۔
+    </div>
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلا باب</a>
+        <a href="index.html">🏠 کتاب کا صفحہ</a>
+    </div>
+
+    <div class="footer">
+        © مکمل کریپٹو ٹریڈنگ کورس — تمام حقوق محفوظ | باب ۶
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

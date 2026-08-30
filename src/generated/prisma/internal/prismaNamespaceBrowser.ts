@@ -59,7 +59,8 @@ export const ModelName = {
   Progress: 'Progress',
   LiveSession: 'LiveSession',
   QuizResult: 'QuizResult',
-  PasswordResetToken: 'PasswordResetToken'
+  PasswordResetToken: 'PasswordResetToken',
+  JournalEntry: 'JournalEntry'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -197,6 +198,26 @@ export const PasswordResetTokenScalarFieldEnum = {
 } as const
 
 export type PasswordResetTokenScalarFieldEnum = (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum]
+
+
+export const JournalEntryScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  pair: 'pair',
+  direction: 'direction',
+  entry: 'entry',
+  exit: 'exit',
+  stopLoss: 'stopLoss',
+  takeProfit: 'takeProfit',
+  size: 'size',
+  setup: 'setup',
+  notes: 'notes',
+  pnl: 'pnl',
+  createdAt: 'createdAt'
+} as const
+
+export type JournalEntryScalarFieldEnum = (typeof JournalEntryScalarFieldEnum)[keyof typeof JournalEntryScalarFieldEnum]
 
 
 export const SortOrder = {

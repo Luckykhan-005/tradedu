@@ -24,6 +24,7 @@ model User {
   progress    Progress[]
   quizzes     QuizResult[]
   sessions    LiveSession[]
+  journalEntries JournalEntry[]
 
   @@map("users")
 }
@@ -151,4 +152,25 @@ model PasswordResetToken {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("password_reset_tokens")
+}
+
+model JournalEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  date      DateTime @default(now()) @map("trade_date")
+  pair      String   // e.g. BTC/USDT
+  direction String   // long, short
+  entry     Float
+  exit      Float?
+  stopLoss  Float?
+  takeProfit Float?
+  size      Float?
+  setup     String?  // e.g. "Support + Engulfing"
+  notes     String?
+  pnl       Float?   // realized P&L
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("journal_entries")
 }
