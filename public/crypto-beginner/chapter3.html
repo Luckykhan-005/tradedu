@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۳ — والیٹس: اپنے کوائنز کو محفوظ رکھنا</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #b8860b; text-align: center; }
+        h2 { font-size: 34px; color: #e94560; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #b8860b; text-decoration: none; padding: 10px 20px; background: #0f3460; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter2.html">→ پچھلا سبق</a>
+        <a href="chapter4.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۳: والیٹس — اپنے کوائنز کو محفوظ رکھنا</h1>
+
+    <p>کریپٹو والیٹ دراصل سکے رکھنے کی جگہ نہیں ہے بلکہ آپ کی چابیاں (keys) رکھنے کا ایک پروگرام یا ڈیوائس ہے۔ آپ کے سکے ہمیشہ بلاک چین پر موجود ہوتے ہیں؛ والیٹ صرف وہ چابی رکھتا ہے جس سے آپ ان سکوں تک رسائی حاصل کرتے ہیں۔ اس کا مطلب ہے کہ اگر آپ کی چابی محفوظ ہے تو آپ کے سکے محفوظ ہیں، اور اگر چابی کسی اور کے پاس چلی جائے تو سکے اس کے ہو گئے۔</p>
+
+    <p>ہر والیٹ کے پاس دو قسم کی چابیاں ہوتی ہیں۔ "پبلک کی" (public key) آپ کے اکاؤنٹ کا ایڈریس ہے — اسے دوسروں کے ساتھ بانٹنا محفوظ ہے اور اسی ایڈریس پر لوگ آپ کو سکے بھیجتے ہیں۔ "پرائیویٹ کی" (private key) آپ کے سکوں کا پاس ورڈ ہے — یہ کبھی کسی کو نہیں دینی چاہیے۔ جو شخص پرائیویٹ کی رکھتا ہے، وہی سکوں کا اصل مالک ہوتا ہے۔ اسی اصول کو "not your keys, not your coins" کہتے ہیں۔</p>
+
+    <p>والیٹس دو قسم کی ہوتی ہیں: ہاٹ والیٹ (hot wallet) اور کولڈ والیٹ (cold wallet)۔ ہاٹ والیٹ انٹرنیٹ سے جڑی ہوتی ہے — جیسے موبائل ایپ یا براؤزر ایکسٹینشن — یہ استعمال میں آسان ہے مگر ہیک ہونے کا خطرہ زیادہ ہے۔ کولڈ والیٹ انٹرنیٹ سے دور رکھی جاتی ہے — جیسے ہارڈویئر ڈیوائس یا کاغذ پر لکھی چابی — یہ زیادہ محفوظ ہے اور بڑی رقم رکھنے کے لیے بہترین ہے۔ ایک اچھا طریقہ یہ ہے کہ چھوٹی رقم روزمرہ کے لیے ہاٹ والیٹ میں اور بڑی رقم کولڈ والیٹ میں رکھیں۔</p>
+
+    <p>نیا والیٹ بناتے وقت آپ کو "سیڈ فریز" (seed phrase) دی جاتی ہے — 12 یا 24 انگریزی الفاظ کی ایک ترتیب۔ یہ الفاظ آپ کی تمام پرائیویٹ کیز کی جڑ ہیں۔ اگر آپ کا فون یا کمپیوٹر خراب ہو جائے تو اس سیڈ فریز سے آپ اپنا والیٹ دوبارہ بنا سکتے ہیں۔ اسے کاغذ پر لکھ کر محفوظ جگہ رکھیں، اس کی اسکرین شاٹ کبھی نہ لیں، اور اسے کسی کو نہ دکھائیں۔ کوئی بھی جائز ادارہ کبھی آپ سے سیڈ فریز نہیں مانگتا — جو کوئی مانگے، وہ دھوکہ باز ہے۔</p>
+
+    <p>ایکسچینج پر رکھے سکے اصل میں ایکسچینج کے کنٹرول میں ہوتے ہیں، آپ کے پاس نہیں۔ جب آپ ایکسچینج پر سکے رکھتے ہیں تو آپ اس ادارے پر بھروسہ کر رہے ہوتے ہیں۔ اگر ایکسچینج ہیک ہو جائے یا بند ہو جائے تو آپ کے سکے ضائع ہو سکتے ہیں۔ اس لیے طویل مدت رکھنے والی رقم کو اپنی ذاتی والیٹ میں منتقل کرنا بہتر ہے۔ یاد رکھیں: آپ کی پرائیویٹ کی اور سیڈ فریز ہی آپ کے سکوں کا واحد تحفظ ہیں۔</p>
+
+    <h2>اہم نکات</h2>
+    <p>• والیٹ سکے نہیں، چابیاں رکھتا ہے۔<br>
+    • پبلک کی بانٹی جا سکتی ہے، پرائیویٹ کی کبھی نہیں۔<br>
+    • ہاٹ والیٹ آسان مگر کم محفوظ؛ کولڈ والیٹ محفوظ مگر کم آسان۔<br>
+    • سیڈ فریز کو کاغذ پر محفوظ کریں، کسی کو نہ بتائیں۔<br>
+    • "not your keys, not your coins" — طویل مدتی رقم ذاتی والیٹ میں رکھیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ ایک مشہور ہاٹ والیٹ اور ایک مشہور کولڈ والیٹ کے نام اور فرق لکھیں۔<br>
+    ۲۔ پبلک کی اور پرائیویٹ کی کے درمیان فرق اپنے الفاظ میں بیان کریں۔<br>
+    ۳۔ سیڈ فریز کو محفوظ رکھنے کے پانچ اصولوں کی فہرست بنائیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter2.html">→ پچھلا سبق</a>
+        <a href="chapter4.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل کریپٹو ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

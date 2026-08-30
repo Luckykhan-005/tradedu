@@ -9,6 +9,9 @@ import {
   ArrowLeft,
   LayoutDashboard,
   X,
+  Rocket,
+  LineChart,
+  ShieldCheck,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -35,6 +38,48 @@ interface BooksProps {
 
 const books: BookItem[] = [
   {
+    id: 'crypto-beginner',
+    title: 'Crypto Trading — Phase 1 (Beginner)',
+    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۱ (بیگنر)',
+    description:
+      'Start your crypto journey from zero. Learn what crypto is, blockchain, wallets, exchanges, and how to stay safe from scams.',
+    chapters: 10,
+    pages: '10 lessons',
+    icon: Rocket,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: './crypto-beginner/index.html',
+    tags: ['Urdu', 'Beginner', 'Fundamentals'],
+  },
+  {
+    id: 'crypto-intermediate',
+    title: 'Crypto Trading — Phase 2 (Intermediate)',
+    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۲ (انٹرمیڈیٹ)',
+    description:
+      'Master technical analysis — support/resistance, indicators (RSI, MACD, Bollinger), chart patterns, volume, and building a trading plan.',
+    chapters: 12,
+    pages: '12 lessons',
+    icon: LineChart,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+    href: './crypto-intermediate/index.html',
+    tags: ['Urdu', 'Intermediate', 'Technical Analysis'],
+  },
+  {
+    id: 'crypto-advanced',
+    title: 'Crypto Trading — Phase 3 (Advanced)',
+    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۳ (ایڈوانسڈ)',
+    description:
+      'Professional trading — risk management, psychology, futures, leverage, smart money concepts, and advanced strategies.',
+    chapters: 15,
+    pages: '15 lessons',
+    icon: ShieldCheck,
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    href: './crypto-advanced/index.html',
+    tags: ['Urdu', 'Advanced', 'Professional'],
+  },
+  {
     id: 'candlestick',
     title: 'Candlestick Patterns Book',
     titleUrdu: 'کینڈل سٹک پیٹرنز کی کتاب',
@@ -43,8 +88,8 @@ const books: BookItem[] = [
     chapters: 6,
     pages: '21+ patterns',
     icon: CandlestickChart,
-    color: 'text-emerald-600',
-    bgColor: 'bg-emerald-50',
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
     href: './candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
   },
@@ -120,7 +165,7 @@ export function Books({ onBack }: BooksProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {books.map((book) => (
             <Card key={book.id} className="overflow-hidden">
               <CardContent className="p-0">
