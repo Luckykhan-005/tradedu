@@ -1,278 +1,502 @@
 import { useState } from 'react'
 import {
   Calculator,
+  ArrowUpDown,
   DollarSign,
   Percent,
   Target,
   TrendingUp,
   TrendingDown,
   AlertTriangle,
+  Info,
+  Gauge,
+  Layers,
+  Sparkles,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/cn'
 
 export function RiskCalculator() {
-  const [accountSize, setAccountSize] = useState('10000')
-  const [riskPercent, setRiskPercent] = useState('1')
-  const [entryPrice, setEntryPrice] = useState('')
-  const [stopPrice, setStopPrice] = useState('')
-  const [positionSize, setPositionSize] = useState('')
-  const [result, setResult] = useState<null | {
-    riskAmount: number
-    positionUnits: number
-    positionValue: number
-    stopDistance: number
-    riskReward: number
-  }>(null)
-  const [error, setError] = useState('')
+  const [account, setAccount] = useState('100')
+  const [tradeSize, setTradeSize] = useState('10')
+  const [leverage, setLeverage] = useState('20')
+  const [entry, setEntry] = useState('106')
+  const [tp, setTp] = useState('114')
+  const [sl, setSl] = useState('100')
+  const [slippage, setSlippage] = useState('0.1')
+  const [makerFee, setMakerFee] = useState('0.02')
+  const [takerFee, setTakerFee] = useState('0.04')
+  const [fundingRate, setFundingRate] = useState('0.01')
+  const [direction, setDirection] = useState<'long' | 'short'>('long')
 
-  const calculate = () => {
-    setError('')
-    const acct = parseFloat(accountSize)
-    const riskPct = parseFloat(riskPercent)
-    const entry = parseFloat(entryPrice)
-    const stop = parseFloat(stopPrice)
+  const n = (v: string) => parseFloat(v) || 0
+  const fmt = (v: number, d = 2) => v.toFixed(d)
 
-    if (!acct || acct <= 0) return setError('Enter a valid account size')
-    if (!riskPct || riskPct <= 0) return setError('Enter a valid risk percentage')
-    if (!entry || entry <= 0) return setError('Enter a valid entry price')
-    if (!stop || stop <= 0) return setError('Enter a valid stop loss price')
-    if (entry === stop) return setError('Entry and stop loss cannot be equal')
+  const acc = n(account)
+  const size = n(tradeSize)
+  const lev = n(leverage)
+  const ent = n(entry)
+  const tpP = n(tp)
+  const slP = n(sl)
+  const slip = n(slippage) / 100
+  const mFee = n(makerFee) / 100
+  const tFee = n(takerFee) / 100
+  const fund = n(fundingRate) / 100
 
-    const riskAmount = (acct * riskPct) / 100
-    const stopDistance = Math.abs(entry - stop)
-    const units = riskAmount / stopDistance
-    const positionValue = units * entry
+  const posValue = size * lev
+  const qty = ent > 0 ? posValue / ent : 0
+  const margin = size
 
-    setResult({
-      riskAmount,
-      positionUnits: units,
-      positionValue,
-      stopDistance,
-      riskReward: 0,
-    })
+  let liqPrice: number
+  if (direction === 'long') {
+    liqPrice = ent * (1 - 1 / lev)
+  } else {
+    liqPrice = ent * (1 + 1 / lev)
   }
 
-  const calculateRR = () => {
-    const entry = parseFloat(entryPrice)
-    const stop = parseFloat(stopPrice)
-    const target = parseFloat(positionSize)
-    if (!entry || !stop || !target) return
-    const risk = Math.abs(entry - stop)
-    const reward = Math.abs(target - entry)
-    if (risk === 0) return
-    setResult((prev) =>
-      prev
-        ? { ...prev, riskReward: Number((reward / risk).toFixed(2)) }
-        : prev
-    )
+  const isDangerous =
+    direction === 'long' ? slP <= liqPrice : slP >= liqPrice
+
+  let tpPnl: number, tpPnlPct: number, slPnl: number, slPnlPct: number
+  if (direction === 'long') {
+    tpPnl = (tpP - ent) * qty
+    tpPnlPct = margin > 0 ? (tpPnl / margin) * 100 : 0
+    slPnl = (slP - ent) * qty
+    slPnlPct = margin > 0 ? (slPnl / margin) * 100 : 0
+  } else {
+    tpPnl = (ent - tpP) * qty
+    tpPnlPct = margin > 0 ? (tpPnl / margin) * 100 : 0
+    slPnl = (ent - slP) * qty
+    slPnlPct = margin > 0 ? (slPnl / margin) * 100 : 0
   }
 
-  const isLong = entryPrice && stopPrice ? parseFloat(entryPrice) > parseFloat(stopPrice) : true
+  const entrySlippage = ent * slip
+  const entryFee = posValue * tFee
+  const exitFee = posValue * tFee
+  const totalFees = entryFee + exitFee
+  const fundingCost = posValue * fund
+
+  const netTpPnl = tpPnl - totalFees - fundingCost
+  const netSlPnl = slPnl - totalFees - fundingCost
+
+  const rr = slPnl !== 0 ? Math.abs(tpPnl / slPnl) : 0
+  const positionPct = acc > 0 ? (size / acc) * 100 : 0
+  const riskPct = acc > 0 ? (Math.abs(slPnl) / acc) * 100 : 0
 
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-        <div className="mb-8">
+        {/* Header */}
+        <div className="mb-6">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Calculator className="h-6 w-6 text-primary" />
+              <Gauge className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Risk Calculator</h1>
+              <h1 className="text-3xl font-bold tracking-tight">Futures Calculator</h1>
               <p className="text-muted-foreground">
-                Position sizing &amp; risk-reward calculator — protect your capital with proper position sizing
+                Position size, liquidation, P&L, and fees — all in one place
               </p>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <Card>
-            <CardContent className="space-y-5 p-6">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="account">Account Size (USD)</Label>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+          {/* Inputs */}
+          <div className="lg:col-span-2">
+            <Card>
+              <CardContent className="p-5">
+                <Tabs
+                  value={direction}
+                  onValueChange={(v) => setDirection(v as 'long' | 'short')}
+                >
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger
+                      value="long"
+                      className="data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700"
+                    >
+                      <TrendingUp className="mr-2 h-4 w-4" />
+                      Long
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="short"
+                      className="data-[state=active]:bg-red-50 data-[state=active]:text-red-700"
+                    >
+                      <TrendingDown className="mr-2 h-4 w-4" />
+                      Short
+                    </TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="long" className="mt-4 space-y-4" />
+                  <TabsContent value="short" className="mt-4 space-y-4" />
+                </Tabs>
+
+                <div className="mt-4 space-y-4">
+                  {/* Account */}
                   <div className="relative">
-                    <DollarSign className="absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Label>Account Balance (USDT)</Label>
+                    <div className="relative mt-1">
+                      <DollarSign className="pointer-events-none absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        type="number"
+                        value={account}
+                        onChange={(e) => setAccount(e.target.value)}
+                        className="pl-3 pr-10 text-left"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Trade Size + Leverage side by side */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label>Trade Size (USDT)</Label>
+                      <div className="relative mt-1">
+                        <DollarSign className="pointer-events-none absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          type="number"
+                          value={tradeSize}
+                          onChange={(e) => setTradeSize(e.target.value)}
+                          className="pl-3 pr-10 text-left"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label>Leverage (x)</Label>
+                      <div className="relative mt-1">
+                        <Layers className="pointer-events-none absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
+                        <Input
+                          type="number"
+                          value={leverage}
+                          onChange={(e) => setLeverage(e.target.value)}
+                          className="pl-3 pr-10 text-left"
+                          min="1"
+                          max="125"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Entry */}
+                  <div>
+                    <Label>Entry Price</Label>
                     <Input
-                      id="account"
                       type="number"
-                      value={accountSize}
-                      onChange={(e) => setAccountSize(e.target.value)}
-                      className="pl-3 pr-10 text-left"
+                      value={entry}
+                      onChange={(e) => setEntry(e.target.value)}
+                      className="mt-1 text-left"
+                      placeholder="106"
                     />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="risk">Risk per Trade (%)</Label>
-                  <div className="relative">
-                    <Percent className="absolute right-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="risk"
-                      type="number"
-                      value={riskPercent}
-                      onChange={(e) => setRiskPercent(e.target.value)}
-                      className="pl-3 pr-10 text-left"
-                    />
+
+                  {/* TP + SL */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <Label className="text-emerald-600">Take Profit</Label>
+                      <Input
+                        type="number"
+                        value={tp}
+                        onChange={(e) => setTp(e.target.value)}
+                        className="mt-1 text-left border-emerald-200"
+                        placeholder="114"
+                      />
+                    </div>
+                    <div>
+                      <Label className="text-destructive">Stop Loss</Label>
+                      <Input
+                        type="number"
+                        value={sl}
+                        onChange={(e) => setSl(e.target.value)}
+                        className="mt-1 text-left border-red-200"
+                        placeholder="100"
+                      />
+                    </div>
                   </div>
+
+                  {/* Fees accordion */}
+                  <details className="rounded-lg border border-border bg-secondary/20">
+                    <summary className="flex cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium">
+                      <Sparkles className="h-4 w-4 text-muted-foreground" />
+                      Fees &amp; Slippage
+                    </summary>
+                    <div className="space-y-3 border-t border-border p-4">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label className="text-xs">Slippage (%)</Label>
+                          <Input
+                            type="number"
+                            value={slippage}
+                            onChange={(e) => setSlippage(e.target.value)}
+                            className="mt-1 text-left"
+                            step="0.01"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-xs">Funding Rate (h8)</Label>
+                          <Input
+                            type="number"
+                            value={fundingRate}
+                            onChange={(e) => setFundingRate(e.target.value)}
+                            className="mt-1 text-left"
+                            step="0.001"
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label className="text-xs">Maker Fee (%)</Label>
+                          <Input
+                            type="number"
+                            value={makerFee}
+                            onChange={(e) => setMakerFee(e.target.value)}
+                            className="mt-1 text-left"
+                            step="0.001"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-xs">Taker Fee (%)</Label>
+                          <Input
+                            type="number"
+                            value={takerFee}
+                            onChange={(e) => setTakerFee(e.target.value)}
+                            className="mt-1 text-left"
+                            step="0.001"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Results */}
+          <div className="lg:col-span-3 space-y-4">
+            {/* Warning */}
+            {isDangerous && (
+              <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                <AlertTriangle className="h-5 w-5 shrink-0" />
+                <div>
+                  <strong className="font-semibold">Liquidation Risk!</strong>{' '}
+                  Your stop loss is placed{' '}
+                  <strong>behind the liquidation price</strong> (
+                  {fmt(liqPrice)}). The exchange will close your position
+                  before your SL is reached. Move your SL{' '}
+                  {direction === 'long' ? 'above' : 'below'} {fmt(liqPrice)}.
                 </div>
               </div>
+            )}
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="entry">Entry Price</Label>
-                  <Input
-                    id="entry"
-                    type="number"
-                    value={entryPrice}
-                    onChange={(e) => setEntryPrice(e.target.value)}
-                    placeholder="e.g. 60000"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="stop">Stop Loss Price</Label>
-                  <Input
-                    id="stop"
-                    type="number"
-                    value={stopPrice}
-                    onChange={(e) => setStopPrice(e.target.value)}
-                    placeholder="e.g. 59000"
-                  />
-                </div>
-              </div>
+            {/* Main results grid */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Position Summary */}
+              <Card>
+                <CardContent className="p-5">
+                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                    Position Summary
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Position Value</span>
+                      <span className="font-bold">${fmt(posValue)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Quantity</span>
+                      <span className="font-bold">{fmt(qty, 4)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Margin Used</span>
+                      <span className="font-bold">${fmt(margin)}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Leverage</span>
+                      <span className="font-bold">{fmt(lev)}x</span>
+                    </div>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Portfolio Used</span>
+                      <span className="font-bold">{fmt(positionPct)}%</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Account Risk</span>
+                      <span className={cn('font-bold', riskPct > 5 ? 'text-destructive' : 'text-foreground')}>
+                        {fmt(riskPct)}%
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div className="space-y-2">
-                <Label htmlFor="target">
-                  Take Profit Price <span className="text-muted-foreground">(for R:R)</span>
-                </Label>
-                <Input
-                  id="target"
-                  type="number"
-                  value={positionSize}
-                  onChange={(e) => setPositionSize(e.target.value)}
-                  placeholder="e.g. 62000"
-                />
-              </div>
-
-              {error && (
-                <div className="flex items-center gap-2 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">
-                  <AlertTriangle className="h-4 w-4 shrink-0" />
-                  {error}
-                </div>
-              )}
-
-              <div className="flex gap-3">
-                <Button onClick={calculate} className="flex-1 gap-2">
-                  <Calculator className="h-4 w-4" />
-                  Calculate
-                </Button>
-                <Button variant="outline" onClick={calculateRR} className="gap-2">
-                  <Target className="h-4 w-4" />
-                  R:R
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="mb-4 text-lg font-semibold">Position Size Results</h2>
-
-              {result ? (
-                <div className="space-y-4">
+              {/* Liquidation */}
+              <Card>
+                <CardContent className="p-5">
+                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                    <Gauge className="mr-1 inline h-4 w-4" />
+                    Liquidation Price
+                  </h3>
                   <div
                     className={cn(
-                      'flex items-center gap-3 rounded-xl border p-4',
-                      isLong
-                        ? 'border-emerald-200 bg-emerald-50'
-                        : 'border-red-200 bg-red-50'
+                      'mb-3 rounded-xl p-4 text-center',
+                      direction === 'long'
+                        ? 'bg-red-50 text-red-700'
+                        : 'bg-emerald-50 text-emerald-700'
                     )}
                   >
-                    {isLong ? (
-                      <TrendingUp className="h-8 w-8 text-emerald-600" />
-                    ) : (
-                      <TrendingDown className="h-8 w-8 text-red-600" />
-                    )}
-                    <div>
-                      <p className="text-sm text-muted-foreground">
-                        {isLong ? 'Long Position (Buy)' : 'Short Position (Sell)'}
-                      </p>
-                      <p className="text-lg font-bold">
-                        Stop Distance: {result.stopDistance.toFixed(4)}
-                      </p>
+                    <div className="text-2xl font-bold">{fmt(liqPrice)}</div>
+                    <div className="text-xs">
+                      {direction === 'long'
+                        ? 'Price drops below this → liquidation'
+                        : 'Price rises above this → liquidation'}
                     </div>
                   </div>
 
-                  <Separator />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Your SL</span>
+                    <span className="font-bold">${fmt(slP)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Distance to Liq</span>
+                    <span className={cn('font-bold', isDangerous ? 'text-destructive' : 'text-emerald-600')}>
+                      {direction === 'long'
+                        ? fmt(ent - liqPrice)
+                        : fmt(liqPrice - ent)}{' '}
+                      ({fmt(direction === 'long' ? ((ent - liqPrice) / ent) * 100 : ((liqPrice - ent) / ent) * 100)}%)
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-lg bg-secondary/50 p-4">
-                      <p className="text-sm text-muted-foreground">Risk Amount</p>
-                      <p className="text-xl font-bold text-destructive">
-                        ${result.riskAmount.toFixed(2)}
-                      </p>
+              {/* P&L at TP */}
+              <Card>
+                <CardContent className="p-5">
+                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                    <Target className="mr-1 inline h-4 w-4" />
+                    At Take Profit ($
+                    {fmt(tpP)})
+                  </h3>
+                  <div className="mb-2">
+                    <div className="text-2xl font-bold text-emerald-600">
+                      +${fmt(tpPnl)}
                     </div>
-                    <div className="rounded-lg bg-secondary/50 p-4">
-                      <p className="text-sm text-muted-foreground">Position Value</p>
-                      <p className="text-xl font-bold">${result.positionValue.toFixed(2)}</p>
-                    </div>
-                    <div className="rounded-lg bg-secondary/50 p-4">
-                      <p className="text-sm text-muted-foreground">Units / Quantity</p>
-                      <p className="text-xl font-bold">{result.positionUnits.toFixed(6)}</p>
-                    </div>
-                    <div className="rounded-lg bg-secondary/50 p-4">
-                      <p className="text-sm text-muted-foreground">Risk : Reward</p>
-                      <p
-                        className={cn(
-                          'text-xl font-bold',
-                          result.riskReward >= 2
-                            ? 'text-emerald-600'
-                            : result.riskReward >= 1
-                              ? 'text-amber-600'
-                              : 'text-destructive'
-                        )}
-                      >
-                        {result.riskReward > 0 ? `1 : ${result.riskReward}` : '—'}
-                      </p>
+                    <div className="text-sm text-emerald-600">
+                      +{fmt(tpPnlPct)}% on margin
                     </div>
                   </div>
-
-                  <div className="rounded-lg bg-primary/5 p-4 text-sm text-muted-foreground">
-                    <strong className="text-foreground">Formula:</strong> Position Size =
-                    (Account × Risk%) ÷ (Entry − Stop). If stop loss hits, you lose exactly{' '}
-                    <strong className="text-destructive">${result.riskAmount.toFixed(2)}</strong>.
+                  <Separator className="my-2" />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Fees</span>
+                    <span className="text-destructive">-${fmt(totalFees)}</span>
                   </div>
-                </div>
-              ) : (
-                <div className="flex h-64 flex-col items-center justify-center text-center text-muted-foreground">
-                  <Calculator className="mb-4 h-12 w-12 opacity-40" />
-                  <p className="max-w-xs">
-                    Enter your account size, risk percentage, entry, and stop loss to calculate
-                    the correct position size.
-                  </p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Funding</span>
+                    <span className="text-destructive">-${fmt(fundingCost)}</span>
+                  </div>
+                  <Separator className="my-2" />
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold">Net Profit</span>
+                    <span className="text-lg font-bold text-emerald-600">
+                      +${fmt(netTpPnl)}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* P&L at SL */}
+              <Card>
+                <CardContent className="p-5">
+                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                    <Target className="mr-1 inline h-4 w-4" />
+                    At Stop Loss ($
+                    {fmt(slP)})
+                  </h3>
+                  <div className="mb-2">
+                    <div className="text-2xl font-bold text-destructive">
+                      {fmt(slPnl)}
+                    </div>
+                    <div className="text-sm text-destructive">
+                      {fmt(slPnlPct)}% on margin
+                    </div>
+                  </div>
+                  <Separator className="my-2" />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Fees</span>
+                    <span className="text-destructive">-${fmt(totalFees)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Funding</span>
+                    <span className="text-destructive">-${fmt(fundingCost)}</span>
+                  </div>
+                  <Separator className="my-2" />
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold">Net Loss</span>
+                    <span className="text-lg font-bold text-destructive">
+                      ${fmt(Math.abs(netSlPnl))}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* R:R + Fees Summary */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <Card
+                className={cn(
+                  'border-2',
+                  rr >= 2
+                    ? 'border-emerald-200 bg-emerald-50'
+                    : rr >= 1
+                      ? 'border-amber-200 bg-amber-50'
+                      : 'border-red-200 bg-red-50'
+                )}
+              >
+                <CardContent className="p-5 text-center">
+                  <div className="text-sm text-muted-foreground">Risk : Reward</div>
+                  <div className="text-3xl font-bold">
+                    1 : {fmt(rr, 2)}
+                  </div>
+                  {rr >= 2 && (
+                    <div className="mt-1 text-xs text-emerald-600">Excellent</div>
+                  )}
+                  {rr >= 1 && rr < 2 && (
+                    <div className="mt-1 text-xs text-amber-600">Fair</div>
+                  )}
+                  {rr < 1 && (
+                    <div className="mt-1 text-xs text-red-600">Poor — adjust TP/SL</div>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-5 text-center">
+                  <div className="text-sm text-muted-foreground">Total Fees</div>
+                  <div className="text-2xl font-bold">${fmt(totalFees)}</div>
+                  <div className="mt-1 text-xs text-muted-foreground">
+                    Entry ${fmt(entryFee)} + Exit ${fmt(exitFee)}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-5 text-center">
+                  <div className="text-sm text-muted-foreground">Funding Cost (8h)</div>
+                  <div className="text-2xl font-bold">${fmt(fundingCost)}</div>
+                  <div className="mt-1 text-xs text-muted-foreground">
+                    {fund > 0
+                      ? direction === 'long'
+                        ? 'Long pays → Short'
+                        : 'Short pays → Long'
+                      : 'No funding cost'}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
-
-        <Card className="mt-8">
-          <CardContent className="p-6">
-            <h3 className="mb-3 font-semibold">Risk Management Rules</h3>
-            <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
-              <li>Risk only <strong className="text-foreground">1-2%</strong> of your account per trade</li>
-              <li>Always use a stop loss — never remove it once placed</li>
-              <li>Aim for a minimum <strong className="text-foreground">1:2 risk-reward ratio</strong></li>
-              <li>Stop daily losses at 3% — take a break</li>
-              <li>Never revenge trade after a loss</li>
-            </ul>
-          </CardContent>
-        </Card>
       </div>
     </div>
   )
