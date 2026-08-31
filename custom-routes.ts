@@ -3,6 +3,17 @@ import { prisma } from './src/lib/db'
 
 const app = new Hono()
 
+// Allow all origins (needed when frontend is served from a different domain, e.g. Vercel)
+app.use('*', async (c, next) => {
+  const origin = c.req.header('Origin') || '*'
+  c.header('Access-Control-Allow-Origin', origin)
+  c.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
+  c.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,x-admin-token,x-user-email')
+  c.header('Access-Control-Max-Age', '86400')
+  if (c.req.method === 'OPTIONS') return c.body(null, 204)
+  await next()
+})
+
 // Seed sample data
 app.post('/seed', async (c) => {
   // Check if data already exists
