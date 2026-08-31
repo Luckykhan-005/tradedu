@@ -807,12 +807,12 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
                           <Button
-                            variant="ghost"
+                            variant="default"
                             size="sm"
                             onClick={() => setSelectedCourseId(course.id)}
                             className="gap-1"
                           >
-                            <BookOpen className="h-4 w-4" /> Content
+                            <BookOpen className="h-4 w-4" /> {course.modules.length > 0 ? 'Add Lessons' : 'Add Module & Lessons'}
                           </Button>
                           <Button
                             variant="ghost"
