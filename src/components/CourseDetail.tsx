@@ -344,10 +344,15 @@ export function CourseDetail({
 }
 
 function VideoPlayer({ url }: { url: string }) {
-  // Convert various YouTube URL formats to embed URLs
+  // Extract YouTube video ID from many URL formats
   const getYouTubeId = (u: string): string | null => {
     const patterns = [
-      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/,
+      /\?v=([A-Za-z0-9_-]{11})/,                       // watch?v=
+      /youtu\.be\/([A-Za-z0-9_-]{11})/,                // youtu.be/ID
+      /youtube\.com\/shorts\/([A-Za-z0-9_-]{11})/,     // shorts/ID
+      /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/,      // /embed/ID
+      /youtube\.com\/live\/([A-Za-z0-9_-]{11})/,       // /live/ID
+      /youtube\.com\/watch\?si=([A-Za-z0-9_-]{11})/,   // share with si=
     ]
     for (const p of patterns) {
       const m = u.match(p)
@@ -357,26 +362,48 @@ function VideoPlayer({ url }: { url: string }) {
   }
 
   const ytId = getYouTubeId(url)
-  const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url)
+  const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v|ogv)(\?.*)?$/i.test(url)
+  const isGoogleDrive = /drive\.google\.com|docs\.google\.com\/file\/d\//.test(url)
 
   if (ytId) {
+    const poster = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`
     return (
       <iframe
         className="h-full w-full rounded-t-lg"
         src={`https://www.youtube.com/embed/${ytId}?rel=0`}
         title="Lesson video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
+        style={{ aspectRatio: '16/9' }}
       />
     )
   }
 
   if (isDirectVideo) {
     return (
-      <video className="h-full w-full rounded-t-lg bg-black" controls>
+      <video className="h-full w-full rounded-t-lg bg-black" controls playsInline>
         <source src={url} />
         Your browser does not support the video tag.
       </video>
+    )
+  }
+
+  if (isGoogleDrive) {
+    // Convert Google Drive file link to preview embed
+    const match = url.match(/\/d\/([A-Za-z0-9_-]+)/)
+    const embedUrl = match
+      ? `https://drive.google.com/file/d/${match[1]}/preview`
+      : url
+    return (
+      <iframe
+        className="h-full w-full rounded-t-lg"
+        src={embedUrl}
+        title="Lesson video"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+        style={{ aspectRatio: '16/9' }}
+      />
     )
   }
 
@@ -388,6 +415,7 @@ function VideoPlayer({ url }: { url: string }) {
       title="Lesson video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      style={{ aspectRatio: '16/9' }}
     />
   )
 }
