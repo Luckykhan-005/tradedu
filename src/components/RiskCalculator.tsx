@@ -1,14 +1,11 @@
 import { useState } from 'react'
 import {
   Calculator,
-  ArrowUpDown,
   DollarSign,
-  Percent,
   Target,
   TrendingUp,
   TrendingDown,
   AlertTriangle,
-  Info,
   Gauge,
   Layers,
   Sparkles,
@@ -22,20 +19,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/cn'
 
 export function RiskCalculator() {
-  const [account, setAccount] = useState('100')
-  const [tradeSize, setTradeSize] = useState('10')
-  const [leverage, setLeverage] = useState('20')
-  const [entry, setEntry] = useState('106')
-  const [tp, setTp] = useState('114')
-  const [sl, setSl] = useState('100')
+  const [account, setAccount] = useState('')
+  const [tradeSize, setTradeSize] = useState('')
+  const [leverage, setLeverage] = useState('')
+  const [entry, setEntry] = useState('')
+  const [tp, setTp] = useState('')
+  const [sl, setSl] = useState('')
   const [slippage, setSlippage] = useState('0.1')
   const [makerFee, setMakerFee] = useState('0.02')
   const [takerFee, setTakerFee] = useState('0.04')
   const [fundingRate, setFundingRate] = useState('0.01')
   const [direction, setDirection] = useState<'long' | 'short'>('long')
+  const [calculated, setCalculated] = useState(false)
 
   const n = (v: string) => parseFloat(v) || 0
-  const fmt = (v: number, d = 2) => v.toFixed(d)
+  const fmt = (v: number, d = 2) => d === 0 ? Math.round(v).toString() : v.toFixed(d)
+
+  const calculate = () => {
+    if (!account || !tradeSize || !leverage || !entry || !tp || !sl) {
+      return
+    }
+    setCalculated(true)
+  }
 
   const acc = n(account)
   const size = n(tradeSize)
@@ -118,14 +123,14 @@ export function RiskCalculator() {
                   <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger
                       value="long"
-                      className="data-[state=active]:bg-emerald-50 data-[state=active]:text-emerald-700"
+                      className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
                     >
                       <TrendingUp className="mr-2 h-4 w-4" />
                       Long
                     </TabsTrigger>
                     <TabsTrigger
                       value="short"
-                      className="data-[state=active]:bg-red-50 data-[state=active]:text-red-700"
+                      className="data-[state=active]:bg-red-600 data-[state=active]:text-white"
                     >
                       <TrendingDown className="mr-2 h-4 w-4" />
                       Short
@@ -189,7 +194,7 @@ export function RiskCalculator() {
                       value={entry}
                       onChange={(e) => setEntry(e.target.value)}
                       className="mt-1 text-left"
-                      placeholder="106"
+                      placeholder="e.g. 100"
                     />
                   </div>
 
@@ -202,7 +207,7 @@ export function RiskCalculator() {
                         value={tp}
                         onChange={(e) => setTp(e.target.value)}
                         className="mt-1 text-left border-emerald-200"
-                        placeholder="114"
+                        placeholder="e.g. 110"
                       />
                     </div>
                     <div>
@@ -212,7 +217,7 @@ export function RiskCalculator() {
                         value={sl}
                         onChange={(e) => setSl(e.target.value)}
                         className="mt-1 text-left border-red-200"
-                        placeholder="100"
+                        placeholder="e.g. 95"
                       />
                     </div>
                   </div>
@@ -270,6 +275,11 @@ export function RiskCalculator() {
                       </div>
                     </div>
                   </details>
+
+                  <Button onClick={calculate} className="w-full gap-2" size="lg">
+                    <Calculator className="h-4 w-4" />
+                    Calculate
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -277,6 +287,22 @@ export function RiskCalculator() {
 
           {/* Results */}
           <div className="lg:col-span-3 space-y-4">
+            {!calculated && (
+              <Card>
+                <CardContent className="flex flex-col items-center justify-center py-20 text-center">
+                  <Calculator className="mb-4 h-14 w-14 text-muted-foreground/30" />
+                  <h3 className="mb-2 text-xl font-semibold">No calculation yet</h3>
+                  <p className="max-w-sm text-muted-foreground">
+                    Enter your trade details on the left (account, trade size, leverage,
+                    entry, TP, SL) and click <strong>Calculate</strong> to see your
+                    position size, liquidation price, P&amp;L, and fees.
+                  </p>
+                </CardContent>
+              </Card>
+            )}
+
+            {calculated && (
+              <>
             {/* Warning */}
             {isDangerous && (
               <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
@@ -495,6 +521,8 @@ export function RiskCalculator() {
                 </CardContent>
               </Card>
             </div>
+            </>
+            )}
           </div>
         </div>
       </div>

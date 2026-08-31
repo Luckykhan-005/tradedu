@@ -50,6 +50,7 @@ export function TabsTrigger({ value, className, children, ...props }: TabsTrigge
   return (
     <button
       role="tab"
+      data-state={isActive ? 'active' : 'inactive'}
       aria-selected={isActive}
       className={cn(
         'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all',

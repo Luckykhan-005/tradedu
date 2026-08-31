@@ -259,10 +259,7 @@ export function CourseDetail({
                   {/* Video / Content Area */}
                   <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 rounded-t-lg flex items-center justify-center relative">
                     {activeLesson.videoUrl ? (
-                      <div className="text-center">
-                        <Play className="h-16 w-16 text-primary/40 mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground">Video Player</p>
-                      </div>
+                      <VideoPlayer url={activeLesson.videoUrl} />
                     ) : (
                       <div className="text-center p-8">
                         <FileText className="h-16 w-16 text-primary/30 mx-auto mb-2" />
@@ -343,5 +340,54 @@ export function CourseDetail({
         </div>
       </div>
     </div>
+  )
+}
+
+function VideoPlayer({ url }: { url: string }) {
+  // Convert various YouTube URL formats to embed URLs
+  const getYouTubeId = (u: string): string | null => {
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/,
+    ]
+    for (const p of patterns) {
+      const m = u.match(p)
+      if (m) return m[1]
+    }
+    return null
+  }
+
+  const ytId = getYouTubeId(url)
+  const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url)
+
+  if (ytId) {
+    return (
+      <iframe
+        className="h-full w-full rounded-t-lg"
+        src={`https://www.youtube.com/embed/${ytId}?rel=0`}
+        title="Lesson video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    )
+  }
+
+  if (isDirectVideo) {
+    return (
+      <video className="h-full w-full rounded-t-lg bg-black" controls>
+        <source src={url} />
+        Your browser does not support the video tag.
+      </video>
+    )
+  }
+
+  // Fallback: assume it's a generic embeddable iframe URL
+  return (
+    <iframe
+      className="h-full w-full rounded-t-lg"
+      src={url}
+      title="Lesson video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
   )
 }
