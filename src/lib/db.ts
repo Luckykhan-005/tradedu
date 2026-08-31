@@ -1,22 +1,46 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright (C) 2026 Shogo Technologies, Inc.
-import { PrismaLibSql } from '@prisma/adapter-libsql'
-import { PrismaClient } from '../generated/prisma/client'
 
-// Factory that creates a fresh Prisma client bound to Turso/libSQL.
-// Kept as a function so serverless runtimes (Vercel) can init lazily if needed.
-export function createPrisma() {
-  const url = process.env.DATABASE_URL || 'file:./dev.db'
-  const authToken = process.env.DATABASE_AUTH_TOKEN
-  const adapter = new PrismaLibSql({ url, authToken })
-  return new PrismaClient({
-    adapter,
-    log: process.env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'],
-  })
+let _prisma: any = null
+let _promise: Promise<any> | null = null
+
+async function getClient() {
+  if (_prisma) return _prisma
+  if (!_promise) {
+    _promise = (async () => {
+      const { PrismaLibSql } = await import('@prisma/adapter-libsql')
+      const { PrismaClient } = await import('../generated/prisma/client')
+      const url = process.env.DATABASE_URL || 'file:./dev.db'
+      const authToken = process.env.DATABASE_AUTH_TOKEN
+      const adapter = new PrismaLibSql({ url, authToken })
+      _prisma = new PrismaClient({
+        adapter,
+        log: process.env.NODE_ENV === 'development' ? ['error', 'warn'] : ['error'],
+      })
+      return _prisma
+    })()
+  }
+  return _promise
 }
 
-const globalForPrisma = globalThis as unknown as { __prisma?: ReturnType<typeof createPrisma> }
+// Lazy proxy: `prisma.course.findMany(...)` triggers getClient() on first access.
+const makeProxy = () =>
+  new Proxy(
+    {},
+    {
+      get(_t, prop: string) {
+        const client = getClient
+        // Top-level model access (course, user, module...) — return a lazy model proxy
+        return new Proxy(
+          {},
+          {
+            get(_t2, modelFn: string) {
+              return (...args: any[]) => client().then((c: any) => c[prop][modelFn](...args))
+            },
+          }
+        )
+      },
+    }
+  )
 
-export const prisma = globalForPrisma.__prisma ?? createPrisma()
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.__prisma = prisma
+export const prisma = makeProxy() as any
