@@ -1,8 +1,6 @@
 // Vercel serverless entry point — runs the Hono backend
 import { Hono } from 'hono'
 import customRoutes from '../custom-routes'
-import { createAllRoutes } from '../src/generated'
-import { prisma } from '../src/lib/db'
 
 const app = new Hono()
 
@@ -20,14 +18,7 @@ app.use('*', async (c, next) => {
 // Health check
 app.get('/health', (c) => c.json({ ok: true, timestamp: new Date().toISOString() }))
 
-// CRUD routes
-try {
-  app.route('/api', createAllRoutes(prisma))
-} catch {
-  // No generated routes yet
-}
-
-// Custom API routes
+// Custom API routes (login, signup, courses, journal, etc.)
 app.route('/api', customRoutes)
 
 // Export for Vercel serverless
