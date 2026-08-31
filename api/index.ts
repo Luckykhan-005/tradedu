@@ -21,5 +21,11 @@ app.get('/health', (c) => c.json({ ok: true, timestamp: new Date().toISOString()
 // Custom API routes (login, signup, courses, journal, etc.)
 app.route('/api', customRoutes)
 
+// Global error handler — returns the real error message instead of a bare 500
+app.onError((err, c) => {
+  console.error('API Error:', err)
+  return c.json({ error: err?.message || 'Internal Server Error' }, 500)
+})
+
 // Export for Vercel serverless
 export default app.fetch
