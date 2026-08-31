@@ -15,7 +15,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { default: customRoutes } = await import('../custom-routes')
+    const { default: customRoutes } = await import('./custom-routes')
     // Build a Request from the incoming req and pass to the Hono app
     const url = `https://${req.headers.host}${req.url}`
     const headers = new Headers()
