@@ -1,35 +1,20 @@
-// Vercel serverless entry — pure Web API, no framework dependency
-export default async function handler(req: Request): Promise<Response> {
-  const url = new URL(req.url)
+// Minimal Vercel serverless function — pure Web, no framework deps
+export default function handler(req: any, res: any) {
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization,x-admin-token,x-user-email')
 
-  // Simple health check
-  if (url.pathname === '/health' || url.pathname === '/api/health' || url.pathname === '/api/debug') {
-    return new Response(
-      JSON.stringify({
-        ok: true,
-        hasDbUrl: !!process.env.DATABASE_URL,
-        hasToken: !!process.env.DATABASE_AUTH_TOKEN,
-        path: url.pathname,
-      }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
-    )
+  if (req.method === 'OPTIONS') {
+    res.status(204).end()
+    return
   }
 
-  // Proxy everything else to the Hono backend
-  try {
-    const { default: customRoutes } = await import('../custom-routes')
-    const app = customRoutes
-    const response = await app.fetch(req)
-    // Add CORS headers
-    const res = new Response(response.body, response)
-    res.headers.set('Access-Control-Allow-Origin', req.headers.get('origin') || '*')
-    res.headers.set('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
-    res.headers.set('Access-Control-Allow-Headers', 'Content-Type,Authorization,x-admin-token,x-user-email')
-    return res
-  } catch (e: any) {
-    return new Response(JSON.stringify({ error: e?.message || 'Internal Server Error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
-  }
+  res.status(200).json({
+    ok: true,
+    path: req.url,
+    hasDbUrl: !!process.env.DATABASE_URL,
+    hasToken: !!process.env.DATABASE_AUTH_TOKEN,
+    message: 'vercel backend function is working',
+  })
 }
