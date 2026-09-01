@@ -16,19 +16,27 @@ export default async function handler(req: any, res: any) {
 
   try {
     const targetUrl = `${SHOGO_BACKEND}${req.url}`
-    const headers: Record<string, string> = {}
-    Object.keys(req.headers).forEach((k) => {
-      if (!['host', 'connection', 'accept-encoding', 'content-length'].includes(k.toLowerCase())) {
-        headers[k] = req.headers[k]
-      }
+
+    // Read the request body (if any)
+    const body = await new Promise<Buffer | null>((resolve) => {
+      const chunks: Buffer[] = []
+      let size = 0
+      req.on('data', (c: Buffer) => { chunks.push(c); size += c.length })
+      req.on('end', () => resolve(size ? Buffer.concat(chunks) : null))
+      req.on('error', () => resolve(null))
     })
 
-    const hasBody = !['GET', 'HEAD'].includes(req.method)
+    const headers: Record<string, string> = {}
+    Object.keys(req.headers).forEach((k) => {
+      const lower = k.toLowerCase()
+      if (['host', 'connection', 'accept-encoding', 'content-length'].includes(lower)) return
+      headers[k] = req.headers[k]
+    })
+
+    const hasBody = body && body.length > 0
     const options: RequestInit = { method: req.method, headers }
     if (hasBody) {
-      const chunks: Buffer[] = []
-      for await (const chunk of req) chunks.push(chunk)
-      options.body = Buffer.concat(chunks)
+      options.body = body
     }
 
     const response = await fetch(targetUrl, options)
