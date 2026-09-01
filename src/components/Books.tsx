@@ -122,6 +122,48 @@ const books: BookItem[] = [
     href: './forex-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
   },
+  {
+    id: 'technical-analysis',
+    title: 'Technical Analysis Course',
+    titleUrdu: 'ٹیکنیکل اینالسس کورس',
+    description:
+      'Technical analysis in Urdu — support/resistance, trendlines, moving averages, RSI, MACD, Bollinger Bands, Fibonacci, chart patterns, and volume. Learn to read charts like a pro.',
+    chapters: 10,
+    pages: '10 lessons',
+    icon: LineChart,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+    href: './technical-analysis/index.html',
+    tags: ['Urdu', 'Beginner to Advanced', 'Charts & Indicators'],
+  },
+  {
+    id: 'risk-management',
+    title: 'Risk Management Course',
+    titleUrdu: 'رسک مینجمنٹ کورس',
+    description:
+      'The most important trading skill — position sizing, stop loss, risk-reward ratio, money management, drawdown, and a complete risk management plan. Protect your capital.',
+    chapters: 8,
+    pages: '8 lessons',
+    icon: ShieldCheck,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: './risk-management/index.html',
+    tags: ['Urdu', 'Essential', 'Capital Protection'],
+  },
+  {
+    id: 'trading-psychology',
+    title: 'Trading Psychology Course',
+    titleUrdu: 'ٹریڈنگ نفسیات کورس',
+    description:
+      'Master your emotions — FOMO, fear, greed, revenge trading, discipline, patience, journaling, and the mindset of a successful trader. The 90% that fails is emotional.',
+    chapters: 7,
+    pages: '7 lessons',
+    icon: Brain,
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    href: './trading-psychology/index.html',
+    tags: ['Urdu', 'Essential', 'Mindset & Discipline'],
+  },
 ]
 
 export function Books({ onBack }: BooksProps) {
