@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۱۳ — ایم اے سی ڈی (MACD)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter12.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter14.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۱۳: ایم اے سی ڈی (MACD)</h1>
+
+    <p><strong>ایم اے سی ڈی (MACD)</strong> یعنی "موونگ ایوریج کنورجنز ڈائیورجینس" ایک مقبول اور طاقتور دائمی (Oscillator) اشارہ ہے جو رجحان کی سمت اور رفتار دونوں کو ظاہر کرتا ہے۔ RSI کے برعکس، MACD قیمت کی اصل سمت کے ساتھ ساتھ یہ بھی بتاتا ہے کہ وہ رفتار کس طرف بڑھ رہی ہے۔ یہ عام طور پر چارٹ کے نیچے ایک الگ پینل میں تین حصوں پر مشتمل ہوتا ہے: MACD لائن، سگنل لائن، اور ہسٹوگرام۔</p>
+
+    <p>MACD دو موونگ ایوریجز کے فرق سے بنا ہے — عام طور پر <strong>12-پیریوڈ EMA</strong> اور <strong>26-پیریوڈ EMA</strong> کے فرق کو <strong>MACD لائن</strong> کہتے ہیں۔ اس کے منفی <strong>سگنل لائن</strong> ایک 9-پیریوڈ اوسط ہے جو MACD لائن کی حرکت کو پرسکون کرتی ہے۔ یہ دو لائنیں ایک دوسرے کے پیچھے چلتی ہیں، جیسے RSI لائن۔ <strong>ہسٹوگرام</strong> دونوں لائنوں کے درمیان فاصلہ دکھاتا ہے — جب فرق بڑا ہوتا ہے تو رفتار بڑھ رہی ہوتی ہے، اور جب فرق کم ہوتا ہے تو رفتار سست ہو رہی ہوتی ہے۔</p>
+
+    <p>MACD کا سب سے استعمال شدہ سگنل <strong>کراس اوور (Crossover)</strong> ہے۔ جب MACD لائن سگنل لائن کو <strong>نیچے سے اوپر</strong> کاٹتی ہے تو یہ Bullish سگنل ہے (خریداری کی تحریک)۔ جب MACD لائن سگنل لائن کو <strong>اوپر سے نیچے</strong> کاٹتی ہے تو یہ Bearish سگنل ہے (فروخت کی تحریک)۔ لیکن یاد رکھیں، کراس اوور اکثر دیر سے آتا ہے — یہی وجہ ہے کہ بہت سے تاجر ہسٹوگرام کے فرق کو بھی دیکھتے ہیں۔</p>
+
+    <div class="diagram">
+        <svg width="600" height="340" viewBox="0 0 600 340">
+            <rect width="600" height="340" fill="#122540" rx="10"/>
+            <text x="300" y="40" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">MACD: لائنز، ہسٹوگرام اور صفر لائن</text>
+            <line x1="60" y1="180" x2="540" y2="180" stroke="#888" stroke-width="2" stroke-dasharray="7 5"/>
+            <text x="545" y="186" fill="#aaa" font-size="16" font-family="sans-serif" text-anchor="start">صفر لائن</text>
+            <rect x="90" y="180" width="40" height="60" fill="#e94560"/><rect x="150" y="180" width="40" height="45" fill="#e94560"/>
+            <rect x="210" y="180" width="40" height="20" fill="#00ff9c"/><rect x="270" y="180" width="40" height="30" fill="#00ff9c"/>
+            <rect x="330" y="180" width="40" height="25" fill="#00ff9c"/><rect x="390" y="180" width="40" height="15" fill="#e94560"/>
+            <text x="300" y="245" fill="#ccc" font-size="16" font-family="sans-serif" text-anchor="middle">ہسٹوگرام (اوپر سبز/نیچے سرخ فرق)</text>
+            <polyline points="60,150 120,120 180,150 240,120 300,150 360,120 420,150 480,120 540,150" fill="none" stroke="#00b4d8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,140 120,140 180,150 240,140 300,150 360,140 420,150 480,140 540,150" fill="none" stroke="#e0a800" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <text x="300" y="105" fill="#00b4d8" font-size="17" font-family="sans-serif" text-anchor="middle">MACD لائن</text>
+            <text x="300" y="290" fill="#e0a800" font-size="17" font-family="sans-serif" text-anchor="middle">سگنل لائن</text>
+        </svg>
+    </div>
+
+    <p><strong>صفر لائن (Zero Line)</strong> بھی اہم ہے۔ جب MACD لائن صفر کے اوپر ہو تو یہ Bullish سمت کی نشاندہی کرتی ہے، اور صفر کے نیچے ہو تو Bearish سمت۔ کراس اوور کے مقابلے میں، جب MACD خود صفر لائن کو کاٹتا ہے تو اسے زیادہ مضبوط رجحان کی تبدیلی کا سگنل سمجھا جاتا ہے۔ چھوٹے کراس اوور (MACD بمقابلہ سگنل) اکثر مختصر مدت کے، جبکہ صفر لائن کو کاٹنا طویل مدت کے سگنل کے طور پر دیکھا جاتا ہے۔</p>
+
+    <p>RSI کی طرح، MACD میں بھی <strong>ڈائجریشن (Divergence)</strong> بہت اہم ہے۔ جب قیمت نئی اونچی چوٹی بناتی ہے لیکن MACD کم اونچی چوٹی بناتی ہے، تو یہ <strong>Bearish Divergence</strong> ہے اور نیچے گرنے کا انتباہ ہے۔ جب قیمت نئی نیچی گہرائی بناتی ہے لیکن MACD کم نیچی گہرائی بناتی ہے، تو یہ <strong>Bullish Divergence</strong> ہے اور اوپر چڑھنے کا امکان ہے۔ عام اصول: ڈائجریشن سگنلز کراس اوور سے زیادہ طاقتور ہوتے ہیں۔</p>
+
+    <div class="info">
+        <strong>RSI vs MACD:</strong> RSI صرف رفتار کے زور کا اندازہ دیتا ہے (صرف ایک لائن)، جبکہ MACD رفتار کے ساتھ ساتھ سمت بھی بتاتا ہے (لائنیں + ہسٹوگرام + صفر لائن)۔ RSI ان کے مضبوط (overbought/oversold) میں اہم ہوتی ہے، MACD کراس اوور اور رجحان کی تبدیلی میں۔ بہتر یہ ہے کہ دونوں کو ملا کر استعمال کریں۔
+    </div>
+
+    <div class="info">
+        <strong>سیٹنگز:</strong> ڈیفالٹ 12، 26 اور 9۔ لمبے ٹائم فریم کے لیے پرسکون سیٹنگز، مختصر ٹائم فریم کے لیے تیز سیٹنگز (مثلاً 5/13/4)۔ ہمیشہ اپنی ضرورت کے مطابق بدلیں۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ MACD = 12 EMA اور 26 EMA کا فرق، سگنل = 9-پیریوڈ اوسط۔</p>
+    <p>۲۔ MACD لائن سگنل لائن کو کاٹے = کراس اوور سگنل۔</p>
+    <p>۳۔ صفر لائن کے اوپر Bullish، نیچے Bearish۔</p>
+    <p>۴۔ ڈائجریشن سگنلز کراس اوور سے زیادہ طاقتور ہوتے ہیں۔</p>
+    <p>۵۔ RSI اور MACD کو ملا کر استعمال کریں، تنہا نہیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ اپنے چارٹ پر MACD لگا کر ایک کراس اوپر اور ایک کراس نیچے کا سگنل تلاش کریں۔</p>
+    <p>۲۔ ایک Bullish اور ایک Bearish ڈائجریشن پیدا کر کے اسکرین شاٹ کے ساتھ نوٹ لکھیں۔</p>
+    <p>۳۔ RSI اور MACD کے درمیان 3 فرق لکھیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter12.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter14.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

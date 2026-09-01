@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۲ — کرنسی پیئرز</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter1.html">← پچھلا سبق</a>
+        <a href="chapter3.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۲: کرنسی پیئرز</h1>
+
+    <p>فاریکس میں آپ کبھی صرف ایک کرنسی نہیں خریدتے یا بیچتے، بلکہ ہمیشہ دو کرنسیوں کے <strong>جوڑے</strong> (Pair) میں ٹریڈ کرتے ہیں۔ اس جوڑے کو <strong>کرنسی پیئر</strong> کہتے ہیں۔ جب آپ ٹریڈ کھولتے ہیں تو ایک ہی وقت میں ایک کرنسی خریدتے ہیں اور دوسری بیچتے ہیں۔ اس تصور کو سمجھنا فاریکس کی پہلی اور سب سے اہم بنیاد ہے۔</p>
+
+    <p>ہر کرنسی پیئر دو حصوں پر مشتمل ہوتا ہے — <strong>بیس کرنسی</strong> (Base Currency) اور <strong>کوئٹ کرنسی</strong> (Quote Currency)۔ بیس کرنسی جوڑے کی پہلی کرنسی ہوتی ہے، اور کوئٹ کرنسی دوسری۔ مثال کے طور پر EUR/USD میں یورو (EUR) بیس کرنسی ہے اور امریکی ڈالر (USD) کوئٹ کرنسی ہے۔ بیس کرنسی وہ ہے جسے آپ خریدتے یا بیچتے ہیں، جبکہ کوئٹ کرنسی وہ ہے جس میں اس کی قیمت ظاہر کی جاتی ہے۔</p>
+
+    <div class="diagram">
+        <svg width="620" height="300" viewBox="0 0 620 300">
+            <rect width="620" height="300" fill="#122540" rx="10"/>
+            <text x="310" y="40" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">کرنسی پیئر کی ساخت — EUR/USD</text>
+            <rect x="40" y="80" width="150" height="70" fill="#e0a800" rx="8"/>
+            <text x="115" y="112" fill="#0a1628" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">EUR</text>
+            <text x="115" y="138" fill="#0a1628" font-size="14" font-family="sans-serif" text-anchor="middle">بیس کرنسی</text>
+            <text x="210" y="120" fill="#00b4d8" font-size="28" font-family="sans-serif" text-anchor="middle">/</text>
+            <rect x="230" y="80" width="150" height="70" fill="#00b4d8" rx="8"/>
+            <text x="305" y="112" fill="#0a1628" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">USD</text>
+            <text x="305" y="138" fill="#0a1628" font-size="14" font-family="sans-serif" text-anchor="middle">کوئٹ کرنسی</text>
+            <rect x="410" y="80" width="170" height="70" fill="#2a3a55" rx="8" stroke="#00b4d8" stroke-width="1.5"/>
+            <text x="495" y="112" fill="#00b4d8" font-size="24" font-family="sans-serif" text-anchor="middle" font-weight="bold">1.10</text>
+            <text x="495" y="138" fill="#ccc" font-size="14" font-family="sans-serif" text-anchor="middle">قیمت / ریٹ</text>
+            <text x="310" y="200" fill="#e0a800" font-size="20" font-family="sans-serif" text-anchor="middle">1 EUR = 1.10 USD</text>
+            <text x="310" y="235" fill="#ccc" font-size="16" font-family="sans-serif" text-anchor="middle">اگر آپ EUR/USD خریدتے ہیں تو آپ یورو خریدتے اور ڈالر بیچتے ہیں</text>
+            <text x="310" y="265" fill="#888" font-size="15" font-family="sans-serif" text-anchor="middle">بیس کرنسی پہلے، کوئٹ کرنسی بعد میں — یہی ترتیب ہے</text>
+        </svg>
+    </div>
+
+    <h2>میجر پیئرز</h2>
+
+    <p>دنیا کی سب سے زیادہ ٹریڈ ہونے والی کرنسیوں کے جوڑوں کو <strong>میجر پیئرز</strong> کہا جاتا ہے۔ ان میں امریکی ڈالر ہمیشہ شامل ہوتا ہے، کیونکہ ڈالر دنیا کی سب سے بڑی اور لیکویڈ کرنسی ہے۔ میجر پیئرز میں اسپریڈ (فیس) سب سے کم ہوتا ہے اور قیمتیں محدود حرکت کرتی ہیں۔ عام میجر پیئرز یہ ہیں: EUR/USD، GBP/USD، USD/JPY، USD/CHF، AUD/USD اور USD/CAD۔</p>
+
+    <div class="info">
+        <strong>میجر پیئرز:</strong><br>
+        • EUR/USD — یورو / امریکی ڈالر<br>
+        • GBP/USD — برطانوی پاؤنڈ / ڈالر<br>
+        • USD/JPY — ڈالر / جاپانی ین<br>
+        • USD/CHF — ڈالر / سوئس فرانک<br>
+        • AUD/USD — آسٹریلوی ڈالر / امریکی ڈالر<br>
+        • USD/CAD — ڈالر / کینیڈین ڈالر
+    </div>
+
+    <h2>منر اور کراس پیئرز</h2>
+
+    <p><strong>منر (کراس) پیئرز</strong> وہ جوڑے ہیں جن میں امریکی ڈالر شامل نہیں ہوتا، بلکہ دو اور کرنسیاں آپس میں جوڑی جاتی ہیں۔ مثال کے طور پر EUR/GBP میں یورو اور پاؤنڈ آپس میں ٹریڈ ہوتے ہیں۔ کراس پیئرز میں اسپریڈ تھوڑا زیادہ ہوتا ہے اور قیمتیں کبھی کبھی زیادہ اچانک حرکت کرتی ہیں۔ عام کراس پیئرز میں EUR/GBP، EUR/JPY، GBP/JPY اور EUR/CHF شامل ہیں۔</p>
+
+    <p><strong>ایگزاٹک پیئرز</strong> وہ جوڑے ہیں جن میں ایک بڑی کرنسی اور ایک ابھرنے والی مارکیٹ کی کرنسی شامل ہوتی ہے، جیسے USD/PKR (پاکستانی روپیہ) یا USD/TRY (ترک لیرا)۔ یہ جوڑے بہت خطرے والے ہوتے ہیں کیونکہ ان میں اسپریڈ بہت زیادہ ہوتا ہے، حرکت بے ترتیب ہوتی ہے، اور لیکویڈٹی کم ہوتی ہے۔ ان میں ٹریڈنگ شروع کرنے سے پہلے تجربہ ضروری ہے۔</p>
+
+    <div class="info">
+        <strong>پیر کس طرح پڑھیں؟</strong> — جب قیمت 1.10 ہو تو اس کا مطلب ہے کہ 1 یورو کو خریدنے کے لیے 1.10 امریکی ڈالر چاہئیں۔ قیمت بڑھنا باس کرنسی کی مضبوطی ظاہر کرتا ہے، اور قیمت گرنا باس کرنسی کی کمزوری۔
+    </div>
+
+    <div class="info">
+        <strong>کون سے جوڑے چنیں؟</strong> — شروع میں صرف 1 یا 2 میجر پیئر (مثلاً EUR/USD) اختیار کریں کیونکہ ان میں اسپریڈ کم، معلومات زیادہ اور چلنا orderly ہوتا ہے۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ ہر پیئر میں بیس کرنسی پہلے اور کوئٹ کرنسی بعد میں ہوتی ہے۔</p>
+    <p>۲۔ میجر پیئرز میں ڈالر شامل ہوتا ہے اور یہ سب سے لیکویڈ ہیں۔</p>
+    <p>۳۔ کراس پیئرز میں ڈالر نہیں ہوتا، اور ایگزاٹک پیئرز زیادہ خطرے والے ہیں۔</p>
+    <p>۴۔ قیمت 1.10 کا مطلب ہے 1 بیس کرنسی = 1.10 کوئٹ کرنسی۔</p>
+    <p>۵۔ شروع میں کم اسپریڈ والے میجر پیئرز پر توجہ دیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ EUR/GBP میں بیس اور کوئٹ کرنسی کون کون سی ہیں لکھیں۔</p>
+    <p>۲۔ 3 میجر اور 3 کراس پیئرز کے نام لکھیں۔</p>
+    <p>۳۔ اگر USD/PKR کی قیمت بڑھے تو اس کا کیا مطلب ہے؟ اپنے الفاظ میں لکھیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter1.html">← پچھلا سبق</a>
+        <a href="chapter3.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۵ — آرڈر کی اقسام</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter4.html">← پچھلا سبق</a>
+        <a href="chapter6.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۵: آرڈر کی اقسام</h1>
+
+    <p>جب آپ ٹریڈ کھولتے ہیں تو آپ ایک <strong>آرڈر</strong> دیتے ہیں۔ فاریکس میں آرڈر کی کئی اقسام ہیں، اور ہر ایک کا مقصد مختلف ہوتا ہے۔ <strong>مارکیٹ آرڈر</strong> وہ ہے جو فوری طور پر موجودہ قیمت پر عمل ہوتا ہے — اگر آپ ابھی ابھی خریدنا یا بیچنا چاہتے ہیں تو آپ مارکیٹ آرڈر دیتے ہیں۔ یہ سب سے سادہ اور تیز آرڈر ہے، لیکن یہ ہمیشہ موجودہ قیمت پر ہی ملتا ہے، اس لیے کبھی قیمت آپ کی امید سے تھوڑی مختلف ہو سکتی ہے۔</p>
+
+    <p><strong>لیمنٹ آرڈر</strong> اس وقت کام کرتا ہے جب آپ کسی مخصوص قیمت کا انتظار کرنا چاہتے ہیں۔ <strong>بائے لمنٹ</strong> (Buy Limit) آپ موجودہ قیمت سے نیچے خریداری کے لیے لگاتے ہیں، اور <strong>سیل لمنٹ</strong> (Sell Limit) موجودہ قیمت سے اوپر بکنے کے لیے۔ یہ آرڈر تبھی چلتے ہیں جب قیمت آپ کے بتائے ہوئے لیول تک پہنچ جائے۔ لیمنٹ آرڈر اچھی قیمت کا انتظار کرنے کا طریقہ ہے، مگر یہ ہمیشہ نہیں چلتا اگر قیمت وہاں تک نہ پہنچے۔</p>
+
+    <div class="diagram">
+        <svg width="620" height="330" viewBox="0 0 620 330">
+            <rect width="620" height="330" fill="#122540" rx="10"/>
+            <text x="310" y="35" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">آرڈر کی جگہ چارٹ پر</text>
+            <path d="M40,250 C120,230 160,230 220,250 C280,270 330,120 400,90 C470,65 520,70 580,50" fill="none" stroke="#00b4d8" stroke-width="3"/>
+            <text x="60" y="270" fill="#ccc" font-size="15" font-family="sans-serif" text-anchor="middle">قیمت</text>
+            <line x1="220" y1="250" x2="220" y2="120" stroke="#fff" stroke-width="2" stroke-dasharray="5 5"/>
+            <line x1="430" y1="100" x2="430" y2="290" stroke="#e0a800" stroke-width="2" stroke-dasharray="5 5"/>
+            <line x1="430" y1="160" x2="430" y2="290" stroke="#e94560" stroke-width="2" stroke-dasharray="5 5"/>
+            <circle cx="430" cy="90" r="6" fill="#00b4d8"/>
+            <text x="430" y="80" fill="#00b4d8" font-size="15" font-family="sans-serif" text-anchor="middle">بائے لمنٹ</text>
+            <text x="300" y="140" fill="#e0a800" font-size="15" font-family="sans-serif" text-anchor="middle">ٹیک پروفٹ (TP)</text>
+            <text x="300" y="285" fill="#e94560" font-size="15" font-family="sans-serif" text-anchor="middle">اسٹاپ لاس (SL)</text>
+            <text x="540" y="45" fill="#e0a800" font-size="15" font-family="sans-serif" text-anchor="middle">سیل لمنٹ</text>
+            <line x1="300" y1="140" x2="560" y2="140" stroke="#e0a800" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="300" y1="285" x2="560" y2="285" stroke="#e94560" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <line x1="300" y1="140" x2="300" y2="285" stroke="#aaa" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="310" y="315" fill="#888" font-size="15" font-family="sans-serif" text-anchor="middle">اوپر لیمنٹ، نیچے لاس — منافع محفوظ، نقصان محدود</text>
+        </svg>
+    </div>
+
+    <h2>اسٹاپ آرڈر</h2>
+
+    <p><strong>بائے اسٹاپ</strong> (Buy Stop) موجودہ قیمت سے اوپر لگایا جاتا ہے اور خریداری اس قیمت تک پہنچنے پر ہوتی ہے — یہ عام طور پر تب استعمال ہوتا ہے جب آپ ٹرینڈ کی توڑ (بریک آؤٹ) کی امید کرتے ہیں۔ <strong>سیل اسٹاپ</strong> (Sell Stop) موجودہ قیمت سے نیچے لگایا جاتا ہے اور بکنے کے لیے قیمت کے نیچے آنے کا انتظار کرتا ہے۔ اسٹاپ آرڈرز آپ کو انتظار کے بغیر موقع پکڑنے میں مدد دیتے ہیں، خاص طور پر جب آپ بریک آؤٹ یا ٹرینڈ کے تسلسل کی توقع رکھتے ہیں۔</p>
+
+    <div class="info">
+        <strong>آرڈر کی اقسام:</strong><br>
+        • مارکیٹ آرڈر — فوری، موجودہ قیمت پر<br>
+        • بائے لمنٹ — نیچے کی قیمت پر خرید (رجعت کی امید)<br>
+        • سیل لمنٹ — اوپر کی قیمت پر بیچ<br>
+        • بائے اسٹاپ — اوپر کی قیمت پر خرید (بریک آؤٹ)<br>
+        • سیل اسٹاپ — نیچے کی قیمت پر بیچ
+    </div>
+
+    <h2>اسٹاپ لاس اور ٹیک پروفٹ</h2>
+
+    <p><strong>اسٹاپ لاس</strong> (Stop Loss) ایک محفوظ لیول ہے جو آپ کے نقصان کو محدود کرتا ہے — اگر قیمت آپ کے خلاف جائے تو یہ پوزیشن خود ہی اس قیمت پر بند کر دیتا ہے۔ <strong>ٹیک پروفٹ</strong> (Take Profit) وہ لیول ہے جہاں پہنچتے ہی آپ کا منافع خود ہی لاک ہو جاتا ہے۔ دونوں مل کر آپ کا رسک مینجمنٹ بناتے ہیں۔ ہر ٹریڈ میں اسٹاپ لاس لگانا لازمی سمجھیں، ورنہ بہت بڑا نقصان ہو سکتا ہے۔</p>
+
+    <p><strong>ٹریلنگ اسٹاپ</strong> ایک ذہین اسٹاپ لاس ہے جو قیمت کے ساتھ ساتھ حرکت کرتا ہے۔ جب قیمت آپ کے فائدے میں جاتی ہے تو ٹریلنگ اسٹاپ بھی ساتھ چلتا ہے، جس سے آپ کا منافع محفوظ رہتا ہے۔ اور اگر قیمت آپ کے خلاف آنے لگے تو یہ آپ کے موجودہ منافع کو لاک کر دیتا ہے۔ <strong>پینڈنگ آرڈرز</strong> وہ ہیں جو پہلے سے سیٹ ہوتے ہیں اور بعد میں ایک طے شدہ شرط پر چلتے ہیں — جیسے لمنٹ اور اسٹاپ آرڈرز۔</p>
+
+    <div class="info">
+        <strong>پینڈنگ آرڈر:</strong> کوئی بھی آرڈر جو ابھی نہیں چلتا بلکہ مستقبل میں کسی قیمت تک پہنچنے پر چلتا ہے۔ مستقبل کے موقع پکڑنے کا مصروف ٹریڈر کے لیے بہترین طریقہ۔
+    </div>
+
+    <div class="info">
+        <strong>رسک کا اصول:</strong> ہر ٹریڈ پر صرف اپنے سرمائے کا ایک چھوٹا حصہ (مثلاً 1-2٪) خطرے میں ڈالیں۔ اسٹاپ لاس ہمیشہ لگائیں تاکہ ایک ناکامی آپ کو توڑ نہ سکے۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ مارکیٹ آرڈر فوری، جبکہ لمنٹ/اسٹاپ پینڈنگ آرڈرز ہیں۔</p>
+    <p>۲۔ بائے لمنٹ نیچے، بائے اسٹاپ اوپر والی قیمت پر خریدتے ہیں۔</p>
+    <p>۳۔ سیل لمنٹ اوپر، سیل اسٹاپ نیچے والی قیمت پر بیچتا ہے۔</p>
+    <p>۴۔ اسٹاپ لاس نقصان محدود کرتا ہے، ٹیک پروفٹ منافع لاک کرتا ہے۔</p>
+    <p>۵۔ ٹریلنگ اسٹاپ قیمت کے ساتھ ساتھ چلتا اور منافع محفوظ رکھتا ہے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ مارکیٹ اور لمنٹ آرڈر کا فرق لکھیں۔</p>
+    <p>۲۔ اسٹاپ لاس اور ٹیک پروفٹ کی اہمیت لکھیں۔</p>
+    <p>۳۔ بائے اسٹاپ کب استعمال ہوتا ہے؟ مثال دیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter4.html">← پچھلا سبق</a>
+        <a href="chapter6.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

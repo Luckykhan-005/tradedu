@@ -12,6 +12,7 @@ import {
   Rocket,
   LineChart,
   ShieldCheck,
+  TrendingUp,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -106,6 +107,20 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
+  },
+  {
+    id: 'forex',
+    title: 'Forex Trading Course',
+    titleUrdu: 'فاریکس ٹریڈنگ کورس',
+    description:
+      'Complete forex trading education in Urdu — Beginner to Advanced. Learn currency pairs, pips, trends, indicators, risk management, and professional strategies.',
+    chapters: 24,
+    pages: '3 phases',
+    icon: TrendingUp,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+    href: './forex-book/index.html',
+    tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
   },
 ]
 
