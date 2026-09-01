@@ -12,37 +12,27 @@ export default async function handler(req: any, res: any) {
     return
   }
 
-  // Debug endpoint — echo back method + body to verify proxy reads request
-  if (req.url.startsWith('/api/debug-proxy')) {
-    let raw = ''
-    req.on('data', (c: Buffer) => { raw += c.toString('utf8') })
-    req.on('end', () => {
-      res.status(200).setHeader('Content-Type', 'application/json')
-      res.end(JSON.stringify({ method: req.method, url: req.url, body: raw || '(empty)' }))
-    })
-    return
-  }
-
   try {
     const targetUrl = `${SHOGO_BACKEND}${req.url}`
-    const body = await new Promise<Buffer | null>((resolve) => {
-      const chunks: Buffer[] = []
-      let size = 0
-      req.on('data', (c: Buffer) => { chunks.push(c); size += c.length })
-      req.on('end', () => resolve(size ? Buffer.concat(chunks) : null))
-      req.on('error', () => resolve(null))
+
+    // Read the request body as a string
+    const body = await new Promise<string>((resolve) => {
+      let raw = ''
+      req.on('data', (c: Buffer) => { raw += c.toString('utf8') })
+      req.on('end', () => resolve(raw))
+      req.on('error', () => resolve(''))
     })
 
     const headers: Record<string, string> = {}
     Object.keys(req.headers).forEach((k) => {
       const lower = k.toLowerCase()
-      if (['host', 'connection', 'accept-encoding', 'content-length'].includes(lower)) return
+      if (lower === 'host' || lower === 'connection' || lower === 'accept-encoding') return
       headers[k] = req.headers[k]
     })
+    if (body) headers['content-length'] = Buffer.byteLength(body).toString()
 
-    const hasBody = body && body.length > 0
     const options: RequestInit = { method: req.method, headers }
-    if (hasBody) options.body = body
+    if (body && !['GET', 'HEAD'].includes(req.method)) options.body = body
 
     const response = await fetch(targetUrl, options)
     const text = await response.text()
