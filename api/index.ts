@@ -1,6 +1,4 @@
 // Vercel serverless proxy — forwards /api/* to the Shogo backend
-// This keeps frontend (Vercel) and API same-origin, eliminating CORS issues.
-
 const SHOGO_BACKEND = 'https://f433563c-b214-4c91-81ec-8db56a59a1b4.preview.shogo.ai'
 
 export default async function handler(req: any, res: any) {
@@ -14,10 +12,19 @@ export default async function handler(req: any, res: any) {
     return
   }
 
+  // Debug endpoint — echo back method + body to verify proxy reads request
+  if (req.url.startsWith('/api/debug-proxy')) {
+    let raw = ''
+    req.on('data', (c: Buffer) => { raw += c.toString('utf8') })
+    req.on('end', () => {
+      res.status(200).setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify({ method: req.method, url: req.url, body: raw || '(empty)' }))
+    })
+    return
+  }
+
   try {
     const targetUrl = `${SHOGO_BACKEND}${req.url}`
-
-    // Read the request body (if any)
     const body = await new Promise<Buffer | null>((resolve) => {
       const chunks: Buffer[] = []
       let size = 0
@@ -35,9 +42,7 @@ export default async function handler(req: any, res: any) {
 
     const hasBody = body && body.length > 0
     const options: RequestInit = { method: req.method, headers }
-    if (hasBody) {
-      options.body = body
-    }
+    if (hasBody) options.body = body
 
     const response = await fetch(targetUrl, options)
     const text = await response.text()
