@@ -1,6 +1,16 @@
 // Vercel serverless proxy — forwards /api/* to the Shogo backend
 const SHOGO_BACKEND = 'https://f433563c-b214-4c91-81ec-8db56a59a1b4.preview.shogo.ai'
 
+const PASS_HEADERS = [
+  'content-type',
+  'authorization',
+  'x-admin-token',
+  'x-user-email',
+  'origin',
+  'accept',
+  'accept-language',
+]
+
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
@@ -15,7 +25,7 @@ export default async function handler(req: any, res: any) {
   try {
     const targetUrl = `${SHOGO_BACKEND}${req.url}`
 
-    // Read the request body as a string
+    // Read request body as string(safe)
     const body = await new Promise<string>((resolve) => {
       let raw = ''
       req.on('data', (c: Buffer) => { raw += c.toString('utf8') })
@@ -24,15 +34,16 @@ export default async function handler(req: any, res: any) {
     })
 
     const headers: Record<string, string> = {}
-    Object.keys(req.headers).forEach((k) => {
-      const lower = k.toLowerCase()
-      if (lower === 'host' || lower === 'connection' || lower === 'accept-encoding') return
-      headers[k] = req.headers[k]
+    PASS_HEADERS.forEach((k) => {
+      const v = req.headers[k]
+      if (v) headers[k] = typeof v === 'string' ? v : v.join(', ')
     })
-    if (body) headers['content-length'] = Buffer.byteLength(body).toString()
 
-    const options: RequestInit = { method: req.method, headers }
-    if (body && !['GET', 'HEAD'].includes(req.method)) options.body = body
+    const options: RequestInit = {
+      method: req.method,
+      headers,
+      ...(body && !['GET', 'HEAD'].includes(req.method) ? { body } : {}),
+    }
 
     const response = await fetch(targetUrl, options)
     const text = await response.text()
