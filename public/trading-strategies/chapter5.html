@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی 5 — پل بیک اسٹریٹجی</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter4.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter6.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی 5: پل بیک اسٹریٹجی</h1>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="360" fill="#0b1220" rx="12"/>
+            <text x="400" y="40" fill="#38bdf8" font-size="20" text-anchor="middle">اپ ٹرینڈ + موونگ ایوریج تک پل بیک</text>
+            <path d="M75 300 L300 160 L360 210 L430 150 L500 200 L560 120 L650 90 L720 70" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <path d="M75 270 Q200 270 400 200 Q550 150 720 110" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="400" y="195" fill="#22c55e" font-size="17" text-anchor="middle">موونگ ایوریج (MA)</text>
+            <circle cx="360" cy="210" r="8" fill="#22c55e"/>
+            <text x="360" y="245" fill="#22c55e" font-size="18" text-anchor="middle">اندراج (لانگ)</text>
+            <line x1="360" y1="210" x2="360" y2="330" stroke="#facc15" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="300" y="320" fill="#facc15" font-size="14" text-anchor="middle">اسٹاپ</text>
+            <circle cx="500" cy="200" r="6" fill="#facc15"/>
+            <text x="510" y="235" fill="#facc15" font-size="16" text-anchor="middle">پل بیک</text>
+            <circle cx="650" cy="90" r="7" fill="#ef4444"/>
+            <text x="630" y="70" fill="#ef4444" font-size="17" text-anchor="middle">ہدف</text>
+        </svg>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="280" fill="#0b1220" rx="12"/>
+            <text x="400" y="35" fill="#38bdf8" font-size="20" text-anchor="middle">پل بیک پر اندراج — محفوظ مقام</text>
+            <path d="M80 230 L180 230 L270 230" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <path d="M270 230 L290 195 L340 205 L380 175 L430 190 L480 150 L530 130" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <rect x="290" y="180" width="90" height="90" rx="8" fill="#132638" stroke="#22c55e" stroke-width="1"/>
+            <text x="335" y="232" fill="#22c55e" font-size="18" text-anchor="middle">اندراج</text>
+            <line x1="380" y1="210" x2="380" y2="270" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="395" y="268" fill="#ef4444" font-size="15" text-anchor="middle">اسٹاپ پیک سے نیچے</text>
+            <text x="90" y="215" fill="#666" font-size="15">پہلا ٹرینڈ</text>
+        </svg>
+    </div>
+
+    <p>پل بیک اسٹریٹجی گہرے رجحان (ٹرینڈ) کی سمت میں چلنے والی سب سے محفوظ اسٹریٹجیوں میں سے ایک ہے۔ اس کا اصول سادہ ہے — جب قیمت ایک واضح رجحان میں چل رہی ہو، تو ہم اس کے مقابلے (سپورٹ یا موونگ ایوریج تک) کے واپس آنے کا انتظار کرتے ہیں، پھر رجحان کی سمت داخل ہوتے ہیں۔ اس طرح ہم رجحان کے آغاز میں چڑھنے کے بجائے اس کے ساتھ چلتے ہیں، جو قیمت کے لحاظ سے بہت محفوظ ہے۔</p>
+
+    <p>پل بیک کو سمجھنے کے لیے سب سے پہلے رجحان کی سمت قائم کرنا ضروری ہے۔ ایک اپ ٹرینڈ میں قیمت مسلسل بلند چوٹیاں اور بلند خلیجیں بناتی ہے۔ جب قیمت اپنی بلندی سے واپس آ کر موونگ ایوریج یا پچھلی چوٹی کو چھوتی ہے تو یہی پل بیک کے اندراج کا موقع ہوتا ہے۔ ہم رجحان کے خلاف نہیں بلکہ اس کی سمت کا انتظار کرتے ہیں۔</p>
+
+    <p>موونگ ایوریج اس اسٹریٹجی کا اہم ذریعہ ہے۔ جب قیمت ایک اپ ٹرینڈ میں ہوتی ہے اور 50 یا 20-EMA کے قریب آ کر واپس اٹھتی ہے، تو یہ ایک طاقتور علامت ہوتی ہے کہ رجحان جاری رہے گا۔ پل بیک کے دوران قیمت کہیں نہیں بھٹکتی، بلکہ وہ اہم سطحوں پر ٹھہرتے ہوئے نیا موڑ لیتی ہے جس سے رجحان کی مزید تقویت ثابت ہوتی ہے۔</p>
+
+    <p>پل بیک کی حقیقی خوبی اس کی حفاظت ہے۔ پل بیک میں اندراج سے اسٹاپ لاس بہت قریب رکھا جا سکتا ہے، کیونکہ قیمت کے واپس آنے کی ساخت واضح ہوتی ہے۔ اس لیے رسک ریوارڈ تناسب بہت اچھا ہوتا ہے، اور غلط اندراج کی صورت میں نقصان بھی کم ہوتا ہے۔ یہ خاص طور پر نئے کھلاڑیوں کے لیے مثالی ہے، کیونکہ یہ انہیں رجحان کے ساتھ چلنا اور محفوظ انداز میں داخل ہونا سکھاتا ہے۔</p>
+
+    <h2>اندراج (Entry) قواعد</h2>
+    <div class="info"><strong>خرید/بیچ کے قواعد:</strong><br>۱۔ پہلے ایک واضح رجحان قائم کریں — اپ ٹرینڈ میں لانگ، ڈاؤن ٹرینڈ میں شارٹ۔<br>۲۔ رجحان کی سمت سے پل بیک کے لیے انتظار کریں — قیمت موونگ ایوریج یا اہم سطح تک واپس آئے۔<br>۳۔ پل بیک کے بعد ایک تصدیق کار کینڈل (اسٹنگ/پن بار) کا انتظار کریں۔<br>۴۔ رجحان کی سمت میں اندراج کریں — اپ ٹرینڈ میں لانگ، ڈاؤن ٹرینڈ میں شارٹ۔<br>۵۔ اسٹاپ کو پل بیک کے پیک سے تھوڑا نیچے رکھیں، ہدف آگے کے اہم سطح تک۔</div>
+    <div class="formula">اسٹاپ لاس = پل بیک کے پیک سے نیچے (بفر)<br>ٹیک پرافٹ = رجحان کے اگلے ہدف/سب سے زیادہ تعداد کے لحاظ سے</div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+    <p>اخراج ہدف تک پہنچنے یا اسٹاپ لاس کے ٹوٹنے سے ہوتا ہے۔ چونکہ پل بیک اسٹریٹجی رجحان کے ساتھ چلتی ہے، اس لیے کئی بار قیمت رجحان کی سمت میں آگے بڑھتی ہے اور ہدف آسانی سے حاصل ہو جاتا ہے۔ اگر قیمت اسٹاپ لاس کے پار بند ہو جائے تو اس کا مطلب ہے کہ رجحان ختم ہو چکا ہے اور ہم فوراً نکل جاتے ہیں۔</p>
+    <p>پوزیشن کو دو حصوں میں تقسیم کرنا بھی مؤثر ہے — پہلا حصہ پہلے اہم ہدف پر بند کرتے ہیں اور دوسرا حصہ چھوٹا کر کے بقیہ رجحان تک لے جاتے ہیں۔ یہ انداز رجحان سے زیادہ سے زیادہ منافع حاصل کرنے میں مدد کرتا ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ پل بیک اسٹریٹجی کے لیے واضح رجحان ضروری ہے — بغیر رجحان کے یہ کام نہیں کرتی۔</p>
+    <p>۲۔ موونگ ایوریج یا پچھلی چوٹی تک پل بیک سب سے اہم موقع ہوتا ہے۔</p>
+    <p>۳۔ اسٹاپ لاس کو ہمیشہ پل بیک کے پیک سے نیچے رکھیں تاکہ غلط اندراج سے بچا جا سکے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر پانچ مہینے کے واضح ٹرینڈ تلاش کریں اور ہر ایک میں پل بیک کی نشاندہی کریں۔</p>
+    <p>۲۔ موونگ ایوریج (20، 50) کا استعمال کرتے ہوئے دیکھیں کہ پل بیککس کس سطح پر رکے۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter4.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter6.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

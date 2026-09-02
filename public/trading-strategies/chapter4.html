@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی 4 — سپورٹ/ریزسٹنس سنائپر</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter3.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter5.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی 4: سپورٹ/ریزسٹنس سنائپر</h1>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="360" fill="#0b1220" rx="12"/>
+            <text x="400" y="40" fill="#38bdf8" font-size="20" text-anchor="middle">قیمت کی سطح سے آگے کا ردعمل</text>
+            <line x1="70" y1="140" x2="730" y2="140" stroke="#ef4444" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="400" y="128" fill="#ef4444" font-size="18" text-anchor="middle">مزاحمت (Resistance)</text>
+            <polyline points="90,90 130,110 170,95 210,120 250,105 290,135 330,120 360,140 390,150 420,180 460,210 500,240 540,260 580,280 620,270 660,240 700,200 730,170" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="360" cy="140" r="7" fill="#facc15"/>
+            <text x="305" y="120" fill="#facc15" font-size="17" text-anchor="middle">پن بار</text>
+            <line x1="360" y1="140" x2="360" y2="320" stroke="#facc15" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="420" y="315" fill="#facc15" font-size="15" text-anchor="middle">اسٹاپ سطح سے اوپر</text>
+            <circle cx="730" cy="170" r="7" fill="#22c55e"/>
+            <text x="700" y="150" fill="#22c55e" font-size="17" text-anchor="middle">ہدف (بہت دور)</text>
+            <rect x="480" y="250" width="200" height="40" rx="8" fill="#132638" stroke="#22c55e" stroke-width="1"/>
+            <text x="580" y="276" fill="#22c55e" font-size="17" text-anchor="middle">RSI حد سے اوپر/نیچے</text>
+        </svg>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="280" fill="#0b1220" rx="12"/>
+            <text x="400" y="35" fill="#38bdf8" font-size="20" text-anchor="middle">RSI — حد کی تصدیق</text>
+            <line x1="70" y1="70" x2="730" y2="70" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="740" y="60" fill="#ef4444" font-size="15" text-anchor="end">حد 70</text>
+            <line x1="70" y1="210" x2="730" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="740" y="230" fill="#22c55e" font-size="15" text-anchor="end">حد 30</text>
+            <polyline points="70,140 110,120 150,110 190,95 230,85 270,78 310,80 350,90 390,110 430,135 470,160 510,185 550,200 590,208 630,205 670,195 720,180" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="230" cy="85" r="6" fill="#ef4444"/>
+            <text x="210" y="65" fill="#ef4444" font-size="15">حد سے اوپر</text>
+            <circle cx="550" cy="200" r="6" fill="#22c55e"/>
+            <text x="580" y="215" fill="#22c55e" font-size="15">حد سے نیچے</text>
+        </svg>
+    </div>
+
+    <p>سپورٹ/ریزسٹنس سنائپر ایک بہت درست اور عین اسٹریٹجی ہے جس کا مقصد قیمت کی اہم سطحوں پر انتہائی صحیح اندراج ہے۔ سپورٹ وہ سطح ہے جہاں قیمت بار بار نیچے آ کر اچھل جاتی ہے، اور ریزسٹنس وہ سطح ہے جہاں قیمت اوپر جا کر پلٹ جاتی ہے۔ یہ سطحیں مارکیٹ کی گہری یادداشت کی علامت ہیں، جہاں بڑی تعداد میں آرڈر لگے ہوتے ہیں۔ جب قیمت ان سطحوں پر پہنچتی ہے تو ہمیں ایک بہت ہی درست اندراج کا موقع ملتا ہے، جس میں رسک بہت کم اور ریوارڈ بہت زیادہ ہوتا ہے۔</p>
+
+    <p>اس اسٹریٹجی کی بنیاد "دقیق اندراج" پر ہے۔ ہم کسی بھی سطح پر اندھا دھند اندراج نہیں کرتے، بلکہ قیمت کی وہی حرکت تلاش کرتے ہیں جو سطح سے قیمت کے آگے ردعمل کی تصدیق کرے۔ اس کے لیے سب سے مؤثر علامت پن بار ہے۔ جب قیمت سطح پر پہنچتی ہے اور پن بار بنتی ہے، جس کی لمبی دم قیمت کے ایک بار دھکیلے جانے کے بعد واپس آجانے کی نشاندہی کرتی ہے، تو یہ بہترین اندراج کا موقع ہوتا ہے۔</p>
+
+    <p>RSI کی حدوں کا گہرا تعلق اس اسٹریٹجی سے ہے۔ جب قیمت کسی اہم سطح پر ہو اور RSI 70 سے اوپر یا 30 سے نیچے ہو، تو یہ ایک اضافی تصدیق بن جاتی ہے۔ اسے "ہم آہنگی" کہتے ہیں — جب قیمت اور انڈیکیٹر ایک ہی سمت میں ایک ہی پیغام دیں، تو ہماری اسٹریٹجی زیادہ مضبوط ہو جاتی ہے۔ RSI کی حد اور قیمت کی سطح کا ملاپ ہمیں ایک انتہائی درست موقع فراہم کرتا ہے، جس میں ہم چھوٹے اسٹاپ اور بڑے ہدف کی توقع رکھتے ہیں۔</p>
+
+    <p>اس اسٹریٹجی کا سب سے بڑا فائدہ یہ ہے کہ اس کا رسک ریوارڈ تناسب بہت اچھا ہوتا ہے۔ چونکہ اسٹاپ سطح کے بالکل قریب ہوتا ہے، اور ہدف بہت دور، اس لیے ایک ہی صحیح اندراج میں 1:3 یا اس سے بھی بہتر تناسب حاصل ہو سکتا ہے۔ مگر یاد رکھیں — یہ اسٹریٹجی صبر اور توجہ کا مطالبہ کرتی ہے۔ ہمیں صرف بہترین مواقع تلاش کرنے چاہئیں، نہ کہ ہر سطح پر اندراج کرنا چاہئیں۔</p>
+
+    <h2>اندراج (Entry) قواعد</h2>
+    <div class="info"><strong>خرید/بیچ کے قواعد:</strong><br>۱۔ ایک واضح سپورٹ یا ریزسٹنس سطح تلاش کریں جو کئی بار ٹکی ہو۔<br>۲۔ قیمت کے اس سطح پر پہنچنے کا انتظار کریں۔<br>۳۔ سطح پر پن بار یا انگلفنگ کینڈل کی تصدیق کریں۔<br>۴۔ RSI کی حد (70 اوپر / 30 نیچے) کی ہم آہنگی دیکھیں۔<br>۵۔ تصدیق کرنے والی کینڈل کے ساتھ اندراج کریں، اسٹاپ سطح کے قریب۔</div>
+    <div class="formula">اسٹاپ لاس = سطح کے قریب (معمولی بفر)<br>ٹیک پرافٹ = آئندہ کے اہم سطح یا 1:3 رسک ریوارڈ</div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+    <p>اخراج کا فیصلہ دو عوامل سے ہوتا ہے — ہدف یا اسٹاپ لاس کی پہنچنا۔ ہدف کو عام طور پر اگلے اہم ریزسٹنس یا کم از کم 1:3 رسک ریوارڈ پر رکھا جاتا ہے۔ جب قیمت ہدف تک پہنچے تو ہم منافع محفوظ کر لیتے ہیں۔ اگر قیمت اسٹاپ لاس کے پار بند ہو جائے تو یعنی ہماری سطح غلط تھی اور ہم فوراً نکل جاتے ہیں۔</p>
+    <p>چونکہ اس اسٹریٹجی میں ہدف بہت دور ہوتا ہے، اس لیے کچھ تاجر پوزیشن کو دو حصوں میں تقسیم کرتے ہیں — پہلا حصہ پہلے اہم سطح پر بند کرتے ہیں اور دوسرا حصہ بڑے ہدف تک لے جاتے ہیں۔ یہ انداز کچھ منافع جلد محفوظ کرتے ہوئے بڑے منافع کا موقع بھی فراہم کرتا ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ سطح جتنی بار ٹکی ہو، اتنی ہی مضبوط ہوتی ہے — کم از کم دو بار ٹکنا ضروری سمجھیں۔</p>
+    <p>۲۔ پن بار بغیر سطح کے کمزور ہوتا ہے، لیکن سطح کے ساتھ انتہائی مؤثر ہو جاتا ہے۔</p>
+    <p>۳۔ ہر سطح پر اندراج نہ کرو — صبر کرو اور صرف بہترین مواقع منتخب کرو۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر تین سطحیں تلاش کریں جو کئی بار ٹکی تھیں اور ان پر قیمت کے ردعمل نوٹ کریں۔</p>
+    <p>۲۔ RSI کے ساتھ پن بار کا ملاپ تلاش کریں — کس جگہ اندراج بہترین تھا؟</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter3.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter5.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

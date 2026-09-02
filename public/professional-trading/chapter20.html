@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق 20 — کارکردگی میٹرکس</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0f1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #e0a800; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0f1a2e; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #1b2b4a; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #1b2b4a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #e0a800; }
+        .formula { background: #1e3050; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter21.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق 20: کارکردگی میٹرکس</h1>
+
+    <p>جب آپ نے اپنی حکمت عملی کو بیک ٹیسٹ کیا، فارورڈ ٹیسٹ کیا اور اس میں اصلاح کی، تب آپ کو ایک سوال کے قابل جواب کی ضرورت ہوتی ہے: «میری کارکردگی اصل میں کتنی اچھی ہے؟» اس سوال کا جواب ہے «کارکردگی میٹرکس» — یہ وہ اعداد ہیں جو آپ کے عمل کو نمونے کے طور پر، بغیر کسی جذباتی تعصب کے بیان کرتے ہیں۔ یہ میٹرکس آپ کی رہنمائی کرتے ہیں کہ آپ کی حکمت عملی کہاں مضبوط ہے اور کہاں کمزور۔</p>
+
+    <p>مہترین کارکردگی کے میٹرکس میں سب سے اہم وہ ہیں: «جیت کی شرح» (win rate)، «منافع کا تناسب» (profit factor)، «متوقعہ» (expectancy)، «مکمل نقصان» (drawdown)، اور «شارپ تناسب» (Sharpe ratio)۔ جیت کی شرح یہ بتاتی ہے کہ آپ کے ٹریڈز میں کتنے فیصد منافع میں ختم ہوئے۔ منافع کا تناسب یہ بتاتا ہے کہ آپ کے کل منافع اور کل نقصان کا تناسب کتنا ہے — جیسے کہ 2.0 کا مطلب ہے کہ آپ ہر 1 روپے کے نقصان کے مقابلے میں 2 روپے کما رہے ہیں۔ متوقعہ یہ بتاتا ہے کہ آپ اوسطاً ہر ٹریڈ سے کتنے پیسے (مثبت یا منفی) کی توقع رکھتے ہیں۔</p>
+
+    <p>کارکردگی میٹرکس کو پڑھنا سیکھنا بہت ضروری ہے۔ ایک مثالی حکمت عملی عام طور پر 40 سے 60 فیصد جیت کی شرح رکھتی ہے اور اس کا منافع کا تناسب 1.5 سے اوپر ہوتا ہے۔ لیکن یہ اعداد اکیلے نہیں بولتے — انہیں ایک ساتھ دیکھنا ضروری ہے۔ مثال کے طور پر، 60 فیصد جیت کی شرح بہت اچھی ہے، لیکن اگر آپ کا منافع کا تناسب 1.0 سے کم ہے تو آپ پھر بھی نقصان اٹھا رہے ہوں گے۔ اسی طرح، ایک بہت زیادہ جیت کی شرح لیکن کم منافع کا تناسب ایک اچھی حکمت عملی نہیں ہوسکتی۔</p>
+
+    <p>«مکمل نقصان» (max drawdown) اور «شارپ تناسب» کا تجزیہ کرنا آپ کے خطرے کو سمجھنے کے لیے ضروری ہے۔ مکمل نقصان بتاتا ہے کہ آپ کے اکاؤنٹ کی تین سے چار چوٹی اور قعر کے درمیان کتni بڑی کمی آئی ہے، جبکہ شارپ تناسب بتاتا ہے کہ آپ کے منافع کی شرح آپ کے جھٹکے کے مقابلے میں کتنی مستحکم ہے۔ بہت زیادہ مکمل نقصان آپ کے اعتماد اور سرمایے کو تباہ کر سکتا ہے، اس لیے اسے سمجھنا اور محدود کرنا بہت ضروری ہے۔</p>
+
+    <p>آخر میں، ان میٹرکس کو اپنی حکمت عملی کو بہتر بنانے کے لیے استعمال کریں۔ اگر آپ کی متوقعہ (expectancy) منفی ہے تو آپ کی حکمت عملی میں نمایاں نقص ہے، جسے آپ کو ٹھیک کرنا چاہیے۔ اگر مکمل نقصان بہت زیادہ ہے تو آپ کا رسک انتظام کمزور ہے۔ اگر جیت کی شرح بہت کم ہے تو آپ کو اپنی حکمت عملی کی موروثی کمزوری کی نشاندہی کرنی چاہیے۔ ہر میٹرکس ایک مختلف سوال کا جواب دیتا ہے، اور یہ ساتھ مل کر آپ کو ایک روشن تصویر دیتے ہیں۔ یاد رکھیں، ان میٹرکس کا مقصد آپ کو حوصلہ دینا یا پریشان کرنا نہیں، بلکہ آپ کو سچ بتانا ہے۔</p>
+
+    <div class="info">
+        <strong>یاد رکھیں:</strong> کارکردگی میٹرکس بے حس اعداد نہیں، بلکہ آپ کے لیے ایک ایماندار استاد ہیں۔ انہیں پڑھیں، انہیں سمجھیں، اور اپنی حکمت عملی ان کی روشنی میں بہتر بنائیں۔
+    </div>
+
+    <div class="formula">
+        <strong>متوقعہ (Expectancy) = (جیت کی شرح × اوسط منافع) − (نقصان کی شرح × اوسط نقصان)</strong>
+        <br><span style="color:#38bdf8">مثبت متوقعہ = کامیابی، منفی متوقعہ = اصلاح کی ضرورت</span>
+    </div>
+
+    <div class="formula">
+        <strong>منافع کا تناسب (Profit Factor) = کل منافع ÷ کل نقصان</strong>
+        <br><span style="color:#38bdf8">1.5 سے اوپر = بہترین، 1.0 سے کم = نقصان</span>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <text x="400" y="36" text-anchor="middle" font-size="26" fill="#e0a800" font-weight="bold">کارکردگی ڈیش بورڈ</text>
+            <rect x="50" y="70" width="180" height="70" rx="10" fill="#1b2b4a" stroke="#38bdf8" stroke-width="2"/>
+            <text x="140" y="106" text-anchor="middle" font-size="20" fill="#eee">جیت کی شرح</text>
+            <rect x="260" y="70" width="180" height="70" rx="10" fill="#1b2b4a" stroke="#e0a800" stroke-width="2"/>
+            <text x="350" y="106" text-anchor="middle" font-size="20" fill="#eee">منافع کا تناسب</text>
+            <rect x="470" y="70" width="180" height="70" rx="10" fill="#1b2b4a" stroke="#22c55e" stroke-width="2"/>
+            <text x="560" y="106" text-anchor="middle" font-size="20" fill="#eee">متوقعہ</text>
+            <rect x="200" y="180" width="180" height="70" rx="10" fill="#1b2b4a" stroke="#ef4444" stroke-width="2"/>
+            <text x="290" y="216" text-anchor="middle" font-size="20" fill="#eee">مکمل نقصان</text>
+            <rect x="420" y="180" width="180" height="70" rx="10" fill="#1b2b4a" stroke="#38bdf8" stroke-width="2"/>
+            <text x="510" y="216" text-anchor="middle" font-size="20" fill="#eee">شارپ تناسب</text>
+            <defs>
+                <marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#38bdf8"/></marker>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ جیت کی شرح یہ بتاتی ہے کہ آپ کے ٹریڈز میں کتنے فیصد منافع میں ختم ہوئے۔</p>
+    <p>۲۔ منافع کا تناسب (Profit Factor) کل منافع اور کل نقصان کا تناسب ہے؛ 1.0 سے اوپر منافع، 1.5 سے اوپر بہترین۔</p>
+    <p>۳۔ متوقعہ (Expectancy) آپ کو بتاتا ہے کہ اوسطاً ہر ٹریڈ سے آپ کتنا کما/کھو سکتے ہیں۔</p>
+    <p>۴۔ مکمل نقصان (Max Drawdown) رسک کی حد بتاتا ہے جسے آپ کو سمجھنا اور محدود کرنا چاہیے۔</p>
+    <p>۵۔ شارپ تناسب آپ کے منافع کی مستحکمی کو جھٹکے کے مقابلے میں ماپتا ہے۔</p>
+    <p>۶۔ ان میٹرکس کو اپنی حکمت عملی اور رسک انتظام کو بہتر بنانے کے لیے استعمال کریں، نہ کہ خود کو حوصلہ دینے کے لیے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ اپنے پچھلے 30 ٹریڈز کا کارکردگی تجزیہ تیار کریں: جیت کی شرح، منافع کا تناسب، متوقعہ، مکمل نقصان۔</p>
+    <p>۲۔ اپنے اکاؤنٹ کے مکمل نقصان کا حساب لگائیں اور یہ معلوم کریں کہ کیا یہ آپ کی رسک برداشت کی حد میں ہے۔</p>
+    <p>۳۔ اپنے اعداد کا ایک ڈیش بورڈ بنائیں (کاغذ یا سافٹ ویئر پر) اور اگلے مہینے اسے ہفتہ وار اپ ڈیٹ کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter21.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پیشہ ورانہ ٹریڈنگ سسٹم</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

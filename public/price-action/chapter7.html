@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۷ — آرڈر بلاکس (سمارٹ منی)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1117; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #facc15; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0d1117; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #161b22; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #161b22; border-right: 5px solid #facc15; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #facc15; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter6.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter8.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۷: آرڈر بلاکس (سمارٹ منی)</h1>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- down candles into order block -->
+            <g>
+                <rect x="80" y="220" width="20" height="60" fill="#ef4444"/>
+                <rect x="120" y="230" width="20" height="70" fill="#ef4444"/>
+                <rect x="160" y="225" width="20" height="65" fill="#ef4444"/>
+                <text x="140" y="220" fill="#ef4444" font-size="15" font-family="sans-serif" text-anchor="middle">آرڈر بلاک (Order Block)</text>
+            </g>
+            <!-- order block zone box -->
+            <rect x="70" y="225" width="130" height="90" fill="rgba(239,68,68,0.12)" stroke="#facc15" stroke-width="2" rx="6"/>
+            <!-- last down candle (the one before up move) -->
+            <rect x="160" y="225" width="20" height="65" fill="none" stroke="#facc15" stroke-width="2.5"/>
+            <text x="175" y="355" fill="#facc15" font-size="14" font-family="sans-serif" text-anchor="middle">آخری نیچی کینڈل</text>
+            <!-- then up impulse -->
+            <path d="M180,200 Q260,140 340,110 L440,90" fill="none" stroke="#22c55e" stroke-width="3"/>
+            <text x="300" y="70" fill="#4ade80" font-size="18" font-family="sans-serif" text-anchor="middle">اوپر کا جھٹکا (Impulse)</text>
+            <!-- return to order block (mitigation) -->
+            <path d="M440,90 Q380,140 340,200 L250,240" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="5,5"/>
+            <circle cx="250" cy="245" r="7" fill="#22c55e"/>
+            <text x="250" y="285" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">واپسی → خرید کا موقع</text>
+            <line x1="230" y1="255" x2="200" y2="255" stroke="#22c55e" stroke-width="2" marker-end="url(#arzo)" opacity="0"/>
+            <defs><marker id="arzo" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#22c55e"/></marker></defs>
+        </svg>
+    </div>
+
+    <p>آرڈر بلاک (Order Block) وہ خاص کینڈل ہے جہاں بڑے ہاتھوں (سمارٹ منی) نے اپنی بڑی پوزیشن قائم کی تھی۔ یہ وہ مقام ہے جہاں سے قیمت نے تیز اور طویل حرکت شروع کی تھی۔ سادہ الفاظ میں، ایک خرید وارڈر بلاک وہ آخری نیچی کینڈل ہے جو ایک بڑی اوپر والی حرکت سے پہلے آتی ہے؛ اور ایک بیچ ارڈر بلاک وہ آخری اوپر والی کینڈل ہے جو بڑی نیچی حرکت سے پہلے آتی ہے۔ جب قیمت دوبارہ آکر اس جگہ کو چھوتی ہے، تو وہی بھاری ہاتھ پھر سے تاجری کرتے ہیں۔</p>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- up candles into sell order block -->
+            <g>
+                <rect x="180" y="160" width="20" height="70" fill="#22c55e"/>
+                <rect x="220" y="150" width="20" height="70" fill="#22c55e"/>
+                <rect x="260" y="155" width="20" height="65" fill="#22c55e"/>
+            </g>
+            <rect x="170" y="145" width="130" height="90" fill="rgba(34,197,94,0.12)" stroke="#facc15" stroke-width="2" rx="6"/>
+            <text x="235" y="270" fill="#facc15" font-size="15" font-family="sans-serif" text-anchor="middle">آرڈر بلاک (بلعند)</text>
+            <text x="235" y="130" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">آخری اوپر والی کینڈل</text>
+            <!-- down impulse -->
+            <path d="M280,180 Q340,260 420,320 L520,360" fill="none" stroke="#ef4444" stroke-width="3"/>
+            <text x="420" y="110" fill="#f87171" font-size="17" font-family="sans-serif" text-anchor="middle">نیچے کا جھٹکا (Impulse)</text>
+            <!-- return up to OB (mitigation) -->
+            <path d="M520,360 Q460,300 400,240 L320,200" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,5"/>
+            <circle cx="320" cy="205" r="7" fill="#ef4444"/>
+            <text x="330" y="180" fill="#ef4444" font-size="15" font-family="sans-serif" text-anchor="middle">واپسی → بیع کا موقع</text>
+        </svg>
+    </div>
+
+    <p>آرڈر بلاک کی شناخت کے لیے: بڑی امپلس حرکت تلاش کریں، پھر اس حرکت سے پہلے کی آخری کینڈل کو نشان زد کریں۔ اگر موٹر ابتدائی میں حرکت اوپر گئی تو آخری نیچی کینڈل خرید آرڈر بلاک ہے، اور اگر نیچے گئی تو آخری اوپر والی کینڈل بیع آرڈر بلاک ہے۔ اہم بات: آرڈر بلاک کے آغاز (کینڈل کھلنے) کو عین اپنی جگہ پر رکھیں — وہی وہ قیمت ہے جہاں بڑے ہاتھوں نے بھاری پوزیشن لگائی تھی۔</p>
+
+    <div class="info">
+        <strong>مائٹیگیشن اور بریکر بلاک:</strong> جب قیمت آرڈر بلاک کا 50 فیصد حصہ ٹھیک کر لیتی ہے تو اسے "مائٹیگیشن" (Mitigation) کہتے ہیں۔ اگر قیمت آرڈر بلاک کو مکمل طور پر توڑ کر اس سے گزر جائے، تو وہ "بریکر بلاک" (Breaker Block) بن جاتا ہے — یعنی اس کا کردار الٹ جاتا ہے، وہی اب الٹ سمت کا آرڈر بلاک ہے۔
+    </div>
+
+    <p>آرڈر بلاک کو تنہا استعمال نہیں کرنا چاہیے۔ یہ اس وقت بہت مضبوط ہوتا ہے جب وہ بڑی سمت (سٹرکچر) کے مطابق ہو، کسی واضح زون یا لیکویڈیٹی سویپ کے ساتھ ملے، اور وہاں کینڈل کی تصدیق ہو۔ جب قیمت کسی مضبوط آرڈر بلاک پر واپس آئے اور الٹ رد عمل دکھائے، تو یہ بہترین سیٹ اپ بنتا ہے۔ آرڈر بلاک کو "سمارٹ منی" کہا جاتا ہے کیونکہ یہ بڑے کھلاڑیوں کے نقش ہیں، اور ان کو پڑھنا ہی کامیاب تاجر کی پہچان ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ آرڈر بلاک = بڑی حرکت سے پہلے کی آخری کینڈل۔</p>
+    <p>۲۔ خرید آرڈر بلاک = اوپر والی حرکت سے پہلے کی آخری نیچی کینڈل۔</p>
+    <p>۳۔ بیع آرڈر بلاک = نیچے والی حرکت سے پہلے کی آخری اوپر والی کینڈل۔</p>
+    <p>۴۔ مائٹیگیشن 50 فیصد ہے؛ بریکر بلاک کردار کا الٹا۔</p>
+    <p>۵۔ آرڈر بلاک کو سٹرکچر، زون اور تصدیق کے ساتھ ملائیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر ایک خرید اور ایک بیع آرڈر بلاک کی نشاندہی کریں۔</p>
+    <p>۲۔ آرڈر بلاک سے نکلنے والی امپلس حرکت کو نشان زد کریں۔</p>
+    <p>۳۔ ایک مائٹیگیشن اور ایک بریکر بلاک کی مثال تلاش کریں۔</p>
+    <p>۴۔ آرڈر بلاک کو سٹرکچر اور زون کے ساتھ ملانے کی مشق کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter6.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter8.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پرائس ایکشن اور مارکیٹ اسٹرکچر</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>
