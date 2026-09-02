@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۳ — سپورٹ اور ریزسٹنس زون</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1117; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #facc15; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0d1117; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #161b22; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #161b22; border-right: 5px solid #facc15; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #facc15; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter4.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۳: سپورٹ اور ریزسٹنس زون</h1>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- Support zone band -->
+            <rect x="40" y="250" width="560" height="55" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="2" rx="6"/>
+            <text x="320" y="235" fill="#22c55e" font-size="18" font-family="sans-serif" text-anchor="middle">سپورٹ زون (Support)</text>
+            <!-- price bouncing up from support -->
+            <path d="M80,300 L130,290 L170,300 L220,285 L260,300 L320,270 L380,285 L440,240 L520,200" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="80" cy="300" r="6" fill="#22c55e"/>
+            <circle cx="170" cy="300" r="6" fill="#22c55e"/>
+            <circle cx="260" cy="300" r="6" fill="#22c55e"/>
+            <circle cx="320" cy="270" r="6" fill="#22c55e"/>
+            <!-- radius of reactivity -->
+            <path d="M60,300 L500,300" stroke="#facc15" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.6"/>
+            <text x="560" y="135" fill="#facc15" font-size="16" font-family="sans-serif">لکیر نہیں، زون</text>
+        </svg>
+    </div>
+
+    <p>بہت سے تاجر سپورٹ اور ریزسٹنس کو ایک پتلی لکیر کی طرح دیکھتے ہیں، لیکن حقیقت یہ ہے کہ قیمت ایک عین لکیر پر نہیں رکتی۔ قیمت ایک خاص علاقے میں رد عمل دکھاتی ہے، اس لیے ہم لکیر کی بجائے زون (Zone) استعمال کرتے ہیں۔ زون کو ایک کمرے کی طرح سمجھیں — یہ اتنا چوڑا ہوتا ہے کہ کئی کینڈلیں اس کے اندر جمع ہو سکیں۔ زون کی چوڑائی سے ہمیں پتہ چلتا ہے کہ انتظار کہاں کرنا ہے، اور یہ ہمیں غلط اندراج (false entry) سے بچاتا ہے۔</p>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- resistance zone at top -->
+            <rect x="40" y="130" width="300" height="50" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="2" rx="6"/>
+            <text x="190" y="125" fill="#ef4444" font-size="16" font-family="sans-serif" text-anchor="middle">پہلے ریزسٹنس</text>
+            <!-- price up -->
+            <path d="M60,360 L120,330 L160,360 L200,300 L240,330 L280,250 L330,230 L360,155" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <!-- break -->
+            <!-- now support role reversal on right side -->
+            <rect x="360" y="130" width="240" height="50" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="2" rx="6"/>
+            <text x="480" y="125" fill="#22c55e" font-size="16" font-family="sans-serif" text-anchor="middle">اب سپورٹ (Role Reversal)</text>
+            <text x="490" y="65" fill="#facc15" font-size="18" font-family="sans-serif" text-anchor="middle">بریک آؤٹ — سابقہ ریزسٹنس اب سپورٹ</text>
+            <!-- price retest at new support -->
+            <path d="M360,155 L420,190 L470,175 L520,230 L600,200" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="420" cy="190" r="6" fill="#22c55e"/>
+            <circle cx="470" cy="175" r="6" fill="#22c55e"/>
+            <!-- arrow -->
+            <path d="M340,240 L360,155" stroke="#facc15" stroke-width="2.5" marker-end="url(#arrb)"/>
+            <defs><marker id="arrb" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#facc15"/></marker></defs>
+        </svg>
+    </div>
+
+    <p>سپورٹ اور ریزسٹنس کی سب سے قیمتی خصوصیت "کردار کی تبدیلی" (Role Reversal) ہے۔ جب قیمت کسی ریزسٹنس کو توڑ کر اوپر چڑھتی ہے، تو وہی علاقہ بعد میں سپورٹ بن جاتا ہے۔ اسے اکثر "حکمِ بیشک" یا "بہار کی تبدیلی" کہا جاتا ہے۔ اسی طرح جب سپورٹ ٹوٹ کر نیچے جاتی ہے، تو وہ ریزسٹنس بن جاتا ہے۔ یہ تبدیلی اس لیے ہوتی ہے کیونکہ جو لوگ پہلے وہاں فروخت کر رہے تھے، اب وہی جگہ پر خریداروں کی جماعت خود کو ظاہر کرتی ہے۔</p>
+
+    <h2>زون کی تعریف کیسے کریں</h2>
+    <p>ایک زون کی تعریف کرنے کے لیے اہم قیمتوں کی چھوٹی اور باریک کینڈلز (wicks) کو دیکھیں۔ زون کا اوپری اور نچلا کنارہ وہ باتیں (wicks) ہیں جو قیمت نے بنائیں۔ اگر کئی کینڈلیں ایک ہی علاقے میں رکتی ہیں اور رد عمل دکھاتی ہیں، تو وہ علاقہ مزید مضبوط ہوتا ہے۔ جتنی بار قیمت وہاں رد عمل دکھائے، زون اتنا ہی قابلِ اعتماد ہوتا ہے۔</p>
+
+    <div class="info">
+        <strong>مضبوط بمقابلہ کمزور زون:</strong> ایک مضبوط زون وہ ہوتا ہے جہاں قیمت کئی بار رد عمل دکھائے، جہاں لمبی وِکس اور بڑی کینڈلز بنی ہوں۔ کمزور زون وہ ہوتا ہے جہاں صرف ایک بار رد عمل ہوا ہو یا بہت کم رینج ہو۔ ہمیشہ مضبوط زون کی طرف دیکھیں اور ان میں انتظار کریں۔
+    </div>
+
+    <p>ان زونز کو تجارت میں استعمال کرنے کا طریقہ سادہ ہے: قیمت کے کسی مضبوط زون تک پہنچنے کا انتظار کریں، پھر کینڈل سٹک کی تصدیق (جیسے پن بار یا اینگلفنگ) کا انتظار کریں، اور پھر ہی اندراج کریں۔ زون کے اوپر یا نیچے اسٹاپ لاس رکھیں۔ زون خود اندراج کا ذریعہ نہیں بلکہ انتظار کا علاقہ ہے — اصل فیصلہ تصدیق سے آتا ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ زون کو لکیر نہیں بلکہ کسی علاقے کے طور پر دیکھیں۔</p>
+    <p>۲۔ زون کی تعریف وِکس اور اہم کینڈلز کے کناروں سے کریں۔</p>
+    <p>۳۔ کردار کی تبدیلی (Role Reversal) — ٹوٹا ہوا ریزسٹنس سپورٹ بن جاتا ہے۔</p>
+    <p>۴۔ مضبوط زون وہ ہے جہاں قیمت کئی بار رد عمل دکھائے۔</p>
+    <p>۵۔ زون صرف انتظار کا علاقہ ہے، فیصلہ کینڈل تصدیق سے ہیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر 2 سپورٹ اور 2 ریزسٹنس زون کی تعریف کریں۔</p>
+    <p>۲۔ ایک زون میں قیمت کے رد عمل کو نشان زد کریں (کٹر برعکس وِکس)۔</p>
+    <p>۳۔ کردار کی تبدیلی کی ایک مثال (سابقہ ریزسٹنس = اب سپورٹ) تلاش کریں۔</p>
+    <p>۴۔ دیکھیں کہ کون سے زون مضبوط ہیں اور کن میں ناکامی ہوئی۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter2.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter4.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پرائس ایکشن اور مارکیٹ اسٹرکچر</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۶ — لیکویڈیٹی اور اسٹاپ ہنٹ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1117; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #facc15; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0d1117; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #161b22; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #161b22; border-right: 5px solid #facc15; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #facc15; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter7.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۶: لیکویڈیٹی اور اسٹاپ ہنٹ</h1>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- equal lows (sell-side liquidity) -->
+            <rect x="60" y="200" width="24" height="130" fill="#ef4444"/>
+            <rect x="130" y="200" width="24" height="130" fill="#ef4444"/>
+            <rect x="60" y="200" width="24" height="130" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+            <rect x="130" y="200" width="24" height="130" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="50" y1="327" x2="170" y2="327" stroke="#ef4444" stroke-width="2.5"/>
+            <text x="110" y="350" fill="#ef4444" font-size="15" font-family="sans-serif" text-anchor="middle">برابر نیچائیاں (Equal Lows)</text>
+            <text x="110" y="180" fill="#facc15" font-size="16" font-family="sans-serif" text-anchor="middle">سیل سائیڈ لیکویڈیٹی (استاپ)</text>
+            <!-- sweep down below lows then reversal up -->
+            <path d="M170,300 Q210,340 250,360 L320,345" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="250" cy="360" r="5" fill="#facc15"/>
+            <path d="M320,345 Q420,330 500,240 L560,180" fill="none" stroke="#22c55e" stroke-width="3"/>
+            <text x="330" y="110" fill="#f87171" font-size="18" font-family="sans-serif" text-anchor="middle">لیکویڈیٹی سویپ (Stop Hunt)</text>
+            <defs><marker id="arrl" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#22c55e"/></marker></defs>
+        </svg>
+    </div>
+
+    <p>لیکویڈیٹی (Liquidity) مارکیٹ کی وہ چیزیں ہیں جو کسی سطح کے نیچے یا اوپر جمع ہوتی ہیں — بنیادی طور پر وہ اسٹاپ لاسز جو چھوٹے تاجروں نے رکھے ہیں۔ جب بہت سے تاجر ایک ہی جگہ اپنا اسٹاپ رکھتے ہیں — مثلاً برابر نیچائیوں کے صرف نیچے — تو وہاں ایک بہت بڑا "لیکویڈیٹی پول" بن جاتا ہے۔ بڑے ہاتھ (سمارٹ منی) جان بوجھ کر قیمت کو اس جگہ تک دھکیلتے ہیں تاکہ وہ اسٹاپس چالو ہوں اور انھیں سستے یا مہنگے قیمت پر اپنی پوزیشن لینے کا موقع ملے۔</p>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- buy-side liquidity at equal highs (top) -->
+            <rect x="80" y="120" width="26" height="110" fill="#22c55e"/>
+            <rect x="150" y="120" width="26" height="110" fill="#22c55e"/>
+            <line x1="70" y1="122" x2="190" y2="122" stroke="#22c55e" stroke-width="2.5"/>
+            <text x="130" y="105" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">برابر اونچائیاں (Equal Highs)</text>
+            <text x="130" y="60" fill="#facc15" font-size="15" font-family="sans-serif" text-anchor="middle">بائے سائیڈ لیکویڈیٹی</text>
+            <!-- price rising, sweep above then reversal down -->
+            <path d="M40,300 Q120,280 180,240 L230,150" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="230" cy="150" r="5" fill="#facc15"/>
+            <path d="M230,150 Q280,150 340,220 L380,300" fill="none" stroke="#ef4444" stroke-width="3"/>
+            <text x="310" y="100" fill="#f87171" font-size="17" font-family="sans-serif" text-anchor="middle">اوپر سویپ → نیچے سرک (شارٹ)</text>
+            <!-- avoid being hunted: place stop properly -->
+            <line x1="400" y1="350" x2="590" y2="350" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <text x="500" y="395" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">اسٹاپ کو واضح سطح سے آگے رکھیں</text>
+        </svg>
+    </div>
+
+    <p>بائے سائیڈ لیکویڈیٹی (Buy-side liquidity) برابر اونچائیوں کے اوپر بنتی ہے، جہاں شارٹ کرنے والوں کے اسٹاپ لگے ہوتے ہیں۔ سیل سائیڈ لیکویڈیٹی (Sell-side liquidity) برابر نیچائیوں کے نیچے بنتی ہے، جہاں لانگ کرنے والوں کے اسٹاپ لگے ہوتے ہیں۔ بڑی مارکیٹ اکثر پہلے ان اسٹاپس کو چھو لیتی ہے، اور پھر اصل سمت میں چالیں چلتی ہیں۔ اس لیے ہم اکثر دیکھتے ہیں کہ قیمت اچھی سطح سے پہلے ایک چھوٹی چال چلتی ہے — یہی ایک "سویپ" ہے۔</p>
+
+    <div class="info">
+        <strong>خود شکار بننے سے بچیں:</strong> اپنا اسٹاپ لاس کبھی بھی عین بلحاظ واضح سطح (برابر اونچائی/نیچائی) پر نہ رکھیں، ورنہ مارکیٹ آپ کو بھی شکار بنانے کے لیے اس جگہ چھو آئے گی۔ اسٹاپ کو ایسے مقام پر رکھیں جو غیر واضح ہو، اور بہتر ہے کہ کینڈل کی تصدیق تک انتظار کریں (اسے "Confirm" کہتے ہیں) — تاکہ جھوٹے بریک کے بعد قیمت اصل سمت میں جائے۔
+    </div>
+
+    <p>لیکویڈیٹی سویپ کو تجارت میں تبدیل کرنے کے لیے: کسی واضح برابر اونچائی یا نیچائی کی نشاندہی کریں، قیمت کے اس جگہ قصیدہ ٹوٹ کر جانے (sweep) کا انتظار کریں، اور پھر ایک مضبوط الٹ کینڈل (جیسے پن بار) کے بعد اصل سمت میں داخل ہوں۔ ایک ہنرمند تاجر اس "چال" کو پڑھتا ہے اور سویپ کے بعد الٹ جواب کی طرف چلتا ہے، حوا کی بھیڑ کے ساتھ شکار نہیں ہوتا۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ لیکویڈیٹی = اسٹاپس کا جمع ہونا (سویپ اور کوانٹس کا ذریعہ)۔</p>
+    <p>۲۔ بائے سائیڈ = برابر اونچائیوں کے اوپر؛ سیل سائیڈ = برابر نیچائیوں کے نیچے۔</p>
+    <p>۳۔ اسٹاپ ہنٹ بڑے ہاتھوں کی تصوراتی چال ہے، اصل سمت کی تیاری۔</p>
+    <p>۴۔ اپنا اسٹاپ واضح سطح پر نہ رکھیں — خود شکار نہ بنیں۔</p>
+    <p>۵۔ سویپ کے بعد الٹ کینڈل کی تصدیق کے بعد داخل ہوں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر برابر نیچائیوں اور اونچائیوں کی 2 مثالیں تلاش کریں۔</p>
+    <p>۲۔ ایک لیکویڈیٹی سویپ کا مشاہدہ کریں اور اس کے بعد کی حرکت نوٹ کریں۔</p>
+    <p>۳۔ اپنے اسٹاپ کی جگہ کا اندازہ لگائیں کہ کیا آپ شکار بن سکتے ہیں۔</p>
+    <p>۴۔ سویپ کے بعد الٹ کینڈل کی تصدیق کا ایک اندراج پریکٹس کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter7.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پرائس ایکشن اور مارکیٹ اسٹرکچر</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

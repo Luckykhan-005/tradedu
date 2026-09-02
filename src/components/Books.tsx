@@ -14,6 +14,8 @@ import {
   ShieldCheck,
   TrendingUp,
   BookMarked,
+  Target,
+  Trophy,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -136,6 +138,48 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: './glossary-book/index.html',
     tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
+  },
+  {
+    id: 'price-action',
+    title: 'Price Action & Market Structure',
+    titleUrdu: 'پرائس ایکشن اور مارکیٹ اسٹرکچر',
+    description:
+      'Professional chart reading in Urdu. Learn market structure, candlestick price action, supply & demand zones, break & retest, liquidity, order blocks, and a complete price action strategy.',
+    chapters: 8,
+    pages: '8 lessons',
+    icon: CandlestickChart,
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50',
+    href: './price-action/index.html',
+    tags: ['Urdu', 'Professional', 'Smart Money'],
+  },
+  {
+    id: 'trading-strategies',
+    title: 'Trading Strategies & Setups',
+    titleUrdu: 'ٹریڈنگ اسٹریٹجیز اور سیٹ اپس',
+    description:
+      'Practical entry/exit systems in Urdu. Learn trend following, breakout, reversal, sniper, pullback, scalping, swing, supply & demand, and risk-reward strategies with clear rules.',
+    chapters: 10,
+    pages: '10 strategies',
+    icon: Target,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: './trading-strategies/index.html',
+    tags: ['Urdu', 'Practical', 'Entry/Exit Systems'],
+  },
+  {
+    id: 'professional-trading',
+    title: 'Professional Trading System',
+    titleUrdu: 'پیشہ ورانہ ٹریڈنگ سسٹم',
+    description:
+      'The complete professional trading system in Urdu — 28 lessons covering trading plan, rules, models, routines, journaling, backtesting, performance metrics, and the professional checklist.',
+    chapters: 28,
+    pages: '6 sections',
+    icon: Trophy,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: './professional-trading/index.html',
+    tags: ['Urdu', 'Professional', 'Complete System'],
   },
   {
     id: 'technical-analysis',
