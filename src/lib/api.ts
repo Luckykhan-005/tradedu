@@ -1,3 +1,7 @@
-const api = (path: string) => `/api${path}`
+const api = (path: string) => {
+  // Avoid double /api prefix
+  const clean = path.startsWith('/api') ? path : `/api${path}`
+  return clean
+}
 
 export { api }
