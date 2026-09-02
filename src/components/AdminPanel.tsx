@@ -369,7 +369,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     )
   }
 
-  const adminHeaders = { 'x-admin-token': user?.adminToken || '' }
+  const getToken = () => user?.adminToken || ''
 
   const [courses, setCourses] = useState<AdminCourse[]>([])
   const [sessions, setSessions] = useState<AdminSession[]>([])
@@ -394,11 +394,13 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     if (!user?.adminToken) return
     setLoading(true)
     try {
+      const token = getToken()
+      const headers = { 'x-admin-token': token }
       const [coursesRes, sessionsRes, statsRes, subsRes] = await Promise.all([
-        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
+        fetch(api('/api/admin/courses'), { headers }),
         fetch(api('/api/dashboard')),
-        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
-        fetch(api('/api/admin/subscriptions'), { headers: adminHeaders }).catch(() => null),
+        fetch(api('/api/admin/stats'), { headers }),
+        fetch(api('/api/admin/subscriptions'), { headers }).catch(() => null),
       ])
       const coursesData = await coursesRes.json()
       const dashboardData = await sessionsRes.json()
@@ -423,7 +425,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [user?.adminToken])
 
   useEffect(() => { fetchData() }, [fetchData])
 
@@ -431,20 +433,30 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
   const handleSaveCourse = async (data: any) => {
     const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
     const method = editingCourse ? 'PATCH' : 'POST'
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
-    setShowCourseForm(false)
-    setEditingCourse(null)
-    const saved = await res.json()
-    await fetchData()
-    if (!editingCourse && saved?.id) {
-      setSelectedCourseId(saved.id)
-      setShowModuleInput(saved.id)
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json', 'x-admin-token': getToken() },
+        body: JSON.stringify(data),
+      })
+      const saved = await res.json()
+      setShowCourseForm(false)
+      setEditingCourse(null)
+      await fetchData()
+      // After creating a NEW course, auto-open module input
+      if (!editingCourse && saved?.id) {
+        setSelectedCourseId(saved.id)
+        setShowModuleInput(saved.id)
+        setActiveTab('courses')
+      }
+    } catch (err) {
+      console.error('Failed to save course:', err)
     }
   }
 
   const handleDeleteCourse = async (id: string) => {
     if (!confirm('Delete this course and all its modules/lessons?')) return
-    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
     if (selectedCourseId === id) setSelectedCourseId(null)
     fetchData()
   }
@@ -464,7 +476,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteModule = async (moduleId: string) => {
     if (!confirm('Delete this module and all its lessons?')) return
-    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
     fetchData()
   }
 
@@ -487,7 +499,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteLesson = async (lessonId: string) => {
     if (!confirm('Delete this lesson?')) return
-    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
     fetchData()
   }
 
@@ -503,7 +515,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteSession = async (id: string) => {
     if (!confirm('Delete this session?')) return
-    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: adminHeaders })
+    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
     fetchData()
   }
 
@@ -511,7 +523,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     if (!confirm(`Set this subscription to ${nextStatus === 'active' ? 'ACTIVE (green)' : 'INACTIVE (red)'}?`)) return
     await fetch(api(`/api/admin/subscriptions/${sub.id}`), {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json', ...adminHeaders },
+      headers: { 'Content-Type': 'application/json', 'x-admin-token': getToken() },
       body: JSON.stringify({ status: nextStatus }),
     })
     fetchData()
