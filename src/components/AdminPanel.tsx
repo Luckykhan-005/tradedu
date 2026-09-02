@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { api } from '@/lib/api'
 import {
   LayoutDashboard,
@@ -23,6 +23,7 @@ import {
   Shield,
   Sparkles,
   Power,
+  Upload,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -189,6 +190,14 @@ function LessonForm({
   const [duration, setDuration] = useState(initial?.duration || '')
   const [content, setContent] = useState(initial?.content || '')
 
+  const [uploading, setUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    try {
   return (
     <Card className="border-primary/20">
       <CardContent className="p-5 space-y-4">

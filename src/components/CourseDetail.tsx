@@ -47,6 +47,7 @@ interface CourseDetailProps {
   progress: Record<string, boolean>
   enrolled: boolean
   userPlan?: string
+  isAdmin?: boolean
   onBack: () => void
   onEnroll: () => void
   onToggleLesson: (lessonId: string) => void
@@ -64,6 +65,7 @@ export function CourseDetail({
   progress,
   enrolled,
   userPlan,
+  isAdmin,
   onBack,
   onEnroll,
   onToggleLesson,
@@ -74,9 +76,10 @@ export function CourseDetail({
   })
   const [activeLesson, setActiveLesson] = useState<LessonData | null>(null)
   const planRank = { FREE: 0, STARTER: 1, PREMIUM: 2 } as Record<string, number>
-  const userRank = planRank[userPlan] || 0
+  const userRank = planRank[userPlan || 'FREE'] || 0
 
   const canAccessLesson = (lesson: LessonData) => {
+    if (isAdmin) return true
     if (lesson.isFree) return true
     return userRank >= 1
   }

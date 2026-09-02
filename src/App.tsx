@@ -175,8 +175,9 @@ export default function App() {
   }
 
   // Build enrolled courses for dashboard
+  // Admin sees ALL courses as enrolled
   const enrolledCourses = courses
-    .filter((c) => enrolledCourseIds.has(c.id))
+    .filter((c) => user?.role === 'admin' || enrolledCourseIds.has(c.id))
     .map((c) => {
       const detail = selectedCourse?.id === c.id ? selectedCourse : null
       const totalLessons = detail
@@ -233,7 +234,9 @@ export default function App() {
           course={selectedCourse}
           modules={selectedCourse.modules}
           progress={lessonProgress[selectedCourse.id] || {}}
-          enrolled={enrolledCourseIds.has(selectedCourse.id)}
+          enrolled={user?.role === 'admin' || enrolledCourseIds.has(selectedCourse.id)}
+          userPlan={user?.role === 'admin' ? 'PREMIUM' : user?.plan}
+          isAdmin={user?.role === 'admin'}
           onBack={() => navigate('courses')}
           onEnroll={() => {
             if (!user) {
@@ -259,7 +262,7 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        user && user.plan === 'PREMIUM' ? (
+        user && (user.plan === 'PREMIUM' || user.role === 'admin') ? (
           <LiveSessions sessions={sessions} loading={loading} />
         ) : (
           <PlanGate
@@ -272,7 +275,7 @@ export default function App() {
       )}
 
       {currentPage === 'ai-tools' && (
-        user && user.plan === 'PREMIUM' ? (
+        user && (user.plan === 'PREMIUM' || user.role === 'admin') ? (
           <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
         ) : (
           <PlanGate
@@ -301,7 +304,7 @@ export default function App() {
       )}
 
       {currentPage === 'certificates' && (
-        user && user.plan !== 'FREE' ? (
+        user && (user.plan !== 'FREE' || user.role === 'admin') ? (
           <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
         ) : (
           <PlanGate

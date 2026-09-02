@@ -966,6 +966,38 @@ app.get('/admin/stats', async (c) => {
   return c.json({ courseCount, lessonCount, studentCount, sessionCount })
 })
 
+// Admin: upload video file
+app.post('/admin/upload', async (c) => {
+  try {
+    const body = await c.req.parseBody()
+    const file = body['file']
+    if (!file || typeof file === 'string') {
+      return c.json({ error: 'No file provided' }, 400)
+    }
+
+    const ext = file.name?.split('.').pop() || 'mp4'
+    const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`
+    const uploadDir = './public/uploads'
+
+    // Ensure directory exists
+    const fs = await import('fs')
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true })
+    }
+
+    const filePath = `${uploadDir}/${filename}`
+    const arrayBuffer = await file.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
+    fs.writeFileSync(filePath, buffer)
+
+    const url = `/uploads/${filename}`
+    return c.json({ ok: true, url, filename })
+  } catch (err) {
+    console.error('Upload failed:', err)
+    return c.json({ error: 'Upload failed' }, 500)
+  }
+})
+
 // ========== TRADING JOURNAL ==========
 
 // Get journal entries for a user
