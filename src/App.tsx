@@ -14,6 +14,9 @@ import { RiskCalculator } from './components/RiskCalculator'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
 import { Certificates } from './components/Certificates'
+import { Pricing } from './components/Pricing'
+import { PlanGate } from './components/PlanGate'
+import { Subscribe } from './components/Subscribe'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -45,8 +48,9 @@ interface SessionData {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing')
-  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string } | null>(null)
+  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string } | null>(null)
   const [showAuth, setShowAuth] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<Set<string>>(new Set())
@@ -58,13 +62,15 @@ export default function App() {
   const fetchData = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await fetch(api('/api/seed'), { method: 'POST' })
-      await res.json()
+      // Try to seed data silently (may fail, that's okay)
+      try { await fetch(api('/api/seed'), { method: 'POST' }) } catch {}
 
-       const dashboardRes = await fetch(api('/api/dashboard'))
-      const dashboardData = await dashboardRes.json()
+      // Fetch courses from the courses list endpoint
+      const coursesRes = await fetch(api('/api/courses'))
+      const coursesData = await coursesRes.json()
+      const items = coursesData.items || []
 
-      const coursesList = (dashboardData.courses || []).map((c: any) => ({
+      const coursesList = items.map((c: any) => ({
         id: c.id,
         title: c.title,
         description: c.description,
@@ -77,6 +83,10 @@ export default function App() {
         moduleCount: c.modules?.length || 0,
       }))
       setCourses(coursesList)
+
+      // Dashboard data (sessions + stats)
+      const dashboardRes = await fetch(api('/api/dashboard'))
+      const dashboardData = await dashboardRes.json()
 
       const sessionsList = (dashboardData.sessions || []).map((s: any) => ({
         id: s.id,
@@ -249,15 +259,33 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        <LiveSessions sessions={sessions} loading={loading} />
+        user && user.plan === 'PREMIUM' ? (
+          <LiveSessions sessions={sessions} loading={loading} />
+        ) : (
+          <PlanGate
+            requiredPlan="PREMIUM"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
       )}
 
       {currentPage === 'ai-tools' && (
-        <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+        user && user.plan === 'PREMIUM' ? (
+          <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+        ) : (
+          <PlanGate
+            requiredPlan="PREMIUM"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
       )}
 
       {currentPage === 'books' && (
-        <Books onBack={() => navigate('dashboard')} />
+        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} />
       )}
 
       {currentPage === 'calculator' && (
@@ -273,7 +301,32 @@ export default function App() {
       )}
 
       {currentPage === 'certificates' && (
-        <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
+        user && user.plan !== 'FREE' ? (
+          <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
+        ) : (
+          <PlanGate
+            requiredPlan="STARTER"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
+      )}
+
+      {currentPage === 'pricing' && (
+        <Pricing
+          currentPlan={user?.plan || 'FREE'}
+          user={user}
+          onBack={() => navigate('dashboard')}
+          onSubscribe={(plan) => {
+            setSelectedPlan(plan)
+            navigate('subscribe')
+          }}
+        />
+      )}
+
+      {currentPage === 'subscribe' && (
+        <Subscribe user={user} onBack={() => navigate('pricing')} selectedPlan={selectedPlan} />
       )}
 
       {currentPage === 'admin' && (

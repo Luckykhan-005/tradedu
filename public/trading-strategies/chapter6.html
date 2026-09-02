@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی 6 — اسکیلپنگ سسٹم</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter7.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی 6: اسکیلپنگ سسٹم</h1>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="340" fill="#0b1220" rx="12"/>
+            <text x="400" y="40" fill="#38bdf8" font-size="20" text-anchor="middle">5 منٹ چارٹ — تیز اندراج اور اخراج</text>
+            <rect x="100" y="120" width="40" height="90" fill="#2563eb"/>
+            <line x1="120" y1="105" x2="120" y2="230" stroke="#ef4444" stroke-width="3"/>
+            <rect x="180" y="100" width="30" height="100" fill="#22c55e"/>
+            <line x1="195" y1="85" x2="195" y2="220" stroke="#22c55e" stroke-width="3"/>
+            <rect x="270" y="90" width="32" height="108" fill="#22c55e"/>
+            <line x1="286" y1="75" x2="286" y2="215" stroke="#22c55e" stroke-width="3"/>
+            <rect x="360" y="150" width="34" height="80" fill="#2563eb"/>
+            <line x1="377" y1="135" x2="377" y2="250" stroke="#ef4444" stroke-width="3"/>
+            <rect x="440" y="140" width="32" height="90" fill="#2563eb"/>
+            <line x1="456" y1="125" x2="456" y2="250" stroke="#ef4444" stroke-width="3"/>
+            <rect x="530" y="130" width="30" height="100" fill="#22c55e"/>
+            <line x1="545" y1="115" x2="545" y2="240" stroke="#22c55e" stroke-width="3"/>
+            <text x="115" y="260" fill="#22c55e" font-size="15" text-anchor="middle">اندراج 1</text>
+            <text x="195" y="260" fill="#22c55e" font-size="15" text-anchor="middle">اخراج</text>
+            <text x="283" y="260" fill="#22c55e" font-size="15" text-anchor="middle">اندراج 2</text>
+            <text x="375" y="280" fill="#ef4444" font-size="15" text-anchor="middle">اخراج</text>
+            <text x="456" y="280" fill="#ef4444" font-size="15" text-anchor="middle">اندراج 3</text>
+            <text x="545" y="270" fill="#22c55e" font-size="15" text-anchor="middle">اخراج</text>
+        </svg>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="280" fill="#0b1220" rx="12"/>
+            <text x="400" y="35" fill="#38bdf8" font-size="20" text-anchor="middle">چھوٹا اسٹاپ، چھوٹا ہدف</text>
+            <line x1="70" y1="200" x2="730" y2="200" stroke="#333" stroke-width="2"/>
+            <polyline points="80,200 130,180 180,200 230,160 280,200 330,175 380,200 430,160 480,200 530,170 580,200 630,150" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <line x1="180" y1="200" x2="180" y2="225" stroke="#ef4444" stroke-width="3"/>
+            <line x1="180" y1="200" x2="180" y2="160" stroke="#22c55e" stroke-width="3"/>
+            <text x="215" y="228" fill="#ef4444" font-size="15" text-anchor="start">اسٹاپ</text>
+            <text x="215" y="155" fill="#22c55e" font-size="15" text-anchor="start">ہدف</text>
+            <rect x="140" y="150" width="90" height="95" rx="8" fill="#132638" stroke="#22c55e" stroke-width="1"/>
+            <text x="185" y="205" fill="#22c55e" font-size="16" text-anchor="middle">چھوٹا رسک</text>
+        </svg>
+    </div>
+
+    <p>اسکیلپنگ ایک تیز رفتار سسٹم ہے جس کا مقصد چھوٹے اور فوری منافع حاصل کرنا ہے۔ یہ عام طور پر 1 سے 5 منٹ کے چارٹ استعمال کرتا ہے اور کسی کھیل کھیلنے یا دن کے اورپورٹیکر میں بہت سارے چھوٹے اندراج بناتا ہے۔ اسکیلپنگ میں ہم بڑے منافع کی توقع نہیں رکھتے، بلکہ کئی چھوٹے منافعوں کو جمع کرتے ہیں جو دن کے اختتام پر قابل ذکر رقم بن جاتی ہے۔ یہ سسٹم ان لوگوں کے لیے موزوں ہے جو اسکرین کے ساتھ زیادہ وقت گزارتے ہیں۔</p>
+
+    <p>اسکیلپنگ کی بنیاد تیز رفتار اور سخت نظم و ضبط پر ہے۔ چونکہ ہم چھوٹے منافع کی توقع رکھتے ہیں، اس لیے ہمیں بہت سارے اندراج کرنے پڑتے ہیں۔ ہر اندراج کا اسٹاپ لاس بہت چھوٹا ہوتا ہے اور اخراج بھی جلد ہوتا ہے۔ اگر قیمت ہماری سمت نہیں جاتی تو ہم فوراً نکل جاتے ہیں۔ اس سسٹم میں جذبات کو مکمل طور پر قابو میں رکھنا ضروری ہے، کیونکہ تیز حرکت میں ہچکچاہٹ بھاری نقصان کا سبب بن سکتی ہے۔</p>
+
+    <p>اسکیلپنگ کے لیے رجحان اور حجم کا تجزیہ ضروری ہے۔ ہم صرف ایسے وقت میں اندراج کرتے ہیں جب رجحان واضح ہو اور حجم کافی ہو۔ عام طور پر صبح کی پہلی گھنٹوں میں حجم سب سے زیادہ ہوتا ہے۔ حجم بڑھنے کے ساتھ قیمت کی حرکت تیز ہوتی ہے، جس سے اسکیلپنگ کے بہت بہتر مواقع پیدا ہوتے ہیں۔ ہم محض ان لمحات پر کام کرتے ہیں جب مارکیٹ تیزی سے حرکت کر رہی ہو۔</p>
+
+    <p>اسکیلپنگ میں سب سے بڑا خطرہ ہے کہ آپ جلد بازی میں نقصان اٹھا سکتے ہیں۔ یہی وجہ ہے کہ اس سسٹم میں سخت اصول ضروری ہیں — ہر اندراج سے پہلے ہدف اور اسٹاپ لاس کا تعین، اور ایک بار مقرر ہونے کے بعد انہیں تبدیل نہ کرنا۔ یہاں نظم و ضبط ہی سب سے اہم ہتھیار ہے۔ اگر آپ حکم اتباع نہیں کرتے تو یہ سسٹم آپ کے لیے نقصان دہ ہو سکتا ہے۔</p>
+
+    <h2>اندراج (Entry) قواعد</h2>
+    <div class="info"><strong>خرید/بیچ کے قواعد:</strong><br>۱۔ صرف 1-5 منٹ کے چارٹ استعمال کریں اور رجحان کی تصدیق کریں۔<br>۲۔ حجم بڑھتے وقت اندراج کریں (عام طور پر صبح کی پہلی گھنٹے)۔<br>۳۔ مضبوط حرکت کے ساتھ اندراج کریں — ہمیشہ ایک سمت کی سمت میں۔<br>۴۔ چھوٹا اسٹاپ لاس رکھیں اور چھوٹا ہدف بھی۔<br>۵۔ جب قیمت ہماری سمت نہ ہو تو فوراً باہر نکل جائیں۔</div>
+    <div class="formula">اسٹاپ لاس = اندراج سے چھوٹا فاصلہ (عام طور پر 5-10 پپس/ٹک)<br>ٹیک پرافٹ = اسٹاپ لاس سے 1-2 گنا (معمولی منافع)</div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+    <p>اسکیلپنگ میں اخراج جلد اور سخت ہوتا ہے۔ جب ہدف حاصل ہو تو جلد نکل جائیں، کیونکہ قیمت کے واپس آنے کا خطرہ بہت بڑا ہوتا ہے۔ اگر قیمت ہماری سمت میں جلد حرکت نہ کریں تو باہر نکل جائیں۔ اسکیلپنگ میں "منافع محفوظ کرنے" کا اصول ہمیشہ اہمیت رکھتا ہے۔</p>
+    <p>ایک بار ہدف حاصل ہو تو فوراً نکل جائیں۔ اگر مزید منافع کی امید ہو تو پوزیشن کو جزوی طور پر بند کر کے باقی کو چھوٹے اسٹاپ کے ساتھ رکھیں۔ مگر یاد رکھیں — اسکیلپنگ میں طویل انتظار نہیں کیا جاتا، فوری حرکت ہی اصل ہدف ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ اسکیلپنگ کے لیے سخت نظم و ضبط اور جذباتی قابو ضروری ہے۔</p>
+    <p>۲۔ حجم اور رجحان کے بغیر اندراج ہرگز نہ کریں۔</p>
+    <p>۳۔ چھوٹے منافع کو بار بار جمع کرنا ہی اس لطف کا بنیادی مقصد ہے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ 5 منٹ کے چارٹ پر ایک دن کے داخل اور خارج کو نوٹ کریں — کس وقت بہتر حجم تھا؟</p>
+    <p>۲۔ حجم کے بغیر دن میں اندراج کے نتائج کا موازنہ کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter5.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter7.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

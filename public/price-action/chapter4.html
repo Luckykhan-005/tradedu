@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۴ — سپلائی اور ڈیمانڈ زون</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1117; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #facc15; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0d1117; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #161b22; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #161b22; border-right: 5px solid #facc15; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #facc15; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter3.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter5.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۴: سپلائی اور ڈیمانڈ زون</h1>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- Supply zone -->
+            <rect x="40" y="140" width="300" height="50" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="2" rx="6"/>
+            <text x="190" y="130" fill="#ef4444" font-size="17" font-family="sans-serif" text-anchor="middle">سپلائی زون (Supply)</text>
+            <!-- base then impulse down -->
+            <path d="M60,165 L120,165 L150,165 L180,165 L230,200 L280,240 L330,300 L400,340" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <!-- base candles -->
+            <rect x="70" y="155" width="14" height="20" fill="#ef4444"/>
+            <rect x="95" y="150" width="14" height="30" fill="#ef4444"/>
+            <rect x="120" y="152" width="14" height="26" fill="#ef4444"/>
+            <text x="130" y="200" fill="#facc15" font-size="15" font-family="sans-serif">Bease (قیمت رکی)</text>
+            <!-- impulse -->
+            <text x="200" y="350" fill="#ef4444" font-size="15" font-family="sans-serif">Impulse</text>
+            <!-- return arrow to zone -->
+            <path d="M400,340 Q340,300 320,250 L310,190" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+            <text x="320" y="70" fill="#f87171" font-size="19" font-family="sans-serif" text-anchor="middle">سپلائی زون — بیچنے والوں کا علاقہ</text>
+        </svg>
+    </div>
+
+    <p>سپلائی اور ڈیمانڈ کے زون مارکیٹ کی سب سے بڑی چالوں کو ظاہر کرتے ہیں۔ سپلائی زون (Supply) وہ علاقہ ہے جہاں بیچنے والے غالب آئے تھے — قیمت وہاں تیزی سے گر گئی تھی۔ ڈیمانڈ زون (Demand) وہ علاقہ ہے جہاں خریدار غالب آئے تھے — قیمت وہاں سے تیزی سے اوپر چڑھی تھی۔ یہ زون انھیں کبھی ہمیشہ کے لیے ختم نہیں ہوتے؛ جب قیمت دوبارہ وہاں آتی ہے تو وہی خریدار یا بیچنے والے دوبارہ عمل کرتے ہیں۔</p>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- Demand zone -->
+            <rect x="40" y="250" width="300" height="50" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="2" rx="6"/>
+            <text x="190" y="240" fill="#22c55e" font-size="17" font-family="sans-serif" text-anchor="middle">ڈیمانڈ زون (Demand)</text>
+            <!-- base candles -->
+            <rect x="70" y="260" width="14" height="20" fill="#22c55e"/>
+            <rect x="95" y="255" width="14" height="30" fill="#22c55e"/>
+            <rect x="120" y="258" width="14" height="26" fill="#22c55e"/>
+            <text x="130" y="325" fill="#facc15" font-size="15" font-family="sans-serif">Bease</text>
+            <!-- impulse up -->
+            <path d="M150,275 L240,220 L320,150 L420,110" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <!-- return -->
+            <path d="M420,110 Q340,160 330,230 L320,250" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,5"/>
+            <text x="320" y="70" fill="#4ade80" font-size="19" font-family="sans-serif" text-anchor="middle">ڈیمانڈ زون — خریداروں کا علاقہ</text>
+        </svg>
+    </div>
+
+    <p>ایک زون پہچاننے کے لیے ہمیں "بیس اور امپلس" (Base &amp; Impulse) کا تصور سمجھنا ہوگا۔ بیس وہ چھوٹی سی جامد کینڈلز ہیں جو قیمت رکنے پر بنتی ہیں، اور امپلس وہ تیز حرکت ہے جو اس سے نکلتی ہے۔ اگر امپلس تیز اور طویل ہو (کم کینڈلز میں بڑی حرکت)، تو زون بہت مضبوط سمجھا جاتا ہے۔ زون کو بیس کی پہلی اور آخری کینڈل کے کناروں سے بنایا جاتا ہے — یعنی بیس کا مکمل رینج ہی آپ کا زون ہے۔</p>
+
+    <div class="info">
+        <strong>زون بمقابلہ آرڈر بلاک:</strong> سپلائی/ڈیمانڈ زون وسیع علاقہ ہے جو بیس اور امپلس سے بنتا ہے، جبکہ آرڈر بلاک ایک خاص واحد کینڈل ہے جو ایک بڑی حرکت سے پہلے آتی ہے (جو ہم سبق ۷ میں تفصیل سے دیکھیں گے)۔ دونوں ایک دوسرے کے قریبی تصورات ہیں، لیکن آرڈر بلاک زیادہ عین اور تیز ہوتا ہے۔
+    </div>
+
+    <p>ان زونز کو تجارت میں استعمال کرنے کے لیے: پہلے مارکیٹ کی سمت بڑی تہہ (سٹرکچر) دیکھیں، پھر اہم ڈیمانڈ زون پر قیمت کی واپسی کا انتظار کریں اور خرید کریں، یا اہم سپلائی زون پر واپسی پر بیچیں۔ زون کے باہر اسٹاپ لاس رکھیں۔ اگر قیمت زون میں داخل ہو کر تیزی سے پھر سے نکل جائے (انکار نہ کرے)، تو زون کمزور ہے اور تجارت ترک کر دیں۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ سپلائی زون = بیچنے والوں کا علاقہ، ڈیمانڈ زون = خریداروں کا علاقہ۔</p>
+    <p>۲۔ زون کی تعریف "بیس" (جامد کینڈلز) سے کی جاتی ہے۔</p>
+    <p>۳۔ تیز اور طویل امپلس زون کو مضبوط بناتا ہے۔</p>
+    <p>۴۔ زون اس وقت تک تباہ نہیں ہوتا جب تک قیمت مکمل طور پر اس سے گزر نہ جائے۔</p>
+    <p>۵۔ زون پر انتظار کریں، اندراج تصدیق سے کریں، اسٹاپ زون سے باہر رکھیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر ایک مضبوط ڈیمانڈ اور ایک سپلائی زون تلاش کریں۔</p>
+    <p>۲۔ بیس اور امپلس کو نشان زد کر کے زون کی تعریف کریں۔</p>
+    <p>۳۔ ایک زون پر قیمت کی واپسی اور رد عمل کا مشاہدہ کریں۔</p>
+    <p>۴۔ زون اور آرڈر بلاک کا فرق ایک مثال سے سمجھیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter3.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter5.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پرائس ایکشن اور مارکیٹ اسٹرکچر</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

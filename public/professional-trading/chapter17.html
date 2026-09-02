@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق 17 — بیک ٹیسٹنگ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0f1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #e0a800; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0f1a2e; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #1b2b4a; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #1b2b4a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #e0a800; }
+        .formula { background: #1e3050; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter18.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق 17: بیک ٹیسٹنگ</h1>
+
+    <p>بیک ٹیسٹنگ آپ کی حکمت عملی کو ایک «وقت کی مشین» میں چلا کر پرکھنے کا طریقہ ہے۔ آپ اپنی حکمت عملی کے اصولوں کو تاریخی (گزشتہ) ڈیٹا پر نافذ کرتے ہیں اور دیکھتے ہیں کہ اگر یہ اصول اتنے عرصے میں لاگو ہوتے تو نتیجہ کیا نکلتا۔ اس سے آپ کو ایک اندازہ ملتا ہے کہ آپ کی حکمت عملی کیا صلاحیت رکھتی ہے، کتنی بار جیتتی ہے، اور کتنا منافع کما سکتی ہے، اس سے پہلے کہ آپ اس پر اپنا اصل پیسہ لگائیں۔</p>
+
+    <p>بیک ٹیسٹ کرنے کے لیے پہلے آپ کو اپنی حکمت عملی کے اصول صاف اور مدل خلاصے میں لکھنے ہوں گے۔ مثال کے طور پر، اگر آپ کی حکمت عملی یہ ہے کہ "سہ رخی (رینج) سے تصادم کے بعد ایک مخصوص اصلاحی (retest) پر اندراج کریں"، تو آپ کو ذکر کرنا ہوگا کہ اندراج کہاں، اسٹاپ نقصان کہاں، منافع کا ہدف کیا، اور کس ٹائم فریم پر۔ پھر آپ اس ڈیٹا پر سؤالیں چلائیں — کاغذ پر یا سافٹ ویئر میں۔ ہر ٹریڈ کا نتیجہ ریکارڈ کریں اور پھر اپنے اعداد کا خلاصہ کریں: جیت کی شرح، اوسط منافع، اوسط نقصان، اور کل منافع۔</p>
+
+    <p>بیک ٹیسٹنگ کا سب سے بڑا فائدہ یہ ہے کہ یہ آپ کو پیسے بچاتا ہے۔ آپ اپنے ذہن میں جو تصور کرتے ہیں اور وہ جو حقیقت میں آزمایا جاتا ہے، اس میں فرق ہمیشہ ہوتا ہے۔ جب آپ بیک ٹیسٹ کرتے ہیں تو آپ کو اپنی حکمت عملی کی "حقدار" اور "غیر حقدار" جگہیں نظر آتی ہیں، آپ کو پتہ چلتا ہے کہ کون سا بازار آپ کی حکمت عملی کے ساتھ بہتر کام کرتا ہے، اور کون سا ٹائم فریم زیادہ موئی ہے۔ یہ ایک 'مطلوبہ' استاد ہے جو آپ کو صرف اعداد سے نصیحت کرتا ہے، بغیر کسی جذبات کے۔</p>
+
+    <p>لیکن بیک ٹیسٹنگ کی محدودیتیں بھی اہم ہیں۔ سب سے پہلا خطرہ ہے «اوور فٹنگ» — اپنی حکمت عملی کو تاریخ کے مفہوم میں اس قدر بہتر کرنے کی کوشش کہ وہ صرف ماضی میں اچھی رہی، نہ کہ مستقبل میں۔ چونکہ مستقبل ہمیشہ ماضی سے مختلف ہوتا ہے، اس لیے ایک بہت اچھا بیک ٹیسٹ غلط امیدیں پیدا کر سکتا ہے۔ دوسرا خطرہ ہے 'مستقبل کی بصیرت' — اپنی حکمت عملی میں ایسی معلومات استعمال کرنا جو اس وقت دستیاب نہیں تھیں۔ یہی وجہ ہے کہ بیک ٹیسٹ کو کبھی کبھی "کتاب کا علم" کہا جاتا ہے، کبھی کبھی حقیقیت کا آئینہ — یہ ایک اہم جزو ہے لیکن یہ آخری امتحان نہیں۔</p>
+
+    <p>آخر میں، بیک ٹیسٹ کو فارورڈ ٹیسٹ (مستقبل میں زندہ ٹیسٹنگ) کے ساتھ جوڑیں۔ ایک ماہر کی حیثیت سے آپ اپنی حکمت عملی کو تاریخ پر پرکھتے ہیں، پھر ڈیمو یا لائیو پر چلاتے ہیں، اور پھر حقیقی پیسے پر۔ ایک محفوظ طریقہ یہ ہے کہ بیک ٹیسٹ سے ملنے والے اعداد کو ایک ابتدائی رہنما سمجھیں نہ کہ مطلق سچ۔ جب بیک ٹیسٹ، فارورڈ ٹیسٹ اور آپ کے تجربے سے اعداد ایک جیسے نظر آئیں، تب وہ حکمت عملی ایک قابلِ اعتماد ساتھی بن جاتی ہے۔</p>
+
+    <div class="info">
+        <strong>یاد رکھیں:</strong> بیک ٹیسٹنگ آپ کو ایک نقشہ دیتی ہے، مگر حقیقی سفر ہمیشہ فارورڈ ٹیسٹنگ میں ہے۔ ماضی کا بہترین نتیجہ مستقبل کی ضمانت نہیں ہے۔
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+            <text x="400" y="36" text-anchor="middle" font-size="26" fill="#e0a800" font-weight="bold">بیک ٹیسٹ کا عمل</text>
+            <rect x="40" y="70" width="170" height="70" rx="10" fill="#1b2b4a" stroke="#38bdf8" stroke-width="2"/>
+            <text x="125" y="110" text-anchor="middle" font-size="20" fill="#eee">اصول لکھیں</text>
+            <rect x="250" y="70" width="170" height="70" rx="10" fill="#1b2b4a" stroke="#e0a800" stroke-width="2"/>
+            <text x="335" y="110" text-anchor="middle" font-size="20" fill="#eee">تاریخی ڈیٹا</text>
+            <rect x="460" y="70" width="170" height="70" rx="10" fill="#1b2b4a" stroke="#22c55e" stroke-width="2"/>
+            <text x="545" y="110" text-anchor="middle" font-size="20" fill="#eee">نتائج ریکارڈ</text>
+            <rect x="650" y="70" width="120" height="70" rx="10" fill="#1b2b4a" stroke="#ef4444" stroke-width="2"/>
+            <text x="710" y="110" text-anchor="middle" font-size="20" fill="#eee">جائزہ</text>
+            <path d="M210 105 L250 105" stroke="#38bdf8" stroke-width="2" marker-end="url(#a)"/>
+            <path d="M420 105 L460 105" stroke="#38bdf8" stroke-width="2" marker-end="url(#a)"/>
+            <path d="M630 105 L650 105" stroke="#38bdf8" stroke-width="2" marker-end="url(#a)"/>
+            <defs>
+                <marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#38bdf8"/></marker>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ بیک ٹیسٹنگ آپ کی حکمت عملی کو تاریخی ڈیٹا پر چلا کر پرکھنے کا طریقہ ہے۔</p>
+    <p>۲۔ بیک ٹیسٹ کرنے کے لیے پہلے اپنی حکمت عملی کے اصول صاف لکھیں۔</p>
+    <p>۳۔ ہر ٹریڈ کا نتیجہ ریکارڈ کریں اور جیت کی شرح، اوسط منافع، اوسط نقصان کا خلاصہ بنائیں۔</p>
+    <p>۴۔ آپ کو بیشک ایسے مواقع سے آگاہ رہنا چاہیے — اوور فٹنگ اور مستقبل کی بصیرت سے بچیں۔</p>
+    <p>۵۔ بیک ٹیسٹ کو فارورڈ ٹیسٹ (ڈیمو/لائیو) کے ساتھ جوڑیں کیونکہ ماضی کا بہترین نتیجہ مستقبل کی ضمانت نہیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ اپنی حکمت عملی کے اصول ایک صاف صفحے پر لکھیں، جیسا کہ اندراج، سٹاپ نقصان، اور ہدف۔</p>
+    <p>۲۔ گزشتہ ایک ماہ یا ایک سال کے ڈیٹا پر اپنے اصول کو ۱۰ بار پرکھیں اور نتائج ریکارڈ کریں۔</p>
+    <p>۳۔ اپنے بیک ٹیسٹ کے اعداد کا خلاصہ بنائیں اور معلوم کریں کہ آپ کی حکمت عملی کس بازار میں بہتر کام کرتی ہے۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter18.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پیشہ ورانہ ٹریڈنگ سسٹم</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>
