@@ -435,7 +435,8 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
       ? api(`/api/admin/lessons/${editingLesson.id}`)
       : api(`/api/admin/modules/${moduleId}/lessons`)
     const method = editingLesson ? 'PATCH' : 'POST'
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const payload = { ...data, videoUrl: data.videoUrl && data.type === 'video' ? data.videoUrl : '' }
+    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(payload) })
     if (!res.ok) {
       const err = await res.text()
       console.error('Failed to save lesson:', err)
