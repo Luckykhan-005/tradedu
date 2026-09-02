@@ -17,6 +17,8 @@ export interface UserType {
   name?: string
   passwordHash?: string
   role: string
+  plan: string
+  planExpiresAt?: Date
   avatar?: string
   createdAt: Date
   updatedAt: Date
@@ -125,6 +127,21 @@ export interface JournalEntryType {
   createdAt: Date
 }
 
+export interface SubscriptionRequestType {
+  id: string
+  name: string
+  email: string
+  phone: string
+  city?: string
+  tradeExperience?: string
+  plan: string
+  status: string
+  receiptUrl?: string
+  adminNote?: string
+  createdAt: Date
+  updatedAt: Date
+}
+
 // ============================================================================
 // Input Types
 // ============================================================================
@@ -134,6 +151,8 @@ export interface UserCreateInput {
   name?: string
   passwordHash?: string
   role?: string
+  plan?: string
+  planExpiresAt?: Date
   avatar?: string
 }
 
@@ -142,6 +161,8 @@ export interface UserUpdateInput {
   name?: string
   passwordHash?: string
   role?: string
+  plan?: string
+  planExpiresAt?: Date
   avatar?: string
 }
 
@@ -313,6 +334,30 @@ export interface JournalEntryUpdateInput {
   pnl?: number
 }
 
+export interface SubscriptionRequestCreateInput {
+  name: string
+  email: string
+  phone: string
+  city?: string
+  tradeExperience?: string
+  plan?: string
+  status?: string
+  receiptUrl?: string
+  adminNote?: string
+}
+
+export interface SubscriptionRequestUpdateInput {
+  name?: string
+  email?: string
+  phone?: string
+  city?: string
+  tradeExperience?: string
+  plan?: string
+  status?: string
+  receiptUrl?: string
+  adminNote?: string
+}
+
 // ============================================================================
 // Hook Types
 // ============================================================================
@@ -360,4 +405,5 @@ export interface ServerFunctionHooks {
   QuizResult?: ModelHooks<QuizResultCreateInput, QuizResultUpdateInput, QuizResultType>
   PasswordResetToken?: ModelHooks<PasswordResetTokenCreateInput, PasswordResetTokenUpdateInput, PasswordResetTokenType>
   JournalEntry?: ModelHooks<JournalEntryCreateInput, JournalEntryUpdateInput, JournalEntryType>
+  SubscriptionRequest?: ModelHooks<SubscriptionRequestCreateInput, SubscriptionRequestUpdateInput, SubscriptionRequestType>
 }

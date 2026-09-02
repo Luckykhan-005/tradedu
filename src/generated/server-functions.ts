@@ -39,6 +39,9 @@ import type {
   JournalEntryType,
   JournalEntryCreateInput,
   JournalEntryUpdateInput,
+  SubscriptionRequestType,
+  SubscriptionRequestCreateInput,
+  SubscriptionRequestUpdateInput,
 } from './types'
 
 /** Get the API base URL */
@@ -955,6 +958,97 @@ export async function deleteJournalEntry(args: { data: { id: string; userId?: st
   if (!response.ok) {
     const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
     throw new Error(err.error?.message || 'Failed to delete JournalEntry')
+  }
+  return { success: true }
+}
+
+// ============================================================================
+// SubscriptionRequest Client Functions
+// ============================================================================
+
+/**
+ * List all SubscriptionRequest records
+ */
+export async function getSubscriptionRequestList(args: { data: { userId?: string; where?: Record<string, unknown> } }): Promise<SubscriptionRequestType[]> {
+  const params = new URLSearchParams()
+  if (args.data.userId) params.set('userId', args.data.userId)
+  if (args.data.where) {
+    for (const [key, value] of Object.entries(args.data.where)) {
+      if (value !== undefined && value !== null) params.set(key, String(value))
+    }
+  }
+  const qs = params.toString()
+  const url = `${getApiBase()}/api/subscription-requests${qs ? `?${qs}` : ''}`
+  const response = await fetch(url)
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to list SubscriptionRequest')
+  }
+  const json = await response.json()
+  return (json.items || []) as SubscriptionRequestType[]
+}
+
+/**
+ * Get a single SubscriptionRequest by ID
+ */
+export async function getSubscriptionRequestById(args: { data: { id: string; userId?: string } }): Promise<SubscriptionRequestType> {
+  const url = `${getApiBase()}/api/subscription-requests/${args.data.id}`
+  const response = await fetch(url)
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'SubscriptionRequest not found')
+  }
+  const json = await response.json()
+  return json.data as SubscriptionRequestType
+}
+
+/**
+ * Create a new SubscriptionRequest
+ */
+export async function createSubscriptionRequest(args: { data: { input: SubscriptionRequestCreateInput; userId?: string } }): Promise<SubscriptionRequestType> {
+  const url = `${getApiBase()}/api/subscription-requests`
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(args.data.input),
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to create SubscriptionRequest')
+  }
+  const json = await response.json()
+  return json.data as SubscriptionRequestType
+}
+
+/**
+ * Update an existing SubscriptionRequest
+ */
+export async function updateSubscriptionRequest(args: { data: { id: string; input: SubscriptionRequestUpdateInput; userId?: string } }): Promise<SubscriptionRequestType> {
+  const url = `${getApiBase()}/api/subscription-requests/${args.data.id}`
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(args.data.input),
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to update SubscriptionRequest')
+  }
+  const json = await response.json()
+  return json.data as SubscriptionRequestType
+}
+
+/**
+ * Delete a SubscriptionRequest
+ */
+export async function deleteSubscriptionRequest(args: { data: { id: string; userId?: string } }): Promise<{ success: boolean }> {
+  const url = `${getApiBase()}/api/subscription-requests/${args.data.id}`
+  const response = await fetch(url, {
+    method: 'DELETE',
+  })
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ error: { message: response.statusText } }))
+    throw new Error(err.error?.message || 'Failed to delete SubscriptionRequest')
   }
   return { success: true }
 }
