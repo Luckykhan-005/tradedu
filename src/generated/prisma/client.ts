@@ -91,3 +91,8 @@ export type PasswordResetToken = Prisma.PasswordResetTokenModel
  * 
  */
 export type JournalEntry = Prisma.JournalEntryModel
+/**
+ * Model SubscriptionRequest
+ * 
+ */
+export type SubscriptionRequest = Prisma.SubscriptionRequestModel

@@ -347,7 +347,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                     {locked && (
                       <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-[2px]">
                         <div className="flex flex-col items-center gap-2">
-                          <Lock className="h-10 w-10 text-amber-400" />
+                          <ShieldCheck className="h-10 w-10 text-amber-400" />
                           <span className="rounded-full bg-amber-500 px-4 py-1 text-sm font-semibold text-white">
                             {book.plan === 'PREMIUM' ? 'Premium' : 'Starter'} Plan
                           </span>
@@ -402,7 +402,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                   <Button className="w-full gap-2" onClick={handleOpen} variant={locked ? 'outline' : 'default'}>
                     {locked ? (
                       <>
-                        <Lock className="h-4 w-4" />
+                        <ShieldCheck className="h-4 w-4" />
                         Upgrade to Read
                       </>
                     ) : (

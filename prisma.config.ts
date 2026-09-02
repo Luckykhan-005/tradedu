@@ -1,15 +1,9 @@
-// SPDX-License-Identifier: Apache-2.0
-// Copyright (C) 2026 Shogo Technologies, Inc.
+// Managed by Shogo. `prisma db push` (Prisma 7) requires `datasource.url`; do not move the URL under `migrate` or an `async url()` resolver.
 import { defineConfig } from 'prisma/config'
-import { PrismaLibSql } from '@prisma/adapter-libsql'
-
-const url = process.env.DATABASE_URL ?? 'file:./dev.db'
-const authToken = process.env.DATABASE_AUTH_TOKEN
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',
   datasource: {
-    url,
+    url: process.env.DATABASE_URL ?? 'file:./dev.db',
   },
-  adapter: async () => new PrismaLibSql({ url, authToken }),
 })

@@ -203,9 +203,9 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             <p className="mb-4 text-muted-foreground">
               Contact us for team discounts, institutional access, or custom plans.
             </p>
-            <Button variant="outline" asChild>
-              <a href="mailto:jamalkhanlashari005@gmail.com">Contact Sales</a>
-            </Button>
+            <a href="mailto:jamalkhanlashari005@gmail.com">
+              <Button variant="outline">Contact Sales</Button>
+            </a>
           </CardContent>
         </Card>
       </div>

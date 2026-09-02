@@ -20,6 +20,7 @@ import { createLiveSessionRoutes, setPrisma as setPrismaLiveSession, setLiveSess
 import { createQuizResultRoutes, setPrisma as setPrismaQuizResult, setQuizResultHooks } from "./quiz-result.routes"
 import { createPasswordResetTokenRoutes, setPrisma as setPrismaPasswordResetToken, setPasswordResetTokenHooks } from "./password-reset-token.routes"
 import { createJournalEntryRoutes, setPrisma as setPrismaJournalEntry, setJournalEntryHooks } from "./journal-entry.routes"
+import { createSubscriptionRequestRoutes, setPrisma as setPrismaSubscriptionRequest, setSubscriptionRequestHooks } from "./subscription-request.routes"
 
 // Hook imports
 import { userHooks } from "./user.hooks"
@@ -32,6 +33,7 @@ import { liveSessionHooks } from "./live-session.hooks"
 import { quizResultHooks } from "./quiz-result.hooks"
 import { passwordResetTokenHooks } from "./password-reset-token.hooks"
 import { journalEntryHooks } from "./journal-entry.hooks"
+import { subscriptionRequestHooks } from "./subscription-request.hooks"
 
 // Re-export route creators and setters
 export {
@@ -64,7 +66,10 @@ export {
   setPasswordResetTokenHooks,
   createJournalEntryRoutes,
   setPrismaJournalEntry,
-  setJournalEntryHooks
+  setJournalEntryHooks,
+  createSubscriptionRequestRoutes,
+  setPrismaSubscriptionRequest,
+  setSubscriptionRequestHooks
 }
 
 // Re-export hooks (model-specific)
@@ -78,7 +83,8 @@ export {
   liveSessionHooks,
   quizResultHooks,
   passwordResetTokenHooks,
-  journalEntryHooks
+  journalEntryHooks,
+  subscriptionRequestHooks
 }
 
 // Re-export hook types
@@ -92,6 +98,7 @@ export type { LiveSessionHooks } from "./live-session.hooks"
 export type { QuizResultHooks } from "./quiz-result.hooks"
 export type { PasswordResetTokenHooks } from "./password-reset-token.hooks"
 export type { JournalEntryHooks } from "./journal-entry.hooks"
+export type { SubscriptionRequestHooks } from "./subscription-request.hooks"
 
 /**
  * Create all routes and mount them on a single Hono app
@@ -110,6 +117,7 @@ export function createAllRoutes(prisma: PrismaClient): Hono {
   setPrismaQuizResult(prisma)
   setPrismaPasswordResetToken(prisma)
   setPrismaJournalEntry(prisma)
+  setPrismaSubscriptionRequest(prisma)
 
   // Set hooks for all routes
   setUserHooks(userHooks)
@@ -122,6 +130,7 @@ export function createAllRoutes(prisma: PrismaClient): Hono {
   setQuizResultHooks(quizResultHooks)
   setPasswordResetTokenHooks(passwordResetTokenHooks)
   setJournalEntryHooks(journalEntryHooks)
+  setSubscriptionRequestHooks(subscriptionRequestHooks)
 
   // Mount routes
   app.route("/users", createUserRoutes())
@@ -134,6 +143,7 @@ export function createAllRoutes(prisma: PrismaClient): Hono {
   app.route("/quiz-results", createQuizResultRoutes())
   app.route("/password-reset-tokens", createPasswordResetTokenRoutes())
   app.route("/journal-entries", createJournalEntryRoutes())
+  app.route("/subscription-requests", createSubscriptionRequestRoutes())
 
   return app
 }

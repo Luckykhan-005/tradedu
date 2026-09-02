@@ -63,6 +63,7 @@ export function CourseDetail({
   modules,
   progress,
   enrolled,
+  userPlan,
   onBack,
   onEnroll,
   onToggleLesson,
