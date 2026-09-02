@@ -13,6 +13,7 @@ import {
   LineChart,
   ShieldCheck,
   TrendingUp,
+  BookMarked,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -121,6 +122,20 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: './forex-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
+  },
+  {
+    id: 'glossary',
+    title: 'Trading Glossary Book',
+    titleUrdu: 'ٹریڈنگ گلوسری کی کتاب',
+    description:
+      'A complete reference of trading terms in Urdu & English. Crypto and Forex specific terms with symbols, diagrams, and detailed explanations for every concept.',
+    chapters: 4,
+    pages: '120+ terms',
+    icon: BookMarked,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: './glossary-book/index.html',
+    tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
   },
   {
     id: 'technical-analysis',
