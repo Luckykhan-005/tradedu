@@ -106,7 +106,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
-    cover: './covers/Candlestick Patterns Book.jpg',
+    cover: './covers/Candlestick-Patterns-Book.jpg',
     plan: 'FREE',
   },
   {
@@ -122,7 +122,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
-    cover: './covers/Smart Money Concepts Book.jpg',
+    cover: './covers/Smart-Money-Concepts-Book.jpg',
     plan: 'STARTER',
   },
   {
@@ -138,7 +138,7 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: './forex-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
-    cover: './covers/Forex Trading Course.jpg',
+    cover: './covers/Forex-Trading-Course.jpg',
     plan: 'STARTER',
   },
   {
@@ -154,7 +154,7 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: './glossary-book/index.html',
     tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
-    cover: './covers/Trading Glossary Book.jpg',
+    cover: './covers/Trading-Glossary-Book.jpg',
     plan: 'FREE',
   },
   {
@@ -170,7 +170,7 @@ const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: './price-action/index.html',
     tags: ['Urdu', 'Professional', 'Smart Money'],
-    cover: './covers/Price Action & Market Structure.jpg',
+    cover: './covers/Price-Action-Market-Structure.jpg',
     plan: 'STARTER',
   },
   {
@@ -186,7 +186,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './trading-strategies/index.html',
     tags: ['Urdu', 'Practical', 'Entry/Exit Systems'],
-    cover: './covers/Trading Strategies & Setups.jpg',
+    cover: './covers/Trading-Strategies-Setups.jpg',
     plan: 'STARTER',
   },
   {
@@ -202,7 +202,7 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: './professional-trading/index.html',
     tags: ['Urdu', 'Professional', 'Complete System'],
-    cover: './covers/Professional Trading System.jpg',
+    cover: './covers/Professional-Trading-System.jpg',
     plan: 'STARTER',
   },
   {
@@ -218,7 +218,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './technical-analysis/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Charts & Indicators'],
-    cover: './covers/Technical Analysis Course.jpg',
+    cover: './covers/Technical-Analysis-Course.jpg',
     plan: 'STARTER',
   },
   {
@@ -234,7 +234,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './risk-management/index.html',
     tags: ['Urdu', 'Essential', 'Capital Protection'],
-    cover: './covers/Risk Management Course.jpg',
+    cover: './covers/Risk-Management-Course.jpg',
     plan: 'STARTER',
   },
   {
@@ -250,7 +250,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: './trading-psychology/index.html',
     tags: ['Urdu', 'Essential', 'Mindset & Discipline'],
-    cover: './covers/Trading Psychology Course.jpg',
+    cover: './covers/Trading-Psychology-Course.jpg',
     plan: 'STARTER',
   },
 ]
