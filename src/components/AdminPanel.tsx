@@ -198,6 +198,25 @@ function LessonForm({
     if (!file) return
     setUploading(true)
     try {
+      const formData = new FormData()
+      formData.append('file', file)
+      const res = await fetch(api('/api/admin/upload'), {
+        method: 'POST',
+        headers: { 'x-admin-token': '' },
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.ok && data.url) {
+        setVideoUrl(data.url)
+        setType('video')
+      }
+    } catch (err) {
+      console.error('Upload failed:', err)
+    } finally {
+      setUploading(false)
+      if (fileInputRef.current) fileInputRef.current.value = ''
+    }
+  }
   return (
     <Card className="border-primary/20">
       <CardContent className="p-5 space-y-4">
@@ -419,7 +438,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     await fetchData()
     if (!editingCourse && saved?.id) {
       setSelectedCourseId(saved.id)
-      setActiveTab('courses')
+      setShowModuleInput(saved.id)
     }
   }
 
