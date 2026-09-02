@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #232044; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #3b3770; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #c084fc; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #c084fc; text-decoration: none; padding: 10px 20px; background: #2d2b55; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,127 @@
         <a href="chapter2.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۱: تجارتی نفسیات کیا ہے؟</h1>
+    <figure class="diagram">
+        <h3>دماغ کے دو پہلو — Logic vs Emotion</h3>
+        <svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgA1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#231b45"/>
+                </linearGradient>
+                <linearGradient id="logic" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#c084fc"/>
+                    <stop offset="1" stop-color="#6d28d9"/>
+                </linearGradient>
+                <linearGradient id="emotion" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#f472b6"/>
+                    <stop offset="1" stop-color="#be185d"/>
+                </linearGradient>
+                <filter id="glowA1" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="5" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <clipPath id="halfL"><rect x="60" y="40" width="260" height="280"/></clipPath>
+                <clipPath id="halfR"><rect x="320" y="40" width="260" height="280"/></clipPath>
+                <pattern id="gridA1" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M22 0H0V22" fill="none" stroke="#2b2450" stroke-width="1.2"/>
+                </pattern>
+            </defs>
+            <rect width="640" height="360" rx="14" fill="url(#bgA1)"/>
+            <g stroke="#2b2450" opacity="0.14" stroke-width="1">
+                <path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640M80 0V360M160 0V360M240 0V360M400 0V360M480 0V360M560 0V360"/>
+            </g>
+            <g>
+                <path d="M320 78
+                    C275 92 250 88 228 70
+                    C170 40 92 78 84 150
+                    C76 218 130 268 200 268
+                    C250 268 285 262 320 258
+                    C355 262 390 268 440 268
+                    C510 268 564 218 556 150
+                    C548 78 470 40 412 70
+                    C390 88 365 92 320 78 Z" fill="url(#logic)" clip-path="url(#halfL)"/>
+                <path d="M320 78
+                    C275 92 250 88 228 70
+                    C170 40 92 78 84 150
+                    C76 218 130 268 200 268
+                    C250 268 285 262 320 258
+                    C355 262 390 268 440 268
+                    C510 268 564 218 556 150
+                    C548 78 470 40 412 70
+                    C390 88 365 92 320 78 Z" fill="url(#gridA1)" opacity="0.5" clip-path="url(#halfL)"/>
+                <path d="M320 78
+                    C275 92 250 88 228 70
+                    C170 40 92 78 84 150
+                    C76 218 130 268 200 268
+                    C250 268 285 262 320 258
+                    C355 262 390 268 440 268
+                    C510 268 564 218 556 150
+                    C548 78 470 40 412 70
+                    C390 88 365 92 320 78 Z" fill="url(#emotion)" clip-path="url(#halfR)"/>
+                <g clip-path="url(#halfR)" opacity="0.5" stroke="#ffe4e6" stroke-width="2" fill="none" stroke-linecap="round">
+                    <path d="M350 120 C370 108 392 128 380 142 C368 156 350 146 356 136"/>
+                    <path d="M430 150 C452 140 470 162 456 176 C442 190 424 178 432 166"/>
+                    <path d="M370 196 C390 186 410 208 396 222 C382 236 366 224 374 212"/>
+                    <path d="M470 210 C490 200 508 222 494 236"/>
+                    <path d="M408 244 C428 234 448 256 434 270"/>
+                </g>
+                <line x1="320" y1="70" x2="320" y2="270" stroke="#150f2e" stroke-width="3" stroke-dasharray="8 6"/>
+                <line x1="320" y1="272" x2="320" y2="292" stroke="#c084fc" stroke-width="4" filter="url(#glowA1)"/>
+                <path d="M312 288 L320 300 L328 288" fill="none" stroke="#c084fc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="22" text-anchor="middle" filter="url(#glowA1)">
+                <rect x="70" y="300" width="170" height="38" rx="8" fill="#241a4d" stroke="#c084fc" stroke-width="1.5"/>
+                <text x="155" y="327" fill="#c084fc">Logic · منطق</text>
+                <rect x="400" y="300" width="170" height="38" rx="8" fill="#2a1745" stroke="#f472b6" stroke-width="1.5"/>
+                <text x="485" y="327" fill="#f472b6">Emotion · جذبات</text>
+                <rect x="250" y="308" width="140" height="34" rx="8" fill="#0e2a1f" stroke="#22c55e" stroke-width="1.5"/>
+                <text x="320" y="333" fill="#22c55e">Balance · توازن</text>
+            </g>
+        </svg>
+        <figcaption>دماغ کے دو حصے: بایاں «منطق» منظم اور منصوبہ بند، دایاں «جذبات» بے ربط اور ہنگامہ خیز۔ درمیان میں توازن (Balance) کامیابی کی کنجی ہے۔</figcaption>
+    </figure>
+    <figure class="diagram">
+        <h3>تجارتی ناکامی کی وجوہات — Emotions vs Strategy</h3>
+        <svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgA2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#231b45"/>
+                </linearGradient>
+                <filter id="glowA2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="640" height="340" rx="14" fill="url(#bgA2)"/>
+            <g>
+                <circle cx="320" cy="170" r="120" fill="#1c1538" stroke="#3b3770" stroke-width="2"/>
+                <path d="M320 170 L320 50 A 120 120 0 1 1 249.5 82.9 Z" fill="#ef4444" opacity="0.92" filter="url(#glowA2)"/>
+                <path d="M320 170 L249.5 82.9 A 120 120 0 0 1 320 50 Z" fill="#22c55e" opacity="0.95"/>
+                <circle cx="320" cy="170" r="120" fill="none" stroke="#150f2e" stroke-width="3"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <text x="420" y="230" font-size="22" fill="#fecaca" filter="url(#glowA2)">Emotions 90%</text>
+                <text x="420" y="252" font-size="18" fill="#fecaca">جذبات</text>
+                <text x="282" y="98" font-size="18" fill="#bbf7d0">10%</text>
+                <text x="282" y="120" font-size="16" fill="#bbf7d0">Strategy</text>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="19">
+                <rect x="105" y="282" width="24" height="24" rx="5" fill="#ef4444"/>
+                <text x="140" y="302" fill="#fca5a5">Emotion (جذبات) — 90%</text>
+                <rect x="375" y="282" width="24" height="24" rx="5" fill="#22c55e"/>
+                <text x="410" y="302" fill="#86efac">Strategy (حکمتِ عملی) — 10%</text>
+            </g>
+        </svg>
+        <figcaption>زیادہ تر تجارتی ناکامیوں کی اصل وجہ حکمتِ عملی نہیں، بلکہ بے قابو جذبات ہوتے ہیں — یعنی 90٪ مسئلہ نفسیاتی، اور صرف 10٪ تکنیک کا۔</figcaption>
+    </figure>
     <p>تجارت صرف چارٹس، خبروں اور ٹیکنیکل اندیکٹرز کا کھیل نہیں ہے۔ اصل کھیل آپ کے ذہن کے اندر کھیلا جاتا ہے۔ تجارتی نفسیات (Trading Psychology) اسی ذہنی اور جذباتی پہلو کا نام ہے جو طے کرتا ہے کہ تاجر کس طرح فیصلے کرتا ہے، کس وقت داخل ہو یا باہر نکلے، اور نقصان کے وقت بالکل کیا ردعمل دکھاتا ہے۔ بہت سارے تاجر عمدہ چارٹ رکھتے ہیں، اچھے اندیکٹر جانتے ہیں، مگر پھر بھی مسلسل ہار جاتے ہیں۔ اس کی اصل وجہ ان کی نفسیاتی کمزوریاں ہوتی ہیں، نہ کہ علم کی کمی۔</p>
     <p>چارٹ اور مارکیٹ میں جو کچھ بھی نظر آتا ہے وہ انسانی سوچ کا نتیجہ ہے۔ قیمتیں اٹھتی اور گرتی ہیں کیونکہ لاکھوں لوگ خوف، لالچ اور امید کے تحت خرید و فروخت کرتے ہیں۔ اگر آں سمجھ لیں کہ مارکیٹ دراصل لوگوں کے جذبات کا عکس ہے، تو آپ کو اندازہ ہوتا ہے کہ آپ کے اپنے احساسات آپ کے تجارتی نتائج کو کیسے متاثر کر سکتے ہیں۔ جو تاجر خود کو پہچان لیتا ہے، وہ مارکیٹ کو بھی گہرائی سے سمجھ لیتا ہے۔</p>
     <p>تجارتی نفسیات کا سب سے بڑا اصول یہ ہے کہ آپ اپنے منصوبے کے مطابق تجارت کریں، نہ کہ اپنی جذبات کے مطابق۔ بہت سے نو آموز تاجر جب کوئی ٹریڈ نقصان میں جاتا ہے تو گھبرا کر فوراً باہر نکل آتے ہیں، یا پھر صبر کھو کر اپنے نقصان کو بڑھا لیتے ہیں۔ یہ دونوں رویے نفسیاتی عدم استحکام کے مظہر ہیں۔ حقیقی کامیابی اسی وقت ملتی ہے جب آپ اپنے جذبات کو قابو کریں اور اپنے قوانین پر پورا بھروسہ رکھیں۔</p>

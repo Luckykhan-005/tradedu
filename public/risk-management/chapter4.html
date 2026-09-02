@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #1a2336; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #33415c; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #f87171; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #e94560; text-decoration: none; padding: 10px 20px; background: #0f3460; border-radius: 10px; font-size: 24px; }
     </style>
@@ -28,6 +32,101 @@
         <a href="chapter5.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۴: رسک ریوارڈ ریشو</h1>
+    <figure class="diagram">
+        <h3>رسک ریوارڈ ریشو 1:2 — Risk vs Reward</h3>
+        <svg width="640" height="320" viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#16223a"/>
+                    <stop offset="100%" stop-color="#0f1a2e"/>
+                </linearGradient>
+                <linearGradient id="risk1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#ef4444"/>
+                    <stop offset="100%" stop-color="#b91c1c"/>
+                </linearGradient>
+                <linearGradient id="reward1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="100%" stop-color="#15803d"/>
+                </linearGradient>
+                <filter id="glow1" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="320" rx="14" fill="url(#bg1)"/>
+            <g stroke="#22304a" stroke-width="1" opacity="0.4">
+                <line x1="60" y1="40" x2="600" y2="40"/><line x1="60" y1="90" x2="600" y2="90"/>
+                <line x1="60" y1="140" x2="600" y2="140"/><line x1="60" y1="190" x2="600" y2="190"/>
+                <line x1="60" y1="240" x2="600" y2="240"/>
+            </g>
+            <rect x="150" y="80" width="130" height="46" rx="8" fill="url(#risk1)" filter="url(#glow1)"/>
+            <text x="215" y="111" text-anchor="middle" font-size="20" font-family="Arial" font-weight="bold" fill="#ffffff">Risk 1</text>
+            <rect x="150" y="180" width="260" height="46" rx="8" fill="url(#reward1)" filter="url(#glow1)"/>
+            <text x="280" y="211" text-anchor="middle" font-size="20" font-family="Arial" font-weight="bold" fill="#ffffff">Reward 2</text>
+            <text x="150" y="146" text-anchor="middle" font-size="15" fill="#ef4444">1 یونٹ نقصان</text>
+            <text x="150" y="250" text-anchor="middle" font-size="15" fill="#22c55e">2 یونٹ منافع</text>
+            <text x="320" y="295" text-anchor="middle" font-size="22" font-family="Arial" font-weight="bold" fill="#facc15">Ratio 1 : 2</text>
+            <text x="320" y="60" text-anchor="middle" font-size="16" fill="#ffffff" font-family="Arial" font-weight="bold">Risk</text>
+            <text x="60" y="60" text-anchor="middle" font-size="14" fill="#94a3b8"></text>
+            <g stroke="#facc15" stroke-width="2">
+                <line x1="430" y1="103" x2="458" y2="103"/>
+                <line x1="430" y1="203" x2="518" y2="203"/>
+            </g>
+            <text x="480" y="108" font-size="16" fill="#94a3b8">رسک ریوارڈ تناسب</text>
+        </svg>
+        <figcaption>افضل رسک ریوارڈ ریشو 1:2 ہے — ایک یونٹ نقصان کے سامنے دو یونٹ منافع رکھا جاتا ہے۔</figcaption>
+    </figure>
+    <figure class="diagram">
+        <h3>جیت اور ہار کا حساب — Win/Loss Math at 1:2 R:R</h3>
+        <svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#16223a"/>
+                    <stop offset="100%" stop-color="#0f1a2e"/>
+                </linearGradient>
+                <linearGradient id="win2" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="100%" stop-color="#15803d"/>
+                </linearGradient>
+                <linearGradient id="loss2" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="#ef4444"/>
+                    <stop offset="100%" stop-color="#7f1d1d"/>
+                </linearGradient>
+                <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="360" rx="14" fill="url(#bg2)"/>
+            <g stroke="#22304a" stroke-width="1" opacity="0.4">
+                <line x1="60" y1="60" x2="600" y2="60"/><line x1="60" y1="120" x2="600" y2="120"/>
+                <line x1="60" y1="180" x2="600" y2="180"/><line x1="60" y1="240" x2="600" y2="240"/>
+            </g>
+            <text x="170" y="40" text-anchor="middle" font-size="15" font-family="Arial" font-weight="bold" fill="#22c55e">5 Wins (+2R each)</text>
+            <text x="410" y="40" text-anchor="middle" font-size="15" font-family="Arial" font-weight="bold" fill="#ef4444">5 Losses (−1R each)</text>
+            <g>
+                <rect x="80" y="60" width="30" height="180" fill="url(#win2)"/>
+                <rect x="120" y="60" width="30" height="180" fill="url(#win2)"/>
+                <rect x="160" y="60" width="30" height="180" fill="url(#win2)"/>
+                <rect x="200" y="60" width="30" height="180" fill="url(#win2)"/>
+                <rect x="240" y="60" width="30" height="180" fill="url(#win2)"/>
+            </g>
+            <text x="170" y="260" text-anchor="middle" font-size="16" fill="#22c55e" font-family="Arial" font-weight="bold">+10R</text>
+            <g>
+                <rect x="330" y="240" width="30" height="90" fill="url(#loss2)"/>
+                <rect x="370" y="240" width="30" height="90" fill="url(#loss2)"/>
+                <rect x="410" y="240" width="30" height="90" fill="url(#loss2)"/>
+                <rect x="450" y="240" width="30" height="90" fill="url(#loss2)"/>
+                <rect x="490" y="240" width="30" height="90" fill="url(#loss2)"/>
+            </g>
+            <text x="410" y="345" text-anchor="middle" font-size="16" fill="#ef4444" font-family="Arial" font-weight="bold">−5R</text>
+            <line x1="70" y1="240" x2="600" y2="240" stroke="#22304a" stroke-width="2"/>
+            <rect x="300" y="88" width="180" height="48" rx="8" fill="#13203a" stroke="#22c55e" stroke-width="2" filter="url(#glow2)"/>
+            <text x="390" y="112" text-anchor="middle" font-size="20" font-family="Arial" font-weight="bold" fill="#22c55e">Net = +5R</text>
+            <text x="390" y="128" text-anchor="middle" font-size="12" fill="#94a3b8">10 trades, 50% win at 1:2</text>
+        </svg>
+        <figcaption>10 ٹریڈز، 50% جیت کی شرح اور 1:2 کے تناسب پر کل منافع +5R رہتا ہے — کم جیت کے باوجود بھی نفع ممکن۔</figcaption>
+    </figure>
     <p>رسک ریوارڈ ریشو آپ کی ٹریڈنگ میں سب سے طاقتور ریاضیاتی توازن ہے۔ یہ بتاتا ہے کہ آپ اپنی ٹریڈ کے بدلے میں کتنا منافع حاصل کر سکتے ہیں، مقابلے میں آپ کتنا نقصان اٹھا سکتے ہیں۔ مثال کے طور پر، اگر آپ ایک ٹریڈ میں ایک سو روپے کا خطرہ اٹھاتے ہیں لیکن تین سو روپے کا منافع حاصل کر سکتے ہیں، تو آپ کا رسک ریوارڈ ریشو ۱:۳ ہے۔ یہ ریشو آپ کو بتاتا ہے کہ آپ کی ٹریڈ اس قابل ہے یا نہیں۔</p>
     <p>رسک ریوارڈ ریشو کو سمجھنا اتنا ہی ضروری ہے جتنا اسٹاپ لاس اور پوزیشن سائزنگ کو سمجھنا۔ وجہ یہ ہے کہ یہ ریشو آپ کو یہ بتاتا ہے کہ آپ کو کتنی بار جیتنا ہوگا تاکہ آپ کا کاروبار منافع میں رہے۔ اگر آپ کا ریشو ۱:۱ ہے، یعنی آپ اتنا ہی کھوتے ہیں جتنا کماتے ہیں، تو آپ کو منافع کے لیے پچاس فیصد سے زیادہ جیتنا ہوگا۔ لیکن اگر آپ کا ریشو ۱:۲ ہے تو آپ صرف تین میں سے ایک بار جیتنے کے بعد بھی نفع میں رہ سکتے ہیں۔</p>
     <p>یہاں ایک سادہ مثال لیجیے۔ فرض کریں آپ کا رسک ریوارڈ ریشو ۱:۲ ہے۔ آپ نے دس ٹریڈ کیے اور ان میں سے صرف چار جیتے جبکہ چھ ہارے۔ اگر ہر جیت آپ کو دو سو روپے دیتی ہے اور ہر ہار آپ کو ایک سو روپے کا نقصان، تو آپ کا نفع چار ضرب دو سو یعنی آٹھ سو روپے ہوگا، اور نقصان چھ ضرب ایک سو یعنی چھ سو روپے۔ نتائج پر خالص نفع دو سو روپے رہتا ہے۔ یہ ظاہر کرتا ہے کہ اچھا رسک ریوارڈ ریشو آپ کو جیتنے کی شرح چھوٹی ہونے کے باوجود منافع دلاتا ہے۔</p>

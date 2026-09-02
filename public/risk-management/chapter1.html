@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #1a2336; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #33415c; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #f87171; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #e94560; text-decoration: none; padding: 10px 20px; background: #0f3460; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,98 @@
         <a href="chapter2.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۱: خطرے کا انتظام کیا ہے؟</h1>
+    <figure class="diagram">
+        <h3>سرمایہ کا تحفظ — Capital Protection</h3>
+        <svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#16223a"/>
+                    <stop offset="100%" stop-color="#0f1a2e"/>
+                </linearGradient>
+                <linearGradient id="shield1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#00b4d8"/>
+                    <stop offset="100%" stop-color="#22c55e"/>
+                </linearGradient>
+                <linearGradient id="coin1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#facc15"/>
+                    <stop offset="100%" stop-color="#d99a0b"/>
+                </linearGradient>
+                <filter id="glow1" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="7" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="420" rx="14" fill="url(#bg1)"/>
+            <g stroke="#22304a" stroke-width="1" opacity="0.4">
+                <line x1="80" y1="20" x2="80" y2="400"/><line x1="160" y1="20" x2="160" y2="400"/>
+                <line x1="240" y1="20" x2="240" y2="400"/><line x1="320" y1="20" x2="320" y2="400"/>
+                <line x1="400" y1="20" x2="400" y2="400"/><line x1="480" y1="20" x2="480" y2="400"/>
+                <line x1="560" y1="20" x2="560" y2="400"/>
+                <line x1="40" y1="80" x2="600" y2="80"/><line x1="40" y1="140" x2="600" y2="140"/>
+                <line x1="40" y1="200" x2="600" y2="200"/><line x1="40" y1="260" x2="600" y2="260"/>
+                <line x1="40" y1="320" x2="600" y2="320"/>
+            </g>
+            <g stroke="#caa422" stroke-width="2">
+                <ellipse cx="320" cy="330" rx="110" ry="22" fill="url(#coin1)"/>
+                <ellipse cx="320" cy="300" rx="110" ry="22" fill="url(#coin1)"/>
+                <ellipse cx="320" cy="270" rx="110" ry="22" fill="url(#coin1)"/>
+                <ellipse cx="320" cy="240" rx="110" ry="22" fill="url(#coin1)"/>
+                <ellipse cx="320" cy="210" rx="110" ry="22" fill="url(#coin1)"/>
+            </g>
+            <text x="330" y="218" font-size="24" fill="#3a2e07" text-anchor="middle" font-family="Arial" font-weight="bold">₨</text>
+            <text x="330" y="248" font-size="24" fill="#3a2e07" text-anchor="middle" font-family="Arial" font-weight="bold">₨</text>
+            <text x="330" y="308" font-size="24" fill="#3a2e07" text-anchor="middle" font-family="Arial" font-weight="bold">₨</text>
+            <path d="M320 138 L262 168 V232 C262 290 320 324 320 342 C320 324 378 290 378 232 V168 Z" fill="url(#shield1)" stroke="#22c55e" stroke-width="4" filter="url(#glow1)"/>
+            <path d="M292 252 L314 278 L352 222" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="320" y="384" font-size="24" fill="#ffffff" text-anchor="middle" font-family="Arial" font-weight="bold">Capital Protection</text>
+            <text x="320" y="408" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="'Jameel Noori Nastaleeq',serif">سرمایہ کا تحفظ</text>
+        </svg>
+        <figcaption>خطرے کا انتظام آپ کے سرمائے کو ایک ڈھال کی طرح محفوظ رکھتا ہے — سرمائے کی حفاظت سب سے پہلی ترجیح ہے۔</figcaption>
+    </figure>
+    <figure class="diagram">
+        <h3>نقصان کا موازنہ — Loss With vs Without Risk Management</h3>
+        <svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#16223a"/>
+                    <stop offset="100%" stop-color="#0f1a2e"/>
+                </linearGradient>
+                <linearGradient id="red2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ef4444"/>
+                    <stop offset="100%" stop-color="#b91c1c"/>
+                </linearGradient>
+                <linearGradient id="green2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="100%" stop-color="#15803d"/>
+                </linearGradient>
+                <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="5" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="400" rx="14" fill="url(#bg2)"/>
+            <rect x="70" y="40" width="540" height="270" fill="none" stroke="#22304a" stroke-width="2"/>
+            <g stroke="#22304a" stroke-width="1" opacity="0.5">
+                <line x1="70" y1="92" x2="610" y2="92"/><line x1="70" y1="144" x2="610" y2="144"/>
+                <line x1="70" y1="196" x2="610" y2="196"/><line x1="70" y1="248" x2="610" y2="248"/>
+                <line x1="178" y1="40" x2="178" y2="310"/><line x1="286" y1="40" x2="286" y2="310"/>
+                <line x1="394" y1="40" x2="394" y2="310"/><line x1="502" y1="40" x2="502" y2="310"/>
+            </g>
+            <path d="M70 60 L178 132 L286 196 L394 250 L502 288 L610 298" fill="none" stroke="url(#red2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow2)"/>
+            <path d="M70 78 L178 92 L286 104 L394 112 L502 118 L610 121" fill="none" stroke="url(#green2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow2)"/>
+            <circle cx="610" cy="298" r="7" fill="#ef4444"/>
+            <circle cx="610" cy="121" r="7" fill="#22c55e"/>
+            <text x="540" y="290" font-size="15" fill="#ef4444" text-anchor="middle">خالی اکاؤنٹ — Empty</text>
+            <text x="540" y="112" font-size="15" fill="#22c55e" text-anchor="middle">محفوظ — Safe</text>
+            <text x="40" y="180" font-size="14" fill="#94a3b8" text-anchor="middle" transform="rotate(-90 40 180)">اکاؤنٹ Account</text>
+            <text x="340" y="356" font-size="14" fill="#94a3b8" text-anchor="middle">ٹریڈز Trades</text>
+            <g font-size="14" fill="#cbd5e1">
+                <circle cx="90" cy="330" r="6" fill="#ef4444"/><text x="104" y="335">بغیر مینجمنٹ — No Risk Mgmt</text>
+                <circle cx="90" cy="355" r="6" fill="#22c55e"/><text x="104" y="360">مناسب انتظام — Proper Risk Mgmt</text>
+            </g>
+        </svg>
+        <figcaption>بغیر مینجمنٹ نقصان تیزی سے بڑھ کر اکاؤنٹ کو خالی کر دیتا ہے، جبکہ مناسب انتظام نقصان کو کنٹرول میں رکھتا ہے۔</figcaption>
+    </figure>
     <p>ٹریڈنگ کی دنیا میں سب سے اہم سوال یہ نہیں کہ آپ کتنے پیسے کما سکتے ہیں، بلکہ یہ ہے کہ آپ اپنے پیسے کو کھونے سے کیسے بچا سکتے ہیں۔ خطرے کا انتظام (Risk Management) دراصل ایک ایسا نظام ہے جو آپ کو پہلے ہی سے بتاتا ہے کہ ہر ٹریڈ پر کتنا پیسہ خطرے میں ڈالنا ہے، اور اگر مارکیٹ آپ کے خلاف چلی جائے تو آپ کا نقصان کہاں رکے گا۔ یہ نظام آپ کے سرمائے کو محفوظ رکھتا ہے اور آپ کو بازار میں زیادہ دیر تک زندہ رکھتا ہے۔</p>
     <p>بہت سے نئے ٹریڈرز یہ سمجھتے ہیں کہ کامیابی کا راز صرف اچھی کاروباری حکمت عملی ہے، یعنی درست وقت پر خریدنا اور بیچنا۔ لیکن حقیقت یہ ہے کہ دنیا کے کامیاب ترین ٹریڈرز بھی اپنی ہر ٹریڈ میں غلط ہو سکتے ہیں۔ وہ جیتنے والے اس لیے نہیں ہیں کہ ان کی غلطی کا امکان کم ہے، بلکہ اس لیے کہ انہوں نے اپنے نقصان پر سخت حد مقرر کر رکھی ہے۔ اسی وجہ سے خطرے کا انتظام ٹریڈنگ کی بنیاد اور سب سے اہم ستون سمجھا جاتا ہے۔</p>
     <p>اسے ایک مثال سے سمجھیں۔ فرض کریں آپ کے پاس ایک لاکھ روپے کا سرمایہ ہے۔ اگر آپ ہر ٹریڈ پر اپنی پوری رقم لگا دیں تو ایک ہی بری ٹریڈ آپ کا پورا اکاؤنٹ ختم کر سکتی ہے۔ لیکن اگر آپ اپنی رقم کا صرف ایک یا دو فیصد خطرے میں ڈالیں تو سینکڑوں ٹریڈز کے بعد بھی آپ کا سرمایہ محفوظ رہے گا۔ یہی بنیادی فرق ان لوگوں میں ہے جو بازار میں برسوں رہتے ہیں اور ان میں جو چند دنوں میں ختم ہو جاتے ہیں۔</p>

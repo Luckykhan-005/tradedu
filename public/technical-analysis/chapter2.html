@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #121d33; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #1f3a5f; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #8ab4f8; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,51 @@
         <a href="chapter3.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۲: ٹرینڈ لائنز اور چینلز</h1>
+
+    <figure class="diagram">
+        <h3>اوپر کا رجحان — ٹرینڈ لائن</h3>
+        <svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0a1222"/></linearGradient>
+                <filter id="glowb"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="640" height="400" fill="url(#bg2)" rx="14"/>
+            <g stroke="#1a2b45" stroke-width="1"><line x1="0" y1="100" x2="640" y2="100"/><line x1="0" y1="180" x2="640" y2="180"/><line x1="0" y1="260" x2="640" y2="260"/></g>
+            <!-- Uptrend line (from lows) -->
+            <line x1="80" y1="330" x2="600" y2="90" stroke="#22c55e" stroke-width="3"/>
+            <!-- price zigzag holding above trendline -->
+            <path d="M80,260 L150,300 L210,230 L280,270 L360,180 L430,220 L520,120 L600,150"
+                  fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- touch points -->
+            <g fill="#22c55e" filter="url(#glowb)"><circle cx="150" cy="300" r="7"/><circle cx="280" cy="270" r="7"/><circle cx="430" cy="220" r="7"/></g>
+            <!-- arrows up -->
+            <g fill="#22c55e" marker-end="url(#ar)"><text x="210" y="215" font-size="24" font-family="sans-serif" fill="#22c55e">↗</text></g>
+            <text x="140" y="120" fill="#4ade80" font-size="16" font-family="sans-serif">Higher Highs</text>
+            <text x="150" y="355" fill="#34d399" font-size="16" font-family="sans-serif">Higher Lows → Uptrend Line</text>
+        </svg>
+        <figcaption>اوپر کے رجحان میں نیچے کے اونچے پوائنٹس (Higher Lows) کو جوڑ کر صعودی ٹرینڈ لائن بنتی ہے</figcaption>
+    </figure>
+
+    <figure class="diagram">
+        <h3>چینل — دو متوازی لکیروں کی راہداری</h3>
+        <svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+            <rect width="640" height="400" fill="url(#bg2)" rx="14"/>
+            <!-- Channel: two parallel lines -->
+            <line x1="80" y1="120" x2="600" y2="300" stroke="#ef4444" stroke-width="3"/>
+            <line x1="80" y1="60" x2="600" y2="240" stroke="#22c55e" stroke-width="3"/>
+            <!-- price within -->
+            <path d="M80,90 L160,140 L240,110 L320,190 L400,150 L500,230 L560,200 L600,270"
+                  fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+            <g fill="#ef4444"><circle cx="160" cy="140" r="6"/><circle cx="320" cy="190" r="6"/><circle cx="500" cy="230" r="6"/></g>
+            <g fill="#22c55e"><circle cx="240" cy="110" r="6"/><circle cx="400" cy="150" r="6"/></g>
+            <text x="470" y="60" fill="#4ade80" font-size="15" font-family="sans-serif">Upper (Resistance)</text>
+            <text x="470" y="330" fill="#f87171" font-size="15" font-family="sans-serif">Lower (Support)</text>
+            <text x="120" y="200" fill="#cbd5e1" font-size="13" font-family="sans-serif">Buy here (نیچے) →</text>
+            <text x="450" y="200" fill="#cbd5e1" font-size="13" font-family="sans-serif">← Sell here (اوپر)</text>
+        </svg>
+        <figcaption>چینل قیمت کو ایک راہداری میں رکھتا ہے — نیچے پر خرید، اوپر پر منافع وصول</figcaption>
+    </figure>
+
     <p>سپورٹ اور ریزسٹنس کے بعد تکنیکی تجزیہ کا سب سے اہم آلہ ٹرینڈ لائن (Trend Line) ہے۔ ٹرینڈ لائن صرف ایک سیدھی لکیر ہے جو قیمت کے کم سے کم دو یا تین پوائنٹس کو جوڑتی ہے، لیکن اس کی اہمیت اس بات میں ہے کہ یہ ہمیں بازار کی سمت اور رفتار دکھاتی ہے۔ اوپر کے رجحان میں لکیر نیچے کے بلند ہوتے ہوئے پوائنٹس (لوئر ہائیس) کو جوڑتی ہے اور اسے صعودی ٹرینڈ لائن کہتے ہیں۔ اسی طرح نیچے کے رجحان میں یہ اوپر کے نکلتے ہوئے پوائنٹس (ہائیر لوئس) کو جوڑتی ہے اور اسے نزولی ٹرینڈ لائن کہتے ہیں۔</p>
     <p>ٹرینڈ لائن کا درست استعمال ایک فن ہے۔ ایک اچھی ٹرینڈ لائن کم از کم دو پوائنٹس پر لازمی بنتی ہے، لیکن تیسرا ٹچ ہی اس کی مضبوطی کی تصدیق کرتا ہے۔ زیادہ تر ماہرین تجویز کرتے ہیں کہ لکیر کو کینڈل کے جسم (بڈی) کے بجائے اُس کے شیڈو (موم بتی کی چھوٹی پٹی) کے کناروں پر کھینچیں، تاکہ جسم کے اندر چھپی بے حسی کو نظر انداز کیا جا سکے۔ اس کے علاوہ لکیر کی ڈھلوان بھی اہم ہے؛ بہت تیز ڈھلوان غیر مستحکم ہوتی ہے اور جلد ٹوٹ سکتی ہے، جبکہ بہت ہلکی ڈھلوان کمزور ہوتی ہے۔ مثالی ٹرینڈ لائن وہ ہوتی ہے جو ۳۰ سے ۴۵ درجے کی زاویہ پر ہو تاکہ مستحکم اور قابلِ اعتبار رہے۔</p>
     <p>ٹرینڈ لائن کا سب سے بڑا فائدہ یہ ہے کہ یہ بریک آؤٹ کا ایک صاف اور کھلا اشارہ دیتی ہے۔ جب تک قیمت لکیر کے اوپر رہتی ہے، اوپر کا رجحان برقرار سمجھا جاتا ہے اور ہر ٹچ کو خرید کا موقعہ سمجھا جاتا ہے۔ جب قیمت لکیر کو توڑ کر نیچے بند ہوتی ہے، تو یہ رجحان کے ممکنہ اختتام اور تبدیل ہونے کا انتباہ ہے۔ صرف ایک بریک اتنا معنی نہیں رکھتا؛ مستقل اور اعتبار کے لیے حجم میں اضافے اور بند ہونے کے ساتھ بریک ہونا ضروری ہے۔ ماہرین اکثر اس بات کا انتظار کرتے ہیں کہ قیمت نئی ٹرینڈ لائن کو واپس ٹچ کرے (ری ٹیسٹ) اور پھر اپنی اصل سمت میں چل نکلے۔</p>

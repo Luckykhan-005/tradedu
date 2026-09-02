@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #232044; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #3b3770; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #c084fc; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #c084fc; text-decoration: none; padding: 10px 20px; background: #2d2b55; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,111 @@
         <a href="chapter4.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۳: لالچ اور خوف</h1>
+    <figure class="diagram">
+        <h3>جذباتی رولر کوسٹر — Greed, Fear, Balance</h3>
+        <svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgC1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#231b45"/>
+                </linearGradient>
+                <linearGradient id="roller" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#f472b6"/>
+                    <stop offset="0.5" stop-color="#c084fc"/>
+                    <stop offset="1" stop-color="#22c55e"/>
+                </linearGradient>
+                <filter id="glowC1" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="640" height="340" rx="14" fill="url(#bgC1)"/>
+            <g stroke="#2b2450" opacity="0.14" stroke-width="1">
+                <path d="M90 120H570M90 175H570M90 230H570M90 285H570M150 60V305M230 60V305M310 60V305M390 60V305M470 60V305M550 60V305"/>
+            </g>
+            <g stroke="#3b3770" stroke-width="2">
+                <line x1="90" y1="305" x2="572" y2="305"/>
+                <line x1="90" y1="60" x2="90" y2="305"/>
+            </g>
+            <line x1="90" y1="175" x2="570" y2="175" stroke="#22c55e" stroke-width="3" stroke-dasharray="10 6" filter="url(#glowC1)"/>
+            <path d="M90 175 C120 140 150 95 180 90 C215 85 250 258 280 262 C310 266 345 95 380 90 C415 85 450 258 470 262 C500 266 535 140 555 122" fill="none" stroke="url(#roller)" stroke-width="5" stroke-linecap="round" filter="url(#glowC1)"/>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <circle cx="180" cy="90" r="8" fill="#facc15" filter="url(#glowC1)"/>
+                <rect x="118" y="42" width="124" height="34" rx="8" fill="#3a2a12" stroke="#facc15" stroke-width="1.5"/>
+                <text x="180" y="65" font-size="19" fill="#fde047">Greed · لالچ</text>
+                <circle cx="280" cy="262" r="8" fill="#60a5fa" filter="url(#glowC1)"/>
+                <rect x="216" y="248" width="128" height="34" rx="8" fill="#16233a" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="280" y="271" font-size="19" fill="#93c5fd">Fear · خوف</text>
+                <circle cx="380" cy="90" r="8" fill="#facc15" filter="url(#glowC1)"/>
+                <rect x="318" y="42" width="124" height="34" rx="8" fill="#3a2a12" stroke="#facc15" stroke-width="1.5"/>
+                <text x="380" y="65" font-size="19" fill="#fde047">Greed · لالچ</text>
+                <circle cx="470" cy="262" r="8" fill="#60a5fa" filter="url(#glowC1)"/>
+                <rect x="406" y="248" width="128" height="34" rx="8" fill="#16233a" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="470" y="271" font-size="19" fill="#93c5fd">Fear · خوف</text>
+                <rect x="452" y="158" width="116" height="32" rx="8" fill="#0e2a1f" stroke="#22c55e" stroke-width="1.5"/>
+                <text x="510" y="180" font-size="17" fill="#86efac">Balance · توازن</text>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="15" fill="#94a3b8">
+                <text x="332" y="326" text-anchor="middle">وقت (Time)</text>
+                <text x="66" y="185" text-anchor="middle" transform="rotate(-90 66 185)">جذبات (Emotion)</text>
+            </g>
+        </svg>
+        <figcaption>تجارت میں جذبات رولر کوسٹر کی طرح بلند و پست رہتے ہیں: لالچ کبھی بلندی پر لے جاتی ہے، خوف گہرائی میں، جبکہ حقیقی فائدہ «توازن» کی درمیانی لکیر پر ہے۔</figcaption>
+    </figure>
+    <figure class="diagram">
+        <h3>لالچی بمقابلہ نظم و ضبط — Two-face Comparison</h3>
+        <svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgC2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#231b45"/>
+                </linearGradient>
+                <filter id="glowC2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="640" height="340" rx="14" fill="url(#bgC2)"/>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <rect x="30" y="22" width="285" height="40" rx="10" fill="#2a1620" stroke="#ef4444" stroke-width="2"/>
+                <text x="172" y="50" font-size="22" fill="#fca5a5">Greedy Trader · لالچی تاجر</text>
+                <rect x="325" y="22" width="285" height="40" rx="10" fill="#10241b" stroke="#22c55e" stroke-width="2"/>
+                <text x="467" y="50" font-size="22" fill="#86efac">Disciplined Trader · پابند تاجر</text>
+            </g>
+            <g>
+                <rect x="30" y="70" width="285" height="230" rx="12" fill="#1b1226" stroke="#4a2a36" stroke-width="1.5"/>
+                <rect x="325" y="70" width="285" height="230" rx="12" fill="#0f241b" stroke="#2a5036" stroke-width="1.5"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="14" fill="#94a3b8">
+                <text x="172" y="92" text-anchor="middle">بہت دیر رکا → نفع بھی گنوا دیا</text>
+                <text x="467" y="92" text-anchor="middle">ہدف پہنچتے ہی نفع لیا</text>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif">
+                <text x="50" y="298" font-size="13" fill="#94a3b8">Entry</text>
+                <text x="345" y="298" font-size="13" fill="#94a3b8">Entry</text>
+            </g>
+            <line x1="60" y1="150" x2="205" y2="150" stroke="#22c55e" stroke-width="2" stroke-dasharray="6 5"/>
+            <path d="M60 262 C120 262 165 200 205 150 C250 128 258 195 278 262" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" filter="url(#glowC2)"/>
+            <circle cx="205" cy="150" r="7" fill="#facc15"/>
+            <path d="M205 150 C245 120 250 175 278 262" fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round"/>
+            <line x1="355" y1="136" x2="575" y2="136" stroke="#22c55e" stroke-width="2" stroke-dasharray="6 5" filter="url(#glowC2)"/>
+            <path d="M355 262 C420 262 460 190 492 136 C520 118 545 128 575 136" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" filter="url(#glowC2)"/>
+            <circle cx="492" cy="136" r="7" fill="#22c55e" filter="url(#glowC2)"/>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="15" text-anchor="middle">
+                <rect x="62" y="160" width="130" height="30" rx="7" fill="#3a2a12" stroke="#facc15" stroke-width="1.5"/>
+                <text x="127" y="181" fill="#fde047">Target سنبھل رہا</text>
+                <rect x="420" y="146" width="118" height="30" rx="7" fill="#0e2a1f" stroke="#22c55e" stroke-width="1.5"/>
+                <text x="479" y="167" fill="#86efac">Exit at Target</text>
+            </g>
+        </svg>
+        <figcaption>لالچی تاجر منافع کو بڑھانے کے چکر میں بہت دیر رک جاتا ہے اور نفع بھی گنوا دیتا ہے؛ جبکہ پابند تاجر اپنے ہدف (Target) پر نفع لے کر سرمائے کی حفاظت کرتا ہے۔</figcaption>
+    </figure>
     <p>لالچ اور خوف تجارت کے دو سب سے طاقتور جذبات ہیں، اور یہ دونوں مل کر تاجر کی کامیابی کو تباہ کر سکتے ہیں۔ لالچ آپ کو بہت جلد بہت زیادہ منافع حاصل کرنے کی خواہش دلاتا ہے، جس کی وجہ سے آپ اپنی پوزیشن کا سائز بڑھا لیتے ہیں یا منافع کو مزید بڑھانے کے لیے انتظار کرتے رہتے ہیں۔ لیکن جب بازار پلٹ جاتا ہے تو وہی منافع نقصان میں بدل جاتا ہے۔ لالچ اکثر سادہ اور حیران کرنے والے منافع کی پیشکش سے پیدا ہوتا ہے جو حقیقت میں ناممکن ہوتا ہے۔</p>
     <p>خوف دوسری طرف آپ کو ہر قسم کی پیشرفت کے دوران گھبراہٹ میں مبتلا کر دیتا ہے۔ خوف کی ایک قسم آپ کو بہت جلدی باہر نکلنے پر مجبور کرتی ہے، جس کی وجہ سے آپ چھوٹا منافع لے کر محروم ہو جاتے ہیں۔ دوسری قسم خوف آپ کو نقصان کو پہچان کر بروقت روکنے سے بھی روکتی ہے۔ جب خوف آپ پر غالب آ جاتا ہے تو نہ صرف آپ کے فیصلے متاثر ہوتے ہیں بلکہ آپ اعتماد کھو دیتے ہیں اور ہر ٹریڈ میں ہچکچاتے ہیں۔</p>
     <p>ان دونوں جذبات کو سمجھنے کے لیے ایک اہم سبق یہ ہے کہ آپ اپنے تجارت کو نامنظوری سے پہچانیں، نہ کہ جذبات سے۔ جب آپ اپنی پوزیشن کا سائز اپنے خطرے کے بجٹ کے مطابق رکھتے ہیں، تو لالچ خود ہی کم ہو جاتی ہے کیونکہ آپ جانتے ہیں کہ بڑی رقم کو خطرہ لگانا زیاں رسیدہ ہے۔ اسی طرح اگر آپ پہلے سے طے شدہ نقصان کا حد رکھتے ہیں (سٹاپ لاس)، تو خوف کم ہو جاتا ہے کیونکہ آپ جانتے ہیں کہ آپ کا نقصان محدود ہے۔</p>
