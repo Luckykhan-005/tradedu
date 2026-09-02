@@ -17,6 +17,7 @@ import { Certificates } from './components/Certificates'
 import { Pricing } from './components/Pricing'
 import { PlanGate } from './components/PlanGate'
 import { Subscribe } from './components/Subscribe'
+import { ForexScanner } from './components/ForexScanner'
 
 interface CourseDetailData extends CourseData {
   modules: {

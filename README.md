@@ -1,431 +1,592 @@
-# AI Alpha Hunter & Opportunity Radar - Complete Documentation Package
+# Forex Signal Scanner - Complete Documentation Package
 
-## 📋 Overview
+## Overview
 
-This documentation package contains a comprehensive exploration and detailed analysis of the **AI Alpha Hunter & Opportunity Radar** cryptocurrency trading platform accessible at: `https://crypto-alpha-hunter-rbjv.bolt.host`
+This documentation package provides a complete blueprint for understanding and recreating the **Forex Signal Scanner** web application - a sophisticated trading analysis and automation platform found at `https://forex-scanner.vercel.app/`.
 
----
-
-## 📁 Documentation Files
-
-### 1. **crypto_alpha_hunter_detailed_summary.md** 
-**Most Comprehensive Reference**
-- Complete feature breakdown of all 6 sections
-- Detailed component descriptions
-- Visual design elements
-- Key features summary
-- Technical infrastructure notes
-- UI/UX observations
-- **Use this for**: Complete understanding of the application
-
-### 2. **QUICK_REFERENCE_GUIDE.md** 
-**Quick Lookup Reference**
-- Dashboard metrics at a glance
-- Trade setup components
-- Market intelligence metrics
-- Risk calculator guide
-- Alert system features
-- Color coding system
-- Best practices
-- **Use this for**: Quick lookups, on-the-fly reference
-
-### 3. **SCREENSHOTS_INDEX.md**
-**Visual Documentation Index**
-- Index of 23 screenshots captured
-- Detailed descriptions of each screenshot
-- Feature visibility callouts
-- Visual progression through app
-- Section-by-section breakdown
-- **Use this for**: Visual reference, screenshot navigation
-
-### 4. **UI_STRUCTURE_WIREFRAME.md**
-**Layout & Architecture Reference**
-- ASCII wireframes of all sections
-- Component breakdowns
-- Layout structure
-- Responsive behavior
-- Data flow patterns
-- Animation states
-- Color and visual hierarchy
-- **Use this for**: UI/UX understanding, development reference
-
-### 5. **README.md** (This file)
-**Navigation and Overview**
-- Overview of all documentation
-- Quick navigation guide
-- Key sections reference
-- Where to find specific information
+The application is a professional-grade forex trading tool that combines:
+- Real-time signal scanning across multiple currency pairs
+- Automated trading bot with 9+ strategies
+- Demo and live account integration (OANDA)
+- Historical backtesting capabilities
+- Market session timing visualizations
+- Advanced technical indicator configuration
 
 ---
 
-## 🎯 Application Overview
+## Documentation Files
 
-### App Identity
-- **Name**: AI Alpha Hunter & Opportunity Radar
-- **Tagline**: "24/7 AI opportunity detection across the cryptocurrency market"
-- **Mission**: "Don't follow the market — detect the opportunity before the market does"
-- **Philosophy**: Quality over quantity, Capital protection first
+### 1. **forex_scanner_app_documentation.md**
+**Complete UI/UX Reference Guide**
 
-### Core Functionality
-- **Primary Purpose**: 24/7 AI-powered cryptocurrency trading opportunity detection
-- **Secondary Features**: Risk management, market intelligence, trade setup generation
-- **Target Users**: Cryptocurrency traders seeking high-probability setups
+This is your primary reference for understanding the user interface and experience. It includes:
 
----
+- **Header & Navigation**: Tab structure and layout
+- **Seven Main Tabs**: 
+  - **SCANNER**: Signal scanning with advanced configuration
+  - **CHART**: Price chart viewing
+  - **DEMO**: Paper trading account
+  - **OANDA**: Live trading account integration
+  - **BOT**: Automated trading strategies
+  - **BACKTEST**: Historical testing
+  - **CLOCK**: Market session timing
 
-## 🗺️ Application Structure
+- **Detailed Sections**: For each UI element:
+  - Component hierarchy
+  - Visual styling and colors
+  - Interactive behavior
+  - Configuration options
+  - Available choices/parameters
 
-### 6 Main Navigation Sections
+- **Visual Design Elements**:
+  - Complete color palette
+  - Typography system
+  - Layout principles
+  - Interactive element styles
 
-| # | Section | Purpose | Key Metrics |
-|---|---------|---------|------------|
-| 1 | **Opportunity Radar** | Main dashboard with top opportunities | Active opportunities, market sentiment, BTC dominance |
-| 2 | **Opportunity Scanner** | Browse and filter opportunities | Search, filtering, strength ranking |
-| 3 | **Hidden Gems** | Low-cap early patterns | Hidden gem scoring, early accumulation |
-| 4 | **Alerts** | 24/7 notification system | Real-time trade signals, acknowledgment system |
-| 5 | **Market Intelligence** | Macro market analysis | 11+ narrative metrics, sentiment, dominance |
-| 6 | **Risk Calculator** | Position sizing and risk tools | P&L, liquidation, slippage, position size |
-
----
-
-## 📊 Key Metrics Dashboard
-
-### Always-Visible Metrics
-1. **Active Opportunities** - Current high-quality trade setups available
-2. **Last Scan** - When AI most recently analyzed the market
-3. **Market Sentiment** - Greed/Fear scale (0-100)
-4. **BTC Dominance** - Bitcoin's market share percentage
-
-### Trade Alert Metrics
-- Confidence Level (%)
-- Opportunity Strength (%)
-- Trade Probability (%)
-- Risk Level Classification
-- Hold Duration (days)
-- Risk/Reward Ratio (e.g., 4.8:1)
+**Use this document for:**
+- Understanding the complete user interface
+- Learning how features are organized
+- Identifying all available options and settings
+- Understanding user workflows and interactions
 
 ---
 
-## 🎨 Design & Visual Elements
+### 2. **technical_specifications.md**
+**Component Breakdown & Implementation Guide**
 
-### Color Scheme
-- **Primary Background**: Dark Navy (#0F1419)
-- **Accent**: Cyan/Turquoise (#00D9FF)
-- **Alerts**: Yellow/Gold (#FFD700)
-- **Bullish/Gains**: Green (#00FF00)
-- **Bearish/Losses**: Red (#FF4444)
+This document provides technical specifications for development:
 
-### UI Components
-- Navigation sidebar (250px)
-- Dynamic main content area
-- Card-based component system
-- Real-time updating metrics
-- Color-coded status indicators
-- Professional dark theme
+- **Technology Stack**: Recommended frameworks and libraries
+  - Frontend: React/Vue, TypeScript
+  - Backend: Node.js/Python
+  - APIs: OANDA v20 integration
+  - Hosting: Vercel
 
----
+- **Component Architecture**:
+  - 50+ detailed component specifications
+  - Props and state management
+  - Sub-component hierarchies
+  - Data flow patterns
 
-## 📱 Content Organization
+- **Core Modules**:
+  1. Navigation System
+  2. Scanner Components (10+ sub-components)
+  3. Chart Components
+  4. Account Components (Demo & OANDA)
+  5. Bot Strategy Grid
+  6. Backtest Engine
+  7. Market Clock
 
-### By Section
+- **State Management**: Redux store structure with example schemas
 
-**Opportunity Radar** (See `crypto_alpha_hunter_detailed_summary.md` section "Main Dashboard - Opportunity Radar Section")
-- Primary alert display
-- Trade setup expansion
-- Dashboard metrics
-- Opportunity radar visualization
+- **API Endpoints**: ~20 expected backend endpoints with methods and purposes
 
-**Opportunity Scanner** (See `QUICK_REFERENCE_GUIDE.md` section "Opportunity Scanner Filters")
-- Search functionality
-- Filter types (8 options)
-- Ranking options
-- Search capabilities
+- **Styling System**: 
+  - CSS variables and theme configuration
+  - Button and element styles
+  - Responsive design patterns
 
-**Hidden Gems** (See `crypto_alpha_hunter_detailed_summary.md` section "Hidden Gems")
-- Low-cap opportunity focus
-- Early accumulation patterns
-- Hidden gem scoring
+- **Performance Considerations**: Optimization strategies
 
-**Alerts System** (See `QUICK_REFERENCE_GUIDE.md` section "Alert System Features")
-- High-priority notifications
-- Trade metrics
-- Market context
-- Action buttons
+- **Security**: Best practices for API keys, authentication, and data protection
 
-**Market Intelligence** (See `crypto_alpha_hunter_detailed_summary.md` section "Market Intelligence Dashboard")
-- Macro metrics (BTC, market cap, sentiment, funding)
-- Market structure analysis
-- Narrative strength ranking (11+ narratives)
+- **Testing Strategy**: Unit, integration, E2E, and performance testing requirements
 
-**Risk Calculator** (See `QUICK_REFERENCE_GUIDE.md` section "Risk Manager Calculator Guide")
-- Position sizing inputs
-- Risk/reward calculations
-- Liquidation price estimation
-- Portfolio risk assessment
+**Use this document for:**
+- Planning the technical architecture
+- Understanding component structure and hierarchy
+- Setting up API endpoints and state management
+- Implementing styling and theming
+- Development and testing strategy
 
 ---
 
-## 🔍 How to Use This Documentation
+### 3. **screenshots_guide.md**
+**Visual Reference with Annotated Screenshots**
 
-### For Quick Answers
-→ Use **QUICK_REFERENCE_GUIDE.md**
-- Search for specific metrics
-- Look up color meanings
-- Find alert structure
-- Check best practices
+This document organizes all captured screenshots with detailed annotations:
 
-### For Complete Understanding
-→ Use **crypto_alpha_hunter_detailed_summary.md**
-- Read sections in order
-- Understand interconnections
-- See all features comprehensively
-- Learn about philosophy and design
+- **7 Tab Views**: One screenshot per main tab
+- **Expanded States**: Signal weights configuration in detail
+- **Scan Results**: Error handling and logging display
+- **Annotations**: For each screenshot:
+  - Key elements highlighted
+  - Data values shown
+  - Color coding explained
+  - Layout structure noted
 
-### For Visual Reference
-→ Use **SCREENSHOTS_INDEX.md**
-- Find screenshot #X for section Y
-- See visual progression
-- Understand layout
-- Reference UI elements
+- **Design Reference**:
+  - Color palette extracted
+  - Typography styles
+  - Layout principles
+  - Interactive element states
 
-### For Development/Design
-→ Use **UI_STRUCTURE_WIREFRAME.md**
-- Review ASCII wireframes
-- Understand layout structure
-- See responsive behavior
-- Learn component hierarchy
+- **Technical Integration Points**:
+  - External data sources
+  - Execution points
+  - Real-time update mechanisms
 
-### For Overview
-→ Use **README.md** (This file)
-- Get high-level understanding
-- Navigate to specific sections
-- Quick reference to sections
+**Use this document for:**
+- Visual reference while developing UI
+- Understanding the final desired appearance
+- Component styling and layout
+- Color and typography specification
+- State visualization
 
 ---
 
-## 💡 Key Features Summary
+## Quick Reference: Key Statistics
 
-### 🔍 Opportunity Detection
-✓ Breakout detection
-✓ Reversal pattern recognition
-✓ Smart money flow tracking
-✓ Volume surge identification
-✓ Emerging pattern detection
-✓ Narrative-based opportunities
+### Application Statistics
+- **Navigation Tabs**: 7 main sections
+- **Currency Pairs**: 11 tradeable pairs
+- **Timeframes**: 4 options (15M, 1H, 4H, 1D)
+- **History Depth**: 5 options (300-5000 candles)
+- **Look-Ahead**: 4 options (5-30 candles)
+- **Technical Indicators**: 10 weighted indicators
+- **Signal Presets**: 6 preset strategies
+- **Trading Strategies**: 9 automated bot strategies
+- **Account Types**: 2 (Demo + OANDA Live)
+- **Market Sessions**: 4 (Sydney, Tokyo, London, New York)
 
-### ⚠️ Risk Management
-✓ Position size calculator
-✓ P&L visualization
-✓ Liquidation price calculation
-✓ Slippage impact estimation
-✓ Maximum loss calculation
-✓ Portfolio risk assessment
+### Signal Weighting System
+**Available Multipliers**: 0x, 0.5x, 1x, 1.5x, 2x
 
-### 📊 Market Intelligence
-✓ BTC dominance tracking
-✓ Market sentiment analysis (Greed/Fear)
-✓ Funding rate monitoring
-✓ 11+ narrative strength tracking
-✓ Open interest trends
-✓ Volume analysis
+**Indicators**:
+1. Trend Direction
+2. MACD Cross
+3. 200 SMA Position
+4. Support / Resistance
+5. Volume Confirmation
+6. RSI Momentum
+7. 50 SMA Position
+8. Bollinger Bands
+9. Candlestick Pattern
+10. Market Session
 
-### 🔔 Alert System
-✓ 24/7 monitoring
-✓ Real-time notifications
-✓ Confidence scoring
-✓ Trade probability assessment
-✓ Market context inclusion
-✓ Alert acknowledgment system
+**Presets** (with short descriptions):
+1. Swing Trader - Balanced trading
+2. Scalper - Fast entries
+3. Trend Follower - Trend-based
+4. Breakout - Level breaks
+5. Reversal Hunter - Counter-trend
+6. Session Trader - News & opens
+
+### Account Integration
+- **Demo Account**: Paper trading with $10,000 starting balance
+- **OANDA Integration**: Live trading via OANDA Practice Account
+- **Data Tracking**: 
+  - Open trades monitoring
+  - Position P&L tracking
+  - Win/loss statistics
+  - Trade history management
 
 ---
 
-## 📈 Current Market State (Last Observation)
+## Color System Reference
 
-- **Market Sentiment**: Neutral (50/100 score)
-- **BTC Dominance**: 50%
-- **Trend Phase**: Consolidation
-- **Active Opportunities**: 0 (quality over quantity)
-- **System Status**: Monitoring 24/7
-- **Alert Count**: 7+ active high-priority alerts
-- **Last Scan**: Real-time updates
+| Element | Color | Hex/Usage |
+|---------|-------|-----------|
+| Background | Dark Navy | #1a1a2e (approx) |
+| Primary Accent | Cyan/Green | #00ff88 |
+| Secondary Accent | Gold | #ffd700 |
+| Text Primary | Light Gray | #e0e0e0 |
+| Text Secondary | Dim Gray | #9a9a9a |
+| Positive Values | Green | #00ff00 |
+| Negative Values | Red | #ff3333 |
+| Active Selection | Cyan | For selected items |
+| Default Selection | Gold | For initial selections |
+| Error/Alert | Red/Orange | #cc3333 |
 
 ---
 
-## 🎓 Understanding Trade Setups
+## Implementation Roadmap
 
-### Standard Trade Setup Structure
+### Phase 1: Foundation (Week 1-2)
+- [ ] Set up project structure and dependencies
+- [ ] Configure dark theme and styling system
+- [ ] Implement navigation/tab system
+- [ ] Create basic page layouts
+
+### Phase 2: Scanner Core (Week 3-4)
+- [ ] Build configuration controls (selectors, sliders)
+- [ ] Implement signal weights panel
+- [ ] Create scan button and logging system
+- [ ] Integrate technical indicator logic
+
+### Phase 3: Data Display (Week 5-6)
+- [ ] Chart viewing component
+- [ ] Demo account display
+- [ ] Trade history tables
+- [ ] OANDA account integration
+
+### Phase 4: Automation (Week 7-8)
+- [ ] Bot strategy cards
+- [ ] Bot control interface
+- [ ] Strategy execution logic
+- [ ] Performance tracking
+
+### Phase 5: Analysis Tools (Week 9-10)
+- [ ] Backtest configuration
+- [ ] Backtest execution engine
+- [ ] Results display and analysis
+- [ ] Performance reporting
+
+### Phase 6: Utilities (Week 11-12)
+- [ ] Market session clock
+- [ ] Session timing visualization
+- [ ] Real-time time updates
+- [ ] Session overlap indicators
+
+### Phase 7: Polish & Testing (Week 13-14)
+- [ ] Testing and bug fixes
+- [ ] Performance optimization
+- [ ] Accessibility review
+- [ ] Final styling refinement
+
+---
+
+## Key Features to Implement
+
+### Critical Features (MVP)
+- [x] Tab navigation between sections
+- [x] Signal scanning with configurable parameters
+- [x] Account balance display
+- [x] Open positions monitoring
+- [x] Trade execution UI
+- [x] Market session timing
+
+### High Priority
+- [ ] Demo account trading simulation
+- [ ] OANDA API integration
+- [ ] Automated bot with strategies
+- [ ] Backtesting engine
+- [ ] Real-time market data
+
+### Medium Priority
+- [ ] Advanced charting features
+- [ ] Trade history analytics
+- [ ] Notification system
+- [ ] Performance reporting
+
+### Nice to Have
+- [ ] Custom strategy builder
+- [ ] Mobile responsive design
+- [ ] Multi-account management
+- [ ] API for external integrations
+
+---
+
+## Data Requirements
+
+### Market Data
+- Real-time forex prices (11 pairs)
+- Technical indicators (MACD, RSI, SMA, Bollinger Bands, etc.)
+- Candle data (OHLC) for multiple timeframes
+- Volume information
+
+### Account Data
+- Account balance and equity
+- Open positions with real-time P&L
+- Trade history with entry/exit prices
+- Win/loss statistics
+
+### Configuration Data
+- User preferences for signals
+- Strategy configurations
+- Scan settings and presets
+- Bot automation schedules
+
+### Session Data
+- Market hours by session
+- Current session status
+- Time until next session
+- Session-specific pair activity
+
+---
+
+## API Integration Requirements
+
+### OANDA API v20
+- Account information endpoints
+- Position management endpoints
+- Trade history endpoints
+- Instrument and pricing endpoints
+
+### Market Data Provider
+- Candle/bar data
+- Tick data for real-time prices
+- Technical indicators
+- Market session information
+
+### WebSocket Requirements
+- Real-time price feeds
+- Position updates
+- Account balance updates
+- Market notifications
+
+---
+
+## Browser Requirements
+
+**Minimum Versions:**
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+**Required Features:**
+- ES2020+ support
+- CSS Grid and Flexbox
+- CSS Custom Properties
+- LocalStorage/SessionStorage
+- WebSocket API
+- Fetch API
+
+---
+
+## Performance Targets
+
+- **Page Load**: < 3 seconds
+- **Time to Interactive**: < 2 seconds
+- **First Contentful Paint**: < 1 second
+- **Scan Execution**: < 10 seconds for 3 pairs
+- **Chart Load**: < 2 seconds
+- **WebSocket Latency**: < 500ms
+
+---
+
+## Security Best Practices
+
+1. **API Key Management**
+   - Store in environment variables
+   - Never expose in client-side code
+   - Rotate regularly
+
+2. **Authentication**
+   - Implement OAuth2 or JWT tokens
+   - Secure session management
+   - HTTPS enforcement
+
+3. **Data Protection**
+   - Encrypt sensitive data at rest
+   - HTTPS for all communications
+   - CORS configuration
+   - Input validation and sanitization
+
+4. **Error Handling**
+   - Generic error messages to users
+   - Detailed logging server-side
+   - No sensitive data in error responses
+
+---
+
+## Testing Checklist
+
+### Unit Tests
+- [ ] Component rendering tests
+- [ ] Redux/state management tests
+- [ ] Utility function tests
+- [ ] API response handling
+
+### Integration Tests
+- [ ] Scanner full workflow
+- [ ] Account balance updates
+- [ ] Position management
+- [ ] Trade execution flow
+
+### E2E Tests
+- [ ] Complete user workflows
+- [ ] Tab navigation
+- [ ] Configuration changes
+- [ ] Error scenarios
+
+### Performance Tests
+- [ ] Large dataset rendering (1000+ signals)
+- [ ] WebSocket connection stability
+- [ ] Memory leak detection
+- [ ] CPU usage monitoring
+
+---
+
+## Deployment Configuration
+
+### Environment Variables Required
 ```
-Trade Symbol:     LISTA
-Direction:        LONG (bullish)
-Entry Price:      0.0699
-Exit Price:       0.1083
-Risk/Reward:      4.8:1
-
-Take Profits:
-- TP1: 0.0843
-- TP2: 0.0939
-- TP3: 0.1083
-
-Risk Management:
-- Stop Loss:      0.0619
-- Trailing Stop:  0.0795
-- Timeframe:      1H-4H
-- Hold Duration:  1-3 days
+OANDA_API_KEY=<your_oanda_api_key>
+API_URL=<backend_api_url>
+WS_URL=<websocket_url>
+MARKET_DATA_API_KEY=<market_data_provider_key>
 ```
 
-### Trade Metrics Interpretation
-- **Confidence 65%+**: AI is reasonably confident in setup
-- **Strength 78%+**: Pattern is well-formed and strong
-- **Trade Prob 72%+**: Statistically likely to be successful
-- **Risk LOW**: Well-managed downside protection
-- **Risk/Reward 4.8:1**: For each $1 risk, potential $4.80 gain
+### Build Process
+```bash
+npm install
+npm run build
+npm run start
+```
+
+### Deployment Platforms
+- **Recommended**: Vercel (indicated by current domain)
+- **Alternatives**: Netlify, AWS, Heroku
 
 ---
 
-## 🛠️ Technical Notes
+## File Structure Reference
 
-- **Platform**: Built with Bolt (no-code platform)
-- **Hosting**: bolt.host infrastructure
-- **Updates**: Real-time (WebSocket or polling-based)
-- **Monitoring**: 24/7 continuous operation
-- **Responsiveness**: Fully responsive design
-- **Performance**: Real-time alerts and metric updates
-
----
-
-## 📌 Best Practices
-
-1. **Check multiple confirmations** before executing trades
-2. **Use the Risk Calculator** to size positions properly
-3. **Review Market Intelligence** for macro context
-4. **Follow Alert Recommendations** when marked "IMMEDIATE REVIEW"
-5. **Acknowledge Alerts** to keep system organized
-6. **Monitor Narratives** - follow strongest themes
-7. **Validate Sentiment** - align trades with market mood
-8. **Track Risk/Reward** - ensure favorable ratios
-
----
-
-## 🎯 Quick Navigation by Topic
-
-### Finding Information About...
-
-**Trade Signals & Alerts**
-→ See: `crypto_alpha_hunter_detailed_summary.md` > "Trade Signal Components"
-→ Or: `QUICK_REFERENCE_GUIDE.md` > "Alert System Features"
-
-**Risk Management Tools**
-→ See: `QUICK_REFERENCE_GUIDE.md` > "Risk Manager Calculator Guide"
-→ Or: `UI_STRUCTURE_WIREFRAME.md` > "Risk Calculator Section"
-
-**Market Analysis**
-→ See: `QUICK_REFERENCE_GUIDE.md` > "Market Intelligence Dashboard"
-→ Or: `crypto_alpha_hunter_detailed_summary.md` > "Market Intelligence Dashboard"
-
-**Navigation & Features**
-→ See: `crypto_alpha_hunter_detailed_summary.md` > "6 Main Sections"
-→ Or: `QUICK_REFERENCE_GUIDE.md` > "6 Main Sections"
-
-**Visual Layout & Design**
-→ See: `UI_STRUCTURE_WIREFRAME.md` > "Overall Page Layout"
-→ Or: `SCREENSHOTS_INDEX.md` > specific section screenshot
-
-**Specific Features**
-→ See: `SCREENSHOTS_INDEX.md` > find relevant screenshot
-→ Then: Reference corresponding `.md` file section
+```
+forex-scanner/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Navigation/
+│   │   ├── Scanner/
+│   │   ├── Chart/
+│   │   ├── Account/
+│   │   ├── Bot/
+│   │   ├── Backtest/
+│   │   └── Clock/
+│   ├── pages/
+│   ├── store/
+│   │   ├── actions/
+│   │   ├── reducers/
+│   │   └── selectors/
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── websocket.js
+│   │   └── oanda.js
+│   ├── styles/
+│   │   ├── theme.css
+│   │   ├── variables.css
+│   │   └── components.css
+│   ├── utils/
+│   │   ├── formatters.js
+│   │   ├── validators.js
+│   │   └── calculators.js
+│   ├── hooks/
+│   ├── App.jsx
+│   └── index.jsx
+├── .env.example
+├── .gitignore
+├── package.json
+├── README.md
+└── vercel.json
+```
 
 ---
 
-## 📞 Support & Resources
+## Troubleshooting Guide
 
-### Document Files Available
-1. ✅ `crypto_alpha_hunter_detailed_summary.md` (14KB)
-2. ✅ `SCREENSHOTS_INDEX.md` (11KB)
-3. ✅ `QUICK_REFERENCE_GUIDE.md` (10KB)
-4. ✅ `UI_STRUCTURE_WIREFRAME.md` (28KB)
-5. ✅ `README.md` (This file)
+### Common Issues
 
-### Screenshots Captured
-- 23 high-quality screenshots
-- All major sections covered
-- Real-time state captured
-- Professional quality
+**Issue**: Scan returns "status code 429"
+- **Cause**: Rate limiting from market data API
+- **Solution**: Implement exponential backoff, check API quota
 
----
+**Issue**: OANDA positions not updating
+- **Cause**: WebSocket connection lost
+- **Solution**: Implement reconnection logic, verify API credentials
 
-## 🎓 Learning Path
+**Issue**: Chart not loading
+- **Cause**: Missing market data
+- **Solution**: Check data provider API, verify pair availability
 
-### If You're New to the Platform
-1. Start with this **README.md**
-2. Read **QUICK_REFERENCE_GUIDE.md**
-3. Review **SCREENSHOTS_INDEX.md** for visuals
-4. Dive into **crypto_alpha_hunter_detailed_summary.md**
-5. Reference **UI_STRUCTURE_WIREFRAME.md** as needed
-
-### If You Need Specific Information
-1. Use this **README.md** to locate topic
-2. Jump to relevant `.md` file section
-3. Cross-reference with screenshots if needed
-4. Review wireframes for structure understanding
-
-### If You're Building/Designing Similar Features
-1. Start with **UI_STRUCTURE_WIREFRAME.md**
-2. Review **SCREENSHOTS_INDEX.md** for visual context
-3. Reference **QUICK_REFERENCE_GUIDE.md** for data structure
-4. Deep dive into **crypto_alpha_hunter_detailed_summary.md**
+**Issue**: Bot not executing
+- **Cause**: Strategy configuration error
+- **Solution**: Validate configuration presets, check server logs
 
 ---
 
-## ✨ Key Takeaways
+## Support & Maintenance
 
-✓ **Comprehensive Platform**: All-in-one solution for opportunity detection and risk management
-✓ **AI-Powered**: Machine learning detects patterns humans might miss
-✓ **Quality-Focused**: Only surfaces high-probability setups
-✓ **Risk-Aware**: Heavy emphasis on risk management and position sizing
-✓ **Real-Time**: 24/7 continuous monitoring and updates
-✓ **Professional-Grade**: Institutional-quality analytics and calculations
-✓ **User-Friendly**: Clean, intuitive interface with professional dark theme
-✓ **Well-Documented**: This comprehensive documentation package
+### Regular Maintenance
+- Monitor API rate limits and quotas
+- Check for security updates
+- Review and optimize performance
+- Update dependencies monthly
+- Monitor error logs and fix bugs
 
----
-
-## 📞 Contact & Questions
-
-For detailed analysis of any specific feature, refer to:
-- **Feature Details**: `crypto_alpha_hunter_detailed_summary.md`
-- **Quick Answers**: `QUICK_REFERENCE_GUIDE.md`
-- **Visual Examples**: `SCREENSHOTS_INDEX.md`
-- **Structure/Design**: `UI_STRUCTURE_WIREFRAME.md`
+### Monitoring Metrics
+- API response times
+- WebSocket connection uptime
+- User session duration
+- Feature usage statistics
+- Error rates by type
 
 ---
 
-## 📜 Document Information
+## Additional Resources
 
-- **Created**: Current Session
-- **Platform Analyzed**: AI Alpha Hunter & Opportunity Radar
-- **URL**: https://crypto-alpha-hunter-rbjv.bolt.host
-- **Coverage**: 100% of main features and sections
-- **Screenshots**: 23 comprehensive captures
-- **Documentation Files**: 5 detailed markdown files
+### External Documentation
+- [OANDA API v20 Docs](https://developer.oanda.com/rest-live-v20/introduction/)
+- [TradingView Lightweight Charts](https://www.tradingview.com/lightweight-charts/)
+- [React Documentation](https://react.dev/)
+- [Redux Documentation](https://redux.js.org/)
 
----
-
-## 🎉 Summary
-
-This documentation package provides a **complete, professional analysis** of the AI Alpha Hunter & Opportunity Radar platform, including:
-
-✅ Detailed feature breakdowns
-✅ Visual wireframes and layouts
-✅ Quick reference guides
-✅ 23 comprehensive screenshots
-✅ Color and design system documentation
-✅ Best practices and tips
-✅ Complete UI structure analysis
-
-**Everything you need to understand and navigate this cryptocurrency trading platform is contained in these 5 documentation files.**
+### Development Tools
+- Chrome DevTools for debugging
+- Postman for API testing
+- Redux DevTools for state debugging
+- Lighthouse for performance auditing
 
 ---
 
-**Happy trading! 🚀📈**
+## License & Credits
 
-*For any specific section, refer to the relevant markdown file listed in this README.*
+**Application**: Forex Signal Scanner
+**URL**: https://forex-scanner.vercel.app/
+**Documentation Date**: 2024
+
+This documentation was created by analyzing the live application's interface, functionality, and user experience to provide a comprehensive guide for recreation and development.
+
+---
+
+## Quick Start for Developers
+
+1. **Review Documentation**
+   - Start with `forex_scanner_app_documentation.md` for UI overview
+   - Reference `technical_specifications.md` for implementation details
+   - Use `screenshots_guide.md` for visual reference
+
+2. **Set Up Project**
+   ```bash
+   git clone <repo>
+   npm install
+   cp .env.example .env
+   npm run dev
+   ```
+
+3. **Implement Phase 1**
+   - Navigation and tab system
+   - Basic styling and theme
+   - Component structure
+
+4. **Build Features**
+   - Follow the implementation roadmap
+   - Reference documentation for each section
+   - Test incrementally
+
+5. **Integrate APIs**
+   - OANDA account integration
+   - Market data feeds
+   - WebSocket connections
+
+6. **Deploy**
+   - Test on staging environment
+   - Deploy to production
+   - Monitor performance and errors
+
+---
+
+## Contact & Questions
+
+For questions about the application or documentation, refer back to the three main documentation files:
+1. UI/UX Guide (what it looks like and how to use it)
+2. Technical Specs (how to build it)
+3. Screenshots Guide (visual reference)
+
+**Last Updated**: Based on application state as of visit date
+**Documentation Completeness**: 100% comprehensive coverage
+
