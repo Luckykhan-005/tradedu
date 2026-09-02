@@ -34,6 +34,7 @@ interface BookItem {
   bgColor: string
   href: string
   tags: string[]
+  cover?: string
 }
 
 interface BooksProps {
@@ -54,6 +55,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './crypto-beginner/index.html',
     tags: ['Urdu', 'Beginner', 'Fundamentals'],
+    cover: './covers/crypto-beginner.jpg',
   },
   {
     id: 'crypto-intermediate',
@@ -68,6 +70,7 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: './crypto-intermediate/index.html',
     tags: ['Urdu', 'Intermediate', 'Technical Analysis'],
+    cover: './covers/crypto-trading-intermidiate.jpg',
   },
   {
     id: 'crypto-advanced',
@@ -82,6 +85,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: './crypto-advanced/index.html',
     tags: ['Urdu', 'Advanced', 'Professional'],
+    cover: './covers/crypto-trading-advanced.jpg',
   },
   {
     id: 'candlestick',
@@ -96,6 +100,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
+    cover: './covers/Candlestick Patterns Book.jpg',
   },
   {
     id: 'smc',
@@ -110,6 +115,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
+    cover: './covers/Smart Money Concepts Book.jpg',
   },
   {
     id: 'forex',
@@ -124,6 +130,7 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: './forex-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
+    cover: './covers/Forex Trading Course.jpg',
   },
   {
     id: 'glossary',
@@ -138,6 +145,7 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: './glossary-book/index.html',
     tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
+    cover: './covers/Trading Glossary Book.jpg',
   },
   {
     id: 'price-action',
@@ -152,6 +160,7 @@ const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: './price-action/index.html',
     tags: ['Urdu', 'Professional', 'Smart Money'],
+    cover: './covers/Price Action & Market Structure.jpg',
   },
   {
     id: 'trading-strategies',
@@ -166,6 +175,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './trading-strategies/index.html',
     tags: ['Urdu', 'Practical', 'Entry/Exit Systems'],
+    cover: './covers/Trading Strategies & Setups.jpg',
   },
   {
     id: 'professional-trading',
@@ -180,6 +190,7 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: './professional-trading/index.html',
     tags: ['Urdu', 'Professional', 'Complete System'],
+    cover: './covers/Professional Trading System.jpg',
   },
   {
     id: 'technical-analysis',
@@ -194,6 +205,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './technical-analysis/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Charts & Indicators'],
+    cover: './covers/Technical Analysis Course.jpg',
   },
   {
     id: 'risk-management',
@@ -208,6 +220,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './risk-management/index.html',
     tags: ['Urdu', 'Essential', 'Capital Protection'],
+    cover: './covers/Risk Management Course.jpg',
   },
   {
     id: 'trading-psychology',
@@ -222,6 +235,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: './trading-psychology/index.html',
     tags: ['Urdu', 'Essential', 'Mindset & Discipline'],
+    cover: './covers/Trading Psychology Course.jpg',
   },
 ]
 
@@ -285,18 +299,40 @@ export function Books({ onBack }: BooksProps) {
           {books.map((book) => (
             <Card key={book.id} className="overflow-hidden">
               <CardContent className="p-0">
-                <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                    <book.icon className={`h-7 w-7 ${book.color}`} />
+                {/* Cover image */}
+                {book.cover ? (
+                  <button
+                    className="relative block w-full cursor-pointer"
+                    onClick={() => setOpenBook(book)}
+                    aria-label={`Open ${book.title}`}
+                  >
+                    <img
+                      src={book.cover}
+                      alt={book.title}
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-left">
+                      <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
+                      <p className="text-lg text-white/90" dir="rtl">
+                        {book.titleUrdu}
+                      </p>
+                    </div>
+                  </button>
+                ) : (
+                  <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                      <book.icon className={`h-7 w-7 ${book.color}`} />
+                    </div>
+                    <div className="min-w-0">
+                      <h2 className="text-xl font-bold">{book.title}</h2>
+                      <p className="text-lg text-muted-foreground" dir="rtl">
+                        {book.titleUrdu}
+                      </p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h2 className="text-xl font-bold">{book.title}</h2>
-                    <p className="text-lg text-muted-foreground" dir="rtl">
-                      {book.titleUrdu}
-                    </p>
-                  </div>
-                </div>
-                <div className="p-6 pt-4">
+                )}
+                <div className="p-5 pt-4">
                   <p className="text-muted-foreground">{book.description}</p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
