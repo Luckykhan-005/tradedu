@@ -20,6 +20,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/cn'
+import { ToolBanner } from '@/components/ToolBanner'
 
 interface AiTool {
   id: string
@@ -412,26 +413,12 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                 )}
               >
                 <CardContent className="p-0">
-                  {/* Card Header */}
-                  <div className={cn('p-6', tool.bgColor)}>
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={cn(
-                            'flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm',
-                            tool.color
-                          )}
-                        >
-                          <tool.icon className="h-6 w-6" />
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-lg">{tool.name}</h3>
-                          <p className="text-sm text-muted-foreground">{tool.tagline}</p>
-                        </div>
-                      </div>
-                    </div>
+                  {/* Banner Image */}
+                  <ToolBanner toolId={tool.id} name={tool.name} tagline={tool.tagline} />
 
-                    <div className="flex flex-wrap gap-2 mt-3">
+                  {/* Card Header — overlaid on banner */}
+                  <div className={cn('p-4', tool.bgColor)}>
+                    <div className="flex flex-wrap gap-2">
                       <Badge className={cn('text-xs', categoryInfo[tool.category]?.color)}>
                         {categoryInfo[tool.category]?.label}
                       </Badge>
