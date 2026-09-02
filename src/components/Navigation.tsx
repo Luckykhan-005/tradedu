@@ -21,7 +21,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe' | 'forex-scanner'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe'
 
 interface NavigationProps {
   currentPage: Page
@@ -42,7 +42,6 @@ const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?:
   { id: 'certificates', label: 'Certificates', icon: Trophy },
   { id: 'live-sessions', label: 'Live Sessions', icon: Calendar },
   { id: 'pricing', label: 'Plans', icon: Sparkles },
-  { id: 'forex-scanner', label: 'Forex Scanner', icon: TrendingUp },
   { id: 'admin', label: 'Admin', icon: Shield, adminOnly: true },
 ]
 

@@ -679,8 +679,8 @@ export function ForexScanner({ onBack }: { onBack: () => void }) {
           </div>
           <MiniChart candles={chartCandles} height={200} />
           <div className="flex justify-between text-[10px] font-mono text-gray-500 mt-1">
-            <span>Low: {Math.min(...chartCandles.slice(-40).map(c => c.low)).toFixed(pair.includes('JPY') || pair === 'XAU/USD' ? 2 : 5)}</span>
-            <span>High: {Math.max(...chartCandles.slice(-40).map(c => c.high)).toFixed(pair.includes('JPY') || pair === 'XAU/USD' ? 2 : 5)}</span>
+            <span>Low: {Math.min(...chartCandles.slice(-40).map(c => c.low)).toFixed(chartPair.includes('JPY') || chartPair === 'XAU/USD' ? 2 : 5)}</span>
+            <span>High: {Math.max(...chartCandles.slice(-40).map(c => c.high)).toFixed(chartPair.includes('JPY') || chartPair === 'XAU/USD' ? 2 : 5)}</span>
           </div>
         </div>
       ) : (

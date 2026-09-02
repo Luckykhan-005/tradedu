@@ -39,7 +39,7 @@ interface AiTool {
     timeframe: string
     confidence: string
   }
-  category: 'signals' | 'scanner' | 'analysis' | 'multi-asset' | 'intelligence' | 'setup'
+  category: 'signals' | 'scanner' | 'analysis' | 'multi-asset' | 'intelligence' | 'setup' | 'forex'
 }
 
 const aiTools: AiTool[] = [
@@ -225,6 +225,38 @@ const aiTools: AiTool[] = [
     },
     category: 'signals',
   },
+  {
+    id: 'forex-scanner',
+    name: 'Forex Signal Scanner',
+    tagline: '11 Pairs • 10 Indicators • Weighted Signals',
+    url: 'https://forex-scanner.vercel.app/',
+    icon: TrendingUp,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-200',
+    uniqueStrength: 'Weighted multi-indicator confluence scoring',
+    description:
+      'Professional forex scanner with 10 technical indicators, weighted signal scoring, 6 strategy presets, demo trading, automated bot strategies, backtesting engine, and live market session clock. Covers 11 major forex pairs including Gold (XAU/USD).',
+    features: [
+      '11 Forex Pairs (majors + exotics + Gold)',
+      '10 Technical Indicators (RSI, MACD, SMA, Bollinger, etc.)',
+      'Weighted Signal Scoring System',
+      '6 Strategy Presets (Scalper, Trend Follower, Breakout, etc.)',
+      'Demo Paper Trading ($10K account)',
+      'Candlestick Chart Viewer',
+      '9 Automated Bot Strategies',
+      'Historical Backtesting Engine',
+      'Live Market Session Clock (Sydney/Tokyo/London/NY)',
+      'Auto-Scan Mode',
+    ],
+    indicators: ['RSI', 'MACD', '200 SMA', '50 SMA', 'Bollinger Bands', 'Volume', 'Candlestick Patterns', 'S/R Levels', 'Session Timing', 'Trend Direction'],
+    signalFormat: {
+      example: 'EUR/USD — LONG | Entry: 1.0850 | TP: 1.0910 | SL: 1.0820 | Confluence: 14/20 | R/R: 1:2',
+      timeframe: '15M-1D',
+      confidence: '14/20',
+    },
+    category: 'forex',
+  },
 ]
 
 const categoryInfo: Record<string, { label: string; color: string }> = {
@@ -234,6 +266,7 @@ const categoryInfo: Record<string, { label: string; color: string }> = {
   'multi-asset': { label: 'Multi-Asset', color: 'bg-cyan-100 text-cyan-700' },
   intelligence: { label: 'Intelligence', color: 'bg-blue-100 text-blue-700' },
   setup: { label: 'Setup Generator', color: 'bg-emerald-100 text-emerald-700' },
+  forex: { label: 'Forex', color: 'bg-emerald-100 text-emerald-700' },
 }
 
 interface AiToolsHubProps {
@@ -314,7 +347,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
             <div>
               <h1 className="text-3xl font-bold">AI Tools Hub</h1>
               <p className="text-muted-foreground">
-                6 professional AI-powered crypto trading tools — learn, analyze, and earn
+                7 professional AI-powered trading tools — learn, analyze, and earn
               </p>
             </div>
           </div>
