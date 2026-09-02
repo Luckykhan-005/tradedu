@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی ۱ — ٹرینڈ فالوونگ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter2.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی ۱: ٹرینڈ فالوونگ</h1>
+
+    <div class="diagram">
+        <svg width="640" height="380" viewBox="0 0 640 380">
+            <rect width="640" height="380" fill="#132638" rx="10"/>
+            <g stroke="#23374d" stroke-width="1"><line x1="0" y1="100" x2="640" y2="100"/><line x1="0" y1="190" x2="640" y2="190"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- Price rising -->
+            <path d="M50,320 L140,250 L230,290 L330,200 L420,240 L540,120 L600,150"
+                  fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- MA50 and MA200 -->
+            <path d="M50,330 L150,290 L260,280 L370,250 L480,210 L600,170"
+                  fill="none" stroke="#facc15" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M50,220 L180,220 L320,225 L460,220 L600,215"
+                  fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="300" cy="282" r="8" fill="#22c55e"/>
+            <text x="310" y="272" fill="#4ade80" font-size="16" font-family="sans-serif">Golden Cross — BUY</text>
+            <text x="80" y="90" fill="#facc15" font-size="15" font-family="sans-serif">— MA50 (تیز)</text>
+            <text x="80" y="70" fill="#ef4444" font-size="15" font-family="sans-serif">— MA200 (سست)</text>
+            <text x="80" y="355" fill="#4ade80" font-size="13" font-family="sans-serif">Uptrend — price &gt; MA50 &gt; MA200</text>
+        </svg>
+    </div>
+
+    <p>ٹرینڈ فالوونگ سب سے سادہ اور سب سے زیادہ استعمال ہونے والی حکمت عملی ہے۔ اس کا اصول بہت آسان ہے: <strong>رجحان آپ کا دوست ہے</strong>۔ جب مارکیٹ اوپر کی طرف جا رہی ہو تو خرید کریں، اور جب نیچے جا رہی ہو تو بیچیں۔ مقصد یہ ہے کہ بڑی حرکت سے زیادہ سے زیادہ فائدہ اٹھایا جائے۔</p>
+
+    <div class="info">
+        <strong>ٹرینڈ فالوونگ کیسے پہچانیں؟</strong><br>
+        اوپر کا رجحان: قیمت MA50 اور MA200 کے اوپر، اعلیٰ اونچائیاں۔<br>
+        نیچے کا رجحان: قیمت MA50 اور MA200 کے نیچے، نیچی نیچائیاں۔
+    </div>
+
+    <h2>اندراج (Entry) قواعد</h2>
+
+    <div class="info">
+        <strong>خرید کے قواعد (Long):</strong><br>
+        ۱. قیمت MA200 کے اوپر ہو (بڑا رجحان اوپر)۔<br>
+        ۲. MA50 MA200 کو اوپر سے کاٹے (گولڈن کراس)۔<br>
+        ۳. قیمت MA50 کو واپس ٹچ کر کے اوپر اچھلے۔<br>
+        ۴. یہ اندراج کا بہترین لمحہ ہے۔
+    </div>
+
+    <div class="formula">
+        اسٹاپ لاس = حالیہ نیچائی سے تھوڑا نیچے<br>
+        ٹیک پرافٹ = اگلی بڑی اونچائی / ریزسٹنس
+    </div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+
+    <p>اس حکمت عملی میں منافع کو رجحان کے ساتھ بڑھنے دیا جاتا ہے۔ عام طور پر ٹیک پرافٹ ریزسٹنس پر یا پہلے سے طے شدہ رسک ریوارڈ (1:2 یا 1:3) پر رکھا جاتا ہے۔ متبادل طور پر، قیمت جب MA20 یا MA50 کے نیچے بند ہو تو پوزیشن بند کر دی جاتی ہے (چلتا ہوا اسٹاپ لاس)۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ رجحان کے ساتھ تجارت کریں، خلاف نہیں۔</p>
+    <p>۲۔ MA50 اور MA200 کا کراس اوور اندراج کا بنیادی اشارہ ہے۔</p>
+    <p>۳۔ اسٹاپ لاس ہمیشہ لگائیں (حالیہ نیچائی سے نیچے)۔</p>
+    <p>۴۔ منافع کو رجحان کے ساتھ بڑھنے دیں۔</p>
+    <p>۵۔ جھوٹے سگنل سے بچنے کے لیے حجم کی تصدیق کریں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر MA50 اور MA200 شامل کریں اور رجحان دیکھیں۔</p>
+    <p>۲۔ ایک گولڈن کراس تلاش کریں۔</p>
+    <p>۳۔ اس حکمت عملی کو ڈیمو پر 5 بار آزمائیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter2.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

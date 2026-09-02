@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۱۱ — موونگ ایوریجز</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter10.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter12.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۱۱: موونگ ایوریجز</h1>
+
+    <p>موونگ ایوریج (Moving Average) سب سے زیادہ استعمال ہونے والا اور آسان تکنیکی اشارہ ہے۔ سیدھے الفاظ میں یہ آخری کچھ موم بتیوں کی قیمتوں کا اوسط ہے، جو ہر نئی قیمت کے ساتھ آگے بڑھتا رہتا ہے۔ مثلاً 20 موونگ ایوریج کا مطلب ہے پچھلی 20 کینڈلز کی اوسط قیمت۔ اس کا سب سے بڑا فائدہ یہ ہے کہ یہ چارٹ کو <strong>صاف</strong> کرتا ہے — روزانہ کے شور کو کم کر کے آپ کو کم قیمت کی واضح سمت دکھاتا ہے۔</p>
+
+    <p>موونگ ایوریج کی دو بڑی اقسام ہیں۔ <strong>سادہ موونگ ایوریج (SMA)</strong> تمام قیمتوں کا سادہ اوسط لیتی ہے — لیکن اس کی کمزوری یہ ہے کہ نئی قیمتوں پر اس کا ردعمل سست ہوتا ہے۔ <strong>تسری موونگ ایوریج (EMA)</strong> نئی قیمتوں کو زیادہ وزن دیتی ہے، اس لیے یہ قیمت کی تبدیلیوں پر تیز تر ردعمل دکھاتی ہے۔ مختصر ٹرم (سکیلپنگ/ڈے ٹریڈنگ) کے لیے EMA زیادہ مناسب ہے، جبکہ لمبے ٹائم فریم کے لیے SMA بھی چل سکتا ہے۔</p>
+
+    <p><strong>عام استعمال ہونے والی موونگ ایوریجز</strong> میں سے 20، 50، 100 اور 200 سب سے مشہور ہیں۔ 20 اور 50 کو مختصر اور درمیانی سمت کے لیے استعمال کیا جاتا ہے، جبکہ 100 اور 200 بڑے رجحان کو ظاہر کرتے ہیں۔ اگر قیمت 200 موونگ ایوریج سے اوپر ہو تو اسے طویل مدتی اپ ٹرینڈ سمجھا جاتا ہے، اور اس کے نیچے ہو تو طویل مدتی ڈاؤن ٹرینڈ۔ بہت سے تجربہ کار ٹریڈرز صرف اس اصول سے "فارسی" صبح کی بنیادی سمت طے کرتے ہیں۔</p>
+
+    <div class="diagram">
+        <svg width="600" height="340" viewBox="0 0 600 340">
+            <rect width="600" height="340" fill="#122540" rx="10"/>
+            <text x="300" y="40" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">موونگ ایوریجز اور گولڈن/ڈیتھ کراس</text>
+            <polyline points="70,290 140,270 210,240 280,200 350,150 420,120 490,110 540,80" fill="none" stroke="#eee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+            <polyline points="70,280 140,265 210,255 260,235 310,225 350,215 390,195 430,170 470,150 540,130" fill="none" stroke="#00b4d8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="70,300 140,285 210,245 280,220 340,205 400,175 460,160 540,145" fill="none" stroke="#e0a800" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="285" cy="245" r="7" fill="#00ff9c"/>
+            <text x="285" y="285" fill="#00ff9c" font-size="18" font-family="sans-serif" text-anchor="middle">گولڈن کراس</text>
+            <text x="150" y="120" fill="#888" font-size="17" font-family="sans-serif" text-anchor="middle">تیز EMA</text>
+            <text x="530" y="115" fill="#e0a800" font-size="17" font-family="sans-serif" text-anchor="end">سست EMA</text>
+            <text x="300" y="322" fill="#ccc" font-size="15" font-family="sans-serif" text-anchor="middle">تیز لائن سست لائن کو اوپر کاٹے = منظور شدہ (کراس اپ)</text>
+        </svg>
+    </div>
+
+    <p>موونگ ایوریجز کو <strong>متحرک سپورٹ اور ریزسٹنس</strong> بھی کہا جاتا ہے۔ ایک اپ ٹرینڈ میں، قیمت اکثر 20 یا 50 موونگ ایوریج کے قریب پیچھے ہٹتی ہے، پھر وہیں سے چھلانگ لگا کر واپس اوپر جاتی ہے۔ ایسا ہی ڈاؤن ٹرینڈ میں ہوتا ہے، جہاں یہ لائن سمت لیتی ہے۔ اس طرح موونگ ایوریج ایک سلسلے کی طرح قیمت کے پیچھے پیچھے چلتی ہے اور آپ کو بہترین انٹری پوائنٹ دکھاتی ہے۔</p>
+
+    <p><strong>گولڈن کراس (Golden Cross)</strong> اور <strong>ڈیتھ کراس (Death Cross)</strong> موونگ ایوریجز کی مشہور ترین حکمت عملی ہے۔ گولڈن کراس تب بنتا ہے جب تیز موونگ ایوریج (جیسے 50) سست موونگ ایوریج (جیسے 200) کو نیچے سے اوپر کاٹتی ہے — یہ طویل ٹرم بلند ہونے کی دلیل ہے۔ ڈیتھ کراس اس کے برعکس ہے، جب تیز لائن سست لائن کو اوپر سے نیچے کاٹے — یہ نیچے گرنے کا انتباہ ہے۔ لیکن یاد رکھیں، صرف کراس کافی نہیں — اپنی تصدیق قیمت کے بند ہونے اور دیگر عوامل سے کریں۔ ایک اور اہم حکمت عملی ہے <strong>کراس اوور (Crossover)</strong>: جب قیمت تیز موونگ ایوریج سے اوپر جائے تو خرید، اور نیچے آئے تو بیچ۔</p>
+
+    <div class="info">
+        <strong>SMA بمقابلہ EMA:</strong> SMA سست اور پرسکون ہے، EMA تیز اور حساس ہے۔ مختصر ٹرم اور تیز ردعمل کے لیے EMA بہتر، طویل ٹرم روشنی کے لیے SMA۔
+    </div>
+
+    <div class="info">
+        <strong>متبادل:</strong> ہر موونگ ایوریج دوسری سے پیچھے چلتی ہے — اپ ٹرینڈ میں تیز لائن سست سے اوپر، ڈاؤن ٹرینڈ میں نیچے۔ جب دونوں قریب ہو جائیں تو بریک کا انتظار ہوتا ہے۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ موونگ ایوریج پچھلی کینڈلز کی اوسط ہے جو شور کم کر کے سمت دکھاتی ہے۔</p>
+    <p>۲۔ EMA تیز، SMA سست — اپنی ضرورت کے مطابق چنیں۔</p>
+    <p>۳۔ 20/50 مختصر درمیانی، 100/200 طویل رجحان کے لیے۔</p>
+    <p>۴۔ موونگ ایوریج متحرک سپورٹ/ریزسٹنس کا کام کرتی ہے۔</p>
+    <p>۵۔ گولڈن کراس مثبت، ڈیتھ کراس منفی سگنل (صرف کراس پر بھروسہ نہ کریں)۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ اپنے چارٹ پر 20 اور 200 موونگ ایوریج لگا کر ایک گولڈن اور ایک ڈیتھ کراس تلاش کریں۔</p>
+    <p>۲۔ ایک اپ ٹرینڈ میں دیکھیں کہ قیمت کتنی بار 20 موونگ ایوریج پر پیچھے ہٹی، اور لکھیں۔</p>
+    <p>۳۔ SMA اور EMA کے درمیان فرق کو اپنے الفاظ میں لکھیں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter10.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter12.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

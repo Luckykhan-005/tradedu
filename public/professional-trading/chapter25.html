@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق 25 — شارپ ریشو (Sharpe Ratio)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0f1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #e0a800; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0f1a2e; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #1b2b4a; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #1b2b4a; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #1b2b4a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #e0a800; }
+        .formula { background: #1e3050; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter24.html">→ پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter26.html">اگلا سبق ←</a>
+    </div>
+
+    <h1>سبق 25: شارپ ریشو (Sharpe Ratio)</h1>
+
+    <p>شارپ ریشو ایک ایسا پیمانہ ہے جو آپ کی حکمت عملی کے منافع کو اُس کے خطرے کے تناظر میں پرکھتا ہے۔ بہت سے تاجر صرف یہ دیکھتے ہیں کہ انہوں نے کتنا منافع کمایا، لیکن وہ یہ نظر انداز کر دیتے ہیں کہ یہ منافع کس قدر خطرے کے ساتھ حاصل کیا گیا۔ شارپ ریشو یہ سوال پوچھتا ہے: کیا آپ کا منافع مستحکم ہے، یا یہ بڑے جھٹکوں سے حاصل ہوا ہے؟ جو حکمت عملی بہت کم اتار چڑھاؤ کے ساتھ منافع دیتی ہے، اُس کا شارپ ریشو اعلیٰ ہوتا ہے، یہی وہ خصوصیت ہے جو ایک پیشہ ور تاجر کو ایک مہم جو سے الگ کرتی ہے۔</p>
+
+    <p>شارپ ریشو کا فارمولا آپ کی حکمت عملی کی واپسی، بے خطر شرح اور واپسی کے استحکام کو ملا کر بناتا ہے۔ سیدھے الفاظ میں، آپ اپنی حکمت عملی کی سالانہ واپسی سے بے خطر شرح (جیسے کہ محکمہ خزانہ کے سیکیورٹیز کا منافع) منفی کرتے ہیں، اور پھر اسے اپنی واپسی کے معیاری انحراف (اتار چڑھاؤ کی پیمائش) پر تقسیم کرتے ہیں۔ معیاری انحراف بتاتا ہے کہ آپ کی واپسی کتنی بے ترتیب اور غیر مستحکم ہے۔ جتنا بڑا انحراف ہوگا، آپ کی حکمت عملی اتنی ہی بے قابو ہوگی۔</p>
+
+    <div class="formula">
+        شارپ ریشو = (پورٹ فولیو واپسی − بے خطر شرح) ÷ معیاری انحراف
+    </div>
+
+    <p>شارپ ریشو کو پڑھنا آپ کو بتاتا ہے کہ آپ کسی بھی خطرے کے مقابلے میں کتنی اچھی واپسی حاصل کر رہے ہیں۔ عام طور پر ایک سے بڑا شارپ ریشو اچھا سمجھا جاتا ہے، جس کا مطلب ہے کہ آپ ہر یونٹ خطرے کے لیے اپنی توقع سے زیادہ منافع حاصل کر رہے ہیں۔ دو یا اُس سے زیادہ کا شارپ ریشو بہت بہترین ہے اور اکثر صرف بہت ہی اعلیٰ درجے کی حکمت عملیوں میں ہی دیکھا جاتا ہے۔ ایک سے کم کا شارپ ریشو بتاتا ہے کہ آپ جو منافع کما رہے ہیں وہ اُتنا خطرہ مول نہیں لینے کے قابل، اور اُس پر دوبارہ غور کرنے کی ضرورت ہے۔</p>
+
+    <div class="info">
+        <strong>یاد رکھیں:</strong> سادہ منافع دیکھنا آسان ہے، لیکن اس سے کہیں زیادہ اہم یہ ہے کہ وہ منافع کس طرح حاصل ہوا۔ شارپ ریشو آپ کو بتاتا ہے کہ آپ کا سفر ہموار تھا یا پتھریلا۔
+    </div>
+
+    <p>شارپ ریشو ہی آپ کو بتا سکتا ہے کہ آیا آپ کی حکمت عملی واقعی میں مضبوط ہے۔ ایک حکمت عملی جو زیادہ منافع دیتی ہے لیکن بندے رہتی ہے بس کچھ ٹریڈز کے بعد بڑے نقصان کے ساتھ، اُس کا شارپ ریشو کم ہوتا ہے۔ جبکہ ایک حکمت عملی جو کم لیکن مسلسل اور مستحکم منافع دیتی ہے، اُس کا شارپ ریشو اعلیٰ ہوتا ہے۔ پیشہ ور تاجر اپنی مختلف حکمت عملیوں کا موازنہ کرنے اور بہترین حکمت عملی چننے کے لیے شارپ ریشو کا استعمال کرتے ہیں۔</p>
+
+    <p>لیکن شارپ ریشو کی کچھ حدود بھی ہیں۔ یہ پیمانہ ماضی کی معلومات کی بنیاد پر کام کرتا ہے، اور مستقبل میں نتائج ہمیشہ ماضی جیسے نہیں ہوتے۔ یہ صرف بے ترتیب اتار چڑھاؤ کو بدقسمتی کے طور پر شمار کرتا ہے، لیکن کبھی کبھی تاجر کو جان بوجھ کر بڑا خطرہ مول لینا پڑتا ہے۔ نیز، اگر آپ کے پاس بہت کم ٹریڈز ہیں، تو معیاری انحراف درست نہیں ہوگا اور شارپ ریشو گمراہ کن ہو سکتا ہے۔ اِس لیے شارپ ریشو کو دیگر پیمانوں جیسے پرافٹ فیکٹر، ڈراؤن اور ایکسپیکٹنسی کے ساتھ مل کر دیکھنا چاہیے، تاکہ آپ کو آپ کی حکمت عملی کی مکمل تصویر ملے۔</p>
+
+    <hr class="divider">
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ شارپ ریشو = (پورٹ فولیو واپسی − بے خطر شرح) ÷ معیاری انحراف۔</p>
+    <p>۲۔ یہ آپ کے منافع کو اُس کے خطرے کے تناظر میں پرکھتا ہے۔</p>
+    <p>۳۔ عام طور پر ایک سے بڑا شارپ ریشو اچھا، اور دو سے بڑا بہت بہترین سمجھا جاتا ہے۔</p>
+    <p>۴۔ شارپ ریشو کئی حدود رکھتا ہے، اِس لیے اُسے دیگر پیمانوں کے ساتھ مل کر دیکھیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ اپنے جرنل سے اپنی حکمت عملی کی واپسی اور ثبات (اتار چڑھاؤ) کا اندازہ لگائیں۔</p>
+    <p>۲۔ تصور کریں کہ آپ کا شارپ ریشو تقریباً ایک کے لگ بھگ ہے، اور یہ بتائیں کہ یہ آپ کے لیے کیا معنی رکھتا ہے۔</p>
+    <p>۳۔ لکھیں کہ آپ اپنی حکمت عملی کا شارپ ریشو بہتر بنانے کے لیے کیا بہتری لائیں گے۔</p>
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter24.html">→ پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter26.html">اگلا سبق ←</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پیشہ ورانہ ٹریڈنگ سسٹم</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

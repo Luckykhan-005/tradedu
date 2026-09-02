@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۵ — بریک اینڈ ری ٹیسٹ حکمت عملی</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0d1117; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #facc15; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0d1117; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #161b22; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #161b22; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #161b22; border-right: 5px solid #facc15; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #facc15; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter4.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter6.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۵: بریک اینڈ ری ٹیسٹ حکمت عملی</h1>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- resistance level -->
+            <line x1="40" y1="220" x2="600" y2="220" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="8,5"/>
+            <text x="60" y="205" fill="#38bdf8" font-size="16" font-family="sans-serif">ریزسٹنس (پرانی اونچائی)</text>
+            <!-- price approaching, consolidating -->
+            <path d="M60,330 L110,300 L150,320 L190,280 L230,300 L270,255" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <!-- break up -->
+            <path d="M270,255 L330,190 L380,160" fill="none" stroke="#22c55e" stroke-width="3"/>
+            <!-- retest back down to level -->
+            <path d="M380,160 Q360,200 320,220 L280,225" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="0" marker-end="url(#arrr)"/>
+            <!-- bounce upward -->
+            <path d="M280,225 Q340,210 420,170 L520,120" fill="none" stroke="#22c55e" stroke-width="3"/>
+            <circle cx="280" cy="225" r="7" fill="#22c55e"/>
+            <text x="280" y="255" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">ری ٹیسٹ کے بعد داخلی چوٹی</text>
+            <!-- annotations -->
+            <text x="330" y="100" fill="#facc15" font-size="17" font-family="sans-serif" text-anchor="middle">بریک (Break)</text>
+            <text x="420" y="90" fill="#22c55e" font-size="17" font-family="sans-serif" text-anchor="middle">ری ٹیسٹ (Retest) → Buy</text>
+            <defs><marker id="arrr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#22c55e"/></marker></defs>
+        </svg>
+    </div>
+
+    <p>بریک اینڈ ری ٹیسٹ (Break and Retest) پرائس ایکشن کی سب سے قابلِ اعتماد حکمتِ عملی ہے۔ اس کا اصول سادہ ہے: جب قیمت کسی اہم سطح (جیسے اونچائی یا زون) کو توڑتی ہے، تو ہم فوراً داخل نہیں ہوتے ہیں۔ ہم انتظار کرتے ہیں جب تک قیمت واپس آکر اسی سطح کو چھو نہ دے — یہ واپسی ہی ہمارے داخلے کا موقع ہے۔ یہ حکمتِ عملی ہمیں جھوٹے بریک آؤٹ (false breakout) سے بچاتی ہے اور ہمارا رسک کم کرتی ہے۔</p>
+
+    <div class="diagram">
+        <svg width="640" height="420" viewBox="0 0 640 420">
+            <rect width="640" height="420" fill="#161b22" rx="10"/>
+            <g stroke="#2b3648" stroke-width="1"><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="200" x2="640" y2="200"/><line x1="0" y1="280" x2="640" y2="280"/></g>
+            <!-- prior swing high / BOS level -->
+            <line x1="50" y1="180" x2="590" y2="180" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="8,5"/>
+            <text x="60" y="165" fill="#38bdf8" font-size="16" font-family="sans-serif">پچھلی اونچائی (BOS لائن)</text>
+            <!-- up move, breaks, retests, entry, SL, TP -->
+            <path d="M60,360 L110,320 L150,340 L210,280 L250,300 L290,190" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="290" cy="190" r="7" fill="#22c55e"/>
+            <circle cx="290" cy="190" r="12" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="290" y="160" fill="#22c55e" font-size="15" font-family="sans-serif" text-anchor="middle">بریک</text>
+            <!-- retest -->
+            <path d="M290,190 Q320,230 300,270 L290,300" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+            <circle cx="290" cy="300" r="7" fill="#facc15"/>
+            <text x="290" y="330" fill="#facc15" font-size="15" font-family="sans-serif" text-anchor="middle">ری ٹیسٹ (Entry)</text>
+            <!-- move to TP -->
+            <path d="M290,300 Q360,270 420,220 L520,150" fill="none" stroke="#22c55e" stroke-width="3"/>
+            <!-- SL below -->
+            <line x1="160" y1="350" x2="420" y2="350" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <text x="290" y="380" fill="#ef4444" font-size="16" font-family="sans-serif" text-anchor="middle">اسٹاپ لاس (Stop Loss)</text>
+            <!-- TP line -->
+            <line x1="400" y1="120" x2="600" y2="120" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <text x="500" y="105" fill="#22c55e" font-size="16" font-family="sans-serif" text-anchor="middle">ٹارگٹ (Take Profit)</text>
+        </svg>
+    </div>
+
+    <p>اس حکمتِ عملی کا سب سے اہم تصور "اسٹرکچر شفٹ" (BOS — Break of Structure) ہے۔ جب قیمت اپنی پچھلی اونچائی یا نیچائی کو توڑتی ہے، تو یہ ڈھانچے کی تبدیلی کی علامت ہے — یعنی رجحان کی سمت میں ایک نیا قدم۔ بریک کے بعد ہونے والا ری ٹیسٹ اس بات کی تصدیق کرتا ہے کہ نئی سطح اب ٹھیک طرح سے مضبوط ہو چکی ہے۔ اس کے بعد ہم ری ٹیسٹ پر داخلہ لیتے ہیں، اسٹاپ لاس کو سطح کے بالکل دوسری طرف رکھتے ہیں، اور ٹارگٹ کو نئی قیمت کی سمت میں رکھتے ہیں۔</p>
+
+    <div class="info">
+        <strong>داخلہ اور اسٹاپ لاس:</strong> داخلہ ری ٹیسٹ پر لیا جاتا ہے (جب قیمت واپس آکر نئی سطح چھو لے اور رد عمل دکھائے)۔ اسٹاپ لاس سطح کے دوسری طرف رکھیں، اور اگر جھوٹا بریک آؤٹ ہو تو قیمت آپ کے اسٹاپ کو چھو کر مکمل ہوتی نظر آئے گی۔ ٹارگٹ کو کم از کم 1:2 یا 1:3 کے تناسب پر رکھیں — یعنی جتنی رقم آپ خطرے میں لگا رہے ہیں، اس کے دوگنا یا تین گنا فائدہ۔
+    </div>
+
+    <p>بریک اینڈ ری ٹیسٹ کو اور مضبوط کرنے کے لیے اسے دیگر تصورات کے ساتھ ملائیں — ایک مضبوط زون، کینڈل کی تصدیق، اور بڑی سمت (ڈھانچہ)۔ جب یہ سب ایک ساتھ ہوں تو سیٹ اپ کا معیار بہت بڑھ جاتا ہے۔ یاد رکھیں: یہ حکمتِ عملی اکثر تجارت میں سب سے زیادہ مخلص سیٹ اپ دیتی ہے، لیکن پھر بھی رسک مینجمنٹ (Risk Management) لازمی ہے — کوئی بھی تجارت سو فیصد نہیں ہوتی۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ بریک کے فوراً بعد داخل نہ ہوں — ری ٹیسٹ کا انتظار کریں۔</p>
+    <p>۲۔ BOS (اسٹرکچر شفٹ) رجحان کی سمت کا نیا قدم ہے۔</p>
+    <p>۳۔ ری ٹیسٹ نئی سطح کی مضبوطی کی تصدیق کرتا ہے۔</p>
+    <p>۴۔ اسٹاپ لاس سطح کے دوسری طرف، ٹارگٹ 1:2 یا 1:3 تناسب پر رکھیں۔</p>
+    <p>۵۔ سیٹ اپ کو زون، کینڈل تصدیق اور بڑی سمت کے ساتھ ملائیں۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ چارٹ پر 3 بریک اینڈ ری ٹیسٹ سیٹ اپ تلاش کریں۔</p>
+    <p>۲۔ ہر سیٹ اپ میں بریک، ری ٹیسٹ، داخلہ، اور اسٹاپ لاس کو نشان زد کریں۔</p>
+    <p>۳۔ ایک جھوٹے بریک آؤٹ کی مثال تلاش کریں اور سمجھیں۔</p>
+    <p>۴۔ ایک سیٹ اپ کا رسک:ریوارڈ تناسب (1:2) شمار کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter4.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter6.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© پرائس ایکشن اور مارکیٹ اسٹرکچر</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

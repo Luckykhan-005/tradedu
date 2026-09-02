@@ -84,6 +84,32 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
           </div>
         </div>
 
+        {/* Demo certificate */}
+        <Card className="mb-8 overflow-hidden border-amber-300/60 bg-gradient-to-br from-amber-50 via-white to-amber-50">
+          <CardContent className="p-6">
+            <div className="mb-3 flex items-center gap-2">
+              <Award className="h-5 w-5 text-amber-600" />
+              <h2 className="text-lg font-semibold">Sample Certificate</h2>
+              <span className="rounded-full bg-amber-100 px-3 py-0.5 text-xs font-medium text-amber-700">
+                Example
+              </span>
+            </div>
+            <p className="mb-5 text-sm text-muted-foreground">
+              This is what your certificate will look like when you complete a course. Your name and
+              course details will appear here.
+            </p>
+            <div className="rounded-xl border-4 border-amber-300 bg-gradient-to-br from-amber-100 via-white to-amber-100 p-3 shadow-inner">
+              <div className="overflow-hidden rounded-lg border border-amber-200 shadow-sm">
+                <img
+                  src="./demo-certificate.png"
+                  alt="Sample certificate"
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Completed certificates */}
         <h2 className="mb-3 text-lg font-semibold">
           Earned ({completed.length})

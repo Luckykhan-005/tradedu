@@ -38,6 +38,7 @@ interface LessonData {
   duration?: string
   order: number
   type: string
+  isFree?: boolean
 }
 
 interface CourseDetailProps {
@@ -45,6 +46,7 @@ interface CourseDetailProps {
   modules: ModuleData[]
   progress: Record<string, boolean>
   enrolled: boolean
+  userPlan?: string
   onBack: () => void
   onEnroll: () => void
   onToggleLesson: (lessonId: string) => void
@@ -70,6 +72,13 @@ export function CourseDetail({
     return new Set()
   })
   const [activeLesson, setActiveLesson] = useState<LessonData | null>(null)
+  const planRank = { FREE: 0, STARTER: 1, PREMIUM: 2 } as Record<string, number>
+  const userRank = planRank[userPlan] || 0
+
+  const canAccessLesson = (lesson: LessonData) => {
+    if (lesson.isFree) return true
+    return userRank >= 1
+  }
 
   const totalLessons = modules.reduce((acc, m) => acc + m.lessons.length, 0)
   const completedLessons = Object.values(progress).filter(Boolean).length
@@ -210,35 +219,42 @@ export function CourseDetail({
                           const LessonIcon = typeIcons[lesson.type] || FileText
                           const isCompleted = progress[lesson.id]
                           const isActive = activeLesson?.id === lesson.id
+                          const access = canAccessLesson(lesson)
 
                           return (
                             <button
                               key={lesson.id}
                               onClick={() => {
-                                if (enrolled) {
+                                if (enrolled && access) {
                                   setActiveLesson(lesson)
                                 }
                               }}
+                              disabled={!enrolled || !access}
                               className={cn(
                                 'flex items-center gap-3 w-full p-3 pl-10 text-left transition-colors border-l-2',
                                 isActive
                                   ? 'bg-primary/5 border-l-primary'
-                                  : 'border-l-transparent hover:bg-secondary/50'
+                                  : 'border-l-transparent hover:bg-secondary/50',
+                                !access && 'opacity-60'
                               )}
                             >
                               {isCompleted ? (
                                 <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
                               ) : enrolled ? (
-                                <Circle className="h-4 w-4 shrink-0 text-muted-foreground" />
+                                access ? (
+                                  <Circle className="h-4 w-4 shrink-0 text-muted-foreground" />
+                                ) : (
+                                  <Lock className="h-4 w-4 shrink-0 text-amber-500" />
+                                )
                               ) : (
                                 <Lock className="h-4 w-4 shrink-0 text-muted-foreground/40" />
                               )}
                               <LessonIcon className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
                               <div className="flex-1 min-w-0">
                                 <div className="text-sm truncate">{lesson.title}</div>
-                                {lesson.duration && (
-                                  <div className="text-xs text-muted-foreground">{lesson.duration}</div>
-                                )}
+                                <div className="text-xs text-muted-foreground">
+                                  {!access ? 'Starter Plan' : lesson.duration}
+                                </div>
                               </div>
                             </button>
                           )
@@ -344,10 +360,15 @@ export function CourseDetail({
 }
 
 function VideoPlayer({ url }: { url: string }) {
-  // Convert various YouTube URL formats to embed URLs
+  // Extract YouTube video ID from many URL formats
   const getYouTubeId = (u: string): string | null => {
     const patterns = [
-      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{11})/,
+      /\?v=([A-Za-z0-9_-]{11})/,                       // watch?v=
+      /youtu\.be\/([A-Za-z0-9_-]{11})/,                // youtu.be/ID
+      /youtube\.com\/shorts\/([A-Za-z0-9_-]{11})/,     // shorts/ID
+      /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/,      // /embed/ID
+      /youtube\.com\/live\/([A-Za-z0-9_-]{11})/,       // /live/ID
+      /youtube\.com\/watch\?si=([A-Za-z0-9_-]{11})/,   // share with si=
     ]
     for (const p of patterns) {
       const m = u.match(p)
@@ -357,26 +378,48 @@ function VideoPlayer({ url }: { url: string }) {
   }
 
   const ytId = getYouTubeId(url)
-  const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url)
+  const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v|ogv)(\?.*)?$/i.test(url)
+  const isGoogleDrive = /drive\.google\.com|docs\.google\.com\/file\/d\//.test(url)
 
   if (ytId) {
+    const poster = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`
     return (
       <iframe
         className="h-full w-full rounded-t-lg"
         src={`https://www.youtube.com/embed/${ytId}?rel=0`}
         title="Lesson video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+        referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
+        style={{ aspectRatio: '16/9' }}
       />
     )
   }
 
   if (isDirectVideo) {
     return (
-      <video className="h-full w-full rounded-t-lg bg-black" controls>
+      <video className="h-full w-full rounded-t-lg bg-black" controls playsInline>
         <source src={url} />
         Your browser does not support the video tag.
       </video>
+    )
+  }
+
+  if (isGoogleDrive) {
+    // Convert Google Drive file link to preview embed
+    const match = url.match(/\/d\/([A-Za-z0-9_-]+)/)
+    const embedUrl = match
+      ? `https://drive.google.com/file/d/${match[1]}/preview`
+      : url
+    return (
+      <iframe
+        className="h-full w-full rounded-t-lg"
+        src={embedUrl}
+        title="Lesson video"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+        style={{ aspectRatio: '16/9' }}
+      />
     )
   }
 
@@ -388,6 +431,7 @@ function VideoPlayer({ url }: { url: string }) {
       title="Lesson video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      style={{ aspectRatio: '16/9' }}
     />
   )
 }

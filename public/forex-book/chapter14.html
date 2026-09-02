@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۱۴ — فبوناچی ریٹریسمنٹ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter13.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter15.html">اگلا سبق →</a>
+    </div>
+
+    <h1>سبق ۱۴: فبوناچی ریٹریسمنٹ</h1>
+
+    <p><strong>فبوناچی ریٹریسمنٹ (Fibonacci Retracement)</strong> ایک مشہور تکنیکی ٹول ہے جو قیمت کی ممکنہ واپسی (Pullback) کی جگہوں کا اندازہ لگانے کے لیے استعمال ہوتا ہے۔ یہ ریاضی دان لیونارڈو فبوناچی کے سوٹ کے اعداد پر مبنی ہے، جن میں سب سے مشہور <strong><strong>گولڈن ریشو</strong></strong> ہے۔ فاریکس میں یہ ٹول خاص طور پر مفید ہے کیونکہ مارکیٹ ایک رجحان کے بعد اکثر اپنی حرکت کا کچھ حصہ واپس کرتی ہے، پھر اسی سمت میں دوبارہ چلتی ہے — اور یہ واپسی اکثر فبوناچی کی خاص سطحوں پر رکتی ہے۔</p>
+
+    <p>فبوناچی ریٹریسمنٹ کی بنیادی سطحیں ہیں: <strong>23.6%</strong>، <strong>38.2%</strong>، <strong>50%</strong>، <strong>61.8%</strong>، اور کبھی کبھار <strong>78.6%</strong>۔ ان میں سے <strong>61.8%</strong> کو سب سے زیادہ اہم سمجھا جاتا ہے کیونکہ یہ گولڈن ریشو کے قریب ہے۔ <strong>50%</strong> بھی بہت مقبول ہے کیونکہ مارکیٹ اکثر اپنی حرکت کا آدھا حصہ واپس کرتی ہے۔ جتنی کونی (عمقی) سطح، اتنا زیادہ مضبوط ردعمل عام طور پر دیکھا جاتا ہے — یعنی 61.8% بسا اوقات 23.6% سے زیادہ اہم ہوتا ہے۔</p>
+
+    <p>اس ٹول کو کھینچنے کا طریقہ سیدھا ہے۔ <strong>اپ ٹرینڈ (Pullback Buy)</strong> میں آپ قیمت کی کمترین نقطہ (سوئنگ Low) سے گھسیٹتا ہوا بلند ترین نقطہ (سوئنگ High) تک کھینچتے ہیں — اس کے بعد فبوناچی کی سطحیں انٹری کے ممکنہ علاقے دکھاتی ہیں۔ <strong>ڈاؤن ٹرینڈ (Pullback Sell)</strong> میں آپ بلند ترین نقطہ سے نیچے گھسیٹتے ہوئے کمترین نقطہ تک کھینچتے ہیں۔ یاد رکھیں، آپ ہمیشہ <strong>تھوڑے واضح رجحان کی اصل حرکت (Impulse)</strong> کے دو کناروں کو جوڑتے ہیں۔</p>
+
+    <div class="diagram">
+        <svg width="600" height="360" viewBox="0 0 600 360">
+            <rect width="600" height="360" fill="#122540" rx="10"/>
+            <text x="300" y="40" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">فبوناچی ریٹریسمنٹ (اپ ٹرینڈ)</text>
+            <line x1="90" y1="300" x2="520" y2="90" stroke="#888" stroke-width="3"/>
+            <text x="530" y="95" fill="#eee" font-size="17" font-family="sans-serif" text-anchor="start">سوئنگ High</text>
+            <text x="90" y="320" fill="#eee" font-size="17" font-family="sans-serif" text-anchor="start">سوئنگ Low</text>
+            <line x1="90" y1="300" x2="520" y2="300" stroke="#e94560" stroke-width="2" stroke-dasharray="6 5"/>
+            <line x1="90" y1="245" x2="520" y2="245" stroke="#e0a800" stroke-width="2" stroke-dasharray="6 5"/>
+            <line x1="90" y1="195" x2="520" y2="195" stroke="#00b4d8" stroke-width="2" stroke-dasharray="6 5"/>
+            <line x1="90" y1="150" x2="520" y2="150" stroke="#00ff9c" stroke-width="2" stroke-dasharray="6 5"/>
+            <text x="60" y="306" fill="#e94560" font-size="15" font-family="sans-serif" text-anchor="end">38.2%</text>
+            <text x="60" y="251" fill="#e0a800" font-size="15" font-family="sans-serif" text-anchor="end">50%</text>
+            <text x="60" y="201" fill="#00b4d8" font-size="15" font-family="sans-serif" text-anchor="end">61.8%</text>
+            <text x="60" y="156" fill="#00ff9c" font-size="15" font-family="sans-serif" text-anchor="end">78.6%</text>
+            <circle cx="300" cy="243" r="7" fill="#e0a800"/>
+            <text x="300" y="330" fill="#e0a800" font-size="18" font-family="sans-serif" text-anchor="middle">واپسی کا علاقہ (Pullback Zone)</text>
+        </svg>
+    </div>
+
+    <p>فبوناچی کی اصل خوبی یہ ہے کہ یہ خود تنہا نہیں بلکہ <strong>ساتھ دیگر سطحوں کے ساتھ مل کر</strong> زیادہ طاقتور ہوتا ہے۔ جب کوئی فبوناچی سطح سپورٹ یا ریزسٹنس کے زون کے ساتھ اور موونگ ایوریج کے ساتھ ملا ہو، تو اسے <strong>کنفلوئنس (Confluence)</strong> کہا جاتا ہے۔ کنفلوئنس کی جگہ زیادہ قابل اعتماد ہوتی ہے کیونکہ وہاں کئی وجوہات ایک ساتھ مل کر قیمت کو روکنے کی کوشش کرتی ہیں۔ مثال کے طور پر، اگر 61.8% فبوناچی سطح اور سپورٹ زون ایک ہی جگہ پر مل جائیں، تو یہ بہت مضبوط انٹری پوائنٹ ہو سکتا ہے۔</p>
+
+    <p>اس میں ایک اضافی پیشگوئی کرنے والا کشش کا اہم ٹول <strong>فبوناچی ایکسٹینشن (Extension)</strong> بھی ہے، جو واپسی کے بعد قیمت کی ممکنہ منزل پیشگوئی کرتا ہے۔ فبوناچی ریٹریسمنٹ سب سے زیادہ مفید ہے جب مارکیٹ واضح رجحان میں ہو، نہ کہ سائیڈ ویز میں۔ چونکہ یہ اگلی حرکت کا تھوڑا سا اندازہ دیتا ہے، آپ کو ہمیشہ سٹاپ لاس اور رسک مینجمنٹ کے ساتھ استعمال کرنا چاہیے — کیونکہ فبوناچی کبھی 100% درست نہیں ہوتا۔</p>
+
+    <div class="info">
+        <strong>یاد رکھیں:</strong> فبوناچی واپسی کے لیے پہلے صرف واضح رجحان کی حرکت (Impulse) تلاش کریں، پھر دو کناروں کو جوڑیں۔ گولڈن ریشو 61.8% سب سے اہم ہے۔
+    </div>
+
+    <div class="info">
+        <strong>کنفلوئنس:</strong> جب فبوناچی، سپورٹ/ریزسٹنس، اور موونگ ایوریج سب ایک ہی جگہ پر مل جائیں — وہ جگہ بہت مضبوط انٹری پوائنٹ ہوتی ہے۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ فبوناچی ریٹریسمنٹ قیمت کی واپسی کی سطحیں بتاتا ہے۔</p>
+    <p>۲۔ عام سطحیں: 38.2%، 50%، 61.8%، 78.6% — گولڈن ریشو 61.8%۔</p>
+    <p>۳۔ اپ ٹرینڈ میں Low سے High تک، ڈاؤن ٹرینڈ میں High سے Low تک کھینچیں۔</p>
+    <p>۴۔ کنفلوئنس (دوسرے اندازوں کے ساتھ ملاقات) زیادہ مضبوط ہوتا ہے۔</p>
+    <p>۵۔ فبوناچی کبھی 100% درست نہیں — سٹاپ لاس لازمی۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ کسی واضح اپ ٹرینڈ پر فبوناچی ریٹریسمنٹ کھینچ کر 61.8% کا علاقے نشان زد کریں۔</p>
+    <p>۲۔ ایک ایسے کام کو لکھیں جہاں فبوناچی کی سطح اور سپورٹ ایک ہی جگہ پر ملے (کنفلوئنس)۔</p>
+    <p>۳۔ گولڈن ریشو (61.8%) کی اہمیت اپنے الفاظ میں بیان کریں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter13.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter15.html">اگلا سبق →</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

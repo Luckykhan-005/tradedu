@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی 9 — رسک ریوارڈ سسٹم</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter8.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter10.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی 9: رسک ریوارڈ سسٹم</h1>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="360" fill="#0b1220" rx="12"/>
+            <text x="400" y="40" fill="#38bdf8" font-size="20" text-anchor="middle">رسک بمقابلہ ریوارڈ (1:3)</text>
+            <circle cx="200" cy="180" r="60" fill="#ef4444" opacity="0.9"/>
+            <text x="200" y="175" fill="#0b1220" font-size="22" text-anchor="middle" font-weight="bold">1</text>
+            <text x="200" y="210" fill="#0b1220" font-size="18" text-anchor="middle">رسک</text>
+            <circle cx="520" cy="180" r="110" fill="#22c55e" opacity="0.25"/>
+            <circle cx="520" cy="180" r="70" fill="#22c55e" opacity="0.3"/>
+            <text x="520" y="175" fill="#22c55e" font-size="26" text-anchor="middle" font-weight="bold">3</text>
+            <text x="520" y="210" fill="#22c55e" font-size="20" text-anchor="middle">ریوارڈ</text>
+            <line x1="270" y1="180" x2="420" y2="180" stroke="#facc15" stroke-width="3" stroke-dasharray="6 6"/>
+            <text x="345" y="165" fill="#facc15" font-size="16" text-anchor="middle">1:3</text>
+            <text x="400" y="300" fill="#666" font-size="17" text-anchor="middle">ایک یونٹ رسک کا بدلہ تین یونٹ</text>
+        </svg>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="300" fill="#0b1220" rx="12"/>
+            <text x="400" y="35" fill="#38bdf8" font-size="20" text-anchor="middle">فکسڈ رسک — ہر ڈیل میں 1%</text>
+            <rect x="120" y="120" width="60" height="60" rx="4" fill="#ef4444"/>
+            <rect x="220" y="120" width="60" height="60" rx="4" fill="#ef4444"/>
+            <rect x="320" y="120" width="60" height="60" rx="4" fill="#ef4444"/>
+            <rect x="420" y="120" width="60" height="60" rx="4" fill="#22c55e"/>
+            <rect x="520" y="120" width="60" height="60" rx="4" fill="#ef4444"/>
+            <rect x="620" y="120" width="60" height="60" rx="4" fill="#22c55e"/>
+            <text x="400" y="105" fill="#666" font-size="17" text-anchor="middle">ہر ایک = 1% اکاؤنٹ رسک</text>
+            <rect x="150" y="210" width="120" height="40" rx="8" fill="#132638" stroke="#22c55e" stroke-width="1"/>
+            <text x="210" y="236" fill="#22c55e" font-size="16" text-anchor="middle">جیتنے والے 3%</text>
+            <rect x="320" y="210" width="120" height="40" rx="8" fill="#132638" stroke="#ef4444" stroke-width="1"/>
+            <text x="380" y="236" fill="#ef4444" font-size="16" text-anchor="middle">ہارنے والے 1%</text>
+            <text x="500" y="236" fill="#facc15" font-size="16" text-anchor="middle">نیٹ مثبت</text>
+        </svg>
+    </div>
+
+    <p>رسک ریوارڈ سسٹم ایک ایسا نظام ہے جو اس کھیل کے حقیقت کو سمجھنے پر زور دیتا ہے — جو بھی نقصان اٹھائے اور جو منافع حاصل کرے۔ کئی تاجر اسکی طرف توجہ دینے کے بجائے صرف منافع کی طرف دیکھتے ہیں، لیکن سب سے اہم اصول یہ ہے کہ ہر ٹریڈ میں رسک کو محدود رکھا جائے۔ جب ہر ڈیل میں رسک ایک مقررہ رقم ہو، تو ہم یہ سمجھتے ہیں کہ کسی بھی نقصان سے ہماری پوزیشن نہیں ٹوٹتی۔</p>
+
+    <p>رسک ریوارڈ کا تناسب (R-Multiple) ہر ٹریڈ کو ایک ہی پیمانے پر ناپتا ہے۔ ایک ٹریڈ میں آپ ایک R رسک لیتے ہیں (اسٹاپ لاس تک) اور آپ کا ریوارڈ 2R یا 3R تک ہو سکتا ہے۔ اگر کسی ٹریڈ میں آپ ایک R کا رسک لیتے ہیں اور 2R یا 3R کا ہدف رکھتے ہیں، تو آپ کو صرف ایک دو درست ٹریڈز سے اپنے کئی غلط ٹریڈز کے نقصان کو پورا کرنا ہوتا ہے۔ یہ نظام آپ کو بتاتا ہے کہ چھوٹے نقصان اور بڑے منافع سے ہی کامیابی حاصل ہوتی ہے۔</p>
+
+    <p>رسک ریوارڈ سسٹم کی سب سے بڑی خوبی اس کی ریاضیاتی طاقت ہے۔ اگر آپ کا ہر ٹریڈ 1:3 کے تناسب پر ہو، تو آپ صرف 30% وقت سہی ہوں گے، لیکن پھر بھی آپ منافع میں رہیں گے۔ مثال کے طور پر، 10 ٹریڈز کے بعد اگر 7 ہارتے ہیں (7R نقصان) اور 3 جیتتے ہیں (9R منافع)، تو نیٹ ہم 2R منافع میں ہوں گے۔ یہی رسک ریوارڈ کی طاقت ہے — یہ آپ کو بتاتا ہے کہ جیتنے کا تناسب ضروری نہیں، بلکہ منافع کی توقع ہے جو اہم ہے۔</p>
+
+    <p>اس سسٹم میں ہر ٹریڈ میں رسک کا تعین سب سے اہم ہے۔ عام طور پر ہم اپنے اکاؤنٹ کے ایک چھوٹے حصے (مثلاً 1% یا 2%) کو ہر ٹریڈ میں رسک کرتے ہیں۔ ویسے ہم اکاؤنٹ کے کسی بھی حصے کو خطرے میں نہیں ڈالتے، بلکہ صرف ایک چھوٹا سا حصہ۔ یہ نظام ہمیں انتہائی ٹریڈوں میں بھی محفوظ رکھتا ہے، اور ہم اپنے باقی کتنی بار بھی ہار سکتے ہیں، لیکن ہماری پوزیشن میں کوئی بڑی خرابی نہیں آتی۔</p>
+
+    <h2>اندراج (Entry) قواعد</h2>
+    <div class="info"><strong>خرید/بیچ کے قواعد:</strong><br>۱۔ ہر ٹریڈ سے پہلے اپنے رسک کا تعین کریں — عام طور پر اکاؤنٹ کا 1%۔<br>۲۔ کم از کم 1:2 یا 1:3 کا رسک ریوارڈ تناسب حاصل کریں۔<br>۳۔ ہمارے ٹریڈز جیتنے والوں کو بڑا منافع دینے دیں اور ہارنے والوں کو جلد بند کریں۔<br>۴۔ ہر جیتنے والے ٹریڈ کو کم از کم 2R یا 3R کا ہدف رکھیں۔<br>۵۔ ہر نقصان کو جلد کاٹ لیں — ہارنے والوں کو کبھی نہ پھیلنے دیں۔</div>
+    <div class="formula">رسک فی ٹریڈ = اکاؤنٹ × 1% (فکسڈ)<br>ٹیک پرافٹ = رسک × 2 یا 3 (کم از کم)</div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+    <p>اخراج اس سسٹم کا اہم حصہ ہے۔ ہمارے جیتنے والے ٹریڈز کو بڑا منافع حاصل کرنے دینا چاہییں، لیکن ہم ہارنے والوں کو جلد بند کر دیں۔ نقصان کو بڑھنے نہ دیں، کیونکہ ہر بڑا نقصان آپ کے بہت سارے منافع کو ختم کر سکتا ہے۔ جب ہدف حاصل ہو تو منافع محفوظ کریں، لیکن زیادہ بہتر ہوتا ہے کہ ہم جیتنے والوں کو چھوڑ دیں۔</p>
+    <p>پوزیشن کو دو حصوں میں تقسیم کرنا بھی مفید ہے — پہلا حصہ پہلے ہدف پر بند کرتے ہیں اور دوسرا حصہ بقیہ رجحان کے ساتھ لے جاتے ہیں۔ یہ انداز کچھ منافع محفوظ کرنے کے ساتھ ساتھ بڑے منافع کا موقع بھی فراہم کرتا ہے۔ اگر قیمت مقررہ اسٹاپ لاس تک پہنچ جائے تو ہم بغیر کسی جھجک کے نکل جاتے ہیں — یہی رسک ریوارڈ سب سے اہم اصول ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ رسک ریوارڈ پر توجہ دیں — کامیابی کا اصل راز یہی نظام ہے۔</p>
+    <p>۲۔ ہر ٹریڈ میں رسک کو مقررہ رقم رکھیں (مثلاً 1%) تاکہ آپ کبھی بھی بڑا رسک نہ لیں۔</p>
+    <p>۳۔ نقصان کو جلد کاٹیں اور منافع کو بڑھنے دیں — یہی اصلی سیٹ اپ ہے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ آپ کے اکاؤنٹ کا 1% رسک کتنا بنتا ہے، اس کا حساب لگائیں۔</p>
+    <p>۲۔ اپنی آخری 20 ٹریڈز کے رسک ریوارڈ تناسب کا جائزہ لیں — کیا آپ کامیاب ہوئے؟</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter8.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter10.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

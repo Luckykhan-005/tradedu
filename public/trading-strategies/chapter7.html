@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسٹریٹجی 7 — سوئنگ ٹریڈنگ سسٹم</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0b1220; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #22c55e; text-align: center; }
+        h2 { font-size: 34px; color: #38bdf8; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #38bdf8; color: #0b1220; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #38bdf8; text-decoration: none; padding: 10px 20px; background: #132638; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #132638; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #132638; border-right: 5px solid #22c55e; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #22c55e; }
+        .formula { background: #16283d; border-radius: 10px; padding: 12px 18px; margin: 14px 0; text-align: center; font-size: 22px; color: #ffd700; border: 1px solid #2b3a52; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter6.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter8.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <h1>اسٹریٹجی 7: سوئنگ ٹریڈنگ سسٹم</h1>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="360" fill="#0b1220" rx="12"/>
+            <text x="400" y="40" fill="#38bdf8" font-size="20" text-anchor="middle">D1 چارٹ — کئی دنوں کی پوزیشن</text>
+            <polyline points="70,300 120,250 170,270 220,190 270,230 320,150 370,190 420,120 470,170 520,100 570,140 620,80 680,110 730,60" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <circle cx="270" cy="230" r="7" fill="#22c55e"/>
+            <text x="270" y="260" fill="#22c55e" font-size="17" text-anchor="middle">سوئنگ لو (اندراج)</text>
+            <line x1="220" y1="190" x2="270" y2="230" stroke="#facc15" stroke-width="2"/>
+            <circle cx="320" cy="150" r="7" fill="#ef4444"/>
+            <text x="320" y="130" fill="#ef4444" font-size="17" text-anchor="middle">سوئنگ ہائی</text>
+            <circle cx="520" cy="100" r="7" fill="#ef4444"/>
+            <text x="520" y="80" fill="#ef4444" font-size="17" text-anchor="middle">سوئنگ ہائی</text>
+            <circle cx="730" cy="60" r="7" fill="#22c55e"/>
+            <text x="715" y="40" fill="#22c55e" font-size="17" text-anchor="middle">ہدف</text>
+            <line x1="270" y1="230" x2="270" y2="340" stroke="#facc15" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="310" y="335" fill="#facc15" font-size="14" text-anchor="middle">اسٹاپ اسٹنگ لو سے نیچے</text>
+        </svg>
+    </div>
+
+    <div class="diagram">
+        <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="800" height="280" fill="#0b1220" rx="12"/>
+            <text x="400" y="35" fill="#38bdf8" font-size="20" text-anchor="middle">D1 پر سوئنگ ٹریڈ بڑا رسک ریوارڈ</text>
+            <line x1="80" y1="220" x2="720" y2="220" stroke="#333" stroke-width="2"/>
+            <polyline points="120,220 200,160 260,200 340,140 420,190 500,110 580,160 660,90" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            <rect x="260" y="150" width="120" height="80" rx="8" fill="#132638" stroke="#22c55e" stroke-width="1"/>
+            <text x="320" y="200" fill="#22c55e" font-size="16" text-anchor="middle">اندراج</text>
+            <line x1="340" y1="200" x2="340" y2="255" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="355" y="255" fill="#ef4444" font-size="15" text-anchor="start">اسٹاپ</text>
+            <line x1="340" y1="200" x2="340" y2="120" stroke="#22c55e" stroke-width="3"/>
+            <text x="355" y="115" fill="#22c55e" font-size="15" text-anchor="start">بڑا ہدف</text>
+        </svg>
+    </div>
+
+    <p>سوئنگ ٹریڈنگ ایک ایسا نظام ہے جو کئی دنوں تک پوزیشن کو تھامتا ہے۔ یہ عام طور پر H4 (چار گھنٹے) اور D1 (ایک دن) کے چارٹ استعمال کرتا ہے، جہاں ہم کسی بڑے رجحان کی سمت میں پوزیشن لیتے ہیں۔ یہ نظام ان لوگوں کے لیے بہترین ہے جو اسکرین کے سامنے زیادہ وقت نہیں گزار سکتے، کیونکہ سوئنگ ٹریڈنگ میں ہم چند منٹوں یا گھنٹوں کے لیے اسکرین کے سامنے نہیں رہتے بلکہ کئی دن تک پوزیشن رکھتے ہیں۔</p>
+
+    <p>سوئنگ ٹریڈنگ کی بنیاد ٹریڈ کے ڈھانچے پر ہے۔ ہم رجحان کی سمت میں سوئنگ ہائی اور سوئنگ لو کی نشاندہی کرتے ہیں، اور جب قیمت ایک واضح ساخت بناتی ہے تو ہم اندراج کرتے ہیں۔ اپ ٹرینڈ میں ہم سوئنگ لو (خلیج) پر اندراج کرتے ہیں اور اسٹاپ لاس کو حالیہ سوئنگ لو سے نیچے رکھتے ہیں، تاکہ قیمت کے ساخت سے نیچے جانے کی صورت میں ہمارا نقصان محدود رہے۔</p>
+
+    <p>سوئنگ ٹریڈنگ میں رسک ریوارڈ کا تناسب بہت اچھا ہوتا ہے۔ چونکہ ہم کئی دنوں تک پوزیشن رکھتے ہیں، ہمارا ہدف بہت دور ہوتا ہے، جبکہ اسٹاپ حقیقت کے قریب ہوتا ہے۔ اس طرح ہم چھوٹے نقصان کے مقابلے میں بڑے منافع کا امکان حاصل کرتے ہیں۔ یہی وجہ ہے کہ سوئنگ ٹریڈنگ میں کچھ سست دنوں کے باوجود نتائج بہت اچھے ہوتے ہیں۔</p>
+
+    <p>سوئنگ ٹریڈنگ کا سب سے بڑا فائدہ کم اسکرین ٹائم ہے۔ ایک سوئنگ ٹریڈر اپنی پوزیشن لگانے کے بعد کئی دنوں کو نظر انداز کر سکتا ہے، اور صرف اہم ٹائیم پر اسکرین دیکھتا ہے۔ یہ ان لوگوں کے لیے بہترین ہے جو روزگار یا دیگر مصروفیات میں لگے ہیں لیکن پھر بھی مارکیٹ سے مستحکم منافع حاصل کرنا چاہتے ہیں۔</p>
+
+    <h2>اندراج (Entry) قواعد</h2>
+    <div class="info"><strong>خرید/بیچ کے قواعد:</strong><br>۱۔ H4 اور D1 چارٹ استعمال کریں اور رجحان کی سمت قائم کریں۔<br>۲۔ سوئنگ ہائی/لو کی ساخت تلاش کریں اور رجحان کی سمت میں اندراج کریں۔<br>۳۔ اپ ٹرینڈ میں سوئنگ لو پر لانگ، ڈاؤن ٹرینڈ میں سوئنگ ہائی پر شارٹ۔<br>۴۔ اسٹاپ لاس کو حالیہ سوئنگ لو/ہائی سے تھوڑا نیچے رکھیں۔<br>۵۔ ہدف کو بڑے رجحان کے ساتھ لے جانے کے لیے پوزیشن کو چند دنوں تک رکھیں۔</div>
+    <div class="formula">اسٹاپ لاس = حالیہ سوئنگ لو/ہائی سے تھوڑا نیچے/اوپر<br>ٹیک پرافٹ = آئندہ کے اہم سطح (کم از کم 1:3 رسک ریوارڈ)</div>
+
+    <h2>اخراج (Exit) قواعد</h2>
+    <p>اخراج کئی دنوں تک ہو سکتا ہے، اس لیے ہمیں صبر اور نظم و ضبط کی ضرورت ہے۔ جب قیمت ہدف تک پہنچے تو ہم منافع محفوظ کرتے ہیں۔ کچھ تاجر پوزیشن کو دو حصوں میں تقسیم کرتے ہیں — پہلا حصہ پہلے اہم ہدف پر بند کرتے ہیں، اور دوسرا حصہ بقیہ رجحان کے ساتھ لے جاتے ہیں۔</p>
+    <p>جہاں تک نقصان کا تعلق ہے — اگر قیمت ساخت سے نیچے آ جائے تو فوراً نکل جائیں۔ سوئنگ ٹریڈنگ میں جھوٹی حرکت سے بچنے کے لیے اسٹاپ لاس کے قریب رہنا ضروری ہے۔ یہاں انتظار ایک اہم حصہ ہے، کیونکہ سوئنگ ٹریڈر اپنے فیصلوں کے لیے صبر کرتا ہے۔</p>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ سوئنگ ٹریڈنگ کے لیے صبر اور نظم و ضبط ضروری ہے، کیونکہ پوزیشن کئی دنوں تک رکھی جاتی ہے۔</p>
+    <p>۲۔ کم اسکرین ٹائم کے ساتھ مستحکم منافع اس کا سب سے بڑا فائدہ ہے۔</p>
+    <p>۳۔ ساخت پر مبنی اندراج ہی سوئنگ ٹریڈنگ کی بنیادی تکنیک ہے۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ ڈیلی چارٹ پر تین مہینے کے سوئنگ ہائی/لو تلاش کریں اور ان کے مشترکہ رجحان کا تجزیہ کریں۔</p>
+    <p>۲۔ کسی سوئنگ ٹریڈر کی مثالی تصویر بنائیں جس میں اندراج اور اخراج کے مقامات واضح ہوں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter6.html">← پچھلی اسٹریٹجی</a>
+        <a href="chapter8.html">اگلی اسٹریٹجی →</a>
+    </div>
+
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© ٹریڈنگ اسٹریٹجیز اور سیٹ اپس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

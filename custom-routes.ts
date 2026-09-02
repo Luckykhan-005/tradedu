@@ -23,7 +23,7 @@ app.post('/seed', async (c) => {
   async function ensureCourse(data: Parameters<typeof prisma.course.create>[0]) {
     const existing = await prisma.course.findFirst({ where: { title: data.data.title } })
     if (existing) return existing
-    return prisma.course.create(data)
+    return await prisma.course.create(data)
   }
 
   await Promise.all([
