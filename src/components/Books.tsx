@@ -309,7 +309,7 @@ export function Books({ onBack }: BooksProps) {
                     <img
                       src={book.cover}
                       alt={book.title}
-                      className="aspect-[3/4] w-full object-cover"
+                      className="h-auto w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-left">
