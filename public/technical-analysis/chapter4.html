@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #121d33; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #1f3a5f; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #8ab4f8; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,70 @@
         <a href="chapter5.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۴: آر ایس آئی (RSI)</h1>
+
+    <figure class="diagram">
+        <h3>RSI Oscillator — آر ایس آئی اوسیلیٹر</h3>
+        <svg width="640" height="380" viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSI oscillator chart with overbought and oversold zones">
+            <defs>
+                <linearGradient id="ch4f1bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch4f1glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="380" fill="url(#ch4f1bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="60" y1="30" x2="600" y2="30"/><line x1="60" y1="120" x2="600" y2="120"/><line x1="60" y1="180" x2="600" y2="180"/><line x1="60" y1="240" x2="600" y2="240"/><line x1="60" y1="330" x2="600" y2="330"/>
+                <line x1="120" y1="30" x2="120" y2="330"/><line x1="200" y1="30" x2="200" y2="330"/><line x1="280" y1="30" x2="280" y2="330"/><line x1="360" y1="30" x2="360" y2="330"/><line x1="440" y1="30" x2="440" y2="330"/><line x1="520" y1="30" x2="520" y2="330"/>
+            </g>
+            <rect x="60" y="30" width="540" height="90" fill="#ef4444" opacity="0.10"/>
+            <rect x="60" y="240" width="540" height="90" fill="#22c55e" opacity="0.10"/>
+            <line x1="60" y1="120" x2="600" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6"/>
+            <line x1="60" y1="240" x2="600" y2="240" stroke="#22c55e" stroke-width="2" stroke-dasharray="8 6"/>
+            <g font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">
+                <text x="50" y="34" text-anchor="end">100</text>
+                <text x="50" y="184" text-anchor="end">50</text>
+                <text x="50" y="334" text-anchor="end">0</text>
+                <text x="50" y="124" text-anchor="end" fill="#ef4444" font-weight="bold">70</text>
+                <text x="50" y="244" text-anchor="end" fill="#22c55e" font-weight="bold">30</text>
+            </g>
+            <text x="330" y="55" text-anchor="middle" fill="#f87171" font-family="Arial, sans-serif" font-size="14">Overbought — زیادہ خریدا</text>
+            <text x="330" y="318" text-anchor="middle" fill="#4ade80" font-family="Arial, sans-serif" font-size="14">Oversold — زیادہ بیچا</text>
+            <text transform="rotate(-90 28 180)" x="28" y="180" text-anchor="middle" fill="#8ab4f8" font-family="Arial, sans-serif" font-size="14">RSI</text>
+            <polyline points="60,180 100,195 140,216 180,240 220,252 260,228 300,195 340,156 380,132 420,114 460,96 500,108 540,144 580,174 600,165" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch4f1glow)"/>
+            <text x="600" y="345" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Time</text>
+        </svg>
+        <figcaption>RSI ۰ سے ۱۰۰ کے پیمانے پر جھولتا ہے؛ ۷۰ کے اوپر Overbought اور ۳۰ کے نیچے Oversold سمجھا جاتا ہے۔</figcaption>
+    </figure>
+
+    <figure class="diagram">
+        <h3>RSI Divergence — آر ایس آئی ڈیوگریشن</h3>
+        <svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSI bearish divergence: price higher high but RSI lower high">
+            <defs>
+                <linearGradient id="ch4f2bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch4f2glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="420" fill="url(#ch4f2bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="60" y1="30" x2="600" y2="30"/><line x1="60" y1="110" x2="600" y2="110"/><line x1="60" y1="200" x2="600" y2="200"/>
+                <line x1="150" y1="30" x2="150" y2="200"/><line x1="250" y1="30" x2="250" y2="200"/><line x1="330" y1="30" x2="330" y2="200"/><line x1="430" y1="30" x2="430" y2="200"/><line x1="520" y1="30" x2="520" y2="200"/>
+                <line x1="60" y1="250" x2="600" y2="250"/><line x1="60" y1="330" x2="600" y2="330"/><line x1="60" y1="400" x2="600" y2="400"/>
+                <line x1="250" y1="250" x2="250" y2="400"/><line x1="430" y1="250" x2="430" y2="400"/>
+            </g>
+            <text x="60" y="48" fill="#8ab4f8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Price — قیمت</text>
+            <polyline points="60,180 150,150 250,110 330,140 430,90 520,120 600,70" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch4f2glow)"/>
+            <circle cx="250" cy="110" r="5" fill="#38bdf8"/><circle cx="430" cy="90" r="5" fill="#38bdf8"/>
+            <line x1="250" y1="110" x2="430" y2="90" stroke="#38bdf8" stroke-dasharray="5 5" stroke-width="2"/>
+            <text x="430" y="78" text-anchor="middle" fill="#38bdf8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Higher High — بلندی</text>
+            <text x="60" y="268" fill="#8ab4f8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">RSI</text>
+            <polyline points="60,360 150,320 250,265 330,320 430,300 520,340 600,290" fill="none" stroke="#22c55e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch4f2glow)"/>
+            <circle cx="250" cy="265" r="5" fill="#22c55e"/><circle cx="430" cy="300" r="5" fill="#22c55e"/>
+            <line x1="250" y1="265" x2="430" y2="300" stroke="#22c55e" stroke-dasharray="5 5" stroke-width="2"/>
+            <text x="430" y="322" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Lower High — ادنیٰ</text>
+            <line x1="250" y1="110" x2="250" y2="265" stroke="#facc15" stroke-dasharray="4 5" stroke-width="2"/>
+            <line x1="430" y1="90" x2="430" y2="300" stroke="#facc15" stroke-dasharray="4 5" stroke-width="2"/>
+            <text x="320" y="232" text-anchor="middle" fill="#ef4444" font-family="Arial, sans-serif" font-size="17" font-weight="bold" filter="url(#ch4f2glow)">Bearish Divergence — بیئرش ڈیوگریشن</text>
+        </svg>
+        <figcaption>قیمت نئی بلندی بناتی ہے جبکہ RSI اپنی پچھلی بلندی سے پیچھے رہ جاتا ہے — یہ اوپر کے رجحان کے کمزور ہونے کا انتباہ ہے۔</figcaption>
+    </figure>
+
     <p>یعنی ریلیٹو اسٹرینتھ انڈیکس (RSI) ایک مشہور مومینٹم انڈیکیٹر ہے جو ۱۹۷۸ میں ایک ماہر تجزیہ کار نے متعارف کرایا۔ یہ انڈیکیٹر ۰ سے ۱۰۰ کے درمیان ایک عدد دیتا ہے جو یہ بتاتا ہے کہ قیمت حالیہ عرصے میں کس تیزی سے اوپر یا نیچے جا رہی ہے اور خریداروں اور بیچنے والوں میں سے کون اس وقت طاقتور ہے۔ اسے اوصیلٹر (Oscillator) کہا جاتا ہے کیونکہ یہ ایک خاص دائرے کے اندر اوپر نیچے جھولتا رہتا ہے۔ RSI بنیادی طور پر قیمت میں ہونے والے نفع اور نقصان کے تناسب پر مبنی ہے اور ۱۴ دن یا ۱۴ وقت (periods) سب سے عام سیٹنگ ہے۔</p>
     <p>RSI کا سب سے عام استعمال "زیادہ خریدی گئی" (Overbought) اور "زیادہ بیچی گئی" (Oversold) کی شناخت ہے۔ جب RSI کی قیمت ۷۰ سے اوپر جاتی ہے تو اسے "Overbought" کہا جاتا ہے، یعنی خریدار کافی حد تک بدبخت یا تھک چکے ہیں اور قیمت کی اصلاح یا نیچے جا سکتی ہے۔ جب RSI کی قیمت ۳۰ سے نیچے آتی ہے تو اسے "Oversold" کہا جاتا ہے، یعنی فروخت کرنے والے بہت آگے بڑھ چکے ہیں اور قیمت میں ایک تیز ریباؤنڈ کی توقع ہوتی ہے۔ تاہم، ایک ضروری بات یہ ہے کہ Overbought یا Oversold کا مطلب خود بخود الٹ جانا نہیں ہوتا؛ ایک مضبوط رجحان میں RSI لمبے وقت تک ان سطحوں پر رہ سکتا ہے۔</p>
     <p>اس الجھن سے نکلنے کے لیے ماہرین اکثر "ڈیوگریشن" (Divergence) کا استعمال کرتے ہیں۔ ڈیوگریشن کا مطلب یہ ہے کہ جب قیمت نئی بلندی بنا رہی ہو لیکن RSI اپنی پچھلی بلندی سے پیچھے رہ جائے، تو اسے "بیئرش ڈیوگریشن" کہا جاتا ہے اور یہ اوپر کا رجحان کمزور ہونے کا انتباہ ہے۔ اسی طرح جب قیمت نئی پستی بنا رہی ہو لیکن RSI اپنی پچھلی پستی سے اوپر ہو، تو اسے "بلش ڈیوگریشن" کہتے ہیں اور یہ ممکنہ الٹ جانے کا اشارہ ہے۔ ڈیوگریشن RSI کا سب سے قوی اور قابلِ اعتبار اشارہ سمجھا جاتا ہے، خاص طور پر جب یہ منفی یا مثبت رجحان کے اختتام کے قریب بنے۔</p>

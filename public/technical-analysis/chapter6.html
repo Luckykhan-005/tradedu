@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #121d33; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #1f3a5f; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #8ab4f8; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,67 @@
         <a href="chapter7.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۶: بولنگر بینڈز</h1>
+
+    <figure class="diagram">
+        <h3>Bollinger Bands — بولنگر بینڈز</h3>
+        <svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bollinger Bands with upper band, middle SMA 20 and lower band highlighted squeeze zone">
+            <defs>
+                <linearGradient id="ch6f1bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch6f1glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="400" fill="url(#ch6f1bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="60" y1="100" x2="600" y2="100"/><line x1="60" y1="190" x2="600" y2="190"/><line x1="60" y1="280" x2="600" y2="280"/><line x1="60" y1="340" x2="600" y2="340"/>
+                <line x1="120" y1="60" x2="120" y2="340"/><line x1="210" y1="60" x2="210" y2="340"/><line x1="310" y1="60" x2="310" y2="340"/><line x1="410" y1="60" x2="410" y2="340"/><line x1="510" y1="60" x2="510" y2="340"/>
+            </g>
+            <path d="M60,180 110,170 160,170 210,175 260,205 310,208 360,200 410,193 460,165 510,140 560,120 600,110 L600,280 560,280 510,270 460,255 410,237 360,240 310,252 260,275 210,295 160,320 110,330 60,340 Z" fill="#00b4d8" opacity="0.08"/>
+            <rect x="285" y="190" width="130" height="66" fill="#facc15" opacity="0.12"/>
+            <line x1="285" y1="180" x2="285" y2="262" stroke="#facc15" stroke-dasharray="5 5" stroke-width="2"/>
+            <line x1="415" y1="180" x2="415" y2="262" stroke="#facc15" stroke-dasharray="5 5" stroke-width="2"/>
+            <text x="350" y="178" text-anchor="middle" fill="#facc15" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Squeeze — سینکچ</text>
+            <polyline points="60,260 110,250 160,245 210,235 260,240 310,230 360,220 410,215 460,210 510,205 560,200 600,195" fill="none" stroke="#facc15" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,180 110,170 160,170 210,175 260,205 310,208 360,200 410,193 460,165 510,140 560,120 600,110" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,340 110,330 160,320 210,295 260,275 310,252 360,240 410,237 460,255 510,270 560,280 600,280" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,300 110,290 160,270 210,250 260,235 310,228 360,222 410,205 460,180 510,150 560,125 600,115" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch6f1glow)"/>
+            <text x="600" y="100" text-anchor="end" fill="#00b4d8" font-family="Arial, sans-serif" font-size="14">Upper Band — اوپری لکیر</text>
+            <text x="600" y="185" text-anchor="end" fill="#facc15" font-family="Arial, sans-serif" font-size="14">Middle SMA 20 — وسطی لکیر</text>
+            <text x="600" y="300" text-anchor="end" fill="#00b4d8" font-family="Arial, sans-serif" font-size="14">Lower Band — نچلی لکیر</text>
+            <text x="600" y="370" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Time</text>
+        </svg>
+        <figcaption>بولنگر بینڈز درمیانی SMA اور اوپر/نیچے والی لکیروں پر مشتمل ہیں؛ سکڑے ہوئے بینڈز (سینکچ) اکثر بڑے بریک آؤٹ سے پہلے بنتے ہیں۔</figcaption>
+    </figure>
+
+    <figure class="diagram">
+        <h3>Squeeze Breakout — سینکچ بریک آؤٹ</h3>
+        <svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bollinger Bands squeeze then price breaking upward breakout arrow">
+            <defs>
+                <linearGradient id="ch6f2bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch6f2glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="360" fill="url(#ch6f2bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="60" y1="100" x2="600" y2="100"/><line x1="60" y1="180" x2="600" y2="180"/><line x1="60" y1="260" x2="600" y2="260"/><line x1="60" y1="330" x2="600" y2="330"/>
+                <line x1="120" y1="60" x2="120" y2="330"/><line x1="210" y1="60" x2="210" y2="330"/><line x1="310" y1="60" x2="310" y2="330"/><line x1="410" y1="60" x2="410" y2="330"/><line x1="510" y1="60" x2="510" y2="330"/>
+            </g>
+            <path d="M60,160 110,165 160,175 210,192 260,198 310,200 360,190 410,170 460,145 510,125 560,115 600,115 L600,325 560,325 510,315 460,295 410,270 360,250 310,240 260,242 210,248 160,265 110,275 60,280 Z" fill="#00b4d8" opacity="0.08"/>
+            <rect x="200" y="195" width="160" height="55" fill="#facc15" opacity="0.12"/>
+            <line x1="200" y1="190" x2="200" y2="255" stroke="#facc15" stroke-dasharray="5 5" stroke-width="2"/>
+            <line x1="360" y1="190" x2="360" y2="255" stroke="#facc15" stroke-dasharray="5 5" stroke-width="2"/>
+            <text x="280" y="185" text-anchor="middle" fill="#facc15" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Squeeze — سینکچ</text>
+            <rect x="360" y="40" width="220" height="120" fill="#22c55e" opacity="0.08"/>
+            <polyline points="60,220 110,220 160,220 210,220 260,220 310,220 360,220 410,220 460,220 510,220 560,220 600,220" fill="none" stroke="#facc15" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,160 110,165 160,175 210,192 260,198 310,200 360,190 410,170 460,145 510,125 560,115 600,115" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,280 110,275 160,265 210,248 260,242 310,240 360,250 410,270 460,295 510,315 560,325 600,325" fill="none" stroke="#00b4d8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <polyline points="60,250 110,240 160,235 210,230 260,225 310,220 360,205 410,160 460,120 510,95 560,80 600,70" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch6f2glow)"/>
+            <line x1="470" y1="130" x2="470" y2="70" stroke="#22c55e" stroke-width="3"/>
+            <polygon points="470,62 462,74 478,74" fill="#22c55e"/>
+            <text x="470" y="56" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="17" font-weight="bold" filter="url(#ch6f2glow)">Breakout Up — بریک آؤٹ اوپر</text>
+            <text x="600" y="90" text-anchor="end" fill="#00b4d8" font-family="Arial, sans-serif" font-size="14">Upper Band</text>
+            <text x="600" y="315" text-anchor="end" fill="#00b4d8" font-family="Arial, sans-serif" font-size="14">Lower Band</text>
+        </svg>
+        <figcaption>سکڑے ہوئے بینڈز کے بعد قیمت اوپری لکیر توڑ کر تیزی سے اوپر جاتی ہے — یہ مضبوط بریک آؤٹ کا اشارہ ہے۔</figcaption>
+    </figure>
+
     <p>بولنگر بینڈز (Bollinger Bands) ایک شاندار اور حساس انڈیکیٹر ہے جو ایک موونگ ایوریج کے ارد گرد اوپر اور نیچے دو متحرک لکیریں کھینچتا ہے تاکہ قیمت کی رفتار اور اتار چڑھاؤ (وولٹیلیٹی) کو سمجھا جا سکے۔ یہ انڈیکیٹر ۱۹۸۰ کی دہائی میں جان بولنگر نے متعارف کیا تھا۔ معیاری سیٹنگ میں درمیانی لکیر ۲۰-وقت کی سادہ موونگ ایوریج ہوتی ہے، اور اوپر اور نیچے والی لکیریں اس موونگ ایوریج کے ارد گرد دو اسٹینڈرڈ ڈیویشن کی فاصلے پر ہوتی ہیں۔ یہ اوپری اور نچلی لکیریں قیمت کے اتار چڑھاؤ کے مطابق پھیلتی اور سکڑتی ہیں۔</p>
     <p>بولنگر بینڈز کی سب سے خوبصورت بات یہ ہے کہ یہ ہمیں قیمت کی پیمائش کے لیے ایک قابلِ تبدیل "سمٹی" دیتے ہیں۔ جب وولٹیلیٹی کم ہوتی ہے تو بینڈز سکڑ کر ایک تنگ کنارے بن جاتے ہیں، جسے "اسکواش یا سینکچ" کہا جاتا ہے۔ یہ تنگی اکثر بازار کے وقفے کی علامت ہوتی ہے، اور اس کے بعد ایک بڑا بریک آؤٹ یا تیز حرکت آ سکتا ہے۔ اسی طرح جب وولٹیلیٹی بڑھتی ہے تو بینڈز پھیل جاتے ہیں، جو زبردست سرگرمی اور تیز بازار کا اشارہ ہے۔ اس طرح بولنگر بینڈز ہمیں بازار کے "غصے اور سکون" کا اندازہ لگانے دیتے ہیں۔</p>
     <p>تجارتی حکمتِ عملیوں میں بولنگر بینڈز کو ڈائنیمک سپورٹ اور ریزسٹنس کے طور پر استعمال کیا جاتا ہے۔ اوپر کے رجحان میں قیمت اکثر اوپری لکیر کے ساتھ چلتی ہے اور نیچے والی لکیر کو سپورٹ سمجھا جاتا ہے، اور نیچے کے رجحان میں قیمت نچلی لکیر کے ساتھ چلتی ہے۔ کچھ تاجر جب قیمت اوپری لکیر کو ٹچ کرے تو بیچتے ہیں اور جب نچلی لکیر کو ٹچ کرے تو خریدتے ہیں، لیکن یہ حکمتِ عملی صرف ایک "سائیڈ ویز" یا رینج والے بازار میں مؤثر ہوتی ہے۔ مضبوط رجحان میں قیمت اوپری یا نچلی لکیر کو چھو کر بھی چلتی رہ سکتی ہے، اس لیے محتاط رہنا ضروری ہے۔</p>

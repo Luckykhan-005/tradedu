@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #121d33; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #1f3a5f; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #8ab4f8; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,70 @@
         <a href="chapter10.html">اگلا سبق →</a>
     </div>
     <h1>سبق ۹: حجم اور ملٹی ٹائم فریم</h1>
+
+    <figure class="diagram">
+        <h3>Price &amp; Volume Breakout — حجم کے ساتھ بریک آؤٹ</h3>
+        <svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Price chart with volume bars below and a high volume breakout">
+            <defs>
+                <linearGradient id="ch9f1bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch9f1glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="400" fill="url(#ch9f1bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="60" y1="60" x2="600" y2="60"/><line x1="60" y1="130" x2="600" y2="130"/><line x1="60" y1="205" x2="600" y2="205"/>
+                <line x1="60" y1="265" x2="600" y2="265"/><line x1="60" y1="350" x2="600" y2="350"/><line x1="60" y1="380" x2="600" y2="380"/>
+                <line x1="125" y1="60" x2="125" y2="380"/><line x1="215" y1="60" x2="215" y2="380"/><line x1="305" y1="60" x2="305" y2="380"/><line x1="395" y1="60" x2="395" y2="380"/><line x1="485" y1="60" x2="485" y2="380"/><line x1="575" y1="60" x2="575" y2="380"/>
+            </g>
+            <text x="60" y="45" fill="#8ab4f8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Price — قیمت</text>
+            <polyline points="60,180 120,175 180,170 240,172 300,165 360,168 420,170 480,140 520,100 560,70 600,55" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch9f1glow)"/>
+            <text x="60" y="252" fill="#8ab4f8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Volume — حجم</text>
+            <rect x="460" y="55" width="140" height="325" fill="#22c55e" opacity="0.08"/>
+            <g stroke-width="24">
+                <rect x="68" y="355" width="24" height="25" fill="#22c55e"/><rect x="113" y="350" width="24" height="30" fill="#ef4444"/><rect x="158" y="358" width="24" height="22" fill="#22c55e"/><rect x="203" y="352" width="24" height="28" fill="#ef4444"/><rect x="248" y="345" width="24" height="35" fill="#22c55e"/><rect x="293" y="355" width="24" height="25" fill="#ef4444"/><rect x="338" y="350" width="24" height="30" fill="#22c55e"/><rect x="383" y="352" width="24" height="28" fill="#ef4444"/><rect x="428" y="348" width="24" height="32" fill="#22c55e"/><rect x="473" y="340" width="24" height="40" fill="#22c55e"/><rect x="518" y="230" width="24" height="150" fill="#00b4d8" filter="url(#ch9f1glow)"/><rect x="563" y="290" width="24" height="90" fill="#22c55e"/>
+            </g>
+            <line x1="530" y1="60" x2="530" y2="380" stroke="#00b4d8" stroke-dasharray="5 5" stroke-width="2"/>
+            <line x1="545" y1="120" x2="545" y2="70" stroke="#00b4d8" stroke-width="3"/>
+            <polygon points="545,62 537,74 553,74" fill="#00b4d8"/>
+            <text x="545" y="54" text-anchor="middle" fill="#00b4d8" font-family="Arial, sans-serif" font-size="16" font-weight="bold" filter="url(#ch9f1glow)">High Volume Breakout — بلند حجم بریک آؤٹ</text>
+            <text x="600" y="392" text-anchor="end" fill="#64748b" font-family="Arial, sans-serif" font-size="13">Time</text>
+        </svg>
+        <figcaption>بلند حجم کے ساتھ قیمت ریزسٹنس توڑتی ہے تو یہ مضبوط بریک آؤٹ ہوتا ہے؛ کم حجم والا بریک آؤٹ اکثر جھوٹا ہوتا ہے۔</figcaption>
+    </figure>
+
+    <figure class="diagram">
+        <h3>Multi-Timeframe Analysis — ملٹی ٹائم فریم</h3>
+        <svg width="640" height="480" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three stacked time frame charts 1D trend 4H setup and 15m entry">
+            <defs>
+                <linearGradient id="ch9f2bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1a2e"/><stop offset="100%" stop-color="#0d1626"/></linearGradient>
+                <filter id="ch9f2glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="0" width="640" height="480" fill="url(#ch9f2bg)"/>
+            <g stroke="#1a2b45" stroke-width="1">
+                <line x1="140" y1="40" x2="600" y2="40"/><line x1="140" y1="150" x2="600" y2="150"/>
+                <line x1="140" y1="195" x2="600" y2="195"/><line x1="140" y1="300" x2="600" y2="300"/>
+                <line x1="140" y1="345" x2="600" y2="345"/><line x1="140" y1="455" x2="600" y2="455"/>
+                <line x1="250" y1="40" x2="250" y2="455"/><line x1="370" y1="40" x2="370" y2="455"/><line x1="490" y1="40" x2="490" y2="455"/>
+            </g>
+            <line x1="430" y1="40" x2="430" y2="455" stroke="#facc15" stroke-dasharray="4 5" stroke-width="1.5"/>
+            <g font-family="Arial, sans-serif" font-size="14">
+                <text x="140" y="130" fill="#00b4d8" font-weight="bold">1D Trend</text>
+                <text x="140" y="282" fill="#22c55e" font-weight="bold">4H Setup</text>
+                <text x="140" y="428" fill="#38bdf8" font-weight="bold">15m Entry</text>
+            </g>
+            <text x="430" y="130" text-anchor="middle" fill="#00b4d8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Higher Timeframe = Trend — بڑا ٹائم فریم</text>
+            <polyline points="160,140 250,120 340,95 430,70 520,60 600,50" fill="none" stroke="#00b4d8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch9f2glow)"/>
+            <text x="430" y="282" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Consolidation &amp; Setup — سیٹ اپ</text>
+            <polyline points="160,260 250,230 340,250 430,215 520,220 600,195" fill="none" stroke="#22c55e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch9f2glow)"/>
+            <text x="430" y="428" text-anchor="middle" fill="#38bdf8" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Lower = Entry — ادنیٰ = انٹری</text>
+            <polyline points="160,430 250,410 340,385 430,375 520,360 600,345" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#ch9f2glow)"/>
+            <circle cx="430" cy="375" r="7" fill="#22c55e" stroke="#0f1a2e" stroke-width="2" filter="url(#ch9f2glow)"/>
+            <line x1="430" y1="375" x2="430" y2="335" stroke="#22c55e" stroke-width="3"/>
+            <polygon points="430,327 422,339 438,339" fill="#22c55e"/>
+            <text x="430" y="320" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Entry — انٹری</text>
+        </svg>
+        <figcaption>بڑے ٹائم فریم رجحان، درمیانی سیٹ اپ اور چھوٹا ٹائم فریم عین انٹری کا موقع دیتا ہے۔</figcaption>
+    </figure>
+
     <p>حجم (Volume) بازار کی سب سے بنیادی اور شفاف معلومات میں سے ایک ہے۔ یہ بتاتا ہے کہ ایک مقررہ وقت میں کتنی مقدار میں خرید و فروخت ہوئی ہے۔ قیمت بتاتی ہے کہ کہاں خریدی اور بیچی گئی، لیکن حجم بتاتا ہے کہ اس حرکت میں کتنی طاقت اور سنجیدگی چھپی ہے۔ کم حجم پر ایک بریک آؤٹ اکثر کمزور اور جھوٹا ثابت ہوتا ہے، جبکہ زیادہ حجم کے ساتھ ہونے والا بریک آؤٹ مضبوط اور قابلِ اعتبار ہوتا ہے۔ یہی وجہ ہے کہ حجم کو تکنیکی تجزیہ کی "توانائی" کہا جاتا ہے، جو ہر حرکت کے پیچھے چھپی حقیقی طاقت کو ظاہر کرتی ہے۔</p>
     <p>حجم کو سمجھنے کے لیے سب سے اہم اصول "حجم کی تصدیق" ہے۔ ایک عام قاعدہ یہ ہے کہ اوپر کے رجحان میں قیمت کے فروغ کے ساتھ حجم میں اضافہ ہونا چاہیے، اور اصلاح کے دوران حجم کم ہونا چاہیے۔ اسی طرح نیچے کے رجحان میں قیمت کے گرنے کے ساتھ حجم بڑھنا اور ردِ عمل کے دوران گھٹنا، بازار کی حقیقی سمت کی تصدیق کرتا ہے۔ جب حجم قیمت کے ساتھ ساتھ نہیں چلتا، تو یہ اختلاف ہماری توجہ مبذول کرتا ہے کہ رجحان کمزور ہو سکتا ہے یا پھر کسی بڑے بریک آؤٹ کی تیاری ہو رہی ہے۔</p>
     <p>حجم کا سب سے دلچسپ استعمال اسے قیمت کے ساتھ ملا کر "حجم اوسی لیشن" یا خبرناک بریک آؤٹ کی شناخت میں ہوتا ہے۔ جب قیمت کسی اہم سپورٹ یا ریزسٹنس کو توڑے اور حجم بھی بہت بلند ہو، تو یہ ایک مضبوط اور قابلِ اعتبار حرکت ہوتی ہے۔ لیکن اگر بریک آؤٹ کے ساتھ حجم کم ہو، تو یہ ایک "جھوٹا بریک آؤٹ" ہو سکتا ہے جس میں قیمت واپس پلٹ جائے گی۔ ماہرین اکثر خبردار کرتے ہیں کہ کم حجم کے ساتھ قابلِ یقین نہیں کیا جاتا، کیونکہ یہ صرف بازار کا "پھولنا" ہو سکتا ہے۔</p>

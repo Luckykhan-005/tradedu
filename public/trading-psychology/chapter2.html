@@ -17,6 +17,10 @@
         ul { margin: 0 0 20px 0; text-align: justify; }
         .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .diagram { background: #232044; border-radius: 16px; padding: 24px; margin: 26px 0; border: 1px solid #3b3770; text-align: center; }
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram h3 { color: #c084fc; font-size: 24px; margin: 0 0 12px 0; }
+        .diagram figcaption { color: #94a3b8; font-size: 16px; margin-top: 10px; }
         .back { text-align: center; margin-top: 20px; }
         .back a { color: #c084fc; text-decoration: none; padding: 10px 20px; background: #2d2b55; border-radius: 10px; font-size: 24px; }
     </style>
@@ -27,6 +31,110 @@
         <a href="index.html">🏠 فہرست</a>
     </div>
     <h1>سبق ۲: فوومو اور فڈ — جذبات کے جال</h1>
+    <figure class="diagram">
+        <h3>FOMO — اوپر خریدنا، ٹاپ پر پھنسنا</h3>
+        <svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgB1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#231b45"/>
+                </linearGradient>
+                <linearGradient id="rise" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0" stop-color="#22c55e"/>
+                    <stop offset="1" stop-color="#ef4444"/>
+                </linearGradient>
+                <filter id="glowB1" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="640" height="340" rx="14" fill="url(#bgB1)"/>
+            <g stroke="#2b2450" opacity="0.14" stroke-width="1">
+                <path d="M80 120H585M80 170H585M80 220H585M80 270H585M140 40V290M220 40V290M300 40V290M380 40V290M460 40V290M540 40V290"/>
+            </g>
+            <g stroke="#3b3770" stroke-width="2">
+                <line x1="80" y1="290" x2="585" y2="290"/>
+                <line x1="80" y1="40" x2="80" y2="290"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" font-size="15" fill="#94a3b8">
+                <text x="330" y="312" text-anchor="middle">وقت (Time)</text>
+                <text x="60" y="175" text-anchor="middle" transform="rotate(-90 60 175)">قیمت (Price)</text>
+            </g>
+            <path d="M80 276 C150 270 200 258 250 232 C310 200 360 168 420 138 C470 112 528 90 558 82" fill="none" stroke="url(#rise)" stroke-width="5" stroke-linecap="round" filter="url(#glowB1)"/>
+            <circle cx="558" cy="81" r="9" fill="#ef4444" filter="url(#glowB1)"/>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <rect x="500" y="34" width="110" height="34" rx="8" fill="#2a1620" stroke="#ef4444" stroke-width="1.5"/>
+                <text x="555" y="58" font-size="20" fill="#fca5a5">Top · ٹاپ</text>
+            </g>
+            <g transform="translate(432,0)" filter="url(#glowB1)">
+                <circle cx="0" cy="102" r="13" fill="#facc15"/>
+                <line x1="0" y1="115" x2="0" y2="150" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+                <line x1="0" y1="150" x2="-18" y2="185" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+                <line x1="0" y1="150" x2="18" y2="185" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+                <line x1="0" y1="122" x2="30" y2="96" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+                <line x1="0" y1="122" x2="-26" y2="138" stroke="#facc15" stroke-width="5" stroke-linecap="round"/>
+                <path d="M34 92 L52 76 M52 76 L56 92 M52 76 L36 80" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <rect x="470" y="120" width="132" height="40" rx="10" fill="#2a1320" stroke="#f472b6" stroke-width="1.5"/>
+                <text x="536" y="147" font-size="22" fill="#f9a8d4">FOMO!</text>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <rect x="96" y="120" width="230" height="44" rx="10" fill="#0e2a1f" stroke="#22c55e" stroke-width="1.5"/>
+                <text x="211" y="148" font-size="19" fill="#86efac">بغیر منصوبے، ڈر کے خریدنا</text>
+            </g>
+        </svg>
+        <figcaption>جیسے جیسے قیمت چڑھتی ہے، «ڈر» (FOMO) تاجر کو ٹھیک ٹاپ (Top) پر خریداری پر مجبور کر دیتا ہے — نتیجے میں اونچا مہنگا بھاو چکا اور پھر قیمت گھٹی۔</figcaption>
+    </figure>
+    <figure class="diagram">
+        <h3>فڈ کا مخالف چکر — FUD Spiral</h3>
+        <svg width="640" height="340" viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="bgB2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#150f2e"/>
+                    <stop offset="1" stop-color="#2b1220"/>
+                </linearGradient>
+                <filter id="glowB2" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="640" height="340" rx="14" fill="url(#bgB2)"/>
+            <g stroke="#2b2450" opacity="0.12" stroke-width="1">
+                <path d="M0 90H640M0 180H640M0 250H640M140 0V340M320 0V340M480 0V340"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <rect x="222" y="48" width="196" height="56" rx="12" fill="#2a1620" stroke="#ef4444" stroke-width="2" filter="url(#glowB2)"/>
+                <text x="320" y="84" font-size="24" fill="#fca5a5">FUD · خوف</text>
+                <rect x="104" y="232" width="196" height="56" rx="12" fill="#2a1620" stroke="#ef4444" stroke-width="2"/>
+                <text x="202" y="268" font-size="24" fill="#fca5a5">Panic Sell</text>
+                <rect x="340" y="232" width="200" height="56" rx="12" fill="#2a1620" stroke="#ef4444" stroke-width="2"/>
+                <text x="440" y="268" font-size="24" fill="#fca5a5">Price Drops</text>
+            </g>
+            <path d="M320 106 L320 232" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrB2)"/>
+            <path d="M300 108 C250 150 240 180 236 224" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" marker-end="url(#arrB2)"/>
+            <path d="M340 108 C390 150 400 180 404 224" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" marker-end="url(#arrB2)"/>
+            <path d="M304 260 L336 260" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" marker-end="url(#arrB2)"/>
+            <defs>
+                <marker id="arrB2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0L10 5L0 10Z" fill="#ef4444"/>
+                </marker>
+            </defs>
+            <g fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round" filter="url(#glowB2)">
+                <path d="M320 168 A5 5 0 0 1 325 163 A9 9 0 0 1 311 156 A14 14 0 0 1 331 175 A20 20 0 0 1 300 160 A27 27 0 0 1 344 181"/>
+            </g>
+            <g font-family="'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif" text-anchor="middle">
+                <text x="320" y="205" font-size="18" fill="#f9a8d4">خوف کا چکر</text>
+            </g>
+        </svg>
+        <figcaption>فڈ (FUD) کے شروع ہوتے ہی چکر چل پڑتا ہے: خوف → گھبرا کر فروخت → قیمت مزید گریں → اور خوف مزید بڑھتا ہے۔ یہ چکر تاجر کو بیچے منہ پھنساتا ہے۔</figcaption>
+    </figure>
     <p>فوومو (FOMO) یعنی "اکثر موقعوں سے محرومی کا ڈر" آج کے ڈیجیٹل دور میں سب سے عام جذباتی جال ہے۔ جب آپ دیکھتے ہیں کہ کوئی مارکیٹ تیزی سے بڑھ رہی ہے اور آپ اس سے محروم ہو رہے ہیں، تو دل میں بےچینی پیدا ہوتی ہے۔ یہ بےچینی آپ کو پہلے سے سوچے بغیر اچانک ٹریڈ لینے پر مجبور کر دیتی ہے۔ آپ سوچتے ہیں کہ اگر ابھی داخل نہ ہوا تو بڑی منافع سے چھوٹ جاؤں گا، حالانکہ آپ نے کوئی منصوبہ نہیں بنایا۔</p>
     <p>یہ ڈر خاص طور پر سوشل میڈیا کی ہلچل اور تب بھی بڑھتا ہے جب آپ دوسروں کے کامیاب ٹریڈز کی شیخی بھری تصویریں دیکھتے ہیں۔ اصل میں یہ دکھاوے اکثر حقیقت سے مختلف ہوتے ہیں—لوگ صرف بڑی کامیابی ظاہر کرتے ہیں اور نقصان چھپاتے ہیں۔ جب آپ ان تصویروں کے جال میں پھنس جاتے ہیں تو آپ اپنے معیار اور قوانین کو بھلا دیتے ہیں، اور نتیجے میں بغیر تحقیق کے بھرے وعدوں پر جھپٹ پڑتے ہیں۔</p>
     <p>فڈ (FUD) یعنی خوف، بے یقینی اور شک اس کا مخالف جذبہ ہے۔ جب مارکیٹ گرتی ہے تو ہر طرف ہنگامہ مچ جاتا ہے، خبریں ڈرانے والی بن جاتی ہیں، اور تاجر گھبرا کر اپنی اچھی پوزیشن بھی چھوڑ دیتا ہے۔ فڈ آپ کو سکھاتی ہے کہ سب کچھ خراب ہو رہا ہے، حالانکہ حقیقت میں مارکیٹ کا معمولی اتار چڑھاؤ ہی ہو سکتا ہے۔ جو تاجر فڈ سے گھبرا جاتا ہے وہ اپنا اچھا تجارتی منصوبہ بھی ہار دیتا ہے۔</p>
