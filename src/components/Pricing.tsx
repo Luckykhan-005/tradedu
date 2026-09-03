@@ -95,24 +95,10 @@ interface PricingProps {
   currentPlan: string
   user: { email: string; plan?: string } | null
   onBack: () => void
+  onSubscribe: (plan: string) => void
 }
 
-export function Pricing({ currentPlan, user, onBack }: PricingProps) {
-  const [selected, setSelected] = useState<string | null>(null)
-  const [processing, setProcessing] = useState(false)
-
-  const handleUpgrade = async (planId: string) => {
-    if (!user) return
-    if (planId === currentPlan) return
-    setSelected(planId)
-    setProcessing(true)
-    // Simulate upgrade — in production this would call a payment gateway
-    await new Promise((r) => setTimeout(r, 1500))
-    alert(`✨ ${planId === 'STARTER' ? 'Starter' : 'Premium'} plan selected! Payment integration will be added soon.`)
-    setProcessing(false)
-    setSelected(null)
-  }
-
+export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps) {
   const planNames: Record<string, string> = { FREE: 'Free', STARTER: 'Starter', PREMIUM: 'Premium' }
 
   return (
@@ -193,12 +179,10 @@ export function Pricing({ currentPlan, user, onBack }: PricingProps) {
                   <Button
                     className={cn('mt-6 w-full gap-2', plan.popular && '')}
                     variant={plan.popular || !isCurrent ? 'default' : 'outline'}
-                    disabled={isCurrent || processing}
-                    onClick={() => handleUpgrade(plan.id)}
+                    disabled={isCurrent}
+                    onClick={() => onSubscribe(plan.id)}
                   >
-                    {processing && selected === plan.id ? (
-                      <>Processing...</>
-                    ) : isCurrent ? (
+                    {isCurrent ? (
                       'Current Plan'
                     ) : (
                       <>
