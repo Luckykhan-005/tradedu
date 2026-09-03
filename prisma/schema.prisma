@@ -176,3 +176,20 @@ model JournalEntry {
 
   @@map("journal_entries")
 }
+
+model SubscriptionRequest {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String
+  city         String?
+  tradeExperience String?  // beginner, intermediate, advanced
+  plan         String   @default("STARTER") // STARTER, PREMIUM
+  status       String   @default("inactive") // active, inactive
+  receiptUrl   String?  // payment receipt reference
+  adminNote    String?
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("subscription_requests")
+}

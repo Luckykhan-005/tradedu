@@ -106,6 +106,12 @@ export default async function handler(req: any, res: any) {
         if (u.passwordHash !== hash) return send(res, 401, { error: 'Invalid email or password' })
         const plan = u.plan || 'FREE'
         const planExpiresAt = u.planExpiresAt || null
+        // Block login if student has a subscription that is inactive (admin disabled)
+        const subs = await client.execute({ sql: `SELECT status FROM subscription_requests WHERE email = ? ORDER BY created_at DESC LIMIT 1`, args: [d.email] })
+        const latestSub = rows(subs)[0]
+        if (latestSub && latestSub.status === 'inactive') {
+          return send(res, 403, { error: 'Your subscription is inactive. Please contact admin to renew your plan.' })
+        }
         return send(res, 200, { user: { id: u.id, email: u.email, name: u.name, role: u.role || 'student', plan, planExpiresAt } })
       }
 
@@ -130,6 +136,19 @@ export default async function handler(req: any, res: any) {
         const expiresAt = d.plan === 'FREE' ? null : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
         await client.execute({ sql: `UPDATE users SET plan = ?, planExpiresAt = ?, updated_at = datetime('now') WHERE email = ?`, args: [d.plan, expiresAt, d.email] })
         return send(res, 200, { ok: true, user: { email: d.email, plan: d.plan, planExpiresAt: expiresAt } })
+      }
+
+      // POST /api/subscriptions/request — student submits plan purchase request (public)
+      if (url === '/api/subscriptions/request' && req.method === 'POST') {
+        const d = JSON.parse(body || '{}')
+        if (!d.name || !d.email || !d.phone) return send(res, 400, { error: 'Name, email, and phone are required' })
+        const id = crypto.randomUUID()
+        await client.execute({
+          sql: `INSERT INTO subscription_requests (id, name, email, phone, city, tradeExperience, plan, status, receiptUrl, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, 'inactive', ?, datetime('now'), datetime('now'))`,
+          args: [id, d.name, d.email, d.phone, d.city || null, d.tradeExperience || null, d.plan || 'STARTER', d.receiptUrl || null],
+        })
+        return send(res, 200, { ok: true, id, message: 'Subscription request submitted. Admin will verify and activate.' })
       }
 
       // ===== BOOKS access (list books with plan requirement) =====
@@ -302,6 +321,32 @@ export default async function handler(req: any, res: any) {
           studentCount: Number(rows(u)[0]?.c || 0),
           sessionCount: Number(rows(s)[0]?.c || 0),
         })
+      }
+
+      // GET /api/admin/subscriptions — list all subscription requests
+      if (url === '/api/admin/subscriptions' && req.method === 'GET') {
+        const sub = await client.execute(`SELECT * FROM subscription_requests ORDER BY created_at DESC`)
+        return send(res, 200, rows(sub))
+      }
+
+      // PATCH /api/admin/subscriptions/:id — toggle active/inactive + sync user plan
+      let sm = url.match(/^\/api\/admin\/subscriptions\/([^/]+)$/)
+      if (sm && req.method === 'PATCH') {
+        const d = JSON.parse(body || '{}')
+        const id = sm[1]
+        const subs = await client.execute({ sql: `SELECT * FROM subscription_requests WHERE id = ?`, args: [id] })
+        const srow = rows(subs)[0]
+        if (!srow) return send(res, 404, { error: 'Subscription not found' })
+        const newStatus = d.status === 'active' ? 'active' : 'inactive'
+        await client.execute({ sql: `UPDATE subscription_requests SET status = ?, updated_at = datetime('now') WHERE id = ?`, args: [newStatus, id] })
+        // Sync user plan: active -> assign plan, inactive -> FREE (block paid access)
+        const users = await client.execute({ sql: `SELECT id FROM users WHERE email = ?`, args: [srow.email] })
+        if (rows(users).length) {
+          const targetPlan = newStatus === 'active' ? (srow.plan || 'STARTER') : 'FREE'
+          const expiresAt = newStatus === 'active' ? new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() : null
+          await client.execute({ sql: `UPDATE users SET plan = ?, planExpiresAt = ?, updated_at = datetime('now') WHERE email = ?`, args: [targetPlan, expiresAt, srow.email] })
+        }
+        return send(res, 200, { ok: true, id, status: newStatus })
       }
 
       // Unknown admin route — fall through to proxy

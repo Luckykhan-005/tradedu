@@ -16,6 +16,7 @@ import { Journal } from './components/Journal'
 import { Certificates } from './components/Certificates'
 import { Pricing } from './components/Pricing'
 import { PlanGate } from './components/PlanGate'
+import { Subscribe } from './components/Subscribe'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -49,6 +50,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing')
   const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string } | null>(null)
   const [showAuth, setShowAuth] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<Set<string>>(new Set())
@@ -312,7 +314,19 @@ export default function App() {
       )}
 
       {currentPage === 'pricing' && (
-        <Pricing currentPlan={user?.plan || 'FREE'} user={user} onBack={() => navigate('dashboard')} />
+        <Pricing
+          currentPlan={user?.plan || 'FREE'}
+          user={user}
+          onBack={() => navigate('dashboard')}
+          onSubscribe={(plan) => {
+            setSelectedPlan(plan)
+            navigate('subscribe')
+          }}
+        />
+      )}
+
+      {currentPage === 'subscribe' && (
+        <Subscribe user={user} onBack={() => navigate('pricing')} selectedPlan={selectedPlan} />
       )}
 
       {currentPage === 'admin' && (
