@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // ===== STUDENT AUTH + PLANS (direct Turso DB) =====
-  if (url.startsWith('/api/auth/') || url.startsWith('/api/plan/')) {
+  if (url.startsWith('/api/auth/') || url.startsWith('/api/plan/') || url.startsWith('/api/subscriptions/')) {
     try {
       const client = getDb()
 
