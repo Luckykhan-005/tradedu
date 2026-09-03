@@ -26,6 +26,28 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
     plan: selectedPlan,
     receiptUrl: '',
   })
+  const [receiptName, setReceiptName] = useState('')
+  const [uploadError, setUploadError] = useState('')
+
+  const handleFileUpload = (file: File | undefined) => {
+    if (!file) return
+    setUploadError('')
+    if (!file.type.startsWith('image/')) {
+      setUploadError('Please upload an image (JPG, PNG, etc.)')
+      return
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      setUploadError('Image too large. Max 2MB.')
+      return
+    }
+    const reader = new FileReader()
+    reader.onload = () => {
+      const dataUrl = reader.result as string
+      setForm((prev) => ({ ...prev, receiptUrl: dataUrl }))
+      setReceiptName(file.name)
+    }
+    reader.readAsDataURL(file)
+  }
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [error, setError] = useState('')
@@ -153,14 +175,49 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
               <Separator />
 
               <div className="space-y-2">
-                <Label>Payment Receipt (optional)</Label>
-                <Input
-                  value={form.receiptUrl}
-                  onChange={(e) => setForm({ ...form, receiptUrl: e.target.value })}
-                  placeholder="Paste receipt link or reference"
-                />
+                <Label>Payment Screenshot / Receipt</Label>
+                <div className="flex flex-col gap-3">
+                  <label className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-dashed border-border bg-secondary/30 p-5 text-center transition-all hover:border-primary/50">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => handleFileUpload(e.target.files?.[0])}
+                    />
+                    <Upload className="h-6 w-6 shrink-0 text-muted-foreground" />
+                    <div className="flex-1 text-left">
+                      {receiptName ? (
+                        <span className="font-medium text-primary">{receiptName}</span>
+                      ) : (
+                        <>
+                          <span className="font-medium">Upload receipt screenshot</span>
+                          <p className="text-xs text-muted-foreground">JPG/PNG, max 2MB</p>
+                        </>
+                      )}
+                    </div>
+                  </label>
+                  {uploadError && (
+                    <p className="text-xs text-destructive">{uploadError}</p>
+                  )}
+                  {form.receiptUrl && (
+                    <div className="relative mt-2 overflow-hidden rounded-lg border">
+                      <img
+                        src={form.receiptUrl}
+                        alt="Payment receipt"
+                        className="max-h-48 w-full object-contain bg-black/5"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => { setForm(prev => ({ ...prev, receiptUrl: '' })); setReceiptName('') }}
+                        className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-1 text-xs text-white"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+                </div>
                 <p className="text-xs text-muted-foreground">
-                  After sending payment via WhatsApp, paste the transaction reference here.
+                  After sending payment via WhatsApp, upload the screenshot/receipt here.
                 </p>
               </div>
 
