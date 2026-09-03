@@ -1027,13 +1027,20 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
               <Card>
                 <CardContent className="p-5">
                   <h3 className="mb-3 font-semibold">Payment Receipts</h3>
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {subscriptions.filter((s) => s.receiptUrl).map((s) => (
-                      <div key={s.id} className="flex items-center justify-between rounded-lg bg-secondary/40 p-3">
-                        <span className="text-sm">{s.name} — <span className="text-muted-foreground">{s.email}</span></span>
-                        <a href={s.receiptUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary underline">
-                          View Receipt
+                      <div key={s.id} className="overflow-hidden rounded-lg border bg-secondary/20">
+                        <a href={s.receiptUrl} target="_blank" rel="noopener noreferrer" className="block">
+                          <img
+                            src={s.receiptUrl}
+                            alt={`Receipt by ${s.name}`}
+                            className="aspect-video w-full object-contain bg-black/5"
+                          />
                         </a>
+                        <div className="border-t p-3">
+                          <p className="text-sm font-medium">{s.name}</p>
+                          <p className="text-xs text-muted-foreground">{s.email}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
