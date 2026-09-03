@@ -19,7 +19,7 @@ import { Label } from '@/components/ui/label'
 import { api } from '@/lib/api'
 
 interface AuthProps {
-  onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => void
+  onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => void
 }
 
 type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset'
@@ -82,7 +82,7 @@ export function Auth({ onAuth }: AuthProps) {
         })
         const data = await res.json()
         if (res.ok && data.user) {
-          onAuth({ name: data.user.name || email.split('@')[0], email, role: data.user.role || 'student' })
+          onAuth({ name: data.user.name || email.split('@')[0], email, role: data.user.role || 'student', plan: data.user.plan || 'FREE' })
         } else {
           setError(data.error || 'Invalid email or password')
         }
@@ -110,7 +110,7 @@ export function Auth({ onAuth }: AuthProps) {
         setLoading(false)
         return
       }
-      onAuth({ name, email, role: 'student' })
+      onAuth({ name, email, role: 'student', plan: data.user?.plan || 'FREE' })
     } catch {
       setError('Could not connect to server')
     }

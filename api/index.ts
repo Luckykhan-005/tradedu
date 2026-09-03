@@ -74,6 +74,91 @@ export default async function handler(req: any, res: any) {
     }
   }
 
+  // ===== STUDENT AUTH + PLANS (direct Turso DB) =====
+  if (url.startsWith('/api/auth/') || url.startsWith('/api/plan/')) {
+    try {
+      const client = getDb()
+
+      // POST /api/auth/signup
+      if (url === '/api/auth/signup' && req.method === 'POST') {
+        const d = JSON.parse(body || '{}')
+        if (!d.email || !d.password || !d.name) return send(res, 400, { error: 'Name, email, and password are required' })
+        const existing = await client.execute({ sql: `SELECT id FROM users WHERE email = ?`, args: [d.email] })
+        if (rows(existing).length) return send(res, 409, { error: 'An account with this email already exists' })
+        const id = crypto.randomUUID()
+        const hash = await sha256(d.password)
+        await client.execute({
+          sql: `INSERT INTO users (id, email, name, passwordHash, role, plan, created_at, updated_at)
+                VALUES (?, ?, ?, ?, 'student', 'FREE', datetime('now'), datetime('now'))`,
+          args: [id, d.email, d.name, hash],
+        })
+        return send(res, 200, { ok: true, user: { id, email: d.email, name: d.name, role: 'student', plan: 'FREE' } })
+      }
+
+      // POST /api/auth/login
+      if (url === '/api/auth/login' && req.method === 'POST') {
+        const d = JSON.parse(body || '{}')
+        if (!d.email || !d.password) return send(res, 400, { error: 'Email and password are required' })
+        const users = await client.execute({ sql: `SELECT * FROM users WHERE email = ?`, args: [d.email] })
+        const u = rows(users)[0]
+        if (!u) return send(res, 401, { error: 'Invalid email or password' })
+        const hash = await sha256(d.password)
+        if (u.passwordHash !== hash) return send(res, 401, { error: 'Invalid email or password' })
+        const plan = u.plan || 'FREE'
+        const planExpiresAt = u.planExpiresAt || null
+        return send(res, 200, { user: { id: u.id, email: u.email, name: u.name, role: u.role || 'student', plan, planExpiresAt } })
+      }
+
+      // GET /api/auth/me (plan status by email)
+      if (url === '/api/auth/me' && req.method === 'GET') {
+        const email = req.headers['x-user-email']
+        if (!email) return send(res, 401, { error: 'User email required' })
+        const users = await client.execute({ sql: `SELECT id, email, name, role, plan, planExpiresAt FROM users WHERE email = ?`, args: [email] })
+        const u = rows(users)[0]
+        if (!u) return send(res, 404, { error: 'User not found' })
+        return send(res, 200, { user: { ...u, plan: u.plan || 'FREE' } })
+      }
+
+      // POST /api/plan/subscribe — set user plan (simulated payment)
+      if (url === '/api/plan/subscribe' && req.method === 'POST') {
+        const d = JSON.parse(body || '{}')
+        if (!d.email || !d.plan) return send(res, 400, { error: 'email and plan are required' })
+        const allowed = ['FREE', 'STARTER', 'PREMIUM']
+        if (!allowed.includes(d.plan)) return send(res, 400, { error: 'Invalid plan' })
+        const users = await client.execute({ sql: `SELECT id FROM users WHERE email = ?`, args: [d.email] })
+        if (!rows(users).length) return send(res, 404, { error: 'User not found' })
+        const expiresAt = d.plan === 'FREE' ? null : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+        await client.execute({ sql: `UPDATE users SET plan = ?, planExpiresAt = ?, updated_at = datetime('now') WHERE email = ?`, args: [d.plan, expiresAt, d.email] })
+        return send(res, 200, { ok: true, user: { email: d.email, plan: d.plan, planExpiresAt: expiresAt } })
+      }
+
+      // ===== BOOKS access (list books with plan requirement) =====
+      if (url === '/api/books' && req.method === 'GET') {
+        return send(res, 200, {
+          books: [
+            { id: 'crypto-beginner', title: 'Crypto Trading — Phase 1 (Beginner)', plan: 'FREE' },
+            { id: 'crypto-intermediate', title: 'Crypto Trading — Phase 2 (Intermediate)', plan: 'STARTER' },
+            { id: 'crypto-advanced', title: 'Crypto Trading — Phase 3 (Advanced)', plan: 'STARTER' },
+            { id: 'candlestick', title: 'Candlestick Patterns Book', plan: 'FREE' },
+            { id: 'smc', title: 'Smart Money Concepts Book', plan: 'STARTER' },
+            { id: 'technical-analysis', title: 'Technical Analysis Course', plan: 'STARTER' },
+            { id: 'risk-management', title: 'Risk Management Course', plan: 'STARTER' },
+            { id: 'trading-psychology', title: 'Trading Psychology Course', plan: 'STARTER' },
+            { id: 'forex', title: 'Forex Trading Course', plan: 'STARTER' },
+            { id: 'price-action', title: 'Price Action & Market Structure', plan: 'STARTER' },
+            { id: 'trading-strategies', title: 'Trading Strategies & Setups', plan: 'STARTER' },
+            { id: 'professional-trading', title: 'Professional Trading System', plan: 'STARTER' },
+            { id: 'glossary', title: 'Trading Glossary Book', plan: 'FREE' },
+          ],
+        })
+      }
+
+      // Unknown auth route — fall through to proxy
+    } catch (e: any) {
+      return send(res, 500, { error: e?.message || 'Auth DB error' })
+    }
+  }
+
   // ===== ADMIN CRUD (direct Turso DB) =====
   if (url.startsWith('/api/admin/')) {
     try {

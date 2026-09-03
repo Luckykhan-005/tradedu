@@ -35,10 +35,13 @@ interface BookItem {
   href: string
   tags: string[]
   cover?: string
+  plan?: string
 }
 
 interface BooksProps {
   onBack: () => void
+  user?: { plan?: string } | null
+  onUpgrade?: () => void
 }
 
 const books: BookItem[] = [
@@ -56,6 +59,7 @@ const books: BookItem[] = [
     href: './crypto-beginner/index.html',
     tags: ['Urdu', 'Beginner', 'Fundamentals'],
     cover: './covers/crypto-beginner.jpg',
+    plan: 'FREE',
   },
   {
     id: 'crypto-intermediate',
@@ -71,6 +75,7 @@ const books: BookItem[] = [
     href: './crypto-intermediate/index.html',
     tags: ['Urdu', 'Intermediate', 'Technical Analysis'],
     cover: './covers/crypto-trading-intermidiate.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'crypto-advanced',
@@ -86,6 +91,7 @@ const books: BookItem[] = [
     href: './crypto-advanced/index.html',
     tags: ['Urdu', 'Advanced', 'Professional'],
     cover: './covers/crypto-trading-advanced.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'candlestick',
@@ -101,6 +107,7 @@ const books: BookItem[] = [
     href: './candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
     cover: './covers/Candlestick Patterns Book.jpg',
+    plan: 'FREE',
   },
   {
     id: 'smc',
@@ -116,6 +123,7 @@ const books: BookItem[] = [
     href: './smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
     cover: './covers/Smart Money Concepts Book.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'forex',
@@ -131,6 +139,7 @@ const books: BookItem[] = [
     href: './forex-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
     cover: './covers/Forex Trading Course.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'glossary',
@@ -146,6 +155,7 @@ const books: BookItem[] = [
     href: './glossary-book/index.html',
     tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
     cover: './covers/Trading Glossary Book.jpg',
+    plan: 'FREE',
   },
   {
     id: 'price-action',
@@ -161,6 +171,7 @@ const books: BookItem[] = [
     href: './price-action/index.html',
     tags: ['Urdu', 'Professional', 'Smart Money'],
     cover: './covers/Price Action & Market Structure.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'trading-strategies',
@@ -176,6 +187,7 @@ const books: BookItem[] = [
     href: './trading-strategies/index.html',
     tags: ['Urdu', 'Practical', 'Entry/Exit Systems'],
     cover: './covers/Trading Strategies & Setups.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'professional-trading',
@@ -191,6 +203,7 @@ const books: BookItem[] = [
     href: './professional-trading/index.html',
     tags: ['Urdu', 'Professional', 'Complete System'],
     cover: './covers/Professional Trading System.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'technical-analysis',
@@ -206,6 +219,7 @@ const books: BookItem[] = [
     href: './technical-analysis/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'Charts & Indicators'],
     cover: './covers/Technical Analysis Course.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'risk-management',
@@ -221,6 +235,7 @@ const books: BookItem[] = [
     href: './risk-management/index.html',
     tags: ['Urdu', 'Essential', 'Capital Protection'],
     cover: './covers/Risk Management Course.jpg',
+    plan: 'STARTER',
   },
   {
     id: 'trading-psychology',
@@ -236,11 +251,20 @@ const books: BookItem[] = [
     href: './trading-psychology/index.html',
     tags: ['Urdu', 'Essential', 'Mindset & Discipline'],
     cover: './covers/Trading Psychology Course.jpg',
+    plan: 'STARTER',
   },
 ]
 
-export function Books({ onBack }: BooksProps) {
+export function Books({ onBack, user, onUpgrade }: BooksProps) {
   const [openBook, setOpenBook] = useState<BookItem | null>(null)
+  const userPlan = user?.plan || 'FREE'
+  const planRank = { FREE: 0, STARTER: 1, PREMIUM: 2 } as Record<string, number>
+
+  const isLocked = (book: BookItem) => {
+    if (!book.plan || book.plan === 'FREE') return false
+    if (!user) return true
+    return (planRank[userPlan] || 0) < (planRank[book.plan] || 0)
+  }
 
   if (openBook) {
     return (
@@ -296,14 +320,23 @@ export function Books({ onBack }: BooksProps) {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {books.map((book) => (
+          {books.map((book) => {
+            const locked = isLocked(book)
+            const handleOpen = () => {
+              if (locked) {
+                if (onUpgrade) onUpgrade()
+                return
+              }
+              setOpenBook(book)
+            }
+            return (
             <Card key={book.id} className="overflow-hidden">
               <CardContent className="p-0">
                 {/* Cover image */}
                 {book.cover ? (
                   <button
                     className="relative block w-full cursor-pointer"
-                    onClick={() => setOpenBook(book)}
+                    onClick={handleOpen}
                     aria-label={`Open ${book.title}`}
                   >
                     <img
@@ -311,6 +344,16 @@ export function Books({ onBack }: BooksProps) {
                       alt={book.title}
                       className="h-auto w-full object-cover"
                     />
+                    {locked && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-[2px]">
+                        <div className="flex flex-col items-center gap-2">
+                          <Lock className="h-10 w-10 text-amber-400" />
+                          <span className="rounded-full bg-amber-500 px-4 py-1 text-sm font-semibold text-white">
+                            {book.plan === 'PREMIUM' ? 'Premium' : 'Starter'} Plan
+                          </span>
+                        </div>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-left">
                       <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
@@ -356,14 +399,24 @@ export function Books({ onBack }: BooksProps) {
 
                   <Separator className="my-4" />
 
-                  <Button className="w-full gap-2" onClick={() => setOpenBook(book)}>
-                    <GraduationCap className="h-4 w-4" />
-                    Open Book
+                  <Button className="w-full gap-2" onClick={handleOpen} variant={locked ? 'outline' : 'default'}>
+                    {locked ? (
+                      <>
+                        <Lock className="h-4 w-4" />
+                        Upgrade to Read
+                      </>
+                    ) : (
+                      <>
+                        <GraduationCap className="h-4 w-4" />
+                        Open Book
+                      </>
+                    )}
                   </Button>
                 </div>
               </CardContent>
             </Card>
-          ))}
+            )
+          })}
         </div>
 
         <Card className="mt-8">

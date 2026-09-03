@@ -14,6 +14,8 @@ import { RiskCalculator } from './components/RiskCalculator'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
 import { Certificates } from './components/Certificates'
+import { Pricing } from './components/Pricing'
+import { PlanGate } from './components/PlanGate'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -45,7 +47,7 @@ interface SessionData {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing')
-  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string } | null>(null)
+  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string } | null>(null)
   const [showAuth, setShowAuth] = useState(false)
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
@@ -255,15 +257,33 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        <LiveSessions sessions={sessions} loading={loading} />
+        user && user.plan === 'PREMIUM' ? (
+          <LiveSessions sessions={sessions} loading={loading} />
+        ) : (
+          <PlanGate
+            requiredPlan="PREMIUM"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
       )}
 
       {currentPage === 'ai-tools' && (
-        <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+        user && user.plan === 'PREMIUM' ? (
+          <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+        ) : (
+          <PlanGate
+            requiredPlan="PREMIUM"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
       )}
 
       {currentPage === 'books' && (
-        <Books onBack={() => navigate('dashboard')} />
+        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} />
       )}
 
       {currentPage === 'calculator' && (
@@ -279,7 +299,20 @@ export default function App() {
       )}
 
       {currentPage === 'certificates' && (
-        <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
+        user && user.plan !== 'FREE' ? (
+          <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
+        ) : (
+          <PlanGate
+            requiredPlan="STARTER"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={() => setShowAuth(true)}
+          />
+        )
+      )}
+
+      {currentPage === 'pricing' && (
+        <Pricing currentPlan={user?.plan || 'FREE'} user={user} onBack={() => navigate('dashboard')} />
       )}
 
       {currentPage === 'admin' && (
