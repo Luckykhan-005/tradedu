@@ -143,12 +143,18 @@ export function Pricing({ currentPlan, user, onBack }: PricingProps) {
                 className={cn(
                   'relative overflow-hidden transition-all duration-300',
                   plan.popular && 'ring-2 ring-primary shadow-lg scale-[1.02]',
+                  plan.id === 'PREMIUM' && !plan.popular && 'ring-2 ring-amber-400 shadow-lg',
                   isCurrent && 'ring-2 ring-emerald-400',
                 )}
               >
                 {plan.popular && (
                   <div className="absolute right-0 top-0 bg-primary px-4 py-1.5 text-xs font-semibold text-white">
                     POPULAR
+                  </div>
+                )}
+                {plan.id === 'PREMIUM' && (
+                  <div className="absolute right-0 top-0 bg-amber-500 px-4 py-1.5 text-xs font-semibold text-white">
+                    TOP TIER
                   </div>
                 )}
                 {isCurrent && (
