@@ -12,6 +12,10 @@ import {
   Rocket,
   LineChart,
   ShieldCheck,
+  TrendingUp,
+  BookMarked,
+  Target,
+  Trophy,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -30,11 +34,12 @@ interface BookItem {
   bgColor: string
   href: string
   tags: string[]
+  cover?: string
 }
 
 interface BooksProps {
   onBack: () => void
-  user?: { email: string; name?: string; plan?: string } | null
+  user?: { email: string; name?: string; plan?: string; role?: string } | null
   onUpgrade?: () => void
 }
 
@@ -52,6 +57,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: './crypto-beginner/index.html',
     tags: ['Urdu', 'Beginner', 'Fundamentals'],
+    cover: './covers/crypto-beginner.jpg',
   },
   {
     id: 'crypto-intermediate',
@@ -66,6 +72,7 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: './crypto-intermediate/index.html',
     tags: ['Urdu', 'Intermediate', 'Technical Analysis'],
+    cover: './covers/crypto-trading-intermidiate.jpg',
   },
   {
     id: 'crypto-advanced',
@@ -80,6 +87,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: './crypto-advanced/index.html',
     tags: ['Urdu', 'Advanced', 'Professional'],
+    cover: './covers/crypto-trading-advanced.jpg',
   },
   {
     id: 'candlestick',
@@ -94,6 +102,7 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
+    cover: './covers/Candlestick Patterns Book.jpg',
   },
   {
     id: 'smc',
@@ -108,10 +117,131 @@ const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: './smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
+    cover: './covers/Smart Money Concepts Book.jpg',
+  },
+  {
+    id: 'forex',
+    title: 'Forex Trading Course',
+    titleUrdu: 'فاریکس ٹریڈنگ کورس',
+    description:
+      'Complete forex trading education in Urdu — Beginner to Advanced. Learn currency pairs, pips, trends, indicators, risk management, and professional strategies.',
+    chapters: 24,
+    pages: '3 phases',
+    icon: TrendingUp,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+    href: './forex-book/index.html',
+    tags: ['Urdu', 'Beginner to Advanced', 'Professional'],
+    cover: './covers/Forex Trading Course.jpg',
+  },
+  {
+    id: 'glossary',
+    title: 'Trading Glossary Book',
+    titleUrdu: 'ٹریڈنگ گلوسری کی کتاب',
+    description:
+      'A complete reference of trading terms in Urdu & English. Crypto and Forex specific terms with symbols, diagrams, and detailed explanations for every concept.',
+    chapters: 4,
+    pages: '120+ terms',
+    icon: BookMarked,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: './glossary-book/index.html',
+    tags: ['Urdu + English', 'Reference', 'Crypto & Forex'],
+    cover: './covers/Trading Glossary Book.jpg',
+  },
+  {
+    id: 'price-action',
+    title: 'Price Action & Market Structure',
+    titleUrdu: 'پرائس ایکشن اور مارکیٹ اسٹرکچر',
+    description:
+      'Professional chart reading in Urdu. Learn market structure, candlestick price action, supply & demand zones, break & retest, liquidity, order blocks, and a complete price action strategy.',
+    chapters: 8,
+    pages: '8 lessons',
+    icon: CandlestickChart,
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50',
+    href: './price-action/index.html',
+    tags: ['Urdu', 'Professional', 'Smart Money'],
+    cover: './covers/Price Action & Market Structure.jpg',
+  },
+  {
+    id: 'trading-strategies',
+    title: 'Trading Strategies & Setups',
+    titleUrdu: 'ٹریڈنگ اسٹریٹجیز اور سیٹ اپس',
+    description:
+      'Practical entry/exit systems in Urdu. Learn trend following, breakout, reversal, sniper, pullback, scalping, swing, supply & demand, and risk-reward strategies with clear rules.',
+    chapters: 10,
+    pages: '10 strategies',
+    icon: Target,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: './trading-strategies/index.html',
+    tags: ['Urdu', 'Practical', 'Entry/Exit Systems'],
+    cover: './covers/Trading Strategies & Setups.jpg',
+  },
+  {
+    id: 'professional-trading',
+    title: 'Professional Trading System',
+    titleUrdu: 'پیشہ ورانہ ٹریڈنگ سسٹم',
+    description:
+      'The complete professional trading system in Urdu — 28 lessons covering trading plan, rules, models, routines, journaling, backtesting, performance metrics, and the professional checklist.',
+    chapters: 28,
+    pages: '6 sections',
+    icon: Trophy,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: './professional-trading/index.html',
+    tags: ['Urdu', 'Professional', 'Complete System'],
+    cover: './covers/Professional Trading System.jpg',
+  },
+  {
+    id: 'technical-analysis',
+    title: 'Technical Analysis Course',
+    titleUrdu: 'ٹیکنیکل اینالسس کورس',
+    description:
+      'Technical analysis in Urdu — support/resistance, trendlines, moving averages, RSI, MACD, Bollinger Bands, Fibonacci, chart patterns, and volume. Learn to read charts like a pro.',
+    chapters: 10,
+    pages: '10 lessons',
+    icon: LineChart,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+    href: './technical-analysis/index.html',
+    tags: ['Urdu', 'Beginner to Advanced', 'Charts & Indicators'],
+    cover: './covers/Technical Analysis Course.jpg',
+  },
+  {
+    id: 'risk-management',
+    title: 'Risk Management Course',
+    titleUrdu: 'رسک مینجمنٹ کورس',
+    description:
+      'The most important trading skill — position sizing, stop loss, risk-reward ratio, money management, drawdown, and a complete risk management plan. Protect your capital.',
+    chapters: 8,
+    pages: '8 lessons',
+    icon: ShieldCheck,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: './risk-management/index.html',
+    tags: ['Urdu', 'Essential', 'Capital Protection'],
+    cover: './covers/Risk Management Course.jpg',
+  },
+  {
+    id: 'trading-psychology',
+    title: 'Trading Psychology Course',
+    titleUrdu: 'ٹریڈنگ نفسیات کورس',
+    description:
+      'Master your emotions — FOMO, fear, greed, revenge trading, discipline, patience, journaling, and the mindset of a successful trader. The 90% that fails is emotional.',
+    chapters: 7,
+    pages: '7 lessons',
+    icon: Brain,
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    href: './trading-psychology/index.html',
+    tags: ['Urdu', 'Essential', 'Mindset & Discipline'],
+    cover: './covers/Trading Psychology Course.jpg',
   },
 ]
 
-export function Books({ onBack }: BooksProps) {
+export function Books({ onBack, user, onUpgrade }: BooksProps) {
   const [openBook, setOpenBook] = useState<BookItem | null>(null)
 
   if (openBook) {
@@ -167,21 +297,43 @@ export function Books({ onBack }: BooksProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {books.map((book) => (
             <Card key={book.id} className="overflow-hidden">
               <CardContent className="p-0">
-                <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                    <book.icon className={`h-7 w-7 ${book.color}`} />
+                {book.cover ? (
+                  <button
+                    className="relative block w-full cursor-pointer"
+                    onClick={() => setOpenBook(book)}
+                    aria-label={`Open ${book.title}`}
+                  >
+                    <img
+                      src={book.cover}
+                      alt={book.title}
+                      className="aspect-[3/4] w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-left">
+                      <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
+                      <p className="text-lg text-white/90" dir="rtl">
+                        {book.titleUrdu}
+                      </p>
+                    </div>
+                  </button>
+                ) : (
+                  <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                      <book.icon className={`h-7 w-7 ${book.color}`} />
+                    </div>
+                    <div className="min-w-0">
+                      <h2 className="text-xl font-bold">{book.title}</h2>
+                      <p className="text-lg text-muted-foreground" dir="rtl">
+                        {book.titleUrdu}
+                      </p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h2 className="text-xl font-bold">{book.title}</h2>
-                    <p className="text-lg text-muted-foreground" dir="rtl">
-                      {book.titleUrdu}
-                    </p>
-                  </div>
-                </div>
+                )}
                 <div className="p-6 pt-4">
                   <p className="text-muted-foreground">{book.description}</p>
 

@@ -75,3 +75,9 @@ public/**/*.png -filter=lfs diff=lfs merge=lfs -text
 public/**/*.jpg -filter=lfs diff=lfs merge=lfs -text
 public/**/*.jpeg -filter=lfs diff=lfs merge=lfs -text
 public/**/*.webp -filter=lfs diff=lfs merge=lfs -text
+
+# Override LFS for uploaded files
+files/*.png -filter=lfs diff=lfs merge=lfs -text
+files/*.jpg -filter=lfs diff=lfs merge=lfs -text
+files/*.jpeg -filter=lfs diff=lfs merge=lfs -text
+files/*.webp -filter=lfs diff=lfs merge=lfs -text
