@@ -104,9 +104,10 @@ export function Landing({ onNavigateToCourses, onSignIn }: LandingProps) {
       {/* Hero Section — Banner Image */}
       <section className="relative overflow-hidden bg-black">
         <img
-          src="/hero-banner.png"
+          src="/hero-banner.jpg"
           alt="TradeEd — Crypto & Forex Trading Education"
           className="w-full h-auto object-cover max-h-[600px] md:max-h-[700px]"
+          loading="eager"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 md:p-12">
           <div className="mx-auto max-w-7xl flex flex-col sm:flex-row gap-4 justify-center">
