@@ -34,6 +34,8 @@ interface BookItem {
 
 interface BooksProps {
   onBack: () => void
+  user?: { email: string; name?: string; plan?: string } | null
+  onUpgrade?: () => void
 }
 
 const books: BookItem[] = [
