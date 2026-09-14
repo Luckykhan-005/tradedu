@@ -259,7 +259,7 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        user && user.plan === 'PREMIUM' ? (
+        user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
           <LiveSessions sessions={sessions} loading={loading} />
         ) : (
           <PlanGate
@@ -272,7 +272,7 @@ export default function App() {
       )}
 
       {currentPage === 'ai-tools' && (
-        user && user.plan === 'PREMIUM' ? (
+        user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
           <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
         ) : (
           <PlanGate
@@ -301,7 +301,7 @@ export default function App() {
       )}
 
       {currentPage === 'certificates' && (
-        user && user.plan !== 'FREE' ? (
+        user && (user.role === 'admin' || user.plan !== 'FREE') ? (
           <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
         ) : (
           <PlanGate
