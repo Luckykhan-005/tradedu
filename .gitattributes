@@ -65,3 +65,13 @@
 *.gguf filter=lfs diff=lfs merge=lfs -text
 *.parquet filter=lfs diff=lfs merge=lfs -text
 # <<< shogo git-lfs (managed) <<<
+
+# Override LFS for public images — they should be real files
+public/*.png -filter=lfs diff=lfs merge=lfs -text
+public/*.jpg -filter=lfs diff=lfs merge=lfs -text
+public/*.jpeg -filter=lfs diff=lfs merge=lfs -text
+public/*.webp -filter=lfs diff=lfs merge=lfs -text
+public/**/*.png -filter=lfs diff=lfs merge=lfs -text
+public/**/*.jpg -filter=lfs diff=lfs merge=lfs -text
+public/**/*.jpeg -filter=lfs diff=lfs merge=lfs -text
+public/**/*.webp -filter=lfs diff=lfs merge=lfs -text
