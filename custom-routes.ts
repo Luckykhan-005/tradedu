@@ -23,7 +23,7 @@ app.post('/seed', async (c) => {
   async function ensureCourse(data: Parameters<typeof prisma.course.create>[0]) {
     const existing = await prisma.course.findFirst({ where: { title: data.data.title } })
     if (existing) return existing
-    return await prisma.course.create(data)
+    return prisma.course.create(data)
   }
 
   await Promise.all([
@@ -964,38 +964,6 @@ app.get('/admin/stats', async (c) => {
     prisma.liveSession.count(),
   ])
   return c.json({ courseCount, lessonCount, studentCount, sessionCount })
-})
-
-// Admin: upload video file
-app.post('/admin/upload', async (c) => {
-  try {
-    const body = await c.req.parseBody()
-    const file = body['file']
-    if (!file || typeof file === 'string') {
-      return c.json({ error: 'No file provided' }, 400)
-    }
-
-    const ext = file.name?.split('.').pop() || 'mp4'
-    const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`
-    const uploadDir = './public/uploads'
-
-    // Ensure directory exists
-    const fs = await import('fs')
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true })
-    }
-
-    const filePath = `${uploadDir}/${filename}`
-    const arrayBuffer = await file.arrayBuffer()
-    const buffer = Buffer.from(arrayBuffer)
-    fs.writeFileSync(filePath, buffer)
-
-    const url = `/uploads/${filename}`
-    return c.json({ ok: true, url, filename })
-  } catch (err) {
-    console.error('Upload failed:', err)
-    return c.json({ error: 'Upload failed' }, 500)
-  }
 })
 
 // ========== TRADING JOURNAL ==========

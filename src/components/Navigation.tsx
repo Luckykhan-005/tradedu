@@ -16,12 +16,11 @@ import {
   BookMarked,
   NotebookPen,
   Trophy,
-  Sparkles,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates'
 
 interface NavigationProps {
   currentPage: Page
@@ -41,7 +40,6 @@ const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?:
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'certificates', label: 'Certificates', icon: Trophy },
   { id: 'live-sessions', label: 'Live Sessions', icon: Calendar },
-  { id: 'pricing', label: 'Plans', icon: Sparkles },
   { id: 'admin', label: 'Admin', icon: Shield, adminOnly: true },
 ]
 

@@ -72,7 +72,7 @@ function buildContext(c: any, body?: any) {
 
 // Field allowlists derived from the Prisma schema at code-gen time. Used
 // by `pickWritableFields` to keep the create/update payload Prisma-safe.
-const WRITABLE_SCALAR_FIELDS = ["email", "name", "passwordHash", "role", "plan", "planExpiresAt", "avatar", "createdAt", "updatedAt"] as const
+const WRITABLE_SCALAR_FIELDS = ["email", "name", "passwordHash", "role", "avatar", "createdAt", "updatedAt"] as const
 const RELATION_FIELDS = ["enrollments", "progress", "quizzes", "sessions", "journalEntries"] as const
 
 type WriteBodyResult =

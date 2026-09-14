@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { api } from '@/lib/api'
 import {
   LayoutDashboard,
@@ -21,9 +21,6 @@ import {
   Clock,
   GripVertical,
   Shield,
-  Sparkles,
-  Power,
-  Upload,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -190,33 +187,6 @@ function LessonForm({
   const [duration, setDuration] = useState(initial?.duration || '')
   const [content, setContent] = useState(initial?.content || '')
 
-  const [uploading, setUploading] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-    setUploading(true)
-    try {
-      const formData = new FormData()
-      formData.append('file', file)
-      const res = await fetch(api('/api/admin/upload'), {
-        method: 'POST',
-        headers: { 'x-admin-token': '' },
-        body: formData,
-      })
-      const data = await res.json()
-      if (data.ok && data.url) {
-        setVideoUrl(data.url)
-        setType('video')
-      }
-    } catch (err) {
-      console.error('Upload failed:', err)
-    } finally {
-      setUploading(false)
-      if (fileInputRef.current) fileInputRef.current.value = ''
-    }
-  }
   return (
     <Card className="border-primary/20">
       <CardContent className="p-5 space-y-4">
@@ -369,11 +339,10 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     )
   }
 
-  const getToken = () => user?.adminToken || ''
+  const adminHeaders = { 'x-admin-token': user?.adminToken || '' }
 
   const [courses, setCourses] = useState<AdminCourse[]>([])
   const [sessions, setSessions] = useState<AdminSession[]>([])
-  const [subscriptions, setSubscriptions] = useState<any[]>([])
   const [stats, setStats] = useState<AdminStats>({ courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('overview')
@@ -394,21 +363,16 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     if (!user?.adminToken) return
     setLoading(true)
     try {
-      const token = getToken()
-      const headers = { 'x-admin-token': token }
-      const [coursesRes, sessionsRes, statsRes, subsRes] = await Promise.all([
-        fetch(api('/api/admin/courses'), { headers }),
+      const [coursesRes, sessionsRes, statsRes] = await Promise.all([
+        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
         fetch(api('/api/dashboard')),
-        fetch(api('/api/admin/stats'), { headers }),
-        fetch(api('/api/admin/subscriptions'), { headers }).catch(() => null),
+        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
       ])
       const coursesData = await coursesRes.json()
       const dashboardData = await sessionsRes.json()
       const statsData = await statsRes.json()
-      const subsData = subsRes ? await subsRes.json() : []
 
       setCourses(Array.isArray(coursesData) ? coursesData : [])
-      setSubscriptions(Array.isArray(subsData) ? subsData : [])
       setSessions(((dashboardData as any).sessions || []).map((s: any) => ({
         id: s.id,
         title: s.title,
@@ -425,7 +389,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     } finally {
       setLoading(false)
     }
-  }, [user?.adminToken])
+  }, [])
 
   useEffect(() => { fetchData() }, [fetchData])
 
@@ -433,30 +397,20 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
   const handleSaveCourse = async (data: any) => {
     const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
     const method = editingCourse ? 'PATCH' : 'POST'
-    try {
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json', 'x-admin-token': getToken() },
-        body: JSON.stringify(data),
-      })
-      const saved = await res.json()
-      setShowCourseForm(false)
-      setEditingCourse(null)
-      await fetchData()
-      // After creating a NEW course, auto-open module input
-      if (!editingCourse && saved?.id) {
-        setSelectedCourseId(saved.id)
-        setShowModuleInput(saved.id)
-        setActiveTab('courses')
-      }
-    } catch (err) {
-      console.error('Failed to save course:', err)
+    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    setShowCourseForm(false)
+    setEditingCourse(null)
+    const saved = await res.json()
+    await fetchData()
+    if (!editingCourse && saved?.id) {
+      setSelectedCourseId(saved.id)
+      setActiveTab('courses')
     }
   }
 
   const handleDeleteCourse = async (id: string) => {
     if (!confirm('Delete this course and all its modules/lessons?')) return
-    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
+    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: adminHeaders })
     if (selectedCourseId === id) setSelectedCourseId(null)
     fetchData()
   }
@@ -476,7 +430,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteModule = async (moduleId: string) => {
     if (!confirm('Delete this module and all its lessons?')) return
-    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
+    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 
@@ -486,12 +440,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
       ? api(`/api/admin/lessons/${editingLesson.id}`)
       : api(`/api/admin/modules/${moduleId}/lessons`)
     const method = editingLesson ? 'PATCH' : 'POST'
-    const payload = { ...data, videoUrl: data.videoUrl && data.type === 'video' ? data.videoUrl : '' }
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(payload) })
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('Failed to save lesson:', err)
-    }
+    await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
     setShowLessonForm(null)
     setEditingLesson(null)
     fetchData()
@@ -499,7 +448,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteLesson = async (lessonId: string) => {
     if (!confirm('Delete this lesson?')) return
-    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
+    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 
@@ -515,17 +464,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteSession = async (id: string) => {
     if (!confirm('Delete this session?')) return
-    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: { 'x-admin-token': getToken() } })
-    fetchData()
-  }
-
-  const handleToggleSubscription = async (sub: any, nextStatus: string) => {
-    if (!confirm(`Set this subscription to ${nextStatus === 'active' ? 'ACTIVE (green)' : 'INACTIVE (red)'}?`)) return
-    await fetch(api(`/api/admin/subscriptions/${sub.id}`), {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json', 'x-admin-token': getToken() },
-      body: JSON.stringify({ status: nextStatus }),
-    })
+    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: adminHeaders })
     fetchData()
   }
 
@@ -775,7 +714,6 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
             <TabsTrigger value="overview" className="gap-1.5"><LayoutDashboard className="h-4 w-4" /> Overview</TabsTrigger>
             <TabsTrigger value="courses" className="gap-1.5"><BookOpen className="h-4 w-4" /> Courses</TabsTrigger>
             <TabsTrigger value="sessions" className="gap-1.5"><Video className="h-4 w-4" /> Live Sessions</TabsTrigger>
-            <TabsTrigger value="subscriptions" className="gap-1.5"><Sparkles className="h-4 w-4" /> Subscriptions</TabsTrigger>
           </TabsList>
 
           {/* ====== Overview Tab ====== */}
@@ -874,12 +812,12 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
                           <Button
-                            variant="default"
+                            variant="ghost"
                             size="sm"
                             onClick={() => setSelectedCourseId(course.id)}
                             className="gap-1"
                           >
-                            <BookOpen className="h-4 w-4" /> {course.modules.length > 0 ? 'Add Lessons' : 'Add Module & Lessons'}
+                            <BookOpen className="h-4 w-4" /> Content
                           </Button>
                           <Button
                             variant="ghost"
@@ -984,114 +922,6 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                 )
               })}
             </div>
-          </TabsContent>
-
-          {/* ====== Subscriptions Tab ====== */}
-          <TabsContent value="subscriptions" className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-lg font-semibold">Student Subscriptions</h2>
-                <p className="text-sm text-muted-foreground">
-                  Toggle a student's plan ON (green) after payment verification, OFF (red) to block access.
-                </p>
-              </div>
-              <Badge variant="secondary" className="gap-1">
-                <Sparkles className="h-3.5 w-3.5" />
-                {subscriptions.filter((s) => s.status === 'active').length} active
-              </Badge>
-            </div>
-
-            {subscriptions.length === 0 ? (
-              <Card>
-                <CardContent className="p-12 text-center">
-                  <Users className="mx-auto mb-3 h-10 w-10 text-muted-foreground/30" />
-                  <p className="text-muted-foreground">No subscription requests yet.</p>
-                </CardContent>
-              </Card>
-            ) : (
-              <div className="overflow-x-auto rounded-xl border">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b bg-secondary/50 text-left">
-                      <th className="px-4 py-3 font-semibold">ID</th>
-                      <th className="px-4 py-3 font-semibold">Name</th>
-                      <th className="px-4 py-3 font-semibold">Email</th>
-                      <th className="px-4 py-3 font-semibold">Phone</th>
-                      <th className="px-4 py-3 font-semibold">City</th>
-                      <th className="px-4 py-3 font-semibold">Plan</th>
-                      <th className="px-4 py-3 font-semibold">Status</th>
-                      <th className="px-4 py-3 font-semibold text-center">Toggle</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {subscriptions.map((sub, idx) => {
-                      const isActive = sub.status === 'active'
-                      return (
-                        <tr key={sub.id} className="border-b last:border-0 hover:bg-secondary/30">
-                          <td className="px-4 py-3 font-mono text-xs text-muted-foreground">
-                            SR-{String(idx + 1).padStart(3, '0')}
-                          </td>
-                          <td className="px-4 py-3 font-medium">{sub.name}</td>
-                          <td className="px-4 py-3">{sub.email}</td>
-                          <td className="px-4 py-3" dir="ltr">{sub.phone}</td>
-                          <td className="px-4 py-3">{sub.city || '—'}</td>
-                          <td className="px-4 py-3">
-                            <Badge variant={sub.plan === 'PREMIUM' ? 'default' : 'secondary'} className={sub.plan === 'PREMIUM' ? 'bg-amber-500' : ''}>
-                              {sub.plan}
-                            </Badge>
-                          </td>
-                          <td className="px-4 py-3">
-                            {isActive ? (
-                              <Badge className="bg-emerald-500">Active</Badge>
-                            ) : (
-                              <Badge variant="destructive">Inactive</Badge>
-                            )}
-                          </td>
-                          <td className="px-4 py-3 text-center">
-                            <button
-                              onClick={() => handleToggleSubscription(sub, isActive ? 'inactive' : 'active')}
-                              className={`inline-flex h-8 w-14 items-center rounded-full p-1 transition-colors ${
-                                isActive ? 'bg-emerald-500 justify-end' : 'bg-red-500 justify-start'
-                              }`}
-                              aria-label={isActive ? 'Deactivate' : 'Activate'}
-                            >
-                              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow">
-                                <Power className={`h-3.5 w-3.5 ${isActive ? 'text-emerald-600' : 'text-red-600'}`} />
-                              </span>
-                            </button>
-                          </td>
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {subscriptions.some((s) => s.receiptUrl) && (
-              <Card>
-                <CardContent className="p-5">
-                  <h3 className="mb-3 font-semibold">Payment Receipts</h3>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {subscriptions.filter((s) => s.receiptUrl).map((s) => (
-                      <div key={s.id} className="overflow-hidden rounded-lg border bg-secondary/20">
-                        <a href={s.receiptUrl} target="_blank" rel="noopener noreferrer" className="block">
-                          <img
-                            src={s.receiptUrl}
-                            alt={`Receipt by ${s.name}`}
-                            className="aspect-video w-full object-contain bg-black/5"
-                          />
-                        </a>
-                        <div className="border-t p-3">
-                          <p className="text-sm font-medium">{s.name}</p>
-                          <p className="text-xs text-muted-foreground">{s.email}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
           </TabsContent>
         </Tabs>
       </div>

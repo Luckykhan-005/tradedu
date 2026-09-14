@@ -1,4 +1,5 @@
-// Managed by Shogo. `prisma db push` (Prisma 7) requires `datasource.url`; do not move the URL under `migrate` or an `async url()` resolver.
+// SPDX-License-Identifier: Apache-2.0
+// Copyright (C) 2026 Shogo Technologies, Inc.
 import { defineConfig } from 'prisma/config'
 
 export default defineConfig({

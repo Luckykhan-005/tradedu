@@ -14,13 +14,13 @@ import {
   ChevronUp,
   AlertTriangle,
   Eye,
+  Activity,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/cn'
-import { ToolBanner } from '@/components/ToolBanner'
 
 interface AiTool {
   id: string
@@ -227,34 +227,34 @@ const aiTools: AiTool[] = [
     category: 'signals',
   },
   {
-    id: 'forex-scanner',
+    id: 'forexscanner',
     name: 'Forex Signal Scanner',
     tagline: '11 Pairs • 10 Indicators • Weighted Signals',
     url: 'https://forex-scanner.vercel.app/',
-    icon: TrendingUp,
-    color: 'text-emerald-600',
-    bgColor: 'bg-emerald-50',
-    borderColor: 'border-emerald-200',
+    icon: Activity,
+    color: 'text-teal-600',
+    bgColor: 'bg-teal-50',
+    borderColor: 'border-teal-200',
     uniqueStrength: 'Weighted multi-indicator confluence scoring',
     description:
-      'Professional forex scanner with 10 technical indicators, weighted signal scoring, 6 strategy presets, demo trading, automated bot strategies, backtesting engine, and live market session clock. Covers 11 major forex pairs including Gold (XAU/USD).',
+      'Professional forex signal scanner covering 11 major pairs with 10 technical indicators. Uses weighted confluence scoring to generate high-probability trade signals with preset strategies.',
     features: [
-      '11 Forex Pairs (majors + exotics + Gold)',
-      '10 Technical Indicators (RSI, MACD, SMA, Bollinger, etc.)',
-      'Weighted Signal Scoring System',
-      '6 Strategy Presets (Scalper, Trend Follower, Breakout, etc.)',
-      'Demo Paper Trading ($10K account)',
-      'Candlestick Chart Viewer',
-      '9 Automated Bot Strategies',
-      'Historical Backtesting Engine',
-      'Live Market Session Clock (Sydney/Tokyo/London/NY)',
-      'Auto-Scan Mode',
+      '11 Currency Pairs Scanner',
+      '10 Technical Indicators',
+      'Weighted Signal Scoring',
+      '6 Preset Strategies',
+      '4 Timeframe Analysis',
+      'Paper Trading (Demo)',
+      '9 Bot Strategies',
+      'Backtesting Engine',
+      'Market Session Clock',
+      'Real-time Candlestick Charts',
     ],
-    indicators: ['RSI', 'MACD', '200 SMA', '50 SMA', 'Bollinger Bands', 'Volume', 'Candlestick Patterns', 'S/R Levels', 'Session Timing', 'Trend Direction'],
+    indicators: ['RSI', 'MACD', 'EMA', 'Bollinger Bands', 'Stochastic', 'ADX', 'ATR', 'Volume', 'Ichimoku', 'SuperTrend'],
     signalFormat: {
-      example: 'EUR/USD — LONG | Entry: 1.0850 | TP: 1.0910 | SL: 1.0820 | Confluence: 14/20 | R/R: 1:2',
-      timeframe: '15M-1D',
-      confidence: '14/20',
+      example: 'EURUSD — LONG | Entry: 1.0850 | TP: 1.0920 | SL: 1.0810 | R/R: 1:1.75 | Confidence: 78%',
+      timeframe: '1H-4H',
+      confidence: '78%',
     },
     category: 'forex',
   },
@@ -267,7 +267,17 @@ const categoryInfo: Record<string, { label: string; color: string }> = {
   'multi-asset': { label: 'Multi-Asset', color: 'bg-cyan-100 text-cyan-700' },
   intelligence: { label: 'Intelligence', color: 'bg-blue-100 text-blue-700' },
   setup: { label: 'Setup Generator', color: 'bg-emerald-100 text-emerald-700' },
-  forex: { label: 'Forex', color: 'bg-emerald-100 text-emerald-700' },
+  forex: { label: 'Forex', color: 'bg-teal-100 text-teal-700' },
+}
+
+const bannerStyles: Record<string, string> = {
+  alphatrade: 'bg-gradient-to-r from-blue-600 to-blue-800',
+  alphahunter: 'bg-gradient-to-r from-purple-600 to-purple-800',
+  tradesetup: 'bg-gradient-to-r from-emerald-600 to-emerald-800',
+  cryptopilot: 'bg-gradient-to-r from-cyan-600 to-cyan-800',
+  coiniq: 'bg-gradient-to-r from-orange-500 to-orange-700',
+  '6thapp': 'bg-gradient-to-r from-red-500 to-red-700',
+  forexscanner: 'bg-gradient-to-r from-teal-500 to-teal-700',
 }
 
 interface AiToolsHubProps {
@@ -348,7 +358,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
             <div>
               <h1 className="text-3xl font-bold">AI Tools Hub</h1>
               <p className="text-muted-foreground">
-                7 professional AI-powered trading tools — learn, analyze, and earn
+                7 professional AI-powered crypto trading tools — learn, analyze, and earn
               </p>
             </div>
           </div>
@@ -414,11 +424,40 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
               >
                 <CardContent className="p-0">
                   {/* Banner Image */}
-                  <ToolBanner toolId={tool.id} name={tool.name} tagline={tool.tagline} />
+                  <div className={cn('relative h-32 flex items-center justify-center overflow-hidden', bannerStyles[tool.id] || 'bg-gradient-to-r from-gray-600 to-gray-800')}>
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-2 left-2 h-16 w-16 border border-white/20 rounded-full" />
+                      <div className="absolute bottom-2 right-4 h-10 w-10 border border-white/20 rounded-full" />
+                      <div className="absolute top-4 right-12 h-6 w-24 bg-white/10 rounded" />
+                      <div className="absolute bottom-6 left-8 h-4 w-16 bg-white/10 rounded" />
+                    </div>
+                    <div className="relative z-10 flex flex-col items-center gap-2">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm shadow-lg">
+                        <tool.icon className="h-7 w-7 text-white" />
+                      </div>
+                      <div className="text-white/80 text-xs font-semibold tracking-wider uppercase">AI POWERED</div>
+                    </div>
+                  </div>
+                  {/* Card Header */}
+                  <div className={cn('p-6', tool.bgColor)}>
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={cn(
+                            'flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm',
+                            tool.color
+                          )}
+                        >
+                          <tool.icon className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-lg">{tool.name}</h3>
+                          <p className="text-sm text-muted-foreground">{tool.tagline}</p>
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Card Header — overlaid on banner */}
-                  <div className={cn('p-4', tool.bgColor)}>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mt-3">
                       <Badge className={cn('text-xs', categoryInfo[tool.category]?.color)}>
                         {categoryInfo[tool.category]?.label}
                       </Badge>

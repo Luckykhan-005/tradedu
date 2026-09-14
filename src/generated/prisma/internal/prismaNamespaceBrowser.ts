@@ -60,8 +60,7 @@ export const ModelName = {
   LiveSession: 'LiveSession',
   QuizResult: 'QuizResult',
   PasswordResetToken: 'PasswordResetToken',
-  JournalEntry: 'JournalEntry',
-  SubscriptionRequest: 'SubscriptionRequest'
+  JournalEntry: 'JournalEntry'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -83,8 +82,6 @@ export const UserScalarFieldEnum = {
   name: 'name',
   passwordHash: 'passwordHash',
   role: 'role',
-  plan: 'plan',
-  planExpiresAt: 'planExpiresAt',
   avatar: 'avatar',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -221,24 +218,6 @@ export const JournalEntryScalarFieldEnum = {
 } as const
 
 export type JournalEntryScalarFieldEnum = (typeof JournalEntryScalarFieldEnum)[keyof typeof JournalEntryScalarFieldEnum]
-
-
-export const SubscriptionRequestScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  phone: 'phone',
-  city: 'city',
-  tradeExperience: 'tradeExperience',
-  plan: 'plan',
-  status: 'status',
-  receiptUrl: 'receiptUrl',
-  adminNote: 'adminNote',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type SubscriptionRequestScalarFieldEnum = (typeof SubscriptionRequestScalarFieldEnum)[keyof typeof SubscriptionRequestScalarFieldEnum]
 
 
 export const SortOrder = {

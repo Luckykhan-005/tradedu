@@ -14,9 +14,6 @@ import { RiskCalculator } from './components/RiskCalculator'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
 import { Certificates } from './components/Certificates'
-import { Pricing } from './components/Pricing'
-import { PlanGate } from './components/PlanGate'
-import { Subscribe } from './components/Subscribe'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -48,9 +45,8 @@ interface SessionData {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing')
-  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string } | null>(null)
+  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string } | null>(null)
   const [showAuth, setShowAuth] = useState(false)
-  const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<Set<string>>(new Set())
@@ -62,15 +58,13 @@ export default function App() {
   const fetchData = useCallback(async () => {
     setLoading(true)
     try {
-      // Try to seed data silently (may fail, that's okay)
-      try { await fetch(api('/api/seed'), { method: 'POST' }) } catch {}
+      const res = await fetch(api('/api/seed'), { method: 'POST' })
+      await res.json()
 
-      // Fetch courses from the courses list endpoint
-      const coursesRes = await fetch(api('/api/courses'))
-      const coursesData = await coursesRes.json()
-      const items = coursesData.items || []
+       const dashboardRes = await fetch(api('/api/dashboard'))
+      const dashboardData = await dashboardRes.json()
 
-      const coursesList = items.map((c: any) => ({
+      const coursesList = (dashboardData.courses || []).map((c: any) => ({
         id: c.id,
         title: c.title,
         description: c.description,
@@ -83,10 +77,6 @@ export default function App() {
         moduleCount: c.modules?.length || 0,
       }))
       setCourses(coursesList)
-
-      // Dashboard data (sessions + stats)
-      const dashboardRes = await fetch(api('/api/dashboard'))
-      const dashboardData = await dashboardRes.json()
 
       const sessionsList = (dashboardData.sessions || []).map((s: any) => ({
         id: s.id,
@@ -175,9 +165,8 @@ export default function App() {
   }
 
   // Build enrolled courses for dashboard
-  // Admin sees ALL courses as enrolled
   const enrolledCourses = courses
-    .filter((c) => user?.role === 'admin' || enrolledCourseIds.has(c.id))
+    .filter((c) => enrolledCourseIds.has(c.id))
     .map((c) => {
       const detail = selectedCourse?.id === c.id ? selectedCourse : null
       const totalLessons = detail
@@ -234,9 +223,7 @@ export default function App() {
           course={selectedCourse}
           modules={selectedCourse.modules}
           progress={lessonProgress[selectedCourse.id] || {}}
-          enrolled={user?.role === 'admin' || enrolledCourseIds.has(selectedCourse.id)}
-          userPlan={user?.role === 'admin' ? 'PREMIUM' : user?.plan}
-          isAdmin={user?.role === 'admin'}
+          enrolled={enrolledCourseIds.has(selectedCourse.id)}
           onBack={() => navigate('courses')}
           onEnroll={() => {
             if (!user) {
@@ -262,33 +249,15 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        user && (user.plan === 'PREMIUM' || user.role === 'admin') ? (
-          <LiveSessions sessions={sessions} loading={loading} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
-            onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
-          />
-        )
+        <LiveSessions sessions={sessions} loading={loading} />
       )}
 
       {currentPage === 'ai-tools' && (
-        user && (user.plan === 'PREMIUM' || user.role === 'admin') ? (
-          <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
-            onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
-          />
-        )
+        <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
       )}
 
       {currentPage === 'books' && (
-        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} />
+        <Books onBack={() => navigate('dashboard')} />
       )}
 
       {currentPage === 'calculator' && (
@@ -304,32 +273,7 @@ export default function App() {
       )}
 
       {currentPage === 'certificates' && (
-        user && (user.plan !== 'FREE' || user.role === 'admin') ? (
-          <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
-        ) : (
-          <PlanGate
-            requiredPlan="STARTER"
-            currentPlan={user?.plan || 'FREE'}
-            onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
-          />
-        )
-      )}
-
-      {currentPage === 'pricing' && (
-        <Pricing
-          currentPlan={user?.plan || 'FREE'}
-          user={user}
-          onBack={() => navigate('dashboard')}
-          onSubscribe={(plan) => {
-            setSelectedPlan(plan)
-            navigate('subscribe')
-          }}
-        />
-      )}
-
-      {currentPage === 'subscribe' && (
-        <Subscribe user={user} onBack={() => navigate('pricing')} selectedPlan={selectedPlan} />
+        <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
       )}
 
       {currentPage === 'admin' && (
