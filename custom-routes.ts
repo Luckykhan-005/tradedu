@@ -595,12 +595,10 @@ app.post('/auth/forgot-password', async (c) => {
     return c.json({ error: 'Email is required' }, 400)
   }
 
-  // Check if user exists (admin email or student in DB)
-  const adminEmail = process.env.ADMIN_EMAIL
-  const isAdmin = email === adminEmail
-  const studentUser = await prisma.user.findUnique({ where: { email } })
+  // Check if user exists in DB (admin or student)
+  const user = await prisma.user.findUnique({ where: { email } })
 
-  if (!isAdmin && !studentUser) {
+  if (!user) {
     // Don't reveal whether the email exists — always return success
     return c.json({ ok: true, message: 'If an account with that email exists, a reset token has been generated.' })
   }
@@ -655,26 +653,15 @@ app.post('/auth/reset-password', async (c) => {
   })
 
   const passwordHash = await hashPassword(newPassword)
-  const adminEmail = process.env.ADMIN_EMAIL
-  const isAdmin = resetRecord.email === adminEmail
 
-  if (isAdmin) {
-    // Update admin password in .env (in production this would update a DB record)
-    // For now, store the new admin password hash in the DB User record
-    const adminUser = await prisma.user.findUnique({ where: { email: resetRecord.email } })
-    if (adminUser) {
-      await prisma.user.update({ where: { id: adminUser.id }, data: { passwordHash } })
-    } else {
-      // Create an admin user record to store the new password
-      await prisma.user.create({
-        data: { email: resetRecord.email, name: 'Admin', role: 'admin', passwordHash },
-      })
-    }
+  // Update password for any user (admin or student) in DB
+  const existingUser = await prisma.user.findUnique({ where: { email: resetRecord.email } })
+  if (existingUser) {
+    await prisma.user.update({ where: { id: existingUser.id }, data: { passwordHash } })
   } else {
-    // Update student password in DB
-    await prisma.user.update({
-      where: { email: resetRecord.email },
-      data: { passwordHash },
+    // User not in DB yet — create a student record with the new password
+    await prisma.user.create({
+      data: { email: resetRecord.email, name: 'User', role: 'student', passwordHash },
     })
   }
 
