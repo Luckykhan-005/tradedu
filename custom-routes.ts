@@ -703,7 +703,7 @@ function verifyAdminSession(token: string): boolean {
   return true
 }
 
-// Admin login — validates email/password against .env, returns session token
+// Admin login — validates email/password against DB (admin user with role='admin')
 app.post('/admin/auth', async (c) => {
   const body = await c.req.json()
   const { email, password } = body
@@ -712,25 +712,18 @@ app.post('/admin/auth', async (c) => {
     return c.json({ error: 'Email and password are required' }, 400)
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL
-  const adminPassword = process.env.ADMIN_PASSWORD
-
-  if (!adminEmail || !adminPassword) {
-    return c.json({ error: 'Admin credentials not configured on server' }, 500)
-  }
-
-  // Check DB first (in case admin password was reset)
+  // Check DB for admin user
   const adminUser = await prisma.user.findUnique({ where: { email } })
-  if (adminUser?.passwordHash) {
-    const passwordHash = await hashPassword(password)
-    if (passwordHash === adminUser.passwordHash) {
-      const token = createAdminSession(email)
-      return c.json({ ok: true, token, email })
-    }
+  if (!adminUser || adminUser.role !== 'admin') {
+    return c.json({ error: 'Invalid email or password' }, 401)
   }
 
-  // Fall back to .env credentials
-  if (email !== adminEmail || password !== adminPassword) {
+  if (!adminUser.passwordHash) {
+    return c.json({ error: 'Invalid email or password' }, 401)
+  }
+
+  const passwordHash = await hashPassword(password)
+  if (passwordHash !== adminUser.passwordHash) {
     return c.json({ error: 'Invalid email or password' }, 401)
   }
 
