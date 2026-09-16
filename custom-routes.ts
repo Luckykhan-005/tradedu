@@ -683,6 +683,30 @@ app.post('/auth/reset-password', async (c) => {
 
 // ========== ADMIN AUTH ==========
 
+/**
+ * Normalise a value read from the server environment.
+ *
+ * The most common cause of "Invalid email or password" when the values look
+ * correct is an invisible character picked up from a copy-paste into the hosting
+ * dashboard: a trailing space, a newline, a byte-order mark, or a pair of quotes
+ * wrapped around the value by a shell/JSON export. None of these are visible, and
+ * the old code compared the raw bytes, so the login failed with no way to tell
+ * why. Stripping them from the CONFIGURED side cannot turn a wrong password into
+ * a right one, so it is safe.
+ */
+function cleanEnv(value: unknown): string {
+  return String(value ?? '')
+    .replace(/^\uFEFF/, '')
+    .trim()
+    .replace(/^["']|["']$/g, '')
+    .trim()
+}
+
+/** Emails are case-insensitive, so compare them folded to lower case. */
+function normEmail(value: unknown): string {
+  return cleanEnv(value).toLowerCase()
+}
+
 // In-memory session store (resets on server restart)
 const adminSessions = new Map<string, { email: string; createdAt: number }>()
 
@@ -712,11 +736,17 @@ app.post('/admin/auth', async (c) => {
     return c.json({ error: 'Email and password are required' }, 400)
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL
-  const adminPassword = process.env.ADMIN_PASSWORD
+  const adminEmail = cleanEnv(process.env.ADMIN_EMAIL)
+  const adminPassword = cleanEnv(process.env.ADMIN_PASSWORD)
 
   if (!adminEmail || !adminPassword) {
-    return c.json({ error: 'Admin credentials not configured on server' }, 500)
+    return c.json(
+      {
+        error:
+          'Admin login is not configured on the server yet. Set ADMIN_EMAIL and ADMIN_PASSWORD in the server environment, then restart.',
+      },
+      500,
+    )
   }
 
   // Check DB first (in case admin password was reset)
@@ -729,13 +759,26 @@ app.post('/admin/auth', async (c) => {
     }
   }
 
-  // Fall back to .env credentials
-  if (email !== adminEmail || password !== adminPassword) {
+  // Fall back to environment credentials. The configured side is cleaned and the
+  // email is case-folded on BOTH sides; the password stays case-exact.
+  const submittedEmail = normEmail(email)
+  const emailOk = submittedEmail === normEmail(adminEmail)
+  const passwordOk = String(password) === adminPassword
+
+  if (!emailOk || !passwordOk) {
+    // Diagnostic: records WHICH field failed and the length of each value, so a
+    // hidden character or a stale variable can be identified from the logs. It
+    // never records the values themselves.
+    console.warn(
+      `[admin-auth] rejected: emailMatch=${emailOk} passwordMatch=${passwordOk} ` +
+      `emailLenSubmitted=${submittedEmail.length} emailLenConfigured=${normEmail(adminEmail).length} ` +
+      `passwordLenSubmitted=${String(password).length} passwordLenConfigured=${adminPassword.length}`,
+    )
     return c.json({ error: 'Invalid email or password' }, 401)
   }
 
-  const token = createAdminSession(email)
-  return c.json({ ok: true, token, email })
+  const token = createAdminSession(normEmail(adminEmail))
+  return c.json({ ok: true, token, email: normEmail(adminEmail) })
 })
 
 // Admin logout — invalidates session
