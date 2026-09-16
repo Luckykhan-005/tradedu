@@ -67,6 +67,14 @@ export function Dashboard({
   onSelectCourse,
   onBrowseCourses,
 }: DashboardProps) {
+  // Certificates are issued when a course is fully completed, so the nearest
+  // real milestone is the enrolled course with the fewest lessons outstanding.
+  // Derived from actual enrollment data instead of a hard-coded claim.
+  const closest = enrolledCourses
+    .map((c) => ({ title: c.title, remaining: Math.max(0, c.totalLessons - c.completedLessons) }))
+    .filter((c) => c.remaining > 0)
+    .sort((a, b) => a.remaining - b.remaining)[0]
+
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
@@ -213,33 +221,37 @@ export function Dashboard({
               </CardContent>
             </Card>
 
-            {/* Quick Stats */}
+            {/* Course Progress — derived from the student's real enrollment data */}
             <Card>
               <CardContent className="p-5">
                 <div className="flex items-center gap-2 mb-4">
                   <BarChart3 className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold">Weekly Activity</h3>
+                  <h3 className="font-semibold">Course Progress</h3>
                 </div>
-                <div className="flex items-end gap-1 h-24">
-                  {[30, 45, 20, 65, 40, 55, 35].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-primary/10 rounded-t-sm relative group"
-                      style={{ height: `${h}%` }}
-                    >
-                      <div className="absolute inset-x-0 bottom-0 bg-primary/60 rounded-t-sm" style={{ height: `${h}%` }} />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                  <span>Mon</span>
-                  <span>Tue</span>
-                  <span>Wed</span>
-                  <span>Thu</span>
-                  <span>Fri</span>
-                  <span>Sat</span>
-                  <span>Sun</span>
-                </div>
+                {enrolledCourses.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    Enroll in a course to start tracking your progress.
+                  </p>
+                ) : (
+                  <div className="space-y-3">
+                    {enrolledCourses.slice(0, 5).map((course) => {
+                      const pct = course.totalLessons > 0
+                        ? Math.round((course.completedLessons / course.totalLessons) * 100)
+                        : 0
+                      return (
+                        <div key={course.id}>
+                          <div className="mb-1 flex items-center justify-between gap-2 text-xs">
+                            <span className="truncate font-medium">{course.title}</span>
+                            <span className="shrink-0 text-muted-foreground">
+                              {course.completedLessons}/{course.totalLessons}
+                            </span>
+                          </div>
+                          <Progress value={pct} className="h-2" />
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
               </CardContent>
             </Card>
 
@@ -247,9 +259,17 @@ export function Dashboard({
             <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
               <CardContent className="p-5 text-center">
                 <Trophy className="h-10 w-10 text-primary mx-auto mb-2" />
-                <h3 className="font-semibold mb-1">Keep Going!</h3>
+                <h3 className="font-semibold mb-1">
+                  {stats.certificatesEarned > 0
+                    ? `${stats.certificatesEarned} Certificate${stats.certificatesEarned === 1 ? '' : 's'} Earned`
+                    : 'Keep Going!'}
+                </h3>
                 <p className="text-sm text-muted-foreground">
-                  Complete 3 more lessons to earn your first badge
+                  {closest
+                    ? `Complete ${closest.remaining} more lesson${closest.remaining === 1 ? '' : 's'} in "${closest.title}" to finish it.`
+                    : enrolledCourses.length > 0
+                      ? 'All enrolled courses are complete. Browse the catalog for your next course.'
+                      : 'Enroll in a course to start earning certificates.'}
                 </p>
               </CardContent>
             </Card>

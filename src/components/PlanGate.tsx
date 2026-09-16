@@ -1,6 +1,7 @@
 import { Lock, Sparkles } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { planDefinitionOf } from '@/lib/payment'
 
 interface PlanGateProps {
   requiredPlan: 'STARTER' | 'PREMIUM'
@@ -9,13 +10,12 @@ interface PlanGateProps {
   onSignIn?: () => void
 }
 
-const planMeta: Record<string, { name: string; price: string }> = {
-  STARTER: { name: 'Starter', price: '$10/month' },
-  PREMIUM: { name: 'Premium', price: '$50/month' },
-}
-
 export function PlanGate({ requiredPlan, currentPlan, onUpgrade, onSignIn }: PlanGateProps) {
-  const meta = planMeta[requiredPlan]
+  const def = planDefinitionOf(requiredPlan)
+  const meta = {
+    name: def?.name || requiredPlan,
+    price: def ? `${def.display}/${def.period}` : '',
+  }
   const isSignedIn = !!currentPlan
 
   return (

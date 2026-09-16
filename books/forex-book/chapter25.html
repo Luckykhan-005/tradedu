@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 25 — فبوناچی — ریاضی کے تناسب سے ممکنہ لیولز</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 25: فبوناچی — ریاضی کے تناسب سے ممکنہ لیولز</h1>
+<div class="info"><p>
+فبوناچی ریٹریسمنٹ (Fibonacci Retracement) یہ نہیں بتاتا کہ قیمت کہاں جائے گی — یہ بتاتا ہے کہ <strong>پل بیک کہاں تک جا سکتا ہے</strong> اور <strong>رجحان کہاں سے دوبارہ شروع</strong> ہو سکتا ہے۔ فطرت میں پائے جانے والے ان تناسبوں کو مارکیٹ میں لاگو کر کے آپ قیمت کے ممکنہ موڑ دیکھ سکتے ہیں۔
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>فبوناچی تسلسل اور اس کے تناسب کی بنیاد</li>
+<li>ریٹریسمنٹ — پل بیک کے ممکنہ لیولز (38.2%، 50%، 61.8%)</li>
+<li>فبوناچی ایکسٹینشن — منافع کے اہداف</li>
+<li>فبوناچی کو سپورٹ/رزسٹنس اور پرائس ایکشن کے ساتھ جوڑنا</li>
+<li>فبوناچی کی عام غلطیاں اور ان سے بچاؤ</li>
+</ul>
+<hr class="divider">
+<h2>📖 25.1 فبوناچی کی بنیاد — تسلسل اور تناسب</h2>
+<p>فبوناچی تسلسل: ہر عدد پچھلے دو کا مجموعہ —</p>
+<pre><code>
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...
+</code></pre>
+<h3>اہم تناسب</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>تناسب</th>
+<th>حساب</th>
+<th>اہمیت</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>61.8%</strong></td>
+<td>کسی عدد کو اگلے عدد سے تقسیم کریں (55÷89)</td>
+<td>"گولڈن ریشو" — سب سے مضبوط</td>
+</tr>
+<tr>
+<td><strong>38.2%</strong></td>
+<td>کسی عدد کو دو آگے والے عدد سے تقسیم کریں (55÷144)</td>
+<td>پہلا ممکنہ پلٹاؤ</td>
+</tr>
+<tr>
+<td><strong>50%</strong></td>
+<td>درمیانی تناسب (فبوناچی نہیں، مگر مارکیٹ مانتی ہے)</td>
+<td>عام پل بیک کی گہرائی</td>
+</tr>
+<tr>
+<td><strong>23.6%</strong></td>
+<td>مزید گہرا تناسب (کمزور)</td>
+<td>کمزور پلٹاؤ</td>
+</tr>
+<tr>
+<td><strong>78.6%</strong></td>
+<td>گہرا پل بیک (61.8% کا الٹ)</td>
+<td>آخری موقع</td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+<strong>اہم</strong>: فبوناچی تناسب <strong>خود</strong> مارکیٹ نہیں چلاتا — کافی زیادہ ٹریڈرز انہیں دیکھتے ہیں، اس لیے یہ "سیلف فلنگ" بن جاتے ہیں۔ یہ طاقت ہے، مگر ذمہ داری بھی — کیونکہ جب سب ایک ہی لیول دیکھیں، تو وہاں ردعمل زیادہ ہوتا ہے۔
+</p></div>
+<hr class="divider">
+<h2>📖 25.2 ریٹریسمنٹ کیسے بنائیں — صحیح ترتیب</h2>
+<p>فبوناچی ریٹریسمنٹ <strong>دو اہم پوائنٹس</strong> کے درمیان کھینچا جاتا ہے — ایک جھولے کا آغاز اور اختتام:</p>
+<h3>اپ ٹرینڈ میں (Buy کے لیے)</h3>
+<p>1. <strong>پہلا پوائنٹ</strong>: جھولے کا <strong>سب سے نیچا</strong> (Swing Low)</p>
+<p>2. <strong>دوسرا پوائنٹ</strong>: جھولے کا <strong>سب سے اونچا</strong> (Swing High)</p>
+<p>3. ٹول کو نیچے سے اوپر کھینچیں — لیولز پل بیک کی گہرائی دکھائیں گے</p>
+<h3>ڈاؤن ٹرینڈ میں (Sell کے لیے)</h3>
+<p>1. <strong>پہلا پوائنٹ</strong>: جھولے کا <strong>سب سے اونچا</strong> (Swing High)</p>
+<p>2. <strong>دوسرا پوائنٹ</strong>: جھولے کا <strong>سب سے نیچا</strong> (Swing Low)</p>
+<p>3. ٹول کو اوپر سے نیچے کھینچیں</p>
+<h3>ASCII — اپ ٹرینڈ ریٹریسمنٹ</h3>
+<pre><code>
+قیمت
+  │          Swing High (2)
+  │         ╱
+  │        ╱  ← 23.6% ─────
+  │       ╱   ← 38.2% ─────
+  │      ╱    ← 50.0% ─────
+  │     ╱     ← 61.8% ─────   ← پل بیک یہاں رک سکتا ہے
+  │    ╱      ← 78.6% ─────
+  │   ╱
+  │  ╱
+  │ Swing Low (1)
+  └──────────────────────────→ وقت
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: ریٹریسمنٹ <strong>سپورٹ/رزسٹنس</strong> جیسا ہے — ایک "زون" جو قیمت کو روک سکتا ہے۔ مگر یہ خود کافی نہیں — پرائس ایکشن کی تصدیق کے بغیر فبوناچی لیول پر داخلہ نہ لیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 25.3 اہم لیولز — 38.2%، 50%، 61.8%</h2>
+<p>تین اہم ترین لیولز — ان پر ردعمل سب سے زیادہ:</p>
+<h3>38.2% — کمزور پل بیک</h3>
+<ul>
+<li>مضبوط رجحان میں معمولی پل بیک یہاں رک جاتا ہے</li>
+<li><strong>استعمال</strong>: تیز ٹریڈرز، مختصر داخلہ</li>
+<li>کمزور پل بیک = رجحان بہت مضبوط</li>
+</ul>
+<h3>50% — درمیانی گہرائی</h3>
+<ul>
+<li>سب سے عام پل بیک کی گہرائی</li>
+<li><strong>استعمال</strong>: معیاری داخلہ — اکثر بہترین توازن</li>
+<li>یہ فبوناچی تناسب نہیں، مگر مارکیٹ اسے مانتی ہے</li>
+</ul>
+<h3>61.8% — گولڈن ریشو</h3>
+<ul>
+<li>سب سے مضبوط لیول — "آخری دفاع"</li>
+<li><strong>استعمال</strong>: گہرے پل بیک، اعلیٰ معیار کے داخلے</li>
+<li>61.8% ٹوٹ جائے تو رجحان خطرے میں</li>
+</ul>
+<h3>لیولز کا جدول</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>لیول</th>
+<th>طاقت</th>
+<th>پل بیک کی قسم</th>
+<th>ردعمل</th>
+</tr></thead><tbody>
+<tr>
+<td>38.2%</td>
+<td>کمزور</td>
+<td>ہلکا</td>
+<td>جلدی پلٹاؤ</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>درمیانہ</td>
+<td>عام</td>
+<td>اکثر پلٹاؤ</td>
+</tr>
+<tr>
+<td>61.8%</td>
+<td>مضبوط</td>
+<td>گہرا</td>
+<td>مضبوط پلٹاؤ</td>
+</tr>
+<tr>
+<td>78.6%</td>
+<td>بہت مضبوط</td>
+<td>انتہائی گہرا</td>
+<td>آخری موقع — ٹوٹا تو رجحان ختم</td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+<strong>اہم</strong>: لیولز کو <strong>اکٹھا نہ پڑھیں</strong> — سب سے زیادہ قیمت والا لیول وہ ہے جو دوسرے عوامل کے ساتھ ملتا ہے: سپورٹ/رزسٹنس، پرائس ایکشن سگنل، اور بڑا ٹائم فریم۔ "فبوناچی 61.8% + پن بار + اہم S/R" تینوں اکٹھے = اعلیٰ معیار کا داخلہ۔
+</p></div>
+<hr class="divider">
+<h2>📖 25.4 ایکسٹینشن — منافع کے اہداف</h2>
+<p>ریٹریسمنٹ پل بیک کی گہرائی بتاتا ہے؛ <strong>ایکسیٹنشن</strong> (Fib Extension) بتاتا ہے کہ رجحان دوبارہ شروع ہو تو کہاں تک جا سکتا ہے:</p>
+<h3>ایکسٹینشن لیولز</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>لیول</th>
+<th>مطلب</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>127.2%</strong></td>
+<td>پہلا ممکنہ ہدف — معمولی</td>
+</tr>
+<tr>
+<td><strong>161.8%</strong></td>
+<td>سب سے مشہور ہدف — مضبوط</td>
+</tr>
+<tr>
+<td><strong>200%</strong></td>
+<td>بڑا ہدف — مضبوط رجحان</td>
+</tr>
+<tr>
+<td><strong>261.8%</strong></td>
+<td>انتہائی ہدف — نایاب</td>
+</tr>
+</tbody></table>
+<h3>ایکسٹینشن بنانے کا طریقہ (اپ ٹرینڈ Buy)</h3>
+<p>1. <strong>پوائنٹ 1</strong>: جھولے کا آغاز (Swing Low)</p>
+<p>2. <strong>پوائنٹ 2</strong>: جھولے کا اختتام (Swing High)</p>
+<p>3. <strong>پوائنٹ 3</strong>: پل بیک کی گہرائی (پلٹاؤ کی جگہ)</p>
+<p>4. ٹول کو 1→2→3 کھینچیں — ایکسٹینشن لیولز ہدف دکھائیں گے</p>
+<h3>ASCII — ایکسٹینشن</h3>
+<pre><code>
+قیمت
+  │                    161.8% ───── (ہدف)
+  │                   ╱
+  │                  ╱  ← 127.2% ─────
+  │         ╱╲      ╱
+  │        ╱  ╲    ╱
+  │       ╱    ╲  ╱   ← پل بیک (پوائنٹ 3)
+  │      ╱      ╲╱
+  │     ╱        ← 50% / 61.8%
+  │    ╱
+  │   ╱
+  └──────────────────────────→ وقت
+     1 (لو)    2 (ہائی)   3 (پل بیک)
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: ایکسٹینشن کو <strong>تنہا ہدف</strong> نہ بنائیں — اسے S/R، بولنگر بینڈ، اور Risk:Reward کے ساتھ ملائیں۔ ہدف اسی جگہ رکھیں جہاں متعدد عوامل ملتے ہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 25.5 فبوناچی کا سنہری استعمال — پرائس ایکشن کے ساتھ</h2>
+<p>فبوناچی <strong>اکیلے</strong> کمزور ہے؛ پرائس ایکشن کے ساتھ یہ بہت مضبوط ہو جاتا ہے۔ سنہری اصول:</p>
+<h3>کانفلونس (Confluence) — عوامل کا ملاپ</h3>
+<p>فبوناچی لیول پر جتنے زیادہ عوامل ملیں گے، لیول اتنا مضبوط:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>فبوناچی لیول</th>
+<th>کے ساتھ ملایا جائے</th>
+<th>نتیجہ</th>
+</tr></thead><tbody>
+<tr>
+<td>61.8%</td>
+<td>اہم S/R لیول</td>
+<td>بہت مضبوط</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>50 MA / 100 MA</td>
+<td>مضبوط</td>
+</tr>
+<tr>
+<td>61.8%</td>
+<td>پن بار / انگیلفنگ</td>
+<td>اعلیٰ داخلہ</td>
+</tr>
+<tr>
+<td>161.8% ایکسٹینشن</td>
+<td>RSI ڈائیورجنس</td>
+<td>بہترین ہدف</td>
+</tr>
+</tbody></table>
+<h3>داخلے کا طریقہ — فبوناچی پل بیک Buy</h3>
+<p><strong>شرطیں (چاروں):</strong></p>
+<p>1. <strong>اپ ٹرینڈ</strong> — قیمت 50 MA سے اوپر، MA جھکاؤ اوپر</p>
+<p>2. قیمت پل بیک کر کے <strong>61.8%</strong> (یا 50%) پر آئے</p>
+<p>3. لیول <strong>S/R</strong> کے ساتھ ملتا ہو</p>
+<p>4. <strong>پرائس ایکشن تصدیق</strong> — پن بار / انگیلفنگ / باؤنڈنگ بُل</p>
+<p><strong>اندراج</strong>: تصدیقی کینڈل کے بند پر Buy</p>
+<p><strong>SL</strong>: لیول سے تھوڑا نیچے (61.8% سے نیچے / Swing Low)</p>
+<p><strong>TP</strong>: 161.8% ایکسٹینشن / اگلا S/R</p>
+<h3>ASCII — مکمل کانفلونس</h3>
+<pre><code>
+قیمت
+  │         ╱╲
+  │        ╱  ╲        ← 61.8% + S/R + پن بار
+  │       ╱    ╲      (تینوں ایک جگہ)
+  │      ╱      ╲╲
+  │     ╱        ╲╲  ← پن بار
+  │    ╱          ╲╲
+  │   ╱            ╲╲→ Buy
+  └──────────────────────────→ وقت
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: "فبوناچی لیول پر قیمت آئی" — یہ صرف <strong>آدھی</strong> کہانی ہے۔ باقی آدھی تصدیق ہے: پرائس ایکشن سگنل، S/R، اور رجحان۔ تین میں سے کم از کم دو کے بغیر داخلہ نہ لیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 25.6 فبوناچی کی کمزوریاں اور غلط استعمال</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>کمزوری</th>
+<th>وضاحت</th>
+<th>حل</th>
+</tr></thead><tbody>
+<tr>
+<td>ذاتی نوعیت</td>
+<td>جھولے کا انتخاب سب الگ کرتے ہیں — لیولز بدل جاتے ہیں</td>
+<td>مستقل قاعدہ بنائیں (مثلاً واضح جھولے)</td>
+</tr>
+<tr>
+<td>جھوٹے پلٹاؤ</td>
+<td>لیول پر پلٹاؤ ہمیشہ نہیں آتا</td>
+<td>پرائس ایکشن تصدیق لازمی</td>
+</tr>
+<tr>
+<td>سیلف فلنگ</td>
+<td>سب ایک لیول دیکھیں تو بعض اوقات قیمت وہاں نہیں رکتی</td>
+<td>لیول کو "زون" سمجھیں، پوائنٹ نہیں</td>
+</tr>
+<tr>
+<td>رجحان کے بغیر بیکار</td>
+<td>Range میں فبوناچی بے معنی</td>
+<td>پہلے رجحان طے کریں</td>
+</tr>
+</tbody></table>
+<h3>سب سے بڑی غلطی — غلط جھولہ انتخاب</h3>
+<ul>
+<li>جھولا <strong>اہم</strong> ہونا چاہیے — نمایاں Swing High/Low</li>
+<li>چھوٹے جھولوں پر بنایا فبوناچی بے معنی</li>
+<li>ایک ہی ٹائم فریم پر مستقل رہیں — مختلف ٹائم فریم پر لیولز الگ</li>
+</ul>
+<hr class="divider">
+<h2>⚠️ باب 25 کی عام غلطیاں</h2>
+<p>1. <strong>غلطی</strong>: فبوناچی کو بطور "پیش گوئی" ماننا — یہ ممکنہ زون ہے، یقینی لیول نہیں</p>
+<p>2. <strong>غلطی</strong>: بغیر پرائس ایکشن تصدیق کے لیول پر داخلہ — سب سے مہنگی غلطی</p>
+<p>3. <strong>غلطی</strong>: غلط جھولہ انتخاب — چھوٹے جھولے پر بے معنی فبوناچی</p>
+<p>4. <strong>غلطی</strong>: لیول کو بالکل "پوائنٹ" ماننا — زون سمجھیں (لیول ± چند پپس)</p>
+<p>5. <strong>غلطی</strong>: بہت سارے فبوناچی ٹولز — ایک وقت میں ایک ہی استعمال کریں</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>فبوناچی تسلسل سے نکلے تناسب: <strong>38.2%، 50%، 61.8%</strong> — پلٹاؤ کے ممکنہ زون</li>
+<li><strong>61.8% (گولڈن ریشو)</strong> سب سے مضبوط لیول — آخری دفاع</li>
+<li>ریٹریسمنٹ = <strong>پل بیک کی گہرائی</strong>؛ ایکسٹینشن = <strong>منافع کا ہدف</strong></li>
+<li>فبوناچی <strong>اکیلے کمزور</strong> — پرائس ایکشن + S/R + رجحان کے ساتھ مضبوط</li>
+<li><strong>کانفلونس</strong> سنہری اصول: جتنے زیادہ عوامل ایک لیول پر، اتنا مضبوط لیول</li>
+<li>لیول کو <strong>زون</strong> سمجھیں، پوائنٹ نہیں — اور جھولہ انتخاب مستقل رکھیں</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. اپنے چارٹ پر ایک واضح اپ ٹرینڈ جھولے پر <strong>فبوناچی ریٹریسمنٹ</strong> کھینچیں — 38.2%، 50%، 61.8% نشان زد کریں</p>
+<p>2. پچھلے 10 پل بیکس دیکھیں — قیمت کس لیول پر رکی؟ کس لیول پر نہیں رکی؟</p>
+<p>3. <strong>61.8% + S/R</strong> کا ملاپ تلاش کریں — وہاں قیمت کا ردعمل کیسا تھا؟</p>
+<p>4. ایک Buy ٹریڈ کی منصوبہ بندی کریں: داخلہ 61.8%، SL اس سے نیچے، TP 161.8% — R:R حساب کریں</p>
+<p>5. <strong>ڈیمو</strong> پر فبوناچی پل بیک سسٹم (رجحان + لیول + پن بار) 10 بار آزمائیں — نتائج لکھیں</p>
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+فبوناچی نقشے پر وہ مقامات ہیں جہاں سفر <strong>رک سکتا ہے</strong> — مگر سفر جاری رکھنے کا فیصلہ پرائس ایکشن کرتا ہے۔ اگلے باب میں ہم <strong>اچیموکو، والیوم اور دیگر جدید انڈیکیٹرز</strong> سیکھیں گے — جو آپ کے تجزیے کو مکمل کریں گے، اور یہیں حصہ 4 کا اختتام ہو گا۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter24.html">← پچھلا</a>
+        <a href="chapter26.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

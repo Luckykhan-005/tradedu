@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   TrendingUp,
   Mail,
@@ -10,13 +10,12 @@ import {
   Shield,
   KeyRound,
   CheckCircle,
-  Copy,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { api } from '@/lib/api'
+import { apiFetch } from '@/lib/api'
 
 interface AuthProps {
   onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => void
@@ -35,19 +34,42 @@ export function Auth({ onAuth }: AuthProps) {
   const [loginAs, setLoginAs] = useState<'student' | 'admin'>('student')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
-  const [resetToken, setResetToken] = useState('')
   const [tokenInput, setTokenInput] = useState('')
-  const [copied, setCopied] = useState(false)
+
+  // The reset email links to `/signin?email=…&resetToken=…` so the visitor does
+  // not have to copy a 48-character code by hand. The code is read from the URL
+  // and then removed from the address bar with `replaceState`, which keeps a
+  // single-use token out of browser history, out of the referrer sent to any
+  // later third-party request, and out of a screen-share or screenshot.
+  // Only a *pending* token ever reaches this component, and the server still
+  // enforces single use and the one-hour expiry.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const linkToken = params.get('resetToken')
+    if (!linkToken) return
+
+    const linkEmail = params.get('email')
+    setTokenInput(linkToken)
+    if (linkEmail) setEmail(linkEmail)
+    setView('forgot-reset')
+
+    params.delete('resetToken')
+    params.delete('email')
+    const query = params.toString()
+    window.history.replaceState(
+      {},
+      '',
+      window.location.pathname + (query ? `?${query}` : '') + window.location.hash
+    )
+  }, [])
 
   const resetForm = () => {
     setEmail('')
     setPassword('')
     setNewPassword('')
     setTokenInput('')
-    setResetToken('')
     setError('')
     setSuccess('')
-    setCopied(false)
   }
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -57,9 +79,8 @@ export function Auth({ onAuth }: AuthProps) {
 
     if (loginAs === 'admin') {
       try {
-        const res = await fetch(api('/api/admin/auth'), {
+        const res = await apiFetch('/api/admin/auth', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
         })
         const data = await res.json()
@@ -73,11 +94,10 @@ export function Auth({ onAuth }: AuthProps) {
         setError('Could not connect to server')
       }
     } else {
-      // Student login — try server first, fall back to simulated
+      // Student login — the server sets the HttpOnly session cookie on success.
       try {
-        const res = await fetch(api('/api/auth/login'), {
+        const res = await apiFetch('/api/auth/login', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
         })
         const data = await res.json()
@@ -99,9 +119,8 @@ export function Auth({ onAuth }: AuthProps) {
     setError('')
 
     try {
-        const res = await fetch(api('/api/auth/signup'), {
+      const res = await apiFetch('/api/auth/signup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, name }),
       })
       const data = await res.json()
@@ -123,20 +142,24 @@ export function Auth({ onAuth }: AuthProps) {
     setError('')
 
     try {
-        const res = await fetch(api('/api/auth/forgot-password'), {
+      const res = await apiFetch('/api/auth/forgot-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
-      const data = await res.json()
+      const data = await res.json().catch(() => ({}))
       if (!res.ok) {
         setError(data.error || 'Something went wrong')
         setLoading(false)
         return
       }
-      setResetToken(data.resetToken || '')
+      // The server always returns the same generic message and never includes
+      // the reset code in the body, so this response cannot be used to discover
+      // which email addresses have accounts.
+      setSuccess(
+        data.message ||
+        'If an account exists for that email, a reset code has been created.'
+      )
       setView('forgot-token')
-      setSuccess(data.message || 'Reset token generated.')
     } catch {
       setError('Could not connect to server')
     }
@@ -148,20 +171,28 @@ export function Auth({ onAuth }: AuthProps) {
     setLoading(true)
     setError('')
 
-    const token = tokenInput || resetToken
+    const token = tokenInput.trim()
     if (!token) {
-      setError('Please enter the reset token')
+      setError('Please enter the reset code you received')
+      setLoading(false)
+      return
+    }
+
+    // The production endpoint matches the token against the email it was issued
+    // for, so the address entered on the previous step must be sent along with it.
+    const resetEmail = email.trim()
+    if (!resetEmail) {
+      setError('Please go back and enter your email address')
       setLoading(false)
       return
     }
 
     try {
-        const res = await fetch(api('/api/auth/reset-password'), {
+      const res = await apiFetch('/api/auth/reset-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, newPassword }),
+        body: JSON.stringify({ email: resetEmail, token, newPassword }),
       })
-      const data = await res.json()
+      const data = await res.json().catch(() => ({}))
       if (!res.ok) {
         setError(data.error || 'Failed to reset password')
         setLoading(false)
@@ -178,12 +209,6 @@ export function Auth({ onAuth }: AuthProps) {
     setLoading(false)
   }
 
-  const handleCopyToken = () => {
-    navigator.clipboard.writeText(resetToken)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   const renderView = () => {
     switch (view) {
       case 'forgot-email':
@@ -195,7 +220,7 @@ export function Auth({ onAuth }: AuthProps) {
               </div>
               <h2 className="text-lg font-bold">Reset Your Password</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                Enter your email address and we'll generate a reset token for you.
+                Enter your email address and we'll send you a password reset link.
               </p>
             </div>
 
@@ -226,7 +251,7 @@ export function Auth({ onAuth }: AuthProps) {
                 {loading ? (
                   <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 ) : (
-                  <>Send Reset Token <ArrowRight className="h-4 w-4" /></>
+                  <>Send Reset Link <ArrowRight className="h-4 w-4" /></>
                 )}
               </Button>
             </form>
@@ -246,9 +271,10 @@ export function Auth({ onAuth }: AuthProps) {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 mx-auto mb-3">
                 <CheckCircle className="h-6 w-6 text-green-600" />
               </div>
-              <h2 className="text-lg font-bold">Check Your Reset Token</h2>
+              <h2 className="text-lg font-bold">Check Your Email</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                In production, this token would be sent to your email. For now, copy it below.
+                If an account exists for that email address, we've sent a password reset code.
+                Enter the code on the next screen to choose a new password.
               </p>
             </div>
 
@@ -258,32 +284,9 @@ export function Auth({ onAuth }: AuthProps) {
               </div>
             )}
 
-            {resetToken && (
-              <div className="space-y-3">
-                <div className="relative">
-                  <Input
-                    readOnly
-                    value={resetToken}
-                    className="font-mono text-xs pr-10 bg-secondary/50"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleCopyToken}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md hover:bg-secondary"
-                  >
-                    {copied ? (
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                    ) : (
-                      <Copy className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </button>
-                </div>
-
-                <Button className="w-full gap-2" onClick={() => setView('forgot-reset')}>
-                  Enter New Password <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            )}
+            <Button className="w-full gap-2" onClick={() => setView('forgot-reset')}>
+              Enter Reset Code <ArrowRight className="h-4 w-4" />
+            </Button>
 
             <div className="mt-4 text-center text-sm">
               <button onClick={() => { resetForm(); setView('forgot-email') }} className="text-primary hover:underline font-medium">
@@ -302,7 +305,7 @@ export function Auth({ onAuth }: AuthProps) {
               </div>
               <h2 className="text-lg font-bold">Set New Password</h2>
               <p className="text-sm text-muted-foreground mt-1">
-                Enter your reset token and choose a new password.
+                Enter the reset code from your email and choose a new password.
               </p>
             </div>
 
@@ -319,28 +322,20 @@ export function Auth({ onAuth }: AuthProps) {
             )}
 
             <form onSubmit={handleResetPassword} className="space-y-4">
-              {!resetToken && (
-                <div className="space-y-2">
-                  <Label htmlFor="reset-token">Reset Token</Label>
-                  <div className="relative">
-                    <KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="reset-token"
-                      placeholder="Paste your reset token here"
-                      value={tokenInput}
-                      onChange={(e) => setTokenInput(e.target.value)}
-                      className="pl-9 font-mono text-xs"
-                      required={!resetToken}
-                    />
-                  </div>
+              <div className="space-y-2">
+                <Label htmlFor="reset-token">Reset Code</Label>
+                <div className="relative">
+                  <KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="reset-token"
+                    placeholder="Paste the reset code from your email"
+                    value={tokenInput}
+                    onChange={(e) => setTokenInput(e.target.value)}
+                    className="pl-9 font-mono text-xs"
+                    required
+                  />
                 </div>
-              )}
-
-              {resetToken && (
-                <div className="rounded-lg bg-secondary/50 px-4 py-3 text-xs text-muted-foreground">
-                  <span className="font-medium">Token:</span> {resetToken.slice(0, 8)}...{resetToken.slice(-8)}
-                </div>
-              )}
+              </div>
 
               <div className="space-y-2">
                 <Label htmlFor="new-password">New Password</Label>
@@ -349,12 +344,12 @@ export function Auth({ onAuth }: AuthProps) {
                   <Input
                     id="new-password"
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="At least 6 characters"
+                    placeholder="At least 8 characters"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     className="pl-9 pr-9"
                     required
-                    minLength={6}
+                    minLength={8}
                   />
                   <button
                     type="button"
@@ -391,21 +386,19 @@ export function Auth({ onAuth }: AuthProps) {
             <div className="flex rounded-lg bg-secondary p-1 mb-6">
               <button
                 onClick={() => { setView('signin'); resetForm(); }}
-                className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
-                  view === 'signin'
-                    ? 'bg-white shadow-sm text-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${view === 'signin'
+                  ? 'bg-white shadow-sm text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 Sign In
               </button>
               <button
                 onClick={() => { setView('signup'); resetForm(); }}
-                className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
-                  view === 'signup'
-                    ? 'bg-white shadow-sm text-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${view === 'signup'
+                  ? 'bg-white shadow-sm text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 Sign Up
               </button>
@@ -424,11 +417,10 @@ export function Auth({ onAuth }: AuthProps) {
                   <button
                     type="button"
                     onClick={() => setLoginAs('student')}
-                    className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${
-                      loginAs === 'student'
-                        ? 'bg-white shadow-sm text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                    className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${loginAs === 'student'
+                      ? 'bg-white shadow-sm text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
+                      }`}
                   >
                     <User className="h-3.5 w-3.5" />
                     Student
@@ -436,11 +428,10 @@ export function Auth({ onAuth }: AuthProps) {
                   <button
                     type="button"
                     onClick={() => setLoginAs('admin')}
-                    className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${
-                      loginAs === 'admin'
-                        ? 'bg-white shadow-sm text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                    className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${loginAs === 'admin'
+                      ? 'bg-white shadow-sm text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
+                      }`}
                   >
                     <Shield className="h-3.5 w-3.5" />
                     Administrator

@@ -11,7 +11,7 @@ import {
   Search,
   BarChart3,
 } from 'lucide-react'
-import { api } from '@/lib/api'
+import { api, apiFetch } from '@/lib/api'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -66,9 +66,7 @@ export function Journal({ user, onSignIn }: JournalProps) {
     if (!user) return
     setLoading(true)
     try {
-      const res = await fetch(api('/api/journal'), {
-        headers: { 'x-user-email': user.email },
-      })
+      const res = await apiFetch('/api/journal')
       const data = await res.json()
       setEntries(data.entries || [])
     } catch {
@@ -145,9 +143,8 @@ export function Journal({ user, onSignIn }: JournalProps) {
       pnl: form.exit ? String((parseFloat(form.exit) - parseFloat(form.entry)) * (form.direction === 'long' ? 1 : -1)) : '',
     }
     try {
-      await fetch(url, {
+      await apiFetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json', 'x-user-email': user.email },
         body: JSON.stringify(body),
       })
       setShowForm(false)
@@ -159,7 +156,7 @@ export function Journal({ user, onSignIn }: JournalProps) {
 
   const remove = async (id: string) => {
     try {
-      await fetch(api(`/api/journal/${id}`), { method: 'DELETE' })
+      await apiFetch(`/api/journal/${id}`, { method: 'DELETE' })
       fetchEntries()
     } catch (err) {
       console.error(err)

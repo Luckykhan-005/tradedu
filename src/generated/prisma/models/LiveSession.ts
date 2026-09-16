@@ -186,7 +186,7 @@ export type LiveSessionGroupByOutputType = {
   _max: LiveSessionMaxAggregateOutputType | null
 }
 
-type GetLiveSessionGroupByPayload<T extends LiveSessionGroupByArgs> = Prisma.PrismaPromise<
+export type GetLiveSessionGroupByPayload<T extends LiveSessionGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<LiveSessionGroupByOutputType, T['by']> &
       {

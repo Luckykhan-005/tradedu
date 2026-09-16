@@ -87,6 +87,16 @@ export type QuizResult = Prisma.QuizResultModel
  */
 export type PasswordResetToken = Prisma.PasswordResetTokenModel
 /**
+ * Model AdminSession
+ * 
+ */
+export type AdminSession = Prisma.AdminSessionModel
+/**
+ * Model StudentSession
+ * 
+ */
+export type StudentSession = Prisma.StudentSessionModel
+/**
  * Model JournalEntry
  * 
  */

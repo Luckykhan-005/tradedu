@@ -42,6 +42,22 @@ interface AiTool {
   category: 'signals' | 'scanner' | 'analysis' | 'multi-asset' | 'intelligence' | 'setup'
 }
 
+/**
+ * Only absolute http(s) URLs are considered launchable. A tool whose url is
+ * empty or a placeholder (e.g. example.com) is shown as unavailable instead of
+ * being loaded into the iframe, so a broken link can never reach a student.
+ */
+function isLaunchable(url: string): boolean {
+  try {
+    const parsed = new URL(url)
+    return (parsed.protocol === 'http:' || parsed.protocol === 'https:')
+      && !/(^|\.)example\.(com|org|net)$/i.test(parsed.hostname)
+      && parsed.hostname.length > 0
+  } catch {
+    return false
+  }
+}
+
 const aiTools: AiTool[] = [
   {
     id: 'alphatrade',
@@ -197,34 +213,6 @@ const aiTools: AiTool[] = [
     },
     category: 'analysis',
   },
-  {
-    id: '6thapp',
-    name: 'Crypto Signals Pro',
-    tagline: 'Advanced AI Signal Generation',
-    url: 'https://6da7ff6d-cb66-4cc5-ba60-bc81256a81ec.preview.shogo.ai/',
-    icon: Shield,
-    color: 'text-red-600',
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
-    uniqueStrength: 'Advanced crypto signal analysis',
-    description:
-      'Advanced crypto signal generation platform with AI-powered analysis. Provides comprehensive trade setups with entry/exit points, stop losses, and confidence levels.',
-    features: [
-      'AI Signal Generation',
-      'Multi-timeframe Analysis',
-      'Trade Setup Creation',
-      'Risk Assessment',
-      'Market Condition Analysis',
-      'Confidence Scoring',
-    ],
-    indicators: ['Technical Indicators', 'Volume Analysis', 'Price Action', 'Momentum'],
-    signalFormat: {
-      example: 'BTCUSDT — Signal | Entry / TP / SL | R/R Ratio | Confidence Level',
-      timeframe: 'Multiple',
-      confidence: 'Variable',
-    },
-    category: 'signals',
-  },
 ]
 
 const categoryInfo: Record<string, { label: string; color: string }> = {
@@ -251,6 +239,8 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
   }
 
   const openApp = (tool: AiTool) => {
+    // Never mount an iframe for a tool whose address is missing or a placeholder.
+    if (!isLaunchable(tool.url)) return
     setActiveApp(tool)
   }
 
@@ -428,10 +418,11 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                     <div className="flex gap-2">
                       <Button
                         className="flex-1 gap-2"
+                        disabled={!isLaunchable(tool.url)}
                         onClick={() => openApp(tool)}
                       >
                         <Eye className="h-4 w-4" />
-                        Use Tool
+                        {isLaunchable(tool.url) ? 'Use Tool' : 'Coming Soon'}
                       </Button>
                       <Button
                         variant="outline"
@@ -530,8 +521,8 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
 function Clock(props: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="12" r="10"/>
-      <polyline points="12 6 12 12 16 14"/>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
     </svg>
   )
 }

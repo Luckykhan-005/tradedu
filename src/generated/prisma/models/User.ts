@@ -193,7 +193,7 @@ export type UserGroupByOutputType = {
   _max: UserMaxAggregateOutputType | null
 }
 
-type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+export type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UserGroupByOutputType, T['by']> &
       {
@@ -227,6 +227,7 @@ export type UserWhereInput = {
   quizzes?: Prisma.QuizResultListRelationFilter
   sessions?: Prisma.LiveSessionListRelationFilter
   journalEntries?: Prisma.JournalEntryListRelationFilter
+  studentSessions?: Prisma.StudentSessionListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -245,6 +246,7 @@ export type UserOrderByWithRelationInput = {
   quizzes?: Prisma.QuizResultOrderByRelationAggregateInput
   sessions?: Prisma.LiveSessionOrderByRelationAggregateInput
   journalEntries?: Prisma.JournalEntryOrderByRelationAggregateInput
+  studentSessions?: Prisma.StudentSessionOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -266,6 +268,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   quizzes?: Prisma.QuizResultListRelationFilter
   sessions?: Prisma.LiveSessionListRelationFilter
   journalEntries?: Prisma.JournalEntryListRelationFilter
+  studentSessions?: Prisma.StudentSessionListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -316,6 +319,7 @@ export type UserCreateInput = {
   quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -334,6 +338,7 @@ export type UserUncheckedCreateInput = {
   quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -352,6 +357,7 @@ export type UserUpdateInput = {
   quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -370,6 +376,7 @@ export type UserUncheckedUpdateInput = {
   quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -527,6 +534,20 @@ export type UserUpdateOneRequiredWithoutQuizzesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutQuizzesInput, Prisma.UserUpdateWithoutQuizzesInput>, Prisma.UserUncheckedUpdateWithoutQuizzesInput>
 }
 
+export type UserCreateNestedOneWithoutStudentSessionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStudentSessionsInput, Prisma.UserUncheckedCreateWithoutStudentSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStudentSessionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutStudentSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutStudentSessionsInput, Prisma.UserUncheckedCreateWithoutStudentSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutStudentSessionsInput
+  upsert?: Prisma.UserUpsertWithoutStudentSessionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutStudentSessionsInput, Prisma.UserUpdateWithoutStudentSessionsInput>, Prisma.UserUncheckedUpdateWithoutStudentSessionsInput>
+}
+
 export type UserCreateNestedOneWithoutJournalEntriesInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutJournalEntriesInput, Prisma.UserUncheckedCreateWithoutJournalEntriesInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutJournalEntriesInput
@@ -556,6 +577,7 @@ export type UserCreateWithoutEnrollmentsInput = {
   quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutEnrollmentsInput = {
@@ -573,6 +595,7 @@ export type UserUncheckedCreateWithoutEnrollmentsInput = {
   quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutEnrollmentsInput = {
@@ -606,6 +629,7 @@ export type UserUpdateWithoutEnrollmentsInput = {
   quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutEnrollmentsInput = {
@@ -623,6 +647,7 @@ export type UserUncheckedUpdateWithoutEnrollmentsInput = {
   quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutProgressInput = {
@@ -640,6 +665,7 @@ export type UserCreateWithoutProgressInput = {
   quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutProgressInput = {
@@ -657,6 +683,7 @@ export type UserUncheckedCreateWithoutProgressInput = {
   quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutProgressInput = {
@@ -690,6 +717,7 @@ export type UserUpdateWithoutProgressInput = {
   quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProgressInput = {
@@ -707,6 +735,7 @@ export type UserUncheckedUpdateWithoutProgressInput = {
   quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -724,6 +753,7 @@ export type UserCreateWithoutSessionsInput = {
   progress?: Prisma.ProgressCreateNestedManyWithoutUserInput
   quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
   journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -741,6 +771,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   progress?: Prisma.ProgressUncheckedCreateNestedManyWithoutUserInput
   quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
   journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -774,6 +805,7 @@ export type UserUpdateWithoutSessionsInput = {
   progress?: Prisma.ProgressUpdateManyWithoutUserNestedInput
   quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
   journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -791,6 +823,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   progress?: Prisma.ProgressUncheckedUpdateManyWithoutUserNestedInput
   quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutQuizzesInput = {
@@ -808,6 +841,7 @@ export type UserCreateWithoutQuizzesInput = {
   progress?: Prisma.ProgressCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutQuizzesInput = {
@@ -825,6 +859,7 @@ export type UserUncheckedCreateWithoutQuizzesInput = {
   progress?: Prisma.ProgressUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
   journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutQuizzesInput = {
@@ -858,6 +893,7 @@ export type UserUpdateWithoutQuizzesInput = {
   progress?: Prisma.ProgressUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutQuizzesInput = {
@@ -873,6 +909,95 @@ export type UserUncheckedUpdateWithoutQuizzesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
   progress?: Prisma.ProgressUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
+  journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutStudentSessionsInput = {
+  id?: string
+  email: string
+  name?: string | null
+  passwordHash?: string | null
+  role?: string
+  plan?: string
+  planExpiresAt?: Date | string | null
+  avatar?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  enrollments?: Prisma.EnrollmentCreateNestedManyWithoutUserInput
+  progress?: Prisma.ProgressCreateNestedManyWithoutUserInput
+  quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
+  sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
+  journalEntries?: Prisma.JournalEntryCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutStudentSessionsInput = {
+  id?: string
+  email: string
+  name?: string | null
+  passwordHash?: string | null
+  role?: string
+  plan?: string
+  planExpiresAt?: Date | string | null
+  avatar?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  enrollments?: Prisma.EnrollmentUncheckedCreateNestedManyWithoutUserInput
+  progress?: Prisma.ProgressUncheckedCreateNestedManyWithoutUserInput
+  quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
+  journalEntries?: Prisma.JournalEntryUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutStudentSessionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutStudentSessionsInput, Prisma.UserUncheckedCreateWithoutStudentSessionsInput>
+}
+
+export type UserUpsertWithoutStudentSessionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutStudentSessionsInput, Prisma.UserUncheckedUpdateWithoutStudentSessionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutStudentSessionsInput, Prisma.UserUncheckedCreateWithoutStudentSessionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutStudentSessionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutStudentSessionsInput, Prisma.UserUncheckedUpdateWithoutStudentSessionsInput>
+}
+
+export type UserUpdateWithoutStudentSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.StringFieldUpdateOperationsInput | string
+  planExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enrollments?: Prisma.EnrollmentUpdateManyWithoutUserNestedInput
+  progress?: Prisma.ProgressUpdateManyWithoutUserNestedInput
+  quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
+  journalEntries?: Prisma.JournalEntryUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutStudentSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.StringFieldUpdateOperationsInput | string
+  planExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  enrollments?: Prisma.EnrollmentUncheckedUpdateManyWithoutUserNestedInput
+  progress?: Prisma.ProgressUncheckedUpdateManyWithoutUserNestedInput
+  quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
   journalEntries?: Prisma.JournalEntryUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -892,6 +1017,7 @@ export type UserCreateWithoutJournalEntriesInput = {
   progress?: Prisma.ProgressCreateNestedManyWithoutUserInput
   quizzes?: Prisma.QuizResultCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionCreateNestedManyWithoutInstructorInput
+  studentSessions?: Prisma.StudentSessionCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutJournalEntriesInput = {
@@ -909,6 +1035,7 @@ export type UserUncheckedCreateWithoutJournalEntriesInput = {
   progress?: Prisma.ProgressUncheckedCreateNestedManyWithoutUserInput
   quizzes?: Prisma.QuizResultUncheckedCreateNestedManyWithoutUserInput
   sessions?: Prisma.LiveSessionUncheckedCreateNestedManyWithoutInstructorInput
+  studentSessions?: Prisma.StudentSessionUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutJournalEntriesInput = {
@@ -942,6 +1069,7 @@ export type UserUpdateWithoutJournalEntriesInput = {
   progress?: Prisma.ProgressUpdateManyWithoutUserNestedInput
   quizzes?: Prisma.QuizResultUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUpdateManyWithoutInstructorNestedInput
+  studentSessions?: Prisma.StudentSessionUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutJournalEntriesInput = {
@@ -959,6 +1087,7 @@ export type UserUncheckedUpdateWithoutJournalEntriesInput = {
   progress?: Prisma.ProgressUncheckedUpdateManyWithoutUserNestedInput
   quizzes?: Prisma.QuizResultUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.LiveSessionUncheckedUpdateManyWithoutInstructorNestedInput
+  studentSessions?: Prisma.StudentSessionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -972,6 +1101,7 @@ export type UserCountOutputType = {
   quizzes: number
   sessions: number
   journalEntries: number
+  studentSessions: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -980,6 +1110,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   quizzes?: boolean | UserCountOutputTypeCountQuizzesArgs
   sessions?: boolean | UserCountOutputTypeCountSessionsArgs
   journalEntries?: boolean | UserCountOutputTypeCountJournalEntriesArgs
+  studentSessions?: boolean | UserCountOutputTypeCountStudentSessionsArgs
 }
 
 /**
@@ -1027,6 +1158,13 @@ export type UserCountOutputTypeCountJournalEntriesArgs<ExtArgs extends runtime.T
   where?: Prisma.JournalEntryWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountStudentSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.StudentSessionWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1044,6 +1182,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   quizzes?: boolean | Prisma.User$quizzesArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   journalEntries?: boolean | Prisma.User$journalEntriesArgs<ExtArgs>
+  studentSessions?: boolean | Prisma.User$studentSessionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1093,6 +1232,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   quizzes?: boolean | Prisma.User$quizzesArgs<ExtArgs>
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   journalEntries?: boolean | Prisma.User$journalEntriesArgs<ExtArgs>
+  studentSessions?: boolean | Prisma.User$studentSessionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1106,6 +1246,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     quizzes: Prisma.$QuizResultPayload<ExtArgs>[]
     sessions: Prisma.$LiveSessionPayload<ExtArgs>[]
     journalEntries: Prisma.$JournalEntryPayload<ExtArgs>[]
+    studentSessions: Prisma.$StudentSessionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1517,6 +1658,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   quizzes<T extends Prisma.User$quizzesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$quizzesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuizResultPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sessions<T extends Prisma.User$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LiveSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   journalEntries<T extends Prisma.User$journalEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$journalEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$JournalEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  studentSessions<T extends Prisma.User$studentSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$studentSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StudentSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2064,6 +2206,30 @@ export type User$journalEntriesArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.JournalEntryScalarFieldEnum | Prisma.JournalEntryScalarFieldEnum[]
+}
+
+/**
+ * User.studentSessions
+ */
+export type User$studentSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the StudentSession
+   */
+  select?: Prisma.StudentSessionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the StudentSession
+   */
+  omit?: Prisma.StudentSessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.StudentSessionInclude<ExtArgs> | null
+  where?: Prisma.StudentSessionWhereInput
+  orderBy?: Prisma.StudentSessionOrderByWithRelationInput | Prisma.StudentSessionOrderByWithRelationInput[]
+  cursor?: Prisma.StudentSessionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.StudentSessionScalarFieldEnum | Prisma.StudentSessionScalarFieldEnum[]
 }
 
 /**

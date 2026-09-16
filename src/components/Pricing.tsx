@@ -1,95 +1,51 @@
-import { useState } from 'react'
-import { Check, X, Zap, Star, Crown, Sparkles, ArrowRight, CreditCard } from 'lucide-react'
+import { Check, X, Zap, Star, Crown, Sparkles, ArrowRight } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/cn'
+import { PLAN_CATALOG, PAYMENT_CONTACT, planNameOf } from '@/lib/payment'
 
-interface Plan {
-  id: string
-  name: string
-  price: number
-  period: string
+/**
+ * Prices, names and entitlements live in src/lib/payment.ts (PLAN_CATALOG).
+ * The presentation metadata below (colors, icons) is the only thing defined
+ * here, so the pricing table, the subscribe form and the payment instructions
+ * can never drift apart and quote a student two different amounts.
+ */
+type Plan = (typeof PLAN_CATALOG)[number] & {
   color: string
   bgGradient: string
   borderColor: string
   icon: typeof Zap
   iconColor: string
   popular?: boolean
-  features: { label: string; included: boolean }[]
 }
 
-const plans: Plan[] = [
-  {
-    id: 'FREE',
-    name: 'Free',
-    price: 0,
-    period: 'forever',
+const styleMeta: Record<string, Pick<Plan, 'color' | 'bgGradient' | 'borderColor' | 'icon' | 'iconColor' | 'popular'>> = {
+  FREE: {
     color: 'text-slate-600',
     bgGradient: 'from-slate-50 to-slate-100',
     borderColor: 'border-slate-200',
     icon: Star,
     iconColor: 'text-slate-500',
-    features: [
-      { label: 'Free video lectures only', included: true },
-      { label: 'Free books', included: true },
-      { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
-      { label: 'Trading Journal (limited)', included: true },
-      { label: 'All video lectures', included: false },
-      { label: 'Course certificates', included: false },
-      { label: 'AI Trading Tools', included: false },
-      { label: 'Live Sessions', included: false },
-      { label: 'Premium books', included: false },
-    ],
   },
-  {
-    id: 'STARTER',
-    name: 'Starter',
-    price: 10,
-    period: 'month',
+  STARTER: {
     color: 'text-blue-600',
     bgGradient: 'from-blue-50 to-blue-100',
     borderColor: 'border-blue-300',
     icon: Zap,
     iconColor: 'text-blue-500',
     popular: true,
-    features: [
-      { label: 'All video lectures', included: true },
-      { label: 'All books', included: true },
-      { label: 'Course certificates', included: true },
-      { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
-      { label: 'Trading Journal', included: true },
-      { label: 'Free video lectures only', included: false },
-      { label: 'AI Trading Tools', included: false },
-      { label: 'Live Sessions', included: false },
-    ],
   },
-  {
-    id: 'PREMIUM',
-    name: 'Premium',
-    price: 50,
-    period: 'month',
+  PREMIUM: {
     color: 'text-amber-600',
     bgGradient: 'from-amber-50 to-amber-100',
     borderColor: 'border-amber-300',
     icon: Crown,
     iconColor: 'text-amber-500',
-    features: [
-      { label: 'All video lectures', included: true },
-      { label: 'All books', included: true },
-      { label: 'Course certificates', included: true },
-      { label: 'AI Trading Tools', included: true },
-      { label: 'Live Sessions', included: true },
-      { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
-      { label: 'Trading Journal', included: true },
-      { label: 'Priority support', included: true },
-    ],
   },
-]
+}
+
+const plans: Plan[] = PLAN_CATALOG.map((p) => ({ ...p, ...styleMeta[p.id] }))
 
 interface PricingProps {
   currentPlan: string
@@ -98,9 +54,7 @@ interface PricingProps {
   onSubscribe: (plan: string) => void
 }
 
-export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps) {
-  const planNames: Record<string, string> = { FREE: 'Free', STARTER: 'Starter', PREMIUM: 'Premium' }
-
+export function Pricing({ currentPlan, user, onSubscribe }: PricingProps) {
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
@@ -113,7 +67,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             Unlock the full potential of TradeEd. Pick the plan that fits your trading journey.
             {user && (
               <span className="ml-2 font-medium text-foreground">
-                Current plan: <span className="text-primary">{planNames[currentPlan] || 'Free'}</span>
+                Current plan: <span className="text-primary">{planNameOf(currentPlan)}</span>
               </span>
             )}
           </p>
@@ -155,10 +109,18 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
                     </div>
                     <h2 className="text-xl font-bold">{plan.name}</h2>
                     <div className="mt-2">
-                      <span className="text-4xl font-bold">${plan.price}</span>
-                      <span className="text-muted-foreground">/{plan.period}</span>
+                      <span className={cn('font-bold', plan.price === 0 ? 'text-2xl' : 'text-3xl')}>
+                        {plan.display}
+                      </span>
+                      {plan.price > 0 && (
+                        <span className="text-muted-foreground"> /{plan.period}</span>
+                      )}
                     </div>
-                    {plan.price === 0 && <span className="text-sm text-muted-foreground">No credit card needed</span>}
+                    {plan.price > 0 && (
+                      <span className="text-sm text-muted-foreground">
+                        Paid by JazzCash or Easypaisa transfer
+                      </span>
+                    )}
                   </div>
 
                   <Separator className="mb-4" />
@@ -177,7 +139,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
                   </ul>
 
                   <Button
-                    className={cn('mt-6 w-full gap-2', plan.popular && '')}
+                    className="mt-6 w-full gap-2"
                     variant={plan.popular || !isCurrent ? 'default' : 'outline'}
                     disabled={isCurrent}
                     onClick={() => onSubscribe(plan.id)}
@@ -203,7 +165,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             <p className="mb-4 text-muted-foreground">
               Contact us for team discounts, institutional access, or custom plans.
             </p>
-            <a href="mailto:jamalkhanlashari005@gmail.com">
+            <a href={`mailto:${PAYMENT_CONTACT.email}`}>
               <Button variant="outline">Contact Sales</Button>
             </a>
           </CardContent>

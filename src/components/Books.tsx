@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   BookOpen,
   CandlestickChart,
@@ -17,6 +17,7 @@ import {
   Target,
   Trophy,
 } from 'lucide-react'
+import { apiFetch } from '@/lib/api'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -40,7 +41,7 @@ interface BookItem {
 
 interface BooksProps {
   onBack: () => void
-  user?: { plan?: string } | null
+  user?: { plan?: string; email?: string } | null
   onUpgrade?: () => void
 }
 
@@ -130,9 +131,9 @@ const books: BookItem[] = [
     title: 'Forex Trading Course',
     titleUrdu: 'فاریکس ٹریڈنگ کورس',
     description:
-      'Complete forex trading education in Urdu — Beginner to Advanced. Learn currency pairs, pips, trends, indicators, risk management, and professional strategies.',
-    chapters: 24,
-    pages: '3 phases',
+      'Complete forex trading education in Urdu — from zero to expert. 9 parts, 57 chapters covering currency pairs, pips, candlesticks, price action, indicators, chart patterns, fundamentals, risk management, psychology, brokers, MT4/5, and advanced systems.',
+    chapters: 57,
+    pages: '9 parts',
     icon: TrendingUp,
     color: 'text-blue-600',
     bgColor: 'bg-blue-50',
@@ -260,11 +261,39 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
   const userPlan = user?.plan || 'FREE'
   const planRank = { FREE: 0, STARTER: 1, PREMIUM: 2 } as Record<string, number>
 
+  // Lock state mirrors the server's book catalogue. The client value is only a
+  // hint for the UI — the API re-checks the plan on every chapter request, so
+  // tampering with this state cannot release paid content.
+  const [serverAccess, setServerAccess] = useState<Record<string, { locked: boolean; entry: string }>>({})
+
+  useEffect(() => {
+    if (!user) return
+    let cancelled = false
+    const loadAccess = async () => {
+      try {
+        const res = await apiFetch('/api/books')
+        if (!res.ok) return
+        const data = await res.json()
+        if (cancelled || !Array.isArray(data?.books)) return
+        const map: Record<string, { locked: boolean; entry: string }> = {}
+        for (const b of data.books) map[b.id] = { locked: !!b.locked, entry: b.entry }
+        setServerAccess(map)
+      } catch { /* fall back to the local plan check below */ }
+    }
+    loadAccess()
+    return () => { cancelled = true }
+  }, [user])
+
   const isLocked = (book: BookItem) => {
     if (!book.plan || book.plan === 'FREE') return false
     if (!user) return true
+    const known = serverAccess[book.id]
+    if (known) return known.locked
     return (planRank[userPlan] || 0) < (planRank[book.plan] || 0)
   }
+
+  /** Paid books are served from the gated API; free books from the static CDN. */
+  const readerSrc = (book: BookItem) => serverAccess[book.id]?.entry || '/api/books/' + book.id + '/'
 
   if (openBook) {
     return (
@@ -294,7 +323,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
           </div>
         </div>
         <iframe
-          src={openBook.href}
+          src={readerSrc(openBook)}
           title={openBook.title}
           className="min-h-[calc(100vh-57px)] w-full flex-1 border-0"
         />
@@ -330,91 +359,91 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
               setOpenBook(book)
             }
             return (
-            <Card key={book.id} className="overflow-hidden">
-              <CardContent className="p-0">
-                {/* Cover image */}
-                {book.cover ? (
-                  <button
-                    className="relative block w-full cursor-pointer"
-                    onClick={handleOpen}
-                    aria-label={`Open ${book.title}`}
-                  >
-                    <img
-                      src={book.cover}
-                      alt={book.title}
-                      className="h-auto w-full object-cover"
-                    />
-                    {locked && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-[2px]">
-                        <div className="flex flex-col items-center gap-2">
-                          <ShieldCheck className="h-10 w-10 text-amber-400" />
-                          <span className="rounded-full bg-amber-500 px-4 py-1 text-sm font-semibold text-white">
-                            {book.plan === 'PREMIUM' ? 'Premium' : 'Starter'} Plan
-                          </span>
+              <Card key={book.id} className="overflow-hidden">
+                <CardContent className="p-0">
+                  {/* Cover image */}
+                  {book.cover ? (
+                    <button
+                      className="relative block w-full cursor-pointer"
+                      onClick={handleOpen}
+                      aria-label={`Open ${book.title}`}
+                    >
+                      <img
+                        src={book.cover}
+                        alt={book.title}
+                        className="h-auto w-full object-cover"
+                      />
+                      {locked && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-[2px]">
+                          <div className="flex flex-col items-center gap-2">
+                            <ShieldCheck className="h-10 w-10 text-amber-400" />
+                            <span className="rounded-full bg-amber-500 px-4 py-1 text-sm font-semibold text-white">
+                              {book.plan === 'PREMIUM' ? 'Premium' : 'Starter'} Plan
+                            </span>
+                          </div>
                         </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 text-left">
+                        <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
+                        <p className="text-lg text-white/90" dir="rtl">
+                          {book.titleUrdu}
+                        </p>
                       </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-left">
-                      <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
-                      <p className="text-lg text-white/90" dir="rtl">
-                        {book.titleUrdu}
-                      </p>
+                    </button>
+                  ) : (
+                    <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                        <book.icon className={`h-7 w-7 ${book.color}`} />
+                      </div>
+                      <div className="min-w-0">
+                        <h2 className="text-xl font-bold">{book.title}</h2>
+                        <p className="text-lg text-muted-foreground" dir="rtl">
+                          {book.titleUrdu}
+                        </p>
+                      </div>
                     </div>
-                  </button>
-                ) : (
-                  <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-                      <book.icon className={`h-7 w-7 ${book.color}`} />
+                  )}
+                  <div className="p-5 pt-4">
+                    <p className="text-muted-foreground">{book.description}</p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {book.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
                     </div>
-                    <div className="min-w-0">
-                      <h2 className="text-xl font-bold">{book.title}</h2>
-                      <p className="text-lg text-muted-foreground" dir="rtl">
-                        {book.titleUrdu}
-                      </p>
+
+                    <div className="mt-4 flex items-center gap-6 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <Layers className="h-4 w-4" />
+                        {book.chapters} Chapters
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <FileText className="h-4 w-4" />
+                        {book.pages}
+                      </span>
                     </div>
+
+                    <Separator className="my-4" />
+
+                    <Button className="w-full gap-2" onClick={handleOpen} variant={locked ? 'outline' : 'default'}>
+                      {locked ? (
+                        <>
+                          <ShieldCheck className="h-4 w-4" />
+                          Upgrade to Read
+                        </>
+                      ) : (
+                        <>
+                          <GraduationCap className="h-4 w-4" />
+                          Open Book
+                        </>
+                      )}
+                    </Button>
                   </div>
-                )}
-                <div className="p-5 pt-4">
-                  <p className="text-muted-foreground">{book.description}</p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {book.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 flex items-center gap-6 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1.5">
-                      <Layers className="h-4 w-4" />
-                      {book.chapters} Chapters
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <FileText className="h-4 w-4" />
-                      {book.pages}
-                    </span>
-                  </div>
-
-                  <Separator className="my-4" />
-
-                  <Button className="w-full gap-2" onClick={handleOpen} variant={locked ? 'outline' : 'default'}>
-                    {locked ? (
-                      <>
-                        <ShieldCheck className="h-4 w-4" />
-                        Upgrade to Read
-                      </>
-                    ) : (
-                      <>
-                        <GraduationCap className="h-4 w-4" />
-                        Open Book
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
             )
           })}
         </div>

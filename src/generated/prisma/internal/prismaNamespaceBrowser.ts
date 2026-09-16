@@ -60,6 +60,8 @@ export const ModelName = {
   LiveSession: 'LiveSession',
   QuizResult: 'QuizResult',
   PasswordResetToken: 'PasswordResetToken',
+  AdminSession: 'AdminSession',
+  StudentSession: 'StudentSession',
   JournalEntry: 'JournalEntry',
   SubscriptionRequest: 'SubscriptionRequest'
 } as const
@@ -201,6 +203,30 @@ export const PasswordResetTokenScalarFieldEnum = {
 } as const
 
 export type PasswordResetTokenScalarFieldEnum = (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum]
+
+
+export const AdminSessionScalarFieldEnum = {
+  id: 'id',
+  tokenHash: 'tokenHash',
+  email: 'email',
+  createdAt: 'createdAt',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt'
+} as const
+
+export type AdminSessionScalarFieldEnum = (typeof AdminSessionScalarFieldEnum)[keyof typeof AdminSessionScalarFieldEnum]
+
+
+export const StudentSessionScalarFieldEnum = {
+  id: 'id',
+  tokenHash: 'tokenHash',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt'
+} as const
+
+export type StudentSessionScalarFieldEnum = (typeof StudentSessionScalarFieldEnum)[keyof typeof StudentSessionScalarFieldEnum]
 
 
 export const JournalEntryScalarFieldEnum = {

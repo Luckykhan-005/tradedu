@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 12 — سپورٹ اور ریزسٹنس (Support & Resistance)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 12: سپورٹ اور ریزسٹنس (Support &amp; Resistance)</h1>
+<div class="info"><p>
+ہر قیمت کے پیچھے ایک کہانی ہے — اور کہانی کے اہم ترین کردار وہ <strong>سطحیں</strong> ہیں جہاں قیمت بار بار رک کر مڑتی ہے۔ سپورٹ اور ریزسٹنس منڈی کی وہ دیواریں ہیں جہاں خریدار اور بیچنے والے اپنی طاقت دکھاتے ہیں۔ یہ سطحیں آپ کے SL، TP اور داخلے کی جگہیں طے کرتی ہیں — بغیر ان کے، آپ کا ہر فیصلہ اندازہ ہوگا۔
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>سپورٹ اور ریزسٹنس کی تعریف — تصور اور نفسیات</li>
+<li>سطحیں کیوں کام کرتی ہیں؟ (یادداشت اور آرڈرز)</li>
+<li>سپورٹ/ریزسٹنس کیسے بنائیں — عملی طریقہ</li>
+<li>زون بمقابلہ لائن — کون سا بہتر ہے؟</li>
+<li>Role Reversal — سپورٹ کا ریزسٹنس بننا</li>
+<li>بریک آؤٹ اور ری ٹیسٹ — سب سے اہم تصور</li>
+<li>سطحوں کے ساتھ ٹریڈنگ کا مکمل طریقہ</li>
+</ul>
+<hr class="divider">
+<h2>📖 12.1 سپورٹ اور ریزسٹنس — تعریف</h2>
+<h3>Support (سپورٹ)</h3>
+<ul>
+<li>وہ قیمت کی سطح جہاں خریداری کا دباؤ اتنا مضبوط ہو کہ قیمت گرنا بند ہو جائے اور واپس اوپر مڑے۔</li>
+<li><strong>تصور:</strong> "منزل" — قیمت یہاں سے نیچے جانا نہیں چاہتی۔</li>
+</ul>
+<pre><code>
+  قیمت
+   │      ┌──┐
+   │   ┌──┴──┴──┐
+   │   │        │
+   │   │        │
+   │   │  قیمت   │
+   │───┴────────┴───  ← سپورٹ (بار بار یہاں سے اوپر مڑتی ہے)
+   │
+   └─────────────────
+</code></pre>
+<h3>Resistance (ریزسٹنس)</h3>
+<ul>
+<li>وہ قیمت کی سطح جہاں فروخت کا دباؤ اتنا مضبوط ہو کہ قیمت اوپر جانا بند ہو جائے اور واپس نیچے مڑے۔</li>
+<li><strong>تصور:</strong> "چھت" — قیمت یہاں سے اوپر نہیں جا سکتی (ابھی)۔</li>
+</ul>
+<pre><code>
+  قیمت
+   │────────────────  ← ریزسٹنس (بار بار یہاں سے نیچے مڑتی ہے)
+   │   ┌────────┐
+   │   │        │
+   │   │  قیمت   │
+   │───┴────────┴───
+   │
+   └─────────────────
+</code></pre>
+<hr class="divider">
+<h2>📖 12.2 سطحیں کیوں کام کرتی ہیں؟</h2>
+<h3>1. مارکیٹ کی یادداشت (Market Memory)</h3>
+<ul>
+<li>تاجر <strong>ان قیمتوں کو یاد رکھتے ہیں</strong> جہاں انہوں نے خریدا/بیچا۔</li>
+<li>جو ریزسٹنس پر بیچے، وہ وہاں دوبارہ بیچنا چاہیں گے۔</li>
+<li>جو سپورٹ پر خریدے، وہ وہاں دوبارہ خریدنا چاہیں گے۔</li>
+</ul>
+<h3>2. آرڈرز کا ڈھیر (Pending Orders)</h3>
+<ul>
+<li>بروکرز پر <strong>اسٹاپ آرڈرز اور لمٹ آرڈرز</strong> ان سطحوں پر جمع ہوتے ہیں۔</li>
+<li>ریزسٹنس کے اوپر Sell Stops، سپورٹ کے نیچے Buy Stops — قیمت ان کی طرف کھنچتی ہے۔</li>
+</ul>
+<h3>3. جذباتی لگاؤ</h3>
+<ul>
+<li>سپورٹ کے قریب: "یہاں سستی ہے" — خریداری کا رش۔</li>
+<li>ریزسٹنس کے قریب: "یہاں مہنگی ہے" — فروخت کا رش۔</li>
+</ul>
+<div class="info"><p>
+💡 <strong>نفسیات کا خلاصہ:</strong> قیمت ان سطحوں پر اس لیے مڑتی ہے کہ <strong>بہت سے لوگ ایک ہی جگہ ایک ہی فیصلہ کرتے ہیں</strong> — اور ان کے اکٹھے آرڈرز قیمت کو دھکیل دیتے ہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 12.3 سپورٹ/ریزسٹنس کیسے بنائیں — عملی طریقہ</h2>
+<h3>4 قدمی طریقہ</h3>
+<p>1. <strong>بڑا ٹائم فریم کھولیں</strong> (H4/D1) — سطحیں بڑی تصویر پر بہتر بنتی ہیں۔</p>
+<p>2. <strong>Swing Highs اور Swing Lows</strong> پر نشان لگائیں (باب 11)۔</p>
+<p>3. <strong>بار بار چھوئی گئی سطحیں</strong> تلاش کریں — کم از کم 2-3 بار چھونے والی سطحیں مضبوط ہیں۔</p>
+<p>4. <strong>آج کی قیمت کے قریب</strong> سطحوں کو اہم سمجھیں — بہت پرانی سطحیں کمزور ہوتی ہیں۔</p>
+<h3>سطح کی طاقت کا پیمانہ</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>عنصر</th>
+<th>کمزور سطح</th>
+<th>مضبوط سطح</th>
+</tr></thead><tbody>
+<tr>
+<td>بار چھونا</td>
+<td>1 بار</td>
+<td>3+ بار</td>
+</tr>
+<tr>
+<td>ٹائم فریم</td>
+<td>M15</td>
+<td>D1 / H4</td>
+</tr>
+<tr>
+<td>ردعمل</td>
+<td>چھوٹی مڑنا</td>
+<td>تیز اور صاف مڑنا</td>
+</tr>
+<tr>
+<td>حجم/کینڈلز</td>
+<td>چھوٹی کینڈلز</td>
+<td>لمبی کینڈلز (انکار)</td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+⚠️ <strong>اہم:</strong> صرف <strong>ایک بار</strong> چھوئی گئی سطح کو S/R نہ سمجھیں — یہ محض ایک swing ہے۔ اصلی سطح وہ ہے جو بار بار قیمت کو روکے۔
+</p></div>
+<hr class="divider">
+<h2>📖 12.4 زون بمقابلہ لائن</h2>
+<h3>ایک عام غلطی</h3>
+<p>نئے تاجر سطح کو <strong>ایک پتلی لکیر</strong> سمجھتے ہیں۔ حقیقت یہ ہے کہ قیمت لکیر پر نہیں رکتی — <strong>ایک علاقے (زون)</strong> میں رکتی ہے۔</p>
+<pre><code>
+  غلط (لائن):                 درست (زون):
+   ────────────               ┌───────────┐
+                              │  ریزسٹنس  │
+                              │   زون     │
+                              └───────────┘
+</code></pre>
+<h3>زون کیوں بہتر ہے؟</h3>
+<ul>
+<li>قیمت کبھی کبھی لکیر سے 1-2 pips اوپر/نیچے جاتی ہے (اسپریڈ اور شور کی وجہ سے)۔</li>
+<li><strong>زون</strong> اس شور کو برداشت کرتا ہے — آپ کی SL جھوٹی نہیں لگتی۔</li>
+<li>مضبوط تاجر <strong>زون</strong> بناتے ہیں، کمزور <strong>لکیر</strong>۔</li>
+</ul>
+<h3>زون بنانے کا طریقہ</h3>
+<ul>
+<li>سطح کے ارد گرد 10-20 pips (H4 پر) کا علاقہ — "سپورٹ زون" یا "ریزسٹنس زون"۔</li>
+<li>کینڈلز کی وِکس جہاں تک گئیں، وہاں سے زون شروع — باڈی جہاں سے واپس مڑی، وہاں تک۔</li>
+</ul>
+<hr class="divider">
+<h2>📖 12.5 Role Reversal — سپورٹ کا ریزسٹنس بننا</h2>
+<p>یہ منڈی کا سب سے دلچسپ اور قابلِ اعتماد تصور ہے:</p>
+<h3>اصول</h3>
+<div class="info"><p>
+<strong>جو سطح ایک بار ٹوٹ جائے، وہ اپنا کردار بدل دیتی ہے۔</strong>
+</p></div>
+<pre><code>
+  ریزسٹنس ────────────┐
+                      │ بریک آؤٹ
+                      │
+  ────────────────────┘ (ٹوٹ گئی)
+  اب یہی سطح           │
+  سپورٹ بن گئی ←───────┘
+  (ری ٹیسٹ پر قیمت یہاں سے اوپر مڑتی ہے)
+</code></pre>
+<h3>عملی مثال</h3>
+<ul>
+<li>EUR/USD طویل عرصے سے 1.1000 پر ریزسٹنس تھا۔</li>
+<li>قیمت 1.1000 توڑ کر اوپر جاتی ہے۔</li>
+<li>واپسی پر قیمت <strong>1.1000 پر رک کر</strong> اوپر مڑتی ہے — اب 1.1000 <strong>سپورٹ</strong> ہے۔</li>
+<li>(الٹا بھی: ٹوٹی ہوئی سپورٹ = نیا ریزسٹنس۔)</li>
+</ul>
+<div class="info"><p>
+💡 <strong>کیوں ہوتا ہے؟</strong> جو تاجر ریزسٹنس پر بیچے تھے اور نقصان اٹھایا، وہ اب وہاں خریدتے ہیں (واپسی کی امید) — اور جو بریک آؤٹ پر خریدے، وہ ری ٹیسٹ پر مزید خریدتے ہیں۔ دونوں مل کر نئی سپورٹ بناتے ہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 12.6 بریک آؤٹ اور ری ٹیسٹ — سب سے اہم تصور</h2>
+<h3>Breakout (بریک آؤٹ)</h3>
+<ul>
+<li>قیمت کا سطح کو <strong>طاقت سے توڑنا</strong>۔</li>
+<li><strong>اہم شرط:</strong> حقیقی بریک آؤٹ <strong>بند ہونے والی کینڈل</strong> سے ثابت ہوتا ہے — نہ کہ صرف عارضی چھونے سے۔</li>
+</ul>
+<pre><code>
+  غلط (False Breakout):       درست (Breakout):
+   ──┐                        ──────┐
+      │  واپس آ گئی                  │ لمبی کینڈل بند
+      └─┐                           │
+        │                           └── بند اوپر
+</code></pre>
+<h3>Retest (ری ٹیسٹ)</h3>
+<ul>
+<li>بریک آؤٹ کے بعد قیمت <strong>واپس سطح پر آتی ہے</strong> اور وہاں سے سمت میں مڑتی ہے۔</li>
+<li>یہی <strong>داخلے کا بہترین لمحہ</strong> ہے — بریک آؤٹ پر نہیں، ری ٹیسٹ پر۔</li>
+</ul>
+<h3>بریک آؤٹ ٹریڈنگ کا سونے کا اصول</h3>
+<div class="info"><p>
+<strong>بریک آؤٹ کا پیچھا نہ کریں — ری ٹیسٹ کا انتظار کریں۔</strong> بریک آؤٹ پر داخلہ = مہنگا داخلہ + جھوٹے بریک آؤٹ کا خطرہ۔ ری ٹیسٹ پر داخلہ = بہتر قیمت + تصدیق شدہ سطح۔
+</p></div>
+<hr class="divider">
+<h2>📖 12.7 سطحوں کے ساتھ ٹریڈنگ — مکمل طریقہ</h2>
+<h3>سمت 1 — ری ٹیسٹ ٹریڈنگ (تجویز کردہ)</h3>
+<p>1. <strong>سطح کی شناخت:</strong> مضبوط سپورٹ/ریزسٹنس زون۔</p>
+<p>2. <strong>سٹرکچر کی سمت:</strong> کیا بڑی تصویر اسی سمت ہے؟ (باب 11)</p>
+<p>3. <strong>ری ٹیسٹ کا انتظار:</strong> قیمت زون پر واپس آئے۔</p>
+<p>4. <strong>تصدیق:</strong> engulfing یا الٹاؤ والی کینڈل (باب 8-9)۔</p>
+<p>5. <strong>داخلہ:</strong> تصدیق پر — SL زون کے پار، TP اگلی سطح۔</p>
+<h3>سمت 2 — بریک آؤٹ ٹریڈنگ (اعلیٰ سطح)</h3>
+<p>1. <strong>مضبوط سطح</strong> اور بڑی تصویر کی سمت۔</p>
+<p>2. بریک آؤٹ <strong>بند کینڈل</strong> سے ثابت ہو۔</p>
+<p>3. <strong>ری ٹیسٹ</strong> پر داخلہ — بریک آؤٹ پر نہیں۔</p>
+<p>4. SL زون کے اندر، TP اگلی سطح۔</p>
+<h3>سمت 3 — منع شدہ (شوقیہ طریقہ)</h3>
+<ul>
+<li>بغیر سٹرکچر کے، بغیر تصدیق کے، ہر چھوٹی سطح پر ٹریڈ — یہ نقصان کا نسخہ ہے۔</li>
+</ul>
+<hr class="divider">
+<h2>⚠️ باب 12 کی عام غلطیاں</h2>
+<p>1. <strong>ایک بار چھوئی گئی سطح کو S/R سمجھنا:</strong> مضبوط سطح = کم از کم 2-3 بار چھونا۔</p>
+<p>2. <strong>لکیر کی سطح:</strong> شور کی وجہ سے جھوٹے SL — ہمیشہ <strong>زون</strong> بنائیں۔</p>
+<p>3. <strong>بریک آؤٹ کا پیچھا:</strong> سب سے عام اور مہلک غلطی — ری ٹیسٹ کا انتظار کریں۔</p>
+<p>4. <strong>پرانی سطحوں کو اہم سمجھنا:</strong> بہت پرانی سطحیں کمزور — آج کی قیمت کے قریب کی سطحیں اہم۔</p>
+<p>5. <strong>Role Reversal کو نظر انداز کرنا:</strong> ٹوٹی ہوئی سطح کے کردار بدلنے کا فائدہ نہ اٹھانا۔</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li><strong>سپورٹ</strong> = منزل (خریداری کا دباؤ)؛ <strong>ریزسٹنس</strong> = چھت (فروخت کا دباؤ)۔</li>
+<li>سطحیں <strong>یادداشت، آرڈرز اور جذبات</strong> کی وجہ سے کام کرتی ہیں۔</li>
+<li>مضبوط سطح = 3+ بار چھونا، بڑا ٹائم فریم، صاف ردعمل۔</li>
+<li><strong>زون</strong> بنائیں، لکیر نہیں — شور سے بچاؤ۔</li>
+<li><strong>Role Reversal:</strong> ٹوٹی ہوئی سطح اپنا کردار بدلتی ہے۔</li>
+<li><strong>بریک آؤٹ کا پیچھا نہ کریں — ری ٹیسٹ کا انتظار کریں۔</strong></li>
+<li>داخلہ، SL اور TP سب سطحوں کے گرد بنتے ہیں۔</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. H4 پر اپنے پسندیدہ جوڑے پر 2 مضبوط سپورٹ اور 2 مضبوط ریزسٹنس زون بنائیں (بار بار چھونے والی سطحیں)۔</p>
+<p>2. ہر زون کے لیے لکھیں: کتنی بار چھوا گیا؟ کتنا مضبوط ردعمل؟ (کینڈلز کی لمبائی)</p>
+<p>3. ایک ایسی سطح تلاش کریں جو ٹوٹی ہو اور اب ری ٹیسٹ ہو رہی ہو — Role Reversal عملی طور پر دیکھیں۔</p>
+<p>4. ری ٹیسٹ پر BUY/SELL کا مفروضہ بنائیں (بغیر ٹریڈ) — SL زون کے پار، TP اگلی سطح۔</p>
+<p>5. ایک ہفتہ اپنے جرنل میں لکھیں: "آج قیمت کس سطح پر رکی؟ کتنی بار؟ کیا ہوا؟"</p>
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+سپورٹ اور ریزسٹنس منڈی کی <strong>دیواریں</strong> ہیں — لیکن دیواریں گرتی بھی ہیں، اور گری ہوئی دیوار پھر <strong>قدم رکھنے کی جگہ</strong> بن جاتی ہے۔ جو ان دیواروں کو پہچانتا ہے وہ جانتا ہے کہ کہاں داخل ہونا ہے، کہاں نکلنا ہے اور کہاں نقصان محدود رکھنا ہے۔ باقی سب کچھ انہی دیواروں کے گرد گھومتا ہے۔ یہی منڈی کا نقشہ ہے — اور آپ نے ابھی نقشہ پڑھنا سیکھ لیا۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter11.html">← پچھلا</a>
+        <a href="chapter13.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

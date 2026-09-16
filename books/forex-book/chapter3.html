@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 3 — Pip, Lot, Spread — قیمت اور حجم کی زبان</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 3: Pip, Lot, Spread — قیمت اور حجم کی زبان</h1>
+<div class="info"><p>
+فارکس میں منافع اور نقصان <strong>پِپس</strong> میں ناپا جاتا ہے، ٹریڈ کا حجم <strong>لاٹس</strong> میں، اور ٹریڈ کھولنے کی قیمت <strong>اسپریڈ</strong> میں۔ یہ تین تصورات سمجھے بغیر کوئی حساب درست نہیں ہو سکتا۔ یہ فارکس کی "ریاضی" ہے — اور اسے آج ہی پکی کر لیں۔
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Pip اور Pipette کیا ہیں</li>
+<li>Pip Value کا حساب لگانا (USD اور غیر-USD اکاؤنٹس)</li>
+<li>Lot (Standard, Mini, Micro) اور Contract Size</li>
+<li>Leverage کا جائزہ (تفصیل باب 4/حصہ 7 میں)</li>
+<li>Spread کیا ہے — اور آپ اسے کیوں ادا کرتے ہیں</li>
+<li>Margin اور Free Margin کا تعارف</li>
+<li>ایک مکمل مثال: پورا حساب ایک ساتھ</li>
+</ul>
+<hr class="divider">
+<h2>📖 3.1 Pip کیا ہے؟</h2>
+<p><strong>Pip</strong> = <strong>P</strong>ercentage <strong>I</strong>n <strong>P</strong>oint — قیمت میں حرکت کی سب سے چھوٹی معیاری اکائی۔</p>
+<h3>دو اصول (بہت اہم)</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>جوڑا</th>
+<th>ایک Pip کہاں ہوتا ہے؟</th>
+<th>مثال</th>
+</tr></thead><tbody>
+<tr>
+<td>5-ڈیسمل والے (EUR/USD, GBP/USD وغیرہ)</td>
+<td><strong>4th اعشاریہ</strong> (0.0001)</td>
+<td>1.0850 → 1.0851 = <strong>1 pip</strong> اوپر</td>
+</tr>
+<tr>
+<td>JPY والے (USD/JPY, GBP/JPY)</td>
+<td><strong>2nd اعشاریہ</strong> (0.01)</td>
+<td>149.25 → 149.26 = <strong>1 pip</strong> اوپر</td>
+</tr>
+</tbody></table>
+<h3>مثال EUR/USD</h3>
+<pre><code>
+قیمت بدلتی ہے:  1.08500  →  1.08510  →  1.08600
+pip حرکت:                    +1 pip        +10 pips
+</code></pre>
+<h3>Pipette (پائپیٹ / Fractional Pip)</h3>
+<p>زیادہ تر بروکرز اب قیمت <strong>5 اعشاریہ</strong> (JPY میں 3) دکھاتے ہیں۔ آخری چھوٹا ہندسہ <strong>pipette</strong> کہلاتا ہے (Pip کا 1/10)۔</p>
+<pre><code>
+1.08500  ← یہاں 1.0850 = pip، آخری "0" = pipette
+</code></pre>
+<div class="info"><p>
+💡 <strong>تجارتی فائدہ:</strong> پائپیٹ بروکر کو کم اسپریڈ دکھانے دیتا ہے (مثلاً 0.8 pip کی بجائے 8 pipette)۔ اصل بات پِپس پر توجہ رکھیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 3.2 Pip Value (ایک Pip کی قیمت) — USD اکاؤنٹ کے لیے</h2>
+<p>یہ سب سے اہم حساب ہے: <strong>ایک pip چلنے پر آپ کو کتنے ڈالر ملتے/جاتے ہیں؟</strong></p>
+<h3>اصول: Pip Value = (1 pip کی اعشاریہ قیمت) ÷ (موجودہ ریٹ) × (Lot Size in units)</h3>
+<p>#### کیس 1: USD کوٹ کرنسی والے جوڑے (EUR/USD, GBP/USD, AUD/USD…)</p>
+<p>ان میں USD دوسری (کوٹ) کرنسی ہے، اس لیے حساب سیدھا ہے:</p>
+<ul>
+<li>1 <strong>standard lot</strong> = 100,000 units</li>
+<li>1 pip = 0.0001</li>
+<li><strong>Pip value = 0.0001 × 100,000 = $10 فی pip</strong> (ہر standard lot پر)</li>
+</ul>
+<div class="table-wrap"><table><thead><tr>
+<th>حجم</th>
+<th>Lot Type</th>
+<th>Units</th>
+<th>$ فی pip (USD-quote جوڑے)</th>
+</tr></thead><tbody>
+<tr>
+<td>1.00</td>
+<td>Standard</td>
+<td>100,000</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>0.10</td>
+<td>Mini</td>
+<td>10,000</td>
+<td>$1</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>Micro</td>
+<td>1,000</td>
+<td>$0.10</td>
+</tr>
+</tbody></table>
+<p>#### کیس 2: USD بیس کرنسی والے جوڑے (USD/JPY, USD/CHF, USD/CAD…)</p>
+<p>یہاں USD پہلی (بیس) ہے، اس لیے pip value <strong>ریٹ پر منحصر</strong> ہے:</p>
+<ul>
+<li><strong>USD/JPY:</strong> 1 pip = 0.01۔ اگر ریٹ 149.25 ہے:</li>
+<li>Pip value (فی lot) = 0.01 ÷ 149.25 × 100,000 = <strong>$6.70 فی pip</strong></li>
+<li>ریٹ بدلنے سے pip value بھی بدلتی ہے (149 پر ~$6.70، 155 پر ~$6.45)۔</li>
+</ul>
+<div class="info"><p>
+💡 بروکرز اور کیلکولیٹرز یہ سب خود کرتے ہیں، مگر <strong>آپ کو سمجھنا</strong> ضروری ہے تاکہ بروکر کی کوئی غلطی/کمی نظر آئے۔
+</p></div>
+<hr class="divider">
+<h2>📖 3.3 Lot (لاٹ) — ٹریڈ کا حجم</h2>
+<p><strong>Lot</strong> ٹریڈ کی معیاری مقدار ہے۔ تین عام اقسام:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>قسم</th>
+<th>Units</th>
+<th>مناسب کس کے لیے</th>
+</tr></thead><tbody>
+<tr>
+<td>Standard Lot</td>
+<td>100,000</td>
+<td>بڑے سرمائے والے</td>
+</tr>
+<tr>
+<td>Mini Lot</td>
+<td>10,000</td>
+<td>درمیانے اکاؤنٹس</td>
+</tr>
+<tr>
+<td>Micro Lot</td>
+<td>1,000</td>
+<td><strong>ابتدائی تاجر / چھوٹے اکاؤنٹس</strong></td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+⚠️ <strong>نصیحت:</strong> نئے تاجر اکثر "standard lot" کھول کر بڑا نقصان کرتے ہیں کیونکہ وہ فی pip $10 کی قیمت سمجھ نہیں پاتے۔ <strong>پہلے مہینوں میں micro lot (0.01)</strong> ہی استعمال کریں۔
+</p></div>
+<hr class="divider">
+<h2>📖 3.4 Spread (اسپریڈ) — آپ کی "انٹری فیس"</h2>
+<h3>Bid اور Ask</h3>
+<p>ہر جوڑے کی دو قیمتیں ہوتی ہیں:</p>
+<ul>
+<li><strong>Bid:</strong> جس قیمت پر آپ <strong>بیچ</strong> سکتے ہیں (خریدار کی قیمت)۔</li>
+<li><strong>Ask:</strong> جس قیمت پر آپ <strong>خرید</strong> سکتے ہیں (بیچنے والے کی قیمت)۔</li>
+</ul>
+<pre><code>
+Ask: 1.0851   (آپ یہاں BUY کرتے ہیں)
+Bid: 1.0849   (آپ یہاں SELL کرتے ہیں)
+Spread = Ask − Bid = 2 pips
+</code></pre>
+<ul>
+<li><strong>Spread</strong> ان دونوں کا فرق ہے — یہ بروکر/مارکیٹ میکر کی فیس ہے۔</li>
+<li>آپ ٹریڈ کھولتے ہی <strong>فوراً اسپریڈ کے برابر منفی</strong> میں ہوتے ہیں۔</li>
+<li>EUR/USD پر اسپریڈ اکثر <strong>0.0–0.5 pip</strong> (RAW/ECN اکاؤنٹ) یا 1 pip تک ہوتی ہے۔ GBP/JPY پر 1-3 pips، ایکزوٹک پر 20+ pips ہو سکتی ہے۔</li>
+</ul>
+<div class="info"><p>
+📊 <strong>کمیں (Commissions):</strong> ECN/RAW اکاؤنٹس میں اسپریڈ بہت کم مگر فی لاٹ کمیشن لگتا ہے (جیسے $3.5 فی side)۔ Standard اکاؤنٹس میں کوئی کمیشن نہیں، مگر اسپریڈ زیادہ۔ دونوں کا خالص اثر اکثر برابر ہوتا ہے — لیکن آپ کو معلوم ہونا چاہیے۔
+</p></div>
+<hr class="divider">
+<h2>📖 3.5 Margin اور Leverage — تعارف</h2>
+<ul>
+<li><strong>Leverage (لیوریج):</strong> بروکر کی دی ہوئی قوت خرید۔ 1:100 کا مطلب: $1 پر $100 کی پوزیشن۔</li>
+<li><strong>Margin (مارجن):</strong> وہ رقم جو پوزیشن کھولنے کے لیے "ضمانت" کے طور پر روک لی جاتی ہے۔</li>
+</ul>
+<pre><code>
+اکاؤنٹ: $1,000    لیوریج: 1:100
+آپ 1.00 lot EUR/USD کھولنا چاہتے ہیں = $100,000 پوزیشن
+Required Margin = $100,000 ÷ 100 = $1,000
+</code></pre>
+<div class="info"><p>
+⚠️ اس مثال میں آپ کا <strong>پورا اکاؤنٹ</strong> مارجن بن گیا — کوئی بفر نہیں۔ لیوریج کا صحیح استعمال حصہ 7 کا موضوع ہے۔ ابھی صرف تصور یاد رکھیں۔
+</p></div>
+<h3>Margin Levels (جھلکی)</h3>
+<ul>
+<li><strong>Used/Required Margin:</strong> پوزیشن کھولنے کے لیے روکی گئی رقم۔</li>
+<li><strong>Free Margin:</strong> وہ رقم جو نئی پوزیشن کے لیے دستیاب ہے۔</li>
+<li><strong>Margin Call / Stop Out:</strong> جب اکاؤنٹ اتنا نقصان کرے کہ مارجن پورا نہ ہو — بروکر پوزیشن زبردستی بند کر دیتا ہے (حصہ 7 میں مکمل تفصیل)۔</li>
+</ul>
+<hr class="divider">
+<h2>📖 3.6 ایک مکمل مثال — سارا حساب ایک ساتھ</h2>
+<h3>منظر: EUR/USD پر BUY</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>چیز</th>
+<th>تفصیل</th>
+</tr></thead><tbody>
+<tr>
+<td>ریٹ (Ask)</td>
+<td>1.08500</td>
+</tr>
+<tr>
+<td>Lot</td>
+<td>0.10 (Mini = 10,000 units)</td>
+</tr>
+<tr>
+<td>لیوریج</td>
+<td>1:100</td>
+</tr>
+<tr>
+<td>اکاؤنٹ</td>
+<td>$500</td>
+</tr>
+</tbody></table>
+<p><strong>حساب 1 — پوزیشن ویلیو:</strong> 10,000 × 1.0850 = <strong>$10,850</strong></p>
+<p><strong>حساب 2 — Required Margin:</strong> $10,850 ÷ 100 = <strong>$108.50</strong></p>
+<p><strong>حساب 3 — Pip Value:</strong> 0.0001 × 10,000 = <strong>$1 فی pip</strong></p>
+<p><strong>حساب 4 — منافع کا منظر:</strong> قیمت 1.0850 → 1.0900 (50 pips اوپر)</p>
+<ul>
+<li>منافع = 50 pips × $1 = <strong>$50</strong> (اکاؤنٹ کا 10%)</li>
+</ul>
+<p><strong>حساب 5 — نقصان کا منظر:</strong> قیمت 1.0800 تک (50 pips نیچے)</p>
+<ul>
+<li>نقصان = 50 pips × $1 = <strong>$50</strong> (اکاؤنٹ کا 10%)</li>
+</ul>
+<div class="info"><p>
+💡 دیکھیں: صرف <strong>50 pip</strong> کی حرکت سے اکاؤنٹ کا 10% لہو — اسی لیے رسک مینجمنٹ (حصہ 7) سب سے اہم ہے۔
+</p></div>
+<hr class="divider">
+<h2>📖 3.7 "Swap" (سواپ / راتوں رات فیس)</h2>
+<p>اگر آپ پوزیشن <strong>رات بھر</strong> (اگلے دن تک) رکھتے ہیں تو بروکر آپ سے/کو <strong>Swap</strong> (Rollover Interest) لیتا ہے:</p>
+<ul>
+<li>دو کرنسیوں کی شرحِ سود کا فرق۔</li>
+<li>اگر آپ زیادہ شرحِ سود والی کرنسی BUY کرتے ہیں تو آپ کو ملتا ہے؛ ورنہ آپ دیتے ہیں۔</li>
+<li><strong>مقدس (Islamic) اکاؤنٹس</strong> میں swap نہیں ہوتی (شرعی رہنمائی حصہ 8 میں)۔</li>
+</ul>
+<hr class="divider">
+<h2>⚠️ باب 3 کی عام غلطیاں</h2>
+<p>1. <strong>Pip اور Point میں الجھنا:</strong> Point بعض اوقات pipette کے لیے بولا جاتا ہے — ہمیشہ تصدیق کریں کہ آپ کا بروکر کس کو pip کہتا ہے۔</p>
+<p>2. <strong>Lot size سمجھے بغیر ٹریڈ:</strong> 1.00 lot فی pip $10 ہے — بغیر حساب کے یہ اکاؤنٹ ختم کر سکتا ہے۔</p>
+<p>3. <strong>Spread کو نظر انداز کرنا:</strong> ٹریڈ کھلتے ہی آپ spread کے برابر "نیچے" ہوتے ہیں — خاص کر سکیلپرز کے لیے اہم۔</p>
+<p>4. <strong>صرف leverage دیکھ کر خوش ہونا:</strong> بڑا لیوریج = بڑا مارجن خطرہ، اگر پوزیشن سائزنگ غلط ہو۔</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>Pip: EUR/USD جیسے جوڑوں میں 4th decimal؛ JPY جوڑوں میں 2nd decimal۔</li>
+<li>Pip Value: USD-quote جوڑوں میں فی standard lot = $10؛ USD-base جوڑوں میں ریٹ کے لحاظ سے۔</li>
+<li>Lot: Standard 100k، Mini 10k، Micro 1k۔ ابتدا میں Micro۔</li>
+<li>Spread: Bid اور Ask کا فرق = آپ کی انٹری فیس۔</li>
+<li>Margin: پوزیشن کے لیے ضمانت۔ Leverage: قوت خرید۔</li>
+<li>پوزیشن سائزنگ کے بغیر کوئی ٹریڈ نہ کریں۔</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. اپنے ڈیمو اکاؤنٹ پر EUR/USD کھولیں (0.01 lot)۔ دیکھیں: آپ کا فوری P&amp;L کیا دکھا رہا ہے؟ (یہی آپ کی spread ہے)۔</p>
+<p>2. USD/JPY پر بھی 0.01 lot کھولیں۔ دونوں کی pip value خود حساب کریں اور بروکر کی ونڈو سے ملائیں۔</p>
+<p>3. ایک کاغذ پر لکھیں: آپ کے $300 اکاؤنٹ پر 0.50 lot کھولنے پر فی pip قیمت کتنی ہوگی؟ (0.0001 × 50,000 = $5)۔ کیا یہ عقلمندی ہے؟ کیوں/کیوں نہیں؟</p>
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+جو شخص pip، lot اور spread کا حساب نہیں جانتا، وہ جوا کھیل رہا ہے — چاہے اس کا چارٹ تجزیہ کتنا بھی اچھا ہو۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter2.html">← پچھلا</a>
+        <a href="chapter4.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

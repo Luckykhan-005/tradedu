@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 16 — بریک آؤٹ ٹریڈنگ (Breakout)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 16: بریک آؤٹ ٹریڈنگ (Breakout)</h1>
+<div class="info"><p>
+<em>"بریک آؤٹ وہ لمحہ ہے جب رینج کی دیوار ٹوٹتی ہے اور قیمت نئی زمین پر قدم رکھتی ہے — مگر ہر دیوار کا ٹوٹنا حقیقی نہیں ہوتا، کبھی کبھی یہ محض ایک ڈراما ہوتا ہے جو تاجروں کو پھنسانے کے لیے کھیلا جاتا ہے۔"</em>
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بریک آؤٹ (Breakout) کیا ہے اور یہ کیوں ہوتا ہے</li>
+<li>حقیقی بریک آؤٹ اور جھوٹے بریک آؤٹ (False Breakout) میں فرق</li>
+<li>بریک آؤٹ کی تیاری — رینج، پیٹرن اور والیوم کا کردار</li>
+<li>بریک آؤٹ کے داخلے کے تین طریقے</li>
+<li>بریک آؤٹ ٹریڈنگ میں Stop Loss اور Take Profit</li>
+<li>جھوٹے بریک آؤٹ سے بچنے کے اصول</li>
+</ul>
+<hr class="divider">
+<h2>📖 16.1 بریک آؤٹ کیا ہے؟</h2>
+<p><strong>بریک آؤٹ (Breakout)</strong> اس وقت ہوتا ہے جب قیمت کسی <strong>اہم سطح</strong> کو عبور کرتی ہے — چاہے وہ سپورٹ/ریزسٹنس ہو، رینج کی حد ہو، ٹرینڈ لائن ہو، یا پچھلا ہائی/لو — اور اس سطح کے <strong>دوسری طرف</strong> بند (Close) ہوتی ہے۔</p>
+<pre><code>
+بریک آؤٹ:
+
+  قیمت
+   ^   ┌───────────────────────────────┐  ← ریزسٹنس
+   |   │  ┌──┐  ┌──┐  ┌──┐            │
+   |   │  │  │  │  │  │  │            └──────┐  ← بریک آؤٹ!
+   |   │  └──┘  └──┘  └──┘  ┌──┐            │
+   |   └─────────────────────┘  └────────────┘
+   +———————————————————————————————————————————→ وقت
+</code></pre>
+<p>بریک آؤٹ اہم کیوں ہے؟ کیونکہ جب قیمت کسی طویل رینج یا پیٹرن سے نکلتی ہے تو یہ بتاتی ہے کہ <strong>جمع ہوئی توانائی</strong> خارج ہو رہی ہے — اور یہ توانائی اکثر ایک مضبوط، طویل حرکت کی صورت میں نکلتی ہے۔ بریک آؤٹ ٹریڈنگ اس حرکت کو پکڑنے کا فن ہے۔</p>
+<h3>16.1.1 بریک آؤٹ کیوں ہوتا ہے؟</h3>
+<p>1. <strong>آرڈرز کا جمع ہونا:</strong> رینج کے دوران ریزسٹنس کے اوپر بہت سے Buy Stop آرڈرز اور سپورٹ کے نیچے Sell Stop آرڈرز جمع ہوتے ہیں۔ جب قیمت انہیں چھوتی ہے تو آرڈرز "فائر" ہوتے ہیں اور حرکت تیز ہو جاتی ہے۔</p>
+<p>2. <strong>نیوز کا محرک:</strong> بڑی خبر قیمت کو ایک دم سطح سے باہر دھکیل دیتی ہے۔</p>
+<p>3. <strong>اعتماد کا اعلان:</strong> بریک آؤٹ سے مارکیٹ اعلان کرتی ہے کہ ایک فریق کھیل جیت چکا ہے۔</p>
+<h2>📖 16.2 حقیقی بریک آؤٹ vs جھوٹا بریک آؤٹ</h2>
+<p>یہی وہ مقام ہے جہاں زیادہ تر تاجر پھنس جاتے ہیں۔ دونوں کا موازنہ:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>پہلو</th>
+<th>حقیقی بریک آؤٹ</th>
+<th>جھوٹا بریک آؤٹ (False)</th>
+</tr></thead><tbody>
+<tr>
+<td>بند (Close)</td>
+<td>سطح کے دوسری طرف مضبوطی سے Close</td>
+<td>اوپر جا کر واپس اندر Close</td>
+</tr>
+<tr>
+<td>والیوم</td>
+<td>بریک آؤٹ پر واضح اضافہ</td>
+<td>معمولی یا کم</td>
+</tr>
+<tr>
+<td>رفتار</td>
+<td>تیز، مسلسل</td>
+<td>رک رک کر</td>
+</tr>
+<tr>
+<td>کینڈلز</td>
+<td>بڑی باڈیز</td>
+<td>لمبی وکس، چھوٹی باڈی</td>
+</tr>
+<tr>
+<td>ری ٹیسٹ</td>
+<td>سطح کو نئی سپورٹ/ریزسٹنس بنا کر قبول کرتا ہے</td>
+<td>سطح کو توڑ کر واپس لوٹ جاتا ہے</td>
+</tr>
+</tbody></table>
+<h3>16.2.1 جھوٹا بریک آؤٹ کیوں ہوتا ہے؟</h3>
+<p>یہ کوئی حادثہ نہیں — اکثر <strong>جان بوجھ کر</strong> ہوتا ہے۔ بڑے کھلاڑی (Smart Money) جانتے ہیں کہ ریزسٹنس کے اوپر بہت سے Stop Losses اور Buy Stop آرڈرز پڑے ہیں۔ وہ قیمت کو وہاں دھکیلتے ہیں، چھوٹے تاجروں کے Stop Losses کو "جھاڑو" دیتے ہیں (Sweep/Liquidity Grab)، اور پھر قیمت کو واپس اپنی اصل سمت میں لے جاتے ہیں۔ (تفصیل باب 31 — Liquidity Sweep میں)</p>
+<div class="info"><p>
+<strong>سنہری اصول:</strong> بریک آؤٹ خود ٹریڈ کا سگنل نہیں — بریک آؤٹ کے بعد قیمت کا <strong>رویہ</strong> سگنل ہے۔
+</p></div>
+<h2>📖 16.3 بریک آؤٹ کی تیاری — پہلے سے پہچان</h2>
+<p>بہترین بریک آؤٹ ٹریڈنگ وہ ہے جو <strong>پہلے سے تیار</strong> ہو۔ بریک آؤٹ سے پہلے یہ نشانیاں دیکھیں:</p>
+<p>1. <strong>تنگ ہوتا پیٹرن:</strong> رینج/مثلث/جھنڈا جتنا تنگ ہوتا ہے، بریک آؤٹ اتنا ہی طاقتور — یہ "کمپریسڈ اسپرنگ" کا اصول ہے۔</p>
+<p>2. <strong>والیوم کی کمی:</strong> بریک آؤٹ سے پہلے والیوم کم ہوتا ہے (توانائی جمع ہو رہی ہے)۔</p>
+<p>3. <strong>سطح کی مضبوطی:</strong> جس سطح کو جتنے زیادہ ٹچ، بریک آؤٹ اتنا ہی اہم۔</p>
+<p>4. <strong>سیاق و سباق:</strong> کیا بڑا ٹرینڈ بریک آؤٹ کی سمت میں ہے؟ اگر ہاں تو بریک آؤٹ کے کامیاب ہونے کے امکانات بڑھ جاتے ہیں۔</p>
+<p>5. <strong>خبروں کا وقت:</strong> کیا کوئی بڑی خبر قریب ہے؟ نیوز سے پہلے/بعد کے بریک آؤٹ جھوٹے ہو سکتے ہیں۔</p>
+<h2>📖 16.4 بریک آؤٹ کے داخلے کے تین طریقے</h2>
+<p>بریک آؤٹ پر داخل ہونے کے تین مشہور طریقے ہیں — ہر ایک کا اپنا رسک اور فائدہ:</p>
+<h3>طریقہ 1 — فوری داخلہ (Aggressive Entry)</h3>
+<p>قیمت سطح کو عبور کرتے ہی <strong>فوراً</strong> داخل ہوں۔ فائدہ: بہترین قیمت ملتی ہے۔ نقصان: جھوٹے بریک آؤٹ کا سب سے زیادہ خطرہ۔ صرف تیز والیوم اور مضبوط کینڈل کے ساتھ استعمال کریں۔</p>
+<h3>طریقہ 2 — ری ٹیسٹ داخلہ (Conservative Entry — پسندیدہ)</h3>
+<p>قیمت سطح کو توڑے، پھر واپس آ کر سطح کو چھوئے (Retest) اور اسی سمت اچھالے — تب داخل ہوں۔ فائدہ: جھوٹے بریک آؤٹ کی اکثریت سے بچتے ہیں۔ نقصان: کبھی کبھی قیمت واپس نہیں آتی اور داخلہ چھوٹ جاتا ہے۔</p>
+<pre><code>
+ری ٹیسٹ داخلہ:
+
+  قیمت
+   ^   ────────────────┐
+   |   ریزسٹنس ████████│█████████  ← اب یہ سپورٹ بن گئی
+   |                  ││    ┌──┐
+   |                  ││    │  │ ← BUY (ری ٹیسٹ پر)
+   |   ┌──┐  ┌──┐    │└────┘  │
+   |   │  │  │  │    │  ┌─────┘
+   |   └──┘  └──┘    └──┘
+   +——————————————————————————→ وقت
+        بریک آؤٹ   ری ٹیسٹ
+</code></pre>
+<h3>طریقہ 3 — پل بیک داخلہ (Pullback Entry)</h3>
+<p>بریک آؤٹ کے بعد قیمت مزید آگے بڑھے، پھر چھوٹی اصلاح (Pullback) آئے — اصلاح کے ختم ہونے پر داخل ہوں۔ یہ رینج کے برعکس، ٹرینڈ میں پل بیک ٹریڈنگ ہے۔ سب سے محفوظ مگر سب سے دیر والا داخلہ۔</p>
+<div class="table-wrap"><table><thead><tr>
+<th>طریقہ</th>
+<th>رفتار</th>
+<th>رسک</th>
+<th>موزوں تاجر</th>
+</tr></thead><tbody>
+<tr>
+<td>فوری</td>
+<td>تیز</td>
+<td>زیادہ</td>
+<td>ماہر، سکلپر</td>
+</tr>
+<tr>
+<td>ری ٹیسٹ</td>
+<td>درمیانی</td>
+<td>درمیانی</td>
+<td>متوازن (پسندیدہ)</td>
+</tr>
+<tr>
+<td>پل بیک</td>
+<td>دھیما</td>
+<td>کم</td>
+<td>سوئنگ، صبر والے</td>
+</tr>
+</tbody></table>
+<h2>📖 16.5 بریک آؤٹ ٹریڈنگ میں Stop Loss اور Take Profit</h2>
+<p>بریک آؤٹ ٹریڈ میں رسک کا انتظام اس کے داخلے سے کم اہم نہیں۔</p>
+<h3>16.5.1 Stop Loss کے تین مقامات</h3>
+<p>1. <strong>سطح کے دوسری طرف:</strong> اگر Buy کیا ہے تو Stop Loss توڑی گئی سطح (اب سپورٹ) کے <strong>نیچے</strong> رکھیں — اگر قیمت واپس سطح کے اندر آ جائے تو ٹریڈ غلط ہے۔</p>
+<p>2. <strong>ری ٹیسٹ کے نیچے:</strong> اگر ری ٹیسٹ سے داخل ہوئے ہیں تو Stop Loss ری ٹیسٹ کے لو/ہائی سے آگے رکھیں۔</p>
+<p>3. <strong>پیٹرن کے باہر:</strong> مثلث/رینج جیسے پیٹرن سے بریک آؤٹ میں Stop Loss پیٹرن کی حد سے باہر رکھیں — جھوٹے بریک آؤٹ کے جھٹکے برداشت کرنے کے لیے۔</p>
+<h3>16.5.2 Take Profit کے دو طریقے</h3>
+<p>1. <strong>فکسڈ ٹارگٹ:</strong> بریک آؤٹ کی اونچائی (Range Height / Pattern Height) کو ماپ کر اسی فاصلے کا ہدف رکھیں — "Measured Move" کا اصول۔</p>
+<p>2. <strong>ٹریلنگ:</strong> جیسے جیسے قیمت آگے بڑھے، Stop Loss کو پیچھے سے کھینچتے جائیں (Trailing) — بریک آؤٹ کی طاقت پر سوار رہیں۔</p>
+<pre><code>
+Measured Move:
+
+  رینج کی اونچائی = 100 پِپس (سپورٹ تا ریزسٹنس)
+  بریک آؤٹ (اوپر) کے بعد:
+    پہلا ہدف = بریک آؤٹ پوائنٹ + 100 پِپس
+    دوسرا ہدف = بریک آؤٹ پوائنٹ + 200 پِپس (اگر رفتار برقرار)
+</code></pre>
+<h2>📖 16.6 جھوٹے بریک آؤٹ سے بچنے کے اصول</h2>
+<p>جھوٹا بریک آؤٹ بریک آؤٹ ٹریڈر کا سب سے بڑا دشمن ہے۔ ان پانچ اصولوں سے اپنا دفاع کریں:</p>
+<p>1. <strong>بند (Close) کا انتظار کریں:</strong> سطح کے دوسری طرف <strong>کینڈل بند</strong> ہونے کا انتظار کریں — اندرونی وکس سے دھوکہ نہ کھائیں۔</p>
+<p>2. <strong>والیوم کی تصدیق:</strong> بریک آؤٹ والیوم بریک آؤٹ سے پہلے کی اوسط والیوم سے واضح طور پر زیادہ ہونا چاہیے۔</p>
+<p>3. <strong>ری ٹیسٹ کو ترجیح دیں:</strong> جب تک ممکن ہو، فوری داخلے کے بجائے ری ٹیسٹ داخلہ استعمال کریں۔</p>
+<p>4. <strong>بڑا ٹائم فریم:</strong> اگر D1 پر ٹرینڈ اپ ہے تو نیچے کا بریک آؤٹ (سپورٹ کا) مشکوک ہے — بڑے ٹرینڈ کے خلاف بریک آؤٹ اکثر جھوٹا ہوتا ہے۔</p>
+<p>5. <strong>نیوز سے بچیں:</strong> بڑی خبروں کے وقت بریک آؤٹ ٹریڈنگ نہ کریں — اسپریڈ پھٹ جاتا ہے اور Stop Loss جلدی لگ جاتا ہے۔</p>
+<h3>16.6.1 جھوٹے بریک آؤٹ کو موقع میں بدلیں</h3>
+<p>ماہر تاجر جھوٹے بریک آؤٹ سے ڈرتے نہیں — اسے <strong>الٹی ٹریڈ</strong> کا موقع سمجھتے ہیں۔ جب قیمت سطح کو توڑ کر واپس آ جائے (خاص کر ریورسل پیٹرن کے ساتھ)، تو یہ اکثر مخالف سمت میں مضبوط داخلے کا موقع ہوتا ہے (باب 31 میں تفصیل)۔ مگر یہ <strong>جدید</strong> مہارت ہے — پہلے جھوٹے بریک آؤٹ سے بچنا سیکھیں، پھر اسے کھیلنا۔</p>
+<hr class="divider">
+<h2>⚠️ باب 16 کی عام غلطیاں</h2>
+<p>1. <strong>ہر بریک آؤٹ پر فوری داخلہ:</strong> بغیر والیوم اور Close کی تصدیق کے داخل ہونا — جھوٹے بریک آؤٹ کا شکار۔</p>
+<p>2. <strong>بریک آؤٹ کا پیچھا کرنا:</strong> بریک آؤٹ کے کافی دور جا چکنے کے بعد "دیر ہو چکی ہے" کے ڈر سے داخل ہونا — بدترین قیمت پر داخلہ۔</p>
+<p>3. <strong>نیوز کے دوران ٹریڈ:</strong> اسپریڈ اور سلپیج کے دوران بریک آؤٹ ٹریڈ کرنا۔</p>
+<p>4. <strong>Stop Loss بہت تنگ رکھنا:</strong> سطح کے بالکل قریب SL — عام اتار چڑھاؤ میں ہی لگ جاتا ہے۔</p>
+<p>5. <strong>بغیر Measured Move کے ہدف:</strong> کوئی منصوبہ نہ ہونا — منافع کہاں لینا ہے معلوم نہیں۔</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>بریک آؤٹ اہم سطح کے دوسری طرف مضبوطی سے بند ہونے کا نام ہے — توانائی کا اخراج۔</li>
+<li>حقیقی اور جھوٹے بریک آؤٹ کا فرق: Close، والیوم، رفتار، کینڈلز اور ری ٹیسٹ۔</li>
+<li>بہترین بریک آؤٹ پہلے سے تیار ہوتا ہے — تنگ پیٹرن، کم والیوم، مضبوط سطح، بڑا ٹرینڈ۔</li>
+<li>تین داخلے: فوری (زیادہ رسک)، ری ٹیسٹ (متوازن، پسندیدہ)، پل بیک (کم رسک، دیر)۔</li>
+<li>Stop Loss توڑی گئی سطح کے دوسری طرف؛ Take Profit Measured Move یا Trailing سے۔</li>
+<li>جھوٹے بریک آؤٹ سے بچنے کے 5 اصول یاد رکھیں — سب سے اہم: Close کی تصدیق اور والیوم۔</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. D1 چارٹ پر گذشتہ 2 ماہ میں 3 بریک آؤٹ تلاش کریں — ہر ایک کو حقیقی یا جھوٹا درجہ دیں اور وجہ لکھیں۔</p>
+<p>2. ایک حقیقی بریک آؤٹ پر Measured Move کا حساب لگائیں — رینج کی اونچائی ناپ کر ہدف نکالیں۔</p>
+<p>3. ایک جھوٹے بریک آؤٹ کو نشان زد کریں — لکھیں کہ کون سے انتباہی نشانات نے بتایا کہ یہ جھوٹا ہے۔</p>
+<p>4. چارٹ پر ری ٹیسٹ کے 3 مقامات تلاش کریں — کہاں قیمت بریک آؤٹ کے بعد واپس آ کر اچھلی۔</p>
+<p>5. اگلے 10 دن، ہر بریک آؤٹ کو اپنے جرنل میں نوٹ کریں: حقیقی یا جھوٹا؟ کون سی تصدیق موجود تھی یا نہیں؟</p>
+<hr class="divider">
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+بریک آؤٹ ایک دروازہ ہے — ہر دروازہ کھلنے پر اندر بھاگنا نہیں، بلکہ یہ دیکھنا کہ دروازے کے دوسری طرف قیمت کا قدموں کا نشان کس سمت جاتا ہے۔ جو والیوم اور Close کی تصدیق کے بغیر بھاگتا ہے، وہ جھوٹے بریک آؤٹ کا شکار ہوتا ہے؛ جو ری ٹیسٹ کا انتظار کرتا ہے، وہ حقیقی حرکت پر سوار ہوتا ہے۔ اگلے باب میں آپ بریک آؤٹ کا بہترین ساتھی سیکھیں گے: پل بیک ٹریڈنگ۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter15.html">← پچھلا</a>
+        <a href="chapter17.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

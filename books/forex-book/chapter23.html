@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 23 — MACD — دو رفتاروں کا سنگم</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 23: MACD — دو رفتاروں کا سنگم</h1>
+<div class="info"><p>
+MACD (Moving Average Convergence Divergence) دو موونگ ایوریجز کا فرق دکھا کر بتاتا ہے کہ رجحان کی رفتار <strong>بڑھ</strong> رہی ہے یا <strong>گھٹ</strong> رہی ہے۔ یہ باب MACD کی ساخت، اس کے تین حصوں، سگنلز اور RSI کے ساتھ اس کے فرق کو سمجھائے گا۔
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>MACD کے تین حصے: MACD لائن، سگنل لائن، ہسٹوگرام</li>
+<li>MACD کراس اور زیرو لائن کا مطلب</li>
+<li>ہسٹوگرام کی طاقت — رفتار کی کمی/زیادتی</li>
+<li>MACD ڈائیورجنس — RSI ڈائیورجنس سے کیا مختلف</li>
+<li>MACD کو RSI اور MA کے ساتھ ملا کر سسٹم بنانا</li>
+</ul>
+<hr class="divider">
+<h2>📖 23.1 MACD کیا ہے اور اس کی ساخت</h2>
+<p>MACD 1979 میں Gerald Appel نے بنایا۔ یہ <strong>دو موونگ ایوریجز کا فرق</strong> ہے — ایک تیز (EMA 12) اور ایک سست (EMA 26)۔ ان دونوں کا فرق ہی MACD لائن ہے۔</p>
+<h3>تین حصے</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>حصہ</th>
+<th>حساب</th>
+<th>کیا بتاتا ہے</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>MACD لائن</strong></td>
+<td>EMA(12) − EMA(26)</td>
+<td>دو رفتاروں کا فرق — رجحان کی طاقت</td>
+</tr>
+<tr>
+<td><strong>سگنل لائن</strong></td>
+<td>MACD لائن کی EMA(9)</td>
+<td>MACD لائن کا ہموار ورژن — رفتار کی رفتار</td>
+</tr>
+<tr>
+<td><strong>ہسٹوگرام</strong></td>
+<td>MACD لائن − سگنل لائن</td>
+<td>دونوں کے درمیان فاصلہ — رفتار میں تبدیلی</td>
+</tr>
+</tbody></table>
+<h3>تصور — دو رنرز کا مقابلہ</h3>
+<p>تصور کریں دو رنرز: <strong>EMA 12</strong> (تیز، چھوٹے قدموں والا) اور <strong>EMA 26</strong> (سست، بڑے قدموں والا):</p>
+<ul>
+<li>جب تیز رنر سست رنر سے <strong>آگے نکل جائے</strong> — فرق بڑھتا ہے → MACD لائن اوپر → رفتار تیز</li>
+<li>جب سست رنر <strong>پکڑ لے</strong> — فرق گھٹتا ہے → MACD لائن نیچے → رفتار سست</li>
+<li>جب دونوں برابر چلیں — فرق صفر → MACD لائن <strong>زیرو لائن</strong> پر</li>
+</ul>
+<h3>ASCII — MACD چارٹ کی شکل</h3>
+<pre><code>
+MACD
+  +┤        ～～～～～
+   │      ～           ～         ← MACD لائن
+   │    ～               ～╲
+  0┤──～──────────────────～─── ← زیرو لائن
+   │  ～                  ～～
+   │    ～            ～～～    ← سگنل لائن (ہموار)
+   │      ～╲    ～～～
+  -┤        ～～～╲～～～
+               ہسٹوگرام (سبز/سرخ بار)
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: MACD کی تینوں لکیریں ایک ہی چیز کے تین زاویے ہیں — رفتار، رفتار کی رفتار، اور ان کا فرق۔ انہیں ایک ساتھ پڑھیں، الگ الگ نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.2 MACD لائن اور سگنل لائن — کراس سگنلز</h2>
+<p>MACD لائن جب سگنل لائن کو پار کرتی ہے تو <strong>کراس</strong> بنتا ہے — MACD کا سب سے مشہور سگنل:</p>
+<h3>Bullish Cross (اوپر کی طرف کراس)</h3>
+<ul>
+<li>MACD لائن <strong>نیچے سے اوپر</strong> سگنل لائن کو پار کرے</li>
+<li>مطلب: تیز رفتار سست رفتار سے آگے نکل رہی ہے — ممکنہ اپ ٹرینڈ</li>
+<li><strong>بہترین جگہ</strong>: زیرو لائن کے <strong>نیچے</strong> سے کراس = مضبوط سگنل</li>
+</ul>
+<h3>Bearish Cross (نیچے کی طرف کراس)</h3>
+<ul>
+<li>MACD لائن <strong>اوپر سے نیچے</strong> سگنل لائن کو پار کرے</li>
+<li>مطلب: تیز رفتار سست رفتار سے پیچھے ہٹ رہی ہے — ممکنہ ڈاؤن ٹرینڈ</li>
+<li><strong>بہترین جگہ</strong>: زیرو لائن کے <strong>اوپر</strong> سے کراس = مضبوط سگنل</li>
+</ul>
+<h3>کراس کی کمزوری</h3>
+<p>کراس <strong>تاخیر والا</strong> سگنل ہے — خاص کر فلیٹ مارکیٹ میں بار بار جھوٹے کراس بنتے ہیں۔ یہ وہی مسئلہ ہے جو گولڈن/ڈیتھ کراس کا تھا، صرف چھوٹے پیمانے پر۔</p>
+<h3>ASCII — Bullish Cross</h3>
+<pre><code>
+MACD
+  +┤
+   │        ～～ MACD لائن
+   │      ～   ╲
+  0┤────～──────╲──────────── ← زیرو لائن
+   │   ～        ╲
+   │ ～           ╲～ سگنل لائن
+  -┤～              ╲
+   │                  ╲
+   │                    ～← کراس (×) → Buy
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: کراس کو <strong>رجحان کے ساتھ</strong> پڑھیں — اپ ٹرینڈ میں Bullish Cross مضبوط، ڈاؤن ٹرینڈ میں جھوٹا۔ کراس تنہا کبھی داخلے کا جواز نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.3 زیرو لائن — رجحان کی سمت</h2>
+<p>زیرو لائن (0) MACD کا اہم ترین لیول ہے — یہ EMA 12 اور EMA 26 کی برابری دکھاتی ہے:</p>
+<h3>زیرو لائن سے اوپر</h3>
+<ul>
+<li>MACD لائن <strong>0 سے اوپر</strong> = EMA 12، EMA 26 سے اوپر = <strong>اپ ٹرینڈ</strong></li>
+<li>0 سے اوپر Bullish Cross = مضبوط رجحان میں داخلہ</li>
+<li>0 سے اوپر Bearish Cross = صرف <strong>پل بیک</strong> یا داخلے سے گریز</li>
+</ul>
+<h3>زیرو لائن سے نیچے</h3>
+<ul>
+<li>MACD لائن <strong>0 سے نیچے</strong> = EMA 12، EMA 26 سے نیچے = <strong>ڈاؤن ٹرینڈ</strong></li>
+<li>0 سے نیچے Bearish Cross = مضبوط رجحان میں داخلہ</li>
+<li>0 سے نیچے Bullish Cross = صرف پل بیک</li>
+</ul>
+<h3>زیرو لائن کراس — رجحان کی تبدیلی</h3>
+<ul>
+<li>MACD لائن <strong>0 پار کر کے اوپر</strong> = ممکنہ اپ ٹرینڈ کا آغاز (سست مگر مستند)</li>
+<li>MACD لائن <strong>0 پار کر کے نیچے</strong> = ممکنہ ڈاؤن ٹرینڈ کا آغاز</li>
+</ul>
+<h3>جدول — کراس کی اقسام</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>کراس</th>
+<th>زیرو لائن کی پوزیشن</th>
+<th>مطلب</th>
+</tr></thead><tbody>
+<tr>
+<td>Bullish</td>
+<td>نیچے → اوپر</td>
+<td>مضبوط اپ ٹرینڈ سگنل</td>
+</tr>
+<tr>
+<td>Bullish</td>
+<td>اوپر</td>
+<td>صرف پل بیک (کمزور)</td>
+</tr>
+<tr>
+<td>Bearish</td>
+<td>اوپر → نیچے</td>
+<td>مضبوط ڈاؤن ٹرینڈ سگنل</td>
+</tr>
+<tr>
+<td>Bearish</td>
+<td>نیچے</td>
+<td>صرف پل بیک (کمزور)</td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+<strong>اہم</strong>: ہمیشہ <strong>زیرو لائن کی پوزیشن</strong> دیکھیں — یہ آپ کو بتاتی ہے کہ کراس مضبوط ہے یا کمزور۔ کراس کی سمت ہی کافی نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.4 ہسٹوگرام — رفتار کی نبض</h2>
+<p>ہسٹوگرام MACD اور سگنل لائن کے درمیان فاصلہ ہے — یہ <strong>رفتار میں تبدیلی</strong> کا سب سے حساس پیمانہ:</p>
+<h3>ہسٹوگرام کی حرکت</h3>
+<ul>
+<li><strong>بارز بڑھ رہی ہیں</strong> = رفتار بڑھ رہی ہے (چاہے اوپر ہو یا نیچے)</li>
+<li><strong>بارز گھٹ رہی ہیں</strong> = رفتار گھٹ رہی ہے — تبدیلی قریب</li>
+<li><strong>بارز زیرو کے آس پاس</strong> = کوئی رفتار نہیں — کراس ہونے والا ہے</li>
+</ul>
+<h3>سب سے قیمتی سگنل — رفتار کی کمی</h3>
+<ul>
+<li>اپ ٹرینڈ میں بارز <strong>گھٹنے</strong> لگیں (مگر MACD اوپر ہو) = رفتار ختم — پلٹاؤ کی وارننگ</li>
+<li>ڈاؤن ٹرینڈ میں بارز <strong>گھٹنے</strong> لگیں = نیچے کی رفتار ختم — پلٹاؤ کی وارننگ</li>
+</ul>
+<p>یہ <strong>ہسٹوگرام ڈائیورجنس</strong> کہلاتا ہے — RSI ڈائیورجنس کی طرح، مگر زیادہ حساس۔</p>
+<h3>ASCII — رفتار کی کمی</h3>
+<pre><code>
+MACD
+  +┤ ████
+   │ ██████
+   │ ████████        ← بارز بڑھ رہی (رفتار تیز)
+   │   ████████
+  0┤────██████────────── ← زیرو لائن
+   │       ████      ← بارز گھٹ رہی (رفتار سست)
+   │         ██        پلٹاؤ کی وارننگ
+  -┤          █
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: ہسٹوگرام کو <strong>سب سے پہلے</strong> دیکھیں — یہ رفتار کی تبدیلی دوسری لکیروں سے پہلے ظاہر کرتا ہے۔ بارز کی کمی = تیار رہیں، عمل کے لیے نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.5 MACD ڈائیورجنس — اور RSI ڈائیورجنس سے فرق</h2>
+<p>RSI کی طرح MACD بھی ڈائیورجنس دیتا ہے — مگر ان میں نمایاں فرق ہے:</p>
+<h3>MACD ڈائیورجنس (ہسٹوگرام والا)</h3>
+<ul>
+<li>MACD ہسٹوگرام کی <strong>بلندیاں/گرائیاں</strong> قیمت سے الٹ جائیں</li>
+<li><strong>Bullish</strong>: قیمت نیچا لو، ہسٹوگرام اونچا لو (نیچے کی رفتار ختم)</li>
+<li><strong>Bearish</strong>: قیمت اونچا ہائی، ہسٹوگرام نیچا ہائی (اوپر کی رفتار ختم)</li>
+</ul>
+<h3>RSI ڈائیورجنس سے فرق</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>پہلو</th>
+<th>RSI ڈائیورجنس</th>
+<th>MACD ڈائیورجنس</th>
+</tr></thead><tbody>
+<tr>
+<td>بنیاد</td>
+<td>صرف 14 ادوار کی رفتار</td>
+<td>EMA 12/26 کا فرق</td>
+</tr>
+<tr>
+<td>حساسیت</td>
+<td>کم (صاف سگنل)</td>
+<td>زیادہ (جلدی، مگر جھوٹے زیادہ)</td>
+</tr>
+<tr>
+<td>بہترین استعمال</td>
+<td>اہم لیولز (70/30) پر</td>
+<td>رفتار کی کمی کی وارننگ</td>
+</tr>
+<tr>
+<td>تصدیق</td>
+<td>کینڈل پیٹرن کے ساتھ</td>
+<td>ہسٹوگرام بارز کے ساتھ</td>
+</tr>
+</tbody></table>
+<div class="info"><p>
+<strong>اہم</strong>: دونوں ڈائیورجنس ایک ساتھ آئیں تو سگنل بہت مضبوط ہوتا ہے — ایک تنہا کافی نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.6 MACD سسٹم — MA اور RSI کے ساتھ مکمل</h2>
+<p>MACD کو تنہا استعمال کرنے کی بجائے، اسے پچھلے ابواب کے اوزاروں سے جوڑیں:</p>
+<h3>سسٹم: MACD ٹرینڈ فلٹر (MACD Trend Filter)</h3>
+<p><strong>فلٹرز (چاروں شرطیں):</strong></p>
+<p>1. <strong>رجحان</strong>: قیمت 50 MA سے اوپر (اپ ٹرینڈ) — MA جھکاؤ اوپر</p>
+<p>2. <strong>رفتار</strong>: RSI 50 سے اوپر — Buyers غالب</p>
+<p>3. <strong>سگنل</strong>: MACD Bullish Cross (ترجیحاً زیرو لائن سے نیچے)</p>
+<p>4. <strong>تصدیق</strong>: ہسٹوگرام کی بارز بڑھنا شروع ہوں + پن بار / انگیلفنگ</p>
+<p><strong>اندراج</strong>: تصدیقی کینڈل کے بند ہونے پر Buy</p>
+<p><strong>SL</strong>: حالیہ Swing Low سے نیچے</p>
+<p><strong>TP</strong>: حالیہ Swing High / 2R</p>
+<h3>الٹ (Sell کے لیے)</h3>
+<p>1. قیمت 50 MA سے نیچے — MA جھکاؤ نیچے</p>
+<p>2. RSI 50 سے نیچے</p>
+<p>3. MACD Bearish Cross (ترجیحاً زیرو لائن سے اوپر)</p>
+<p>4. ہسٹوگرام بارز نیچے بڑھیں + تصدیقی کینڈل</p>
+<h3>کیا MACD کو "پہلے" دیکھیں یا "آخر" میں؟</h3>
+<p>ترتیب اہم ہے:</p>
+<p>1. <strong>پہلے</strong> رجحان طے کریں (MA + قیمت) — سمت</p>
+<p>2. <strong>پھر</strong> رفتار دیکھیں (RSI) — طاقت</p>
+<p>3. <strong>آخر میں</strong> MACD سگنل — داخلے کا وقت</p>
+<p>یہ ترتیب MACD کو فلٹر بناتی ہے، سگنل مشین نہیں۔</p>
+<h3>ASCII — مکمل سسٹم</h3>
+<pre><code>
+   قیمت            MACD
+    │ ～～50 MA      +┤
+    │～              │ ████
+    │～  ← پل بیک     │ ██████ ← بارز بڑھ رہی
+    │～  ← پن بار    0┤──████── ← Bullish Cross
+    │～              -┤
+    └─────→ وقت
+        فلٹرز: MA + RSI 50+ + MACD کراس + تصدیق
+</code></pre>
+<div class="info"><p>
+<strong>اہم</strong>: MACD کو سسٹم کا <strong>آخری</strong> حصہ بنائیں — پہلے رجحان، پھر رفتار، پھر داخلہ۔ ترتیب الٹ دی تو جھوٹے سگنلز کا سیلاب آئے گا۔
+</p></div>
+<hr class="divider">
+<h2>📖 23.7 MACD کی کمزوریاں (Limitations)</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>کمزوری</th>
+<th>وضاحت</th>
+<th>حل</th>
+</tr></thead><tbody>
+<tr>
+<td>تاخیر</td>
+<td>MACD EMA پر مبنی — سگنل دیر سے آتا ہے</td>
+<td>ہسٹوگرام کو جلدی پڑھیں</td>
+</tr>
+<tr>
+<td>فلیٹ مارکیٹ</td>
+<td>بار بار جھوٹے کراس</td>
+<td>MA / RSI فلٹر لگائیں</td>
+</tr>
+<tr>
+<td>ڈائیورجنس جھوٹے</td>
+<td>رفتار کی کمی پلٹاؤ نہیں ہو سکتی</td>
+<td>تصدیق کا انتظار کریں</td>
+</tr>
+<tr>
+<td>پیرامیٹر حساس</td>
+<td>12/26/9 ہر مارکیٹ پر بہترین نہیں</td>
+<td>ٹیسٹ کریں، تبدیلی سے نہ گھبرائیں</td>
+</tr>
+</tbody></table>
+<h3>MACD کو کب استعمال نہ کریں؟</h3>
+<p>1. <strong>بہت فلیٹ مارکیٹ</strong> — کراسز بے معنی</p>
+<p>2. <strong>M1/M5</strong> — شور بہت زیادہ، سگنل دیر سے</p>
+<p>3. <strong>بغیر SL/TP</strong> — MACD سگنل دیتا ہے، رسک آپ کا</p>
+<hr class="divider">
+<h2>⚠️ باب 23 کی عام غلطیاں</h2>
+<p>1. <strong>غلطی</strong>: ہر Bullish Cross پر خریدنا — بغیر رجحان کے کراس سب سے بڑا نقصان</p>
+<p>2. <strong>غلطی</strong>: زیرو لائن نظر انداز کرنا — کراس کی طاقت کا فیصلہ زیرو لائن سے ہوتا ہے</p>
+<p>3. <strong>غلطی</strong>: ہسٹوگرام کو نظر انداز کرنا — سب سے حساس حصہ چھوڑ دینا</p>
+<p>4. <strong>غلطی</strong>: MACD ڈائیورجنس کو تنہا سگنل ماننا — RSI اور قیمت کی تصدیق ضروری</p>
+<p>5. <strong>غلطی</strong>: بہت سارے انڈیکیٹرز کے ساتھ MACD — 2-3 سے زیادہ الجھن پیدا کرتے ہیں</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>MACD = EMA(12) − EMA(26) — دو رفتاروں کا فرق</li>
+<li>تین حصے: <strong>MACD لائن</strong>، <strong>سگنل لائن</strong>، <strong>ہسٹوگرام</strong></li>
+<li><strong>کراس</strong> سگنل ہے، مگر <strong>زیرو لائن</strong> اس کی طاقت طے کرتی ہے</li>
+<li><strong>ہسٹوگرام</strong> رفتار کی تبدیلی سب سے پہلے دکھاتا ہے — پلٹاؤ کی وارننگ</li>
+<li>MACD ڈائیورجنس RSI سے زیادہ حساس مگر زیادہ جھوٹا — دونوں کو ساتھ پڑھیں</li>
+<li>MACD کو سسٹم کا <strong>آخری</strong> حصہ بنائیں: MA (سمت) → RSI (رفتار) → MACD (داخلہ)</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. چارٹ پر <strong>MACD (12, 26, 9)</strong> لگائیں — پچھلے 20 ٹریڈز میں کتنے کراس جھوٹے تھے؟</p>
+<p>2. <strong>زیرو لائن</strong> کے اوپر/نیچے کے کراس الگ الگ نشان زد کریں — کون سے زیادہ مستند تھے؟</p>
+<p>3. ایک <strong>Bullish Cross</strong> تلاش کریں جہاں ہسٹوگرام کی بارز پہلے ہی گھٹ رہی تھیں — نتیجہ کیا تھا؟</p>
+<p>4. MACD ڈائیورجنس اور RSI ڈائیورجنس ایک ساتھ تلاش کریں — قیمت بعد میں کہاں گئی؟</p>
+<p>5. <strong>مکمل سسٹم</strong> (50 MA + RSI + MACD + پن بار) کو ڈیمو پر 10 ٹریڈز آزمائیں — نتائج لکھیں</p>
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+MACD آپ کا <strong>انجن ڈیش بورڈ</strong> ہے — یہ بتاتا ہے کہ انجن کتنی تیزی سے گھوم رہا ہے اور کب سست پڑ رہا ہے۔ مگر سمت آپ طے کرتے ہیں۔ اگلے باب میں ہم <strong>بولنگر بینڈز</strong> سیکھیں گے — وہ انڈیکیٹر جو قیمت کی حد اور "غیر معمولی" حرکت کو ناپتا ہے، اور اتار چڑھاؤ (Volatility) کو سمجھنے کا نیا زاویہ دے گا۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter22.html">← پچھلا</a>
+        <a href="chapter24.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

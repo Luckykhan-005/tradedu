@@ -1,14 +1,73 @@
 import { Hono } from 'hono'
 import { prisma } from './src/lib/db'
+import { sendEmail, passwordResetEmail, isValidEmail } from './server/email'
 
 const app = new Hono()
 
-// Allow all origins (needed when frontend is served from a different domain, e.g. Vercel)
+const STUDENT_SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000
+const PBKDF2_ITERATIONS = 100_000
+const secureFlag = process.env.NODE_ENV === 'production' ? '; Secure' : ''
+
+function sessionCookie(token: string, clear = false) {
+  return `tradeed_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax${secureFlag}; ${clear ? 'Max-Age=0' : `Max-Age=${Math.floor(STUDENT_SESSION_TTL_MS / 1000)}`}`
+}
+
+function readSession(c: any) {
+  const cookie = c.req.header('Cookie') || ''
+  const item = cookie.split(';').map((v: string) => v.trim()).find((v: string) => v.startsWith('tradeed_session='))
+  return item ? decodeURIComponent(item.slice('tradeed_session='.length)) : ''
+}
+
+// A paid plan only counts while it is unexpired; otherwise the user falls back
+// to FREE. Admins/instructors always resolve to PREMIUM (rank 2).
+function effectivePlanOf(user: any): string {
+  if (user?.role === 'admin' || user?.role === 'instructor') return 'PREMIUM'
+
+  const plan = String(user?.plan || 'FREE').toUpperCase()
+  if (plan === 'FREE') return 'FREE'
+
+  const expiresAt = user?.planExpiresAt
+  if (expiresAt && new Date(expiresAt).getTime() <= Date.now()) return 'FREE'
+
+  return plan
+}
+
+// Sessions are persisted (hashed) in the database so they survive restarts and
+// match production behavior. Only a SHA-256 hash of the token is stored.
+async function getAuthenticatedUser(c: any) {
+  const token = readSession(c)
+  if (!token) return null
+
+  const session = await prisma.studentSession.findUnique({ where: { tokenHash: await sha256(token) } })
+  if (!session || session.revokedAt) return null
+
+  if (new Date(session.expiresAt).getTime() <= Date.now()) {
+    await prisma.studentSession.updateMany({ where: { id: session.id, revokedAt: null }, data: { revokedAt: new Date() } })
+    return null
+  }
+
+  return prisma.user.findUnique({ where: { id: session.userId } })
+}
+
+async function issueStudentSession(c: any, userId: string) {
+  const token = toHex(crypto.getRandomValues(new Uint8Array(32)))
+  await prisma.studentSession.create({
+    data: {
+      tokenHash: await sha256(token),
+      userId,
+      expiresAt: new Date(Date.now() + STUDENT_SESSION_TTL_MS),
+    },
+  })
+  c.header('Set-Cookie', sessionCookie(token))
+}
+
+// Allow credentials for the same-origin session cookie.
 app.use('*', async (c, next) => {
   const origin = c.req.header('Origin') || '*'
   c.header('Access-Control-Allow-Origin', origin)
+  c.header('Access-Control-Allow-Credentials', 'true')
   c.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
-  c.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,x-admin-token,x-user-email')
+  c.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,x-admin-token')
   c.header('Access-Control-Max-Age', '86400')
   if (c.req.method === 'OPTIONS') return c.body(null, 204)
   await next()
@@ -20,8 +79,8 @@ app.post('/seed', async (c) => {
   const courseCount = await prisma.course.count()
 
   // ===== Ensure core courses exist (runs every time, even if seeded) =====
-  async function ensureCourse(data: Parameters<typeof prisma.course.create>[0]) {
-    const existing = await prisma.course.findFirst({ where: { title: data.data.title } })
+  async function ensureCourse(data: any) {
+    const existing = await prisma.course.findFirst({ where: { title: data?.data?.title } as any })
     if (existing) return existing
     return await prisma.course.create(data)
   }
@@ -529,13 +588,36 @@ app.get('/courses/:id/detail', async (c) => {
 
 // ========== AUTH ENDPOINTS ==========
 
-// Simple hash function (SHA-256) for password storage
+function toHex(buf: ArrayBuffer | Uint8Array): string {
+  const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf)
+  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('')
+}
+
+async function sha256(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
+  return toHex(digest)
+}
+
+async function pbkdf2Hex(password: string, saltHex: string, iterations: number): Promise<string> {
+  const salt = new Uint8Array((saltHex.match(/.{2}/g) || []).map((h) => parseInt(h, 16)))
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits'])
+  return toHex(await crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations, hash: 'SHA-256' }, key, 256))
+}
+
 async function hashPassword(password: string): Promise<string> {
-  const encoder = new TextEncoder()
-  const data = encoder.encode(password)
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data)
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
-  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+  const salt = toHex(crypto.getRandomValues(new Uint8Array(16)))
+  return `pbkdf2$${PBKDF2_ITERATIONS}$${salt}$${await pbkdf2Hex(password, salt, PBKDF2_ITERATIONS)}`
+}
+
+async function verifyPassword(password: string, stored: string): Promise<{ ok: boolean; needsRehash: boolean }> {
+  if (!stored) return { ok: false, needsRehash: false }
+  if (stored.startsWith('pbkdf2$')) {
+    const [, iterations, salt, expected] = stored.split('$')
+    const actual = await pbkdf2Hex(password, salt, Number(iterations) || PBKDF2_ITERATIONS)
+    return { ok: actual === expected, needsRehash: false }
+  }
+  const ok = (await sha256(password)) === stored
+  return { ok, needsRehash: ok }
 }
 
 // Student signup — stores email, name, hashed password in DB
@@ -547,8 +629,8 @@ app.post('/auth/signup', async (c) => {
     return c.json({ error: 'Name, email, and password are required' }, 400)
   }
 
-  if (password.length < 6) {
-    return c.json({ error: 'Password must be at least 6 characters' }, 400)
+  if (password.length < 8) {
+    return c.json({ error: 'Password must be at least 8 characters' }, 400)
   }
 
   const existing = await prisma.user.findUnique({ where: { email } })
@@ -561,7 +643,8 @@ app.post('/auth/signup', async (c) => {
     data: { email, name, passwordHash, role: 'student' },
   })
 
-  return c.json({ ok: true, user: { id: user.id, email: user.email, name: user.name } })
+  await issueStudentSession(c, user.id)
+  return c.json({ ok: true, user: { id: user.id, email: user.email, name: user.name, role: user.role, plan: user.plan } })
 })
 
 // Student login — validates email/password against DB
@@ -578,15 +661,41 @@ app.post('/auth/login', async (c) => {
     return c.json({ error: 'Invalid email or password' }, 401)
   }
 
-  const passwordHash = await hashPassword(password)
-  if (passwordHash !== user.passwordHash) {
-    return c.json({ error: 'Invalid email or password' }, 401)
-  }
-
-  return c.json({ ok: true, user: { id: user.id, email: user.email, name: user.name, role: user.role } })
+  const verification = await verifyPassword(password, user.passwordHash || '')
+  if (!verification.ok) return c.json({ error: 'Invalid email or password' }, 401)
+  if (verification.needsRehash) await prisma.user.update({ where: { id: user.id }, data: { passwordHash: await hashPassword(password) } })
+  await issueStudentSession(c, user.id)
+  return c.json({
+    ok: true,
+    user: { id: user.id, email: user.email, name: user.name, role: user.role, plan: effectivePlanOf(user) },
+  })
 })
 
-// Forgot password — generates a reset token (would send email in production)
+app.get('/auth/me', async (c) => {
+  const user = await getAuthenticatedUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+  return c.json({
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.role,
+      plan: effectivePlanOf(user),
+      planExpiresAt: (user as any).planExpiresAt || null,
+    },
+  })
+})
+
+app.post('/auth/logout', async (c) => {
+  const token = readSession(c)
+  if (token) {
+    await prisma.studentSession.updateMany({ where: { tokenHash: await sha256(token), revokedAt: null }, data: { revokedAt: new Date() } })
+  }
+  c.header('Set-Cookie', sessionCookie('', true))
+  return c.json({ ok: true })
+})
+
+// Forgot password — generates a single-use token without disclosing it by default.
 app.post('/auth/forgot-password', async (c) => {
   const body = await c.req.json()
   const { email } = body
@@ -600,9 +709,15 @@ app.post('/auth/forgot-password', async (c) => {
   const isAdmin = email === adminEmail
   const studentUser = await prisma.user.findUnique({ where: { email } })
 
+  // The response below is byte-for-byte identical whether or not the email
+  // exists, so this endpoint cannot be used to enumerate registered accounts.
+  const genericResponse = {
+    ok: true,
+    message: 'If an account exists for that email, a reset link has been generated. Contact support if you do not receive it.',
+  }
+
   if (!isAdmin && !studentUser) {
-    // Don't reveal whether the email exists — always return success
-    return c.json({ ok: true, message: 'If an account with that email exists, a reset token has been generated.' })
+    return c.json(genericResponse)
   }
 
   // Invalidate any previous tokens for this email
@@ -612,21 +727,37 @@ app.post('/auth/forgot-password', async (c) => {
   })
 
   // Generate a secure reset token (expires in 1 hour)
-  const token = crypto.randomUUID()
+  const token = toHex(crypto.getRandomValues(new Uint8Array(24)))
   const expiresAt = new Date(Date.now() + 60 * 60 * 1000)
 
   await prisma.passwordResetToken.create({
     data: { email, token, expiresAt },
   })
 
-  // In production: send token via email
-  // For now: return it in the response so user can copy it
-  return c.json({
-    ok: true,
-    message: 'Reset token generated. In production this would be emailed to you.',
-    resetToken: token,
-    expiresAt: expiresAt.toISOString(),
-  })
+  // Deliver the token by email. `sendEmail` never throws: if no provider is
+  // configured, or the provider rejects the message, the HTTP response below is
+  // still the generic one. That is intentional — an email failure must not tell
+  // a stranger whether the address has an account.
+  if (!isValidEmail(email)) {
+    console.warn('[forgot-password] stored a reset token for a malformed address; not attempting delivery')
+  } else {
+    const message = passwordResetEmail(email, token)
+    const result = await sendEmail({ to: email, ...message })
+    if (result.ok) {
+      console.log(`[forgot-password] reset email sent via ${result.provider}`)
+    } else if (result.skipped) {
+      console.warn(`[forgot-password] email NOT sent (${result.error}). Reset tokens cannot reach the user until a provider is configured — see README → "Email delivery".`)
+    } else {
+      console.error(`[forgot-password] email delivery failed (${result.error})`)
+    }
+  }
+
+  // ALLOW_TOKEN_IN_RESPONSE is a local-development / owner-recovery escape hatch
+  // only. Returning the token to the browser lets any visitor reset any account
+  // simply by requesting a reset and reading the token out of the response, so
+  // production must leave this unset now that email delivery exists.
+  const expose = String(process.env.ALLOW_TOKEN_IN_RESPONSE || '').toLowerCase() === 'true'
+  return c.json(expose ? { ...genericResponse, resetToken: token, expiresAt: expiresAt.toISOString() } : genericResponse)
 })
 
 // Reset password — validates token and sets new password
@@ -638,8 +769,8 @@ app.post('/auth/reset-password', async (c) => {
     return c.json({ error: 'Token and new password are required' }, 400)
   }
 
-  if (newPassword.length < 6) {
-    return c.json({ error: 'Password must be at least 6 characters' }, 400)
+  if (newPassword.length < 8) {
+    return c.json({ error: 'Password must be at least 8 characters' }, 400)
   }
 
   const resetRecord = await prisma.passwordResetToken.findUnique({ where: { token } })
@@ -658,24 +789,38 @@ app.post('/auth/reset-password', async (c) => {
   const adminEmail = process.env.ADMIN_EMAIL
   const isAdmin = resetRecord.email === adminEmail
 
+  let resetUserId: string | null = null
   if (isAdmin) {
-    // Update admin password in .env (in production this would update a DB record)
-    // For now, store the new admin password hash in the DB User record
+    // The admin password is defined by ADMIN_PASSWORD in the environment, not
+    // by a database row. There is nothing safe to write here, so the reset is
+    // recorded but the effective credential is unchanged — the owner must
+    // update ADMIN_PASSWORD directly so a reset can never silently override it.
     const adminUser = await prisma.user.findUnique({ where: { email: resetRecord.email } })
-    if (adminUser) {
-      await prisma.user.update({ where: { id: adminUser.id }, data: { passwordHash } })
-    } else {
-      // Create an admin user record to store the new password
-      await prisma.user.create({
-        data: { email: resetRecord.email, name: 'Admin', role: 'admin', passwordHash },
-      })
-    }
+    resetUserId = adminUser?.id || null
   } else {
     // Update student password in DB
-    await prisma.user.update({
+    const updated = await prisma.user.update({
       where: { email: resetRecord.email },
       data: { passwordHash },
     })
+    resetUserId = updated.id
+  }
+
+  // Changing a password must end every session that was opened with the old
+  // one, otherwise a stolen session keeps working after the victim resets.
+  if (resetUserId) {
+    await prisma.studentSession.updateMany({
+      where: { userId: resetUserId, revokedAt: null },
+      data: { revokedAt: new Date() },
+    })
+  }
+  await prisma.adminSession.updateMany({
+    where: { email: resetRecord.email, revokedAt: null },
+    data: { revokedAt: new Date() },
+  })
+
+  if (isAdmin) {
+    return c.json({ ok: true, message: 'Your request has been recorded. Because the admin password is configured on the server, please contact the site owner to complete the change.' })
   }
 
   return c.json({ ok: true, message: 'Password has been reset successfully. You can now sign in with your new password.' })
@@ -683,27 +828,86 @@ app.post('/auth/reset-password', async (c) => {
 
 // ========== ADMIN AUTH ==========
 
-// In-memory session store (resets on server restart)
-const adminSessions = new Map<string, { email: string; createdAt: number }>()
+// ========== ADMIN SESSIONS (DB-backed, expiring, revocable) ==========
+// Previously admin sessions lived in an in-memory Map keyed by a random UUID:
+// every session was lost on restart and the map grew without bound. They are
+// now persisted with a hashed 256-bit token and an explicit expiry, so they
+// survive restarts and can be revoked.
+const ADMIN_SESSION_TTL_MS = 12 * 60 * 60 * 1000 // 12 hours
 
-function createAdminSession(email: string): string {
-  const token = crypto.randomUUID()
-  adminSessions.set(token, { email, createdAt: Date.now() })
+/**
+ * Constant-time string comparison. `a !== b` short-circuits on the first
+ * differing byte, which leaks how much of a secret the caller guessed. Used
+ * for the admin credentials so a wrong password cannot be probed by timing.
+ */
+function safeEqual(a: string, b: string): boolean {
+  const enc = new TextEncoder()
+  const ab = enc.encode(a)
+  const bb = enc.encode(b)
+  let diff = ab.length ^ bb.length
+  const len = Math.max(ab.length, bb.length)
+  for (let i = 0; i < len; i++) {
+    diff |= (ab[i] ?? 0) ^ (bb[i] ?? 0)
+  }
+  return diff === 0
+}
+
+/**
+ * Normalise a credential that was pasted into a hosting dashboard or a `.env`
+ * file, so an invisible character cannot cause a login failure.
+ *
+ * A stray trailing newline, a leading space, a byte-order mark or a pair of
+ * wrapping quotes are invisible in the Vercel UI but break an exact string
+ * comparison — which is why the settings can look correct while the login is
+ * still rejected. Trimming only removes whitespace, so it cannot turn a wrong
+ * password into a right one. Mirrors `cleanEnv` in api/index.ts.
+ */
+function cleanEnv(value: unknown): string {
+  return String(value ?? '')
+    .replace(/^\uFEFF/, '')
+    .trim()
+    .replace(/^["']|["']$/g, '')
+    .trim()
+}
+
+async function createAdminSession(email: string): Promise<string> {
+  const token = toHex(crypto.getRandomValues(new Uint8Array(32)))
+  await prisma.adminSession.create({
+    data: {
+      tokenHash: await sha256(token),
+      email,
+      expiresAt: new Date(Date.now() + ADMIN_SESSION_TTL_MS),
+    },
+  })
   return token
 }
 
-function verifyAdminSession(token: string): boolean {
-  const session = adminSessions.get(token)
-  if (!session) return false
-  // Sessions expire after 24 hours
-  if (Date.now() - session.createdAt > 24 * 60 * 60 * 1000) {
-    adminSessions.delete(token)
+async function verifyAdminSession(token: string): Promise<boolean> {
+  if (!token) return false
+  try {
+    const session = await prisma.adminSession.findUnique({ where: { tokenHash: await sha256(token) } })
+    if (!session || session.revokedAt) return false
+    if (new Date(session.expiresAt).getTime() <= Date.now()) {
+      await prisma.adminSession.updateMany({ where: { id: session.id, revokedAt: null }, data: { revokedAt: new Date() } })
+      return false
+    }
+    return true
+  } catch {
     return false
   }
-  return true
 }
 
-// Admin login — validates email/password against .env, returns session token
+async function destroyAdminSession(token: string) {
+  if (!token) return
+  try {
+    await prisma.adminSession.updateMany({
+      where: { tokenHash: await sha256(token), revokedAt: null },
+      data: { revokedAt: new Date() },
+    })
+  } catch { /* best effort */ }
+}
+
+// Admin login — validates email/password against the environment, returns session token
 app.post('/admin/auth', async (c) => {
   const body = await c.req.json()
   const { email, password } = body
@@ -712,36 +916,52 @@ app.post('/admin/auth', async (c) => {
     return c.json({ error: 'Email and password are required' }, 400)
   }
 
-  const adminEmail = process.env.ADMIN_EMAIL
-  const adminPassword = process.env.ADMIN_PASSWORD
+  // Both sides are cleaned so an invisible newline or a wrapping quote that came
+  // in with a paste cannot cause a failure that is impossible to see.
+  const adminEmail = cleanEnv(process.env.ADMIN_EMAIL)
+  const adminPassword = cleanEnv(process.env.ADMIN_PASSWORD)
 
+  // A missing variable and a wrong password used to be the same 401, which made
+  // a deployment mistake look like a typo.
   if (!adminEmail || !adminPassword) {
-    return c.json({ error: 'Admin credentials not configured on server' }, 500)
+    return c.json(
+      { error: 'Admin login is not configured on the server yet. Set ADMIN_EMAIL and ADMIN_PASSWORD in the environment, then restart.' },
+      500,
+    )
   }
 
-  // Check DB first (in case admin password was reset)
-  const adminUser = await prisma.user.findUnique({ where: { email } })
-  if (adminUser?.passwordHash) {
-    const passwordHash = await hashPassword(password)
-    if (passwordHash === adminUser.passwordHash) {
-      const token = createAdminSession(email)
-      return c.json({ ok: true, token, email })
-    }
-  }
+  // The admin account is NOT a database row — it is defined by ADMIN_EMAIL and
+  // ADMIN_PASSWORD. Production (api/index.ts) compares only those two values, so
+  // local development must do the same or a login that works here can fail there.
+  //
+  // This block used to auto-accept the login whenever the submitted email matched
+  // an existing user row and the password matched that row's hash. Because the row
+  // hash was a different algorithm from this function, a stale row for the admin
+  // email silently defeated the real check. Removed deliberately: one code path,
+  // one source of truth.
+  const submittedEmail = String(email).trim().toLowerCase()
+  const submittedPassword = String(password)
+  const emailOk = safeEqual(submittedEmail, adminEmail.trim().toLowerCase())
+  const passOk = safeEqual(submittedPassword, adminPassword)
 
-  // Fall back to .env credentials
-  if (email !== adminEmail || password !== adminPassword) {
+  if (!emailOk || !passOk) {
+    // Which field failed and how long each side is — never the values themselves.
+    console.warn(
+      `[admin-auth] rejected: emailMatch=${emailOk} passwordMatch=${passOk} ` +
+      `emailLenSubmitted=${submittedEmail.length} emailLenConfigured=${adminEmail.length} ` +
+      `passwordLenSubmitted=${submittedPassword.length} passwordLenConfigured=${adminPassword.length}`,
+    )
     return c.json({ error: 'Invalid email or password' }, 401)
   }
 
-  const token = createAdminSession(email)
-  return c.json({ ok: true, token, email })
+  const token = await createAdminSession(adminEmail)
+  return c.json({ ok: true, token, email: adminEmail })
 })
 
-// Admin logout — invalidates session
+// Admin logout — revokes the session
 app.post('/admin/logout', async (c) => {
   const token = c.req.header('x-admin-token')
-  if (token) adminSessions.delete(token)
+  if (token) await destroyAdminSession(token)
   return c.json({ ok: true })
 })
 
@@ -750,7 +970,7 @@ app.post('/admin/logout', async (c) => {
 // Admin auth check — verifies session token
 app.use('/admin/*', async (c, next) => {
   const token = c.req.header('x-admin-token')
-  if (!token || !verifyAdminSession(token)) {
+  if (!token || !(await verifyAdminSession(token))) {
     return c.json({ error: 'Forbidden: valid admin session required' }, 403)
   }
   await next()
@@ -970,11 +1190,8 @@ app.get('/admin/stats', async (c) => {
 
 // Get journal entries for a user
 app.get('/journal', async (c) => {
-  const email = c.req.header('x-user-email')
-  if (!email) return c.json({ error: 'User email required' }, 400)
-
-  const user = await prisma.user.findUnique({ where: { email } })
-  if (!user) return c.json({ entries: [] })
+  const user = await getAuthenticatedUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
 
   const entries = await prisma.journalEntry.findMany({
     where: { userId: user.id },
@@ -985,11 +1202,8 @@ app.get('/journal', async (c) => {
 
 // Create a journal entry
 app.post('/journal', async (c) => {
-  const email = c.req.header('x-user-email')
-  if (!email) return c.json({ error: 'User email required' }, 400)
-
-  const user = await prisma.user.findUnique({ where: { email } })
-  if (!user) return c.json({ error: 'User not found' }, 404)
+  const user = await getAuthenticatedUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
 
   const body = await c.req.json()
   const entry = await prisma.journalEntry.create({
@@ -1013,6 +1227,10 @@ app.post('/journal', async (c) => {
 // Update a journal entry
 app.patch('/journal/:id', async (c) => {
   const { id } = c.req.param()
+  const user = await getAuthenticatedUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+  const owned = await prisma.journalEntry.findFirst({ where: { id, userId: user.id } })
+  if (!owned) return c.json({ error: 'Journal entry not found' }, 404)
   const body = await c.req.json()
   const entry = await prisma.journalEntry.update({
     where: { id },
@@ -1035,8 +1253,224 @@ app.patch('/journal/:id', async (c) => {
 // Delete a journal entry
 app.delete('/journal/:id', async (c) => {
   const { id } = c.req.param()
-  await prisma.journalEntry.delete({ where: { id } })
+  const user = await getAuthenticatedUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+  const deleted = await prisma.journalEntry.deleteMany({ where: { id, userId: user.id } })
+  if (!deleted.count) return c.json({ error: 'Journal entry not found' }, 404)
   return c.json({ ok: true })
+})
+
+// ===== ENROLLMENTS + LESSON PROGRESS (dev parity with api/index.ts) =====
+// Mirrors the production routes so dev behaves identically. Both are always
+// scoped to the caller's own authenticated session; plan approval is the only
+// way a student gains access to a priced course.
+
+async function callerUser(c: any) {
+  return getAuthenticatedUser(c)
+}
+
+// The caller's own enrollments
+app.get('/enrollments', async (c) => {
+  const user = await callerUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+  const enrollments = await prisma.enrollment.findMany({
+    where: { userId: user.id },
+    select: { id: true, courseId: true, status: true, enrolledAt: true, completedAt: true },
+    orderBy: { enrolledAt: 'desc' },
+  })
+  return c.json({ enrollments })
+})
+
+// Enroll the caller in a course (idempotent on the (userId, courseId) unique)
+app.post('/enrollments', async (c) => {
+  const user = await callerUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+
+  const body = await c.req.json().catch(() => ({}))
+  const courseId = String((body as any)?.courseId || '').trim()
+  if (!courseId) return c.json({ error: 'courseId is required' }, 400)
+
+  const course = await prisma.course.findUnique({ where: { id: courseId } })
+  if (!course) return c.json({ error: 'Course not found' }, 404)
+
+  const courseIsFree = Number((course as any).price || 0) <= 0
+  if (!courseIsFree && (await callerPlanRank(c)) < 1) {
+    return c.json({ error: 'This course requires a paid plan. Send your fee, then wait for approval.', requiredPlan: 'STARTER' }, 403)
+  }
+
+  await prisma.enrollment.upsert({
+    where: { userId_courseId: { userId: user.id, courseId } },
+    create: { userId: user.id, courseId, status: 'active' },
+    update: {},
+  })
+  return c.json({ ok: true, courseId })
+})
+
+// The caller's own lesson completion state. courseId is included so the client
+// can rebuild its per-course view in one round trip.
+app.get('/progress', async (c) => {
+  const user = await callerUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+  const progress = await prisma.progress.findMany({
+    where: { userId: user.id },
+    select: {
+      lessonId: true,
+      completed: true,
+      completedAt: true,
+      lesson: { select: { module: { select: { courseId: true } } } },
+    },
+  })
+  return c.json({
+    progress: progress.map((p: any) => ({
+      lessonId: p.lessonId,
+      courseId: p.lesson?.module?.courseId || null,
+      completed: !!p.completed,
+      completedAt: p.completedAt,
+    })),
+  })
+})
+
+// Mark one lesson complete/incomplete for the caller
+app.post('/progress', async (c) => {
+  const user = await callerUser(c)
+  if (!user) return c.json({ error: 'Authentication required' }, 401)
+
+  const body = await c.req.json().catch(() => ({}))
+  const lessonId = String((body as any)?.lessonId || '').trim()
+  if (!lessonId) return c.json({ error: 'lessonId is required' }, 400)
+  const completed = (body as any)?.completed === false ? false : true
+
+  const lesson = await prisma.lesson.findUnique({ where: { id: lessonId } })
+  if (!lesson) return c.json({ error: 'Lesson not found' }, 404)
+
+  await prisma.progress.upsert({
+    where: { userId_lessonId: { userId: user.id, lessonId } },
+    create: { userId: user.id, lessonId, completed, completedAt: completed ? new Date() : null },
+    update: { completed, completedAt: completed ? new Date() : null },
+  })
+
+  // A course only flips to "completed" when every one of its lessons is done
+  // for this specific student, so certificates never overstate progress.
+  const courseId = await courseIdOfLesson(lessonId)
+  const lessons = courseId
+    ? await prisma.lesson.findMany({ where: { module: { courseId } }, select: { id: true } })
+    : []
+  const done = await prisma.progress.count({
+    where: { userId: user.id, completed: true, lessonId: { in: lessons.map((l: { id: string }) => l.id) } },
+  })
+  const courseDone = lessons.length > 0 && done >= lessons.length
+
+  if (courseId) {
+    const existing = await prisma.enrollment.findUnique({
+      where: { userId_courseId: { userId: user.id, courseId } },
+    })
+    if (existing) {
+      await prisma.enrollment.update({
+        where: { id: existing.id },
+        data: { status: courseDone ? 'completed' : 'active', completedAt: courseDone ? new Date() : null },
+      })
+    }
+  }
+
+  return c.json({ ok: true, lessonId, completed, courseCompleted: courseDone })
+})
+
+/** Resolves the course a lesson belongs to (lesson -> module -> course). */
+async function courseIdOfLesson(lessonId: string): Promise<string | null> {
+  const lesson = await prisma.lesson.findUnique({ where: { id: lessonId }, select: { moduleId: true } })
+  if (!lesson) return null
+  const mod = await prisma.module.findUnique({ where: { id: lesson.moduleId }, select: { courseId: true } })
+  return mod?.courseId || null
+}
+
+// ===== BOOKS (dev parity with api/index.ts) =====
+// Paid books live outside public/ so they can be access-controlled. This mirrors
+// the production serverless route so local development behaves identically:
+// unbundled here (read from books/) to keep the dev transform fast, but gated by
+// exactly the same plan check.
+const BOOK_PLAN: Record<string, string> = {
+  'crypto-intermediate': 'STARTER',
+  'crypto-advanced': 'STARTER',
+  'smc-book': 'STARTER',
+  'forex-book': 'STARTER',
+  'price-action': 'STARTER',
+  'trading-strategies': 'STARTER',
+  'professional-trading': 'STARTER',
+  'technical-analysis': 'STARTER',
+  'risk-management': 'STARTER',
+  'trading-psychology': 'STARTER',
+}
+
+const PLAN_RANK: Record<string, number> = { FREE: 0, STARTER: 1, PREMIUM: 2 }
+const planRankOf = (plan?: string | null) => PLAN_RANK[String(plan || 'FREE').toUpperCase()] || 0
+
+async function callerPlanRank(c: any): Promise<number> {
+  try {
+    const user = await getAuthenticatedUser(c)
+    if (!user) return 0
+    if (user.role === 'admin' || user.role === 'instructor') return 2
+
+    // Expired paid plans degrade to FREE, matching production behavior.
+    const expiresAt = (user as any).planExpiresAt
+    if (expiresAt && new Date(expiresAt).getTime() <= Date.now()) return 0
+
+    return planRankOf((user as any).plan)
+  } catch {
+    return 0
+  }
+}
+
+// Chapters link back with href="../index.html", which no longer resolves from
+// /api/books/<id>/<file>. Point it at the site root instead.
+const rewriteBookLinks = (html: string) => html.replace(/href=(["'])(?:\.\.\/)+index\.html\1/g, 'href="/"')
+
+app.get('/books', async (c) => c.json({ books: Object.entries(BOOK_PLAN).map(([id, requiredPlan]) => ({ id, requiredPlan })) }))
+
+app.get('/books/:id/:file?', async (c) => {
+  const { id, file } = c.req.param()
+  const requiredPlan = BOOK_PLAN[id]
+  if (!requiredPlan) return c.json({ error: 'Book not found' }, 404)
+
+  const rank = await callerPlanRank(c)
+  if (rank < planRankOf(requiredPlan)) {
+    return c.html(
+      `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Locked</title></head>
+<body style="margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0d1b2a;color:#eee;font-family:system-ui;padding:24px">
+<div style="max-width:560px;text-align:center;border:3px solid #e0a800;border-radius:20px;padding:44px 32px;background:linear-gradient(145deg,#0d1b2a,#1b263b)">
+<h1 style="color:#e0a800;margin:0 0 12px">This book is locked</h1>
+<p style="color:#bbb;line-height:1.7">It belongs to the paid library and is not included in your current plan.</p>
+<div style="margin-top:18px;background:#00b4d8;color:#062033;font-weight:700;border-radius:10px;padding:10px 20px;display:inline-block">${requiredPlan} PLAN REQUIRED</div>
+</div></body></html>`,
+      403
+    )
+  }
+
+  // Only allow plain relative chapter filenames. Reject traversal, absolute
+  // paths, sub-directories, and encoded separators so callers cannot escape the
+  // book directory even if the route is reached directly.
+  const rel = String(file || 'index.html').replace(/^\/+/, '')
+  const safeName = /^[A-Za-z0-9._-]+$/.test(rel) && !rel.includes('..') && rel !== '.' && rel !== ''
+
+  if (!safeName) {
+    return c.json({ error: 'Chapter not found' }, 404)
+  }
+
+  const { readFile } = await import('fs/promises')
+  const baseDir = (await import('path')).join(process.cwd(), 'books', id)
+  const path = (await import('path')).resolve(baseDir, rel)
+
+  if (!path.startsWith(baseDir + (await import('path')).sep)) {
+    return c.json({ error: 'Chapter not found' }, 404)
+  }
+
+  try {
+    const html = await readFile(path, 'utf8')
+    c.header('Content-Type', 'text/html; charset=utf-8')
+    c.header('Cache-Control', 'private, no-store')
+    return c.body(rewriteBookLinks(html))
+  } catch {
+    return c.json({ error: 'Chapter not found' }, 404)
+  }
 })
 
 export default app

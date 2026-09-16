@@ -119,7 +119,7 @@ export class ShogoErrorBoundary extends Component<Props, State> {
             }}
           >
             The app crashed while rendering. You can try again, or reload the
-            page. Shogo has been notified.
+            page. If it keeps happening, please contact support.
           </p>
 
           <div

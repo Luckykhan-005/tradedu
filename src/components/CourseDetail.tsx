@@ -39,6 +39,9 @@ interface LessonData {
   order: number
   type: string
   isFree?: boolean
+  /** Server-authoritative access decision (see gateLesson in api/index.ts). */
+  canAccess?: boolean
+  locked?: boolean
 }
 
 interface CourseDetailProps {
@@ -74,9 +77,16 @@ export function CourseDetail({
   })
   const [activeLesson, setActiveLesson] = useState<LessonData | null>(null)
   const planRank = { FREE: 0, STARTER: 1, PREMIUM: 2 } as Record<string, number>
-  const userRank = planRank[userPlan] || 0
+  const userRank = planRank[String(userPlan || 'FREE').toUpperCase()] || 0
 
+  /**
+   * The server already stripped videoUrl/content from lessons this account may
+   * not watch. Trust that flag first; the local plan check is only a fallback
+   * for payloads that predate server-side gating.
+   */
   const canAccessLesson = (lesson: LessonData) => {
+    if (typeof lesson.canAccess === 'boolean') return lesson.canAccess
+    if (typeof lesson.locked === 'boolean') return !lesson.locked
     if (lesson.isFree) return true
     return userRank >= 1
   }
@@ -254,7 +264,11 @@ export function CourseDetail({
                               <div className="flex-1 min-w-0">
                                 <div className="text-sm truncate">{lesson.title}</div>
                                 <div className="text-xs text-muted-foreground">
-                                  {!access ? 'Starter Plan' : lesson.duration}
+                                  {!access
+                                    ? lesson.isFree
+                                      ? 'Locked'
+                                      : 'Requires paid plan'
+                                    : lesson.duration}
                                 </div>
                               </div>
                             </button>

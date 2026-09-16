@@ -10,6 +10,8 @@
     "dev:server": "bun --watch run server.tsx",
     "dev:client": "vite",
     "build": "vite build",
+    "books:embed": "node scripts/embed-books.mjs",
+    "prebuild": "node scripts/embed-books.mjs",
     "start": "bun run server.tsx",
     "generate": "bun ./node_modules/@shogo-ai/sdk/bin/cli.mjs generate",
     "db:generate": "bun x --bun prisma generate",
@@ -32,6 +34,7 @@
     "radix-ui": "^1.4.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.18.3",
     "recharts": "^2.15.3",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"

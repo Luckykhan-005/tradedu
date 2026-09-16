@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 7 — کینڈل سٹک (Candlestick) — تاریخ اور ساخت</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 7: کینڈل سٹک (Candlestick) — تاریخ اور ساخت</h1>
+<div class="info"><p>
+کینڈل سٹک چارٹ محض "سرخ سبز ڈنڈیاں" نہیں ہیں — یہ <strong>خریداروں اور بیچنے والوں کی جنگ</strong> کی تصویر ہیں۔ یہ 300 سال پہلے جاپان کے چاول کے تاجروں نے ایجاد کی تھی، اور آج دنیا کے ہر پیشہ ور تاجر کی پہلی زبان ہے۔ اس باب میں آپ کینڈل کی مکمل ساخت اور اس کا اصل مطلب سیکھیں گے۔
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>کینڈل سٹک کی تاریخ — Munehisa Homma اور جاپانی چاول کی منڈی</li>
+<li>کینڈل کی ساخت — Body, Wicks, Open, High, Low, Close</li>
+<li>Bullish اور Bearish کینڈل میں فرق</li>
+<li>کینڈل کے رنگوں کے معنی (رائج کنونشن)</li>
+<li>کینڈل پڑھنے کا اصل فن — کون کنٹرول میں ہے؟</li>
+<li>کینڈل کی اقسام — لمبی/چھوٹی باڈی، لمبی/چھوٹی وِک، Doji</li>
+</ul>
+<hr class="divider">
+<h2>📖 7.1 کینڈل سٹک کی تاریخ</h2>
+<h3>چاول کی منڈی سے دنیا کی منڈی تک</h3>
+<ul>
+<li><strong>18ویں صدی کا جاپان:</strong> Osaka کے قریب <strong>Dojima</strong> چاول کی منڈی میں ایک تاجر <strong>Munehisa Homma</strong> (مانی ہیسا ہومّا) نے دیکھا کہ چاول کی قیمت صرف فصل سے نہیں بلکہ <strong>تاجروں کے جذبات</strong> سے بھی چلتی ہے۔</li>
+<li>اس نے قیمت کے چار درجوں (اوپن، ہائی، لو، کلوز) کو ایک ہی شکل میں پیش کیا — وہی شکل آج <strong>کینڈل سٹک</strong> کہلاتی ہے۔</li>
+<li>Homma نے 100 سے زیادہ لگاتار منافع بخش ٹریڈز کیے اور اسے <strong>"دی گاڈ آف مارکیٹس"</strong> کہا گیا۔</li>
+<li><strong>1990 کی دہائی:</strong> امریکی تجزیہ کار <strong>Steve Nison</strong> نے جاپانی کینڈل سٹکس کو مغرب میں متعارف کرایا اور ان کی کتاب "Japanese Candlestick Charting Techniques" دنیا بھر میں مشہور ہوئی۔</li>
+</ul>
+<div class="info"><p>
+💡 <strong>نکتہ:</strong> کینڈل سٹک 300 سال پرانی ہے — مگر اس کا اصول آج بھی اتنا ہی سچ ہے کیونکہ <strong>انسانی جذبات (خوف اور لالچ) نہیں بدلے</strong>۔
+</p></div>
+<hr class="divider">
+<h2>📖 7.2 کینڈل کی ساخت (Anatomy of a Candle)</h2>
+<p>ایک کینڈل ایک مخصوص وقت (مثلاً 1 گھنٹہ) میں ہونے والی قیمت کی پوری حرکت کو 4 اعداد میں دکھاتی ہے:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>اصطلاح</th>
+<th>معنی</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Open (اوپن)</strong></td>
+<td>اس وقت کے شروع میں قیمت</td>
+</tr>
+<tr>
+<td><strong>High (ہائی)</strong></td>
+<td>اس وقت میں سب سے اونچی قیمت</td>
+</tr>
+<tr>
+<td><strong>Low (لو)</strong></td>
+<td>اس وقت میں سب سے نچلی قیمت</td>
+</tr>
+<tr>
+<td><strong>Close (کلوز)</strong></td>
+<td>اس وقت کے آخر میں قیمت</td>
+</tr>
+</tbody></table>
+<h3>کینڈل کے دو حصے</h3>
+<pre><code>
+        ہائی ────────────┬──────────── High
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        │    BODY        │     (وِک/شیڈو)  │
+        │  (باڈی)        │                │
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+        لو ──────────────┴──────────── Low
+</code></pre>
+<p>1. <strong>Body (باڈی):</strong> موٹا حصہ — Open سے Close تک۔ یہ بتاتا ہے کہ اس وقت میں قیمت کتنی آگے بڑھی۔</p>
+<p>2. <strong>Wicks / Shadows (وِک یا شیڈو):</strong> اوپر/نیچے کی پتلی لکیریں — High اور Low تک۔ یہ بتاتی ہیں کہ قیمت کہاں تک "جھانک کر" واپس آئی۔</p>
+<h3>مظاہرہ: ایک ہی کینڈل کے چار امکانات</h3>
+<pre><code>
+Bullish کینڈل:              Bearish کینڈل:
+   Close (اوپر)               Open (اوپر)
+      │                          │
+   ┌──┴──┐                   ┌──┴──┐
+   │     │                   │     │
+   │ BODY│                   │ BODY│
+   └──┬──┘                   └──┬──┘
+      │                          │
+   Open (نیچے)                Close (نیچے)
+</code></pre>
+<ul>
+<li><strong>Bullish کینڈل:</strong> Close &gt; Open — قیمت بڑھی۔ خریدار (bulls) جیتے۔</li>
+<li><strong>Bearish کینڈل:</strong> Close &lt; Open — قیمت گری۔ بیچنے والے (bears) جیتے۔</li>
+</ul>
+<hr class="divider">
+<h2>📖 7.3 کینڈل کے رنگ — کون سا کنونشن؟</h2>
+<h3>رائج کنونشن (آپ کے چارٹ میں)</h3>
+<ul>
+<li><strong>سبز / نیلا (Bullish):</strong> قیمت بڑھی — خریدار کا کنٹرول۔</li>
+<li><strong>سرخ (Bearish):</strong> قیمت گری — بیچنے والے کا کنٹرول۔</li>
+</ul>
+<h3>تاریخی کنونشن (جاپانی)</h3>
+<ul>
+<li><strong>سفید / خالی:</strong> قیمت بڑھی (bullish)</li>
+<li><strong>سیاہ / بھرا:</strong> قیمت گری (bearish)</li>
+</ul>
+<div class="info"><p>
+⚠️ <strong>اہم:</strong> کچھ بروکر سبز/سرخ الٹ رکھتے ہیں (سرخ = اوپر، سبز = نیچے)۔ <strong>ہمیشہ چارٹ کی سیٹنگ چیک کریں</strong> — رنگ نہیں، <strong>Close اور Open کا تعلق</strong> اصل فیصلہ ہے۔
+</p></div>
+<h3>رنگ کیوں اہم ہے؟</h3>
+<ul>
+<li><strong>سلسلہ (Sequence):</strong> لگاتار سبز کینڈلز = خریداروں کا غلبہ؛ لگاتار سرخ = بیچنے والوں کا غلبہ۔</li>
+<li><strong>رنگ کی تبدیلی:</strong> لمبے سبز سلسلے کے بعد پہلی سرخ کینڈل = ممکنہ الٹاؤ (reversal) کا پہلا اشارہ۔</li>
+</ul>
+<hr class="divider">
+<h2>📖 7.4 کینڈل پڑھنے کا اصل فن</h2>
+<p>کینڈل صرف "اوپر گیا یا نیچے" نہیں بتاتی — یہ بتاتی ہے کہ <strong>جنگ کے دوران کیا ہوا</strong>۔ یہی فرق ایک عام تاجر اور تجزیہ کار میں ہے۔</p>
+<h3>باڈی کی لمبائی</h3>
+<ul>
+<li><strong>لمبی باڈی:</strong> واضح فتح — ایک فریق نے پورے وقت میں غلبہ رکھا۔ مضبوط حرکت۔</li>
+<li><strong>چھوٹی باڈی:</strong> ہچکچاہٹ — کوئی بھی فریق فیصلہ کن نہیں۔ کمزور حرکت۔</li>
+</ul>
+<h3>وِک کی لمبائی</h3>
+<ul>
+<li><strong>اوپری وِک (Upper Wick):</strong> قیمت اوپر گئی لیکن بیچنے والوں نے واپس دھکیل دیا — اوپر <strong>فروخت کا دباؤ</strong>۔</li>
+<li><strong>نچلی وِک (Lower Wick):</strong> قیمت نیچے گئی لیکن خریداروں نے واپس اٹھا لیا — نیچے <strong>خریداری کا دباؤ</strong>۔</li>
+</ul>
+<h3>چار اہم حالات</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>صورت</th>
+<th>مطلب</th>
+<th>پیغام</th>
+</tr></thead><tbody>
+<tr>
+<td>لمبی سبز باڈی، کوئی وِک نہیں</td>
+<td>خریدار پورے وقت غالب</td>
+<td>بہت مضبوط bull</td>
+</tr>
+<tr>
+<td>لمبی سرخ باڈی، کوئی وِک نہیں</td>
+<td>بیچنے والے پورے وقت غالب</td>
+<td>بہت مضبوط bear</td>
+</tr>
+<tr>
+<td>چھوٹی باڈی، لمبی دونوں وِکس</td>
+<td>شدید کشمکش</td>
+<td>فیصلہ نہیں ہوا</td>
+</tr>
+<tr>
+<td>کوئی باڈی نہیں (Doji)</td>
+<td>Open ≈ Close</td>
+<td>مکمل تعطل — ممکنہ الٹاؤ</td>
+</tr>
+</tbody></table>
+<hr class="divider">
+<h2>📖 7.5 Doji — تعطل کی کینڈل</h2>
+<h3>Doji کیا ہے؟</h3>
+<p>Doji وہ کینڈل ہے جس میں <strong>Open اور Close تقریباً برابر</strong> ہوں — باڈی بہت چھوٹی یا تقریباً نہ ہو۔ یہ بتاتی ہے کہ خریدار اور بیچنے والے <strong>برابر</strong> تھے۔</p>
+<pre><code>
+      High ──────┐
+                 │
+   Open/Close ───┤  (ایک ہی سطح)
+                 │
+      Low ───────┘
+</code></pre>
+<h3>Doji کی اقسام</h3>
+<ul>
+<li><strong>Standard Doji:</strong> Open = Close، وِک دونوں طرف برابر۔</li>
+<li><strong>Long-legged Doji:</strong> بہت لمبی دونوں وِکس — شدید کشمکش۔</li>
+<li><strong>Dragonfly Doji:</strong> لمبی نچلی وِک — بیچنے والوں نے دھکیل کر بھی نہیں جیت سکے۔</li>
+<li><strong>Gravestone Doji:</strong> لمبی اوپری وِک — خریداروں نے اٹھا کر بھی نہیں جیت سکے۔</li>
+</ul>
+<div class="info"><p>
+💡 <strong>اہم نکتہ:</strong> Doji خود کوئی سگنل نہیں — یہ <strong>مقام</strong> سے معنی پاتی ہے۔ ٹرینڈ کے اختتام پر Doji = ممکنہ الٹاؤ؛ سائیڈ ویز کے بیچ Doji = کوئی معنی نہیں۔
+</p></div>
+<hr class="divider">
+<h2>📖 7.6 کینڈل اور ٹائم فریم کا تعلق</h2>
+<ul>
+<li>ایک کینڈل <strong>صرف اپنے ٹائم فریم</strong> کی کہانی بتاتی ہے:</li>
+<li><strong>1-منٹ کینڈل:</strong> ایک منٹ کی جنگ — بہت شور (noise)۔</li>
+<li><strong>1-گھنٹے کینڈل:</strong> ایک گھنٹے کی جنگ — معتدل۔</li>
+<li><strong>1-دن کینڈل (Daily):</strong> پورے دن کی جنگ — بڑی تصویر۔</li>
+<li><strong>مضبوط سگنلز:</strong> بڑے ٹائم فریم کی کینڈل زیادہ وزنی ہوتی ہے۔</li>
+<li><strong>غلط فہمی:</strong> "H4 پر لمبی سبز کینڈل" کا مطلب H1 پر ہر کینڈل سبز نہیں — اندر کچھ بھی ہو سکتا ہے۔</li>
+</ul>
+<div class="info"><p>
+📖 ٹائم فریم کی مکمل بحث باب 10 میں۔ ابھی یہ سمجھیں: <strong>کینڈل اپنے وقت کے پیمانے کا خلاصہ ہے۔</strong>
+</p></div>
+<hr class="divider">
+<h2>📖 7.7 کینڈل پڑھنے کی مشق — عملی طریقہ</h2>
+<h3>تین سوال جو ہر کینڈل سے پوچھیں</h3>
+<p>1. <strong>کون جیتا؟</strong> (باڈی کا رنگ اور سائز)</p>
+<p>2. <strong>کتنی مضبوطی سے جیتا؟</strong> (وِکس کی لمبائی)</p>
+<p>3. <strong>کہاں پر جیتا؟</strong> (مقام — سپورٹ/ریزسٹنس، ٹرینڈ کا اختتام وغیرہ)</p>
+<h3>روزانہ کی مشق</h3>
+<ul>
+<li>اپنے چارٹ پر روزانہ 10 کینڈلز کو <strong>الفاظ میں بیان</strong> کریں:</li>
+<li>"لمبی سبز، کوئی وِک نہیں — خریدار مکمل کنٹرول"</li>
+<li>"چھوٹی سرخ، لمبی نچلی وِک — نیچے خریداری کا دفاع"</li>
+<li>دو ہفتے یہ مشق کریں — چارٹ پڑھنا خود بخود عادت بن جائے گا۔</li>
+</ul>
+<hr class="divider">
+<h2>⚠️ باب 7 کی عام غلطیاں</h2>
+<p>1. <strong>رنگ کو ہی سگنل سمجھنا:</strong> رنگ صرف نتیجہ دکھاتا ہے؛ فیصلہ باڈی، وِکس اور مقام سے ہوتا ہے۔</p>
+<p>2. <strong>Doji کو ہمیشہ الٹاؤ سمجھنا:</strong> Doji صرف "تعطل" ہے — مقام نہ دیکھے تو غلط سگنل۔</p>
+<p>3. <strong>چھوٹے ٹائم فریم کی ہر کینڈل پر عمل:</strong> شور سے بچیں — بڑے ٹائم فریم کی کینڈلز پہلے دیکھیں۔</p>
+<p>4. <strong>ایک کینڈل سے فیصلہ:</strong> کینڈل تنہا سگنل نہیں — اگلے ابواب کے پیٹرن اور سٹرکچر کے ساتھ پڑھیں۔</p>
+<p>5. <strong>وِک کو نظر انداز کرنا:</strong> وِک ہی اصل کہانی سناتی ہے — "قیمت کہاں تک گئی اور واپس کیوں آئی"۔</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>کینڈل سٹک جاپان کے چاول کے تاجروں کی ایجاد ہے — آج ہر چارٹ کی بنیاد۔</li>
+<li>کینڈل = Open, High, Low, Close چار اعداد کی تصویر۔</li>
+<li>Body فتح بتاتی ہے؛ Wicks مزاحمت/دفاع بتاتی ہیں۔</li>
+<li>Bullish = Close &gt; Open؛ Bearish = Close &lt; Open۔</li>
+<li>Doji = تعطل — صرف مقام پر معنی رکھتی ہے۔</li>
+<li>کینڈل پڑھنے کا فن: کون جیتا؟ کتنی مضبوطی سے؟ کہاں پر؟</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. اپنے چارٹ پر EUR/USD کا H4 ٹائم فریم کھولیں اور پچھلے 20 کینڈلز کے Open, High, Low, Close لکھیں۔</p>
+<p>2. ہر کینڈل کی درجہ بندی کریں: مضبوط bull / مضبوط bear / ہچکچاہٹ / Doji۔</p>
+<p>3. تین Doji تلاش کریں اور لکھیں کہ وہ کہاں بنیں — ٹرینڈ کے آخر میں یا سائیڈ ویز میں؟ فرق محسوس کریں۔</p>
+<p>4. اپنے مشاہدات جرنل میں لکھیں — یہی آپ کی کینڈل ڈائری بنے گی۔</p>
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+کینڈل سٹک محض رنگین ڈنڈیاں نہیں — یہ ہر لمحے خریدار اور بیچنے والے کے درمیان ہونے والی جنگ کی <strong>اعلیٰ ترین فوجی رپورٹ</strong> ہے۔ جو اس رپورٹ کو صحیح پڑھنا سیکھ لے، وہ منڈی کے نقشے پر کبھی گم نہیں ہوتا۔ اگلے باب میں آپ انہی کینڈلز کے مشہور پیٹرن سیکھیں گے جو صدیوں سے تاجروں کے کام آ رہے ہیں۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter6.html">← پچھلا</a>
+        <a href="chapter8.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

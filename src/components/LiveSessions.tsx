@@ -5,6 +5,7 @@ import {
   ExternalLink,
   Users,
   TrendingUp,
+  Lock,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -18,6 +19,9 @@ interface LiveSessionData {
   duration?: string
   meetLink?: string
   instructorName: string
+  /** Server omitted meetLink because the caller's plan is insufficient. */
+  locked?: boolean
+  requiredPlan?: string
 }
 
 interface LiveSessionsProps {
@@ -106,7 +110,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
                           </div>
                         </div>
                       </div>
-                      {session.meetLink && (
+                      {session.meetLink ? (
                         <a href={session.meetLink} target="_blank" rel="noopener noreferrer" className="block mt-4">
                           <Button size="sm" className="w-full gap-2">
                             <Video className="h-4 w-4" />
@@ -114,7 +118,12 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
                             <ExternalLink className="h-3 w-3" />
                           </Button>
                         </a>
-                      )}
+                      ) : session.locked ? (
+                        <div className="mt-4 flex items-center justify-center gap-2 rounded-lg border border-dashed border-amber-300 bg-amber-50 px-3 py-2 text-xs font-medium text-amber-700">
+                          <Lock className="h-3.5 w-3.5" />
+                          Join link unlocks with the {session.requiredPlan || 'paid'} plan
+                        </div>
+                      ) : null}
                     </CardContent>
                   </Card>
                 )
@@ -138,7 +147,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
           <div>
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Users className="h-5 w-5 text-muted-foreground" />
-              Past Recordings
+              Past Sessions
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {past.map((session) => {
@@ -159,7 +168,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
                             {session.duration && <span>{session.duration}</span>}
                           </div>
                           <Badge variant="outline" className="mt-2 text-xs">
-                            Recording Available
+                            Session Ended
                           </Badge>
                         </div>
                       </div>

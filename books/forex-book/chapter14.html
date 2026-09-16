@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بقے 14 — ٹرینڈ کے ساتھ ٹریڈنگ (Trend Following)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 20px; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; border-bottom: 2px solid #122540; padding-bottom: 8px; }
+        h3 { font-size: 28px; color: #00b4d8; margin-top: 30px; }
+        h4 { font-size: 24px; color: #e0a800; margin-top: 25px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .en, code.en { font-family: "Segoe UI", Consolas, monospace; font-size: 20px; background: #122540; padding: 2px 6px; border-radius: 4px; color: #7dd3fc; }
+        .en-sub { font-family: "Segoe UI", sans-serif; font-size: 18px; color: #888; text-align: center; font-style: italic; margin-bottom: 20px; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        .warn { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .warn strong { color: #e94560; }
+        .tip { background: #1a2a1a; border-right: 5px solid #e0a800; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .tip strong { color: #e0a800; }
+        .practice { background: #2a2410; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .practice strong { color: #00b4d8; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 22px; }
+        th, td { border: 1px solid #333; padding: 8px 12px; text-align: right; }
+        th { background: #122540; color: #e0a800; }
+        .table-wrap { overflow-x: auto; }
+        pre { background: #0a1628; border: 1px solid #122540; border-radius: 10px; padding: 15px; overflow-x: auto; font-size: 18px; }
+        pre code { background: none; color: #7dd3fc; }
+        .chapter-end { text-align: center; color: #00b4d8; font-size: 30px; margin-top: 40px; }
+        .part-badge { display: inline-block; background: #e0a800; color: #0a1628; font-size: 16px; padding: 3px 12px; border-radius: 20px; margin-left: 15px; }
+        svg text { direction: rtl; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<h1>باب 14: ٹرینڈ کے ساتھ ٹریڈنگ (Trend Following)</h1>
+<div class="info"><p>
+<em>"اپ ٹرینڈ میں خریدار سستے ہیں، ڈاؤن ٹرینڈ میں بیچنے والے — کامیاب ٹریڈر وہی ہے جو ہوا کے رخ کے ساتھ چلتا ہے، اس کے خلاف نہیں۔"</em>
+</p></div>
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>ٹرینڈ (Trend) کیا ہے اور اس کی تین اقسام</li>
+<li>ٹرینڈ کی طاقت اور کمزوری کو پہچاننا</li>
+<li>Trend Following کا فلسفہ — "The Trend is Your Friend"</li>
+<li>ٹرینڈ کے ساتھ ٹریڈ کرنے کے عملی طریقے</li>
+<li>ٹرینڈ کی تصدیق کے ذرائع</li>
+<li>ٹرینڈ ریورسل کے انتباہی نشانات</li>
+</ul>
+<hr class="divider">
+<h2>📖 14.1 ٹرینڈ کیا ہے؟</h2>
+<p><strong>ٹرینڈ (Trend)</strong> قیمت کی مستقل سمت ہے — یعنی چاہے قیمت اوپر نیچے ہوتی رہے، مجموعی طور پر ایک ہی سمت میں بڑھتی جائے۔ کہاوت ہے: <strong>"The trend is your friend"</strong> — ٹرینڈ آپ کا دوست ہے، اس کے ساتھ چلیں، اس کے خلاف نہ کھڑے ہوں۔</p>
+<p>مارکیٹ میں ہمیشہ تین میں سے ایک حالت ہوتی ہے:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>حالت</th>
+<th>سمت</th>
+<th>کیا ہو رہا ہے؟</th>
+</tr></thead><tbody>
+<tr>
+<td>اپ ٹرینڈ (Uptrend)</td>
+<td>اوپر</td>
+<td>بلند تر ہائی اور بلند تر لو (HH/HL)</td>
+</tr>
+<tr>
+<td>ڈاؤن ٹرینڈ (Downtrend)</td>
+<td>نیچے</td>
+<td>نیچے والے ہائی اور نیچے والے لو (LH/LL)</td>
+</tr>
+<tr>
+<td>سائیڈ ویز (Range/Sideways)</td>
+<td>افقی</td>
+<td>ایک ڈبے میں قیمت کی آمد و رفت</td>
+</tr>
+</tbody></table>
+<h3>14.1.1 اپ ٹرینڈ کی پہچان</h3>
+<p>اپ ٹرینڈ میں قیمت کے ہر نئے <strong>ہائی (High)</strong> اور ہر نئے <strong>لو (Low)</strong> سے پچھلے ہائی/لو اونچے ہوتے ہیں:</p>
+<pre><code>
+  \HH3
+   \  /HL3
+    \/  \
+    /\HH2 \        ← اپ ٹرینڈ: HH1 → HH2 → HH3
+   /  \   \HL2       اور HL1 → HL2 → HL3
+  /HL1 \ /
+ /      \/
+/ HH1
+</code></pre>
+<p>یہ <strong>بلند تر ہائی (Higher Highs)</strong> اور <strong>بلند تر لو (Higher Lows)</strong> کا سلسلہ ہی اپ ٹرینڈ کی سب سے مضبوط پہچان ہے۔</p>
+<h3>14.1.2 ڈاؤن ٹرینڈ کی پہچان</h3>
+<p>ڈاؤن ٹرینڈ اس کے برعکس ہے — ہر نیا ہائی پچھلے سے <strong>نیچا</strong> اور ہر نیا لو پچھلے سے <strong>نیچا</strong>:</p>
+<pre><code>
+HH1\
+    \  /LH2
+     \/   \
+     /\    \LH3      ← ڈاؤن ٹرینڈ: LH1 → LH2 → LH3
+    /  \    \           اور LL1 → LL2 → LL3
+   /    \LL1 \
+  /        \  \LL2
+ /           \  \LL3
+</code></pre>
+<p><strong>نیچے والے ہائی (Lower Highs)</strong> اور <strong>نیچے والے لو (Lower Lows)</strong> کا سلسلہ ڈاؤن ٹرینڈ کی پہچان ہے۔</p>
+<h2>📖 14.2 ٹرینڈ کی تین اقسام — مدت کے لحاظ سے</h2>
+<p>ٹرینڈ کو مدت کے لحاظ سے تین اقسام میں تقسیم کیا جاتا ہے:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>قسم</th>
+<th>دورانیہ</th>
+<th>اہم ٹائم فریم</th>
+</tr></thead><tbody>
+<tr>
+<td>طویل مدتی ٹرینڈ (Primary)</td>
+<td>مہینوں تا سال</td>
+<td>Weekly (W1), Monthly (MN)</td>
+</tr>
+<tr>
+<td>درمیانی ٹرینڈ (Secondary)</td>
+<td>ہفتوں تا مہینے</td>
+<td>Daily (D1), H4</td>
+</tr>
+<tr>
+<td>قلیل مدتی ٹرینڈ (Minor)</td>
+<td>گھنٹوں تا دن</td>
+<td>H1, M15</td>
+</tr>
+</tbody></table>
+<h3>14.2.1 تینوں ٹرینڈز کا تعلق</h3>
+<p>کسی بھی وقت مارکیٹ میں تینوں ٹرینڈز بیک وقت موجود ہوتے ہیں — اور یہ ایک دوسرے کے مخالف بھی ہو سکتے ہیں:</p>
+<ul>
+<li><strong>W1 پر</strong> اپ ٹرینڈ ہے</li>
+<li><strong>D1 پر</strong> نیچے کی اصلاح (Pullback) چل رہی ہے</li>
+<li><strong>H1 پر</strong> اس اصلاح کے اندر ایک چھوٹی اپ ٹرینڈ بن رہی ہے</li>
+</ul>
+<p>یہی وجہ ہے کہ صرف ایک ٹائم فریم دیکھ کر فیصلہ کرنا غلط ہے۔ کامیاب ٹریڈر پہلے <strong>بڑا</strong> ٹرینڈ دیکھتا ہے، پھر اس کے مطابق چھوٹے ٹائم فریم پر داخلہ تلاش کرتا ہے۔</p>
+<div class="info"><p>
+<strong>اصول:</strong> بڑا ٹرینڈ سمت دیتا ہے، چھوٹا ٹرینڈ داخلے کا موقع دیتا ہے۔ جب دونوں ایک سمت میں ہوں تو بہترین ٹریڈنگ ہوتی ہے۔
+</p></div>
+<h2>📖 14.3 Trend Following کا فلسفہ</h2>
+<p><strong>Trend Following</strong> یعنی ٹرینڈ کی پیروی کرنا — اس کا مطلب یہ نہیں کہ آپ قیمت کا رخ <strong>پیشین گوئی</strong> کریں، بلکہ یہ کہ جو رخ <strong>بن چکا</strong> ہے اسے پہچانیں اور اس کے ساتھ چلیں۔</p>
+<h3>14.3.1 یہ کام کیوں کرتا ہے؟</h3>
+<p>مارکیٹ کا رجحان ایک بار بننے کے بعد عموماً کچھ عرصہ جاری رہتا ہے۔ وجوہات:</p>
+<p>1. <strong>اجتماعی رویہ:</strong> ایک بار جب بہت سے تاجر ایک سمت میں داخل ہو جائیں تو قیمت اسی سمت بڑھتی رہتی ہے۔</p>
+<p>2. <strong>فرم آرڈرز:</strong> بڑے فنڈز اپنے بڑے آرڈرز کو ایک سمت میں <strong>رفتہ رفتہ</strong> پورا کرتے ہیں — یہ عمل ہفتوں تک چل سکتا ہے۔</p>
+<p>3. <strong>ناکامی کا خوف:</strong> جو لوگ ٹرینڈ کے خلاف تھے، وہ جلد اپنے نقصان کے ڈر سے مخالف سمت میں شامل ہو جاتے ہیں — اور ٹرینڈ مزید مضبوط ہو جاتا ہے۔</p>
+<h3>14.3.2 Trend Follower کا کردار</h3>
+<p>Trend Follower وہ تاجر ہے جو:</p>
+<ul>
+<li><strong>ٹرینڈ کے شروع</strong> میں داخل ہونے کی کوشش نہیں کرتا (یہ پیشین گوئی ہے)</li>
+<li>بلکہ <strong>ٹرینڈ کے ثابت ہونے</strong> کے بعد داخل ہوتا ہے (یہ پیروی ہے)</li>
+<li>جب تک ٹرینڈ برقرار ہے، ٹریڈ کو جاری رکھتا ہے</li>
+<li>جب ٹرینڈ ٹوٹے (CHoCH) تو بغیر ہچکچاہٹ باہر نکل جاتا ہے</li>
+</ul>
+<div class="table-wrap"><table><thead><tr>
+<th>پہلو</th>
+<th>پیشین گوئی کرنے والا</th>
+<th>Trend Follower</th>
+</tr></thead><tbody>
+<tr>
+<td>داخلہ</td>
+<td>ٹرینڈ بننے سے پہلے</td>
+<td>ٹرینڈ بننے کے بعد</td>
+</tr>
+<tr>
+<td>توقع</td>
+<td>"یہاں ٹرینڈ بنے گا"</td>
+<td>"ٹرینڈ بن چکا ہے، ساتھ چلوں گا"</td>
+</tr>
+<tr>
+<td>نقصان</td>
+<td>اکثر دیر سے</td>
+<td>جلد قبول کر لیتا ہے</td>
+</tr>
+<tr>
+<td>منافع</td>
+<td>چھوٹے، اچانک</td>
+<td>بڑے، سسٹم کے مطابق</td>
+</tr>
+</tbody></table>
+<h2>📖 14.4 ٹرینڈ کے ساتھ ٹریڈ کرنے کے عملی طریقے</h2>
+<p>ٹرینڈ کے ساتھ ٹریڈ کرنے کے تین سب سے مشہور طریقے ہیں:</p>
+<h3>طریقہ 1 — پل بیک ٹریڈنگ (Pullback Trading)</h3>
+<p>ٹرینڈ کی سمت میں داخلے کے بجائے <strong>ٹرینڈ کے خلاف چھوٹی اصلاح</strong> (Pullback) کا انتظار کریں، پھر ٹرینڈ کی سمت میں داخل ہوں۔</p>
+<pre><code>
+اپ ٹرینڈ میں:
+
+  قیمت          ۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔۔ (ہدف)
+   ^              /|
+   |            /  | ← دوسرا پل بیک (یہاں BUY)
+   |          /    |
+   |        /      |
+   |      / ← پہلا پل بیک (یہاں BUY)
+   |    /
+   |  /  ← ٹرینڈ لائن (اہم سپورٹ)
+   |/
+   +————————————————————→ وقت
+</code></pre>
+<p>داخلے کے مقامات: ٹرینڈ لائن، سوئنگ لو/ہائی، اہم سپورٹ/ریزسٹنس، یا موونگ ایوریج (باب 21)۔</p>
+<h3>طریقہ 2 — بریک آؤٹ ٹریڈنگ (Breakout Trading)</h3>
+<p>جب قیمت کسی اہم سطح (مثلاً پچھلا ہائی) کو توڑ کر آگے بڑھتی ہے تو ٹرینڈ کی سمت میں داخل ہوں۔ یہ طریقہ زیادہ رفتار والی مارکیٹ میں موزوں ہے (تفصیل باب 16 میں)۔</p>
+<h3>طریقہ 3 — ٹرینڈ کے ساتھ ریورسل پوائنٹس</h3>
+<p>جب قیمت ٹرینڈ کی سمت میں <strong>اہم سطح</strong> کو چھو کر واپس آئے (مثلاً اپ ٹرینڈ میں سپورٹ سے اچھال) تو وہاں داخل ہوں۔ یہ پرائس ایکشن سیٹ اپس (Pin Bar, Engulfing) کے ساتھ مل کر بہترین نتائج دیتا ہے۔</p>
+<h2>📖 14.5 ٹرینڈ کی تصدیق کے ذرائع</h2>
+<p>صرف ایک ٹائم فریم پر ٹرینڈ دیکھ کر فیصلہ کرنا خطرناک ہے۔ ٹرینڈ کی تصدیق کے تین ذرائع:</p>
+<p>1. <strong>سٹرکچر (Structure):</strong> HH/HL یا LH/LL کا سلسلہ برقرار ہے؟ (باب 11)</p>
+<p>2. <strong>ایک اور ٹائم فریم:</strong> بڑا ٹرینڈ بھی اسی سمت ہے؟ (باب 10)</p>
+<p>3. <strong>پرائس ایکشن کنفرمیشن:</strong> ٹرینڈ کی سمت میں Pin Bar یا Engulfing جیسا پیٹرن بن رہا ہے؟</p>
+<h3>14.5.1 ٹرینڈ کی طاقت کا اندازہ</h3>
+<ul>
+<li><strong>مضبوط ٹرینڈ:</strong> بڑی باڈی والی کینڈلز، کم اصلاح (Pullback بہت چھوٹی)، مسلسل نئے ہائی/لو</li>
+<li><strong>معمولی ٹرینڈ:</strong> درمیانی کینڈلز، معمولی اصلاح</li>
+<li><strong>کمزور ٹرینڈ:</strong> چھوٹی کینڈلز، گہری اصلاح، بار بار ڈو جی — ٹرینڈ ختم ہونے کا انتباہ</li>
+</ul>
+<h2>📖 14.6 ٹرینڈ ریورسل کے انتباہی نشانات</h2>
+<p>ٹرینڈ ہمیشہ نہیں رہتا۔ ان نشانات پر نظر رکھیں:</p>
+<p>1. <strong>سٹرکچر کا ٹوٹنا (CHoCH):</strong> اپ ٹرینڈ میں پچھلے سوئنگ لو سے نیچے جانا — ٹرینڈ کمزور ہونے کا پہلا انتباہ۔</p>
+<p>2. <strong>گہری اصلاح:</strong> اصلاح ٹرینڈ کے 50 فیصد سے زیادہ پیچھے لے جائے تو ٹرینڈ کی طاقت مشکوک ہے۔</p>
+<p>3. <strong>بڑی ریورسل کینڈلز:</strong> ٹرینڈ کے آخر میں بڑی Pin Bar یا Engulfing ریورسل پیٹرن بننا۔</p>
+<p>4. <strong>ہچکچاہٹ والی کینڈلز:</strong> چھوٹی باڈیز اور لمبی وکس — Indecision کا نشان۔</p>
+<p>5. <strong>بڑے ٹائم فریم کا سگنل:</strong> D1 یا W1 پر ٹرینڈ کے خلاف سگنل بننا۔</p>
+<div class="info"><p>
+<strong>یاد رکھیں:</strong> ریورسل کی پہچان ٹرینڈ کے "ختم" ہونے سے پہلے نہیں ہوتی — پہلا CHoCH ہی سرکاری اعلان ہے کہ اب ٹرینڈ اپنی سمت بدل سکتا ہے۔ ریورسل کی تفصیل باب 18 میں آئے گی۔
+</p></div>
+<hr class="divider">
+<h2>⚠️ باب 14 کی عام غلطیاں</h2>
+<p>1. <strong>ٹرینڈ کے خلاف ٹریڈ کرنا:</strong> "بہت اوپر گیا، اب نیچے آئے گا" کی سوچ — یہ سب سے مہلک غلطی ہے۔ ٹرینڈ "بہت زیادہ" نہیں ہوتا، ٹرینڈ صرف ٹرینڈ ہوتا ہے۔</p>
+<p>2. <strong>ٹرینڈ کے شروع میں داخل ہونے کی کوشش:</strong> بغیر تصدیق کے "اب ٹرینڈ شروع ہو گا" کہہ کر داخل ہونا۔ پہلے سٹرکچر کی تصدیق کریں۔</p>
+<p>3. <strong>ایک ٹائم فریم پر اندھا بھروسہ:</strong> صرف M15 دیکھ کر فیصلہ کرنا جب کہ D1 اس کے خلاف ہو۔</p>
+<p>4. <strong>پل بیک کے انتظار میں داخلہ کھو دینا:</strong> کبھی کبھی ٹرینڈ بغیر پل بیک کے بھی چلتا ہے — تو پھر ٹریڈ نہ کریں، اگلے موقع کا انتظار کریں۔</p>
+<p>5. <strong>Stop Loss نہ رکھنا:</strong> ٹرینڈ کے خلاف جاتے ہوئے "واپس آ جائے گا" کی امید میں نقصان بڑھانا۔ جب سٹرکچر ٹوٹے، باہر نکلیں۔</p>
+<hr class="divider">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>ٹرینڈ قیمت کی مستقل سمت ہے — اپ (HH/HL)، ڈاؤن (LH/LL) یا رینج۔</li>
+<li>مارکیٹ میں ایک ساتھ تین ٹرینڈز (بڑا، درمیانی، چھوٹا) موجود ہو سکتے ہیں — بڑا ٹرینڈ سمت دیتا ہے، چھوٹا داخلے کا موقع۔</li>
+<li>Trend Following پیشین گوئی نہیں، پیروی ہے — ٹرینڈ بننے کے بعد داخل ہوں۔</li>
+<li>ٹرینڈ کے ساتھ تین طریقے: پل بیک، بریک آؤٹ، اہم سطح سے اچھال۔</li>
+<li>ٹرینڈ کی تصدیق تین ذرائع سے کریں: سٹرکچر، بڑا ٹائم فریم، پرائس ایکشن۔</li>
+<li>پہلا CHoCH ٹرینڈ کمزور ہونے کا سرکاری انتباہ ہے — اسے نظر انداز نہ کریں۔</li>
+</ul>
+<hr class="divider">
+<h2>📝 عملی مشق</h2>
+<p>1. D1 چارٹ پر گذشتہ 3 ماہ میں 3 اپ ٹرینڈز اور 3 ڈاؤن ٹرینڈز تلاش کریں — ہر ایک پر HH/HL یا LH/LL نشان زد کریں۔</p>
+<p>2. ایک اپ ٹرینڈ میں 3 پل بیک پوائنٹس تلاش کریں اور لکھیں کہ ہر پل بیک کس سطح پر رکا اور وہاں کون سا پرائس ایکشن پیٹرن بنا۔</p>
+<p>3. ایک ایسی جگہ تلاش کریں جہاں قیمت نے "بہت زیادہ اوپر" ہونے کے باوجود مزید اوپر جانا جاری رکھا — اور لکھیں کہ جو ٹریڈر ٹرینڈ کے خلاف گیا ہوتا اسے کیا نقصان ہوتا۔</p>
+<p>4. اپنے چارٹ پر ایک کمزور ٹرینڈ اور ایک مضبوط ٹرینڈ کی شناخت کریں — دونوں کی کینڈلز اور اصلاح کا موازنہ لکھیں۔</p>
+<p>5. اگلے 10 دن تک، ہر روز D1 پر صرف "یہ کس ٹرینڈ میں ہے؟" کا جواب ایک جملے میں لکھیں — بغیر کوئی ٹریڈ کیے۔</p>
+<hr class="divider">
+<h2>🧠 یاد رکھیں</h2>
+<div class="info"><p>
+ٹرینڈ آپ کا دوست ہے، مگر دوست کی بھی سننی چاہیے — جب وہ تھک جائے (CHoCH)، جب وہ رکے (رینج)، تو اسے زبردستی نہ چلائیں۔ جو تاجر ٹرینڈ کی عزت کرتا ہے، ٹرینڈ اسے انعام دیتا ہے؛ جو اسے للکارتا ہے، وہ اسے سبق سکھاتی ہے۔ اگلے باب میں آپ سیکھیں گے کہ جب ٹرینڈ نہ ہو — رینج کی مارکیٹ — تو کیسے ٹریڈ کریں۔
+</p></div>
+    <div class="chapter-end">&#9670;</div>
+    <div class="nav">
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter13.html">← پچھلا</a>
+        <a href="chapter15.html">اگلا سبق →</a>
+    </div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

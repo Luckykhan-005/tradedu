@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.5.0
- * Query Engine version: 280c870be64f457428992c43c1f6d557fab6e29e
+ * Prisma Client JS version: 7.10.0
+ * Query Engine version: 0edf323efd1d98336f3f0a68684b56f689b900d3
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.5.0",
-  engine: "280c870be64f457428992c43c1f6d557fab6e29e"
+  client: "7.10.0",
+  engine: "0edf323efd1d98336f3f0a68684b56f689b900d3"
 }
 
 /**
@@ -156,6 +156,19 @@ export type Subset<T, U> = {
 };
 
 /**
+ * Resolved type of the argument passed to the `PrismaClient` constructor.
+ *
+ * When called without a narrower options type (the common case), this resolves
+ * to `PrismaClientOptions` directly, which produces a clear TypeScript error
+ * message (`not assignable to parameter of type 'PrismaClientOptions'`) when
+ * the argument is missing or incomplete. When the user supplies a narrower
+ * options type (e.g. via a literal), it falls back to `Subset` to keep
+ * filtering out unknown properties.
+ */
+export type PrismaClientConstructorArgs<Options extends PrismaClientOptions> =
+  [PrismaClientOptions] extends [Options] ? PrismaClientOptions : Subset<Options, PrismaClientOptions>;
+
+/**
  * SelectSubset
  * @desc From `T` pick properties that exist in `U`. Simple version of Intersection.
  * Additionally, it validates, if both select and include are present. If the case, it errors.
@@ -187,7 +200,7 @@ type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 export type XOR<T, U> =
   T extends object ?
   U extends object ?
-    (Without<T, U> & U) | (Without<U, T> & T)
+    ((Without<T, U> & U) | (Without<U, T> & T)) & object
   : U : T
 
 
@@ -393,6 +406,8 @@ export const ModelName = {
   LiveSession: 'LiveSession',
   QuizResult: 'QuizResult',
   PasswordResetToken: 'PasswordResetToken',
+  AdminSession: 'AdminSession',
+  StudentSession: 'StudentSession',
   JournalEntry: 'JournalEntry',
   SubscriptionRequest: 'SubscriptionRequest'
 } as const
@@ -410,7 +425,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "course" | "module" | "lesson" | "enrollment" | "progress" | "liveSession" | "quizResult" | "passwordResetToken" | "journalEntry" | "subscriptionRequest"
+    modelProps: "user" | "course" | "module" | "lesson" | "enrollment" | "progress" | "liveSession" | "quizResult" | "passwordResetToken" | "adminSession" | "studentSession" | "journalEntry" | "subscriptionRequest"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1080,6 +1095,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AdminSession: {
+      payload: Prisma.$AdminSessionPayload<ExtArgs>
+      fields: Prisma.AdminSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AdminSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AdminSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.AdminSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AdminSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        findMany: {
+          args: Prisma.AdminSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>[]
+        }
+        create: {
+          args: Prisma.AdminSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        createMany: {
+          args: Prisma.AdminSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AdminSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.AdminSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        update: {
+          args: Prisma.AdminSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AdminSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AdminSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AdminSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AdminSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AdminSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.AdminSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAdminSession>
+        }
+        groupBy: {
+          args: Prisma.AdminSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AdminSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AdminSessionCountAggregateOutputType> | number
+        }
+      }
+    }
+    StudentSession: {
+      payload: Prisma.$StudentSessionPayload<ExtArgs>
+      fields: Prisma.StudentSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StudentSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StudentSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.StudentSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StudentSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        findMany: {
+          args: Prisma.StudentSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>[]
+        }
+        create: {
+          args: Prisma.StudentSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        createMany: {
+          args: Prisma.StudentSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StudentSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.StudentSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        update: {
+          args: Prisma.StudentSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.StudentSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StudentSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StudentSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.StudentSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StudentSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.StudentSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStudentSession>
+        }
+        groupBy: {
+          args: Prisma.StudentSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StudentSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StudentSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StudentSessionCountAggregateOutputType> | number
+        }
+      }
+    }
     JournalEntry: {
       payload: Prisma.$JournalEntryPayload<ExtArgs>
       fields: Prisma.JournalEntryFieldRefs
@@ -1390,6 +1553,30 @@ export const PasswordResetTokenScalarFieldEnum = {
 export type PasswordResetTokenScalarFieldEnum = (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum]
 
 
+export const AdminSessionScalarFieldEnum = {
+  id: 'id',
+  tokenHash: 'tokenHash',
+  email: 'email',
+  createdAt: 'createdAt',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt'
+} as const
+
+export type AdminSessionScalarFieldEnum = (typeof AdminSessionScalarFieldEnum)[keyof typeof AdminSessionScalarFieldEnum]
+
+
+export const StudentSessionScalarFieldEnum = {
+  id: 'id',
+  tokenHash: 'tokenHash',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt'
+} as const
+
+export type StudentSessionScalarFieldEnum = (typeof StudentSessionScalarFieldEnum)[keyof typeof StudentSessionScalarFieldEnum]
+
+
 export const JournalEntryScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -1494,19 +1681,10 @@ export type BatchPayload = {
 export const defineExtension = runtime.Extensions.defineExtension as unknown as runtime.Types.Extensions.ExtendsHook<"define", TypeMapCb, runtime.Types.Extensions.DefaultArgs>
 export type DefaultPrismaClient = PrismaClient
 export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
-export type PrismaClientOptions = ({
-  /**
-   * Instance of a Driver Adapter, e.g., like one provided by `@prisma/adapter-pg`.
-   */
-  adapter: runtime.SqlDriverAdapterFactory
-  accelerateUrl?: never
-} | {
-  /**
-   * Prisma Accelerate URL allowing the client to connect through Accelerate instead of a direct database.
-   */
-  accelerateUrl: string
-  adapter?: never
-}) & {
+/**
+ * Options common to all variants of `PrismaClientOptions`, regardless of whether you connect to your database through a driver adapter or through Prisma Accelerate.
+ */
+export interface PrismaClientBaseOptions {
   /**
    * @default "colorless"
    */
@@ -1577,7 +1755,72 @@ export type PrismaClientOptions = ({
    * ```
    */
   comments?: runtime.SqlCommenterPlugin[]
+  /**
+   * Optional maximum size for the query plan cache. If not provided, a default size will be used.
+   * A value of `0` can be used to disable the cache entirely. A higher cache size can improve
+   * performance for applications that execute a large number of unique queries, while a smaller
+   * cache size can reduce memory usage.
+   * 
+   * @example
+   * ```
+   * const prisma = new PrismaClient({
+   *   adapter,
+   *   queryPlanCacheMaxSize: 100,
+   * })
+   * ```
+   */
+  queryPlanCacheMaxSize?: number
 }
+
+/**
+ * `PrismaClient` options for connecting to your database through Prisma Accelerate instead of a driver adapter.
+ * 
+ * Learn more: https://pris.ly/d/accelerate
+ */
+export interface PrismaClientOptionsWithAccelerateUrl extends PrismaClientBaseOptions {
+  /**
+   * The Prisma Accelerate connection URL. Use this option to connect to your database through Prisma Accelerate instead of using a driver adapter to connect directly.
+   * 
+   * Learn more: https://pris.ly/d/accelerate
+   */
+  accelerateUrl: string
+  adapter?: never
+}
+
+/**
+ * `PrismaClient` options for connecting to your database through a driver adapter. This is the common case in Prisma 7.
+ * 
+ * Learn more: https://pris.ly/d/driver-adapters
+ */
+export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions {
+  /**
+   * A driver adapter that PrismaClient uses to connect to your database, such as the ones provided by `@prisma/adapter-pg`, `@prisma/adapter-libsql`, `@prisma/adapter-planetscale`, etc.
+   * 
+   * A driver adapter is **required** unless you connect to your database through Prisma Accelerate (in which case use `accelerateUrl` instead).
+   * 
+   * Learn more: https://pris.ly/d/driver-adapters
+   * 
+   * @example
+   * ```ts
+   * import { PrismaPg } from '@prisma/adapter-pg'
+   * import { PrismaClient } from './generated/prisma/client'
+   * 
+   * const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+   * const prisma = new PrismaClient({ adapter })
+   * ```
+   */
+  adapter: runtime.SqlDriverAdapterFactory
+  accelerateUrl?: never
+}
+
+/**
+ * Options passed to the `PrismaClient` constructor.
+ * 
+ * A driver adapter (or, alternatively, a Prisma Accelerate URL) is **required**. See {@link PrismaClientOptionsWithAdapter} and {@link PrismaClientOptionsWithAccelerateUrl} for the two variants. All other properties live in {@link PrismaClientBaseOptions} and are optional.
+ * 
+ * Learn more about driver adapters: https://pris.ly/d/driver-adapters
+ */
+export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   course?: Prisma.CourseOmit
@@ -1588,6 +1831,8 @@ export type GlobalOmitConfig = {
   liveSession?: Prisma.LiveSessionOmit
   quizResult?: Prisma.QuizResultOmit
   passwordResetToken?: Prisma.PasswordResetTokenOmit
+  adminSession?: Prisma.AdminSessionOmit
+  studentSession?: Prisma.StudentSessionOmit
   journalEntry?: Prisma.JournalEntryOmit
   subscriptionRequest?: Prisma.SubscriptionRequestOmit
 }

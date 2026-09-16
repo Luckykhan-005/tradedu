@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   TrendingUp,
   BookOpen,
@@ -21,7 +22,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe'
+// The page type and URL table now live in src/lib/routes.ts so the router, this
+// nav bar and the page metadata all agree on what each page is called.
+import { pathForPage, type Page } from '@/lib/routes'
+
+export type { Page }
 
 interface NavigationProps {
   currentPage: Page
@@ -56,7 +61,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <button
+        <Link
+          to={pathForPage('landing')}
           onClick={() => onNavigate('landing')}
           className="flex items-center gap-2 font-bold text-xl text-primary"
         >
@@ -64,12 +70,15 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
             <TrendingUp className="h-5 w-5" />
           </div>
           <span className="hidden sm:inline">TradeEd</span>
-        </button>
+        </Link>
 
         <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
-            <button
+            // A real anchor (not a button) so the page URL is visible on hover,
+            // can be opened in a new tab, and is discoverable by crawlers.
+            <Link
               key={item.id}
+              to={pathForPage(item.id)}
               onClick={() => onNavigate(item.id)}
               className={cn(
                 'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all',
@@ -80,7 +89,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
             >
               <item.icon className="h-4 w-4" />
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
 
@@ -116,8 +125,9 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-white px-4 py-3 space-y-1">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.id}
+              to={pathForPage(item.id)}
               onClick={() => {
                 onNavigate(item.id)
                 setMobileOpen(false)
@@ -131,7 +141,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
             >
               <item.icon className="h-4 w-4" />
               {item.label}
-            </button>
+            </Link>
           ))}
           <div className="border-t border-border pt-2 mt-2">
             {user ? (

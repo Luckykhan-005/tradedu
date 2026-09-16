@@ -111,6 +111,19 @@ export function RiskCalculator() {
           </div>
         </div>
 
+        {/* These figures are a planning aid, not a forecast. Saying so plainly
+            here matters because a student may treat the "safe"/"dangerous"
+            labels as a signal to trade. */}
+        <div className="mb-6 flex items-start gap-3 rounded-lg border border-amber-300 bg-amber-50/60 px-4 py-3 text-sm text-amber-900">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+          <p>
+            This calculator is an educational estimate. Liquidation, funding and fee figures use the
+            values you enter and are simplified — your exchange's exact rules, mark price, tiered fees
+            and margin mode will differ. Always confirm the numbers on your exchange before placing a
+            trade. Nothing here is financial advice.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           {/* Inputs */}
           <div className="lg:col-span-2">
@@ -303,225 +316,225 @@ export function RiskCalculator() {
 
             {calculated && (
               <>
-            {/* Warning */}
-            {isDangerous && (
-              <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
-                <AlertTriangle className="h-5 w-5 shrink-0" />
-                <div>
-                  <strong className="font-semibold">Liquidation Risk!</strong>{' '}
-                  Your stop loss is placed{' '}
-                  <strong>behind the liquidation price</strong> (
-                  {fmt(liqPrice)}). The exchange will close your position
-                  before your SL is reached. Move your SL{' '}
-                  {direction === 'long' ? 'above' : 'below'} {fmt(liqPrice)}.
-                </div>
-              </div>
-            )}
-
-            {/* Main results grid */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {/* Position Summary */}
-              <Card>
-                <CardContent className="p-5">
-                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
-                    Position Summary
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Position Value</span>
-                      <span className="font-bold">${fmt(posValue)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Quantity</span>
-                      <span className="font-bold">{fmt(qty, 4)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Margin Used</span>
-                      <span className="font-bold">${fmt(margin)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Leverage</span>
-                      <span className="font-bold">{fmt(lev)}x</span>
-                    </div>
-                    <Separator />
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Portfolio Used</span>
-                      <span className="font-bold">{fmt(positionPct)}%</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Account Risk</span>
-                      <span className={cn('font-bold', riskPct > 5 ? 'text-destructive' : 'text-foreground')}>
-                        {fmt(riskPct)}%
-                      </span>
+                {/* Warning */}
+                {isDangerous && (
+                  <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                    <AlertTriangle className="h-5 w-5 shrink-0" />
+                    <div>
+                      <strong className="font-semibold">Liquidation Risk!</strong>{' '}
+                      Your stop loss is placed{' '}
+                      <strong>behind the liquidation price</strong> (
+                      {fmt(liqPrice)}). The exchange will close your position
+                      before your SL is reached. Move your SL{' '}
+                      {direction === 'long' ? 'above' : 'below'} {fmt(liqPrice)}.
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                )}
 
-              {/* Liquidation */}
-              <Card>
-                <CardContent className="p-5">
-                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
-                    <Gauge className="mr-1 inline h-4 w-4" />
-                    Liquidation Price
-                  </h3>
-                  <div
+                {/* Main results grid */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {/* Position Summary */}
+                  <Card>
+                    <CardContent className="p-5">
+                      <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                        Position Summary
+                      </h3>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Position Value</span>
+                          <span className="font-bold">${fmt(posValue)}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Quantity</span>
+                          <span className="font-bold">{fmt(qty, 4)}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Margin Used</span>
+                          <span className="font-bold">${fmt(margin)}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Leverage</span>
+                          <span className="font-bold">{fmt(lev)}x</span>
+                        </div>
+                        <Separator />
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Portfolio Used</span>
+                          <span className="font-bold">{fmt(positionPct)}%</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-muted-foreground">Account Risk</span>
+                          <span className={cn('font-bold', riskPct > 5 ? 'text-destructive' : 'text-foreground')}>
+                            {fmt(riskPct)}%
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Liquidation */}
+                  <Card>
+                    <CardContent className="p-5">
+                      <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                        <Gauge className="mr-1 inline h-4 w-4" />
+                        Liquidation Price
+                      </h3>
+                      <div
+                        className={cn(
+                          'mb-3 rounded-xl p-4 text-center',
+                          direction === 'long'
+                            ? 'bg-red-50 text-red-700'
+                            : 'bg-emerald-50 text-emerald-700'
+                        )}
+                      >
+                        <div className="text-2xl font-bold">{fmt(liqPrice)}</div>
+                        <div className="text-xs">
+                          {direction === 'long'
+                            ? 'Price drops below this → liquidation'
+                            : 'Price rises above this → liquidation'}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Your SL</span>
+                        <span className="font-bold">${fmt(slP)}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Distance to Liq</span>
+                        <span className={cn('font-bold', isDangerous ? 'text-destructive' : 'text-emerald-600')}>
+                          {direction === 'long'
+                            ? fmt(ent - liqPrice)
+                            : fmt(liqPrice - ent)}{' '}
+                          ({fmt(direction === 'long' ? ((ent - liqPrice) / ent) * 100 : ((liqPrice - ent) / ent) * 100)}%)
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* P&L at TP */}
+                  <Card>
+                    <CardContent className="p-5">
+                      <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                        <Target className="mr-1 inline h-4 w-4" />
+                        At Take Profit ($
+                        {fmt(tpP)})
+                      </h3>
+                      <div className="mb-2">
+                        <div className="text-2xl font-bold text-emerald-600">
+                          +${fmt(tpPnl)}
+                        </div>
+                        <div className="text-sm text-emerald-600">
+                          +{fmt(tpPnlPct)}% on margin
+                        </div>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Fees</span>
+                        <span className="text-destructive">-${fmt(totalFees)}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Funding</span>
+                        <span className="text-destructive">-${fmt(fundingCost)}</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold">Net Profit</span>
+                        <span className="text-lg font-bold text-emerald-600">
+                          +${fmt(netTpPnl)}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* P&L at SL */}
+                  <Card>
+                    <CardContent className="p-5">
+                      <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
+                        <Target className="mr-1 inline h-4 w-4" />
+                        At Stop Loss ($
+                        {fmt(slP)})
+                      </h3>
+                      <div className="mb-2">
+                        <div className="text-2xl font-bold text-destructive">
+                          {fmt(slPnl)}
+                        </div>
+                        <div className="text-sm text-destructive">
+                          {fmt(slPnlPct)}% on margin
+                        </div>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Fees</span>
+                        <span className="text-destructive">-${fmt(totalFees)}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Funding</span>
+                        <span className="text-destructive">-${fmt(fundingCost)}</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold">Net Loss</span>
+                        <span className="text-lg font-bold text-destructive">
+                          ${fmt(Math.abs(netSlPnl))}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* R:R + Fees Summary */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  <Card
                     className={cn(
-                      'mb-3 rounded-xl p-4 text-center',
-                      direction === 'long'
-                        ? 'bg-red-50 text-red-700'
-                        : 'bg-emerald-50 text-emerald-700'
+                      'border-2',
+                      rr >= 2
+                        ? 'border-emerald-200 bg-emerald-50'
+                        : rr >= 1
+                          ? 'border-amber-200 bg-amber-50'
+                          : 'border-red-200 bg-red-50'
                     )}
                   >
-                    <div className="text-2xl font-bold">{fmt(liqPrice)}</div>
-                    <div className="text-xs">
-                      {direction === 'long'
-                        ? 'Price drops below this → liquidation'
-                        : 'Price rises above this → liquidation'}
-                    </div>
-                  </div>
+                    <CardContent className="p-5 text-center">
+                      <div className="text-sm text-muted-foreground">Risk : Reward</div>
+                      <div className="text-3xl font-bold">
+                        1 : {fmt(rr, 2)}
+                      </div>
+                      {rr >= 2 && (
+                        <div className="mt-1 text-xs text-emerald-600">Excellent</div>
+                      )}
+                      {rr >= 1 && rr < 2 && (
+                        <div className="mt-1 text-xs text-amber-600">Fair</div>
+                      )}
+                      {rr < 1 && (
+                        <div className="mt-1 text-xs text-red-600">Poor — adjust TP/SL</div>
+                      )}
+                    </CardContent>
+                  </Card>
 
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Your SL</span>
-                    <span className="font-bold">${fmt(slP)}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Distance to Liq</span>
-                    <span className={cn('font-bold', isDangerous ? 'text-destructive' : 'text-emerald-600')}>
-                      {direction === 'long'
-                        ? fmt(ent - liqPrice)
-                        : fmt(liqPrice - ent)}{' '}
-                      ({fmt(direction === 'long' ? ((ent - liqPrice) / ent) * 100 : ((liqPrice - ent) / ent) * 100)}%)
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
+                  <Card>
+                    <CardContent className="p-5 text-center">
+                      <div className="text-sm text-muted-foreground">Total Fees</div>
+                      <div className="text-2xl font-bold">${fmt(totalFees)}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">
+                        Entry ${fmt(entryFee)} + Exit ${fmt(exitFee)}
+                      </div>
+                    </CardContent>
+                  </Card>
 
-              {/* P&L at TP */}
-              <Card>
-                <CardContent className="p-5">
-                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
-                    <Target className="mr-1 inline h-4 w-4" />
-                    At Take Profit ($
-                    {fmt(tpP)})
-                  </h3>
-                  <div className="mb-2">
-                    <div className="text-2xl font-bold text-emerald-600">
-                      +${fmt(tpPnl)}
-                    </div>
-                    <div className="text-sm text-emerald-600">
-                      +{fmt(tpPnlPct)}% on margin
-                    </div>
-                  </div>
-                  <Separator className="my-2" />
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Fees</span>
-                    <span className="text-destructive">-${fmt(totalFees)}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Funding</span>
-                    <span className="text-destructive">-${fmt(fundingCost)}</span>
-                  </div>
-                  <Separator className="my-2" />
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold">Net Profit</span>
-                    <span className="text-lg font-bold text-emerald-600">
-                      +${fmt(netTpPnl)}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* P&L at SL */}
-              <Card>
-                <CardContent className="p-5">
-                  <h3 className="mb-3 text-sm font-semibold text-muted-foreground">
-                    <Target className="mr-1 inline h-4 w-4" />
-                    At Stop Loss ($
-                    {fmt(slP)})
-                  </h3>
-                  <div className="mb-2">
-                    <div className="text-2xl font-bold text-destructive">
-                      {fmt(slPnl)}
-                    </div>
-                    <div className="text-sm text-destructive">
-                      {fmt(slPnlPct)}% on margin
-                    </div>
-                  </div>
-                  <Separator className="my-2" />
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Fees</span>
-                    <span className="text-destructive">-${fmt(totalFees)}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Funding</span>
-                    <span className="text-destructive">-${fmt(fundingCost)}</span>
-                  </div>
-                  <Separator className="my-2" />
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold">Net Loss</span>
-                    <span className="text-lg font-bold text-destructive">
-                      ${fmt(Math.abs(netSlPnl))}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* R:R + Fees Summary */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <Card
-                className={cn(
-                  'border-2',
-                  rr >= 2
-                    ? 'border-emerald-200 bg-emerald-50'
-                    : rr >= 1
-                      ? 'border-amber-200 bg-amber-50'
-                      : 'border-red-200 bg-red-50'
-                )}
-              >
-                <CardContent className="p-5 text-center">
-                  <div className="text-sm text-muted-foreground">Risk : Reward</div>
-                  <div className="text-3xl font-bold">
-                    1 : {fmt(rr, 2)}
-                  </div>
-                  {rr >= 2 && (
-                    <div className="mt-1 text-xs text-emerald-600">Excellent</div>
-                  )}
-                  {rr >= 1 && rr < 2 && (
-                    <div className="mt-1 text-xs text-amber-600">Fair</div>
-                  )}
-                  {rr < 1 && (
-                    <div className="mt-1 text-xs text-red-600">Poor — adjust TP/SL</div>
-                  )}
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-5 text-center">
-                  <div className="text-sm text-muted-foreground">Total Fees</div>
-                  <div className="text-2xl font-bold">${fmt(totalFees)}</div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    Entry ${fmt(entryFee)} + Exit ${fmt(exitFee)}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-5 text-center">
-                  <div className="text-sm text-muted-foreground">Funding Cost (8h)</div>
-                  <div className="text-2xl font-bold">${fmt(fundingCost)}</div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    {fund > 0
-                      ? direction === 'long'
-                        ? 'Long pays → Short'
-                        : 'Short pays → Long'
-                      : 'No funding cost'}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            </>
+                  <Card>
+                    <CardContent className="p-5 text-center">
+                      <div className="text-sm text-muted-foreground">Funding Cost (8h)</div>
+                      <div className="text-2xl font-bold">${fmt(fundingCost)}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">
+                        {fund > 0
+                          ? direction === 'long'
+                            ? 'Long pays → Short'
+                            : 'Short pays → Long'
+                          : 'No funding cost'}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
             )}
           </div>
         </div>

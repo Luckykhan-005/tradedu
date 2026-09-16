@@ -74,7 +74,7 @@ interface AdminSession {
   duration?: string
   meetLink?: string
   instructor?: { name: string }
-  course?: { title: string }
+  course?: { id: string; title: string }
 }
 
 interface AdminStats {
@@ -87,6 +87,8 @@ interface AdminStats {
 interface AdminPanelProps {
   onBack: () => void
   user?: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string } | null
+  /** Notifies the app shell that content changed so the public catalog refetches. */
+  onContentChanged?: () => void
 }
 
 // ====== Form Components ======
@@ -259,7 +261,10 @@ function SessionForm({
   )
   const [duration, setDuration] = useState(initial?.duration || '')
   const [meetLink, setMeetLink] = useState(initial?.meetLink || '')
-  const [courseId, setCourseId] = useState(initial?.course?.title || '')
+  // The course selector's option values are course ids, so the initial value
+  // must be the id — using the title here meant editing a session silently
+  // reset its course association to "None".
+  const [courseId, setCourseId] = useState(initial?.course?.id || '')
 
   return (
     <Card>
@@ -318,8 +323,108 @@ function SessionForm({
 
 // ====== Main Admin Panel ======
 
-export function AdminPanel({ onBack, user }: AdminPanelProps) {
-  // Access control — only admins can view this panel
+export function AdminPanel({ onBack, user, onContentChanged }: AdminPanelProps) {
+  const adminHeaders = { 'x-admin-token': user?.adminToken || '' }
+
+  const [courses, setCourses] = useState<AdminCourse[]>([])
+  const [sessions, setSessions] = useState<AdminSession[]>([])
+  const [subscriptions, setSubscriptions] = useState<any[]>([])
+  const [stats, setStats] = useState<AdminStats>({ courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
+  const [loading, setLoading] = useState(true)
+  const [activeTab, setActiveTab] = useState('overview')
+
+  // Editing states
+  const [showCourseForm, setShowCourseForm] = useState(false)
+  const [editingCourse, setEditingCourse] = useState<AdminCourse | null>(null)
+  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null)
+  const [expandedModules, setExpandedModules] = useState<Set<string>>(new Set())
+  const [showLessonForm, setShowLessonForm] = useState<string | null>(null) // moduleId
+  const [editingLesson, setEditingLesson] = useState<AdminLesson | null>(null)
+  const [showModuleInput, setShowModuleInput] = useState<string | null>(null) // courseId
+  const [newModuleName, setNewModuleName] = useState('')
+  const [showSessionForm, setShowSessionForm] = useState(false)
+  const [editingSession, setEditingSession] = useState<AdminSession | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const fetchData = useCallback(async () => {
+    if (!user?.adminToken) return
+    setLoading(true)
+    try {
+      const [coursesRes, sessionsRes, statsRes, subsRes] = await Promise.all([
+        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
+        fetch(api('/api/dashboard')),
+        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
+        fetch(api('/api/admin/subscriptions'), { headers: adminHeaders }).catch(() => null),
+      ])
+      const coursesData = await coursesRes.json()
+      const dashboardData = await sessionsRes.json()
+      const statsData = await statsRes.json()
+      const subsData = subsRes ? await subsRes.json() : []
+
+      if (!coursesRes.ok) {
+        setError((coursesData as any)?.error || `Could not load courses (HTTP ${coursesRes.status})`)
+        return
+      }
+      setError(null)
+
+      setCourses(Array.isArray(coursesData) ? coursesData : [])
+      setSubscriptions(Array.isArray(subsData) ? subsData : [])
+      setSessions(((dashboardData as any).sessions || []).map((s: any) => ({
+        id: s.id,
+        title: s.title,
+        description: s.description,
+        date: s.date,
+        duration: s.duration,
+        meetLink: s.meetLink,
+        instructor: s.instructor,
+        course: s.course,
+      })))
+      setStats(statsData && typeof statsData === 'object' && !Array.isArray(statsData) ? statsData : { courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
+    } catch (err) {
+      console.error('Failed to fetch admin data:', err)
+      setError('Could not reach the server. Check your connection and try again.')
+    } finally {
+      setLoading(false)
+    }
+  }, [user?.adminToken])
+
+  useEffect(() => { fetchData() }, [fetchData])
+
+  /**
+   * Runs an admin mutation and reports the real outcome.
+   * Returns the parsed body on success, or null after surfacing the error —
+   * previously every failure was swallowed and the panel just looked unchanged.
+   */
+  const mutate = useCallback(async (url: string, method: string, payload?: any): Promise<any | null> => {
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json', ...adminHeaders },
+        ...(payload !== undefined ? { body: JSON.stringify(payload) } : {}),
+      })
+      const text = await res.text()
+      let parsed: any = null
+      try { parsed = text ? JSON.parse(text) : null } catch { parsed = null }
+      if (!res.ok) {
+        setError(parsed?.error || `Request failed (HTTP ${res.status})`)
+        return null
+      }
+      setError(null)
+      return parsed
+    } catch (err: any) {
+      console.error('Admin request failed:', err)
+      setError(err?.message || 'Network error — the change was not saved.')
+      return null
+    }
+  }, [user?.adminToken])
+
+  /** Refetches admin data and notifies the app shell so the public catalog stays in sync. */
+  const refreshAll = useCallback(async () => {
+    await fetchData()
+    onContentChanged?.()
+  }, [fetchData, onContentChanged])
+
+  // Access control — only admins can view this panel (checked after hooks)
   if (user && user.role !== 'admin') {
     return (
       <div className="min-h-screen bg-secondary/30 flex items-center justify-center p-4">
@@ -341,74 +446,17 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     )
   }
 
-  const adminHeaders = { 'x-admin-token': user?.adminToken || '' }
-
-  const [courses, setCourses] = useState<AdminCourse[]>([])
-  const [sessions, setSessions] = useState<AdminSession[]>([])
-  const [subscriptions, setSubscriptions] = useState<any[]>([])
-  const [stats, setStats] = useState<AdminStats>({ courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
-  const [loading, setLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState('overview')
-
-  // Editing states
-  const [showCourseForm, setShowCourseForm] = useState(false)
-  const [editingCourse, setEditingCourse] = useState<AdminCourse | null>(null)
-  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null)
-  const [expandedModules, setExpandedModules] = useState<Set<string>>(new Set())
-  const [showLessonForm, setShowLessonForm] = useState<string | null>(null) // moduleId
-  const [editingLesson, setEditingLesson] = useState<AdminLesson | null>(null)
-  const [showModuleInput, setShowModuleInput] = useState<string | null>(null) // courseId
-  const [newModuleName, setNewModuleName] = useState('')
-  const [showSessionForm, setShowSessionForm] = useState(false)
-  const [editingSession, setEditingSession] = useState<AdminSession | null>(null)
-
-  const fetchData = useCallback(async () => {
-    if (!user?.adminToken) return
-    setLoading(true)
-    try {
-      const [coursesRes, sessionsRes, statsRes, subsRes] = await Promise.all([
-        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
-        fetch(api('/api/dashboard')),
-        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
-        fetch(api('/api/admin/subscriptions'), { headers: adminHeaders }).catch(() => null),
-      ])
-      const coursesData = await coursesRes.json()
-      const dashboardData = await sessionsRes.json()
-      const statsData = await statsRes.json()
-      const subsData = subsRes ? await subsRes.json() : []
-
-      setCourses(Array.isArray(coursesData) ? coursesData : [])
-      setSubscriptions(Array.isArray(subsData) ? subsData : [])
-      setSessions(((dashboardData as any).sessions || []).map((s: any) => ({
-        id: s.id,
-        title: s.title,
-        description: s.description,
-        date: s.date,
-        duration: s.duration,
-        meetLink: s.meetLink,
-        instructor: s.instructor,
-        course: s.course,
-      })))
-      setStats(statsData && typeof statsData === 'object' && !Array.isArray(statsData) ? statsData : { courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
-    } catch (err) {
-      console.error('Failed to fetch admin data:', err)
-    } finally {
-      setLoading(false)
-    }
-  }, [])
-
-  useEffect(() => { fetchData() }, [fetchData])
-
   // ====== Course CRUD ======
   const handleSaveCourse = async (data: any) => {
     const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
     const method = editingCourse ? 'PATCH' : 'POST'
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const wasEditing = !!editingCourse
+    const saved = await mutate(url, method, data)
+    if (!saved) return
     setShowCourseForm(false)
     setEditingCourse(null)
-    const saved = await res.json()
-    await fetchData()
-    if (!editingCourse && saved?.id) {
+    await refreshAll()
+    if (!wasEditing && saved?.id) {
       setSelectedCourseId(saved.id)
       setActiveTab('courses')
     }
@@ -416,28 +464,24 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteCourse = async (id: string) => {
     if (!confirm('Delete this course and all its modules/lessons?')) return
-    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: adminHeaders })
+    if (!(await mutate(api(`/api/admin/courses/${id}`), 'DELETE'))) return
     if (selectedCourseId === id) setSelectedCourseId(null)
-    fetchData()
+    refreshAll()
   }
 
   // ====== Module CRUD ======
   const handleAddModule = async (courseId: string) => {
     if (!newModuleName.trim()) return
-    await fetch(api(`/api/admin/courses/${courseId}/modules`), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' },
-      body: JSON.stringify({ title: newModuleName }),
-    })
+    if (!(await mutate(api(`/api/admin/courses/${courseId}/modules`), 'POST', { title: newModuleName }))) return
     setNewModuleName('')
     setShowModuleInput(null)
-    fetchData()
+    refreshAll()
   }
 
   const handleDeleteModule = async (moduleId: string) => {
     if (!confirm('Delete this module and all its lessons?')) return
-    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: adminHeaders })
-    fetchData()
+    if (!(await mutate(api(`/api/admin/modules/${moduleId}`), 'DELETE'))) return
+    refreshAll()
   }
 
   // ====== Lesson CRUD ======
@@ -447,46 +491,38 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
       : api(`/api/admin/modules/${moduleId}/lessons`)
     const method = editingLesson ? 'PATCH' : 'POST'
     const payload = { ...data, videoUrl: data.videoUrl && data.type === 'video' ? data.videoUrl : '' }
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(payload) })
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('Failed to save lesson:', err)
-    }
+    if (!(await mutate(url, method, payload))) return
     setShowLessonForm(null)
     setEditingLesson(null)
-    fetchData()
+    refreshAll()
   }
 
   const handleDeleteLesson = async (lessonId: string) => {
     if (!confirm('Delete this lesson?')) return
-    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: adminHeaders })
-    fetchData()
+    if (!(await mutate(api(`/api/admin/lessons/${lessonId}`), 'DELETE'))) return
+    refreshAll()
   }
 
   // ====== Session CRUD ======
   const handleSaveSession = async (data: any) => {
     const url = editingSession ? api(`/api/admin/sessions/${editingSession.id}`) : api('/api/admin/sessions')
     const method = editingSession ? 'PATCH' : 'POST'
-    await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    if (!(await mutate(url, method, data))) return
     setShowSessionForm(false)
     setEditingSession(null)
-    fetchData()
+    refreshAll()
   }
 
   const handleDeleteSession = async (id: string) => {
     if (!confirm('Delete this session?')) return
-    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: adminHeaders })
-    fetchData()
+    if (!(await mutate(api(`/api/admin/sessions/${id}`), 'DELETE'))) return
+    refreshAll()
   }
 
   const handleToggleSubscription = async (sub: any, nextStatus: string) => {
     if (!confirm(`Set this subscription to ${nextStatus === 'active' ? 'ACTIVE (green)' : 'INACTIVE (red)'}?`)) return
-    await fetch(api(`/api/admin/subscriptions/${sub.id}`), {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json', ...adminHeaders },
-      body: JSON.stringify({ status: nextStatus }),
-    })
-    fetchData()
+    if (!(await mutate(api(`/api/admin/subscriptions/${sub.id}`), 'PATCH', { status: nextStatus }))) return
+    refreshAll()
   }
 
   const toggleModule = (moduleId: string) => {
@@ -563,6 +599,25 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
         </div>
 
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-6 space-y-4">
+          {error && (
+            <div className="flex items-start justify-between gap-4 rounded-xl border border-destructive/40 bg-destructive/5 px-4 py-3">
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 shrink-0 text-destructive mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-destructive">Save failed</p>
+                  <p className="text-sm text-muted-foreground">{error}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setError(null)}
+                className="rounded-lg p-1 text-muted-foreground hover:bg-secondary transition-colors"
+                aria-label="Dismiss error"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
           {showCourseForm && editingCourse && (
             <CourseForm
               initial={editingCourse}
@@ -728,6 +783,27 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
           </div>
         </div>
       </div>
+
+      {error && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
+          <div className="flex items-start justify-between gap-4 rounded-xl border border-destructive/40 bg-destructive/5 px-4 py-3">
+            <div className="flex items-start gap-3">
+              <Shield className="h-5 w-5 shrink-0 text-destructive mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-destructive">Save failed</p>
+                <p className="text-sm text-muted-foreground">{error}</p>
+              </div>
+            </div>
+            <button
+              onClick={() => setError(null)}
+              className="rounded-lg p-1 text-muted-foreground hover:bg-secondary transition-colors"
+              aria-label="Dismiss error"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -1010,9 +1086,8 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                           <td className="px-4 py-3 text-center">
                             <button
                               onClick={() => handleToggleSubscription(sub, isActive ? 'inactive' : 'active')}
-                              className={`inline-flex h-8 w-14 items-center rounded-full p-1 transition-colors ${
-                                isActive ? 'bg-emerald-500 justify-end' : 'bg-red-500 justify-start'
-                              }`}
+                              className={`inline-flex h-8 w-14 items-center rounded-full p-1 transition-colors ${isActive ? 'bg-emerald-500 justify-end' : 'bg-red-500 justify-start'
+                                }`}
                               aria-label={isActive ? 'Deactivate' : 'Activate'}
                             >
                               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow">
