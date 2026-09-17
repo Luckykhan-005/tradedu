@@ -948,9 +948,17 @@ app.get('/admin/stats', async (c) => {
 
 // ========== TRADING JOURNAL ==========
 
+// Resolve the caller's email from the `x-user-email` header OR the `email`
+// query parameter. The header alone is unreliable in production because the
+// Vercel `/api/:path*` rewrite to the Shogo backend strips non-standard
+// headers, so the handler saw no email and every request failed with 400.
+function getUserEmail(c: any): string | undefined {
+  return c.req.header('x-user-email') || c.req.query('email') || undefined
+}
+
 // Get journal entries for a user
 app.get('/journal', async (c) => {
-  const email = c.req.header('x-user-email')
+  const email = getUserEmail(c)
   if (!email) return c.json({ error: 'User email required' }, 400)
 
   const user = await prisma.user.findUnique({ where: { email } })
@@ -965,7 +973,7 @@ app.get('/journal', async (c) => {
 
 // Create a journal entry
 app.post('/journal', async (c) => {
-  const email = c.req.header('x-user-email')
+  const email = getUserEmail(c)
   if (!email) return c.json({ error: 'User email required' }, 400)
 
   const user = await prisma.user.findUnique({ where: { email } })

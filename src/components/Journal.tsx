@@ -66,7 +66,9 @@ export function Journal({ user, onSignIn }: JournalProps) {
     if (!user) return
     setLoading(true)
     try {
-      const res = await fetch(api('/api/journal'), {
+      // Send the email as a query param as well as a header: the Vercel
+      // `/api/*` rewrite strips custom headers, but query strings survive.
+      const res = await fetch(api(`/api/journal?email=${encodeURIComponent(user.email)}`), {
         headers: { 'x-user-email': user.email },
       })
       const data = await res.json()
@@ -130,7 +132,8 @@ export function Journal({ user, onSignIn }: JournalProps) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!user) return
-    const url = editingId ? api(`/api/journal/${editingId}`) : api('/api/journal')
+    const baseUrl = editingId ? api(`/api/journal/${editingId}`) : api('/api/journal')
+    const url = `${baseUrl}?email=${encodeURIComponent(user.email)}`
     const method = editingId ? 'PATCH' : 'POST'
     const body = {
       pair: form.pair,
@@ -158,8 +161,12 @@ export function Journal({ user, onSignIn }: JournalProps) {
   }
 
   const remove = async (id: string) => {
+    if (!user) return
     try {
-      await fetch(api(`/api/journal/${id}`), { method: 'DELETE' })
+      await fetch(api(`/api/journal/${id}?email=${encodeURIComponent(user.email)}`), {
+        method: 'DELETE',
+        headers: { 'x-user-email': user.email },
+      })
       fetchEntries()
     } catch (err) {
       console.error(err)
