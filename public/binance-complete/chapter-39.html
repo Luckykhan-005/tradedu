@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 39: کرپٹو لینڈنگ — قرض دینے سے سود کمانا — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-38.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-40.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 39: کرپٹو لینڈنگ — قرض دینے سے سود کمانا</h1>
+<blockquote class="chapter-summary">
+<p><strong>کرپٹو لینڈنگ (Crypto Lending)</strong> = آپ اپنی کرپٹو کسی مرکزی پلیٹ فارم (جیسے بائننس) کو "قرض" دیتے ہیں، وہ اسے دوسرے صارفین (قرض لینے والوں) کو دیتا ہے، اور آپ کو <strong>سود (Interest)</strong> ملتا ہے۔ یہ سٹیکنگ سے مختلف ہے — یہاں آپ بلاک چین نیٹ ورک کی حفاظت نہیں کر رہے بلکہ <strong>کریڈٹ (قرض) مارکیٹ</strong> میں حصہ لے رہے ہیں۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/lending.jpg" alt="Binance Lending">
+  <figcaption>تصویر 39.1: بائننس کے Earn → Lending/Simple Earn (Flexible) پیج پر دستیاب کوائن، شرح سود (APR) اور کم از کم رقم — لینڈنگ میں سود قرض لینے والوں کی طلب و رسد سے روزانہ تبدیل ہوتا ہے۔ (Binance Earn → Lending/Simple Earn (Flexible) page — available coins, APR and minimum amount; lending interest changes daily with borrower demand and supply.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>لینڈنگ، سٹیکنگ اور لون (Borrow) میں بنیادی فرق</li>
+<li><strong>Flexible لینڈنگ</strong> اور <strong>Fixed/Locked لینڈنگ</strong> کا فرق</li>
+<li><strong>سود (Interest Rate)</strong> کیسے طے ہوتا ہے (Utilization Rate)</li>
+<li><strong>پلیٹ فارم کا رسک:</strong> قرض نہ واپس آنا اور "Loss of Principal"</li>
+<li><strong>Binance Margin/BNPL</strong> جیسے "بورو" یعنی قرض لینے والے پہلو کا تعارف</li>
+<li>کب لینڈنگ کرنی چاہیے اور کب نہیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 39.1 لینڈنگ ہوتی کیسے ہے؟ (پیچھے کا نظام)</h2>
+<pre><code>آپ (Lender) → اپنی USDT/BTC بائننس کی لینڈنگ پول میں ڈالیں
+        ↓
+بائننس (پلیٹ فارم) → وہ رقم دوسرے صارفین کو قرض دیتا ہے
+        ↓ (مارجن ٹریڈنگ، لیکویڈیٹی، انسٹیٹیوشنل)
+قرض لینے والے → سود + اصل رقم واپس کرتے ہیں
+        ↓
+آپ → روزانہ/مدتی بنیاد پر سود حاصل کرتے ہیں</code></pre>
+<p>لہٰذا لینڈنگ کا انعام <strong>طلب و رسد</strong> (Demand & Supply) پر منحصر ہوتا ہے، نہ کہ نیٹ ورک انفلیشن پر (جو سٹیکنگ میں ہوتا ہے)۔</p>
+<h3>سٹیکنگ بمقابلہ لینڈنگ بمقابلہ بورو</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>خصوصیت</th><th><strong>Staking</strong></th><th><strong>Lending</strong></th><th><strong>Borrow (Margin)</strong></th></tr></thead>
+<tbody>
+<tr><td>کردار</td><td>نیٹ ورک سیکیورٹی</td><td>قرض دینا</td><td>قرض لینا</td></tr>
+<tr><td>انعام</td><td>نیٹ ورک ریوارڈ</td><td>سود</td><td>— (سود دیتا ہے)</td></tr>
+<tr><td>خطرہ</td><td>Slashing + Price</td><td>Default + Price</td><td>Liquidation</td></tr>
+<tr><td>بائننس آپشن</td><td>Earn → Staking</td><td>Earn → Flexible/Fixed</td><td>Margin / Loans</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 39.2 Flexible بمقابلہ Fixed لینڈنگ</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>خصوصیت</th><th><strong>Flexible Lending</strong></th><th><strong>Fixed / Locked Lending</strong></th></tr></thead>
+<tbody>
+<tr><td>سود کی شرح</td><td>روز بدلتی ہے (ممکنہ زیادہ/کم)</td><td>ادائیگی کے وقت طے، عام طور پر زیادہ</td></tr>
+<tr><td>رقم نکلوانا</td><td>فوری، کوئی لاک نہیں</td><td>مقررہ مدت (7/14/30/90 دن) تک</td></tr>
+<tr><td>سود ادائیگی</td><td>روزانہ، خودکار</td><td>مدت کے اختتام پر</td></tr>
+<tr><td>موزوں</td><td>جب رقم ہنگامی ضرورت کے لیے رکھنی ہو</td><td>جب رقم کی ضرورت نہ ہو</td></tr>
+<tr><td>مثال</td><td>1,000 USDT → 2–6% متغیر</td><td>1,000 USDT → 8% پورے 30 دن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>اہم فرق:</strong> Flexible لینڈنگ میں شرح <strong>Utilization Rate</strong> (کتنا حصہ ادھار جا چکا) کے ساتھ بدلتی رہتی ہے۔ جب مانگ زیادہ ہو، شرح بڑھتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 39.3 Utilization Rate اور سود</h2>
+<pre><code>Utilization = ادھار دی گئی رقم ÷ پول کی کل رقم</code></pre>
+<ul>
+<li>Utilization کم (مثلاً 40%) → شرح سود کم</li>
+<li>Utilization زیادہ (مثلاً 95%) → شرح سود زیادہ، لیکن <strong>لیکویڈیٹی کا رسک</strong> بھی بڑھتا ہے</li>
+</ul>
+<p>یہی وجہ ہے کہ کبھی آپ کا سود 2% سے 10% تک جاتا آتا ہے — یہ collectible نہیں، مارکیٹ کی طلب ہے۔</p>
+<h3>حساب کی مثال</h3>
+<pre><code>500 USDT Flexible Lending، اوسط APR 6%
+ایک سال: 500 × 6% = 30 USDT سود
+ایک ماہ (30 دن): ≈ 2.5 USDT</code></pre>
+<blockquote>
+<p>جمع شدہ سود خودکار "Auto-Subscribe" ہو تو کمپاؤنڈ اثر بھی ملتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 39.4 قرض لینے والا پہلو (Borrow)</h2>
+<p>بائننس پر الٹا کام بھی ممکن ہے — یعنی آپ <strong>قرض لیں</strong>:</p>
+<ul>
+<li><strong>Margin Loan</strong> — مارجن ٹریڈنگ کے لیے (لیورج کے ساتھ)</li>
+<li><strong>Crypto Loan (Loans)</strong> — اپنی کرپٹو کو کولیٹرل رکھ کر USDT/اسٹیبل کوائن ادھار</li>
+<li><strong>BNPL/Instalment</strong> — پے کے ساتھ قسطیں</li>
+<li><strong>Simple Earn Loan</strong> — اپنی لاک قسم رقم پر قرض لے کر سودی واپسی</li>
+</ul>
+<p><strong>رسک:</strong> اگر کولیٹرل کی قیمت گر جائے اور LTV حد سے بڑھ جائے → <strong>Liquidation</strong> یعنی جبری فروخت۔</p>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>"لینڈنگ = 100% محفوظ"</strong> — نہیں۔ بائننس کسٹوڈیل ہے؛ پلیٹ فارم کا کریڈٹ رسک موجود ہو سکتا ہے۔</li>
+<li>❌ <strong>تمام منافع دوبارہ لینڈ کرنا</strong> — اصل سرمایہ ضائع ہونے کا بھی امکان رکھیں۔</li>
+<li>❌ <strong>High APR کو ابدی سمجھنا</strong> — Flexible کی شرح روز بدلتی ہے۔</li>
+<li>❌ <strong>Fixed Lending کو فوراً توڑنا</strong> — وقت سے پہلے توڑنے پر سود ضائع ہو سکتا ہے۔</li>
+<li>❌ <strong>مارجن بورو میں لیورج کی حد نہ سمجھنا</strong> — Liquidation Price جانے بغیر قرض لینا سب سے بڑی غلطی ہے۔</li>
+<li>❌ <strong>DeFi لینڈنگ کو بائننس لینڈنگ سمجھنا</strong> — وہ باہر کے پروٹوکول ہیں (Aave, Compound) جن میں سمارٹ کانٹریکٹ + Hack رسک موجود ہے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>لینڈنگ</strong> = قرض دینے کا عوض سود؛ سٹیکنگ = نیٹ ورک انعام</li>
+<li><strong>Flexible</strong> = آزاد رقم، متغیر شرح؛ <strong>Fixed</strong> = زیادہ شرح، کم مدت</li>
+<li>شرح <strong>Utilization Rate</strong> سے طے ہوتی ہے</li>
+<li>الٹا <strong>Borrow</strong> بھی ممکن ہے، مگر Liquidation کا رسک</li>
+<li>صرف وہی کرپٹو لینڈ کریں جو اگلے 30–90 دن نہ چاہیے ہو</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس <strong>Earn → Flexible</strong> کھولیں؛ تین کوائنز کے APR نوٹ کریں۔</li>
+<li>ایک <strong>Flexible</strong> اور ایک <strong>Fixed</strong> پروڈکٹ کا موازنہ ٹیبل بنائیں۔</li>
+<li>200 USDT پر 5% APR کا 90 دن کا سود حساب کریں۔</li>
+<li>اپنی "ہنگامی رقم" اور "لینڈنگ رقم" الگ الگ لکھیں (کم از کم 70/30 کلیش)۔</li>
+<li>ایک پیراگراف میں لکھیں: "لینڈنگ میں پیسہ کیسے ضائع ہو سکتا ہے؟"</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"لینڈنگ = بینک کا ریورس کام: آپ کریڈٹ دیتے ہیں، سود لیتے ہیں؛ بینک کا دباؤ آپ پر ہے۔"</strong></p>
+<p>ہمیشہ <strong>Yield نہیں، Protection</strong> پہلے۔ اصل رقم بچا کر منافع کمائیں — پہلے منافع کے پیچھے اصل رقم نہ ڈالیں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-38.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-40.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

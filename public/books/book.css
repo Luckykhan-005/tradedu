@@ -1,0 +1,528 @@
+/* ============================================================
+   TradeEd Shared Book Stylesheet
+   ------------------------------------------------------------
+   Single source of truth for all book typography, sizes and
+   themes. Chapters only link this file — no more per-file <style>.
+
+   Usage:
+     <html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+     <link rel="stylesheet" href="/books/book.css">
+
+   Themes:   navy | navy-cyan | deepblue
+   Modes:    dark (default) | light
+   ============================================================ */
+
+/* ---------- Font loading (Noto Nastaliq Urdu, free/open) ----------
+   Named fonts (Jameel Noori Nastaleeq) are used first if the reader
+   has them installed; Noto Nastaliq Urdu is loaded from Google Fonts
+   as a guaranteed fallback so Nastaliq shaping never breaks. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+/* ---------- Design tokens : shared scale ---------- */
+:root {
+    /* Typography scale (standardised across every book) */
+    --fs-body: 26px;
+    --fs-h1: 42px;
+    --fs-h2: 34px;
+    --fs-h3: 30px;
+    --fs-cover-h1: 52px;
+    --fs-cover-h2: 32px;
+    --fs-nav: 24px;
+    --fs-toc: 24px;
+    --fs-notice: 22px;
+    --fs-footer: 20px;
+    --fs-small: 22px;
+    --lh-body: 2.2;
+
+    /* Reader-controlled scale (set by /books/book-runtime.js) */
+    --fs-scale: 1;
+
+    /* Layout */
+    --page-max: 950px;
+    --radius-lg: 25px;
+    --radius-md: 15px;
+    --radius-sm: 10px;
+
+    --font-urdu: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+    --font-latin: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Theme : navy (gold accent) ---------- */
+[data-theme="navy"] {
+    --page-bg: #1a1a2e;
+    --card-bg: #16213e;
+    --panel-bg: #0f3460;
+    --panel-alt: #1b263b;
+    --text: #eeeeee;
+    --text-muted: #aaaaaa;
+    --text-faint: #666666;
+    --accent: #b8860b;
+    --accent-2: #e94560;
+    --accent-3: #00b4d8;
+    --notice-bg: #2d1b1b;
+    --notice-border: #e94560;
+    --notice-text: #f0a0a0;
+    --border: #0f3460;
+}
+
+/* ---------- Theme : navy + cyan accent ---------- */
+[data-theme="navy-cyan"] {
+    --page-bg: #1a1a2e;
+    --card-bg: #16213e;
+    --panel-bg: #0f3460;
+    --panel-alt: #1b263b;
+    --text: #eeeeee;
+    --text-muted: #aaaaaa;
+    --text-faint: #666666;
+    --accent: #00b4d8;
+    --accent-2: #e94560;
+    --accent-3: #b8860b;
+    --notice-bg: #2d1b1b;
+    --notice-border: #e94560;
+    --notice-text: #f0a0a0;
+    --border: #0f3460;
+}
+
+/* ---------- Theme : deep blue (cyan + gold) ---------- */
+[data-theme="deepblue"] {
+    --page-bg: #0d1b2a;
+    --card-bg: #1b263b;
+    --panel-bg: #0d1b2a;
+    --panel-alt: #1b263b;
+    --text: #eeeeee;
+    --text-muted: #aaaaaa;
+    --text-faint: #666666;
+    --accent: #00b4d8;
+    --accent-2: #e0a800;
+    --accent-3: #00b4d8;
+    --notice-bg: #2d1b1b;
+    --notice-border: #e94560;
+    --notice-text: #f0a0a0;
+    --border: #1b263b;
+}
+
+/* ---------- Light mode overrides ---------- */
+[data-mode="light"] {
+    --page-bg: #f7f5ef;
+    --card-bg: #ffffff;
+    --panel-bg: #efeadd;
+    --panel-alt: #f2ede2;
+    --text: #1f2430;
+    --text-muted: #5a6270;
+    --text-faint: #8a8f98;
+    --border: #dcd5c4;
+    --notice-bg: #fdecec;
+    --notice-border: #e94560;
+    --notice-text: #922020;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-urdu);
+    font-size: calc(var(--fs-body) * var(--fs-scale));
+    line-height: var(--lh-body);
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 40px 30px;
+    background-color: var(--page-bg);
+    color: var(--text);
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Content protection (UX deterrent) */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+h1 {
+    font-size: calc(var(--fs-h1) * var(--fs-scale));
+    color: var(--accent);
+    text-align: center;
+    line-height: 1.7;
+}
+
+h2 {
+    font-size: calc(var(--fs-h2) * var(--fs-scale));
+    color: var(--accent-2);
+    margin-top: 40px;
+    line-height: 1.7;
+}
+
+h3 {
+    font-size: calc(var(--fs-h3) * var(--fs-scale));
+    color: var(--accent);
+    margin-top: 30px;
+    line-height: 1.7;
+}
+
+p {
+    margin: 0 0 20px 0;
+    text-align: justify;
+}
+
+ul,
+ol {
+    margin: 0 0 20px 0;
+    padding-inline-start: 34px;
+    text-align: justify;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--accent-3);
+}
+
+strong {
+    color: var(--accent);
+}
+
+/* ---------- Cover ---------- */
+.cover {
+    text-align: center;
+    padding: 60px 30px;
+    border: 5px solid var(--accent);
+    border-radius: var(--radius-lg);
+    margin-bottom: 40px;
+    background: linear-gradient(145deg, var(--card-bg), var(--page-bg));
+}
+
+.cover h1 {
+    font-size: calc(var(--fs-cover-h1) * var(--fs-scale));
+    color: var(--accent);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.cover h2 {
+    font-size: calc(var(--fs-cover-h2) * var(--fs-scale));
+    color: var(--accent-2);
+    margin-top: 0;
+    line-height: 1.7;
+}
+
+.cover p {
+    color: var(--text-muted);
+}
+
+.cover .cover-sub {
+    font-size: var(--fs-small);
+    color: var(--text-faint);
+}
+
+/* ---------- Table of contents ---------- */
+.toc {
+    background: var(--card-bg);
+    border: 3px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.toc h3 {
+    color: var(--accent);
+    font-size: calc(var(--fs-h3) * var(--fs-scale));
+    margin-top: 0;
+}
+
+.toc a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: var(--panel-bg);
+    border-radius: var(--radius-sm);
+    border-right: 5px solid var(--accent-2);
+    font-size: calc(var(--fs-toc) * var(--fs-scale));
+    transition: 0.3s;
+}
+
+.toc a:hover {
+    background: var(--accent-2);
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+.toc a .num {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* ---------- Notice / disclaimers ---------- */
+.notice {
+    background: var(--notice-bg);
+    border: 2px solid var(--notice-border);
+    border-radius: var(--radius-sm);
+    padding: 15px 20px;
+    margin-top: 30px;
+    font-size: calc(var(--fs-notice) * var(--fs-scale));
+    color: var(--notice-text);
+}
+
+/* ---------- Chapter navigation ---------- */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.nav a,
+.nav span {
+    color: var(--accent-3);
+    text-decoration: none;
+    padding: 10px 20px;
+    background: var(--panel-alt);
+    border-radius: var(--radius-sm);
+    font-size: calc(var(--fs-nav) * var(--fs-scale));
+}
+
+.nav a:hover {
+    background: var(--accent-2);
+    color: #fff;
+}
+
+.nav span {
+    color: var(--text-faint);
+    opacity: 0.45;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    text-align: center;
+    color: var(--text-faint);
+    margin-top: 40px;
+    font-size: var(--fs-footer);
+}
+
+/* ---------- Back link ---------- */
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back a {
+    color: var(--accent-3);
+    text-decoration: none;
+    padding: 10px 20px;
+    background: var(--panel-alt);
+    border-radius: var(--radius-sm);
+    font-size: calc(var(--fs-nav) * var(--fs-scale));
+}
+
+/* ---------- Divider ---------- */
+.divider {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 30px 0;
+}
+
+/* ---------- Diagram containers ---------- */
+.diagram {
+    text-align: center;
+    background: var(--panel-bg);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    margin: 30px 0;
+    overflow: hidden;
+}
+
+.diagram svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.diagram h3 {
+    color: var(--accent);
+}
+
+/* ---------- Info box ---------- */
+.info-box {
+    background: var(--card-bg);
+    border-right: 5px solid var(--accent);
+    padding: 15px 20px;
+    border-radius: var(--radius-sm);
+    margin: 20px 0;
+}
+
+.info-box strong {
+    color: var(--accent);
+}
+
+/* ---------- Two-candle layout ---------- */
+.two-candles {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.candle-box {
+    text-align: center;
+    background: var(--panel-bg);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+.candle-box svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------- SMC concept blocks ---------- */
+.concept {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 25px;
+    margin: 30px 0;
+    border: 2px solid var(--border);
+}
+
+.concept h3 {
+    color: var(--accent);
+    font-size: calc(var(--fs-h3) * var(--fs-scale));
+    margin-top: 0;
+}
+
+.concept .subtitle {
+    color: var(--accent-3);
+    font-size: var(--fs-notice);
+    margin-bottom: 15px;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.details div {
+    background: var(--panel-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-right: 3px solid var(--accent-3);
+}
+
+.details .label {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.tip {
+    background: color-mix(in srgb, #4caf50 18%, var(--card-bg));
+    border-right: 5px solid #4caf50;
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    margin: 15px 0;
+}
+
+.warning {
+    background: var(--notice-bg);
+    border-right: 5px solid var(--notice-border);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    margin: 15px 0;
+}
+
+/* ---------- Key points / homework (generated books) ---------- */
+.keypoints {
+    background: var(--card-bg);
+    border-right: 5px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 18px 24px;
+    margin: 25px 0;
+}
+
+.keypoints h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.homework {
+    background: var(--panel-alt);
+    border-right: 5px solid var(--accent-3);
+    border-radius: var(--radius-sm);
+    padding: 18px 24px;
+    margin: 25px 0;
+}
+
+.homework h3 {
+    margin-top: 0;
+    color: var(--accent-3);
+}
+
+/* ---------- SVG text ---------- */
+svg text {
+    direction: rtl;
+}
+
+svg {
+    max-width: 100%;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    :root {
+        --fs-body: 22px;
+        --fs-h1: 34px;
+        --fs-h2: 28px;
+        --fs-h3: 25px;
+        --fs-cover-h1: 38px;
+        --fs-cover-h2: 26px;
+        --fs-nav: 20px;
+        --fs-toc: 20px;
+        --fs-notice: 19px;
+        --lh-body: 2.1;
+    }
+
+    body {
+        padding: 24px 16px;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------- Print (readable, no chrome) ---------- */
+@media print {
+    [data-mode] {
+        --page-bg: #fff;
+        --text: #111;
+        --card-bg: #fff;
+        --panel-bg: #f4f4f4;
+        --panel-alt: #f4f4f4;
+    }
+
+    .nav,
+    .back {
+        display: none !important;
+    }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 48: ڈیپازٹ، وائیدراول اور ادائیگی کے مسائل — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-47.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-49.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 48: ڈیپازٹ، وائیدراول اور ادائیگی کے مسائل</h1>
+<blockquote class="chapter-summary">
+<p>پیسے کے مسائل میں وقت سب سے قیمتی ہے — اور سب سے بڑی غلطی یہ ہے کہ آپ <strong>جو کر چکے اُس کا ثبوت محفوظ نہ رکھیں</strong>۔ اس باب میں ہر عام مسئلے کی وجہ، فوری عمل، اور درست راستہ بتایا جائے گا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/fiat-deposit-pkr.jpg" alt="Fiat Deposit PKR">
+  <figcaption>تصویر 48.1: Fiat/P2P ڈیپازٹ اسکرین — ادائیگی کے لیے دیا گیا اکاؤنٹ، رقم اور Order ID محفوظ رکھنا سب سے اہم ثبوت ہے۔</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>کرپٹو ڈیپازٹ نہ آنے کے اسباب (نیٹ ورک، Memo، Confirmations)</li>
+<li>وائیدراول رکنے یا Pending ہونے کی وجوہات</li>
+<li>P2P میں ادائیگی/رسید کے تنازعات کا حل</li>
+<li>Fiat (بینک) مسائل کے مخصوص اسباب</li>
+<li>ہر مسئلے میں کیا ثبوت رکھنا ہے</li>
+<li>بائننس سے شکایت درج کرنے کا درست طریقہ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 48.1 کرپٹو ڈیپازٹ نہیں آیا؟</h2>
+<p><strong>ترتیب سے جانچ:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>وجہ</th><th>کیسے پتہ چلے</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td><strong>Networı غلط</strong></td><td>بھیجنے والا نیٹ ورک ≠ بائننس نیٹ ورک</td><td>فوری بائننس Live Chat؛ ری کوری ممکن یا نہیں</td></tr>
+<tr><td><strong>Memo/Tag غائب</strong></td><td>وصول کنندہ نے Memo لازم کہانی ہو</td><td>TXID کے ساتھ Support Ticket</td></tr>
+<tr><td><strong>غیر تصدیق شدہ</strong></td><td>Blockchain پر Confirmations پوری نہیں</td><td>بلاک پر TXID دیکھیں، انتظار کریں</td></tr>
+<tr><td><strong>پتہ غلط</strong></td><td>Address کسی اور کا</td><td>فوری رپورٹ؛ عموماً ناقابل واپسی</td></tr>
+<tr><td><strong>بھیجنے والے کی طرف Pending</strong></td><td>سینڈر نے ابھی بھیجا نہیں</td><td>بھیجنے والے کا بلاک اسکرین دیکھیں</td></tr>
+</tbody></table></div>
+<pre><code>فوری عمل:
+1. TXID (Transaction Hash) لے لیں — یہی سب سے اہم ثبوت ہے
+2. Blockchain Explorer (etherscan/tronscan وغیرہ) پر ڈالیں
+   - Confirmations کتنے؟ → انتظار
+   - Success مگر پہنچا نہیں؟ → Memo/Network مسئلہ
+3. بائننس → Support → Deposit Problem → TXID کے ساتھ بھیجیں</code></pre>
+<hr class="divider">
+
+<h2>📖 48.2 وائیدراول Pending / رکا ہوا؟</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>وجہ</th><th>تفصیل</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td><strong>Address Whitelist</strong></td><td>نیا ایڈریس شامل کرنے پر عام طور پر <strong>Hold Period</strong> (اکثر ~24 گھنٹے)</td><td>منظور کے بعد دوبارہ کریں</td></tr>
+<tr><td><strong>OTP/2FA تصدیق نہیں</strong></td><td>آخری مرحلہ مکمل نہیں</td><td>ای میل/2FA لنک پر کلک کریں</td></tr>
+<tr><td><strong>New Device</strong></td><td>نئے ڈیوائس پر عموماً تحفّظاتی تاخیر</td><td>سیکیورٹی الرٹ کا انتظار/تصدیق</td></tr>
+<tr><td><strong>Blockchain Congestion</strong></td><td>نیٹ ورک بھیڑ</td><td>فیس/نیٹ ورک کے مطابق وقت</td></tr>
+<tr><td><strong>KYC/Account Review</strong></td><td>اکاؤنٹ ریویو میں</td><td>Reason کا پیغام پڑھیں، پھر Support</td></tr>
+</tbody></table></div>
+<pre><code>اگر وائیدراول Fail ہو اور رقم "Available" نہ ہو:
+- کچھ منٹ انتظار کریں (ریورس ہو جاتی ہے)
+- اگر نہ آئے: TXID/Order ID کے ساتھ Ticket</code></pre>
+<hr class="divider">
+
+<h2>📖 48.3 P2P مسائل (سب سے عام)</h2>
+<p><strong>نشانات اور درست عمل:</strong></p>
+<pre><code>1. اگر آپ نے ادائیگی کی مگر سیلر "Release" نہ کرے:
+   → Order میں "Appeal" (اپیل) دبائیں
+   → بینک/ایزی پیسہ کی تصدیق شدہ رسید (Screenshot) اپلوڈ کریں
+   → بائننس ریویو کرے گا (عموماً کچھ لمحہ سے 24 گھنٹے)
+
+2. اگر دوسرا فریق Escrow سے باہر ادائیگی کہے:
+   → ہرگز نہ کریں؛ Order میں ہی رہیں → Cancel/Appeal
+
+3. ادائیگی کے وقت اکاؤنٹ نمبر میچ نہ ہو:
+   → ادائیگی نہ کریں؛ Order Cancel کریں</code></pre>
+<blockquote>
+<p><strong>اصول:</strong> P2P میں ادائیگی <strong>Escrow Order کے اندر</strong> ہی ہوتی ہے۔ "Telegram/WhatsApp پر بات کریں" کہنے والا محتاط ہو یا دھوکے باز۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 48.4 Fiat (بینک) کے مخصوص مسائل</h2>
+<ul>
+<li><strong>PKR/بینک</strong> — بہت سے پاکستانی بینک کرپٹو سے متعلق ٹرانزیکشن کی حمایت نہیں کرتے؛ اسی لیے PKR کے لیے عموماً <strong>P2P</strong> ہی راستہ ہے۔</li>
+<li><strong>بینک نے رقم ہولڈ</strong> کی — بینک سے رابطہ کریں؛ بائننس براہِ راست بینک سے بات نہیں کر سکتا۔</li>
+<li><strong>نام کا میچ</strong> — اکاؤنٹ کا نام آپ کے KYC نام کے مطابق ہونا چاہیے؛ ورنہ ادائیگی مسترد ہو سکتی ہے۔</li>
+<li><strong>رقم غلط اکاؤنٹ</strong> میں — فوری بینک سے رابطہ؛ P2P میں Appeal۔</li>
+</ul>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>TXID/رسید محفوظ نہ رکھنا</strong> — بعد میں ثبوت نہیں ملتا۔</li>
+<li>❌ <strong>غلط نیٹ ورک</strong> — سب سے مہنگا مسئلہ؛ ہمیشہ جانچیں۔</li>
+<li>❌ <strong>Memo/Tag چھوڑ دینا</strong> جہاں لازمی ہو۔</li>
+<li>❌ <strong>P2P میں Escrow سے باہر ادائیگی</strong>۔</li>
+<li>❌ <strong>کیپیٹل سے "Release" دبانا</strong> جب تک پیسے نہ دیکھیں۔</li>
+<li>❌ <strong>صبر نہ کرنا</strong> — Confirmations/ریورس کے لیے وقت دیں۔</li>
+<li>❌ <strong>جھوٹی بنچ Support</strong> — صرف ایپ/سائٹ کے اندر Help Center سے رابطہ۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>پہلے ثبوت</strong>: TXID، Order ID، بینک رسید، اسکرین شاٹ۔</li>
+<li><strong>ڈیپازٹ مسئلہ</strong> = Network/Memo/Confirmations چیک۔</li>
+<li><strong>وائیدراول مسئلہ</strong> = Whitelist Hold، OTP/New Device، Congestion۔</li>
+<li><strong>P2P مسئلہ</strong> = Order کے اندر Appeal + ادائیگی کی تصدیق۔</li>
+<li><strong>Fiat</strong> = بینک کے قواعد بائننس سے الگ ہیں؛ P2P معمول کا راستہ۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے آخری ڈیپازٹ کا TXID ڈھوڈ کر کسی Explorer پر دیکھیں۔</li>
+<li>لکھیں: وائیدراول سے پہلے کی 5 جانچ۔</li>
+<li>P2P آرڈر کے اسکرین شاٹ میں وہ تین چیزیں نشان زد کریں جو ثبوت بنتی ہیں۔</li>
+<li>ایک فرضی "نیٹ ورک غلط ڈیپازٹ" کے لیے درست عمل کی خاکہ بنائیں۔</li>
+<li>اپنے علاقے کے بینک/P2P راستوں کی فہرست بنائیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"پیسے کے مسئلے کا پہلا علاج ثبوت ہے، دوسرا صبر، تیسرا درست Support۔"</strong> اصول: <strong>(1) ہر ٹرانزیکشن کا ID محفوظ</strong>، <strong>(2) نیٹ ورک/Memo دو بار جاچیں</strong>، <strong>(3) صرف آفیشل راستے سے شکایت۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-47.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-49.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

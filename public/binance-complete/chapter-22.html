@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 22: کرپٹو وائیدراول — بائننس سے بیرونی والٹ تک — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-21.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-23.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 22: کرپٹو وائیدراول — بائننس سے بیرونی والٹ تک</h1>
+<blockquote class="chapter-summary">
+<p><strong>کرپٹو وائیدراول (Withdraw)</strong> = بائننس کے Spot Wallet سے اپنا کوائن کسی <strong>بیرونی والٹ یا دوسرے ایکسچینج</strong> میں منتقل کرنا۔ یہ ڈیپازٹ کا بالکل اُلٹ عمل ہے، اور اس کا سب سے بڑا خطرہ <strong>غلط نیٹ ورک یا غلط ایڈریس</strong> ہے — جس پر فنڈ ہمیشہ کے لیے ضائع ہو سکتا ہے۔ یہ باب آپ کو ایک محفوظ، دہرائے جانے والا طریقہ سکھائے گا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/fiat-withdraw.jpg" alt="Binance Withdraw Page">
+  <figcaption>تصویر 22.1: بائننس کا Withdraw (وائیدراول) صفحہ — Coin، Network، Address اور Amount کا انتخاب ایک ہی اسکرین پر۔ (Binance Withdraw page — Coin, Network, Address and Amount selection on one screen.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Spot Wallet سے کرپٹو وائیدراول کا مکمل، محفوظ طریقہ</li>
+<li><strong>Address Whitelist</strong> کی سیٹ اپ اور سیکیورٹی ہولڈ</li>
+<li>نیٹ ورک، ایڈریس اور Memo کا آپس میں تعلق</li>
+<li><strong>وائیدراول فیس، کم از کم مقدار اور روزانہ حد</strong></li>
+<li>پہلے وائیدراول کا <strong>"ٹیسٹ" اصول</strong></li>
+<li>عام غلطیاں اور اُن سے بچاؤ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 22.1 وائیدراول کہاں سے شروع ہوتا ہے؟</h2>
+<pre><code>Wallet → Withdraw → Coin منتخب → Network منتخب → Address + Memo → Amount → Confirm</code></pre>
+<blockquote>
+<p>💡 وائیدراول <strong>Spot Wallet</strong> سے ہوتا ہے۔ اگر آپ کے فنڈز Futures، Margin یا Earn میں ہیں تو پہلے <strong>Transfer</strong> کے ذریعے Spot Wallet میں لائیں۔</p>
+</blockquote>
+<h3>مرحلہ وار طریقہ</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>مرحلہ</th><th>عمل</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Wallet → Withdraw کھولیں</td></tr>
+<tr><td>2</td><td>کوائن منتخب کریں (مثلاً USDT)</td></tr>
+<tr><td>3</td><td><strong>Network</strong> منتخب کریں (مثلاً TRC20)</td></tr>
+<tr><td>4</td><td>ایڈریس پیسٹ کریں (اور Memo، اگر لازمی ہو)</td></tr>
+<tr><td>5</td><td>مقدار درج کریں — فیس اور وصولی کی رقم دیکھیں</td></tr>
+<tr><td>6</td><td>Preview → 2FA / Email تصدیق → Submit</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ بائننس ہر وائیدراول پر ای میل اور 2FA (یا Passkey) سے تصدیق مانگتا ہے۔ یہ اضافی حفاظت ہے، مسئلہ نہیں — لاپرواہی نہ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.2 Address Whitelist — سفید لسٹ</h2>
+<blockquote>
+<p><strong>Address Whitelist</strong> = ایسے ایڈریسز کی فہرست جنہیں آپ <strong>پہلے سے منظور</strong> کر چکے ہیں۔ اس کے فعال ہونے کے بعد وائیدراول صرف اُنہی ایڈریسز پر ممکن ہوتا ہے۔</p>
+</blockquote>
+<h3>کیسے سیٹ کریں</h3>
+<pre><code>Profile → Security → Address Management (Whitelist)
+→ Add Address → ایڈریس + نام (مثلاً "Trust Wallet")
+→ Email + 2FA تصدیق → ہولڈ پیریڈ → فعال ✅</code></pre>
+<h3>فائدے اور اہم حقیقت</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>حفاظت</strong></td><td>ہیکر لاگ اِن کر بھی صرف منظور شدہ ایڈریس پر بھیج سکتا ہے</td></tr>
+<tr><td><strong>تصدیق</strong></td><td>نیا ایڈریس شامل کرتے وقت Email + 2FA لازمی</td></tr>
+<tr><td><strong>ہولڈ</strong></td><td>نئے ایڈریس پر سیکیورٹی ہولڈ (عام طور پر 24 گھنٹے، آپ کی سیٹنگ کے مطابق)</td></tr>
+<tr><td><strong>تبدیلی</strong></td><td>ایڈریس تبدیل کرنے پر پھر ہولڈ لگتا ہے — ہڑبڑائی میں نقصان سے بچاؤ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 اگر آپ <strong>Anti-Phishing Code</strong> سیٹ کریں تو وائیدراول کی ہر ای میل میں وہی کوڈ آئے گا۔ جعلی ای میل کے جال فوراً پکڑے جائیں گے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.3 نیٹ ورک، ایڈریس اور Memo — تینوں کا ملنا</h2>
+<blockquote>
+<p><strong>قاعدہ:</strong> بھیجنے والا نیٹ ورک اور وصول کرنے والا نیٹ ورک <strong>بالکل ایک جیسا</strong> ہونا چاہیے۔</p>
+</blockquote>
+<h3>مثال: USDT کے تین نیٹ ورکس</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نیٹ ورک</th><th>مخفف</th><th>فیس کی نوعیت</th></tr></thead>
+<tbody>
+<tr><td>Tron</td><td>TRC20</td><td>کم</td></tr>
+<tr><td>BNB Smart Chain</td><td>BEP20</td><td>کم</td></tr>
+<tr><td>Ethereum</td><td>ERC20</td><td>زیادہ</td></tr>
+</tbody></table></div>
+<h3>Memo/Tag کب لازمی ہے؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>کوائن</th><th>Memo/Tag</th></tr></thead>
+<tbody>
+<tr><td>XRP (Destination Tag)</td><td>✅ لازمی</td></tr>
+<tr><td>XLM</td><td>✅ لازمی</td></tr>
+<tr><td>ATOM</td><td>✅ لازمی</td></tr>
+<tr><td>BNB (BEP2 چین)</td><td>✅ لازمی</td></tr>
+<tr><td>BTC / ETH / USDT (TRC20, ERC20, BEP20)</td><td>❌ نہیں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>مثال:</strong> آپ نے بائننس سے USDT نکالا <strong>TRC20</strong> پر، مگر وصول کرنے والے والٹ کا ایڈریس <strong>ERC20</strong> کا ہے (جو <code>0x</code> سے شروع ہوتا ہے)۔ یہاں فنڈ یا تو وصول نہیں ہوگا، یا ہمیشہ کے لیے ضائع ہو جائے گا۔ ایڈریس کا <strong>شروع (prefix)</strong> خود بتا دیتا ہے کہ وہ کس نیٹ ورک کا ہے۔</p>
+</blockquote>
+<h3>ایڈریس prefix کی پہچان:</h3>
+<pre><code>0x...     → Ethereum (ERC20 / BEP20 بھی 0x ہوتا ہے — نیٹ ورک سے ملائیں)
+T...      → Tron (TRC20)
+bnb...    → BNB Chain (BEP20)
+bc1...    → Bitcoin Native
+rN...     → Ripple (XRP) — Tag بھی لازمی</code></pre>
+<blockquote>
+<p>💡 <strong>Prefix سے نیٹ ورک کا اندازہ لگتا ہے، مگر حتمی جواب کے لیے وصول کنندہ والٹ میں جا کر دیکھیں کہ وہ کس نیٹ ورک کا ایڈریس دے رہا ہے۔</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.4 فیس، کم از کم مقدار اور حد</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>اصطلاح</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Withdrawal Fee</strong></td><td>بائننس + نیٹ ورک کا چارج، ہر کوائن/نیٹ ورک پر مختلف</td></tr>
+<tr><td><strong>Minimum Withdrawal</strong></td><td>کم از کم نکالی جانے والی مقدار</td></tr>
+<tr><td><strong>Daily Limit</strong></td><td>24 گھنٹے میں زیادہ سے زیادہ نکاسی (KYC لیول پر منحصر)</td></tr>
+<tr><td><strong>Arrival Time</strong></td><td>نیٹ ورک کی تصدیق کے بعد — منٹوں سے گھنٹوں تک</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 فیس اور کم از کم مقدار وقت کے ساتھ بدلتی رہتی ہیں۔ وائیدراول سے پہلے ہمیشہ <strong>صفحے پر لکھی تازہ فیس</strong> دیکھیں — کسی پرانی گائیڈ پر اندھا اعتماد نہ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.5 پہلا وائیدراول — ٹیسٹ کا اصول</h2>
+<pre><code>1. کم از کم حد کے قریب چھوٹی رقم نکالیں (مثلاً $5)
+2. بیرونی والٹ میں موصولی کی تصدیق کریں
+3. نیٹ ورک اور ایڈریس درست ہیں؟ — اب بڑی رقم نکالیں</code></pre>
+<blockquote>
+<p>✅ <strong>"پہلے چھوٹا، پھر بڑا"</strong> — یہ ایک عادت آپ کو ہزاروں ڈالر کے نقصان سے بچا سکتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ ایڈریس کا <strong>صرف آغاز/اختتام</strong> دیکھنا — پورا ایڈریس فرق ہو سکتا ہے، ہمیشہ <strong>پیوری (paste)</strong> کریں</li>
+<li>❌ غلط <strong>نیٹ ورک</strong> منتخب کرنا — BEP20 ≠ ERC20 ≠ TRC20</li>
+<li>❌ ضروری <strong>Memo/Tag</strong> نہ لکھنا (XRP, XLM, ATOM)</li>
+<li>❌ نئے ایڈریس پر <strong>بڑی رقم</strong> — پہلے چھوٹا ٹیسٹ</li>
+<li>❌ Whitelist سیٹ نہ کرنا — ہیکر کے لیے دروازہ کھلا</li>
+<li>❌ کسی اور کے اکاؤنٹ/ایڈریس پر نکالنا — نام کی مطابقت اور رسک</li>
+<li>❌ فیس، کم از کم حد یا Daily Limit نہ دیکھنا</li>
+<li>❌ Email/2FA تصدیق میں لاپرواہی — OTP کسی سے شیئر نہ کریں</li>
+<li>❌ وائیدراول کا <strong>ثبوت (TXID)</strong> محفوظ نہ کرنا</li>
+<li>❌ جلد بازی — ایک غلط ٹیپ کا مطلب مستقل نقصان</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>وائیدراول <strong>Spot Wallet</strong> سے ہوتا ہے؛ دیگر والٹس سے پہلے Transfer کریں</li>
+<li><strong>Address Whitelist</strong> + <strong>Anti-Phishing Code</strong> = مضبوط حفاظت</li>
+<li>نیٹ ورک، ایڈریس اور Memo — <strong>تینوں کا ملنا</strong> لازمی</li>
+<li>نئے ایڈریس پر <strong>سیکیورٹی ہولڈ</strong> لگتا ہے</li>
+<li>پہلا وائیدراول ہمیشہ <strong>چھوٹا ٹیسٹ</strong></li>
+<li><strong>TXID</strong> محفوظ رکھیں — مسئلے کی صورت میں ثبوت</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے اکاؤنٹ میں <strong>Wallet → Withdraw</strong> کھولیں اور صفحے کا ڈھانچہ دیکھیں۔</li>
+<li>USDT منتخب کریں — دستیاب <strong>نیٹ ورکس اور فیسیں</strong> نوٹ کریں۔</li>
+<li><strong>Address Management</strong> میں ایک ایڈریس شامل کریں (صرف محفوظ کر کے دیکھیں)۔</li>
+<li>اپنے بینک/والٹ کے ایڈریس کا <strong>prefix</strong> دیکھیں اور اُس کا نیٹ ورک پہچانیں۔</li>
+<li>ایک جدول بنائیں: ایک کوائن کے لیے کون سا نیٹ ورک سب سے سستا ہے۔</li>
+<li><strong>5 وائیدراول اصول</strong> لکھیں جو آپ کبھی نہیں توڑیں گے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>وائیدراول میں "Undo" نہیں ہوتا۔</strong> بینک ٹرانسفر واپس منگائی جا سکتی ہے، مگر بلاک چین کی ٹرانزیکشن نہیں۔ ایک غلط ایڈریس یا غلط نیٹ ورک کا مطلب ہے پیسہ ہمیشہ کے لیے گیا۔ اسی لیے یہ چار عادتیں اپنائیں: <strong>Whitelist، Anti-Phishing Code، پہلے چھوٹا ٹیسٹ، TXID محفوظ</strong>۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-21.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-23.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

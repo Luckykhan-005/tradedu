@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 15: فیوچرز (Futures) — مکمل تعارف — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-14.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-16.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 15: فیوچرز (Futures) — مکمل تعارف</h1>
+<blockquote class="chapter-summary">
+<p><strong>Futures</strong> بائننس کا سب سے طاقتور ٹریڈنگ ٹول ہے۔ اس میں آپ اصل کوائن کے بغیر، صرف قیمت کی حرکت پر — اوپر (Long) اور نیچے (Short) دونوں سمتوں میں — لیوریج کے ساتھ ٹریڈ کرتے ہیں۔ طاقت بھی زیادہ، خطرہ بھی زیادہ۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/Futures-Trading.jpg" alt="Binance Futures Trading Interface">
+  <figcaption>تصویر 15.1: بائننس فیوچرز ٹریڈنگ انٹرفیس — لیوریج، Long/Short بٹن، اور پوزیشن کا پینل۔ (Binance Futures trading interface — leverage, Long/Short buttons, and position panel.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Futures کنٹریکٹ کیا ہے (Perpetual اور Quarterly)</li>
+<li>USDⓈ-M اور COIN-M کا فرق</li>
+<li><strong>Funding Rate</strong> کی حقیقت اور حساب</li>
+<li>Long اور Short کیسے کام کرتے ہیں</li>
+<li>لیوریج اور Liquidation کا تعلق</li>
+<li>پہلا فیوچرز ٹریڈ — قدم بہ قدم</li>
+<li><strong>Futures کی خاص حکمتِ عملیاں</strong> — جو Spot پر لاگو نہیں ہوتیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 15.1 Futures کنٹریکٹ کیا ہے؟</h2>
+<blockquote>
+<p><strong>Futures</strong> = ایک <strong>کنٹریکٹ</strong> (معاہدہ) جو آپ کو قیمت کی حرکت پر منافع/نقصان کا حق دیتا ہے — بغیر اصل کوائن کے۔</p>
+</blockquote>
+<h3>Spot سے بنیادی فرق</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Spot</th><th>Futures</th></tr></thead>
+<tbody>
+<tr><td>ملکیت</td><td>اصل کوائن آپ کا</td><td>نہیں — صرف کنٹریکٹ</td></tr>
+<tr><td>سمت</td><td>صرف Buy</td><td>Long + Short دونوں</td></tr>
+<tr><td>لیوریج</td><td>نہیں (1x)</td><td>✅ 1x سے زیادہ</td></tr>
+<tr><td>خطرہ</td><td>سرمایہ محدود</td><td>Liquidation تک</td></tr>
+</tbody></table></div>
+<h3>اقسام</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>میعاد</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>Perpetual (PERP)</strong></td><td>کوئی نہیں</td><td>ہمیشہ کھلا رہتا ہے؛ Funding Rate سے Spot قیمت کے قریب بندھا رہتا ہے — <strong>سب سے عام</strong></td></tr>
+<tr><td><strong>Quarterly</strong></td><td>3 ماہ</td><td>تاریخ پر ختم (Delivery)</td></tr>
+<tr><td><strong>Biannual/دیگر</strong></td><td>6 ماہ وغیرہ</td><td>کم عام</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>اہم:</strong> اکثر نئے صارف "Futures = مستقبل میں ڈیلیوری" سمجھتے ہیں، مگر بائننس پر سب سے زیادہ مستعمل <strong>Perpetual Futures</strong> ہے جس کی <strong>کوئی میعاد نہیں</strong> — آپ جتنی دیر چاہیں پوزیشن کھلی رکھ سکتے ہیں (بشرطِ Funding اور Margin)۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 15.2 USDⓈ-M بمقابلہ COIN-M</h2>
+<h3>USDⓈ-Margined (USDM)</h3>
+<blockquote>
+<p>آپ <strong>USDT/USDC</strong> کو Margin (ضمانت) بناتے ہیں؛ منافع/نقصان بھی USDT میں۔</p>
+</blockquote>
+<pre><code>Margin       : 1,000 USDT
+Leverage     : 10x
+Position     : ~10,000 USDT مالیت
+P&L          : USDT میں</code></pre>
+<h3>COIN-Margined (COINM)</h3>
+<blockquote>
+<p>آپ <strong>BTC/ETH</strong> جیسے کوائن کو Margin بناتے ہیں؛ منافع/نقصان اُسی کوائن میں۔</p>
+</blockquote>
+<pre><code>Margin       : 0.02 BTC
+Leverage     : 10x
+Position     : ~0.2 BTC مالیت
+P&L          : BTC میں</code></pre>
+<h3>فرق</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فیچر</th><th>USDⓈ-M (USDM)</th><th>COIN-M (COINM)</th></tr></thead>
+<tbody>
+<tr><td>بیس اثاثہ</td><td>USDT/USDC</td><td>BTC/ETH وغیرہ</td></tr>
+<tr><td>زیادہ سے زیادہ لیوریج</td><td>جوڑے پر منحصر (کئی 100x تک)</td><td>عموماً کم (بہت سے جوڑے 100x تک نہیں)</td></tr>
+<tr><td>P&L کی کرنسی</td><td>USDT</td><td>مقامی کوائن</td></tr>
+<tr><td>سمجھنے میں</td><td>آسان</td><td>پیچیدہ</td></tr>
+<tr><td>کس کے لیے</td><td>نئے صارفین (توصیہ)</td><td>تجربہ کار</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>نئے صارفین کے لیے:</strong> ہمیشہ <strong>USDM</strong> سے شروع کریں — حساب اور سمجھ آسان۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 15.3 Funding Rate (فنڈنگ ریٹ)</h2>
+<h3>Funding Rate کیا ہے؟</h3>
+<blockquote>
+<p><strong>Funding Rate</strong> = Perpetual Futures میں Long اور Short پوزیشنوں کے درمیان ادا ہونے والی <strong>دوری رقم</strong>، جو کنٹریکٹ کی قیمت کو Spot قیمت کے قریب رکھتی ہے۔</p>
+</blockquote>
+<h3>تصور</h3>
+<ul>
+<li>Funding Rate <strong>مثبت</strong> ہو → Long، Short کو ادا کرتے ہیں (مارکیٹ میں تیز خریداری)</li>
+<li>Funding Rate <strong>منفی</strong> ہو → Short، Long کو ادا کرتے ہیں</li>
+</ul>
+<div class="table-wrap"><table>
+<thead><tr><th>آپ کی پوزیشن</th><th>مثبت Funding</th><th>منفی Funding</th></tr></thead>
+<tbody>
+<tr><td>Long</td><td>ادا کریں گے</td><td>موصول کریں گے</td></tr>
+<tr><td>Short</td><td>موصول کریں گے</td><td>ادا کریں گے</td></tr>
+</tbody></table></div>
+<h3>ادا ہونے کا وقت</h3>
+<p>عام طور پر <strong>ہر 8 گھنٹے</strong> (00:00، 08:00، 16:00 UTC) — مگر کچھ کنٹریکٹس پر 4 گھنٹے یا دیگر وقفے بھی ہو سکتے ہیں۔</p>
+<h3>تصوراتی حساب</h3>
+<pre><code>Position       : 10,000 USDT (Long)
+Funding Rate   : +0.01%
+Payment        : 10,000 × 0.01% = 1.00 USDT
+→ آپ (Long) Short کو 1.00 USDT ادا کریں گے (ہر 8 گھنٹے)</code></pre>
+<blockquote>
+<p>💡 طویل مدت تک پوزیشن کھلی رکھنے پر Funding کئی بار لگتا ہے — یہ منافع کا حصہ کھا سکتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 15.4 Long اور Short</h2>
+<h3>Long (خریداری کی سمت)</h3>
+<blockquote>
+<p>قیمت <strong>بڑھنے</strong> کی توقع → Buy کریں → بڑھ کر بیچیں → منافع۔</p>
+</blockquote>
+<pre><code>Long BTC @ 96,000 → بند @ 100,000
+Movement per BTC = +4,000 USDT (لیوریج سے کئی گنا)</code></pre>
+<h3>Short (فروخت کی سمت)</h3>
+<blockquote>
+<p>قیمت <strong>گرنے</strong> کی توقع → قرض پر بیچیں → سستی پر واپس خریدیں → منافع۔</p>
+</blockquote>
+<pre><code>Short BTC @ 96,000 → بند @ 92,000
+Movement per BTC = +4,000 USDT</code></pre>
+<h3>کب کون؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>مارکیٹ رجحان</th><th>حکمتِ عملی</th></tr></thead>
+<tbody>
+<tr><td>Uptrend</td><td>Long</td></tr>
+<tr><td>Downtrend</td><td>Short</td></tr>
+<tr><td>Range</td><td>نچے سے Buy، اوپر سے Sell</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 15.5 پہلا Futures ٹریڈ — قدم بہ قدم</h2>
+<p><strong>قدم 1:</strong> <code>Trade ▼ → Futures</code> کھولیں اور <strong>USDⓈ-M Perpetual</strong> منتخب کریں</p>
+<p><strong>قدم 2:</strong> جوڑا منتخب کریں (مثلاً BTC/USDT)</p>
+<p><strong>قدم 3:</strong> <code>Transfer</code> سے Spot والٹ سے Futures والٹ کو USDT منتقل کریں</p>
+<p><strong>قدم 4:</strong> لیوریج سیٹ کریں (شروع میں <strong>2x–3x</strong>)، <strong>Isolated</strong> منتخب کریں</p>
+<p><strong>قدم 5:</strong> Order Entry سے ٹریڈ لگائیں — Long کے لیے Buy، Short کے لیے Sell</p>
+<p><strong>قدم 6:</strong> پوزیشن پر <strong>TP/SL</strong> لگائیں</p>
+<p><strong>قدم 7:</strong> نیچے <code>Positions</code> ٹیب میں Unrealized P&L اور Liquidation Price دیکھیں</p>
+<hr class="divider">
+
+<h2>📖 15.6 لیوریج اور Liquidation — حقیقی تصور</h2>
+<blockquote>
+<p><strong>لیوریج</strong> = آپ کے سرمائے سے کتنی گنا بڑی پوزیشن ممکن ہے۔ ساتھ ساتھ، لیوریج بڑھنے سے <strong>Liquidation قریب</strong> آ جاتی ہے۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>لیوریج</th><th>لگ بھگ محفوظ فاصلہ (تصوراتی)</th><th>Risk</th></tr></thead>
+<tbody>
+<tr><td>1x</td><td>~100%</td><td>بہت کم</td></tr>
+<tr><td>2x</td><td>~50%</td><td>کم</td></tr>
+<tr><td>5x</td><td>~20%</td><td>درمیانہ</td></tr>
+<tr><td>10x</td><td>~10%</td><td>زیادہ</td></tr>
+<tr><td>20x</td><td>~5%</td><td>بہت زیادہ</td></tr>
+<tr><td>50x+</td><td>~2% یا کم</td><td>🚨 انتہائی خطرناک</td></tr>
+</tbody></table></div>
+<h3>تخمینی فارمولا</h3>
+<pre><code>Liquidation (Long) ≈ Entry × (1 − 1/Leverage)
+مثال (5x، Entry $96,000) ≈ $96,000 × 0.8 ≈ $76,800
+
+⚠️ یہ فقط تصوراتی ہے — اصل قیمت Maintenance Margin، فیس اور مارکیٹ پر منحصر ہے۔</code></pre>
+<blockquote>
+<p>💡 بائننس ہر پوزیشن کے لیے <strong>اصل Liquidation Price</strong> خود دکھاتا ہے — وہی معتبر ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 15.7 عملی مشق — Demo پر</h2>
+<p><strong>مرحلہ 1:</strong> Futures → USDⓈ-M Perpetual کھولیں</p>
+<p><strong>مرحلہ 2:</strong> Funding Rate دیکھیں — مثبت یا منفی؟</p>
+<p><strong>مرحلہ 3:</strong> BTC/USDT چارٹ سے رجحان سمجھیں</p>
+<p><strong>مرحلہ 4:</strong> Isolated، <strong>2x</strong> لیوریج کے ساتھ چھوٹی Long کھولیں</p>
+<p><strong>مرحلہ 5:</strong> SL = Entry − 2%، TP = Entry + 4% لگائیں</p>
+<p><strong>مرحلہ 6:</strong> Positions ٹیب میں P&L اور Funding دیکھیں</p>
+<p><strong>مرحلہ 7:</strong> پوزیشن بند کر کے سب نوٹ کریں</p>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>اعلیٰ لیوریج</strong> — شروع میں 2x–5x سے آگے نہ بڑھیں</li>
+<li>❌ <strong>Cross Margin بغیر تجربہ</strong> — Isolated استعمال کریں</li>
+<li>❌ <strong>Funding Rate نظرانداز</strong> — لمبی پوزیشن پر منافع کم کر دیتی ہے</li>
+<li>❌ <strong>SL نہ لگانا</strong> — فیوچرز میں SL = نجات</li>
+<li>❌ <strong>Short سمجھنے سے پہلے</strong> — پہلے Long، پھر Short</li>
+<li>❌ <strong>COINM سے آغاز</strong> — پہلے USDM سیکھیں</li>
+<li>❌ <strong>ہر وقت ٹریڈ</strong> — صبر اور انتظار ضروری</li>
+<li>❌ <strong>Liquidation Distance نظرانداز</strong> — Margin Ratio مانیٹر کریں</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Futures</strong> = کنٹریکٹ پر ٹریڈ — Long، Short، لیوریج</li>
+<li><strong>Perpetual</strong> = بغیر میعاد (Funding سے بندھا) — سب سے عام</li>
+<li><strong>USDⓈ-M</strong> = USDT بیس — نئے صارفین کے لیے</li>
+<li><strong>COIN-M</strong> = کوائن بیس — تجربہ کاروں کے لیے</li>
+<li><strong>Funding Rate</strong> = ہر 8 گھنٹے، Long و Short کے درمیان</li>
+<li><strong>Long</strong> = Buy، <strong>Short</strong> = Sell</li>
+<li><strong>لیوریج کم رکھیں + Isolated + SL</strong> = محفوظ راہ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Futures پیج کے ہر بٹن کا نام نوٹ کریں۔</li>
+<li>Funding Rate کہاں دکھتا ہے — تصوراتی حساب لکھیں۔</li>
+<li>Leverage سلائیڈر دیکھیں (1x سے زیادہ سے زیادہ)۔</li>
+<li>Isolated اور Cross کا فرق خاکے میں بنائیں۔</li>
+<li>5x، 10x، 20x کے تخمینی Liquidation Level لکھیں۔</li>
+<li>Long اور Short کا موازنہ جدول بنائیں۔</li>
+<li>اگر اکاؤنٹ ہے: Demo پر 2x Long لگائیں — نتائج نوٹ کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>فیوچرز ایک طاقتور اوزار ہے، مگر دو دھاری تلوار۔ لیوریج منافع بھی بڑھاتی ہے اور نقصان بھی۔ سب سے اہم دو چیزیں: <strong>رسک مینجمنٹ</strong> اور <strong>صبر</strong>۔</p>
+<p><strong>کم لیوریج، Isolated Margin، ہر ٹریڈ پر SL — اور پہلے Demo۔</strong> یہی چار اصول آپ کو برباد ہونے سے بچائیں گے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-14.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-16.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

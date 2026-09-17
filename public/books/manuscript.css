@@ -1,0 +1,302 @@
+/* ============================================================
+   TradeEd — Long-form Manuscript Book Styles
+   ------------------------------------------------------------
+   Companion to /books/book.css for the converted manuscript
+   books (Binance Complete Training, Forex Trading Course).
+
+   book.css provides the design tokens, themes, cover, TOC,
+   nav, notice and footer. This file adds the extra blocks the
+   long-form manuscripts need: tables, ASCII code blocks,
+   figures with bilingual captions, callout sections and
+   grouped table-of-contents lists.
+
+   Usage (linked AFTER book.css):
+     <link rel="stylesheet" href="/books/book.css">
+     <link rel="stylesheet" href="/books/manuscript.css">
+   ============================================================ */
+
+/* ---------- Chapter title & English subtitle ---------- */
+.chapter-title {
+    text-align: center;
+}
+
+.en-subtitle {
+    text-align: center;
+    color: var(--accent-3);
+    font-size: var(--fs-small);
+    margin: -8px 0 30px 0;
+    direction: ltr;
+}
+
+h4 {
+    font-size: calc((var(--fs-h3) - 4px) * var(--fs-scale));
+    color: var(--accent-3);
+    margin-top: 26px;
+    line-height: 1.8;
+}
+
+/* ---------- Blockquotes (summary + inline notes) ---------- */
+blockquote {
+    background: var(--card-bg);
+    border-right: 5px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 16px 22px;
+    margin: 24px 0;
+    color: var(--text-muted);
+}
+
+blockquote p {
+    margin: 0 0 10px 0;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote.chapter-summary {
+    background: linear-gradient(145deg, var(--card-bg), var(--page-bg));
+    border-right-color: var(--accent-2);
+    color: var(--text);
+}
+
+/* ---------- Callout sections (🎯 ⚠️ ✅ 📝 🧠) ---------- */
+.callout {
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    border-right: 6px solid var(--accent);
+    padding: 18px 24px;
+    margin: 28px 0;
+}
+
+.callout>h2:first-child {
+    margin-top: 0;
+}
+
+.callout.learn {
+    border-right-color: var(--accent-3);
+}
+
+.callout.summary {
+    background: var(--panel-alt);
+    border-right-color: var(--accent);
+}
+
+.callout.practice {
+    background: var(--panel-bg);
+    border-right-color: var(--accent-3);
+}
+
+.callout.remember {
+    border-right-color: var(--accent-2);
+}
+
+.callout.warn {
+    background: var(--notice-bg);
+    border-right-color: var(--notice-border);
+    color: var(--notice-text);
+}
+
+.callout.warn h2,
+.callout.warn strong {
+    color: var(--notice-text);
+}
+
+/* ---------- Tables ---------- */
+.table-wrap {
+    overflow-x: auto;
+    margin: 26px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: calc(var(--fs-small) * var(--fs-scale));
+    line-height: 1.85;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: start;
+    vertical-align: top;
+}
+
+thead th {
+    background: var(--panel-bg);
+    color: var(--accent);
+    font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--panel-alt);
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--card-bg);
+}
+
+/* ---------- Code blocks (ASCII diagrams, formulas) ---------- */
+pre {
+    direction: rtl;
+    unicode-bidi: plaintext;
+    text-align: right;
+    background: var(--panel-bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    margin: 26px 0;
+    overflow-x: auto;
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 18px;
+    line-height: 1.7;
+    white-space: pre;
+    color: var(--text);
+}
+
+code {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    background: var(--panel-bg);
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 0.92em;
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+    direction: inherit;
+    unicode-bidi: inherit;
+}
+
+/* ---------- Figures & captions ---------- */
+figure {
+    margin: 32px 0;
+    text-align: center;
+}
+
+figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 3px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+}
+
+figcaption {
+    color: var(--text-muted);
+    font-size: var(--fs-small);
+    margin-top: 12px;
+    line-height: 1.9;
+}
+
+figure.missing {
+    border: 2px dashed var(--notice-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    background: var(--notice-bg);
+    color: var(--notice-text);
+    font-size: var(--fs-small);
+}
+
+/* ---------- Lists ---------- */
+ul,
+ol {
+    line-height: var(--lh-body);
+}
+
+li>ul,
+li>ol {
+    margin-top: 8px;
+}
+
+/* ---------- Grouped table of contents (index pages) ---------- */
+.toc-group {
+    margin-bottom: 16px;
+}
+
+.toc .toc-part {
+    display: block;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--panel-alt);
+    border-right: 5px solid var(--accent);
+    font-size: calc(var(--fs-toc) * var(--fs-scale));
+    padding: 12px 15px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+.toc .toc-part:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.toc .toc-ch {
+    font-size: calc((var(--fs-toc) - 4px) * var(--fs-scale));
+    padding: 9px 15px;
+    margin-bottom: 5px;
+    border-right-width: 3px;
+}
+
+.toc .toc-ch .num {
+    display: inline-block;
+    min-width: 2.4em;
+}
+
+.toc-subhead {
+    color: var(--text-faint);
+    font-size: var(--fs-notice);
+    margin: 22px 0 8px 0;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+}
+
+/* ---------- Toolbar on book pages ---------- */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.toolbar a {
+    color: var(--accent-3);
+    text-decoration: none;
+    padding: 10px 20px;
+    background: var(--panel-alt);
+    border-radius: var(--radius-sm);
+    font-size: calc(var(--fs-nav) * var(--fs-scale));
+}
+
+.toolbar a:hover {
+    background: var(--accent-2);
+    color: #fff;
+}
+
+.toolbar .book-name {
+    color: var(--text-faint);
+    font-size: var(--fs-notice);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    pre {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px 10px;
+    }
+}

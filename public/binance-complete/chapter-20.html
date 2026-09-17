@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 20: کرپٹو ڈیپازٹ — بیرونی والٹ سے فنڈ لانا — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-19.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-21.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 20: کرپٹو ڈیپازٹ — بیرونی والٹ سے فنڈ لانا</h1>
+<blockquote class="chapter-summary">
+<p><strong>کرپٹو ڈیپازٹ</strong> = کسی دوسرے ایکسچینج یا والٹ سے بائننس کے Spot Wallet میں کرپٹو منتقل کرنا۔ یہ عمل آسان دکھتا ہے، مگر ایک غلط نیٹ ورک یا غلط Memo آپ کا فنڈ ہمیشہ کے لیے ضائع کر سکتا ہے۔ یہ باب آپ کو ہر قدم احتیاط سے سکھائے گا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/wallet-overview.jpg" alt="Binance Wallet Deposit Entry">
+  <figcaption>تصویر 20.1: بائننس والٹ کا جائزہ — جہاں سے Deposit کا آغاز ہوتا ہے (Wallet → Deposit) اور Spot Wallet میں موصول ہونے والے اثاثے۔ (Binance wallet overview — where Deposit starts (Wallet → Deposit) and assets received in Spot Wallet.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>کرپٹو ڈیپازٹ کا مکمل، محفوظ طریقہ</li>
+<li><strong>صحیح نیٹ ورک (Network)</strong> کا انتخاب</li>
+<li><strong>Memo/Tag</strong> کب اور کیوں ضروری ہے</li>
+<li>Confirmation اور وقت کا تصور</li>
+<li><strong>غلطیوں کی صورت میں کیا ہوتا ہے</strong> — اور کیسےrecover کریں</li>
+<li>ڈیپازٹ ٹریکنگ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 20.1 ڈیپازٹ کا مقام</h2>
+<pre><code>Wallet → Deposit → کرپٹو منتخب کریں → نیٹ ورک منتخب کریں → ایڈریس + Memo</code></pre>
+<blockquote>
+<p>💡 بائننس اب ڈیپازٹ <strong>Spot Wallet</strong> میں کرتا ہے (پرانے Funding Wallet کا تصور متروک ہے)۔</p>
+</blockquote>
+<h3>کلیدی عناصر</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>عنصر</th><th>اہمیت</th></tr></thead>
+<tbody>
+<tr><td><strong>صحیح Coin</strong></td><td>غلط کوائن = ضائع</td></tr>
+<tr><td><strong>صحیح Network</strong></td><td>سب سے اہم چیک</td></tr>
+<tr><td><strong>ایڈریس</strong></td><td>بائننس کا فراہم کردہ</td></tr>
+<tr><td><strong>Memo/Tag</strong></td><td>بعض کوائنز میں لازمی</td></tr>
+<tr><td><strong>کم از کم مقدار</strong></td><td>Minimum Deposit سے کم قبول نہیں</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 20.2 صحیح نیٹ ورک کا انتخاب</h2>
+<blockquote>
+<p><strong>یہ سب سے اہم نکتہ ہے۔</strong> بھیجنے والا اور وصول کرنے والا نیٹ ورک <strong>بالکل ایک جیسا</strong> ہونا چاہیے۔</p>
+</blockquote>
+<h3>USDT کے عام نیٹ ورکس</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نیٹ ورک</th><th>خصوصیت</th><th>فیس</th></tr></thead>
+<tbody>
+<tr><td><strong>TRC20</strong></td><td>تیز، سستا، نہایت مقبول</td><td>بہت کم</td></tr>
+<tr><td><strong>BEP20</strong></td><td>BNB Chain، سستا</td><td>بہت کم</td></tr>
+<tr><td><strong>ERC20</strong></td><td>Ethereum، معیاری مگر مہنگا</td><td>زیادہ</td></tr>
+<tr><td><strong>Polygon/دیگر</strong></td><td>دستیابی دیکھیں</td><td>متغیر</td></tr>
+</tbody></table></div>
+<h3>BTC اور ETH کے نیٹ ورکس</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>کرپٹو</th><th>نیٹ ورک</th></tr></thead>
+<tbody>
+<tr><td><strong>BTC</strong></td><td>Bitcoin (خود)، بعض اوقات BEP20 ورژن</td></tr>
+<tr><td><strong>ETH</strong></td><td>ERC20 (Ethereum)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>مثال:</strong> اگر آپ کسی ایکسچینج سے <strong>USDT TRC20</strong> بھیجیں اور بائننس میں <strong>ERC20</strong> منتخب کریں، تو فنڈ وصول نہیں ہوگا اور واپسی مشکل/ناممکن ہو سکتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 20.3 Memo/Tag — کب لازمی ہے؟</h2>
+<blockquote>
+<p><strong>Memo / Tag / Destination Tag</strong> = بعض نیٹ ورکس پر وصول کنندہ کی شناخت کے لیے اضافی کوڈ۔ بغیر اس کے ڈیپازٹ نہیں پہنچتا۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>کوائن</th><th>Memo/Tag</th><th>نوع</th></tr></thead>
+<tbody>
+<tr><td><strong>XRP</strong></td><td>✅ لازمی</td><td>Destination Tag</td></tr>
+<tr><td><strong>XLM</strong></td><td>✅ لازمی</td><td>Memo</td></tr>
+<tr><td><strong>ATOM (Cosmos)</strong></td><td>✅ لازمی</td><td>Memo</td></tr>
+<tr><td><strong>BNB (BEP2 چین)</strong></td><td>✅ لازمی</td><td>Memo</td></tr>
+<tr><td><strong>USDT (TRC20/ERC20)</strong></td><td>❌ نہیں</td><td>—</td></tr>
+<tr><td><strong>BTC / ETH</strong></td><td>❌ نہیں</td><td>—</td></tr>
+</tbody></table></div>
+<h3>مثال</h3>
+<pre><code>XRP Deposit
+Address : rN7n7otQDd6...HMfHgFj
+Tag     : 123456789   ← لازمی!
+
+اگر Tag غلط/خالی → فنڈ گمشدہ ہو سکتا ہے</code></pre>
+<blockquote>
+<p>💡 <strong>قاعدہ:</strong> اگر بھیجنے والی جگہ Memo/Tag مانگے، تو بائننس کے فراہم کردہ Memo کو <strong>بالکل ویسا ہی</strong> درج کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 20.4 Confirmation — تصدیق کا وقت</h2>
+<blockquote>
+<p><strong>Confirmation</strong> = بلاک چین پر منتقلی کی تصدیق۔ جتنی زیادہ Confirmations، اتنا محفوظ، اور اتنا وقت۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>کرپٹو</th><th>عام مدت</th></tr></thead>
+<tbody>
+<tr><td><strong>BTC</strong></td><td>10–60 منٹ (نیٹ ورک پر منحصر)</td></tr>
+<tr><td><strong>ETH / ERC20</strong></td><td>چند منٹ</td></tr>
+<tr><td><strong>BEP20</strong></td><td>چند منٹ</td></tr>
+<tr><td><strong>TRC20</strong></td><td>1–3 منٹ</td></tr>
+<tr><td><strong>XRP</strong></td><td>بہت تیز</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ یہ اوقات <strong>متغیر</strong> ہیں — نیٹ ورک کے بوجھ کے مطابق بدلتی رہتی ہیں۔</p>
+</blockquote>
+<h3>ڈیپازٹ کی ٹریکنگ</h3>
+<pre><code>Wallet → Transaction History (یا Deposit History)
+→ Pending (تصدیق جاری)
+→ Completed ✅ → Spot Wallet میں موصول</code></pre>
+<h3>اگر ڈیپازٹ نہ آئے؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>مسئلہ</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td>نیٹ ورک مصروف</td><td>انتظار کریں</td></tr>
+<tr><td>Confirmations کم</td><td>مزید انتظار</td></tr>
+<tr><td>غلط نیٹ ورک</td><td>فوری بائننس سپورٹ سے رابطہ (TxID کے ساتھ)</td></tr>
+<tr><td>نیچے Minimum</td><td>واپسی درکار ہو سکتی ہے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>TxID (Transaction ID)</strong> = ہر منتقلی کا منفرد شناختی نمبر۔ یہ سپورٹ سے رابطے کے لیے <strong>سب سے اہم ثبوت</strong> ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 20.5 مکمل محفوظ طریقہ</h2>
+<p><strong>مرحلہ 1:</strong> <code>Wallet → Deposit</code> کھولیں</p>
+<p><strong>مرحلہ 2:</strong> کوائن منتخب کریں (مثلاً USDT)</p>
+<p><strong>مرحلہ 3:</strong> صحیح نیٹ ورک منتخب کریں (مثلاً TRC20)</p>
+<p><strong>مرحلہ 4:</strong> ایڈریس (اور Memo اگر ہو) <strong>کاپی</strong> کریں</p>
+<p><strong>مرحلہ 5:</strong> بھیجنے والی جگہ پر ایڈریس پیسٹ کریں، نیٹ ورک یکساں رکھیں، بھیجیں</p>
+<p><strong>مرحلہ 6:</strong> TxID محفوظ رکھیں اور بائننس پر موصول ہونے کا انتظار کریں</p>
+<p><strong>مرحلہ 7:</strong> پہلی بار چھوٹی رقم بھیجیں — تصدیق کے بعد بڑی رقم</p>
+<blockquote>
+<p>💡 <strong>پہلا ٹیسٹ ہمیشہ چھوٹا</strong> — یہ اصول آپ کے فنڈز کا سب سے بڑا محافظ ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>غلط نیٹ ورک</strong> — سب سے خطرناک غلطی</li>
+<li>❌ <strong>Memo/Tag نظرانداز</strong> — جہاں لازمی ہو</li>
+<li>❌ <strong>غلط ایڈریس</strong> — حروف جوڑ کر ڈبل چیک کریں</li>
+<li>❌ <strong>کم از کم مقدار سے کم بھیجنا</strong></li>
+<li>❌ <strong>دوسرے کی ایڈریس پر "میرا" سمجھنا</strong> — اپنی ایڈریس ہی استعمال کریں</li>
+<li>❌ <strong>پہلی بار بڑی رقم</strong> — چھوٹا ٹیسٹ پہلے</li>
+<li>❌ <strong>اسکرین شاٹ نہ لینا</strong> — ہر ڈیپازٹ کی تصویر/TxID رکھیں</li>
+<li>❌ <strong>ناقابلِ اعتماد لنک/والٹ</strong> — صرف سرکاری بائننس ایپ/سائٹ</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>صحیح نیٹ ورک</strong> = سب سے اہم</li>
+<li><strong>Memo/Tag</strong> = جہاں لازمی ہو</li>
+<li><strong>Confirmation</strong> = وقت لیتا ہے، انتظار کریں</li>
+<li>ڈیپازٹ <strong>Spot Wallet</strong> میں آتا ہے</li>
+<li><strong>چھوٹا ٹیسٹ + TxID + اسکرین شاٹ</strong> = محفوظ عادت</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li><code>Wallet → Deposit</code> کھول کر USDT منتخب کریں۔</li>
+<li>TRC20 اور BEP20 کا ایڈریس فارمیٹ فرق دیکھیں۔</li>
+<li>XRP کے Memo کی اہمیت نوٹ کریں۔</li>
+<li>USDT (TRC20، BEP20، ERC20) کا موازنہ جدول بنائیں۔</li>
+<li>ایک ڈیپازٹ کا 7-قدمی محفوظ طریقہ تحریر کریں۔</li>
+<li>TxID محفوظ کرنے کی عادت کے لیے ایک چیک لسٹ لکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>کرپٹو ڈیپازٹ ایک ایسا عمل ہے جس میں ایک غلطی واپس نہیں ہوتی۔ سست روی اور دوہری جانچ کبھی نقصان نہیں دیتی۔</p>
+<p><strong>تین بار چیک کریں: نیٹ ورک، ایڈریس، Memo۔</strong> پہلی منتقلی چھوٹی رکھیں۔ یہی عادت آپ کے فنڈز کی ضامن ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-19.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-21.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

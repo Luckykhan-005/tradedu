@@ -45,6 +45,36 @@ interface BooksProps {
 
 const books: BookItem[] = [
   {
+    id: 'binance-complete',
+    title: 'Binance Complete Training (Urdu)',
+    titleUrdu: 'بائننس مکمل ٹریننگ اردو',
+    description:
+      'Complete Urdu guide to Binance — 9 parts and 60 chapters covering account setup, KYC, security (2FA, SAFU), the full interface, spot/margin/futures trading, wallets, deposits, P2P, Earn, Web3, Pay, Card, API and the whole ecosystem, with real Binance screenshots.',
+    chapters: 60,
+    pages: '60 chapters · 9 parts',
+    icon: BookMarked,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: './binance-complete/index.html',
+    tags: ['Urdu', 'Binance', '60 Chapters'],
+    cover: '/covers/binance-complete.jpg',
+  },
+  {
+    id: 'forex-complete',
+    title: 'Forex Trading Course (Urdu)',
+    titleUrdu: 'فارکس ٹریڈنگ کورس',
+    description:
+      'Complete Urdu forex course from zero to expert — 9 parts and 57 chapters covering currency pairs, pips and lots, market structure, price action, indicators, chart patterns, fundamentals, risk management, psychology, brokers and advanced trading systems.',
+    chapters: 57,
+    pages: '57 chapters · 9 parts',
+    icon: TrendingUp,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+    href: './forex-complete/index.html',
+    tags: ['Urdu', 'Forex', '57 Chapters'],
+    cover: '/covers/forex-complete.jpg',
+  },
+  {
     id: 'crypto-beginner',
     title: 'Crypto Trading — Phase 1 (Beginner)',
     titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۱ (بیگنر)',

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 10: Spot ٹریڈنگ — خرید و فروخت کی بنیاد — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="part-3.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-11.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 10: Spot ٹریڈنگ — خرید و فروخت کی بنیاد</h1>
+<blockquote class="chapter-summary">
+<p><strong>Spot Trading</strong> آپ کا پہلا اور سب سے اہم قدم ہے — یہاں آپ براہ راست کرپٹو خریدتے اور فروخت کرتے ہیں، بغیر قرض، بغیر لیوریج، صرف اپنے پیسے سے۔ یہ وہ بنیاد ہے جس پر پوری ٹریڈنگ کی عمارت کھڑی ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/Spot-Trading.jpg" alt="Binance Spot Trading">
+  <figcaption>تصویر 10.1: Spot Trading کا صفحہ — درمیان میں کینڈل چارٹ، دائیں طرف آرڈر انٹری پینل، اور بائیں جانب آرڈر بک۔ یہ بائننس کا سب سے زیادہ استعمال ہونے والا صفحہ ہے۔ (Spot Trading screen — candlestick chart, order entry panel and order book.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Spot ٹریڈنگ کیا ہے اور کیسے کام کرتی ہے</li>
+<li>ٹریڈنگ جوڑے (Trading Pairs) کی مکمل تفہیم — Base/Quote</li>
+<li>کرپٹو <strong>خریدنا</strong> — قدم بہ قدم</li>
+<li>کرپٹو <strong>فروخت کرنا</strong> — قدم بہ قدم</li>
+<li><strong>Market، Limit، Stop-Limit</strong> آرڈرز کی مکمل سمجھ</li>
+<li><strong>Slippage</strong> — کیا ہے، کیسے بچیں</li>
+<li><strong>فیس</strong> — Maker/Taker، BNB رعایت، VIP درجے</li>
+<li><strong>Demo Trading</strong> پر مشق — بغیر رسک</li>
+<li>اپنی پہلی حقیقی Spot ٹریڈ کا محفوظ طریقہ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 10.1 Spot ٹریڈنگ کیا ہے؟</h2>
+<blockquote>
+<p><strong>Spot Trading</strong> = براہ راست کرپٹو کی خرید و فروخت۔ جو قیمت آپ دیکھتے ہیں، وہی ادا کرتے ہیں — کوئی قرض نہیں، کوئی لیوریج نہیں، کوئی مستقبل کا کنٹریکٹ نہیں۔ خریدا ہوا کوائن <strong>حقیقی طور پر</strong> آپ کی ملکیت بن جاتا ہے۔</p>
+</blockquote>
+<h3>مثال:</h3>
+<pre><code>آپ BTC/USDT چارٹ دیکھتے ہیں — فرضی قیمت $96,000
+آپ فیصلہ کرتے ہیں: 0.01 BTC خریدیں گے
+آپ $960 ادا کرتے ہیں (تقریباً)
+اب آپ کے Spot وولیٹ میں 0.01 BTC حقیقی موجود ہے
+جب قیمت $100,000 ہوگی اور آپ فروخت کریں گے:
+منافع = ($100,000 − $96,000) × 0.01 = $40 (فیس سے پہلے)</code></pre>
+<h3>Spot بمقابلہ دیگر موڈز:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Spot</th><th>Futures</th></tr></thead>
+<tbody>
+<tr><td><strong>قرض</strong></td><td>❌ نہیں</td><td>⚠️ لیوریج</td></tr>
+<tr><td><strong>لیوریج</strong></td><td>❌ نہیں</td><td>✅ 1x-125x</td></tr>
+<tr><td><strong>میعاد (Expiry)</strong></td><td>❌ نہیں</td><td>Perpetual/Delivery</td></tr>
+<tr><td><strong>ملکیت</strong></td><td>✅ کوائن حقیقی طور پر آپ کا</td><td>❌ کنٹریکٹ</td></tr>
+<tr><td><strong>رسک</strong></td><td>صرف آپ کا سرمایہ</td><td>لیکویڈیشن کا خطرہ</td></tr>
+<tr><td><strong>Short سیل</strong></td><td>❌ نہیں</td><td>✅ ممکن</td></tr>
+<tr><td><strong>موزوں</strong></td><td>مبتدی اور تمام سطحیں</td><td>تجربہ کار</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>Spot کی سب سے بڑی طاقت:</strong> آپ <strong>حقیقی کوائن</strong> رکھتے ہیں۔ اگر مارکیٹ گر بھی جائے، تو آپ کا کوائن <strong>نہیں مٹتا</strong> — آپ اسے اگلے بلند بازار میں فروخت کر سکتے ہیں۔ Futures میں لیکویڈیشن آپ کا سب کچھ لے سکتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.2 ٹریڈنگ جوڑے (Trading Pairs)</h2>
+<h3>Trading Pair کیا ہے؟</h3>
+<blockquote>
+<p><strong>Trading Pair</strong> دو کرنسیوں کا جوڑا ہے — آپ ایک کرنسی سے دوسری خریدتے یا فروخت کرتے ہیں۔</p>
+</blockquote>
+<pre><code>BTC/USDT = BTC خریدیں، USDT ادا کریں
+ETH/USDT = ETH خریدیں، USDT ادا کریں
+BNB/USDT = BNB خریدیں، USDT ادا کریں
+BTC/ETH  = BTC خریدیں، ETH ادا کریں</code></pre>
+<h3>جوڑے کے حصے:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>حصہ</th><th>نام</th><th>مثال</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Base</strong></td><td>بنیادی کرنسی</td><td>BTC</td><td>جو آپ خرید/فروخت کر رہے ہیں</td></tr>
+<tr><td><strong>Quote</strong></td><td>حوالہ کرنسی</td><td>USDT</td><td>جس میں قیمت دکھائی دیتی ہے</td></tr>
+<tr><td><strong>Rate</strong></td><td>قیمت</td><td>1 BTC = 96,000 USDT</td><td>Base کی قیمت Quote میں</td></tr>
+</tbody></table></div>
+<h3>خرید اور فروخت کی سمت:</h3>
+<pre><code>BUY  BTC/USDT  →  USDT دیتے ہیں، BTC لیتے ہیں
+SELL BTC/USDT  →  BTC دیتے ہیں، USDT لیتے ہیں</code></pre>
+<blockquote>
+<p>💡 <strong>یاد رکھیں:</strong> Buy/Sell ہمیشہ <strong>Base کرنسی</strong> کے لحاظ سے ہوتا ہے۔ BTC/USDT میں "Buy" کا مطلب BTC خریدنا ہے۔</p>
+</blockquote>
+<h3>مشہور جوڑے اور ان کی خوبی:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>جوڑا</th><th>لیکویڈیٹی</th><th>کس کے لیے</th></tr></thead>
+<tbody>
+<tr><td><strong>BTC/USDT</strong></td><td>سب سے زیادہ</td><td>پہلا اور سب سے محفوظ انتخاب</td></tr>
+<tr><td><strong>ETH/USDT</strong></td><td>بہت زیادہ</td><td>دوسرا بڑا کوائن</td></tr>
+<tr><td><strong>BNB/USDT</strong></td><td>زیادہ</td><td>بائننس کا اپنا کوائن، فیس رعایت</td></tr>
+<tr><td><strong>SOL/USDT</strong></td><td>درمیانہ</td><td>تیز رفتار بلاک چین</td></tr>
+<tr><td><strong>XRP/USDT</strong></td><td>درمیانہ</td><td>ادائیگیوں کا کوائن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>مبتدی کے لیے مشورہ:</strong> شروع میں صرف <strong>BTC/USDT</strong> اور <strong>ETH/USDT</strong> پر ٹریڈ کریں — ان کی لیکویڈیٹی سب سے زیادہ ہے، اس لیے <strong>Slippage کم</strong> ہوتا ہے اور آپ <strong>حقیقی قیمت</strong> پاتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.3 پہلی Spot ٹریڈ — قدم بہ قدم</h2>
+<h3>مرحلہ 1: Spot کھولیں</h3>
+<pre><code>Trade ▾ → Spot → جوڑا منتخب کریں (مثلاً BTC/USDT)</code></pre>
+<h3>مرحلہ 2: لے آؤٹ منتخب کریں</h3>
+<ul>
+<li><strong>Classic</strong> = سادہ، پہلے یہی استعمال کریں</li>
+<li><strong>Advanced</strong> = مکمل TradingView چارٹ</li>
+</ul>
+<h3>مرحلہ 3: جوڑا تلاش کریں</h3>
+<ul>
+<li>اوپر <strong>Search</strong> باکس میں <code>BTCUSDT</code> لکھیں</li>
+<li>جوڑا دکھائی دے گا — اس پر کلک کریں</li>
+</ul>
+<h3>مرحلہ 4: آرڈر کی قسم منتخب کریں</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>آرڈر</th><th>استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>Market</strong></td><td>فوری خرید/فروخت — سب سے آسان</td></tr>
+<tr><td><strong>Limit</strong></td><td>مقرر قیمت پر — درست قیمت چاہتے ہیں</td></tr>
+<tr><td><strong>Stop-Limit</strong></td><td>حفاظتی آرڈر</td></tr>
+</tbody></table></div>
+<h3>مرحلہ 5: مقدار درج کریں</h3>
+<pre><code>Market Buy:
+Amount: 0.001 BTC
+Total:  آپ $96+ ادا کریں گے
+[Buy BTC] دبائیں</code></pre>
+<blockquote>
+<p>💡 پینل میں <strong>25% / 50% / 100%</strong> بٹن آپ کے دستیاب USDT کے حساب سے مقدار خود بخود بھر دیتے ہیں۔</p>
+</blockquote>
+<h3>مرحلہ 6: تصدیق کریں</h3>
+<ul>
+<li>تفصیلات چیک کریں: جوڑا، مقدار، قیمت، فیس</li>
+<li><strong>Confirm</strong> دبائیں</li>
+<li>✅ آرڈر مکمل — کوائن Spot وولیٹ میں آ گیا</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>2025 سے:</strong> ڈیپازٹ اور ٹریڈ سب <strong>Spot وولیٹ</strong> میں ہیں (Funding Wallet ضم ہو چکا — باب 7)۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.4 Market Order — فوری خرید/فروخت</h2>
+<blockquote>
+<p><strong>Market Order</strong> موجودہ بہترین دستیاب قیمت پر فوراً بھر جاتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-market.jpg" alt="Binance Market Order">
+  <figcaption>تصویر 10.2: Market Order کا پینل — یہاں صرف رقم یا مقدار درج کر کے فوری خرید/فروخت کی جاتی ہے۔ قیمت پہلے سے مقرر نہیں ہوتی — جو مارکیٹ میں ہو، وہی ملتی ہے۔ (Market Order panel — enter amount and execute instantly.)</figcaption>
+</figure>
+<h3>مثال:</h3>
+<pre><code>جوڑا: BTC/USDT
+Type: Market Buy
+Amount: 0.01 BTC
+Current Price: $96,000
+Total Cost: $960 + Fee
+Result: فوراً 0.01 BTC مل گیا ✅</code></pre>
+<h3>فوائد:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>فوری</strong></td><td>سیکنڈوں میں مکمل</td></tr>
+<tr><td><strong>سادہ</strong></td><td>صرف مقدار دیں</td></tr>
+<tr><td><strong>یقینی</strong></td><td>آرڈر فوراً بھرتا ہے</td></tr>
+</tbody></table></div>
+<h3>خطرات:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>خطرہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>Slippage</strong></td><td>بڑے آرڈر پر قیمت تھوڑی بدل سکتی ہے</td></tr>
+<tr><td><strong>غیر یقینی قیمت</strong></td><td>آپ بالکل درست قیمت نہیں چن سکتے</td></tr>
+<tr><td><strong>Taker فیس</strong></td><td>Market آرڈر ہمیشہ Taker فیس لیتا ہے</td></tr>
+</tbody></table></div>
+<h3>کب استعمال کریں:</h3>
+<ul>
+<li>جب جلدی خرید/فروخت کرنی ہو</li>
+<li>چھوٹی رقم کے آرڈرز</li>
+<li>جب لیکویڈیٹی زیادہ ہو (BTC/ETH)</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 10.5 Limit Order — مقرر قیمت پر</h2>
+<blockquote>
+<p><strong>Limit Order</strong> میں آپ خود قیمت طے کرتے ہیں — جب مارکیٹ اُس قیمت تک پہنچے، تب آرڈر بھرتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-limit.jpg" alt="Binance Limit Order">
+  <figcaption>تصویر 10.3: Limit Order کا پینل — Price کے خانے میں مطلوبہ قیمت درج کر کے Buy یا Sell کیا جاتا ہے۔ یہ پروفیشنلز کا پسندیدہ طریقہ ہے — کیونکہ اس میں Maker فیس اور درست قیمت، دونوں ملتے ہیں۔ (Limit Order panel — specify the price, then Buy/Sell.)</figcaption>
+</figure>
+<h3>مثال — Buy Limit:</h3>
+<pre><code>آپ BTC خریدنا چاہتے ہیں جب قیمت گرے:
+Type: Limit Buy
+Price: $92,000
+Amount: 0.01 BTC
+Total: $920
+
+→ جب تک قیمت $92,000 نہ ہو، آرڈر بھرا نہیں جائے گا
+→ جب مارکیٹ $92,000 تک آئے → خرید مکمل ✅</code></pre>
+<h3>مثال — Sell Limit:</h3>
+<pre><code>آپ BTC بیچنا چاہتے ہیں جب قیمت بڑھے:
+Type: Limit Sell
+Price: $100,000
+Amount: 0.01 BTC
+
+→ جب قیمت $100,000 تک پہنچے → فروخت مکمل ✅</code></pre>
+<h3>فوائد:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>قیمت پر کنٹرول</strong></td><td>آپ خود قیمت چنتے ہیں</td></tr>
+<tr><td><strong>کوئی Slippage نہیں</strong></td><td>آرڈر بھرے گا صرف اُس قیمت پر</td></tr>
+<tr><td><strong>Maker فیس</strong></td><td>لیکویڈیٹی میں اضافہ — کم فیس</td></tr>
+</tbody></table></div>
+<h3>خامیاں:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>خامی</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>بھرنے کی ضمانت نہیں</strong></td><td>قیمت شاید وہاں تک نہ پہنچے</td></tr>
+<tr><td><strong>انتظار</strong></td><td>کبھی گھنٹے، کبھی دن لگ جاتے ہیں</td></tr>
+</tbody></table></div>
+<h3>کب استعمال کریں:</h3>
+<ul>
+<li>درست قیمت پر خرید/فروخت چاہتے ہوں</li>
+<li>بڑے آرڈرز (Slippage سے بچنے کے لیے)</li>
+<li>جب آپ چارٹ کے سامنے مسلسل نہ بیٹھ سکیں</li>
+</ul>
+<blockquote>
+<p>💡 <strong>پروفیشنل راز:</strong> پروفیشنل تاجر <strong>زیادہ تر Limit آرڈر</strong> استعمال کرتے ہیں — کیونکہ (1) درست قیمت ملتی ہے، (2) <strong>Maker فیس</strong> کم ہوتی ہے، (3) Slippage نہیں ہوتا۔ Market صرف ایمرجنسی میں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.6 Stop-Limit Order — حفاظتی آرڈر</h2>
+<blockquote>
+<p><strong>Stop-Limit</strong> دو شرائط کا امتزاج ہے: پہلے ایک <strong>Stop قیمت</strong> چھونی ہے، تب ایک <strong>Limit قیمت</strong> پر آرڈر فعال ہوتا ہے۔</p>
+</blockquote>
+<h3>مثال:</h3>
+<pre><code>آپ BTC فروخت کر رہے ہیں (Stop Loss کے لیے):
+Current Price: $96,000
+Stop Price:   $93,000   (اگر قیمت یہاں تک گرے)
+Limit Price:  $92,500   (تو اس قیمت پر فروخت کی کوشش)
+
+→ قیمت $93,000 پہنچی → Limit آرڈر فعال ہوا
+→ جب $92,500 پر خریدار ملا → فروخت مکمل ✅</code></pre>
+<blockquote>
+<p>⚠️ <strong>اہم فرق:</strong> <strong>Stop-Limit</strong> میں بھرنے کی ضمانت نہیں (قیمت تیزی سے گرے تو Limit چھوٹ سکتا ہے)۔ اگر فوری نکاسی چاہیے تو <strong>Stop-Market</strong> بہتر ہے (باب 13)۔</p>
+</blockquote>
+<blockquote>
+<p>📖 <strong>آرڈر کی اقسام کی مکمل تفصیلی گائیڈ: باب 13 (Market، Limit، Stop، OCO)</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.7 Slippage — کیا ہے اور کیسے بچیں</h2>
+<h3>Slippage کیا ہے؟</h3>
+<blockquote>
+<p><strong>Slippage</strong> = جو قیمت آپ <strong>دیکھتے</strong> ہیں اور جو قیمت آپ <strong>پاتے</strong> ہیں، اس میں فرق۔ یہ تب ہوتا ہے جب آپ کا آرڈر آرڈر بک کی موجودہ لیکویڈیٹی سے <strong>بڑا</strong> ہو۔</p>
+</blockquote>
+<h3>مثال سے سمجھیں:</h3>
+<pre><code>آپ دیکھتے ہیں:   BTC = $96,000
+آپ 5 BTC کا Market Buy دیں (بڑا آرڈر)
+
+آرڈر بک میں دستیاب:
+  1 BTC @ $96,000
+  2 BTC @ $96,050
+  2 BTC @ $96,200
+
+آپ کا آرڈر کھرتا جائے گا:
+  1 BTC @ $96,000  ✅
+  2 BTC @ $96,050  ✅
+  2 BTC @ $96,200  ✅
+  اوسط قیمت = $96,116 (نقصان $580!)</code></pre>
+<h3>Slippage سے بچنے کے طریقے:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>کیسے</th></tr></thead>
+<tbody>
+<tr><td><strong>Limit آرڈر</strong> استعمال کریں</td><td>قیمت خود مقرر کریں — کوئی slippage نہیں</td></tr>
+<tr><td><strong>چھوٹے آرڈر</strong> دیں</td><td>بڑا آرڈر توڑ کر دیں</td></tr>
+<tr><td><strong>زیادہ لیکویڈ جوڑے</strong></td><td>BTC/USDT slippage سب سے کم</td></tr>
+<tr><td><strong>ڈیپتھ چارٹ</strong> دیکھیں</td><td>گاڑھی کہاں ہے (باب 9)</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 10.8 فیس (Fees) — Spot ٹریڈنگ</h2>
+<h3>Maker بمقابلہ Taker:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>کون</th><th>اثر</th></tr></thead>
+<tbody>
+<tr><td><strong>Maker</strong></td><td>وہ آرڈر جو آرڈر بک میں <strong>رک کر</strong> لیکویڈیٹی بڑھائے</td><td>نسبتاً کم فیس</td></tr>
+<tr><td><strong>Taker</strong></td><td>وہ آرڈر جو فوراً موجود آرڈر سے <strong>میچ</strong> ہو</td><td>نسبتاً زیادہ فیس</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>کون سا آرڈر کیا؟</strong></p>
+<ul>
+<li><strong>Market آرڈر = ہمیشہ Taker</strong></li>
+<li><strong>Limit آرڈر = عموماً Maker</strong> (اگر فوراً نہ بھرے)</li>
+</ul>
+</blockquote>
+<h3>معیاری شرح (VIP 0):</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>سطح</th><th>Maker</th><th>Taker</th></tr></thead>
+<tbody>
+<tr><td><strong>Spot (معیاری)</strong></td><td>0.1000%</td><td>0.1000%</td></tr>
+<tr><td><strong>BNB سے فیس ادا</strong></td><td>25% رعایت</td><td>25% رعایت</td></tr>
+<tr><td><strong>اعلیٰ VIP سطحیں</strong></td><td>کم ہوتی جاتی ہیں</td><td>کم ہوتی جاتی ہیں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>نوٹ:</strong> فیس کی شرح <strong>آپ کے اکاؤنٹ کے VIP درجے</strong> اور <strong>مارکیٹ/جوڑے</strong> پر منحصر ہے۔ بائننس وقتاً فوقتاً پالیسی بدلتا ہے — <strong>Fee صفحے پر تازہ شرح دیکھیں</strong>۔</p>
+</blockquote>
+<h3>فیس کم کرنے کے طریقے:</h3>
+<ol>
+<li><strong>BNB سے فیس ادا کریں</strong> — 25% تک رعایت</li>
+<li><strong>مزید ٹریڈنگ والیوم</strong> بڑھائیں — VIP درجہ</li>
+<li><strong>Limit (Maker) آرڈر</strong> استعمال کریں</li>
+<li>صفر فیس والی <strong>پروموشنل پیئرز</strong> دیکھیں (وقتی ہوتی ہیں)</li>
+</ol>
+<h3>فیس کی مثال:</h3>
+<pre><code>آپ $1,000 کا Market Buy (Taker) کرتے ہیں:
+Fee (بدون BNB) = $1,000 × 0.100% = $1.00
+Fee (BNB رعایت کے ساتھ) = $0.75
+
+سال میں 100 ٹریڈز × $1,000:
+  بدون BNB: $100 فیس
+  BNB کے ساتھ: $75 فیس
+  بچت: $25 (فری)</code></pre>
+<blockquote>
+<p>📖 <strong>VIP درجوں اور فیس کی مکمل تفصیلی گائیڈ: باب 60</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 10.9 Demo Trading — بغیر رسک مشق</h2>
+<blockquote>
+<p>بائننس <strong>Demo Trading</strong> آپ کو فرضی رقم کے ساتھ <strong>حقیقی مارکیٹ ماحول</strong> میں مشق کی سہولت دیتا ہے — بغیر کسی رسک کے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/Demo-Trading-Spot.jpg" alt="Binance Demo Trading">
+  <figcaption>تصویر 10.4: Demo Trading (Spot) — یہاں فرضی رقم سے مکمل Spot ٹریڈنگ کی مشق کی جاتی ہے۔ قیمتیں حقیقی ہیں، صرف پیسہ فرضی ہے۔ (Binance Demo Trading — practice Spot trading with virtual funds.)</figcaption>
+</figure>
+<h3>کیوں ضروری ہے:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وجہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>رسک صفر</strong></td><td>حقیقی پیسہ نہیں لگتا</td></tr>
+<tr><td><strong>حقیقی ماحول</strong></td><td>قیمتیں اور چالے اصلی ہیں</td></tr>
+<tr><td><strong>عادت بننا</strong></td><td>بٹن پریس کرنے کی مشق</td></tr>
+<tr><td><strong>حوصلہ</strong></td><td>غلطی سے نہیں گھبرانا</td></tr>
+</tbody></table></div>
+<h3>مشق کے مراحل:</h3>
+<pre><code>1. Spot → Spot/Demo موڈ پر جائیں
+2. جوڑا: BTC/USDT
+3. Market Buy: 100 (فرضی USDT)
+4. Confirm → آرڈر مکمل
+5. Spot وولیٹ میں بیلنس تبدیل ہوا دیکھیں
+6. کچھ دیر بعد Market Sell کریں
+7. حساب لگائیں: کتنا USDT گیا، کتنا آیا، فیس کتنی</code></pre>
+<h3>اپنے ٹریڈ کا ریکارڈ رکھیں:</h3>
+<ul>
+<li>داخلے کی قیمت</li>
+<li>مقدار</li>
+<li>فیس</li>
+<li>نتیجہ (منافع/نقصان)</li>
+<li>سبق</li>
+</ul>
+<blockquote>
+<p>💡 <strong>پروفیشنل اصول:</strong> کم از کم <strong>ایک ہفتہ Demo</strong> کرنے کے بعد ہی حقیقی پیسہ لگائیں۔ جو Demo پر نقصان میں ہے، وہ Real پر <strong>زیادہ</strong> نقصان میں ہوگا (احساسات کی وجہ سے)۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li><strong>غلط جوڑا چننا</strong> — BTC/USDT اور BTC/ETH مختلف ہیں؛ پہلے درست جوڑا منتخب کریں۔</li>
+<li><strong>Fee کو نظر انداز کرنا</strong> — Market آرڈر پر Taker فیس لازمی لگتی ہے۔</li>
+<li><strong>Limit آرڈر بھول جانا</strong> — کھلا آرڈر وقت کے ساتھ پرانا ہو جاتا ہے، مانیٹر کریں۔</li>
+<li><strong>Slippage سے غافل</strong> — بڑے Market آرڈرز میں قیمت بدل سکتی ہے۔</li>
+<li><strong>مقدار کی غلطی</strong> — ہمیشہ ڈبل چیک کریں (0.01 اور 1.00 میں بہت فرق ہے)۔</li>
+<li><strong>Confirm سے قبل بے دھیانی</strong> — ہر بار تفصیلات پڑھ کر تصدیق کریں۔</li>
+<li><strong>بغیر مشق حقیقی رقم</strong> — پہلے Demo پر مشق کریں۔</li>
+<li><strong>ہر جوائن کوائن خریدنا</strong> — BTC/USDT سے شروع کریں۔</li>
+<li><strong>Market کو عادت بنانا</strong> — Limit سے Maker فیس بچائیں۔</li>
+<li><strong>BNB سے فیس ادا نہ کرنا</strong> — 25% رعایت چھوڑنا پیسہ ضائع کرنا ہے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Spot</strong> = براہ راست خرید/فروخت، کوئی قرض یا لیوریج نہیں — کوائن <strong>حقیقی</strong> آپ کا</li>
+<li><strong>Trading Pair</strong> = دو کرنسیوں کا جوڑا (Base/Quote)</li>
+<li><strong>Market</strong> = فوری، Taker فیس؛ <strong>Limit</strong> = درست قیمت، Maker فیس؛ <strong>Stop-Limit</strong> = محافظ</li>
+<li><strong>Slippage</strong> = بڑے Market آرڈرز میں قیمت کا فرق — Limit سے بچیں</li>
+<li><strong>Maker/Taker</strong> فیس کا فرق اور <strong>BNB رعایت (25%)</strong> کو سمجھیں</li>
+<li><strong>Demo Trading</strong> پر پہلے مشق، پھر حقیقی ٹریڈ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس پر <strong>Spot</strong> کھولیں اور <strong>BTC/USDT</strong> چارٹ دیکھیں۔</li>
+<li><strong>Market Buy</strong> آرڈر کا پینل کھولیں — مقدار دیکھ کر <strong>بند</strong> کر دیں (آرڈر نہ دیں)۔</li>
+<li><strong>Limit Buy</strong> کا پینل کھولیں — مارکیٹ سے 5% کم قیمت درج کر کے فرق سمجھیں۔</li>
+<li><strong>Stop-Limit</strong> کا پینل کھولیں — Stop اور Limit کا فرق نوٹ کریں۔</li>
+<li><strong>Fee Structure</strong> صفحہ تلاش کریں اور اپنے اکاؤنٹ کا درجہ دیکھیں۔</li>
+<li><strong>Demo Trading</strong> کھول کر ایک <strong>Market Buy → Market Sell</strong> کا مکمل چکر آزمائیں۔</li>
+<li><strong>Limit Buy</strong> کا مکمل چکر Demo پر آزمائیں — دیکھیں Maker فیس کم ملتی ہے۔</li>
+<li>اپنے مشق ٹریڈ کا ایک صفحہ ریکارڈ لکھیں: داخلہ، فیس، نتیجہ، سبق۔</li>
+<li>لکھیں: آپ <strong>Market</strong> کب اور <strong>Limit</strong> کب استعمال کریں گے؟</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>Spot ٹریڈنگ ایک ہنر ہے، جوا نہیں۔</strong> جیسے سائیکل چلانا سیکھنے میں پہلے توازن آتا ہے، ویسے ہی Spot میں پہلے <strong>Market = فوری، Limit = درست، Stop = محافظ</strong> کے اصول آ جائیں۔</p>
+<p>اور یہ کہ <strong>پہلا قدم مضبوط رکھیں، باقی سفر آسان ہوگا۔</strong> Spot کو مکمل سمجھے بغیر Futures یا Margin پر مت جائیں — وہ لوگ جو ایک ہفتے میں امیر ہونے آتے ہیں، وہی ایک ہفتے میں سب کھو دیتے ہیں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="part-3.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-11.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

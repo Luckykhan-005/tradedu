@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy-cyan" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 22: RSI (Relative Strength Index) — رفتار کا پیمانہ — فارکس ٹریڈنگ کورس</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">فارکس ٹریڈنگ کورس</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-21.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-23.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 22: RSI (Relative Strength Index) — رفتار کا پیمانہ</h1>
+<blockquote class="chapter-summary">
+<p>RSI آپ کو بتاتا ہے کہ مارکیٹ <strong>کتنی تیزی</strong> سے حرکت کر رہی ہے، اور وہ <strong>حد سے زیادہ خرید</strong> (Overbought) یا <strong>حد سے زیادہ فروخت</strong> (Oversold) کی حالت میں تو نہیں۔ یہ باب RSI کی تشکیل، اس کی حقیقی طاقت — جو صرف "70 سے اوپر = بیچو" نہیں — اور اسے دیگر اوزاروں کے ساتھ جوڑنے کا طریقہ سکھائے گا۔</p>
+</blockquote>
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>RSI کیا ہے اور اس کا حساب کیسے ہوتا ہے</li>
+<li>70/30 کی سطحیں کب کام کرتی ہیں اور کب دھوکہ دیتی ہیں</li>
+<li>RSI ڈائیورجنس — RSI کا سب سے طاقتور سگنل</li>
+<li>رجحان والی مارکیٹ میں RSI کو صحیح طریقے سے پڑھنا</li>
+<li>MA کے ساتھ ملا کر مکمل RSI سسٹم بنانا</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 22.1 RSI کیا ہے؟</h2>
+<p>RSI (Relative Strength Index) ایک <strong>Momentum</strong> انڈیکیٹر ہے جسے J. Welles Wilder نے 1978 میں بنایا۔ یہ 0 سے 100 کے درمیان حرکت کرتا ہے اور بتاتا ہے کہ <strong>حالیہ بند قیمتیں</strong> کس حد تک اوپر یا نیچے کی طرف تھیں۔</p>
+<h3>تصور — طاقت کا توازن</h3>
+<p>RSI کا بنیادی سوال یہ ہے:</p>
+<blockquote>
+<p><strong>پچھلے N ادوار میں نیچے کی نسبت اوپر کی حرکت کتنی مضبوط رہی؟</strong></p>
+</blockquote>
+<ul>
+<li>اگر اوپر کی حرکتیں نیچے کی حرکتیں سے کہیں زیادہ → RSI اونچا (70 کے قریب یا اوپر)</li>
+<li>اگر نیچے کی حرکتیں غالب → RSI نیچا (30 کے قریب یا نیچے)</li>
+<li>اگر دونوں برابر → RSI 50 کے آس پاس</li>
+</ul>
+<h3>حساب کا فارمولا (سمجھنے کے لیے)</h3>
+<pre><code>RSI = 100 - ( 100 ÷ (1 + RS) )
+
+جہاں:
+RS = (اوسط اوپر کی حرکتیں) ÷ (اوسط نیچے کی حرکتیں)</code></pre>
+<p>عام پیرامیٹر <strong>14</strong> ہے — پچھلے 14 ادوار کی اوسط حرکتیں۔ مثال کے طور پر:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>عنصر</th><th>اقدار</th></tr></thead>
+<tbody>
+<tr><td>اوسط اوپر کی حرکت (14 ادوار)</td><td>0.0012</td></tr>
+<tr><td>اوسط نیچے کی حرکت (14 ادوار)</td><td>0.0004</td></tr>
+<tr><td>RS</td><td>0.0012 ÷ 0.0004 = 3.0</td></tr>
+<tr><td>RSI</td><td>100 - (100 ÷ 4) = <strong>75</strong></td></tr>
+</tbody></table></div>
+<p>75 کا مطلب: اوپر کی رفتار بہت غالب — مارکیٹ Overbought زون میں۔</p>
+<blockquote>
+<p><strong>اہم</strong>: آپ کو فارمولا حفظ کرنے کی ضرورت نہیں — چارٹ پر RSI خود بن جاتا ہے۔ مگر یہ سمجھنا ضروری ہے کہ RSI <strong>رفتار</strong> کی پیمائش کرتا ہے، قیمت کی نہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.2 RSI کی سطحیں — 70/30 کا صحیح مطلب</h2>
+<p>RSI چارٹ پر 0 سے 100 تک جاتا ہے، مگر اہم جگہیں یہ ہیں:</p>
+<h3>70 — Overbought (حد سے زیادہ خرید)</h3>
+<ul>
+<li><strong>روایتی مطلب</strong>: مارکیٹ بہت اوپر جا چکی، اب نیچے پلٹ سکتی ہے</li>
+<li><strong>حقیقت</strong>: مضبوط اپ ٹرینڈ میں RSI ہفتوں 70 سے اوپر رہ سکتا ہے — "اوور بوٹ = فوراً بیچو" غلط ہے</li>
+</ul>
+<h3>30 — Oversold (حد سے زیادہ فروخت)</h3>
+<ul>
+<li><strong>روایتی مطلب</strong>: مارکیٹ بہت نیچے جا چکی، اب اوپر پلٹ سکتی ہے</li>
+<li><strong>حقیقت</strong>: مضبوط ڈاؤن ٹرینڈ میں RSI 30 سے نیچے دیر تک رہ سکتا ہے</li>
+</ul>
+<h3>50 — وسطی لکیر (Midline)</h3>
+<ul>
+<li>RSI 50 سے اوپر = <strong>اپ ٹرینڈ میں رفتار</strong> (Buyers غالب)</li>
+<li>RSI 50 سے نیچے = <strong>ڈاؤن ٹرینڈ میں رفتار</strong> (Sellers غالب)</li>
+<li><strong>50 کا کراس</strong> — رجحان کی سمت کا ایک سادہ فلٹر</li>
+</ul>
+<h3>ASCII — RSI چارٹ کی شکل</h3>
+<pre><code>RSI
+100 ┤
+    │            ～～～ 70 (اوور بوٹ لکیر)
+ 70 ┤     ～～╲
+    │   ～      ╲        ～～～
+ 50 ┤ ～         ╲      ～     ╲    ← 50 (وسطی لکیر)
+    │             ╲    ～
+ 30 ┤              ╲  ～       ← 30 (اوور سیلڈ لکیر)
+    │               ╲～
+  0 ┤
+    └──────────────────────────────→ وقت</code></pre>
+<hr class="divider">
+
+<h2>📖 22.3 RSI کی اقسام — رفتار کب اپنی اصل شکل دکھاتی ہے</h2>
+<p>RSI کو دو حالات میں پڑھنا چاہیے — <strong>Range مارکیٹ</strong> اور <strong>رجحان والی مارکیٹ</strong>:</p>
+<h3>حالت 1: Range مارکیٹ میں RSI (بہترین کام)</h3>
+<p>جب قیمت دو لیولز کے درمیان گھوم رہی ہو:</p>
+<ul>
+<li>RSI <strong>70 سے اوپر</strong> → ممکنہ پلٹاؤ نیچے — بیچنے کا موقع</li>
+<li>RSI <strong>30 سے نیچے</strong> → ممکنہ پلٹاؤ اوپر — خریدنے کا موقع</li>
+</ul>
+<p>یہی وہ کلاسک طریقہ ہے جو زیادہ تر کتابیں سکھاتی ہیں — اور یہ صرف <strong>Range</strong> میں درست ہے۔</p>
+<h3>حالت 2: رجحان والی مارکیٹ میں RSI (اہم استثنا)</h3>
+<ul>
+<li>مضبوط اپ ٹرینڈ میں RSI کا 70 سے اوپر جانا <strong>کمزوری نہیں، طاقت</strong> ہے</li>
+<li>اپ ٹرینڈ میں حقیقی خریداری کا موقع: RSI <strong>30 کی طرف واپس</strong> آئے (50 سے اوپر رہ کر) — پل بیک پر Buy</li>
+<li>ڈاؤن ٹرینڈ میں حقیقی فروخت کا موقع: RSI <strong>70 کی طرف واپس</strong> جائے (50 سے نیچے رہ کر) — پل بیک پر Sell</li>
+</ul>
+<h3>قاعدہ یاد رکھیں</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>مارکیٹ کی حالت</th><th>70 سے اوپر</th><th>30 سے نیچے</th></tr></thead>
+<tbody>
+<tr><td>Range</td><td>بیچیں</td><td>خریدیں</td></tr>
+<tr><td>اپ ٹرینڈ</td><td><strong>Buy کا سگنل جاری</strong> (فوراً بیچیں نہیں)</td><td>پل بیک پر Buy</td></tr>
+<tr><td>ڈاؤن ٹرینڈ</td><td>پل بیک پر Sell</td><td><strong>Sell کا سگنل جاری</strong> (فوراً خریدیں نہیں)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>اہم</strong>: سب سے پہلے مارکیٹ کی حالت طے کریں (رجحان یا Range) — پھر RSI پڑھیں۔ الٹ ترتیب سب سے بڑی غلطی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.4 RSI ڈائیورجنس — رفتار کا اختلاف</h2>
+<p>ڈائیورجنس RSI کا <strong>سب سے قیمتی</strong> سگنل ہے۔ جب <strong>قیمت</strong> ایک سمت جاتی ہے مگر <strong>RSI</strong> مخالف سمت — تو رفتار بدل رہی ہے۔</p>
+<h3>Bullish Divergence (صعودی اختلاف)</h3>
+<ul>
+<li><strong>قیمت</strong>: نیچا لو بنا (پہلے سے نیچا)</li>
+<li><strong>RSI</strong>: اونچا لو بنا (پہلے سے اونچا)</li>
+<li><strong>مطلب</strong>: نیچے کی رفتار کمزور پڑ رہی ہے — ممکنہ پلٹاؤ اوپر</li>
+</ul>
+<pre><code>قیمت:                        RSI:
+  ╲                           ～～～
+   ╲__ لو 1                 ～
+      ╲__ لو 2 (نیچا)       ～～～  لو 2 (اونچا)
+                             ～  لو 1</code></pre>
+<h3>Bearish Divergence (نزولی اختلاف)</h3>
+<ul>
+<li><strong>قیمت</strong>: اونچا ہائی بنایا (پہلے سے اونچا)</li>
+<li><strong>RSI</strong>: نیچا ہائی بنایا (پہلے سے نیچا)</li>
+<li><strong>مطلب</strong>: اوپر کی رفتار کمزور پڑ رہی ہے — ممکنہ پلٹاؤ نیچے</li>
+</ul>
+<h3>ڈائیورجنس کی درجہ بندی</h3>
+<ol>
+<li><strong>Classic Divergence</strong> — قیمت کا نیا High/Low، RSI کا پرانا High/Low (سب سے عام)</li>
+<li><strong>Hidden Divergence</strong> — رجحان کے درمیان رفتار کی تصدیق (ترقی یافتہ — اگلے حصوں میں)</li>
+</ol>
+<h3>ڈائیورجنس کی شرائط (تینوں ضروری)</h3>
+<ol>
+<li>RSI <strong>مشہور لیول</strong> (70/30) کے قریب ہو</li>
+<li>کم از کم <strong>دو</strong> نمایاں جھولے (Swing Highs/Lows) ہوں</li>
+<li>تصدیق: <strong>قیمت کا اگلا کینڈل</strong> پلٹاؤ کی سمت بند ہو</li>
+</ol>
+<blockquote>
+<p><strong>اہم</strong>: ڈائیورجنس ہر بار کام نہیں کرتا — خاص کر بہت مضبوط رجحان میں یہ "قیمت اور RSI دونوں" ایک ساتھ چلتے رہتے ہیں۔ ڈائیورجنس کو <strong>تنہا سگنل</strong> نہ بنائیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.5 RSI کو MA کے ساتھ ملانا — مکمل سسٹم</h2>
+<p>اب تک سیکھا: MA رجحان بتاتی ہے، RSI رفتار بتاتا ہے۔ دونوں کو ملا کر ایک مکمل، فلٹرڈ سسٹم بنتا ہے — <strong>رجحان کی سمت میں ہی داخلے</strong>، اور <strong>پل بیک پر ہی داخلے</strong>۔</p>
+<h3>سسٹم 1: اپ ٹرینڈ پل بیک (Trend Pullback Buy)</h3>
+<p><strong>فلٹرز (چاروں شرطیں):</strong></p>
+<ol>
+<li>قیمت <strong>50 MA سے اوپر</strong> اور 50 MA کا جھکاؤ اوپر — اپ ٹرینڈ</li>
+<li>RSI <strong>50 سے اوپر</strong> — رفتار Buyers کی طرف</li>
+<li>RSI پل بیک میں <strong>40-50 کے زون</strong> میں واپس آئے (30 تک نہیں)</li>
+<li>قیمت 50 MA کو چھوئے یا اس کے قریب آئے + پلٹاؤ کی تصدیق (جیسے پن بار)</li>
+</ol>
+<p><strong>اندراج</strong>: تصدیقی کینڈل کے بند ہونے پر Buy <strong>SL</strong>: حالیہ Swing Low سے تھوڑا نیچے <strong>TP</strong>: حالیہ Swing High / 2R</p>
+<h3>سسٹم 2: ڈاؤن ٹرینڈ پل بیک (Trend Pullback Sell)</h3>
+<p>بالکل الٹ:</p>
+<ol>
+<li>قیمت <strong>50 MA سے نیچے</strong> اور MA کا جھکاؤ نیچے</li>
+<li>RSI <strong>50 سے نیچے</strong></li>
+<li>RSI پل بیک میں <strong>50-60 کے زون</strong> تک واپس آئے</li>
+<li>قیمت MA کو چھو کر پلٹے — تصدیق پر Sell</li>
+</ol>
+<h3>سسٹم 3: ڈائیورجنس + رجحان (Divergence Confluence)</h3>
+<ul>
+<li><strong>اپ ٹرینڈ میں Bullish Divergence</strong> = سب سے مضبوط Buy سگنل</li>
+<li><strong>ڈاؤن ٹرینڈ میں Bearish Divergence</strong> = سب سے مضبوط Sell سگنل</li>
+<li>ڈائیورجنس کو MA کے ساتھ استعمال کریں: MA رجحان کی سمت دے، ڈائیورجنس داخلے کا وقت</li>
+</ul>
+<h3>ASCII — مکمل سسٹم کا خاکہ</h3>
+<pre><code>   قیمت
+    │        ～～～ 50 MA (اوپر جھکاؤ)
+    │      ～
+    │    ～   ↑ پل بیک: قیمت MA کو چھوتی ہے
+    │  ～      ↑ RSI 40-50 زون میں
+    │～       ↑ پن بار کی تصدیق → Buy
+    │
+    └──────────────────────────→ وقت
+
+   RSI
+  70┤
+  50┤      ～～～
+  40┤    ～     ～  ← RSI 40-50 زون (Buy زون)
+    │  ～
+  30┤～</code></pre>
+<blockquote>
+<p><strong>اہم</strong>: یہ سسٹم تبھی کام کرتا ہے جب <strong>چاروں فلٹرز</strong> اکٹھے ہوں۔ ایک فلٹر چھوٹ گیا تو داخلہ لینا جوا ہے، نہ کہ ٹریڈ۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 22.6 RSI کی کمزوریاں (Limitations)</h2>
+<p>کوئی انڈیکیٹر کامل نہیں — RSI کی اہم کمزوریاں:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>کمزوری</th><th>وضاحت</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td>70/30 جھوٹے سگنل</td><td>رجحان میں RSI طویل عرصے 70/30 سے باہر رہتا ہے</td><td>مارکیٹ کی حالت پہلے طے کریں</td></tr>
+<tr><td>ڈائیورجنس تاخیر سے</td><td>بعض اوقات ڈائیورجنس بہت پہلے بن جاتا ہے، قیمت دیر تک چلتی ہے</td><td>تصدیق کا انتظار کریں</td></tr>
+<tr><td>Range میں جھول</td><td>فلیٹ مارکیٹ میں RSI بار بار 70/30 چھوتا ہے</td><td>دیگر فلٹرز شامل کریں</td></tr>
+<tr><td>کوئی سمت نہیں دیتا</td><td>RSI سمت نہیں، صرف رفتار بتاتا ہے</td><td>MA / Price Action کے ساتھ جوڑیں</td></tr>
+</tbody></table></div>
+<h3>RSI کو کب نظر انداز کریں؟</h3>
+<ol>
+<li><strong>بہت مضبوط رجحان</strong> میں 70/30 کو بالکل نظر انداز کریں</li>
+<li><strong>خبروں کے اعلان</strong> کے وقت RSI بے معنی ہو جاتا ہے</li>
+<li><strong>پہلی بار</strong> بننے والے ڈائیورجنس پر جلدی داخل نہ ہوں</li>
+</ol>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ باب 22 کی عام غلطیاں</h2>
+<ol>
+<li><strong>غلطی</strong>: RSI 70 سے اوپر ہوتے ہی فوراً بیچ دینا — مضبوط اپ ٹرینڈ میں یہ سب سے مہنگی غلطی ہے</li>
+<li><strong>غلطی</strong>: RSI 30 سے نیچے ہوتے ہی فوراً خرید لینا — گرتی چھری پکڑنا</li>
+<li><strong>غلطی</strong>: بغیر مارکیٹ کی حالت دیکھے RSI پڑھنا — Range والا قاعدہ رجحان میں غلط ہے</li>
+<li><strong>غلطی</strong>: ڈائیورجنس کو تنہا سگنل ماننا — بغیر تصدیق کے داخلہ</li>
+<li><strong>غلطی</strong>: RSI کو ہر ٹائم فریم پر الگ الگ پڑھنا — ایک ہی ٹائم فریم پر مستقل رہیں، یا Higher Timeframe فلٹر بنائیں</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>RSI <strong>رفتار</strong> کا پیمانہ ہے — 0 سے 100، 70 = Overbought، 30 = Oversold</li>
+<li><strong>70 = فوراً بیچو</strong> صرف Range مارکیٹ میں درست ہے؛ رجحان میں یہ طاقت ہے</li>
+<li>50 کی لکیر رجحان کی سمت کا فوری فلٹر ہے — اوپر = Buyers، نیچے = Sellers</li>
+<li><strong>ڈائیورجنس</strong> RSI کا سب سے قیمتی سگنل ہے — قیمت اور رفتار کا اختلاف</li>
+<li>RSI کو <strong>MA کے ساتھ</strong> ملا کر ہی پورا سسٹم بنتا ہے — رجحان + رفتار + تصدیق</li>
+<li>ہر سگنل کے ساتھ <strong>SL اور TP</strong> متعین کرنا لازمی ہے — انڈیکیٹر سگنل دیتا ہے، آپ رسک مینج کرتے ہیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے چارٹ پر <strong>RSI (14)</strong> لگائیں — پچھلے 20 ٹریڈز دیکھیں: RSI کب 70 سے اوپر گیا اور قیمت کب تک اوپر چلتی رہی؟</li>
+<li><strong>Range مارکیٹ</strong> تلاش کریں — RSI 70/30 کے ساتھ خرید/فروخت کے مواقع نوٹ کریں</li>
+<li><strong>اپ ٹرینڈ</strong> میں RSI کو 50 سے نیچے آنے دیں — دیکھیں کہ پل بیک کہاں ختم ہوتا ہے</li>
+<li><strong>Bullish Divergence</strong> کی 3 مثالیں چارٹ پر نشان زد کریں — ہر ایک کے بعد قیمت کہاں گئی؟</li>
+<li><strong>سسٹم 1</strong> (50 MA + RSI 40-50 زون + پن بار) کو ڈیمو اکاؤنٹ پر 10 ٹریڈز آزمائیں — نتائج لکھیں</li>
+</ol>
+</section>
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>RSI آپ کو بتاتا ہے کہ مارکیٹ <strong>تھک</strong> رہی ہے یا <strong>تازہ دم</strong> ہے — مگر یہ کبھی نہیں بتاتا کہ ابھی پلٹنا ہے۔ اگلے باب میں ہم <strong>MACD</strong> سیکھیں گے — وہ انڈیکیٹر جو دو رفتاروں کو ملا کر رجحان کی طاقت اور تبدیلی کا سب سے مشہور سگنل دیتا ہے، اور RSI کے ساتھ مل کر آپ کے تجزیے کی ایک اور پرت جوڑے گا۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-21.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-23.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">فارکس ٹریڈنگ کورس — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

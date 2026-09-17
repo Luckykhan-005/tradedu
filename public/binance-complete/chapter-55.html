@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 55: Sub-accounts — ایک اکاؤنٹ سے کئی — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-54.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-56.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 55: Sub-accounts — ایک اکاؤنٹ سے کئی</h1>
+<blockquote class="chapter-summary">
+<p><strong>Sub-account</strong> بائننس کی وہ سہولت ہے جس سے ایک مرکزی اکاؤنٹ (Master) کے نیچے کئی الگ الگ ٹریڈنگ اکاؤنٹس بنائے جا سکتے ہیں۔ یہ صرف بڑے traders/funds کے لیے نہیں — ایک ہی شخص اپنی مختلف حکمت عملیاں (Spot، Futures، Bots) الگ رکھنا چاہے تو بھی مفید ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/sub-account-create.jpg" alt="Sub-account Create">
+  <figcaption>تصویر 55.1: Sub-account بنانے کا صفحہ — Master اکاؤنٹ سے نیا ذیلی اکاؤنٹ تخلیق، ای میل، لیبل اور اجازتوں کا تعین۔</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Sub-account کیا ہے اور کس کے لیے ہے</li>
+<li>Master بمقابلہ Sub اکاؤنٹ کا تعلق</li>
+<li>اجازتیں (Permissions) کیسے محدود رکھیں</li>
+<li>فنڈز کی منتقلی (Master ↔ Sub)</li>
+<li>Virtual Sub-accounts اور API کا تعلق</li>
+<li>اصل رسک اور غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 55.1 Sub-account کیا ہے؟</h2>
+<pre><code>Master Account (آپ کا مرکزی اکاؤنٹ)
+   ├── Sub-Account A → Spot only
+   ├── Sub-Account B → Futures + Bots
+   ├── Sub-Account C → صرف DCA/Recurring
+   └── Sub-Account D → الگ حکمت عملی</code></pre>
+<ul>
+<li>ہر Sub-account الگ بیلنس، الگ آرڈرز اور الگ رپورٹ رکھتا ہے۔</li>
+<li><strong>سب Master کے ماتحت</strong> ہیں — Master ان کی نگرانی/منتقلی کر سکتا ہے۔</li>
+<li>Sub-accounts اکثر کم از کم 18 سال کے اکاؤنٹ مالک کے لیے دستیاب ہوتے ہیں۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 55.2 فوائد</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>الگ حکمت عملیاں</strong></td><td>Spot، Futures، Grid/Bots الگ الگ</td></tr>
+<tr><td><strong>رسک محدود کرنا</strong></td><td>ایک حکمت عملی نقصان میں، دوسری محفوظ</td></tr>
+<tr><td><strong>الگ رپورٹ</strong></td><td>ہر حکمت عملی کا Net Profit الگ</td></tr>
+<tr><td><strong>ٹیم/کسٹمر</strong></td><td>کسی کے لیے الگ اکاؤنٹ (تحفّظ کے ساتھ)</td></tr>
+<tr><td><strong>Virtual Sub-account</strong></td><td>API/بڑے حجم کے لیے زیادہ Sub اکاؤنٹ (بغیر الگ ای میل)</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 55.3 اجازتیں (Permissions) — سب سے اہم حصہ</h2>
+<pre><code>Master → Sub-Account Management → Create Sub-account
+   → ای میل/نام
+   → اجازت آن: Spot ✅ / Futures ⬜ / Margin ⬜ / Withdraw ⬜</code></pre>
+<blockquote>
+<p><strong>اصول:</strong> جس Sub-account کو جس سہولت کی ضرورت نہ ہو، اس کی اجازت <strong>آف</strong> رکھیں۔ اگر Sub-account ہیک ہو جائے تو محدود اجازت سے نقصان محدود رہے گا۔ <strong>Withdraw</strong> اجازت عموماً آف رکھیں جب تک نہ ہو کوئی ٹھوس وجہ۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 55.4 فنڈز کی منتقلی</h2>
+<pre><code>Master → Sub-Account: Transfer → فنڈز منتقل (فوری، اندرونی)
+Sub → Master: واپس منتقل
+
+نوٹ: Sub-accounts عموماً براہِ راست ڈیپازٹ/وائیدراول نہیں کر سکتے
+   → Master سے فنڈز دے کر ٹریڈ کروائیں</code></pre>
+<ul>
+<li>اندرونی منتقلی عام طور پر <strong>فوری اور بغیر نیٹ ورک فیس</strong> ہوتی ہے۔</li>
+<li>ہر Sub کی <strong>Available</strong> اور <strong>In Order</strong> الگ دیکھیں۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 55.5 Virtual Sub-accounts اور API</h2>
+<ul>
+<li><strong>Virtual Sub-account</strong> — بڑی تعداد میں اکاؤنٹس، بغیر الگ ای میل، خودکار تخلیق کے لیے۔</li>
+<li><strong>API</strong> سے جوڑ کر آٹو-ٹریڈنگ، مارکیٹ میکر بھی ممکن۔</li>
+<li>ہر Sub کا <strong>اپنا API Key</strong> — ایک بند ہو تو دوسرے متاثر نہیں۔</li>
+</ul>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Withdraw اجازت</strong> تمام Sub-accounts کو دینا — رسک بڑھتا ہے۔</li>
+<li>❌ <strong>Sub-account کو مکمل اکاؤنٹ</strong> سمجھنا — ڈیپازٹ/وائیدراول عموماً Master سے۔</li>
+<li>❌ <strong>سب کچھ ایک Sub میں</strong> — یہ Sub بنانے کا مقصد ہی ختم کرنا ہے۔</li>
+<li>❌ <strong>اجازتوں کی وقتاً فوقتاً جانچ نہ کرنا</strong>۔</li>
+<li>❌ <strong>گیس/فیس کا حساب نہ رکھنا</strong> — اندرونی منتقلی مفت ہے، مگر ٹریڈ فیس سب پر لاگو۔</li>
+<li>❌ <strong>Sub-account کی تفصیلات غلط ای میل</strong> پر — رسائی ختم۔</li>
+<li>❌ <strong>API Key شیئر کرنا</strong> — پوری اجازت کے ساتھ خطرہ۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>Sub-account = الگ ٹریڈنگ، ایک Master کے ماتحت۔</li>
+<li>ہر Sub کا <strong>الگ بیلنس/رپورٹ/الگ حکمت عملی</strong>۔</li>
+<li><strong>اجازتیں محدود</strong> رکھیں (Withdraw عموماً آف)۔</li>
+<li>فنڈز <strong>Master ↔ Sub</strong> اندرونی منتقلی سے؛ Sub براہِ راست وائیدراول عموماً نہیں۔</li>
+<li>Virtual Sub-accounts/API بڑے حجم اور آٹومیشن کے لیے۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Sub-account مینجمنٹ کھولیں (اگر دستیاب ہو) اور اجازتوں کے صفحے کا جائزہ لیں۔</li>
+<li>لکھیں: Master/Sub کی 4 خاص باتیں۔</li>
+<li>اپنی 3 حکمت عملیوں کے لیے 3 Sub کی منصوبہ بندی لکھیں۔</li>
+<li>اندرونی منتقلی کا ایک فرضی فلو بنائیں (Master → Sub B → واپس)۔</li>
+<li>اجازت کے چار ٹک کے ساتھ ایک "Minimum Access Checklist" بنائیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"Sub-account = الگ خزانہ، ایک نظام؛ الگ حکمت عملی، ایک نگرانی۔"</strong> اصول: <strong>(1) اجازتیں کم سے کم</strong>، <strong>(2) فنڈز Master سے</strong>، <strong>(3) ہر Sub کا الگ API/لاگ رکھیں۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-54.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-56.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 33: ٹریلنگ اسٹاپ — منافع کو خودکار طور پر بڑھائیں — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-32.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-34.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 33: ٹریلنگ اسٹاپ — منافع کو خودکار طور پر بڑھائیں</h1>
+<blockquote class="chapter-summary">
+<p><strong>ٹریلنگ اسٹاپ (Trailing Stop)</strong> ایک متحرک اسٹاپ ہے جو قیمت کے ساتھ <strong>صرف ایک سمت (آپ کے فائدے میں)</strong> حرکت کرتا ہے۔ جب مارکیٹ اوپر جاتی ہے تو اسٹاپ بھی اوپر سرکتا ہے؛ جب مارکیٹ پلٹتی ہے تو اسٹاپ اپنی جگہ رُک کر پوزیشن بند کر دیتا ہے — اس طرح چھوٹی واپسی میں منافع نہیں گنوایا جاتا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/ch33-trailing.png" alt="Trailing Stop Concept">
+  <figcaption>تصویر 33.1: ٹریلنگ اسٹاپ کا خاکہ — قیمت کے بلند ہونے کے ساتھ اسٹاپ لائن صرف اوپر بڑھتی ہے، کبھی نیچے نہیں آتی۔ (Trailing stop diagram — as price rises the stop line only moves up, never down.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>ٹریلنگ اسٹاپ کا تصور</li>
+<li><strong>Trailing Delta (فاصلہ)</strong> کا طریقہ</li>
+<li><strong>Activation Price</strong> اور <strong>Callback Rate</strong></li>
+<li><strong>مکمل مثالی سفر</strong> (worked example)</li>
+<li><strong>ٹریلنگ بمقابلہ مستحکم اسٹاپ</strong></li>
+<li>فوائد اور حدود</li>
+<li>عام غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 33.1 ٹریلنگ اسٹاپ کا تصور</h2>
+<blockquote>
+<p><strong>عام اسٹاپ</strong> ایک جگہ کھونٹا گاڑ دیتا ہے۔ <strong>ٹریلنگ اسٹاپ</strong> ایک پٹے کی طرح ہے جو قیمت کے ساتھ آگے بڑھتا ہے مگر پیچھے نہیں کھنچتا۔</p>
+</blockquote>
+<pre><code>قیمت اوپر گئی → اسٹاپ اوپر سرکا ✅
+قیمت نیچے گئی → اسٹاپ اپنی جگہ رُکا (نیچے نہیں) 🛡️
+قیمت اسٹاپ چھوئی → پوزیشن بند</code></pre>
+<blockquote>
+<p>🔴 <strong>کلیدی قانون:</strong> ٹریلنگ اسٹاپ <strong>کبھی نیچے نہیں</strong> آتا۔ یہی اس کی پوری طاقت ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 33.2 Trailing Delta (فاصلہ)</h2>
+<blockquote>
+<p><strong>Trailing Delta</strong> = اسٹاپ اور موجودہ قیمت کے درمیان کا فاصلہ، فیصد یا مخصوص یونٹ میں۔</p>
+</blockquote>
+<pre><code>Trailing Delta: 2%
+موجودہ قیمت:   $96,000
+اسٹاپ کا فاصلہ: $96,000 × 2% = $1,920
+⇒ اسٹاپ:        $94,080</code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Delta</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>بہت کم</strong></td><td>مارکیٹ کے معمولی جھٹکوں سے بند، جلد مارکیٹ سے باہر</td></tr>
+<tr><td><strong>بہت زیادہ</strong></td><td>منافع زیادہ دیر سے محفوظ، بڑی واپسی کا خطرہ</td></tr>
+<tr><td><strong>متوازن</strong></td><td>ہر منڈی کے اتار چڑھاؤ کے مطابق</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 بڑے اتار چڑھاؤ والے کوائن میں <strong>چوڑا</strong> delta، پرسکون کوائن میں <strong>تنگ</strong> delta بہتر ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 33.3 Activation Price اور Callback Rate</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>اصطلاح</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Activation Price</strong></td><td>وہ قیمت جہاں ٹریلنگ اسٹاپ فعال ہونا شروع ہو</td></tr>
+<tr><td><strong>Callback Rate</strong></td><td>جتنی فیصد واپسی پر پوزیشن بند ہو (Binance کی اصطلاح)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ اگر Activation Price دیا جائے تو پہلے قیمت وہاں پہنچنا ضروری ہے — ورنہ ٹریلنگ اپنا کام شروع نہیں کرے گا۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 33.4 مکمل مثالی سفر</h2>
+<pre><code>خرید: BTC @ $96,000
+Trailing Delta: $3,000
+
+$96,000  → اسٹاپ $93,000
+$98,000  → اسٹاپ $95,000
+$100,000 → اسٹاپ $97,000
+$104,000 → اسٹاپ $101,000   ← چوٹی
+
+وہاں سے کمی: $104,000 → $101,000
+اسٹاپ چھو گیا → فروخت @ $101,000
+
+نتیجہ: منافع = $101,000 − $96,000 = $5,000 ✅
+(اگر اسٹاپ نہ ہوتا اور قیمت $88,000 چلی جاتی → نقصان)</code></pre>
+<blockquote>
+<p>✅ ٹریلنگ نے چوٹی کو نہیں پکڑا، مگر <strong>بڑا منافع محفوظ</strong> کر لیا — یہی اس کا مقصد ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 33.5 ٹریلنگ بمقابلہ مستحکم اسٹاپ</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>مستحکم اسٹاپ</th><th>ٹریلنگ اسٹاپ</th></tr></thead>
+<tbody>
+<tr><td><strong>حرکت</strong></td><td>نہیں ہلتا</td><td>صرف ایک سمت</td></tr>
+<tr><td><strong>سیٹ کرنا</strong></td><td>آسان</td><td>تھوڑا پیچیدہ</td></tr>
+<tr><td><strong>سرویر بلند رجحان</strong></td><td>منافع جلد بند</td><td>منافع کھلا بڑھتا</td></tr>
+<tr><td><strong>کب بہتر</strong></td><td>واضح سطح موجود</td><td>مضبوط رجحان (Trend)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>رجحان منڈیوں (Trending markets)</strong> میں ٹریلنگ شاندار ہے؛ <strong>بازار کے کنارے</strong> (Sideways) میں بار بار بند ہو کر مایوس بھی کر سکتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>بہت کم</strong> Delta — معمولی جھٹکے میں پوزیشن بند</li>
+<li>❌ <strong>بہت زیادہ</strong> Delta — منافع زیادہ واپس جانا</li>
+<li>❌ ہر کوائن پر ایک ہی Delta لاگو کرنا</li>
+<li>❌ Activation Price غلط مقرر کرنا</li>
+<li>❌ ٹریلنگ اسٹاپ چلانے کے لیے پوزیشن نہ کھلی ہونا</li>
+<li>❌ بازار کی چوٹی پر Delta بہت چھوٹی کرنا (جلد پھنسیں)</li>
+<li>❌ رجحان منڈی اور Sideways میں بار بار رویہ نہ بدلنا</li>
+<li>❌ <strong>Slippage</strong> کو نظر انداز کرنا (تیز گراوٹ میں بہتر قیمت نہ مل سکے)</li>
+<li>❌ لیوریج کی صورت میں رکھنے والے فنڈز نظر انداز کرنا</li>
+<li>❌ جرنل نہ رکھنا — Delta کا "صحیح" سائز تجربے سے ملتا ہے</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>ٹریلنگ اسٹاپ = <strong>صرف اوپر</strong> چلنے والا اسٹاپ</li>
+<li><strong>Delta / Callback Rate</strong> = پوزیشن بند ہونے کا فاصلہ</li>
+<li><strong>Activation Price</strong> = کب فعال ہو</li>
+<li><strong>رجحان منڈی</strong> میں بہترین</li>
+<li>چوٹی پکڑنا مقصد نہیں — <strong>بڑا منافع محفوظ</strong> کرنا مقصد ہے</li>
+<li>Delta اتار چڑھاؤ کے مطابق رکھیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>خرید $96,000 اور Delta 3% کے ساتھ شروع کا اسٹاپ عدد نکالیں۔</li>
+<li>5 مرحلے لکھیں: قیمت بلند ہونے پر اسٹاپ کہاں کہاں سرکے گا۔</li>
+<li>ایک <strong>جدول</strong> بنائیں: Delta 1% / 2% / 5% کے نتائج۔</li>
+<li>لکھیں: "کون سی منڈی میں میں ٹریلنگ استعمال کروں گا، کس میں نہیں؟"</li>
+<li>ڈیمو اکاؤنٹ پر ایک ٹریلنگ اسٹاپ آرڈر لگا کر دیکھیں۔</li>
+<li>فوائد لکھیں: ٹریلنگ کے 5 فوائد اور 3 حدود۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"بہترین تاجر چوٹی پر نہیں بیچتا — وہ چوٹی سے کچھ نیچے بیچتا ہے، اور خوش رہتا ہے۔"</strong> ٹریلنگ اسٹاپ اسی فلسفے کا آلہ ہے: پوری چوٹی نہیں، مگر بڑا حصہ محفوظ۔</p>
+<p>یاد رکھیں: <strong>"اسٹاپ بس اوپر چلے گا، نیچے نہیں چلے گا"</strong> — یہی ایک جملہ ٹریلنگ اسٹاپ کی روح ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-32.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-34.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

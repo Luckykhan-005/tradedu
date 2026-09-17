@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy-cyan" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 32: SMT، پرائس ڈیلیورینس اور PD Arrays — فارکس ٹریڈنگ کورس</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">فارکس ٹریڈنگ کورس</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-31.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-6.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 32: SMT، پرائس ڈیلیورینس اور PD Arrays</h1>
+<p class="en-subtitle">Chapter 32: SMT, Price Delivery & PD Arrays — ICT Foundations</p>
+<blockquote class="chapter-summary">
+<p>یہ باب Part 5 کی آخری منزل ہے — اور شاید پوری کتاب کا سب سے اہم موڑ۔ آج تک آپ نے پیٹرن، زونز اور لیکویڈیٹی دیکھی۔ اب آپ سیکھیں گے کہ یہ سب <strong>ایک دوسرے سے کیسے جڑتے ہیں</strong>۔ <strong>SMT (Smart Money Techniques)</strong> آپ کو مارکیٹ کے پیچھے چھپی "ذہین رقم" کی حرکتیں دکھائے گی، <strong>پرائس ڈیلیورینس</strong> بتائے گی کہ قیمت اپنے ہدف تک کیسے پہنچتی ہے، اور <strong>PD Arrays</strong> وہ مکمل نقشہ ہے جس پر ICT ٹریڈنگ کا پورا ڈھانچہ کھڑا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li><strong>SMT</strong> کیا ہے — اسمارٹ منی اور عام تاجروں میں فرق</li>
+<li><strong>پرائس ڈیلیورینس (Price Delivery)</strong> — قیمت اپنے سفر میں کیا کرتی ہے</li>
+<li><strong>PD Arrays</strong> — Discount/Premium، Order Block، FVG، BOS، CHoCH</li>
+<li>ان سب کو <strong>ایک مکمل نظام</strong> میں جوڑنا</li>
+<li>ICT طرز کی ٹریڈنگ کی <strong>احتیاطیں اور حدود</strong></li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 32.1 SMT — اسمارٹ منی کی حرکتیں</h2>
+<p><strong>SMT (Smart Money Techniques)</strong> کا بنیادی خیال: مارکیٹ میں دو قسم کے تاجر ہیں — <strong>اسمارٹ منی</strong> (بینک، ادارے، بڑے فنڈز) اور <strong>ریٹیل تاجر</strong> (ہم جیسے عام لوگ)۔ اسمارٹ منی <strong>ڈھانچہ بناتے</strong> ہیں، لیکویڈیٹی <strong>شکار</strong> کرتے ہیں، اور ریٹیل تاجر انہی <strong>چالوں</strong> میں پھنستے ہیں۔</p>
+<h3>اسمارٹ منی بمقابلہ ریٹیل تاجر:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>اسمارٹ منی (Smart Money)</th><th>ریٹیل تاجر (Retail)</th></tr></thead>
+<tbody>
+<tr><td>معلومات</td><td>پہلے سے خبر اور بہاؤ</td><td>دیر سے پہنچتی خبر</td></tr>
+<tr><td>طریقہ</td><td>زون، لیکویڈیٹی، ڈھانچہ</td><td>انڈیکیٹر، جذبات</td></tr>
+<tr><td>وقت</td><td>صبر سے انتظار</td><td>جلدی داخل ہونا</td></tr>
+<tr><td>حرکتیں</td><td>سویپ، انڈسمنٹ، مٹھو</td><td>بریک آؤٹ پر بھاگنا</td></tr>
+<tr><td>نتیجہ</td><td>لیکویڈیٹی کھاتی ہے</td><td>لیکویڈیٹی بنتا ہے</td></tr>
+</tbody></table></div>
+<h3>SMT کا مرکزی اصول:</h3>
+<blockquote>
+<p><strong>"وہ جگہ جہاں ریٹیل تاجر نقصان اٹھاتے ہیں، وہی جگہ اسمارٹ منی داخل ہوتی ہے۔"</strong></p>
+</blockquote>
+<p>یعنی: جب آپ کو لگے کہ "یہ بریک آؤٹ ہے، داخل ہو جاؤ" — یہی وہ لمحہ ہو سکتا ہے جب اسمارٹ منی <strong>الٹی</strong> سمت میں داخل ہو رہی ہو۔ SMT آپ کو سکھاتی ہے کہ <strong>ظاہری حرکت</strong> کو نہیں، <strong>پیچھے کی نیت</strong> کو دیکھیں۔</p>
+<pre><code>  ریٹیل کا خیال:                      اسمارٹ منی کا عمل:
+  "بریک آؤٹ! Buy کرو!"                "سویپ ہو چکا — اب Sell کرو"
+        ╱╲                                  ╱╲
+       ╱  ╲                                ╱  ╲
+      ╱    ╲╲                            ╱    ╲╲
+     ╱      ╲  ╲   ← ریٹیل داخل          ╱      ╲  ╲
+    ╱        ╲   ╲                       ╱        ╲   ╲
+   ╱          ╲    ╲───────→             ╱          ╲    ╲→
+  ╱            ╲    ╲                   ╱            ╲    ╲
+               ↓ نتیجہ: ریٹیل پھنسے                ↓ نتیجہ: اسمارٹ منی کے ساتھ</code></pre>
+<hr class="divider">
+
+<h2>📖 32.2 پرائس ڈیلیورینس (Price Delivery) — قیمت کا سفر</h2>
+<p><strong>پرائس ڈیلیورینس</strong> بتاتی ہے کہ قیمت اپنے ہدف (لیکویڈیٹی) تک <strong>کس طرح</strong> پہنچتی ہے — سیدھی نہیں، بلکہ <strong>مراحل</strong> میں۔ قیمت کبھی بھی بغیر رکے نہیں چلتی؛ وہ <strong>ڈیلیور</strong> کرتی ہے، <strong>سانس</strong> لیتی ہے، اور آگے بڑھتی ہے۔</p>
+<h3>تین مراحل:</h3>
+<pre><code>  مرحلہ 1:  ڈسپلیسمنٹ (Displacement) — بڑی، تیز کینڈلز
+  مرحلہ 2:  ریٹرن (Return) — سانس، واپسی (Retracement)
+  مرحلہ 3:  کنٹینیو (Continuation) — اگلی حرکت
+
+      ╱  ╲
+     ╱    ╲
+    ╱      ╲ ╱╲          ← مرحلہ 2 (سانس)
+   ╱        ╳  ╲
+  ╱        ╱    ╲        ← مرحلہ 3 (آگے)
+ ╱        ╱      ╲
+╱        ╱        ╲
+         ↑
+      مرحلہ 1 (ڈسپلیسمنٹ)</code></pre>
+<h3>پرائس ڈیلیورینس کے اصول:</h3>
+<ol>
+<li><strong>ڈسپلیسمنٹ کی سمت = سچی سمت</strong> — بڑی، باڈی والی کینڈلز (وِک کم) اسمارٹ منی کی حرکت دکھاتی ہیں۔</li>
+<li><strong>سانس کے دوران انتظار</strong> — قیمت جب واپس آئے تو <strong>انٹری زون</strong> وہیں بنتا ہے (PD Array)۔</li>
+<li><strong>ڈیلیورینس مکمل ہونے پر حرکت ختم</strong> — جب قیمت اپنے ہدف (لیکویڈیٹی) تک پہنچ جائے، نیا چکر شروع۔</li>
+</ol>
+<blockquote>
+<p><strong>اہم</strong>: بہت سے تاجر ڈسپلیسمنٹ کے <strong>بعد</strong> بھاگ کر داخل ہوتے ہیں — اور سانس کے دوران پھنس جاتے ہیں۔ سچا طریقہ: <strong>سانس کے اختتام پر</strong> (PD Array پر) داخل ہونا۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 32.3 PD Arrays — ICT کا مکمل نقشہ</h2>
+<p><strong>PD Arrays (Premium/Discount Arrays)</strong> وہ <strong>مخصوص زونز</strong> ہیں جہاں اسمارٹ منی اپنے آرڈرز رکھتی ہے۔ انہیں سمجھنا = ICT ٹریڈنگ کا آدھا راستہ طے کرنا۔ یہ چار بڑے زون ہیں:</p>
+<h3>1. Discount اور Premium (ریٹیلر کے خلاف)</h3>
+<ul>
+<li><strong>Premium</strong>: قیمت کی <strong>اوپری</strong> 50% رینج — یہاں Buy کرنا مہنگا ہے (Sell کے لیے بہتر)۔</li>
+<li><strong>Discount</strong>: قیمت کی <strong>نیچے</strong> 50% رینج — یہاں Buy کرنا سستا ہے (Buy کے لیے بہتر)۔</li>
+</ul>
+<pre><code>  رینج 1.1100 ────────────────── (Premium — اوپری 50%)
+              │  اسمارٹ منی یہاں SELL کرتی ہے
+              │
+  رینج کا درمیان ─ 1.1050 ─ (50%)
+              │
+              │  اسمارٹ منی یہاں BUY کرتی ہے
+  رینج 1.1000 ────────────────── (Discount — نیچے 50%)</code></pre>
+<blockquote>
+<p><strong>اصول</strong>: اسمارٹ منی <strong>کم پر خریدتی</strong> (Discount) اور <strong>زیادہ پر بیچتی</strong> (Premium) ہے — ریٹیل تاجر اس کے الٹ کرتا ہے (جلدی خریدتا ہے، ڈر کر بیچتا ہے)۔</p>
+</blockquote>
+<h3>2. FVG (Fair Value Gap) — قیمت کا خلا</h3>
+<p><strong>FVG</strong> تین کینڈلز سے بنتا ہے: پہلی اور تیسری کینڈل کے درمیان <strong>وہ فاصلہ</strong> جو دوسری کینڈل ڈھانپ نہیں سکی — قیمت کا "خلا"۔ اسمارٹ منی اکثر اسی خلا کو <strong>سانس</strong> کے دوران بھرتی ہے (فیل کرتی ہے)۔</p>
+<pre><code>  FVG (Fair Value Gap):
+    ╱│╲
+   ╱ │ ╲
+  ╱  │  ╲        ← درمیانی خلا (FVG)
+  ╱  │   ╲
+  ╱  │    ╲
+  ╱  │     ╲
+  ╱  │      ╲     ← قیمت واپس آ کر خلا بھرتی ہے
+  ╱  │       ╲</code></pre>
+<h3>3. BOS اور CHoCH — ڈھانچہ تبدیلی</h3>
+<ul>
+<li><strong>BOS (Break of Structure)</strong>: رجحان کی سمت میں ڈھانچہ توڑنا — <strong>رجحان جاری</strong> ہے۔</li>
+<li><strong>CHoCH (Change of Character)</strong>: مخالف سمت میں ڈھانچہ توڑنا — <strong>رجحان ممکنہ بدل</strong> رہا ہے۔</li>
+</ul>
+<pre><code>  BOS (اوپر):                       CHoCH (الٹ):
+      ╱╲                               ╱╲
+     ╱  ╲      ╱╲                     ╱  ╲
+    ╱    ╲    ╱  ╲                   ╱    ╲
+   ╱      ╲  ╱    ╲                 ╱      ╲
+  ╱        ╲╱      ╲               ╱        ╲╲
+ ╱        ╱╲        ╲             ╱          ╲  ╲
+│        ╱  ╲        ╲           │            ╲   ╲
+        ──╳── (BOS)               ──╳── (CHoCH — پہلی الٹی توڑ)</code></pre>
+<hr class="divider">
+
+<h2>📖 32.4 PD Array کی پوری فہرست — آپ کا ٹول باکس</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Array</th><th>مطلب</th><th>کب استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>Order Block</strong></td><td>آخری مخالف کینڈل</td><td>انٹری زون</td></tr>
+<tr><td><strong>FVG</strong></td><td>قیمت کا خلا</td><td>انٹری زون / ٹارگٹ فِل</td></tr>
+<tr><td><strong>Discount/Premium</strong></td><td>رینج کا 50% تقسیم</td><td>کہاں Buy/Sell کرنا ہے</td></tr>
+<tr><td><strong>BOS</strong></td><td>رجحان جاری</td><td>سمت کی تصدیق</td></tr>
+<tr><td><strong>CHoCH</strong></td><td>رجحان ممکنہ بدل</td><td>سمت بدلنے کا انتباہ</td></tr>
+<tr><td><strong>EQH/EQL</strong></td><td>برابر اونچائیاں/نیچائیاں</td><td>لیکویڈیٹی کا ذخیرہ</td></tr>
+<tr><td><strong>Swing High/Low</strong></td><td>اہم موڑ</td><td>لیکویڈیٹی کا ذخیرہ</td></tr>
+</tbody></table></div>
+<h3>ان کا آپس میں تعلق:</h3>
+<pre><code>  مکمل ICT سیٹ اپ:
+  ┌────────────────────────────────────────────┐
+  │ 1. لیکویڈیٹی: EQH/EQL, Swing (شکار کا ہدف) │
+  │ 2. ڈسپلیسمنٹ: بڑی کینڈلز (سمت)            │
+  │ 3. سانس: قیمت واپس آئے                     │
+  │ 4. PD Array: OB/FVG ڈسکاؤنٹ میں            │
+  │ 5. CHoCH/BOS: ڈھانچہ تبدیلی کی تصدیق       │
+  │ 6. انٹری: Array پر + کنفرمیشن              │
+  └────────────────────────────────────────────┘</code></pre>
+<hr class="divider">
+
+<h2>📖 32.5 SMT کی عملی مثالیں (Real-World SMT Examples)</h2>
+<p>SMT کو سمجھنا آسان ہے، لیکن اسے <strong>چارت پر درست طریقے سے پہچاننا</strong> مشق مانگتا ہے۔ نیچے دو عملی مثالیں دی گئی ہیں:</p>
+<h3>32.5.1 مثال 1 — GBP/USD اور EUR/USD کا SMT (H1)</h3>
+<p>یہ دونوں جوڑے عام طور پر <strong>ایک ساتھ حرکت</strong> کرتے ہیں کیونکہ دونوں میں ڈالر (USD) مشترک ہے۔</p>
+<pre><code>EUR/USD (H1)                          GBP/USD (H1)
+                                    
+    1.1100 ─── برابر اونچائیاں (EQH)       1.3100 ─── برابر اونچائیاں (EQH)
+            ╱╲                              ╱╲
+    1.1080 ─╱──╲── ڈائیورجنس!              1.3080 ─╱──╲── ڈائیورجنس!
+           ╱    ╲                          ╱    ╲
+   1.1060─╱──────╲── نئی اونچائی           1.3060─╱──────╲── برابر اونچائی
+                 ╲                        ╱      ╲
+                 ╲═ نئی اونچائی (Sell)     ╲       ╲═ برابر (صحیح SMT)</code></pre>
+<p><strong>تشریح:</strong></p>
+<ul>
+<li>EUR/USD نے <strong>نئی اونچائی (Higher High)</strong> بنائی، لیکن GBP/USD <strong>اپنی اونچائی توڑنے میں ناکام</strong> رہا۔</li>
+<li>دونوں میں <strong>ڈائیورجنس (Divergence)</strong> واضح ہے → اس کا مطلب ہے <strong>خریداروں کی کمزوری</strong>۔</li>
+<li>یہ <strong>Sell Signal</strong> ہے: جس جوڑے نے نئی اونچائی بنائی (EUR/USD)، اسے بیچیں کیونکہ اصل حرکت کی قوت نہیں ہے۔</li>
+</ul>
+<h3>32.5.2 مثال 2 — USD/JPY اور XAU/USD (Gold) کا SMT</h3>
+<p>سونا (Gold) اور ڈالر/ین (USD/JPY) اکثر <strong>الٹا (Inverse)</strong> چلتے ہیں — جب سونا بڑھتا ہے، تو ڈالر کمزور ہوتا ہے۔</p>
+<div class="table-wrap"><table>
+<thead><tr><th>جوڑا</th><th>حرکت</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td>XAU/USD (Gold)</td><td>نئی اونچائی</td><td>مارکیٹ ریسک سے بچ رہی ہے (Risk Off)</td></tr>
+<tr><td>USD/JPY</td><td>نیچے گرتا ہے</td><td>ین مضبوط (Safe Haven)</td></tr>
+<tr><td><strong>SMT</strong></td><td><strong>ڈائیورجنس</strong></td><td><strong>مضبوط ریورسل کا اشارہ</strong></td></tr>
+</tbody></table></div>
+<h3>32.5.3 SMT استعمال کرنے کے 3 قوانین</h3>
+<ol>
+<li><strong>مشترکہ کرنسی (Common Currency)</strong> والے جوڑے ہی موازنہ کریں — EUR/USD ↔ GBP/USD، USD/JPY ↔ USD/CHF۔</li>
+<li><strong>ایک ہی ٹائم فریم</strong> استعمال کریں — دونوں جوڑے ایک ہی TF پر دیکھیں۔</li>
+<li><strong>ڈائیورجنس کے بعد تصدیق</strong> کا انتظار کریں — SMT خود انٹری نہیں، بلکہ <strong>انتباہ (Warning)</strong> ہے۔</li>
+</ol>
+<hr class="divider">
+
+<h2>📖 32.6 حصہ 5 کا اختتام (Part 5 Conclusion) — چارٹ پیٹرن سے ICT تک</h2>
+<p>مبارک ہو! آپ نے <strong>حصہ 5</strong> مکمل کر لیا ہے۔ اس حصے میں آپ نے <strong>6 ابواب</strong> میں چارٹ پیٹرن اور سٹرکچر ٹریڈنگ کی مکمل بنیاد رکھی:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>باب</th><th>موضوع</th><th>اہم سبق</th></tr></thead>
+<tbody>
+<tr><td>27</td><td>چارٹ پیٹرن کا تعارف</td><td>پیٹرن = ہجوم کی نفسیات کا نقشہ</td></tr>
+<tr><td>28</td><td>تسلسل کے پیٹرن</td><td>Flag, Pennant, Triangle — رجحان کا سلسلہ</td></tr>
+<tr><td>29</td><td>ریورسل پیٹرن</td><td>Head & Shoulders, Double Top/Bottom — تبدیلی کے نشان</td></tr>
+<tr><td>30</td><td>آرڈر بلاک اور سپلائی/ڈیمانڈ</td><td>بڑے کھلاڑیوں کے قدم کے نشان</td></tr>
+<tr><td>31</td><td>لیکویڈیٹی سویپ</td><td>شکاری حرکت — جال اور انڈسمنٹ</td></tr>
+<tr><td>32</td><td>SMT اور PD Arrays</td><td>سمارٹ منی کی مکمل تصویر</td></tr>
+</tbody></table></div>
+<h3>حصہ 5 کا مکمل ٹریڈنگ سسٹم (One-Page Summary)</h3>
+<pre><code>1. ہائی ٹائم فریم (H4/D1) → ڈھانچہ: BOS یا CHoCH؟
+2. لیکویڈیٹی نقشہ → EQH/EQL، سوئنگ، راؤنڈ نمبر
+3. SMT تصدیق → متعلقہ جوڑے میں ڈائیورجنس؟
+4. PD Array → ڈسکاؤنٹ/پریمیم میں OB یا FVG
+5. لیکویڈیٹی سویپ → پہلے شکار، پھر انٹری
+6. کنفرمیشن → کینڈل کلوز + CHoCH/BOS
+7. رسک مینجمنٹ → R:R کم از کم 1:2، SL Array کے باہر</code></pre>
+<blockquote>
+<p><strong>حصہ 5 کا مرکزی پیغام:</strong> چارٹ پر آپ جو بھی پیٹرن دیکھیں، اس کے پیچھے <strong>کسی نہ کسی کی نفسیات</strong> ہوتی ہے۔ اگر آپ سمجھ جائیں کہ <strong>کون خرید رہا ہے، کون بیچ رہا ہے، اور کیوں</strong> — تو ہر پیٹرن آپ کے لیے کھل جاتا ہے۔ پیٹرن کوئی جادو نہیں، بلکہ <strong>مارکیٹ کی زبان</strong> ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ باب 32 کی عام غلطیاں</h2>
+<ol>
+<li><strong>SMT کو خود انٹری سمجھنا</strong> — SMT صرف ایک انتباہ ہے؛ بغیر PD Array اور کنفرمیشن کے انٹری نہ کریں۔</li>
+<li><strong>غیر متعلقہ جوڑوں کا موازنہ</strong> — EUR/USD اور USD/JPY کا SMT بیکار ہے کیونکہ مشترکہ کرنسی نہیں۔ صحیح جوڑے: EUR/USD ↔ GBP/USD، USD/JPY ↔ USD/CHF۔</li>
+<li><strong>پریمیم میں FVG خریدنا</strong> — FVG صرف <strong>ڈسکاؤنٹ</strong> میں قابل اعتماد ہے؛ پریمیم میں یہ جال بھی ہو سکتا ہے۔</li>
+<li><strong>CHoCH اور BOS میں الجھن</strong> — یاد رکھیں: BOS = رجحان کا تسلسل (Trend Continuation)، CHoCH = رجحان کی تبدیلی (Change of Character)۔</li>
+<li><strong>ہر EQH/EQL کو سویپ سمجھنا</strong> — کچھ برابر اونچائیاں حقیقی بریک آؤٹ ہوتی ہیں؛ بتی (Wick) اور باڈی (Body) کا فرق دیکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li><strong>SMT</strong> (Smart Money Technique) دو متعلقہ جوڑوں کے درمیان <strong>ڈائیورجنس</strong> تلاش کرتا ہے تاکہ حقیقی حرکت کی سمت معلوم ہو۔</li>
+<li><strong>پرائس ڈیلیوری</strong> تین مراحل پر مشتمل ہے: <strong>ڈسپلیسمنٹ</strong> (Displacement) → <strong>سانس</strong> (Return) → <strong>تسلسل</strong> (Continuation)۔</li>
+<li><strong>PD Arrays</strong> وہ اہم لیولز ہیں جہاں سمارٹ منی اپنے آرڈر رکھتی ہے: OB، FVG، Discount/Premium، BOS، CHoCH۔</li>
+<li><strong>ڈسکاؤنٹ</strong> میں خریدیں، <strong>پریمیم</strong> میں بیچیں — یہ سمارٹ منی کا بنیادی اصول ہے۔</li>
+<li><strong>لیکویڈیٹی سویپ + SMT + PD Array</strong> تینوں مل کر ایک مکمل ICT سیٹ اپ بناتے ہیں۔</li>
+<li>چارٹ پیٹرن (حصہ 5) اب <strong>فنڈامینٹل اینالیسس</strong> (حصہ 6) سے جڑیں گے — پیٹرن بتاتے ہیں <strong>کب</strong>، فنڈامینٹلز بتاتے ہیں <strong>کیوں</strong>۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>MT4/MT5 پر <strong>EUR/USD اور GBP/USD</strong> کے H1 چارٹ کھولیں اور گزشتہ 20 دن میں SMT ڈائیورجنس کے 3 مقامات تلاش کریں۔</li>
+<li>اپنے چارٹ پر <strong>کم از کم 5 FVG</strong> نشان زد کریں اور بتائیں کہ ہر ایک <strong>ڈسکاؤنٹ</strong> میں تھا یا <strong>پریمیم</strong> میں۔</li>
+<li>ایک <strong>BOS</strong> اور ایک <strong>CHoCH</strong> تلاش کریں — دونوں کے درمیان فرق ڈایاگرام کے ساتھ لکھیں۔</li>
+<li>ICT سیٹ اپ کا مکمل فلو: <strong>EQH سویپ → ڈسپلیسمنٹ → FVG (ڈسکاؤنٹ) → CHoCH → انٹری</strong> — اسے ایک ورچوئل ٹریڈ میں لاگو کریں (Entry, SL, TP لکھیں)۔</li>
+<li>حصہ 5 کے تمام 6 ابواب کا <strong>ایک صفحے کا خلاصہ</strong> بنائیں — جیسا کہ اوپر دیا گیا ہے — اور اسے اپنی جرنل میں محفوظ کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>سمارٹ منی کی پیروی کرنے کے لیے آپ کو سمارٹ منی کی <strong>زبان</strong> سمجھنی ہوگی — اور وہ زبان <strong>لیکویڈیٹی، ڈسپلیسمنٹ اور ڈسکاؤنٹ/پریمیم</strong> ہے۔ اب آپ کے پاس حصہ 5 کی مکمل تصویر ہے: پیٹرن (باب 27-29) بتاتے ہیں کہ مارکیٹ کی نفسیات کیا کہہ رہی ہے، اور سٹرکچر (باب 30-32) بتاتا ہے کہ بڑے کھلاڑی کہاں کھڑے ہیں۔ اگلے حصے میں ہم <strong>فنڈامینٹل اینالیسس</strong> کی طرف بڑھیں گے — کیونکہ تکنیکی پیٹرن یہ بتاتے ہیں کہ قیمت <strong>کیسے</strong> چلتی ہے، لیکن فنڈامینٹلز بتاتے ہیں کہ قیمت <strong>کیوں</strong> چلتی ہے۔ جب آپ <strong>کیسے</strong> اور <strong>کیوں</strong> دونوں جان لیں گے، تو آپ مارکیٹ کو مکمل طور پر پڑھ سکیں گے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-31.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-6.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">فارکس ٹریڈنگ کورس — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 19: فیوچرز والٹ (Futures Wallet) — الگ والٹ کی سمجھ — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-18.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-20.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 19: فیوچرز والٹ (Futures Wallet) — الگ والٹ کی سمجھ</h1>
+<blockquote class="chapter-summary">
+<p><strong>فیوچرز والٹ</strong> فیوچرز ٹریڈنگ کے لیے مختص <strong>الگ والٹ</strong> ہے۔ Spot والٹ سے الگ ہونے کی وجہ سے آپ کو <strong>Transfer</strong> کے ذریعے فنڈ منتقل کرنا ہوتا ہے۔ یہ باب USDⓈ-M اور COIN-M والٹس، Cross/Isolated مارجن، اور Unrealized P&L کو واضح کرے گا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/futures-home.jpg" alt="Binance Futures Wallet">
+  <figcaption>تصویر 19.1: بائننس فیوچرز صفحہ — USDⓈ-M/COIN-M کا انتخاب، والٹ بیلنس اور پوزیشن کا پینل۔ (Binance Futures page — USDⓈ-M/COIN-M selection, wallet balance and position panel.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Futures Wallet کیا ہے اور Spot سے کیسے مختلف ہے</li>
+<li>USDⓈ-M اور COIN-M والٹس کا فرق</li>
+<li>Spot سے Futures منتقلی کا طریقہ</li>
+<li>Cross اور Isolated Margin کا فرق (Futures میں)</li>
+<li><strong>Unrealized P&L، Wallet Balance، Margin Balance</strong> کا مطلب</li>
+<li>کھلی پوزیشن (Open Positions) کی تفصیل</li>
+<li><strong>Maintenance Margin اور Liquidation</strong> کا حساب</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 19.1 Futures Wallet کیا ہے؟</h2>
+<blockquote>
+<p><strong>Futures Wallet</strong> = صرف فیوچرز ٹریڈنگ کے لیے مخصوص خانہ۔ اس میں موجود فنڈز Spot مارکیٹ میں براہِ راست استعمال نہیں ہو سکتے۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>Spot Wallet    : 500 USDT
+Futures Wallet : 0 USDT
+
+فیوچرز ٹریڈ کرنے کے لیے:
+Spot → Transfer → Futures
+→ پھر فیوچرز ٹریڈ ممکن ✅</code></pre>
+<blockquote>
+<p>💡 <strong>یہ علیحدگی ایک تحفظ ہے</strong> — آپ کا Spot بیلنس خودبخود فیوچرز کے خطرے میں نہیں آتا۔ صرف وہی رقم خطرے میں ڈالیں جو آپ فیوچرز کے لیے مختص کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 19.2 USDⓈ-M بمقابلہ COIN-M والٹس</h2>
+<h3>USDⓈ-Margined (USDM)</h3>
+<blockquote>
+<p>Margin USDT/USDC میں؛ منافع/نقصان بھی USDT میں۔</p>
+</blockquote>
+<pre><code>Futures Wallet : 500 USDT
+Position       : 5,000 USDT (10x)
+P&L            : USDT میں</code></pre>
+<h3>COIN-Margined (COINM)</h3>
+<blockquote>
+<p>Margin BTC/ETH میں؛ منافع/نقصان اُسی کوائن میں۔</p>
+</blockquote>
+<pre><code>Futures Wallet : 0.01 BTC
+Position       : 0.05 BTC
+P&L            : BTC میں</code></pre>
+<h3>فرق</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فیچر</th><th>USDⓈ-M</th><th>COIN-M</th></tr></thead>
+<tbody>
+<tr><td>بیس اثاثہ</td><td>USDT/USDC</td><td>BTC/ETH وغیرہ</td></tr>
+<tr><td>P&L کرنسی</td><td>USDT</td><td>مقامی کوائن</td></tr>
+<tr><td>سمجھنے میں</td><td>آسان</td><td>پیچیدہ</td></tr>
+<tr><td>نئے صارفین</td><td>✅ توصیہ</td><td>❌ بعد میں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>نوٹ:</strong> USDⓈ-M اور COIN-M کے <strong>الگ الگ والٹس</strong> ہیں۔ ان کے درمیان منتقلی کے لیے Spot والٹ سے گزرنا پڑتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 19.3 Spot سے Futures منتقلی</h2>
+<h3>طریقہ</h3>
+<pre><code>1. Wallet → Transfer
+2. From : Spot
+3. To   : Futures (USDM یا COINM)
+4. Asset: USDT
+5. Amount: مقدار درج کریں
+6. Confirm ✅</code></pre>
+<h3>مثال</h3>
+<pre><code>From  : Spot → Futures (USDM)
+Asset : USDT
+Amount: 100 USDT
+Time  : فوری
+Fee   : عام طور پر مفت</code></pre>
+<h3>اندرونی منتقلی کی اقسام</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>From</th><th>To</th><th>کام</th></tr></thead>
+<tbody>
+<tr><td>Spot</td><td>Futures</td><td>Transfer</td></tr>
+<tr><td>Futures</td><td>Spot</td><td>واپس منتقلی</td></tr>
+<tr><td>Spot</td><td>Earn</td><td>Subscribe / Transfer</td></tr>
+<tr><td>Spot</td><td>Margin</td><td>Transfer</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 ہر اندرونی منتقلی <strong>فوری</strong> اور عموماً <strong>مفت</strong> ہوتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 19.4 Cross بمقابلہ Isolated Margin (Futures)</h2>
+<h3>Cross Margin — پورا Futures والٹ ضمانت</h3>
+<pre><code>Futures Wallet : 200 USDT (پورا Margin)
+Position       : 2,000 USDT (10x)
+اگر نقصان بڑھے → پورا والٹ خطرے میں، جلد Liquidation</code></pre>
+<h3>Isolated Margin — صرف ایک پوزیشن کی ضمانت</h3>
+<pre><code>Futures Wallet : 200 USDT
+Isolated Margin: 100 USDT (صرف ایک پوزیشن)
+Position       : 1,000 USDT (10x)
+نقصان: صرف 100 USDT اس پوزیشن پر
+باقی 100 USDT محفوظ ✅</code></pre>
+<h3>کب کون؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>کس کے لیے</th><th>خطرہ</th></tr></thead>
+<tbody>
+<tr><td><strong>Cross</strong></td><td>تجربہ کار، پورے والٹ کا اشتراک</td><td>پورا والٹ خطرے میں</td></tr>
+<tr><td><strong>Isolated</strong></td><td>نئے صارف، محدود خطرہ</td><td>صرف ایک پوزیشن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>شروعات:</strong> ہمیشہ <strong>Isolated</strong> سے شروع کریں۔ جب تک Cross کی ذمہ داری سمجھ نہ آئے، استعمال نہ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 19.5 Unrealized P&L اور Wallet Balance</h2>
+<h3>Unrealized P&L کیا ہے؟</h3>
+<blockquote>
+<p><strong>Unrealized P&L</strong> = کھلی پوزیشن کا <strong>موجودہ منافع/نقصان</strong> — بند کرنے سے پہلے "کاغذی" (unrealized) رہتا ہے۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>Long BTC @ 96,000 (0.1 BTC)
+Mark Price: 98,000
+Unrealized P&L = (98,000 − 96,000) × 0.1 = +200 USDT ✅
+بند کرنے پر → Realized P&L = +200 USDT</code></pre>
+<h3>Futures Wallet کے اہم اعداد</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>اصطلاح</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Wallet Balance</strong></td><td>کل/دستیاب فنڈ</td></tr>
+<tr><td><strong>Margin Balance</strong></td><td>Wallet + Unrealized P&L</td></tr>
+<tr><td><strong>Available Balance</strong></td><td>نئی پوزیشن کے لیے دستیاب</td></tr>
+<tr><td><strong>Unrealized P&L</strong></td><td>کھلی پوزیشن کا منافع/نقصان</td></tr>
+<tr><td><strong>Maintenance Margin</strong></td><td>پوزیشن کھلی رکھنے کے لیے کم از کم فنڈ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 رنگ: <strong>سبز</strong> = منافع، <strong>سرخ</strong> = نقصان۔</p>
+</blockquote>
+<h3>Maintenance Margin اور Liquidation:</h3>
+<pre><code>جب Margin Balance < Maintenance Margin
+→ Liquidation (پوزیشن خودکار بند)
+
+لہذا Margin Balance کی نگرانی ضروری ہے</code></pre>
+<hr class="divider">
+
+<h2>📖 19.6 کھلی پوزیشن (Open Positions)</h2>
+<p><code>Futures → Positions</code> میں ہر پوزیشن کی تفصیل:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>عنصر</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>Symbol</strong></td><td>جوڑا (BTC/USDT)</td></tr>
+<tr><td><strong>Side</strong></td><td>Long یا Short</td></tr>
+<tr><td><strong>Size</strong></td><td>مقدار</td></tr>
+<tr><td><strong>Entry Price</strong></td><td>داخلہ قیمت</td></tr>
+<tr><td><strong>Mark Price</strong></td><td>موجودہ مارک قیمت</td></tr>
+<tr><td><strong>Liq. Price</strong></td><td>Liquidation قیمت</td></tr>
+<tr><td><strong>Margin</strong></td><td>تفویض شدہ Margin</td></tr>
+<tr><td><strong>Unrealized P&L</strong></td><td>منافع/نقصان</td></tr>
+<tr><td><strong>TP/SL</strong></td><td>ہدف اور حفاظتی سطحیں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ بائننس ہر پوزیشن پر <strong>Liq. Price</strong> خود دکھاتا ہے — وہی معتبر ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Transfer نہ کرنا</strong> — Futures والٹ خالی ہو تو ٹریڈ نہیں ہوتی</li>
+<li>❌ <strong>Cross Margin بغیر تجربہ</strong> — Isolated استعمال کریں</li>
+<li>❌ <strong>USDⓈ-M/COIN-M فرق نظرانداز</strong> — الگ والٹس ہیں</li>
+<li>❌ <strong>Unrealized = Realized سمجھنا</strong> — بند ہونے تک حتمی نہیں</li>
+<li>❌ <strong>Liq. Price نظرانداز</strong> — ہمیشہ دیکھیں</li>
+<li>❌ <strong>Funding Rate بھول جانا</strong> — لمبی پوزیشن پر اثر</li>
+<li>❌ <strong>پہلے بڑی رقم</strong> — چھوٹا ٹیسٹ پہلے</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Futures Wallet</strong> = الگ والٹ — Transfer لازمی</li>
+<li><strong>USDⓈ-M</strong> = USDT بیس — نئے صارفین کے لیے</li>
+<li><strong>COIN-M</strong> = کوائن بیس — تجربہ کاروں کے لیے</li>
+<li><strong>Isolated Margin</strong> = محدود خطرہ (توصیہ)</li>
+<li><strong>Unrealized P&L</strong> = بندش تک کاغذی</li>
+<li><strong>Liq. Price</strong> = ہمیشہ زیرِ نظر</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Futures کھولیں اور USDⓈ-M منتخب کریں۔</li>
+<li>Isolated Margin اور 2x لیوریج منتخب کریں۔</li>
+<li>اگر اکاؤنٹ ہے: $10 USDT Spot سے Futures منتقل کریں۔</li>
+<li>Positions ٹیب میں ہر کالم کا نام نوٹ کریں۔</li>
+<li>Demo پر چھوٹی Long کھولیں اور Unrealized P&L کا بدلتے رنگ دیکھیں۔</li>
+<li>Spot اور Futures والٹ کا موازنہ جدول بنائیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>فیوچرز والٹ ایک الگ خانہ ہے — جب تک فنڈ وہاں منتقل نہ کریں، ٹریڈ شروع نہیں ہوگی۔ یہ علیحدگی دراصل ایک تحفظ ہے: Spot والٹ کے فنڈز خودبخود فیوچرز کے خطرے میں نہیں آتے۔</p>
+<p><strong>مگر یاد رکھیں: Futures والٹ کا ہر ڈالر Liquidation کے خطرے میں ہوتا ہے۔ کم لیوریج، Isolated Margin، ہر ٹریڈ پر SL اور پہلے Demo — یہی تحفظ کی چابی ہے۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-18.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-20.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 25: سیکیورٹی کا جائزہ — اپنے اکاؤنٹ کی حفاظت — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="part-5.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-26.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 25: سیکیورٹی کا جائزہ — اپنے اکاؤنٹ کی حفاظت</h1>
+<blockquote class="chapter-summary">
+<p><strong>بائننس ایک custodial (امانت دار) ایکسچینج ہے</strong> — یعنی آپ کے اثاثے بائننس کے پاس رکھے جاتے ہیں اور آپ کا اکاؤنٹ صرف پاس ورڈ + تصدیق سے محفوظ ہوتا ہے۔ اس لیے سیکیورٹی آپ کی <strong>ذاتی ذمہ داری</strong> ہے، نہ کہ بائننس کی تنہا۔ اس باب میں ہم ہر سیکیورٹی سیٹنگ کو عملی انداز میں سیکھیں گے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/account-security.jpg" alt="Binance Account Security Page">
+  <figcaption>تصویر 25.1: بائننس اکاؤنٹ سیکیورٹی صفحہ — 2FA، Passkey، Anti-Phishing Code، Device Management اور دیگر سیٹنگز ایک جگہ۔ (Binance account security page — 2FA, Passkey, Anti-Phishing Code, Device Management and other settings in one place.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>2FA کیا ہے اور اس کی مختلف اقسام</li>
+<li><strong>Authenticator App بمقابلہ SMS بمقابلہ Email</strong></li>
+<li><strong>Passkey</strong> اور <strong>Device Management</strong> کا تعارف</li>
+<li><strong>Anti-Phishing Code</strong> کیوں ضروری ہے</li>
+<li><strong>Withdraw Whitelist</strong> اور اس کی سیٹنگ</li>
+<li>اکاؤنٹ کی سیکیورٹی جانچنے کا طریقہ</li>
+<li>سیکیورٹی کی عام غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 25.1 سیکیورٹی صفحہ کہاں ہے؟</h2>
+<pre><code>Profile (اکاؤنٹ آئیکن) → Security → تمام سیکیورٹی سیٹنگز</code></pre>
+<blockquote>
+<p>💡 بائننس اپنی سیکیورٹی پالیسی اور سیٹنگز وقت کے ساتھ بدلتا رہتا ہے۔ اگر اسکرین پر کوئی سیٹنگ اس باب سے مختلف دکھے تو <strong>صفحے پر لکھی ہدایت ہی درست</strong> ہے۔</p>
+</blockquote>
+<h3>اہم سیٹنگز کی فہرست</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>سیٹنگ</th><th>مقصد</th><th>اہمیت</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Passkey / 2FA</strong></td><td>لاگ اِن اور عمل کی تصدیق</td><td>لازمی</td></tr>
+<tr><td>2</td><td><strong>Anti-Phishing Code</strong></td><td>جعلی ای میل کی نشاندہی</td><td>بہت زیادہ</td></tr>
+<tr><td>3</td><td><strong>Withdrawal Whitelist</strong></td><td>صرف منظور شدہ ایڈریسز پر نکاسی</td><td>بہت زیادہ</td></tr>
+<tr><td>4</td><td><strong>Device Management</strong></td><td>غیر معروف ڈیوائس نکالنا</td><td>زیادہ</td></tr>
+<tr><td>5</td><td><strong>Login Password</strong></td><td>مضبوط پاس ورڈ</td><td>زیادہ</td></tr>
+<tr><td>6</td><td><strong>Account Activity / Devices</strong></td><td>مشکوک سرگرمی کی چھان بین</td><td>زیادہ</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 25.2 2FA — دو مرحلوں والی تصدیق</h2>
+<blockquote>
+<p><strong>2FA (Two-Factor Authentication)</strong> = لاگ اِن کے وقت صرف پاس ورڈ کافی نہیں، بلکہ ایک دوسری آزاد تصدیق بھی درکار ہوتی ہے۔</p>
+</blockquote>
+<h3>اقسام کا موازنہ</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>طریقۂ کار</th><th>سیکیورٹی</th><th>ریمارک</th></tr></thead>
+<tbody>
+<tr><td><strong>Passkey (بہترین)</strong></td><td>ڈیوائس/بایومیٹرک</td><td>⭐⭐⭐⭐⭐</td><td>فشنگ سے تقریباً محفوظ</td></tr>
+<tr><td><strong>Authenticator App</strong></td><td>TOTP کا 6 ہندسوں کوڈ</td><td>⭐⭐⭐⭐⭐</td><td>بین الاقوامی معیار</td></tr>
+<tr><td><strong>SMS</strong></td><td>موبائل پر کوڈ</td><td>⭐⭐</td><td>SIM-swap کا خطرہ</td></tr>
+<tr><td><strong>Email</strong></td><td>ای میل پر کوڈ</td><td>⭐⭐</td><td>سب سے کمزور</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>اگر دستیاب ہو تو Passkey یا Authenticator App استعمال کریں</strong> — SMS پر انحصار نہ کریں۔ ساتھ ہی <strong>کم از کم دو مختلف 2FA طریقے</strong> فعال رکھیں، تاکہ ایک خراب ہونے پر اکاؤنٹ بند نہ ہو۔</p>
+</blockquote>
+<h3>SIM Swap کا خطرہ — ایک حقیقی مثال:</h3>
+<pre><code>ہیکر آپ کے نمبر پر SIM دوبارہ جاری کرواتا ہے (جعلی ID کے ساتھ)
+→ آپ کا نمورہ ہیکر کے پاس
+→ SMS 2FA کوڈ ہیکر کو مل جاتا ہے
+→ آپ کا اکاؤنٹ خطرے میں
+
+بچاؤ: Authenticator App / Passkey استعمال کریں</code></pre>
+<h3>Authenticator App کیسے سیٹ کریں</h3>
+<pre><code>Security → 2FA → Authenticator App
+→ QR Code اسکین کریں (Google Authenticator / Authy وغیرہ)
+→ App کا 6 ہندسوں کوڈ درج کریں → تصدیق
+→ ✅ Backup / Recovery Codes محفوظ کریں</code></pre>
+<blockquote>
+<p>🔴 <strong>QR Code کا اسکرین شاٹ نہ بنائیں اور نہ ہی کسی کے ساتھ شیئر کریں۔</strong> QR Code اور اس کا خفیہ کلید (Secret Key) آپ کے اکاؤنٹ کی چابی ہے — یہ کسی کو دینا گھر کی چابی دینے کے برابر ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 25.3 Anti-Phishing Code</h2>
+<blockquote>
+<p><strong>Anti-Phishing Code</strong> = ایک ایسا منفرد کوڈ جو آپ خود چنیں۔ سیٹ کرنے کے بعد بائننس کی ہر <strong>اصلی</strong> ای میل میں وہ کوڈ لکھا آئے گا۔</p>
+</blockquote>
+<pre><code>Security → Anti-Phishing Code → اپنی پہچان کا کوڈ سیٹ کریں</code></pre>
+<ul>
+<li>اگر ای میل میں کوڈ <strong>نہ</strong> ہو → وہ <strong>جعلی</strong> ہے، فوراً حذف کریں۔</li>
+<li>کوڈ وہ نہ چنیں جو اور کہیں سے اندازہ لگایا جا سکے۔</li>
+</ul>
+<h3>مثال:</h3>
+<pre><code>✅ اصلی بائننس ای میل:
+   "Your Anti-Phishing Code: ZAID-2026-SECURE"
+
+❌ جعلی ای میل:
+   "آپ کا اکاؤنٹ بند ہو جائے گا! فوراً لاگ اِن کریں..."
+   (کوڈ کہاں؟ → یہ جعلی ہے)</code></pre>
+<hr class="divider">
+
+<h2>📖 25.4 Withdrawal Whitelist اور Device Management</h2>
+<h3>Withdraw Whitelist</h3>
+<pre><code>Security → Address Management → Add Address → نام + ایڈریس
+→ Email + 2FA تصدیق → سیکیورٹی ہولڈ → فعال</code></pre>
+<blockquote>
+<p>💡 یہ سب سے طاقتور سیکیورٹی ہے: یہاں تک کہ اگر کوئی آپ کا پاس ورڈ اور 2FA پار کر لے، تب بھی وہ <strong>آپ کے منظور شدہ ایڈریسز کے سوا</strong> کہیں فنڈ نہیں بھیج سکتا۔</p>
+</blockquote>
+<h3>Device Management</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>عمل</th><th>فائدہ</th></tr></thead>
+<tbody>
+<tr><td>فعال ڈیوائسز کی چیکنگ</td><td>غیر معروف ڈیوائس فوراً نکالیں</td></tr>
+<tr><td>تمام ڈیوائسز سے لاگ آؤٹ</td><td>مشکوک سرگرمی پر ردِعمل</td></tr>
+<tr><td>نئی ڈیوائس کی تصدیق</td><td>پہلی بار لاگ اِن پر کوڈ درکار</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ اگر آپ کو اپنے اکاؤنٹ میں کوئی <strong>نامعلوم ڈیوائس یا سرگرمی</strong> نظر آئے: پاس ورڈ تبدیل کریں، تمام ڈیوائسز سے لاگ آؤٹ کریں، 2FA دوبارہ سیٹ کریں، اور پھر Support سے رابطہ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 25.5 اچھا پاس ورڈ</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>اچھا پاس ورڈ</th><th>برا پاس ورڈ</th></tr></thead>
+<tbody>
+<tr><td>لمبا (12+ حروف)</td><td><code>123456</code></td></tr>
+<tr><td>منفرد (کہیں اور استعمال نہ ہو)</td><td><code>password</code></td></tr>
+<tr><td>حروف، اعداد، علامات کا ملغوبہ</td><td>آپ کا نام یا تاریخِ پیدائش</td></tr>
+<tr><td>Password Manager میں محفوظ</td><td>براؤزر میں unencrypted save</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>بائننس کا پاس ورڈ کہیں اور استعمال نہ کریں۔</strong> کسی اور سائٹ کی ڈیٹا لیک آپ کے بائننس اکاؤنٹ کو خطرے میں ڈال سکتی ہے۔</p>
+</blockquote>
+<h3>مضبوط پاس ورڈ کی مثال:</h3>
+<pre><code>❌ ضعیف:   binance123
+❌ ضعیف:   Ahmed1990
+✅ مضبوط:  7k$mB2nQ!9xP#wL4   (14 حروف، بے ترتیب)
+
+💡 Password Manager استعمال کریں:
+   Bitwarden، 1Password، KeePassXC</code></pre>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ 2FA بالکل نہ لگانا — اکاؤنٹ کھلا دروازہ</li>
+<li>❌ صرف <strong>SMS</strong> پر انحصار — SIM-swap خطرہ</li>
+<li>❌ QR Code / Secret Key کا اسکرین شاٹ لینا یا شیئر کرنا</li>
+<li>❌ <strong>Backup / Recovery Codes</strong> محفوظ نہ کرنا</li>
+<li>❌ ایک ہی پاس ورڈ کئی سائٹس پر — ایک لیک، سب خطرے میں</li>
+<li>❌ <strong>Anti-Phishing Code</strong> سیٹ نہ کرنا</li>
+<li>❌ <strong>Whitelist</strong> نہ لگانا</li>
+<li>❌ 2FA کوڈ (OTP) کسی "سپورٹ ایجنٹ" کو بتانا — کوئی اصلی سپورٹ OTP نہیں مانگتا</li>
+<li>❌ غیر معروف ڈیوائسز کی چیکنگ نہ کرنا</li>
+<li>❌ عوامی Wi-Fi پر بغیر احتیاط لاگ اِن کرنا</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>بائننس <strong>custodial</strong> ہے — حفاظت آپ کی ذمہ داری</li>
+<li><strong>Passkey / Authenticator App</strong> SMS سے بہتر</li>
+<li><strong>کم از کم دو</strong> 2FA طریقے فعال رکھیں</li>
+<li><strong>Anti-Phishing Code</strong> جعلی ای میل پکڑتا ہے</li>
+<li><strong>Withdrawal Whitelist</strong> دوسروں کو نکاسی سے روکتی ہے</li>
+<li><strong>Backup / Recovery Codes</strong> محفوظ رکھیں</li>
+<li>ڈیوائس اور سرگرمی کا باقاعدہ معائنہ کریں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے اکاؤنٹ میں <strong>Security</strong> صفحہ کھولیں اور ہر سیٹنگ پہچانیں۔</li>
+<li>2FA کی حالت دیکھیں — کون سا طریقہ فعال ہے؟</li>
+<li><strong>Anti-Phishing Code</strong> سیٹ کریں (مثلاً "Zaid-2026-Secure")۔</li>
+<li>ایک ایڈریس <strong>Withdrawal Whitelist</strong> میں شامل کریں (صرف محفوظ کر کے دیکھیں)۔</li>
+<li><strong>Device Management</strong> میں اپنے تمام ڈیوائسز چیک کریں۔</li>
+<li>ایک <strong>جدول</strong> بنائیں: آپ کے اکاؤنٹ کے لیے کون سی 5 سیٹنگز لازمی ہیں۔</li>
+<li>اپنے لیے <strong>5 سیکیورٹی اصول</strong> لکھیں: "میں کبھی ______ نہیں کروں گا"</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>آپ کا اکاؤنٹ آپ کے گھر کی طرح ہے۔</strong> پاس ورڈ چابی ہے، 2FA اضافی تالا ہے، اور Anti-Phishing Code وہ پہچان ہے جس سے آپ جعلی مہمان کو پہچانتے ہیں۔</p>
+<p>سب سے کمزور کڑی اکثر <strong>انسان</strong> ہوتی ہے، نہ کہ سسٹم — کوئی "سپورٹ ایجنٹ" آپ سے OTP یا پاس ورڈ مانگے تو وہ دھوکے باز ہے۔ <strong>بائننس کبھی آپ سے پاس ورڈ یا 2FA کوڈ نہیں مانگتا۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="part-5.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-26.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>
