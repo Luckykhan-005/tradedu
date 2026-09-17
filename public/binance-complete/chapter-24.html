@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 24: نیٹ ورکس — بلاک چین کی کہانی — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-23.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-5.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 24: نیٹ ورکس — بلاک چین کی کہانی</h1>
+<blockquote class="chapter-summary">
+<p><strong>نیٹ ورک (Network)</strong> = وہ بلاک چین جس پر ایک خاص کوائن چلتا ہے۔ بیت کوائن، ایتھریم، BNB Chain، ٹرون — ہر ایک الگ نیٹ ورک ہے۔ اگر آپ <strong>ایک نیٹ ورک کے ایڈریس پر دوسرے نیٹ ورک کا کوائن</strong> بھیجیں تو فنڈ ضائع ہو سکتا ہے۔ اسی لیے یہ باب بائننس کے ہر صارف کے لیے بنیادی حیثیت رکھتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/ch24-networks.png" alt="Blockchain Networks Comparison">
+  <figcaption>تصویر 24.1: بلاک چین نیٹ ورکس کا موازنہ — فیس، رفتار اور ایک ہی کوائن (USDT) کے مختلف نیٹ ورک ورژن۔ (Comparison of blockchain networks — fees, speed and different network versions of the same coin (USDT).)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بلاک چین اور نیٹ ورک میں فرق</li>
+<li><strong>ایک ہی کوائن، کئی نیٹ ورکس</strong> (USDT کی مثال)</li>
+<li>Native، Pegged اور Wrapped ٹوکن کا فرق</li>
+<li>نیٹ ورک کی فیس اور تصدیق (Confirmations)</li>
+<li>ایڈریس کے <strong>prefix</strong> سے نیٹ ورک پہچاننا</li>
+<li><strong>صحیح نیٹ ورک چننے کا طریقہ</strong> اور عام غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 24.1 بلاک چین کیا ہے؟</h2>
+<blockquote>
+<p><strong>بلاک چین</strong> = ایک عوامی، غیر مرکزی (decentralized) ڈیجیٹل رجسٹر جو ہر لین دین کو مستقل طور پر ریکارڈ کرتا ہے۔</p>
+</blockquote>
+<pre><code>Transaction بنتی ہے
+   → بہت سی ٹرانزیکشنز ایک Block میں جمع ہوتی ہیں
+      → ہر Block پچھلے Block سے cryptographically جڑتا ہے (Chain)
+         → ہر نیٹ ورک نوڈ کے پاس وہی ریکارڈ کی کاپی ہوتی ہے
+            → اس لیے کوئی اکیلا شخص ریکارڈ بدل نہیں سکتا</code></pre>
+<blockquote>
+<p>💡 بلاک چین ایک کھلی ڈائری ہے جس کی <strong>درجنوں ہزار کاپیاں</strong> ہر جگہ موجود ہیں۔ اگر کوئی ایک کاپی بدل بھی دے، باقی کاپیاں اُسے مسترد کر دیتی ہیں — یہی اس کی حفاظت کی بنیاد ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.2 نیٹ ورک کیا ہے؟</h2>
+<blockquote>
+<p><strong>نیٹ ورک</strong> = وہ مخصوص بلاک چین سسٹم جس پر آپ کا کوائن موجود ہوتا ہے اور جس کے ذریعے منتقلی ہوتی ہے۔</p>
+</blockquote>
+<h3>اہم نیٹ ورکس</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نیٹ ورک</th><th>ٹوکن کا مخفف</th><th>فیس</th><th>رفتار</th></tr></thead>
+<tbody>
+<tr><td><strong>Bitcoin</strong></td><td>BTC</td><td>متغیر (بھیڑ پر منحصر)</td><td>نسبتاً سست</td></tr>
+<tr><td><strong>Ethereum</strong></td><td>ERC20</td><td>زیادہ</td><td>درمیانہ</td></tr>
+<tr><td><strong>BNB Smart Chain</strong></td><td>BEP20</td><td>بہت کم</td><td>تیز</td></tr>
+<tr><td><strong>Tron</strong></td><td>TRC20</td><td>بہت کم</td><td>تیز</td></tr>
+<tr><td><strong>Solana</strong></td><td>SPL</td><td>نہایت کم</td><td>بہت تیز</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ جدول میں دی گئی فیسیں <strong>اندازاً</strong> ہیں اور ہر وقت بدلتی رہتی ہیں۔ فیصلہ کرنے سے پہلے ہمیشہ بائننس کے وائیدراول/ڈیپازٹ صفحے پر <strong>اُس لمحے کی فیس</strong> دیکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.3 ایک ہی کوائن، کئی نیٹ ورکس — سب سے اہم تصور</h2>
+<p>یہ بائننس کے نئے صارفین کی <strong>سب سے بڑی غلطی</strong> ہے: "USDT تو USDT ہے، کیسے نیٹ ورک فرق پڑے گا؟"</p>
+<p>سچ یہ ہے کہ ایک ہی کوائن، جیسے USDT، <strong>کئی مختلف بلاک چینز</strong> پر دستیاب ہے:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>USDT ورژن</th><th>نیٹ ورک</th><th>ایڈریس کی پہچان</th></tr></thead>
+<tbody>
+<tr><td>USDT (TRC20)</td><td>Tron</td><td><code>T</code> سے شروع</td></tr>
+<tr><td>USDT (ERC20)</td><td>Ethereum</td><td><code>0x</code> سے شروع</td></tr>
+<tr><td>USDT (BEP20)</td><td>BNB Smart Chain</td><td><code>0x</code> سے شروع</td></tr>
+<tr><td>USDT (SPL)</td><td>Solana</td><td>مختلف، حروف/اعداد</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>🔴 <strong>یہ سب ایک دوسرے سے الگ جیب ہیں۔</strong> TRC20 پر بھیجا گیا USDT اُس ERC20 ایڈریس میں نہیں پہنچے گا، چاہے دونوں کا نام "USDT" ہی ہو۔ <strong>نیٹ ورک وہ راستہ ہے، کوائن صرف سامان ہے۔</strong></p>
+</blockquote>
+<h3>ایک گہری مثال:</h3>
+<pre><code>آپ کا دوست کہتا ہے: "مجھے USDT بھیج دو"
+آپ پوچھیں: "کس نیٹ ورک پر؟"
+دوست: "کیا فرق پڑتا ہے، USDT تو USDT ہے!"
+آپ TRC20 بھیجیں — مگر اُس کا والٹ صرف ERC20 سپورٹ کرتا ہے
+نتیجہ: فنڈ گیا، واپسی ناممکن ❌
+
+سبق: ہمیشہ پوچھیں "کس نیٹ ورک پر؟"</code></pre>
+<hr class="divider">
+
+<h2>📖 24.4 Native، Pegged اور Wrapped ٹوکن</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>مطلب</th><th>مثال</th></tr></thead>
+<tbody>
+<tr><td><strong>Native</strong></td><td>جس نیٹ ورک کا اپنا "اصلی" کوائن</td><td>BTC (Bitcoin)، BNB (BNB Chain)</td></tr>
+<tr><td><strong>Pegged / Issued</strong></td><td>ایک ٹیم نے دوسرے نیٹ ورک پر جاری کیا، قدر جُڑی ہوئی</td><td>USDT، USDC</td></tr>
+<tr><td><strong>Wrapped</strong></td><td>ایک کوائن کی دوسرے نیٹ ورک پر لپٹی ہوئی شکل</td><td>WBTC، WETH</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 اسی لیے آپ کو بائننس پر "USDT" کے ساتھ نیٹ ورک کا انتخاب دکھتا ہے — وہ ایک ہی قیمت والا، مگر مختلف نیٹ ورکس پر موجود ٹوکن ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.5 ایڈریس کا prefix — نیٹ ورک پہچانیں</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>ایڈریس کیسے شروع ہوتا ہے</th><th>ممکنہ نیٹ ورک</th></tr></thead>
+<tbody>
+<tr><td><code>bc1...</code> یا <code>1...</code> یا <code>3...</code></td><td>Bitcoin</td></tr>
+<tr><td><code>0x...</code></td><td>Ethereum / BNB Chain / Polygon وغیرہ</td></tr>
+<tr><td><code>T...</code></td><td>Tron (TRC20)</td></tr>
+<tr><td><code>r...</code></td><td>Ripple (XRP)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <code>0x</code> والے ایڈریس <strong>کئی نیٹ ورکس</strong> میں مشترک ہو سکتے ہیں (ERC20, BEP20, Polygon...)۔ اس لیے صرف <code>0x</code> دیکھ کر مطمئن نہ ہوں — <strong>نیٹ ورک کا نام</strong> بھی الگ سے میچ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.6 فیس اور تصدیق (Confirmations)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>تصور</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Network Fee</strong></td><td>نیٹ ورک کا چارج، بھیڑ بڑھنے پر مہنگا</td></tr>
+<tr><td><strong>Confirmation</strong></td><td>نیٹ ورک کی طرف سے ٹرانزیکشن کی منظوری</td></tr>
+<tr><td><strong>Required Confirmations</strong></td><td>کچھ ایکسچینج فنڈ تب تک نہیں دیتے جب تک مخصوص تصدیقاں نہ ہوں</td></tr>
+<tr><td><strong>Congestion</strong></td><td>زیادہ بھیڑ = زیادہ فیس اور تاخیر</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 ERC20 کی فیس عموماً BEP20/TRC20 سے کئی گنا زیادہ ہوتی ہے۔ چھوٹی رقم کے لیے سستا نیٹ ورک چنیں — مگر <strong>صرف تب، جب وصول کرنے والا بھی وہی نیٹ ورک سپورٹ کرتا ہو</strong>۔</p>
+</blockquote>
+<h3>عملی مثال — فیس کا فرق:</h3>
+<pre><code>USDT 100 وائیدراول:
+  TRC20  ≈ $1    ✅ سستا
+  BEP20  ≈ $1    ✅ سستا
+  ERC20  ≈ $5-15 (بھیڑ پر منحصر)  ❌ مہنگا
+
+نتیجہ: چھوٹی رقم کے لیے TRC20/BEP20بہترین</code></pre>
+<hr class="divider">
+
+<h2>📖 24.7 صحیح نیٹ ورک چننے کا اصول</h2>
+<pre><code>1. وصول کرنے والے کا نیٹ ورک معلوم کریں (اُس کے والٹ سے)
+2. بائننس پر وہی نیٹ ورک منتخب کریں
+3. ایڈریس کا prefix ملائیں
+4. Memo/Tag درکار ہے؟ (XRP, XLM, ATOM, BNB-BEP2)
+5. چھوٹی رقم سے ٹیسٹ کریں</code></pre>
+<blockquote>
+<p>✅ <strong>"راستہ پہلے دیکھو، سامان بعد میں بھیجو"</strong> — نیٹ ورک ہمیشہ پہلے طے کریں، ایڈریس بعد میں پیسٹ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ "USDT تو USDT ہے" سمجھنا — نیٹ ورک نظر انداز کرنا</li>
+<li>❌ TRC20 (T...) ایڈریس اور ERC20 (0x...) کو یکساں سمجھنا</li>
+<li>❌ <code>0x</code> دیکھ کر نیٹ ورک کی تصدیق نہ کرنا</li>
+<li>❌ صرف سب سے سستا نیٹ ورک چننا، وصول کنندہ کی سپورٹ نہ دیکھنا</li>
+<li>❌ Memo/Tag نظر انداز کرنا (XRP, XLM, ATOM)</li>
+<li>❌ ERC20 کی زیادہ فیس سے بے خبر رہنا</li>
+<li>❌ پرانیں فیسیں یاد رکھنا — فیس روز بدلتی ہے</li>
+<li>❌ نیٹ ورک "کنورٹ/بریج" کی تمیز نہ جاننا</li>
+<li>❌ ٹیسٹ وائیدراول نہ کرنا</li>
+<li>❌ ایک نیٹ ورک کے ایڈریس پر دوسرے نیٹ ورک کا کوائن بھیجنا — مستقل نقصان</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>بلاک چین</strong> = غیر مرکزی، عوامی ڈیجیٹل رجسٹر</li>
+<li><strong>نیٹ ورک</strong> = وہ بلاک چین جس پر کوائن چلتا ہے</li>
+<li><strong>USDT</strong> کئی نیٹ ورکس پر ہے (TRC20, ERC20, BEP20) — سب الگ جیبیں</li>
+<li>ایڈریس کا <strong>prefix</strong> نیٹ ورک کی نشاندہی کرتا ہے</li>
+<li>فیس اور تصدیق نیٹ ورک کے مطابق مختلف</li>
+<li><strong>نہ سستا، نہ مہنگا — صحیح نیٹ ورک</strong> چنیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li><strong>پانچ نیٹ ورکس</strong> کی فہرست بنائیں: نام، ٹوکن مخفف، فیس، رفتار۔</li>
+<li>ایک <strong>USDT</strong> کے لیے TRC20، ERC20 اور BEP20 کا مقابلہ کریں — کون سا کب بہتر؟</li>
+<li>تین فرضی ایڈریس لکھیں اور prefix سے نیٹ ورک پہچانیں۔</li>
+<li>ایک <strong>جدول</strong> بنائیں: آپ کے استعمال کے لیے کون سا نیٹ ورک بہتر ہے اور کیوں۔</li>
+<li><strong>5 سوالات</strong> لکھیں: "میں نیٹ ورک کے بارے میں ______ نہیں جانتا"</li>
+<li>اپنے بائننس وائیدراول صفحے پر جا کر <strong>ایک کوائن کی اصل فیس</strong> دیکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>نیٹ ورک وہ راستہ ہے، کوائن صرف سامان ہے۔</strong> سامان کبھی بھی غلط راستے پر پہنچ کر اصل جگہ نہیں پہنچتا۔ غلط نیٹ ورک میں بھیجنا کوئی "گناہ" نہیں، خالص <strong>نقصان</strong> ہے — اور بلاک چین میں واپسی کا بٹن نہیں ہوتا۔</p>
+<p>ہمیشہ یاد رکھیں: <strong>"نیٹ ورک پہلے طے کرو، ایڈریس ملا کر دیکھو، پہلے چھوٹا بھیجو، پھر بڑا"</strong>۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-23.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-5.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

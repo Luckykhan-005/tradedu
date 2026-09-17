@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 13: آرڈر کی اقسام — Market, Limit, Stop-Limit, Stop-Market اور OCO — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-12.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-14.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 13: آرڈر کی اقسام — Market, Limit, Stop-Limit, Stop-Market اور OCO</h1>
+<blockquote class="chapter-summary">
+<p>بائننس پر خرید و فروخت کا ہر فیصلہ آخر میں ایک <strong>آرڈر</strong> کی صورت اختیار کرتا ہے۔ کون سا آرڈر منتخب کریں — یہ آپ کی حکمتِ عملی، وقت اور رسک برداشت کرنے کی صلاحیت پر منحصر ہے۔ یہ باب آپ کو پانچ بنیادی آرڈر اقسام کو عملی مثالوں کے ساتھ سمجھائے گا — اور یہ کہ <strong>کامیاب ٹریڈر وہ ہے جو داخل ہونے سے پہلے خارجی منصوبہ جانتا ہے۔</strong></p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>آرڈر کیا ہوتا ہے اور اس کی مختلف حیثیتیں (statuses)</li>
+<li><strong>Market، Limit، Stop-Limit، Stop-Market اور OCO</strong> کا مکمل اور درست مفہوم</li>
+<li>ہر آرڈر کے فائدے، نقصانات اور <strong>Slippage</strong> کا حقیقی تصور</li>
+<li><strong>Maker اور Taker</strong> فیس میں فرق (اور کب کیا لگتا ہے)</li>
+<li><strong>OCO</strong> کا اصل میکانزم — اور یہ کہ <strong>صرف Spot</strong> میں ہوتا ہے</li>
+<li>TP اور SL کا بائننس پر صحیح طریقے سے استعمال</li>
+<li>ہر صورتحال میں کون سا آرڈر استعمال کریں — مکمل فیصلہ جدول</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 13.1 آرڈر کیا ہے؟</h2>
+<blockquote>
+<p><strong>آرڈر</strong> = بائننس کو دیا گیا آپ کا باقاعدہ حکم: "یہ مقدار، اس قیمت پر، اس طریقے سے خریدو یا بیچو۔"</p>
+</blockquote>
+<p>جب آپ ٹریڈنگ پیج پر Order Entry پینل سے کوئی بھی خانہ پُر کر کے "Buy" یا "Sell" دباتے ہیں، تو وہ دراصل ایک آرڈر ہے جو بائننس کے <strong>میچنگ انجن (Matching Engine)</strong> کو بھیجا جاتا ہے۔ یہ انجن خریدار اور فروخت کنندہ کو ملاتا ہے۔</p>
+<h3>آرڈر کی اقسام کا نقشہ</h3>
+<pre><code>آرڈر اقسام (Order Types)
+├── Market Order .......... فوری، موجودہ بہترین قیمت پر
+├── Limit Order ........... صرف آپ کی مقرر کردہ قیمت پر
+├── Stop-Limit Order ...... ایک Trigger قیمت + ایک Limit قیمت
+├── Stop-Market Order ..... ایک Trigger قیمت → پھر فوری Market
+└── OCO ................... دو آرڈر جوڑے میں؛ ایک بھرا تو دوسرا منسوخ</code></pre>
+<h3>آرڈر کی حیثیتیں (Order Statuses)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>حیثیت</th><th>انگریزی نام</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>کھلا</strong></td><td>Open</td><td>آرڈر مارکیٹ میں موجود، بھرنے کا منتظر</td></tr>
+<tr><td><strong>بھرا گیا</strong></td><td>Filled</td><td>آرڈر مکمل طور پر بھر گیا</td></tr>
+<tr><td><strong>جزوی طور پر بھرا</strong></td><td>Partially Filled</td><td>کچھ مقدار بھری، باقی منتظر</td></tr>
+<tr><td><strong>منسوخ</strong></td><td>Canceled</td><td>آرڈر واپس لے لیا گیا</td></tr>
+<tr><td><strong>مسترد</strong></td><td>Rejected</td><td>بائننس نے قبول نہ کیا (بیلنس یا قواعد)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>اہم:</strong> بائننس کے جدید انٹرفیس میں "آرڈر" اور "پوزیشن" الگ چیزیں ہیں۔ Spot مارکیٹ میں آپ آرڈرز دیکھتے ہیں، جبکہ Futures میں "Open Positions" بھی دیکھتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 13.2 Market Order — فوری خرید و فروخت</h2>
+<h3>Market Order کیا ہے؟</h3>
+<blockquote>
+<p><strong>Market Order</strong> = سب سے تیز آرڈر۔ آپ حکم دیتے ہیں اور بائننس <strong>اُس وقت دستیاب بہترین قیمت</strong> پر فوری بھر دیتا ہے۔</p>
+</blockquote>
+<p>یہاں "بہترین دستیاب قیمت" کا مطلب ہے Order Book کی موجودہ بہترین قیمت — نہ کہ وہ قیمت جو اسکرین پر لکھی ہوئی دکھتی ہے۔</p>
+<figure>
+  <img src="assets/img/trade-market.jpg" alt="Binance Spot Market Order Interface">
+  <figcaption>تصویر 13.1: بائننس Spot ٹریڈنگ انٹرفیس میں Market Order منتخب شدہ — Order Type کے ڈراپ ڈاؤن میں Market، Limit، Stop-Limit کے آپشنز دیکھیں۔ (Binance Spot trading with Market order selected — order type dropdown showing Market, Limit, Stop-Limit.)</figcaption>
+</figure>
+<h3>عملی مثال</h3>
+<pre><code>صورتحال: آپ BTC فوری خریدنا چاہتے ہیں
+────────────────────────────────
+Order Type : Market
+Amount     : 0.01 BTC
+Current    : ~$96,000
+Total      : ~$960.00
+
+→ بائننس فوراً Order Book کے بہترین Sell آرڈرز سے بھرے گا
+→ نتیجہ: "<1 سیکنڈ میں خرید مکمل"</code></pre>
+<h3>Slippage — اصل حقیقت</h3>
+<p>جب آرڈر بہت بڑا ہو، تو وہ Order Book کی کئی سطحوں (levels) کو کھاتا ہے، اور ہر اگلی سطح کی قیمت تھوڑی مختلف ہوتی ہے۔ اس فرق کو <strong>Slippage</strong> کہتے ہیں۔</p>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>Slippage کا امکان</th></tr></thead>
+<tbody>
+<tr><td>چھوٹا آرڈر، Liquid مارکیٹ (BTC/USDT)</td><td>تقریباً صفر</td></tr>
+<tr><td>بڑا آرڈر، پتلی مارکیٹ (چھوٹے کوائنز)</td><td>زیادہ ہو سکتا ہے</td></tr>
+<tr><td>اوقاتِ کار — خبر کے وقت</td><td>تیزی سے بدلتی قیمت</td></tr>
+</tbody></table></div>
+<h3>کب استعمال کریں؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>Market مناسب؟</th></tr></thead>
+<tbody>
+<tr><td>فوری داخلہ یا اخراج ضروری ہو</td><td>✅ ہاں</td></tr>
+<tr><td>Liquid مارکیٹ اور چھوٹا حجم</td><td>✅ ہاں</td></tr>
+<tr><td>درست قیمت کی ضمانت چاہیے</td><td>❌ نہیں — Limit استعمال کریں</td></tr>
+<tr><td>پتلی مارکیٹ میں بڑا آرڈر</td><td>❌ محتاط رہیں — Slippage</td></tr>
+</tbody></table></div>
+<h3>فیس</h3>
+<ul>
+<li><strong>Taker Fee</strong> لاگو ہوتی ہے، کیونکہ آپ موجودہ Order Book کو "کھاتے" ہیں۔</li>
+<li>بنیادی Spot Taker فیس عام طور پر <strong>0.10%</strong> ہے (VIP سطح سے کم ہوتی جاتی ہے)۔</li>
+<li><strong>BNB سے فیس ادا کرنے پر</strong> (Spot پر 25% رعایت) یہ عملاً کم ہو جاتی ہے۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 13.3 Limit Order — اپنی قیمت خود مقرر کریں</h2>
+<h3>Limit Order کیا ہے؟</h3>
+<blockquote>
+<p><strong>Limit Order</strong> = آپ خود قیمت طے کرتے ہیں۔ آرڈر صرف اُس قیمت پر یا اس سے بہتر قیمت پر بھرے گا، ورنہ Open رہے گا۔</p>
+</blockquote>
+<h3>مثال — Buy Limit</h3>
+<pre><code>صورتحال: BTC فی الوقت $96,000 پر ہے، آپ $92,000 پر خریدنا چاہتے ہیں
+────────────────────────────────
+Order Type : Limit
+Price      : 92,000 USDT   ← آپ کی مطلوبہ قیمت
+Amount     : 0.01 BTC
+Total      : 920 USDT
+
+→ قیمت گر کر $92,000 نہ آئے تو آرڈر Open رہے گا
+→ قیمت $92,000 پر آئی → خرید بھری گئی ✅</code></pre>
+<h3>مثال — Sell Limit</h3>
+<pre><code>صورتحال: آپ کے پاس BTC ہے، $100,000 پر بیچنا چاہتے ہیں
+────────────────────────────────
+Order Type : Limit
+Price      : 100,000 USDT
+Amount     : 0.01 BTC
+
+→ قیمت بڑھ کر $100,000 نہ ہوئے تو آرڈر Open
+→ $100,000 پر پہنچی → فروخت بھری گئی ✅</code></pre>
+<figure>
+  <img src="assets/img/trade-limit.jpg" alt="Binance Limit Order Panel">
+  <figcaption>تصویر 13.2: Spot ٹریڈنگ پیج کا Order Entry پینل — Limit آرڈر میں قیمت اور مقدار دونوں خود مقرر کیے جاتے ہیں۔ (Spot trading order entry panel — in a Limit order both price and amount are set manually.)</figcaption>
+</figure>
+<h3>Limit Order کے بارے میں عام غلط فہمی</h3>
+<blockquote>
+<p>❌ <strong>"Limit Order میں Slippage بالکل نہیں ہوتی"</strong> — یہ ہمیشہ درست نہیں۔</p>
+</blockquote>
+<p>Limit Order بھرنے کی <strong>ضمانت نہیں</strong> دیتا۔ اگر مارکیٹ وہاں تک نہیں آتی تو آرڈر بغیر بھرے رہ جائے گا۔ اور اگر قیمت آپ کی منتخب قیمت کو چھو کر تیزی سے گزر جائے، تو آپ کو خرید/فروخت تو مل جائے گی، مگر منصوبے سے محروم رہ سکتے ہیں۔ <strong>Slippage سے بچاؤ کی حقیقی ضمانت نہیں — مکمل کنٹرول ہے قیمتِ بھرنے پر، نہ کہ بھرنے کی ضمانت پر۔</strong></p>
+<h3>کب استعمال کریں؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>Limit مناسب؟</th></tr></thead>
+<tbody>
+<tr><td>مخصوص قیمت پر داخل ہونا ہے</td><td>✅ ہاں</td></tr>
+<tr><td>بڑے ٹریڈز میں Slippage سے بچنا ہے</td><td>✅ ہاں</td></tr>
+<tr><td>بہتر قیمت کا انتظار کر سکتے ہیں</td><td>✅ ہاں</td></tr>
+<tr><td>فوری اخراج ضروری ہے</td><td>❌ نہیں — Market</td></tr>
+</tbody></table></div>
+<h3>فیس</h3>
+<ul>
+<li><strong>Maker Fee</strong> عام طور پر لاگو ہوتی ہے (کیونکہ آرڈر Order Book میں شامل ہو کر Liquid رکھتا ہے)۔</li>
+<li>بنیادی Spot Maker فیس بھی عام طور پر <strong>0.10%</strong> ہے (VIP سے کم)۔</li>
+<li><strong>نوٹ:</strong> اگر آپ کا Limit آرڈر فوراً بھر جائے (کیونکہ مارکیٹ میں اُس قیمت پر پہلے سے آرڈر موجود تھا)، تو وہ <strong>Taker</strong> فیس کا مستحق ہو گا۔ یعنی <strong>Limit آرڈر ہر بار Maker نہیں ہوتا۔</strong></li>
+</ul>
+<hr class="divider">
+
+<h2>📖 13.4 Stop-Limit Order</h2>
+<h3>Stop-Limit Order کیا ہے؟</h3>
+<blockquote>
+<p><strong>Stop-Limit</strong> = دو شرائط کا ملاپ۔ پہلے ایک <strong>Stop (Trigger) قیمت</strong> مقرر ہوتی ہے؛ جب مارکیٹ وہاں پہنچے تو خودکار طور پر ایک <strong>Limit Order</strong> Order Book میں داخل ہو جاتا ہے۔</p>
+</blockquote>
+<pre><code>مکینزم:
+  Stop (Trigger) قیمت ──► مارکیٹ وہاں پہنچی ──► Limit Order متحرک ──► Limit قیمت پر بھرنے کا انتظار</code></pre>
+<h3>مثال — Stop-Loss کے لیے</h3>
+<pre><code>صورتحال: آپ کے پاس BTC ہے، $93,000 پر حفاظتی Stop چاہتے ہیں
+────────────────────────────────
+Stop Price  : 93,000 USDT   ← یہاں پہنچتے ہی متحرک ہوگا
+Limit Price : 92,800 USDT   ← اتنی قیمت پر فروخت کی کوشش
+Amount      : 0.01 BTC
+
+→ مارکیٹ $93,000 پر پہنچی → Stop متحرک
+→ ایک Sell Limit @ $92,800 Order Book میں گیا
+→ اگر $92,800 یا بہتر قیمت دستیاب → فروخت مکمل ✅</code></pre>
+<h3>اہم خطرہ</h3>
+<p>اگر مارکیٹ Stop قیمت کو چھو کر <strong>بہت تیزی سے نیچے گر جائے</strong> اور Limit قیمت سے نیچے نکل جائے، تو آپ کا Sell Limit بھی نہیں بھرے گا — آپ پھنس سکتے ہیں۔ اسی لیے Stop-Limit میں <strong>Limit قیمت اور Stop قیمت کا فرق مناسب</strong> رکھنا ضروری ہے۔</p>
+<h3>Stop اور Limit کا صحیح فاصلہ:</h3>
+<pre><code>✅ صحیح:   Stop $93,000، Limit $92,800  (فرق 0.2%)
+   → عام حرکت میں بھر جائے گا
+
+❌ غلط:   Stop $93,000، Limit $92,000  (فرق 1%+)
+   → تیز گراؤٹ میں نہیں بھرے گا — پھنس جائیں گے</code></pre>
+<h3>کب استعمال کریں؟</h3>
+<ul>
+<li><strong>Stop Loss</strong> کی جگہ (جب مارکیٹ Liquid ہو)</li>
+<li><strong>Breakout</strong> پر داخلے کے لیے</li>
+<li>جب اچانک قیمت کی چھلانگ سے بچنا مطلوب ہو</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 13.5 Stop-Market Order</h2>
+<h3>Stop-Market Order کیا ہے؟</h3>
+<blockquote>
+<p><strong>Stop-Market</strong> = جب مارکیٹ Stop (Trigger) قیمت تک پہنچے → بائننس <strong>فوری Market Order</strong> بھیج دیتا ہے (کوئی Limit نہیں)۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>صورتحال: فوری حفاظتی اخراج کی ضرورت
+────────────────────────────────
+Stop Price : 93,000 USDT
+Amount     : 0.01 BTC
+
+→ مارکیٹ $93,000 پر پہنچی
+→ فوری Market Sell بھیجا گیا ✅
+→ موجودہ بہترین قیمت پر بھر گیا (Slippage ممکن)</code></pre>
+<figure>
+  <img src="assets/img/trade-stop.jpg" alt="Binance Stop Order Setup">
+  <figcaption>تصویر 13.3: Spot ٹریڈنگ پیج پر Stop آرڈر کی ترتیب — Stop قیمت مقرر کرنے کا خانہ اور آرڈر کی تفصیل۔ (Spot trading page with Stop order setup — the stop price field and order details.)</figcaption>
+</figure>
+<h3>Stop-Limit اور Stop-Market میں فرق</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Stop-Limit</th><th>Stop-Market</th></tr></thead>
+<tbody>
+<tr><td>Trigger قیمت</td><td>✅ لازم</td><td>✅ لازم</td></tr>
+<tr><td>متحرک ہونے کے بعد</td><td>ایک Limit Order داخل</td><td>فوری Market Order</td></tr>
+<tr><td>بھرنے کی ضمانت</td><td>❌ نہیں</td><td>✅ ہمیشہ بھرے گا (مگر قیمت کم/زیادہ ہو سکتی ہے)</td></tr>
+<tr><td>قیمت کا کنٹرول</td><td>مکمل</td><td>نہیں — Slippage ممکن</td></tr>
+<tr><td>بہترین صورتحال</td><td>Liquid مارکیٹ میں Stop-Loss</td><td>فوری اخراج ضروری ہو</td></tr>
+</tbody></table></div>
+<h3>کب استعمال کریں؟</h3>
+<ul>
+<li>جب <strong>فوری اخراج</strong> سب سے اہم ہو اور قیمت کا معمولی فرق قابلِ قبول ہو</li>
+<li>تیزی سے گرتی مارکیٹ میں پوزیشن بچانے کے لیے</li>
+<li><strong>نوٹ:</strong> بائننس پر اکثر جدید FX/Futures انٹرفیس میں خاص "Stop Market" کی جگہ Stop-Limit یا خاص "Stop Loss" آرڈر دیکھا جاتا ہے؛ تصور وہی ہے۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 13.6 OCO (One-Cancels-the-Other) — ایک وقت میں دو راستے</h2>
+<h3>OCO کیا ہے؟</h3>
+<blockquote>
+<p><strong>OCO</strong> = "ایک کے بھرنے پر دوسرا منسوخ۔" آپ دو آرڈر اکٹھے سیٹ کرتے ہیں (ایک Limit اور ایک Stop-Limit)۔ جب ایک بھر جائے، دوسرا خودکار طور پر منسوخ ہو جاتا ہے۔</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>اہم حقیقت:</strong> <strong>OCO صرف Spot مارکیٹ</strong> کا آرڈر ہے — Futures میں یہ موجود نہیں (وہاں TP/SL اور Trailing Stop الگ سے استعمال ہوتے ہیں)۔</p>
+</blockquote>
+<h3>حقیقی OCO کا ڈھانچہ</h3>
+<p>بائننس پر OCO عام طور پر ایک Limit Order اور ایک Stop-Limit Order کے جوڑے پر مشتمل ہوتا ہے۔ یہ دونوں ایک ہی مقدار کو روکتے ہیں، اس لیے ایک کے بھرنے پر دوسرے کے لیے فنڈز ختم ہو جاتی ہیں اور وہ منسوخ ہو جاتا ہے۔</p>
+<pre><code>OCO کا تصور (کل 0.01 BTC فرض کریں):
+
+  ہدف/TP راستہ:  Sell Limit @ 100,000  ─┐
+                                        ├─ دونوں اکٹھے سیٹ
+  حفاظت/SL راستہ: Sell Stop-Limit @ 93,000 ─┘
+
+نتیجہ:
+  • اگر قیمت اوپر (100,000) گئی → Limit بھرا → Stop-Limit خودکار منسوخ
+  • اگر قیمت نیچے (93,000) گئی → Stop-Limit متحرک و بھرا → Limit منسوخ</code></pre>
+<h3>مثال (Buy کرنے کے بعد OCO)</h3>
+<pre><code>آپ 0.01 BTC @ 96,000 پر خرید چکے
+────────────────────────────────
+OCO شاخ 1 — منافع کے لیے:
+  Price (Limit) : 100,000  | Amount: 0.01 BTC
+
+OCO شاخ 2 — حفاظت کے لیے:
+  Stop          : 93,000   | Limit: 92,800 | Amount: 0.01 BTC</code></pre>
+<blockquote>
+<p>⚠️ <strong>اہم وضاحت:</strong> اوپر دیا "TP1 / TP2 / SL" والا ماڈل عام طور پر OCO نہیں بلکہ "Take Profit اور Stop Loss کے الگ الگ آرڈرز" ہوتے ہیں۔ <strong>حقیقی OCO دو شاخوں کا ہوتا ہے</strong> اور ایک کا بھرنا دوسرے کو منسوخ کر دیتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-oco.jpg" alt="Binance OCO Order Example">
+  <figcaption>تصویر 13.4: بائننس ٹریڈنگ پیج پر OCO آرڈر کا آپشن — Limit اور Stop دونوں قیمتیں ایک ہی فارم میں متعین کی جاتی ہیں۔ (Binance trading page with the OCO order option — both limit and stop prices set in one form.)</figcaption>
+</figure>
+<h3>OCO کے فوائد اور حدود</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>دو حکمتِ عملیاں</strong></td><td>نفع بکنگ (TP) اور حفاظت (SL) یکجا</td></tr>
+<tr><td><strong>یکساں مقدار</strong></td><td>دونوں شاخیں ایک ہی مقدار کی حامل</td></tr>
+<tr><td><strong>خودکاری</strong></td><td>ایک کا بھرنا دوسرے کی خودکار منسوخی</td></tr>
+<tr><td><strong>حد</strong></td><td><strong>صرف Spot</strong> میں؛ Futures میں Algo Orders (TP/SL، Trailing) استعمال ہوتے ہیں</td></tr>
+</tbody></table></div>
+<h3>کب استعمال کریں؟</h3>
+<ul>
+<li>جب آپ ایک ساتھ <strong>دو خارجی منصوبے</strong> (نفع اور نقصان) رکھنا چاہیں اور ایک ہی وقت میں زیرِ قبضہ مقدار روکنی ہو</li>
+<li><strong>Swing Trading</strong> اور <strong>Position Trading</strong> میں</li>
+<li>جب ہر ٹریڈ کے لیے منظم انداز میں نکلنے کا منصوبہ بنانا ہو</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Futures کا فرق:</strong> Futures ٹریڈنگ میں منفرد OCO آرڈر کی بجائے عام طور پر پوزیشن پر ساتھ ہی <strong>Take Profit</strong> اور <strong>Stop Loss</strong> منسلک کیے جاتے ہیں۔ اس کی تفصیل <strong>باب 16</strong> اور <strong>باب 17</strong> میں آئے گی۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 13.7 کون سا آرڈر کب استعمال کریں — فیصلہ جدول</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>آرڈر</th><th>فوری؟</th><th>قیمت کا کنٹرول</th><th>بھرنے کی ضمانت?</th><th>عام فیس</th><th>بہترین استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>Market</strong></td><td>✅ فوری</td><td>❌ (موجودہ بہترین)</td><td>✅ ہاں (Slippage ممکن)</td><td>Taker</td><td>فوری داخلہ/اخراج</td></tr>
+<tr><td><strong>Limit</strong></td><td>❌ منتظر</td><td>✅ مکمل</td><td>❌ نہیں</td><td>Maker*</td><td>درست قیمت پر داخلہ</td></tr>
+<tr><td><strong>Stop-Limit</strong></td><td>❌ منتظر</td><td>✅ مکمل</td><td>❌ نہیں</td><td>Maker*/Taker</td><td>Stop-Loss، Breakout</td></tr>
+<tr><td><strong>Stop-Market</strong></td><td>✅ (Trigger پر)</td><td>❌</td><td>✅ ہاں</td><td>Taker</td><td>فوری حفاظتی اخراج</td></tr>
+<tr><td><strong>OCO</strong></td><td>❌ منتظر</td><td>✅ مکمل</td><td>ایک شاخ بھرے گی</td><td>Mix</td><td>TP + SL منظم منصوبہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>\* Limit آرڈر فوراً بھر جائے تو Taker فیس۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 13.8 عملی مثال — ایک مکمل ٹریڈ کا سفر</h2>
+<p><strong>منظر:</strong> آپ BTC/USDT مارکیٹ میں داخل ہونا اور منظم انداز میں نکلنا چاہتے ہیں۔</p>
+<p><strong>مرحلہ 1 — تجزیہ:</strong> چارٹ پر Support/Resistance دیکھیں۔ فرض کریں Support $93,500 اور Resistance $100,000 ہے۔</p>
+<p><strong>مرحلہ 2 — داخلہ (Limit Buy):</strong></p>
+<pre><code>Order Type : Limit Buy
+Price      : 96,000 USDT
+Amount     : 0.01 BTC
+Total      : 960 USDT</code></pre>
+<p><strong>مرحلہ 3 — پوزیشن مکمل ہونے کے بعد خارجی منصوبہ (OCO):</strong></p>
+<pre><code>راستہ A (نفع):  Sell Limit @ 100,000
+راستہ B (حفاظت): Sell Stop-Limit @ 93,300 (Stop), Limit 93,000</code></pre>
+<p><strong>مرحلہ 4 — تجزیہ:</strong></p>
+<ul>
+<li>کیا تجزیہ درست ثابت ہوا؟</li>
+<li><strong>R:R (Risk : Reward)</strong> کتنا تھا؟ مثلاً: رسک $300، ہدف $400 → 1:1.33</li>
+<li>کیا SL مناسب تھا یا بہت قریب؟</li>
+</ul>
+<h3>R:R کا حساب — ایک فارمولا:</h3>
+<pre><code>منافع = (Sell Price − Buy Price) × Amount
+نقصان = (Buy Price − Stop Price) × Amount
+
+R:R = منافع ÷ نقصان
+
+مثال:
+  Buy  @ 96,000، Sell @ 100,000، Stop @ 93,000، Amount 0.01
+  منافع = (100,000 − 96,000) × 0.01 = $40
+  نقصان = (96,000 − 93,000) × 0.01 = $30
+  R:R = 40 ÷ 30 = 1.33</code></pre>
+<blockquote>
+<p>💡 <strong>پروفیشنل اصول:</strong> R:R <strong>کم از کم 1:2</strong> رکھیں — یعنی ہر $1 کے نقصان کے خطرے پر $2 کا منافع ہو۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>ہر جگہ Market Order</strong> — بڑے آرڈرز میں Slippage کا شکار</li>
+<li>❌ <strong>Limit Order سیٹ کر کے بھول جانا</strong> — بازار بدل جاتی ہے، منصوبہ بھی بدلنا چاہیے</li>
+<li>❌ <strong>بغیر SL ٹریڈ کرنا</strong> — خاص طور پر Futures میں یہ تباہ کن ہے</li>
+<li>❌ <strong>Stop-Limit اور Stop-Market کو ایک سمجھنا</strong> — دونوں مختلف رویہ رکھتے ہیں</li>
+<li>❌ <strong>SL بار بار ہٹانا</strong> — "اب تو اوپر جائے گا" — یہ جذباتی سوچ ہے</li>
+<li>❌ <strong>OCO کو دو الگ آرڈرز سمجھنا</strong> — OCO ایک جوڑا ہے؛ ایک بھرا تو دوسرا منسوخ (الگ آرڈرز میں دونوں بھر سکتے ہیں)</li>
+<li>❌ <strong>Stop قیمت ضرورت سے بہت قریب رکھنا</strong> — معمولی Noise میں پوزیشن بند ہو جاتی ہے</li>
+<li>❌ <strong>نقصان پر غصے میں Market Order</strong> — پہلے منصوبہ، پھر عمل</li>
+<li>❌ <strong>OCO Futures پر تلاش کرنا</strong> — OCO <strong>صرف Spot</strong> میں ہے</li>
+<li>❌ <strong>Limit کو ہمیشہ Maker سمجھنا</strong> — فوراً بھرے تو Taker فیس</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>آرڈر</th><th>بنیادی مقصد</th></tr></thead>
+<tbody>
+<tr><td><strong>Market</strong></td><td>فوری لین دین، دستیاب بہترین قیمت</td></tr>
+<tr><td><strong>Limit</strong></td><td>صرف اپنی مقرر کردہ قیمت پر لین دین</td></tr>
+<tr><td><strong>Stop-Limit</strong></td><td>Trigger پر متحرک ہو کر Limit قیمت پر</td></tr>
+<tr><td><strong>Stop-Market</strong></td><td>Trigger پر فوری Market اخراج</td></tr>
+<tr><td><strong>OCO</strong></td><td>Limit + Stop-Limit کا جوڑا، ایک کا بھرنا دوسرے کی منسوخی (<strong>صرف Spot</strong>)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>یاد رکھیں:</strong> Market = "ابھی"، Limit = "اس قیمت پر"، Stop = "یہاں پہنچے تو"، OCO = "اگر یہ تو یہ، ورنہ وہ"۔</p>
+</blockquote>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس <strong>Spot ٹریڈنگ</strong> پیج کھولیں اور <strong>Order Entry</strong> پینل کا جائزہ لیں۔</li>
+<li>ہر آرڈر قسم کے خانے کھولیں (نہ لگائیں) — دیکھیں کون سے خانے ظاہر ہوتے ہیں (قیمت، Stop قیمت وغیرہ)۔</li>
+<li>ایک مثال لکھیں: BTC @ $X اگر 5% گرے تو آپ کون سا آرڈر استعمال کریں گے اور کیوں؟</li>
+<li><strong>Demo Trading</strong> پر جائیں اور ایک Market Buy، ایک Limit Buy لگائیں — دونوں کا رویہ نوٹ کریں۔</li>
+<li>Demo پر ایک <strong>OCO</strong> آرڈر ترتیب دیں اور دیکھیں کہ دونوں شاخیں کیسے جڑی ہوئی ہیں۔</li>
+<li>ایک چھوٹا جدول بنائیں: رسک ($)، ہدف ($)، R:R — اور اپنے فیصلے کا جائزہ لیں۔</li>
+<li><strong>Futures</strong> صفحہ پر جا کر تصدیق کریں کہ وہاں <strong>OCO موجود نہیں</strong> — اس کی جگہ TP/SL ہے۔</li>
+<li>لائیو پیسہ لگانے سے پہلے <strong>کم از کم تین بار</strong> Demo پر ہر آرڈر آزما لیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>آرڈر اقسام بائننس سے بات چیت کی زبان ہیں۔ <strong>Market "ابھی"</strong> کہتا ہے، <strong>Limit "میں اپنی شرط پر"</strong> کہتا ہے، <strong>Stop "یہاں پہنچے تو مجھ جگانا"</strong> کہتا ہے، اور <strong>OCO "دو راستوں میں سے پہلے آنے والا چلے گا"</strong> کہتا ہے۔</p>
+<p>کامیاب ٹریڈر وہ نہیں جو بہتر قیمت پکڑتا ہے، بلکہ وہ ہے جو <strong>داخل ہونے سے پہلے خارجی منصوبہ</strong> جانتا ہے۔ اسی لیے Stop اور Take-Profit کا سوچے بغیر کوئی ٹریڈ نہ لگائیں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-12.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-14.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

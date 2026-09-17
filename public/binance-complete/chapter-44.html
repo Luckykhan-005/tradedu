@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 44: موبائل سیکیورٹی — فون کو اکاؤنٹ کا بھروسہ مند گارڈ بنائیں — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-43.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-45.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 44: موبائل سیکیورٹی — فون کو اکاؤنٹ کا بھروسہ مند گارڈ بنائیں</h1>
+<blockquote class="chapter-summary">
+<p>آپ کا موبائل فون بائننس میں داخلے کا مرکزی دروازہ ہے — 2FA کوڈ، لاگ اِن، ای میل اور بینکنگ سب اسی پر ہیں۔ لہٰذا <strong>فون کی حفاظت = اکاؤنٹ کی حفاظت</strong>۔ یہ باب موبائل کے مخصوص خطرات اور ان سے بچنے کے عملی اصول بتاتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/account-security.jpg" alt="Binance Account Security">
+  <figcaption>تصویر 44.1: بائننس Account Security کا صفحہ — 2FA (Authenticator)، Passkey، Anti-Phishing Code، Device Management اور Withdrawal Whitelist کے آپشنز؛ کچھ آپشنز آن ہونے پر "Enabled" کے نشان کے ساتھ سبز ہو جاتے ہیں۔ (Binance Account Security page — options for 2FA (Authenticator), Passkey, Anti-Phishing Code, Device Management and Withdrawal Whitelist; enabled options turn green with "Enabled" badge.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>موبائل پر 2FA (Authenticator) درست طریقے سے سیٹ کرنا</li>
+<li><strong>دوسرا 2FA طریقہ</strong> (SMS/Email/Passkey) کیوں رکھنا چاہیے</li>
+<li><strong>App Lock</strong> اور بائیو میٹرک لاگ اِن</li>
+<li>فون کے مخصوص خطرات: <strong>SIM Swap، اسکرین کی نظر، Public Wi-Fi</strong></li>
+<li><strong>Device Management</strong> سے ناواقف ڈیوائس نکالنا</li>
+<li>موبائل سیکیورٹی کا مکمل چیک لسٹ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 44.1 موبائل پر 2FA سیٹ کرنا</h2>
+<pre><code>App → Profile → Security → Two-Factor Authentication
+    → Authenticator App منتخب کریں
+    → QR کوڈ اسکرین پر آئے گا
+    → Google Authenticator میں + دبا کر QR اسکین کریں
+    → ایپ کے دکھائے 6 ہندسوں کا کوڈ درج کریں
+    → Backup/Recovery Codes محفوظ جگہ پر لکھ لیں
+    → SMS/Email کی تصدیق مکمل کریں</code></pre>
+<h3>2FA کے اصول</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>عنصر</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>Authenticator App</strong></td><td>Google Authenticator, Authy — آن لائن نہیں، آف لائن کوڈ دیتا ہے</td></tr>
+<tr><td><strong>2FA میں 2 راستے</strong></td><td>ایک ڈیوائس خراب ہو تو دوسرے سے داخلہ ممکن ہو</td></tr>
+<tr><td><strong>Recovery Codes</strong></td><td>پرنٹ کر کے یا پاس ورڈ مینیجر میں محفوظ رکھیں</td></tr>
+<tr><td><strong>کبھی شیئر نہیں</strong></td><td>کوئی بھی (سپورٹ بھی نہیں) 2FA کوڈ نہیں مانگتا</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>بیان کرنا:</strong> بائننس کسٹوڈیل ایکسچینج ہے — اس کے پاس آپ کی "seed phrase" نہیں ہوتی۔ آپ کی اصل بیک اپ <strong>Recovery/Backup Codes + 2FA رسائی</strong> ہے۔ انہیں کہیں لکھ لیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 44.2 App Lock اور بائیو میٹرک</h2>
+<pre><code>Settings → Security → App Lock → Enable
+    → 6 ہندسوں کا PIN سیٹ کریں
+    → Face ID / Fingerprint فعال کریں</code></pre>
+<ul>
+<li><strong>App Lock:</strong> ایپ کھلنے پر ہر بار PIN/بائیو میٹرک مانگے۔</li>
+<li><strong>بائیو میٹرک:</strong> تیز اور پاس ورڈ سے زیادہ مشکل (Guess نہیں ہو سکتا)۔</li>
+<li><strong>Auto-Lock:</strong> ایپ بیک گراؤنڈ میں جائے تو فوراً لاک ہو۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 44.3 فون کے مخصوص خطرات اور حل</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>خطرہ</th><th>وضاحت</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td><strong>SIM Swap</strong></td><td>ہیکر آپ کے نمبر کی نئی SIM لے کر SMS OTP چرا لیتا ہے</td><td>Authenticator لازمی استعمال کریں، SMS پر انحصار نہ کریں</td></tr>
+<tr><td><strong>اسکرین پر نظر</strong></td><td>عوامی جگہ پر کوڈ/بیلنس کوئی دیکھ لے</td><td>Privacy Screen، App Lock، عوامی جگہ پر لاگ اِن نہ کریں</td></tr>
+<tr><td><strong>Public Wi-Fi</strong></td><td>Man-in-the-Middle/DNS ہائی جیک</td><td>موبائل ڈیٹا یا trusted VPN استعمال کریں</td></tr>
+<tr><td><strong>Malicious App</strong></td><td>Accessibility/Screen-recording اجازت سے کوڈ چوری</td><td>صرف ضروری ایپس؛ اجازتیں جانچیں</td></tr>
+<tr><td><strong>گمشدہ فون</strong></td><td>کھلا اکاؤنٹ مل جائے</td><td>Remote Lock/Wipe؛ Device Management سے لاگ آؤٹ</td></tr>
+<tr><td><strong>Fake App/Support</strong></td><td>جعلی ایپ یا "ہیلپ ڈیسک"</td><td>صرف آفیشل ایپ؛ کوئی کبھی کوڈ نہ مانگے</td></tr>
+</tbody></table></div>
+<h3>Device Management</h3>
+<pre><code>Profile → Security → Devices → Manage Devices
+    → ناواقف ڈیوائس دیکھیں → Log Out / Remove</code></pre>
+<p>اگر کسی ناواقف ڈیوائس کا اندراج ہو تو فوراً نکالیں اور پاس ورڈ + 2FA بدلیں۔</p>
+<hr class="divider">
+
+<h2>📖 44.4 موبائل سیکیورٹی چیک لسٹ</h2>
+<pre><code>✅ Authenticator 2FA فعال
+✅ دوسرا 2FA/Passkey بھی سیٹ
+✅ Recovery Codes محفوظ
+✅ App Lock + بائیو میٹرک
+✅ Notifications (Security Alerts) آن
+✅ Anti-Phishing Code سیٹ
+✅ Address Whitelist آن
+✅ Root/Jailbreak نہیں
+✅ OS اور ایپ اپڈیٹڈ
+✅ کسی کو کوڈ/OTP نہیں بتاتے</code></pre>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>SMS OTP کو واحد 2FA</strong> بنانا — SIM Swap سے کمزور۔</li>
+<li>❌ <strong>App Lock بند</strong> رکھنا — گمشدہ فون = کھلا اکاؤنٹ۔</li>
+<li>❌ <strong>Recovery Codes کہیں نہ لکھنا</strong> — فون خراب ہو تو رسائی مشکل۔</li>
+<li>❌ <strong>Public Wi-Fi</strong> پر لاگ اِن۔</li>
+<li>❌ <strong>"Telegram/WhatsApp support"</strong> کو 2FA/OTP دینا — کوئی آفیشل سپورٹ یہ نہیں مانگتا۔</li>
+<li>❌ <strong>اجازتوں کی جانچ نہ کرنا</strong> — Screen recording/Accessibility اجازت والی ایپ خطرہ ہے۔</li>
+<li>❌ <strong>ناواقف ڈیوائس نہ دیکھنا</strong> — Device Management ماہانہ چیک کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>موبائل پر <strong>Authenticator 2FA</strong> لازمی؛ SMS پر صرف انحصار نہ کریں۔</li>
+<li><strong>App Lock + بائیو میٹرک</strong> اور <strong>Recovery Codes</strong> لازمی۔</li>
+<li>SIM Swap، Public Wi-Fi اور Malicious Apps سے بچیں۔</li>
+<li><strong>Device Management</strong> سے ناواقف ڈیوائس نکالیں۔</li>
+<li>Security Alerts کی Notifications کبھی بند نہ کریں۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>موبائل پر 2FA (Authenticator) سیٹ کریں اور ایک دوسرا طریقہ بھی شامل کریں۔</li>
+<li>Recovery Codes محفوظ کریں (پرنٹ/پاس ورڈ مینیجر)۔</li>
+<li><strong>App Lock + بائیو میٹرک</strong> فعال کریں۔</li>
+<li>Device Management کھولیں اور تمام لاگ اِن ڈیوائسز کی تصدیق کریں۔</li>
+<li>اپنی زبان میں لکھیں: SIM Swap سے بچنے کے 3 طریقے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"فون محفوظ = اکاؤنٹ محفوظ؛ فون کھلا = اکاؤنٹ کھلا۔"</strong></p>
+<p>تین اصول: <strong>(1) Authenticator، SMS نہیں</strong>، <strong>(2) App Lock + Recovery Codes</strong>، <strong>(3) کوئی کبھی کوڈ نہیں مانگتا۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-43.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-45.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

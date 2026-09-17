@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 14: مارجن ٹریڈنگ (Margin Trading) — قرض پر ٹریڈنگ — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-13.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-15.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 14: مارجن ٹریڈنگ (Margin Trading) — قرض پر ٹریڈنگ</h1>
+<blockquote class="chapter-summary">
+<p><strong>Margin Trading</strong> = بائننس سے <strong>قرض (Loan)</strong> لے کر اپنی ٹریڈنگ ہولڈنگ سے بڑی پوزیشن بنانا۔ یہ Spot سے آگے کا قدم ہے، مگر اس میں <strong>Liquidation (جبری بندش)</strong> کا حقیقی خطرہ موجود ہے۔ یہ باب آپ کو Cross اور Isolated Margin، سود (Interest)، اور Liquidation کی مکمل حقیقت سمجھائے گا۔</p>
+<p>⚠️ <strong>یہ اعلیٰ خطرے والا فیچر ہے — صرف تجربہ کار صارفین کے لیے۔ پہلے Spot مکمل سیکھیں۔</strong></p>
+</blockquote>
+<figure>
+  <img src="assets/img/Margin-Trading.jpg" alt="Binance Margin Trading Interface">
+  <figcaption>تصویر 14.1: بائننس مارجن ٹریڈنگ انٹرفیس — Cross/Isolated کا انتخاب، قرض کی تفصیل اور Order Entry پینل۔ (Binance Margin Trading interface — Cross/Isolated selection, loan details and order entry panel.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Margin Trading کیا ہے اور Spot سے کیسے مختلف ہے</li>
+<li>Cross Margin اور Isolated Margin کا فرق — مکمل مثالوں کے ساتھ</li>
+<li>قرض (Borrow) لینے اور واپس (Repay) کرنے کا طریقہ</li>
+<li>سود (Interest) اور قرض کی فیس کا حساب</li>
+<li>Liquidation (جبری بندش) کب اور کیوں ہوتی ہے</li>
+<li>Margin اور Futures میں بنیادی فرق</li>
+<li>پہلا Margin ٹریڈ — قدم بہ قدم (Demo پر)</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 14.1 Margin Trading کیا ہے؟</h2>
+<blockquote>
+<p><strong>Margin Trading</strong> = آپ اپنے اکاؤنٹ کی ضمانت (Collateral) پر بائننس سے رقم یا کوائن <strong>قرض</strong> لیتے ہیں، اور اُس سے بڑی ٹریڈ کرتے ہیں۔ بعد میں قرض <strong>سود کے ساتھ</strong> واپس کرنا ہوتا ہے۔</p>
+</blockquote>
+<h3>سادہ مثال</h3>
+<pre><code>آپ کا سرمایہ (Collateral) : 1,000 USDT
+قرض (Borrow)             : 4,000 USDT
+کل ٹریڈنگ پاور           : 5,000 USDT   (4x leverage)</code></pre>
+<h3>Margin کے دو صحیح استعمال</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>سمت</th><th>عمل</th><th>توقع</th></tr></thead>
+<tbody>
+<tr><td><strong>Margin Long</strong></td><td>USDT قرض لے کر BTC خریدیں</td><td>قیمت بڑھے گی</td></tr>
+<tr><td><strong>Margin Short</strong></td><td>BTC قرض لے کر فوراً بیچیں</td><td>قیمت گرے گی، سستی پر واپس خرید کر قرض چکائیں</td></tr>
+</tbody></table></div>
+<h3>Spot سے فرق</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Spot</th><th>Margin</th></tr></thead>
+<tbody>
+<tr><td>قرض</td><td>نہیں</td><td>✅ ہاں (سود کے ساتھ)</td></tr>
+<tr><td>سمت</td><td>صرف Buy (Long)</td><td>Buy (Long) + Sell (Short)</td></tr>
+<tr><td>خطرہ</td><td>سرمایہ محدود</td><td>Liquidation تک</td></tr>
+<tr><td>مقصد</td><td>حقیقی ملکیت</td><td>قرض پر بڑی پوزیشن</td></tr>
+<tr><td>فیس</td><td>Maker/Taker</td><td>Maker/Taker + Interest</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong> Spot پر B01 Long بھی ممکن ہے</strong> (بہت کم لیوریج، خاص جوڑے) — مگر یہ باب عام Margin Trading کے بارے میں ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 14.2 Cross Margin بمقابلہ Isolated Margin</h2>
+<h3>Cross Margin — پورا اکاؤنٹ مشترکہ ضمانت</h3>
+<pre><code>آپ کا پورا Margin اکاؤنٹ = مشترکہ Collateral
+اگر کسی ایک پوزیشن کو نقصان ہو → پورا اکاؤنٹ اُسے سہارا دیتا ہے
+مگر اگر نقصان بہت بڑا ہو → پورا اکاؤنٹ Liquidation کے قریب
+
+مثال:
+سرمایہ : 1,000 USDT
+پوزیشن : 5,000 USDT (5x)
+اگر منافع : پورا اکاؤنٹ بڑھتا ہے
+اگر نقصان : پورا اکاؤنٹ متاثر، Liquidation سب پر اثر</code></pre>
+<h3>Isolated Margin — صرف ایک پوزیشن کی ضمانت</h3>
+<pre><code>ہر پوزیشن کے لیے الگ سے سرمایہ مقرر
+نقصان بڑھے تو صرف اُس پوزیشن کا سرمایہ ختم ہوتا ہے
+باقی اکاؤنٹ بالکل محفوظ رہتا ہے
+
+مثال:
+سرمایہ : 1,000 USDT (کل)
+Isolated Margin : 100 USDT اس پوزیشن کے لیے
+پوزیشن : 500 USDT (5x)
+نقصان: 100 USDT → صرف یہ پوزیشن Liquidation
+باقی 900 USDT محفوظ رہا ✅</code></pre>
+<h3>کب کون؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>مناسب کب</th><th>خطرہ</th></tr></thead>
+<tbody>
+<tr><td><strong>Cross Margin</strong></td><td>تجربہ کار، متعدد پوزیشنوں کا انتظام</td><td>پورا اکاؤنٹ خطرے میں</td></tr>
+<tr><td><strong>Isolated Margin</strong></td><td>نئے صارف، خطرہ محدود رکھنا</td><td>صرف ایک پوزیشن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>مشورہ:</strong> شروع میں <strong>Isolated Margin</strong> استعمال کریں — نقصان ایک حد پر رکتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 14.3 پہلا Margin ٹریڈ — قدم بہ قدم</h2>
+<p><strong>قدم 1:</strong> <code>Trade ▼ → Margin</code> کھولیں اور جوڑا منتخب کریں (مثلاً BTC/USDT)</p>
+<p><strong>قدم 2:</strong> <strong>Isolated</strong> یا <strong>Cross</strong> منتخب کریں (شروع میں Isolated)</p>
+<p><strong>قدم 3:</strong> لیوریج سیٹ کریں (شروع میں <strong>2x–3x</strong>)</p>
+<p><strong>قدم 4:</strong> <code>Borrow</code> سے قرض لیں — جو سمت اختیار کرنی ہے، اُس کے مطابق:</p>
+<ul>
+<li><strong>Long</strong> کے لیے: USDT قرض لیں، پھر BTC خریدیں</li>
+<li><strong>Short</strong> کے لیے: BTC قرض لیں، پھر فوراً بیچیں</li>
+</ul>
+<p><strong>قدم 5:</strong> قرض شدہ رقم سے ٹریڈ کریں (بائننس خودکار طور پر اکاؤنٹ میں شامل کرتا ہے)</p>
+<p><strong>قدم 6:</strong> پوزیشن بند کر کے <code>Repay</code> سے قرض <strong>سود کے ساتھ</strong> واپس کریں</p>
+<blockquote>
+<p>💡 بائننس خودکار طور پر موجودہ بیلنس، قرض (Borrowed)، اور روزانہ/گھنٹہ سود (Interest Accrued) دکھاتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 14.4 سود (Interest) — قرض کی اصل لاگت</h2>
+<h3>سمجھیں — یہ فیس نہیں، <strong>سود</strong> ہے</h3>
+<blockquote>
+<p>Margin پر قرض پر <strong>Interest</strong> عائد ہوتا ہے جو عام طور پر <strong>گھنٹہ یا دن کی بنیاد</strong> پر لگتا ہے، اور مارکیٹ کے مطابق بدلتا رہتا ہے۔</p>
+</blockquote>
+<h3>تصوراتی حساب</h3>
+<pre><code>قرض          : 1,000 USDT
+روزانہ شرح   : 0.02% (فرضی؛ اصل شرح مارکیٹ کے مطابق بدلتی ہے)
+ایک دن کا سود: 1,000 × 0.02% = 0.20 USDT
+30 دن کا سود: 0.20 × 30 = 6.00 USDT</code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>شرح</strong></td><td>کوائن اور مارکیٹ کے مطابق بدلتی ہے (Tier نظام)</td></tr>
+<tr><td><strong>وقت</strong></td><td>قرض جاری رہے جتنی دیر، سود چلتا رہے</td></tr>
+<tr><td><strong>اضافی</strong></td><td>ٹریڈنگ فیس (Maker/Taker) الگ سے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ سود <strong>طویل عرصے تک</strong> قرض رکھنے پر منافع کو کھا سکتا ہے۔ منصوبہ مختصر مدت کا رکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 14.5 Liquidation (لیکویڈیشن) — سب سے بڑا خطرہ</h2>
+<h3>Liquidation کیا ہے؟</h3>
+<blockquote>
+<p>جب آپ کی ضمانت (Collateral) قدر کافی نہ رہے، تو بائننس آپ کی پوزیشن <strong>خودکار طور پر بند</strong> کر دیتا ہے (قرض وصول کرنے کے لیے)۔</p>
+</blockquote>
+<h3>لیوریج اور خطرہ</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>لیوریج</th><th>قیمت میں معمولی کمی</th><th>نتیجہ</th></tr></thead>
+<tbody>
+<tr><td>2x</td><td>تقریباً 50%</td><td>Liquidation بہت دور</td></tr>
+<tr><td>5x</td><td>تقریباً 20%</td><td>درمیانہ خطرہ</td></tr>
+<tr><td>10x</td><td>تقریباً 10%</td><td>خطرہ زیادہ</td></tr>
+</tbody></table></div>
+<pre><code>تخمینہ (Long):
+Liquidation Level ≈ Entry × (1 − 1/Leverage)
+فرضی مثال: Entry $96,000، 5x → Liquidation ≈ $96,000 × 0.8 ≈ $76,800
+(اصل قیمت Maintenance Margin، فیس اور مارکیٹ کے حساب سے بدلتی ہے)</code></pre>
+<h3>Liquidation سے بچاؤ</h3>
+<ol>
+<li><strong>Isolated Margin</strong> استعمال کریں</li>
+<li><strong>کم لیوریج</strong> (2x–3x)</li>
+<li><strong>ہر ٹریڈ پر SL</strong> لازماً</li>
+<li>Liquidation Distance کو اکاؤنٹ میں کھلا رکھیں (مزید Collateral)</li>
+<li><strong>Demo</strong> پر پہلے مشق</li>
+</ol>
+<hr class="divider">
+
+<h2>📖 14.6 Margin بمقابلہ Futures</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>فیچر</th><th>Margin</th><th>Futures</th></tr></thead>
+<tbody>
+<tr><td>قرض کی نوعیت</td><td>USDT/BTC/دیگر قرض</td><td>کنٹریکٹ پوزیشن</td></tr>
+<tr><td>مقام</td><td>Spot مارکیٹ میں ٹریڈ</td><td>Futures مارکیٹ</td></tr>
+<tr><td>کم از کم لیوریج</td><td>عموماً 3x–10x (جوڑے پر منحصر)</td><td>1x سے 125x تک</td></tr>
+<tr><td>لاگت</td><td>Interest (سود)</td><td>Funding Rate</td></tr>
+<tr><td>میعاد</td><td>کوئی نہیں (سود چلتا ہے)</td><td>Perpetual/Quarterly</td></tr>
+<tr><td>خطرہ</td><td>اعلیٰ</td><td>بہت اعلیٰ</td></tr>
+<tr><td>مالکیت</td><td>عارضی (قرض)</td><td>نہیں (کنٹریکٹ)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>سیکھنے کی صحیح ترتیب:</strong> Spot → Margin → Futures۔ ہر قدم پچھلے کی سمجھ پر کھڑا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 14.7 عملی مشق — Demo پر پہلا Margin ٹریڈ</h2>
+<p><strong>مرحلہ 1:</strong> Margin سیکشن کھولیں اور BTC/USDT منتخب کریں</p>
+<p><strong>مرحلہ 2:</strong> <strong>Isolated Margin</strong> منتخب کریں</p>
+<p><strong>مرحلہ 3:</strong> لیوریج <strong>2x</strong> رکھیں</p>
+<p><strong>مرحلہ 4:</strong> تھوڑا USDT قرض لیں، پھر تھوڑی سی BTC خریدیں (Long)</p>
+<p><strong>مرحلہ 5:</strong> فوراً SL لگائیں (محفوظ فاصلے پر)</p>
+<p><strong>مرحلہ 6:</strong> قرض <code>Repay</code> کریں اور سود + نتیجہ نوٹ کریں</p>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Spot سے پہلے Margin</strong> — بنیاد کمزور رہ جاتی ہے</li>
+<li>❌ <strong>اعلیٰ لیوریج</strong> — 2x سے شروع کریں</li>
+<li>❌ <strong>Cross Margin بغیر تجربہ</strong> — پورا اکاؤنٹ خطرے میں</li>
+<li>❌ <strong>قرض وقت پر واپس نہ کرنا</strong> — سود بڑھتا رہتا ہے</li>
+<li>❌ <strong>SL نہ لگانا</strong> — Margin میں SL زندگی بچاتا ہے</li>
+<li>❌ <strong>Liquidation Distance نظرانداز</strong> — Margin Ratio کو مانیٹر کریں</li>
+<li>❌ <strong>Margin = Futures سمجھنا</strong> — مکینزم اور خطرہ الگ</li>
+<li>❌ <strong>پورا اکاؤنٹ ایک ٹریڈ پر</strong> — ہر ٹریڈ پر محدود سرمایہ</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Margin</strong> = قرض لے کر Spot مارکیٹ میں بڑی ٹریڈ</li>
+<li><strong>Isolated</strong> = محفوظ تر (خطرہ ایک پوزیشن تک)</li>
+<li><strong>Cross</strong> = پورا اکاؤنٹ مشترکہ ضمانت (زیادہ خطرہ)</li>
+<li><strong>Interest</strong> = قرض کی اصل لاگت (وقت کے ساتھ بڑھتی)</li>
+<li><strong>Liquidation</strong> = جب ضمانت ناکافی ہو → خودکار بندش</li>
+<li><strong>ترتیب</strong> = Spot → Margin → Futures</li>
+<li><strong>اصول</strong> = کم لیوریج + Isolated + SL + Demo</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Margin ٹریڈنگ پیج کھول کر Cross/Isolated سوئچ نوٹ کریں۔</li>
+<li>ایک خاکہ بنائیں: Cross میں پورا اکاؤنٹ کیسے خطرے میں آتا ہے۔</li>
+<li>1,000 USDT قرض، 0.02% روزانہ شرح کے حساب سے 30 دن کا سود نکالیں۔</li>
+<li>5x لیوریج پر تخمینی Liquidation Level تقریباً معلوم کریں۔</li>
+<li>Margin اور Futures کا ایک موازنہ جدول لکھیں۔</li>
+<li>تین وجوہات لکھیں: "ابھی میں Margin کیوں نہیں استعمال کروں گا۔"</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>Margin ایک طاقتور اوزار ہے — جیسے تیز چاقو: صحیح ہاتھ میں بہترین، غلط استعمال میں زخم۔ قرض لینا آسان ہے، مگر سود اور Liquidation کی حقیقت سخت ہے۔</p>
+<p><strong>کم لیوریج، Isolated Margin، ہر ٹریڈ پر SL، اور Demo پر مشق — یہ چار اصول آپ کو Margin کی تباہی سے بچائیں گے۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-13.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-15.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

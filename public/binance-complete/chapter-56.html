@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 56: API Management — خودکار ٹریڈنگ کا دروازہ — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-55.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-57.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 56: API Management — خودکار ٹریڈنگ کا دروازہ</h1>
+<blockquote class="chapter-summary">
+<p><strong>API (Application Programming Interface)</strong> ایک پروگراماتی دروازہ ہے جس کے ذریعے آپ کا کوڈ (یا تھرڈ پارٹی ٹول) براہِ راست بائننس سے بات کر سکتا ہے — آرڈر لگانا، بیلنس دیکھنا، مارکیٹ ڈیٹا لانا۔ یہ طاقتور ہے، مگر <strong>ایک غلطی مہنگی</strong> ہو سکتی ہے، کیونکہ API Key سے خودکار آرڈرز چلتے ہیں۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/ch56-api.png" alt="API Management">
+  <figcaption>تصویر 56.1: API Management کا خاکہ — API Key/Secret، اجازتیں (Read/Spot Trading/Futures)، اور IP Whitelist کا تحفّظی پہلو۔</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>API کیا ہے اور کس کے لیے استعمال ہوتا ہے</li>
+<li>API Key اور Secret Key کا فرق</li>
+<li>اجازتوں (Permissions) کی اہمیت</li>
+<li>IP Whitelist کا تحفّظ</li>
+<li>Rate Limits اور عام API غلطیاں</li>
+<li>API Key بند (Revoke) کرنا اور حفاظتی اصول</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 56.1 API کیسے کام کرتا ہے؟</h2>
+<pre><code>آپ کا کوڈ/بوٹ  →  API Key + Secret (دستخطی توثیق)  →  بائننس سرور
+                        ↑
+              read / trade / (withdraw آف)</code></pre>
+<ul>
+<li><strong>API Key:</strong> عوامی شناخت (Public ID) — لاگ/شناخت کے لیے۔</li>
+<li><strong>Secret Key:</strong> خفیہ چابی — صرف ایک بار دکھائی جاتی ہے؛ یہی دستخط بناتی ہے۔</li>
+<li>ہر Request پر دستخط (Signature) لگتا ہے، اسی لیے Secret ہرگز شیئر نہ کریں۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 56.2 اجازتیں (Permissions) — کم سے کم اصول</h2>
+<pre><code>API Management → Create API
+   □ Enable Reading          (مارکیٹ/بیلنس پڑھنا)
+   □ Enable Spot Trading     (Spot آرڈرز)
+   □ Enable Margin Trading
+   □ Enable Futures          (Futures آرڈرز)
+   □ Enable Withdrawals      ← عموماً ہرگز نہ دیں</code></pre>
+<blockquote>
+<p><strong>اصول:</strong> جو اجازت ضروری نہ ہو، <strong>آف</strong> رکھیں۔ <strong>Withdrawals</strong> API کے لیے عموماً آن نہ کریں — اگر Key لیک ہو تو صرف ٹریڈ کرے گا، فنڈز نکال نہیں سکے گا۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 56.3 IP Whitelist — سب سے اہم تحفّظ</h2>
+<pre><code>API پر صرف مخصوص IP پتے شامل کریں:
+Server IP (VPS) یا اپنا اسٹیٹک IP
+    → دوسرے کسی IP سے Key کام نہیں کرے گی</code></pre>
+<ul>
+<li>اگر آپ کا IP غیر مستحکم (Dynamic) ہے تو VPS استعمال کریں۔</li>
+<li><strong>Whitelist</strong> کے بغیر Key کہیں سے بھی استعمال ہو سکتی ہے — خطرہ بہت زیادہ۔</li>
+<li>کلید لیک ہو جائے تو Whitelist آخری دفاع ہے۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 56.4 Rate Limits اور عام غلطیاں</h2>
+<pre><code>بائننس API کی حدود:
+- Request Weight per minute
+- Order rate limits
+- Error codes: -1003 (Too many requests)، -1021 (Timestamp)</code></pre>
+<ul>
+<li>بہت تیز لوپ = IP بین (عارضی)</li>
+<li><strong>Server Time</strong> سے گھڑی میلی: timestamp درست رکھیں (NTP)</li>
+<li>429/418 کا مطلب Rate limit — backoff کے ساتھ دوبارہ کوشش</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 56.5 حفاظتی اصول</h2>
+<pre><code>✅ Secret Key صرف ایک مرتبہ — فائل/میپ ورژن میں محفوظ کریں
+✅ Withdrawals اجازت آف
+✅ IP Whitelist لازمی
+✅ الگ API Key ہر بوٹ/حکمت عملی کے لیے
+✅ غیر استعمال شدہ Key فوراً Delete
+✅ کلید کبھی GitHub/پیپر/اسکرین شاٹ میں نہ ڈالیں
+✅ رجسٹرڈ ای میل/2FA محفوظ رکھیں</code></pre>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>API پر Withdrawals آن</strong> کرنا — ایک لیک = سب ختم۔</li>
+<li>❌ <strong>Secret Key شیئر/کاپی</strong> کرنا۔</li>
+<li>❌ <strong>IP Whitelist نہ لگانا</strong>۔</li>
+<li>❌ <strong>ایک ہی Key سب بوٹس</strong> کے لیے — الگ رکھیں۔</li>
+<li>❌ <strong>Rate limit نہ سمجھنا</strong> — IP بین۔</li>
+<li>❌ <strong>Timestamp Error کو نظر انداز</strong> کرنا۔</li>
+<li>❌ <strong>غیر مصدقہ GitHub/تھرڈ پارٹی ٹول</strong> کو Key دینا۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>API = خودکار ٹریڈنگ/ڈیٹا کا دروازہ؛ <strong>Key + Secret</strong> سے توثیق۔</li>
+<li>اجازتیں <strong>کم سے کم</strong>؛ Withdrawals عموماً آف۔</li>
+<li><strong>IP Whitelist</strong> لازمی؛ ہر بوٹ کا الگ Key۔</li>
+<li>Rate Limits اور Time Sync کا خیال رکھیں۔</li>
+<li>کلید کبھی عوامی ذریعے میں نہ رکھیں۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>API Management کھولیں اور اجازتوں کے چار ٹک دیکھیں (Key ابھی نہ بنائیں)۔</li>
+<li>لکھیں: API Key اور Secret Key کا فرق۔</li>
+<li>ایک "Minimum Access" Key کی منصوبہ بندی لکھیں (کس بوٹ کو کتنی اجازت)۔</li>
+<li>IP Whitelist کی اہمیت پر 3 جملے لکھیں۔</li>
+<li>اگر کوئی پرانی Key ہو تو اسے Delete/Revoke کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"API طاقت دیتا ہے — پر اجازتیں کم سے کم رکھیں، Whitelist لازمی۔"</strong> اصول: <strong>(1) Withdrawals آف</strong>، <strong>(2) IP Whitelist</strong>، <strong>(3) Secret کبھی عوامی نہیں۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-55.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-57.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

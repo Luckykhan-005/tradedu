@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 28: بیک اپ اور ریکوری — اکاؤنٹ واپس پانا — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-27.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-29.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 28: بیک اپ اور ریکوری — اکاؤنٹ واپس پانا</h1>
+<blockquote class="chapter-summary">
+<p><strong>بیک اپ</strong> = ایسی معلومات جو آپ کے فون، ای میل یا رسائی (access) ختم ہو جانے پر بھی آپ کو اپنا اکاؤنٹ واپس لانے دیتی ہیں۔ <em>بائننس ایک custodial (امانت دار) ایکسچینج ہے — آپ کو seed phrase یا private key کی ضرورت نہیں، مگر 2FA ریکوری کوڈ اور تصدیق شدہ رابطوں کا بیک اپ لازم ہے۔</em></p>
+</blockquote>
+<figure>
+  <img src="assets/img/security-whitelist.jpg" alt="Address Whitelist / Security">
+  <figcaption>تصویر 28.1: بائننس کے Address/Whitelist اور سیکیورٹی کے صفحے — ایڈریسز کے ساتھ ای میل و 2FA کا بیک اپ بھی یہیں سنبھالا جاتا ہے۔ (Binance Address/Whitelist and security page — email and 2FA backup is managed here too.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بائننس کا بیک اپ بمقابلہ والٹ کا seed phrase</li>
+<li><strong>2FA ریکوری کوڈ</strong> — سب سے اہم بیک اپ</li>
+<li>ای میل اور فون نمبر کی تبدیلی</li>
+<li><strong>Passkey / سیکیورٹی کلید</strong> کا بیک اپ</li>
+<li><strong>کھوئے ہوئے 2FA</strong> کا حل</li>
+<li>بحالی (Account Recovery) کا عمل</li>
+<li>بیک اپ کے عام نقصانات</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 28.1 بائننس بمقابلہ بیرونی والٹ — اہم فرق</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>بائننس (Custodial)</th><th>بیرونی والٹ (Self-Custody)</th></tr></thead>
+<tbody>
+<tr><td><strong>seed phrase</strong></td><td>❌ نہیں</td><td>✅ 12/24 الفاظ لازمی</td></tr>
+<tr><td><strong>private key</strong></td><td>❌ نہیں</td><td>✅ آپ کے پاس</td></tr>
+<tr><td><strong>بیک اپ کیا ہے</strong></td><td>2FA ریکوری کوڈ، ای میل، فون</td><td>seed phrase / private key</td></tr>
+<tr><td><strong>رسائی کھو جائے تو</strong></td><td>بائننس Support + تصدیق</td><td>seed phrase کے بغیر مستقل نقصان</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>🔴 <strong>سب سے عام غلط فہمی:</strong> بہت سے لوگ سمجھتے ہیں کہ بائننس بھی ایک "seed phrase" دیتا ہے۔ نہیں — بائننس custodial ہے۔ جب کوئی آپ سے "بائننس کا seed phrase" مانگے تو <strong>وہ لازماً دھوکے باز ہے</strong>۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 28.2 2FA ریکوری کوڈ — سب سے اہم بیک اپ</h2>
+<blockquote>
+<p><strong>recall:</strong> 2FA سیٹ کرتے وقت بائننس کچھ <strong>Recovery Codes</strong> دیتا ہے۔ یہ کوڈ فون کے بغیر لاگ اِن کرنے کا واحد راستہ ہیں۔</p>
+</blockquote>
+<pre><code>Security → 2FA → Backup Codes / Recovery Codes
+→ محفوظ جگہ پر کاپی کریں (کاغذ + پیپر والٹ)
+→ ہر کوڈ صرف ایک بار استعمال ہوتا ہے</code></pre>
+<h3>محفوظ کرنے کا طریقہ</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>✔ درست</th><th>✘ غلط</th></tr></thead>
+<tbody>
+<tr><td>کاغذ پر لکھ کر محفوظ جگہ</td><td>فون میں screenshot</td></tr>
+<tr><td>الگ محفوظ مقام (ایل ایس پی سے دور)</td><td>ای میل inbox میں</td></tr>
+<tr><td>دو کاپیاں، دو مختلف مقامات</td><td>کلاؤڈ نوٹ/ چیٹ میں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>کوڈ کسی کے ساتھ شیئر نہ کریں</strong> — یہ 2FA کا متبادل دروازہ ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 28.3 ای میل اور فون نمبر کی تبدیلی</h2>
+<pre><code>Profile → Security / Settings → Email / Phone → Change
+→ پرانے + نئے ذرائع سے تصدیق → تبدیلی</code></pre>
+<blockquote>
+<p>💡 <strong>سب سے پہلے ای میل اور فون کو محفوظ بنائیں۔</strong> اگر آپ کا ای میل ہی ہیکر کے پاس ہو جائے تو باقی سب بیکار ہے۔ بائننس کے لاگ اِن کی تصدیق اسی ای میل پر آتی ہے۔</p>
+</blockquote>
+<ul>
+<li>اگر ای میل/فون <strong>پہلے سے ہی</strong> آپ کے پاس نہیں → Support کے ذریعے جانیں، ID/تصدیق کے ساتھ</li>
+<li>تبدیلی کے بعد ردعمل کے لیے اپنی تصدیق شدہ ڈیوائس پر نظر رکھیں</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 28.4 Passkey اور سیکیورٹی کلید</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>بیک اپ</th></tr></thead>
+<tbody>
+<tr><td><strong>Passkey (بائیو میٹرک/ڈیوائس)</strong></td><td>ہر ڈیوائس پر الگ؛ Google/Apple اکاؤنٹ سے سنکرون</td></tr>
+<tr><td><strong>Hardware Key (YubiKey)</strong></td><td>بنیادی کلید کے علاوہ ایک بیک اپ کلید رکھیں</td></tr>
+<tr><td><strong>Authenticator App</strong></td><td>Recovery Codes + دوسرے فون / ایپ ایکسپورٹ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ <strong>دو آزاد راستے ہمیشہ رکھیں</strong> — ورنہ ایک ڈیوائس خراب ہونے پر آپ باہر رہ سکتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 28.5 کھوئے ہوئے 2FA کا حل</h2>
+<pre><code>1. لاگ اِن صفحے پر جائیں → "2FA accessible نہیں" منتخب کریں
+2. Recovery Code درج کریں (اگر محفوظ ہے)
+3. ورنہ Support کے ذریعے بحالی کی درخواست کریں
+4. ID/دستاویز سے تصدیق کریں
+5. بحالی کے بعد نیا 2FA سیٹ کریں + نیا backup لے لیں</code></pre>
+<blockquote>
+<p>⚠️ بحالی میں <strong>کئی دن</strong> لگ سکتے ہیں۔ اسی لیے بیک اپ پہلے سے رکھنا اتنا اہم ہے — بعد میں "پچھتاوا" کام نہیں آتا۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Recovery Codes</strong> نہ سنبھالنا — 2FA کھونے پر پھنس جانا</li>
+<li>❌ کوڈز کی <strong>screenshot</strong> لینا یا ای میل inbox میں رکھنا</li>
+<li>❌ ای میل کو غیر محفوظ رکھنا — ہیکر پہلے ای میل ہی لیتا ہے</li>
+<li>❌ <strong>بائننس کا "seed phrase"</strong> کسی سے مانگنا/لینا — یہ وجود ہی نہیں رکھتا</li>
+<li>❌ کسی کو Recovery Code یا OTP بتانا</li>
+<li>❌ صرف ایک 2FA طریقے پر انحصار</li>
+<li>❌ کسی "ریکوری ایجنٹ" کو پیسے دینا — دھوکا</li>
+<li>❌ پرانا نمبر/ای میل اپ ڈیٹ نہ کرنا</li>
+<li>❌ بحالی کے دوران جعلی لنک پر کلک کرنا</li>
+<li>❌ بیک اپ ایک ہی جگہ رکھنا — ایک آگ سے سب ختم</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>بائننس <strong>custodial</strong> ہے — seed phrase نہیں، <strong>Recovery Codes</strong> بیک اپ ہیں</li>
+<li><strong>Recovery Code</strong> کاغذ پر، دو مختلف مقامات پر</li>
+<li><strong>ای میل اور فون</strong> سب سے پہلے محفوظ کریں</li>
+<li><strong>دو آزاد 2FA راستے</strong> رکھیں</li>
+<li>2FA کھو جائے تو Recovery → Support → تصدیق</li>
+<li>"بائننس seed phrase" کہنے والا = دھوکے باز</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے <strong>Recovery Codes</strong> تلاش کریں (نہ ہوں تو فوراً بنائیں)۔</li>
+<li>اُنہیں کاغذ پر لکھ کر محفوظ جگہ رکھیں۔</li>
+<li>چیک کریں: آپ کی ای میل اور فون نمبر درست اور قابلِ رسائی ہیں؟</li>
+<li>اپنے لیے <strong>بیک اپ چیک لسٹ</strong> بنائیں: 2FA، Recovery Codes، ایمیل، فون، Anti-Phishing۔</li>
+<li>ایک نوٹ لکھیں: "اگر میرا فون کل گم ہو جائے تو میرا اولین قدم ______ ہوگا"</li>
+<li>یادداشت بنائیں: "Recovery Code = ______ کی برابر چابی"</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>بیک اپ وہ چھتری ہے جو دھوپ میں خریدتے ہیں، بارش میں نہیں۔</strong> جب فون چوری ہو جائے یا ای میل بند ہو جائے، تب بیک اپ بنانے کا وقت نہیں ہوتا۔</p>
+<p>آج، اسی وقت، ایک کاغذ پر اپنے Recovery Codes لکھ کر ایسی جگہ رکھیں جہاں صرف آپ پہنچ سکیں۔ یاد رکھیں: <strong>"بائننس میں seed phrase نہیں ہوتا — اسی لیے Recovery Codes ہی آپ کا اصل بیک اپ ہیں۔"</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-27.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-29.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

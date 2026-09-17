@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 7: وولیٹ سیکشن — اپنے فنڈز کی مکمل تنظیم — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-6.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-8.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 7: وولیٹ سیکشن — اپنے فنڈز کی مکمل تنظیم</h1>
+<blockquote class="chapter-summary">
+<p>بائننس میں <strong>ایک وولیٹ نہیں</strong> — ہر مقصد کے لیے الگ وولیٹ ہے۔ یہ باب سمجھاتا ہے کہ فنڈز کیسے منظم ہوتے ہیں، ہر وولیٹ کا کام کیا ہے، اور ایک وولیٹ سے دوسرے میں پیسے کیسے منتقل کیے جاتے ہیں۔ اور سب سے اہم: <strong>2025 میں بائننس نے Funding Wallet کو Spot Wallet میں ضم کر دیا ہے</strong> — یہ ایک بڑی تبدیلی ہے جو آپ کے روزمرہ استعمال کو متاثر کرتی ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/wallet-overview.jpg" alt="Binance Wallet Overview">
+  <figcaption>تصویر 7.1: Binance Wallet کا مجموعی جائزہ (Overview) — یہاں تمام وولیٹس کا کل بیلنس، Estimate Value اور ہر وولیٹ کے الگ اثاثے دکھائی دیتے ہیں۔ یہیں سے آپ اپنے پورے پورٹ فولیو کی ایک نظر میں تصویر لیتے ہیں۔ (Binance Wallet Overview — total balance, estimated value and per-wallet assets.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بائننس کی مختلف وولیٹس اور ان کے کام</li>
+<li><strong>Spot، Funding، Futures، Earn</strong> وولیٹ میں فرق</li>
+<li><strong>2025 کی اہم تبدیلی:</strong> Funding Wallet → Spot Wallet</li>
+<li>وولیٹس کے درمیان منتقلی (Internal Transfer) کا طریقہ</li>
+<li>ڈیپازٹ اور وِڈراول کا صحیح راستہ</li>
+<li><strong>نیٹ ورک اور Memo/Tag</strong> کی اہمیت (سب سے بڑا نقصان کا ذریعہ)</li>
+<li>Binance Pay اور اس کے استعمال</li>
+<li>اپنے فنڈز کا <strong>محفوظ ڈھانچہ</strong> کیسے بنائیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 7.1 وولیٹ سیکشن کہاں ملتا ہے؟</h2>
+<p>اوپر والی نیویگیشن بار میں <strong>Wallet ▾</strong> پر کلک کریں، یا مینو سے <strong>"Overview"</strong> منتخب کریں:</p>
+<pre><code>Wallet ▾
+├── Overview            (تمام وولیٹس کا خلاصہ)
+├── Spot Account        (ٹریڈنگ + ڈیپازٹ/وِڈراول)
+├── Futures Account     (USDT-M / COIN-M)
+├── Earn Account        (سٹیکنگ / سود)
+├── Funding Account     (2025 سے Spot میں ضم — legacy)
+├── Transaction History (تمام لین دین کی تاریخ)
+└── Deposit / Withdraw  (رقم لانا / بھیجنا)</code></pre>
+<h3>اہم وولیٹس ایک نظر میں:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وولیٹ</th><th>مقصد</th><th>کیا رکھا جاتا ہے</th></tr></thead>
+<tbody>
+<tr><td><strong>Spot</strong></td><td>ٹریڈنگ + ڈیپازٹ + وِڈراول</td><td>سب کچھ — یہ آپ کا مرکزی وولیٹ ہے</td></tr>
+<tr><td><strong>Futures</strong></td><td>فیوچرز ٹریڈنگ</td><td>USDT-M / COIN-M مارجن</td></tr>
+<tr><td><strong>Earn</strong></td><td>منافع کمانا</td><td>سٹیک/سود والے اثاثے</td></tr>
+<tr><td><strong>Pay</strong></td><td>فوری ادائیگی</td><td>Binance Pay کے لیے رقم</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>یاد رکھیں:</strong> بائننس نے جان بوجھ کر وولیٹس <strong>الگ</strong> رکھی ہیں — تاکہ ٹریڈنگ، سپارہ (Saving) اور فيوچرز کا پیسہ ایک دوسرے پر اثر نہ ڈالیں۔ یہ سیکیورٹی اور صاف حساب کتاب کے لیے ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.2 2025 کی اہم تبدیلی — Funding Wallet کا خاتمہ</h2>
+<blockquote>
+<p>⚠️ <strong>اگر آپ پرانے ٹیوٹوریلز دیکھ رہے ہیں، تو یہ بات ضرور پڑھیں۔</strong></p>
+<p><strong>2025 میں بائننس نے Funding Wallet کو Spot Wallet میں ضم کر دیا۔</strong> اب:</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>پرانا نظام (2024 تک)</th><th>نیا نظام (2025 سے)</th></tr></thead>
+<tbody>
+<tr><td>ڈیپازٹ <strong>Funding Wallet</strong> میں آتا تھا</td><td>ڈیپازٹ <strong>براہِ راست Spot Wallet</strong> میں آتا ہے</td></tr>
+<tr><td>P2P خریدا <strong>Funding</strong> میں</td><td>P2P خریدا <strong>Spot</strong> میں</td></tr>
+<tr><td>وِڈراول <strong>Funding</strong> سے</td><td>وِڈراول <strong>Spot</strong> سے</td></tr>
+<tr><td>ٹریڈنگ سے پہلے Funding → Spot ٹرانسفر</td><td><strong>کوئی ٹرانسفر نہیں</strong> — فوری</td></tr>
+</tbody></table></div>
+<h3>اس کے فائدے:</h3>
+<ol>
+<li>✅ <strong>فوری ٹریڈنگ</strong> — ڈیپازٹ کے ساتھ ہی ٹریڈ شروع کر سکتے ہیں</li>
+<li>✅ <strong>کم الجھن</strong> — ایک ہی وولیٹ، ایک ہی بیلنس</li>
+<li>✅ <strong>کم ٹرانسفر</strong> — اندرونی منتقلیوں کا وقت بچتا ہے</li>
+<li>✅ <strong>P2P → ٹریڈ</strong> — خریدتے ہی ٹریڈ ممکن</li>
+</ol>
+<blockquote>
+<p>💡 <strong>اگر آپ کو "Funding Wallet" کہیں دکھائی دے:</strong> یہ <strong>legacy</strong> (پرانا) نظام ہے — آپ کا پیسہ محفوظ ہے، مگر اب سب کچھ <strong>Spot</strong> میں ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.3 Spot وولیٹ — آپ کا مرکزی وولیٹ</h2>
+<h3>Spot وولیٹ کیا ہے؟</h3>
+<blockquote>
+<p><strong>Spot وولیٹ</strong> = آپ کا سب کچھ۔ یہاں سے آپ ٹریڈ کرتے ہیں، ڈیپازٹ لیتے ہیں، وِڈراول بھیجتے ہیں، اور P2P کرتے ہیں۔</p>
+</blockquote>
+<h3>مثال:</h3>
+<pre><code>آپ P2P سے 100 USDT خریدتے ہیں
+→ 100 USDT براہِ راست آپ کے Spot وولیٹ میں
+آپ Spot پر USDT سے BTC خریدتے ہیں
+→ BTC آپ کے Spot وولیٹ میں، USDT کم
+آپ BTC کسی اور وولیٹ/ایکسچینج پر بھیجتے ہیں
+→ Spot وولیٹ سے وِڈراول</code></pre>
+<h3>Spot وولیٹ کے اہم نکات:</h3>
+<ul>
+<li>یہ <strong>فوری</strong> اور <strong>درست</strong> حساب کتاب کی جگہ ہے</li>
+<li><strong>ڈیپازٹ یہیں آتے ہیں، وِڈراول یہیں سے جاتے ہیں</strong></li>
+<li>فیوچرز ٹریڈ کرنے سے پہلے یہاں سے <strong>Futures وولیٹ</strong> میں منتقلی ضروری ہے</li>
+<li>یہاں سے <strong>Earn</strong> میں سبسکرائب کیا جا سکتا ہے</li>
+</ul>
+<h3>Spot وولیٹ کیسے دیکھیں:</h3>
+<pre><code>Wallet → Spot Account → بیلنس اور Estimate Value دیکھیں</code></pre>
+<hr class="divider">
+
+<h2>📖 7.4 Futures وولیٹ — فیوچرز کی الگ جیب</h2>
+<h3>Futures وولیٹ کیا ہے؟</h3>
+<blockquote>
+<p><strong>Futures وولیٹ</strong> = صرف فیوچرز ٹریڈنگ کے لیے مخصوص وولیٹ۔ یہ Spot وولیٹ سے <strong>مکمل الگ</strong> ہے — اس لیے پوزیشن کھولنے سے پہلے رقم یہاں منتقل کرنا ضروری ہے۔</p>
+</blockquote>
+<h3>کیسے استعمال کریں:</h3>
+<pre><code>Spot وولیٹ میں USDT → Futures وولیٹ میں منتقل کریں → فیوچرز ٹریڈ کھولیں</code></pre>
+<h3>USDT-M بمقابلہ COIN-M:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وولیٹ</th><th>ضمانت (Margin)</th><th>منافع/نقصان</th></tr></thead>
+<tbody>
+<tr><td><strong>USDT-M</strong></td><td>USDT یا USDC</td><td>USDT میں</td></tr>
+<tr><td><strong>COIN-M</strong></td><td>BTC، ETH وغیرہ بنیادی کوائن</td><td>بنیادی کوائن میں</td></tr>
+</tbody></table></div>
+<h3>منتقلی کیسے کریں:</h3>
+<pre><code>Wallet → Futures → Transfer → From: Spot → To: USDT-M Futures → رقم → Confirm</code></pre>
+<h3>Cross بمقابلہ Isolated (مارجن موڈ):</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>موڈ</th><th>مارجن کا ذریعہ</th></tr></thead>
+<tbody>
+<tr><td><strong>Cross</strong></td><td>پورا Futures وولیٹ بطور ضمانت</td></tr>
+<tr><td><strong>Isolated</strong></td><td>صرف اس ایک پوزیشن کا مختص مارجن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 فیوچرز ٹریڈنگ کی مکمل سمجھ کے لیے <strong>باب 15</strong> اور <strong>باب 16</strong> دیکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.5 Earn وولیٹ — منافع کمانے کی جگہ</h2>
+<h3>Earn وولیٹ کیا ہے؟</h3>
+<blockquote>
+<p>جب آپ Simple Earn، Staking یا دیگر منافع والی مصنوعات میں کرپٹو لگاتے ہیں، وہ <strong>Earn وولیٹ</strong> میں رکھا جاتا ہے — اور روزانہ بنیادوں پر منافع حاصل کرتا رہتا ہے۔</p>
+</blockquote>
+<h3>Earn کی اقسام:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>لچک</th><th>منافع</th></tr></thead>
+<tbody>
+<tr><td><strong>Flexible Savings</strong></td><td>جب چاہیں نکالیں</td><td>کم</td></tr>
+<tr><td><strong>Locked Savings</strong></td><td>مقررہ مدت کے لیے قید</td><td>زیادہ</td></tr>
+<tr><td><strong>Staking</strong></td><td>PoS کوائنز کے لیے</td><td>درمیانہ</td></tr>
+<tr><td><strong>Dual Investment</strong></td><td>طے شدہ دورانیہ</td><td>زیادہ ممکنہ، رسک بھی زیادہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>نکالنے کا طریقہ:</strong> Flexible سے جب چاہیں نکالیں؛ Locked سے مقررہ مدت پوری ہونے کے بعد۔</p>
+</blockquote>
+<blockquote>
+<p>📖 <strong>Earn کی تفصیلی گائیڈ: باب 38-40</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.6 وولیٹس کے درمیان منتقلی (Internal Transfer)</h2>
+<h3>Internal Transfer کیا ہے؟</h3>
+<blockquote>
+<p><strong>Internal Transfer</strong> = ایک وولیٹ سے دوسرے وولیٹ میں کوائن منتقل کرنا — <strong>مکمل طور پر اندرونی، فوری اور بلا فیس</strong>۔</p>
+</blockquote>
+<h3>کیسے کریں:</h3>
+<pre><code>Wallet → Transfer → From: Spot → To: Futures → Amount: 100 USDT → Confirm</code></pre>
+<h3>منتقلی کی اقسام:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>From → To</th><th>نام</th><th>فیس</th><th>وقت</th></tr></thead>
+<tbody>
+<tr><td>Spot → Futures</td><td>Transfer</td><td>0</td><td>فوری</td></tr>
+<tr><td>Futures → Spot</td><td>Transfer</td><td>0</td><td>فوری</td></tr>
+<tr><td>Spot → Earn</td><td>Subscribe</td><td>0</td><td>فوری</td></tr>
+<tr><td>Earn → Spot</td><td>Redeem</td><td>0</td><td>فوری (Flexible)</td></tr>
+<tr><td>Spot → Pay</td><td>Transfer</td><td>0</td><td>فوری</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ ہر <strong>اندرونی</strong> منتقلی فوری اور بلا فیس ہے — یہ بلاک چین پر نہیں جاتی، اس لیے <strong>نیٹ ورک فیس نہیں</strong> لگتی۔</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>اہم قاعدہ:</strong> جو منتقلی <strong>بائننس کے اندر</strong> ہے وہ <strong>بلا فیس</strong>؛ جو <strong>باہر</strong> (کسی اور ایکسچینج/والیٹ کو) جائے وہ <strong>نیٹ ورک فیس</strong> لگتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.7 ڈیپازٹ اور وِڈراول — صحیح راستہ</h2>
+<h3>ڈیپازٹ (Deposit):</h3>
+<pre><code>Wallet → Deposit → کوائن منتخب کریں → نیٹ ورک منتخب کریں → ایڈریس کاپی → پیسے بھیجیں</code></pre>
+<h3>وِڈراول (Withdraw):</h3>
+<pre><code>Wallet → Withdraw → کوائن → نیٹ ورک → ایڈریس → رقم → Confirm (2FA)</code></pre>
+<blockquote>
+<p>💡 <strong>2025 سے:</strong> دونوں کارروائیاں <strong>Spot وولیٹ</strong> سے براہِ راست ہوتی ہیں (Funding نہیں)۔</p>
+</blockquote>
+<h3>نیٹ ورک اور میمو — انتہائی اہم:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>تفصیل</th><th>کیوں ضروری</th></tr></thead>
+<tbody>
+<tr><td><strong>Correct Network</strong></td><td>غلط نیٹ ورک پر بھیجی رقم عموماً <strong>واپس نہیں</strong> آتی</td></tr>
+<tr><td><strong>Memo / Tag</strong></td><td>XRP، XLM، ATOM، BNB ( exchanges) میں لازمی؛ بغیر Memo = نقصان</td></tr>
+<tr><td><strong>Confirmations</strong></td><td>نیٹ ورک کی تصدیق مکمل ہونے میں وقت لگتا ہے</td></tr>
+<tr><td><strong>Min Amount</strong></td><td>ہر کوائن کی کم از کم حد ہے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>اگر ڈیپازٹ نہیں آ رہا تو یہ چیک کریں:</strong></p>
+<ol>
+<li>کیا <strong>صحیح نیٹ ورک</strong> منتخب کیا تھا؟ (مثلاً TRC20 پر ERC20 کا ایڈریس نہیں دیں)</li>
+<li>کیا ایڈریس <strong>مکمل اور درست</strong> تھا؟</li>
+<li>کیا Memo/Tag <strong>ضروری</strong> تھا اور درست درج کیا؟</li>
+<li>کتنے <strong>Confirmations</strong> مکمل ہوئے؟</li>
+<li>TxID (Transaction ID) کے ذریعے بلاک ایکسپلورر پر ٹریک کریں</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>📖 <strong>نیٹ ورکس کی مکمل تفصیلی گائیڈ: باب 24</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.8 Binance Pay — فوری ادائیگی</h2>
+<h3>Binance Pay کیا ہے؟</h3>
+<blockquote>
+<p><strong>Binance Pay</strong> = کرپٹو کے ذریعے فوری، عموماً <strong>بغیر فیس</strong> ادائیگی — QR کوڈ، لنک یا Pay ID کے ذریعے۔</p>
+</blockquote>
+<h3>کیسے کام کرتا ہے:</h3>
+<pre><code>آپ: دوست کو USDT بھیجنا چاہتے ہیں
+آپ: Binance Pay → دوست کا QR / Link / Pay ID اسکین کریں
+آپ: رقم درج کریں → تصدیق کریں
+دوست: رقم فوراً وصول کر لیتا ہے</code></pre>
+<h3>خصوصیات:</h3>
+<ul>
+<li><strong>فوری</strong> منتقلی (بلاک چین کے انتظار کے بغیر)</li>
+<li>عموماً <strong>صفر فیس</strong> (شرائط کے ساتھ)</li>
+<li>تاجر (Merchant) ادائیگیوں کے لیے بھی قابلِ استعمال</li>
+</ul>
+<blockquote>
+<p>⚠️ Binance Pay دوسرے <strong>بائننس صارف</strong> کو بھیجتا ہے — کسی پرائیویٹ والیٹ (MetaMask) یا دوسرے ایکسچینج کو <strong>نہیں</strong>۔</p>
+</blockquote>
+<blockquote>
+<p>📖 <strong>Binance Pay کی تفصیلی گائیڈ: باب 52</strong></p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 7.9 فنڈز کا محفوظ ڈھانچہ — پروفیشنل طریقہ</h2>
+<blockquote>
+<p>🎯 <strong>یہ وہ حصہ ہے جو نئے صارفین اکثر نظر انداز کرتے ہیں — مگر پروفیشنلز ہمیشہ کرتے ہیں۔</strong></p>
+</blockquote>
+<pre><code>آپ کا کل سرمایہ
+     │
+     ├── Spot وولیٹ (چھوٹا حصہ — صرف فعال ٹریڈنگ کے لیے)
+     │      └── جو آپ اس ہفتہ/مہینہ ٹریڈ کر رہے ہیں
+     │
+     ├── Earn وولیٹ (بڑا حصہ — لمبے عرصے کے لیے)
+     │      ├── Flexible (ایمرجنسی)
+     │      └── Locked (زیادہ منافع)
+     │
+     └── باہر والے والیٹ (سب سے محفوظ حصہ — ہولڈ کے لیے)
+           └── MetaMask / Trust Wallet / Ledger</code></pre>
+<h3>کیوں ضروری ہے:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وجہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>سیکیورٹی</strong></td><td>اگر ایکسچینج پر مسئلہ ہو، تو باہر والا حصہ محفوظ</td></tr>
+<tr><td><strong>حوصلے کا کنٹرول</strong></td><td>جو پیسہ سامنے نہیں، اس پر جذباتی ٹریڈ نہیں</td></tr>
+<tr><td><strong>قابلِ تدارک</strong></td><td>ایکسچینج تک رسائی کھو جائے تو پیسہ محفوظ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>عام اصول:</strong> <strong>ٹریڈنگ کے لیے جو چاہیں، وہ Spot میں؛ لمبے عرصے کے لیے جو ہو، وہ Earn یا باہر۔</strong></p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li><strong>غلط نیٹ ورک منتخب کرنا</strong> — TRC20، ERC20، BEP20 ایک دوسرے سے مطابقت نہیں رکھتے۔ غلطی = رقم ضائع۔</li>
+<li><strong>Futures ٹریڈ سے پہلے منتقلی نہ کرنا</strong> — Spot میں رقم ہوگی تو فیوچرز پوزیشن نہیں کھلے گی۔</li>
+<li><strong>Memo/Tag نظر انداز کرنا</strong> — XRP/XLM جیسی کوائنز میں بغیر Memo کے رقم واپس نہیں آتی۔</li>
+<li><strong>پہلے چھوٹا ٹیسٹ نہ کرنا</strong> — بڑی رقم بھیجنے سے پہلے <strong>چھوٹی رقم</strong> آزمائیں۔</li>
+<li><strong>ایک وقت میں کئی منتقلیاں</strong> — ایک مکمل اور تصدیق ہونے کے بعد اگلی کریں۔</li>
+<li><strong>نیٹ ورک فیس کو نظر انداز کرنا</strong> — ہر بیرونی وِڈراول پر نیٹ ورک فیس لگتی ہے۔</li>
+<li><strong>Tron/BSC جیسے کم فیس نیٹ ورک کے نام پر بے دھیانی</strong> — کم فیس اچھی ہے، مگر ایڈریس درست ہونا لازمی ہے۔</li>
+<li><strong>سب کچھ ایکسچینج پر رکھنا</strong> — "Not your keys, not your coins" — لمبے ہولڈ کے لیے باہر والیٹ استعمال کریں۔</li>
+<li><strong>پرانے ٹیوٹوریلز پر عمل</strong> — 2025 سں Funding Wallet ضم ہو چکا ہے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>2025 سے:</strong> Funding Wallet <strong>Spot Wallet</strong> میں ضم ہو چکا — ڈیپازٹ/P2P/وِڈراول سب <strong>Spot</strong> سے</li>
+<li><strong>چار اہم وولیٹس</strong> — Spot (مرکزی)، Futures، Earn، Pay</li>
+<li><strong>Spot</strong> = ٹریڈنگ + ڈیپازٹ + وِڈراول + P2P</li>
+<li><strong>Futures</strong> = الگ وولیٹ — ٹریڈ سے پہلے منتقلی لازمی</li>
+<li><strong>Internal Transfer</strong> = فوری، بلا فیس، بلاک چین پر نہیں جاتی</li>
+<li><strong>Binance Pay</strong> = فوری، QR/لنک کے ذریعے ادائیگی</li>
+<li><strong>غلط نیٹ ورک یا Memo</strong> = سب سے بڑا نقصان کا سبب</li>
+<li><strong>پروفیشنل ڈھانچہ:</strong> چھوٹا Spot، بڑا Earn، محفوظ باہر</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے بائننس اکاؤنٹ میں <strong>Wallet → Overview</strong> کھولیں۔</li>
+<li>ہر وولیٹ کا نام، بیلنس اور Estimate Value نوٹ کریں: Spot، Futures، Earn۔</li>
+<li><strong>Deposit</strong> کا صفحہ کھولیں اور USDT کا <strong>TRC20 ایڈریس</strong> کاپی کر کے دیکھیں (بھیجیں نہیں)۔</li>
+<li><strong>Withdraw</strong> کا صفحہ کھولیں — نیٹ ورک کے اختیارات دیکھیں (TRC20, ERC20, BEP20)۔</li>
+<li><strong>Internal Transfer</strong> کا صفحہ کھول کر From/To کے تمام اختیارات دیکھیں۔</li>
+<li><strong>Transaction History</strong> میں جا کر اپنی گزشتہ ڈیپازٹ/وِڈراول لسٹ کریں۔</li>
+<li>اپنے لیے <strong>وولیٹس کا خاکہ (Diagram)</strong> بنائیں اور تیر کے ذریعے منتقلی کے راستے دکھائیں۔</li>
+<li>اگر اکاؤنٹ موجود ہو تو <strong>$10 USDT</strong> Spot سے Futures میں منتقل کریں اور دوبارہ واپس لائیں (صرف تجربہ)۔</li>
+<li>لکھیں: آپ اپنے فنڈز کو <strong>کون سے تناسب</strong> میں رکھیں گے (Spot / Earn / باہر)؟</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>وولیٹس الگ کیوں ہیں؟</strong> جیسے گھر میں کچن، بیڈروم اور گودام الگ ہوتے ہیں — ہر کمرے کا کام الگ۔ اسی طرح Spot ٹریڈنگ کے لیے، Futures فیوچرز کے لیے، اور Earn منافع کے لیے۔ <strong>ہر چیز کو اپنی جگہ رکھیں اور صحیح وولیٹ سے صحیح سمت بھیجیں</strong> — کیونکہ غلط نیٹ ورک پر بھیجا گیا پیسہ عموماً <strong>ہمیشہ کے لیے</strong> چلا جاتا ہے۔</p>
+<p>اور یہ کہ <strong>جو پیسہ آپ دیکھ نہیں رہے، وہ آپ کو پریشان نہیں کرتا</strong> — اسی لیے لمبے عرصے کا سرمایہ <strong>Earn</strong> یا <strong>باہر والے والیٹ</strong> میں ہونا چاہیے، نہ کھلے Spot میں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-6.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-8.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

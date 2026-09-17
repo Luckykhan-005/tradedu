@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 43: موبائل وولیٹ — فنڈز کا انتظام — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-42.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-44.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 43: موبائل وولیٹ — فنڈز کا انتظام</h1>
+<blockquote class="chapter-summary">
+<p><strong>Wallet</strong> بائننس (بائننس کسٹوڈیل) کا وہ حصہ ہے جہاں آپ کے اثاثے محفوظ رہتے ہیں۔ نوٹ کریں: 2025 کے بعد بائننس نے عام صارف کے لیے الگ "Funding Wallet" کا تصور آسان کر دیا ہے — ڈیپازٹ/وائیدراول اب <strong>Spot Wallet</strong> سے ہوتے ہیں، جبکہ <strong>Futures Wallet</strong> صرف ڈیریویٹوز ٹریڈنگ کے لیے الگ رہتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/wallet-overview.jpg" alt="Binance Wallet Overview">
+  <figcaption>تصویر 43.1: بائننس Wallet کا جائزہ — Spot، Futures اور دوسرے سب والیٹس کا مجموعی بیلنس، ہر اثاثے کی موجودہ قیمت (USD میں) اور Allocation کا گراف۔ (Binance Wallet overview — total balance of Spot, Futures and other sub-wallets, current value of each asset (in USD) and allocation graph.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>موبائل پر Spot Wallet اور Futures Wallet کا فرق</li>
+<li><strong>والیٹس کے درمیان فنڈز کی منتقلی (Transfer)</strong></li>
+<li>موبائل پر ڈیپازٹ (Crypto + Fiat) کا طریقہ</li>
+<li>موبائل پر <strong>وائیدراول کا محفوظ طریقہ</strong> (Networks، Memo، Whitelist)</li>
+<li><strong>بیلنس کہاں دیکھیں</strong> اور "Available" بمقابلہ "In Order" کا مطلب</li>
+<li>موبائل وولیٹ کے عام خطرات سے بچاؤ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 43.1 Spot Wallet بمقابلہ Futures Wallet</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>خصوصیت</th><th><strong>Spot Wallet</strong></th><th><strong>Futures Wallet</strong></th></tr></thead>
+<tbody>
+<tr><td>کس کے لیے</td><td>خرید/فروخت، Earn، P2P، ڈیپازٹ/وائیدراول</td><td>صرف Futures/Margin ٹریڈنگ</td></tr>
+<tr><td>اثاثے کی قسم</td><td>اصل کرپٹو (حقیقی ملکیت)</td><td>مارجن/کولیٹرل بیلنس (USDT عموماً)</td></tr>
+<tr><td>وائیدراول</td><td>ہاں (بلاک چین/فیاٹ)</td><td>نہیں — پہلے Spot میں منتقل کریں</td></tr>
+<tr><td>دو ٹکڑے الفاظ</td><td><strong>Available</strong> (استعمال کے قابل) + <strong>In Order</strong> (آرڈر میں بندھا)</td><td><strong>Wallet Balance</strong> + <strong>Available</strong></td></tr>
+</tbody></table></div>
+<h3>منتقلی (Transfer)</h3>
+<p>Futures ٹریڈ کے لیے رقم Spot سے Futures میں لے جائیں:</p>
+<pre><code>Wallet → Transfer → From: Spot → To: Futures → رقم → Confirm</code></pre>
+<p>ٹریڈ ختم ہو تو واپس Spot میں لائیں:</p>
+<pre><code>Wallet → Transfer → From: Futures → To: Spot → Confirm</code></pre>
+<blockquote>
+<p><strong>نوٹ:</strong> Futures Wallet سے براہِ راست کرپٹو وائیدراول نہیں ہو سکتا۔ پہلے Spot میں Transfer کریں، پھر Withdraw۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 43.2 موبائل پر ڈیپازٹ</h2>
+<h3>کرپٹو ڈیپازٹ</h3>
+<pre><code>Wallet → Deposit → Crypto → کوائن منتخب (مثلاً USDT)
+    → Network منتخب (مثلاً TRC20)
+    → Address کاپی/QR اسکین
+    → (اگر Memo/Tag ہو تو لازمی درج کریں)
+    → بھیجنے والے پلیٹ فارم میں پیسٹ → Send</code></pre>
+<h3>فیاٹ ڈیپازٹ (PKR کے لیے P2P)</h3>
+<pre><code>Wallet → Deposit → Fiat → PKR → P2P طریقہ
+    → سیلر منتخب → ادائیگی کریں → Crypto موصول</code></pre>
+<p>PKR کے لیے عموماً براہِ راست بینک ڈیپازٹ دستیاب نہیں؛ <strong>P2P</strong> ہی سب سے عام راستہ ہے۔</p>
+<blockquote>
+<p><strong>⚠️ طلائی اصول:</strong> جو <strong>Network</strong> بھیجنے والا پلیٹ فارم منتخب کرے، <strong>وہی</strong> بائننس پر منتخب کریں۔ نیٹ ورک غلط ہو تو فنڈز ہمیشہ کے لیے ضائع ہو سکتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 43.3 موبائل پر وائیدراول (محفوظ طریقہ)</h2>
+<pre><code>Wallet → Withdraw → کوائن منتخب → Network منتخب
+    → Address (یا Saved Address سے منتخب)
+    → اگر Memo/Tag لازمی ہو → درج کریں
+    → مقدار درج → Preview/Confirm → 2FA → Submit</code></pre>
+<h3>وائیدراول سے پہلے 3 جانچ</h3>
+<ol>
+<li><strong>ایڈریس</strong> — پہلے اور آخری 4 حروف موازنہ کریں۔</li>
+<li><strong>نیٹ ورک</strong> — وصول کنندہ کے نیٹ ورک سے میل کھائے۔</li>
+<li><strong>Memo/Tag</strong> — اگر وصول کنندہ (جیسے کچھ ایکسچینجز) مانگے تو لازمی بھرنا ہے۔</li>
+</ol>
+<blockquote>
+<p><strong>Address Whitelist:</strong> Security سیٹنگز میں Address Whitelist آن کریں — اس سے صرف منظور شدہ ایڈریس پر وائیدراول ممکن ہوگا، اور کسی ہیکر کو نیا ایڈریس شامل کرنے میں وقت لگے گا۔</p>
+</blockquote>
+<h3>Address Swapping کا خطرہ:</h3>
+<pre><code>آپ ایڈریس کاپی کرتے ہیں: 0xABC...123
+موبائل پر مالویئر خاموشی سے کلپ بورڈ بدل دیتا ہے:
+                       0xXYZ...789 (ہیکر کا ایڈریس)
+آپ پیسٹ کرتے ہیں → پیسہ ہیکر کو چلا گیا ❌
+
+بچاؤ: پیسٹ کے بعد پہلے اور آخر کے حروف خود دیکھیں</code></pre>
+<hr class="divider">
+
+<h2>📖 43.4 بیلنس کہاں دیکھیں؟</h2>
+<pre><code>ایپ نیچے مینو → Wallet → Overview
+    → کل تخمینہ (Estimated Value)
+    → ہر کوائن کی Available اور In Order مقدار
+    → Spot / Futures / Earn سب الگ الگ ٹیب</code></pre>
+<ul>
+<li><strong>Available:</strong> فوری استعمال/وائیدراول کے قابل۔</li>
+<li><strong>In Order:</strong> کھلے آرڈرز میں بندھا (Limit آرڈر لگا ہو تو Available نہیں)۔</li>
+<li><strong>In Earn:</strong> Simple Earn/Staking میں جمع (Flexible تو جلد واپس، Locked مقررہ وقت)۔</li>
+</ul>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>غلط نیٹ ورک</strong> منتخب کرنا — فنڈز ضائع ہو سکتے ہیں (سب سے خطرناک)۔</li>
+<li>❌ <strong>Memo/Tag چھوڑ دینا</strong> جہاں لازمی ہو — کرپٹو رسید پر پہنچ کر بھی وصول کنندہ کریڈٹ نہیں کر پاتا۔</li>
+<li>❌ <strong>Futures Wallet سے وائیدراول</strong> کی کوشش — ممکن نہیں؛ پہلے Transfer کریں۔</li>
+<li>❌ <strong>Address کاپی کے بعد چیک نہ کرنا</strong> — کلپ بورڈ مالویئر ایڈریس بدل دیتا ہے (Address Swapping)۔</li>
+<li>❌ <strong>پہلی وائیدراول بڑی رقم میں</strong> — پہلے چھوٹی ٹیسٹ وائیدراول کریں۔</li>
+<li>❌ <strong>P2P ادائیگی Escro سے باہر</strong> — صرف بائننس کے P2P اسکرین سے کریں۔</li>
+<li>❌ <strong>Whitelist بند رکھنا</strong> — اضافی تحفظ دستیاب ہے مگر استعمال نہیں ہو رہا۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Spot Wallet</strong> = اصل اثاثے، ڈیپازٹ/وائیدراول کا مرکز۔</li>
+<li><strong>Futures Wallet</strong> = صرف ڈیریویٹوز؛ وائیدراول کے لیے Spot میں لائیں۔</li>
+<li>ڈیپازٹ/وائیدراول میں <strong>Network + Address + Memo</strong> تینوں چیک کریں۔</li>
+<li>Address Whitelist آن کریں؛ پہلی بار ٹیسٹ رقم بھیجیں۔</li>
+<li>Available اور In Order کا فرق سمجھیں۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>موبائل پر <strong>Wallet → Overview</strong> کھول کر کل تخمینہ اور ہر کوائن کی Available مقدار نوٹ کریں۔</li>
+<li>Spot سے Futures میں $5 کا فرضی Transfer کریں اور واپس لائیں۔</li>
+<li>ڈیپازٹ اسکرین کھولیں اور دیکھیں USDT کے کتنے نیٹ ورک دستیاب ہیں۔</li>
+<li>Address Whitelist آن کریں (Security سیٹنگز میں)۔</li>
+<li>اسکرین کے ساتھ لکھیں: وائیدراول سے پہلے کی تین جانچ۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"Spot = اصل مال، Futures = ٹریڈ کا ایندھن، Transfer = دونوں کے درمیان پل۔"</strong></p>
+<p>اصول: <strong>(1) نیٹ ورک/ایڈریس/Memo تین چیک</strong>، <strong>(2) Whitelist آن</strong>، <strong>(3) پہلے چھوٹی، پھر بڑی رقم۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-42.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-44.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

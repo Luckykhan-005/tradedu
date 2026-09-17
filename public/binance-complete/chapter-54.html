@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 54: Binance Web3 Wallet اور DEX — خود مختار ملکیت — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-53.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-55.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 54: Binance Web3 Wallet اور DEX — خود مختار ملکیت</h1>
+<blockquote class="chapter-summary">
+<p>یہاں سے کہانی بدلتی ہے۔ بائننس ایکسچینج میں آپ کے فنڈز <strong>کسٹوڈیل</strong> ہوتے ہیں (بائننس کلید کا مالک ہے)، مگر <strong>Web3 Wallet/DEX</strong> میں <strong>کلید آپ کے پاس</strong> ہوتی ہے۔ یہ آزادی کے ساتھ بڑی ذمہ داری بھی لاتی ہے — seed phrase گم ہو تو کوئی واپس نہیں لا سکتا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/DEX.jpg" alt="Binance DEX">
+  <figcaption>تصویر 54.1: DEX (Decentralized Exchange) کا انٹرفیس — بائننس ایکسچینج کے برعکس، DEX پر ٹریڈ براہِ راست آپ کے والیٹ سے ہوتی ہے اور کلید آپ کے پاس رہتی ہے۔</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Custodial بمقابلہ Self-custodial والیٹ کا بنیادی فرق</li>
+<li>Web3 Wallet کیا ہے اور کیوں استعمال ہوتا ہے</li>
+<li>DEX کیسے کام کرتا ہے (AMM، Liquitity Pool)</li>
+<li>On-chain ٹریڈ کے فوائد اور رسک</li>
+<li>Gas Fee، Slippage اور Approvals</li>
+<li>Seed Phrase اور Private Key کی حفاظت</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 54.1 Custodial بمقابلہ Self-Custodial</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th><strong>Binance Exchange</strong></th><th><strong>Web3 Wallet / DEX</strong></th></tr></thead>
+<tbody>
+<tr><td>کلید کس کے پاس</td><td>بائننس</td><td><strong>آپ</strong></td></tr>
+<tr><td>فنڈز کی ملکیت</td><td>بائننس حقدار</td><td>آپ</td></tr>
+<tr><td>رسائی</td><td>پاس ورڈ + 2FA</td><td>Seed/Private Key</td></tr>
+<tr><td>توثیق</td><td>مرکزی</td><td>بلاک چین پر خودکار</td></tr>
+<tr><td>گمشدگی</td><td>Support سے ری سیٹ</td><td><strong>کوئی ری سیٹ نہیں</strong></td></tr>
+<tr><td>سودے</td><td>منظم، تیز</td><td>آہستہ، گیسی فیس</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>طلائی جملہ:</strong> "Not your keys, not your coins" — جب تک کلید آپ کے پاس نہیں، کوائن کا اصل مالک آپ نہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 54.2 Web3 Wallet کیا ہے؟</h2>
+<ul>
+<li>ایک خود مختار والیٹ (in-app) جو بائننس ایپ کے اندر دستیاب ہے</li>
+<li>آپ کی <strong>Private Key/Seed Phrase</strong> خود آپ کے پاس</li>
+<li>BSC، Ethereum، Polygon اور دیگر نیٹ ورکس کو سپورٹ</li>
+<li>dApps، NFT Marketplace اور DeFi پروٹوکول سے جڑنے کا ذریعہ</li>
+<li>اکاؤنٹ کے بدلے Nefarious رابطوں سے آپ خود لاگ اِن ہوتے ہیں</li>
+</ul>
+<h3>بنیادی باتیں</h3>
+<pre><code>Seed Phrase (12/24 الفاظ)  → ماسٹر بیک اپ (کسی کو نہ دیں)
+Private Key                → ایک اکاؤنٹ کی کلید
+Public Address             → جہاں فنڈز وصول کرتے ہیں
+Gas Fee                    → نیٹ ورک کی ٹرانزیکشن فیس (BNB/ETH)</code></pre>
+<hr class="divider">
+
+<h2>📖 54.3 DEX کیسے کام کرتا ہے؟</h2>
+<p><strong>AMM (Automated Market Maker):</strong> کوئی مرکزی آرڈر بک نہیں؛ قیمت <strong>Liquidity Pool</strong> سے آتی ہے۔</p>
+<pre><code>Liquidity Pool: USDT + BNB
+آپ BNB دیتے ہیں → Pool سے USDT ملتا ہے
+قیمت = Pool کے دو اثاثوں کا تناسب
+Slippage = آپ کے سائز کے مطابق قیمت کا فرق</code></pre>
+<h3>DEX کے فوائد</h3>
+<ul>
+<li><strong>غیر مرکزی</strong> — کوئی KYC/اکاؤنٹ بندش نہیں</li>
+<li><strong>ملکیت</strong> آپ کے پاس</li>
+<li>نئے ٹوکنز اکثر DEX پر پہلے بھی دستیاب</li>
+</ul>
+<h3>DEX کے رسک</h3>
+<ul>
+<li><strong>Scam Tokens</strong> — کوئی بھی بغیر جانچ ٹوکن جاری کر سکتا ہے (Rug Pull)</li>
+<li><strong>Slippage</strong> اور <strong>MEV/Front-running</strong></li>
+<li><strong>Gas Fee</strong> — بھیڑ میں مہنگی</li>
+<li><strong>Approvals</strong> — dApp کو آپ کے ٹوکن کے استعمال کی اجازت؛ غلط dApp = فنڈز کی اجازت</li>
+<li><strong>Bridge</strong> خطرہ — کراس-چین برج ہیکس کی زد میں</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 54.4 حفاظتی اصول</h2>
+<pre><code>✅ Seed Phrase کبھی ڈیجیٹل میں شیئر نہ کریں (Screenshot/کلاؤڈ نہیں)
+✅ کاغذ پر لکھ کر محفوظ جگہ رکھیں (دو کاپیاں، الگ جگہیں)
+✅ صرف آفیشل DEX/dApp استعمال کریں
+✅ Token Contract Address آفیشل ذریعہ سے تصدیق کریں
+✅ بڑی Tradese سے پہلے چھوٹی ٹیسٹ
+✅ Approvals باقاعدہ Revoke کریں
+✅ Phishing لنک: Dex سے باہر کلک نہ کریں</code></pre>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Seed phrase شیئر کرنا</strong> — ایک منٹ میں سب ختم۔</li>
+<li>❌ <strong>خود مختار پرس میں بڑی رقم</strong> رکھنا بغیر بیک اپ۔</li>
+<li>❌ <strong>ناواقف ٹوکن</strong> خریدنا بغیر Contract Address تصدیق۔</li>
+<li>❌ <strong>Approvals نظر انداز</strong> کرنا — بعد میں خالی Wallet۔</li>
+<li>❌ <strong>Gas/Slippage اعلیٰ</strong> پر trade کرنا۔</li>
+<li>❌ <strong>Fake dApp/Marketplace</strong> کا لنک کھولنا۔</li>
+<li>❌ <strong>Web3 کو بائننس اکاؤنٹ سمجھ کر Support سے ریکوری</strong> کی امید۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Web3 Wallet/DEX</strong> = خود مختار، کلید آپ کی، بیک اپ آپ کی ذمہ داری۔</li>
+<li><strong>DEX</strong> قیمت AMM/Liquidity Pool سے لیتا ہے، مرکزی آرڈر بک نہیں۔</li>
+<li>فوائد: ملکیت، بغیر KYC؛ خطرات: Scam Tokens، Slippage، Approvals۔</li>
+<li><strong>Seed Phrase</strong> کبھی شیئر نہ کریں؛ دو محفوظ کاپیاں رکھیں۔</li>
+<li>خود مختاری کے ساتھ ذمہ داری آتی ہے — کسی دوسرے سے ری سیٹ نہیں ہوگا۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Web3 Wallet کھولیں اور اپنا Public Address نوٹ کریں (Seed نہ لکھیں)۔</li>
+<li>لکھیں: Custodial اور Self-custodial کے 5 فرق۔</li>
+<li>ایک DEX Pool کا مبصر تصور کریں: دو اثاثے، تناسب، قیمت۔</li>
+<li>"Seed گم ہو گئی تو" کے لیے ایک حقیقت پسندانہ جملہ لکھیں۔</li>
+<li>اپنے Wallet میں موجود Approvals (اگر ہوں) ریویو کر کے غیر ضروری Revoke کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"خود مختار پرس = مکمل آزادی + مکمل ذمہ داری؛ Seed = آپ کی ملکیت کی واحد چابی۔"</strong> اصول: <strong>(1) Seed نہ کبھی شیئر</strong>، <strong>(2) ناواقف ٹوکن نہ خرید</strong>، <strong>(3) Approvals باقاعدہ Revoke کریں۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-53.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-55.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 30: ایڈوانسڈ آرڈر ٹائپس — Stop-Limit، OCO، Post-Only — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="part-6.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-31.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 30: ایڈوانسڈ آرڈر ٹائپس — Stop-Limit، OCO، Post-Only</h1>
+<blockquote class="chapter-summary">
+<p><strong>ایڈوانسڈ آرڈرز</strong> = Limit اور Market کے علاوہ وہ آرڈر ٹائپس جو آپ کو قیمت، وقت اور خطرے پر باریک کنٹرول دیتے ہیں۔ یہ باب آپ کو Spot اور Futures دونوں کے پیشہ ورانہ آرڈر ٹولز سے متعارف کراتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-advanced.jpg" alt="Binance Advanced Order Types">
+  <figcaption>تصویر 30.1: بائننس ٹریڈ صفحے پر آرڈر ٹائپ (Order Type) کا انتخاب — Limit، Market، Stop-Limit، OCO اور دیگر ایڈوانسڈ آپشنز ایک ہی جگہ۔ (Binance trade page order type selection — Limit, Market, Stop-Limit, OCO and other advanced options in one place.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Stop-Limit آرڈر اور اس کا صحیح استعمال</li>
+<li><strong>OCO (One-Cancels-the-Other)</strong> آرڈر</li>
+<li><strong>Post-Only</strong> اور اس کا Maker-fee مقصد</li>
+<li><strong>Time in Force</strong> (GTC، IOC، FOK)</li>
+<li><strong>Reduce-Only</strong> اور Trailing Stop کا تعارف</li>
+<li>ہر آرڈر کب استعمال کریں</li>
+<li>عام غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 30.1 Stop-Limit آرڈر</h2>
+<blockquote>
+<p><strong>Stop-Limit</strong> = دو قیمتوں والا آرڈر۔ جب مارکیٹ <strong>Stop Price</strong> تک پہنچے، تب ایک <strong>Limit</strong> آرڈر چالو ہو جاتا ہے۔</p>
+</blockquote>
+<h3>مثال (خریداری)</h3>
+<pre><code>موجودہ قیمت:  $96,000
+Stop Price:   $95,000   (قیمت یہاں پہنچتے ہی ٹرگر)
+Limit Price:  $94,900   (ٹرگر کے بعد یہ Limit آرڈر بک میں جائے گا)</code></pre>
+<ul>
+<li>Stop Price = <strong>ٹرگر</strong> (اٹھانے والا بٹن)</li>
+<li>Limit Price = <strong>وہ زیادہ سے زیادہ قیمت</strong> جو آپ دینے کو تیار ہیں</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Stop Price اور Limit Price کا فاصلہ</strong> اہم ہے۔ اگر فاصلہ بہت کم رکھیں اور مارکیٹ تیزی سے گزر جائے، تو Limit آرڈر <strong>پورا نہیں ہوگا</strong> اور آپ پوزیشن میں پھنس جائیں گے۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>مقصد</th><th>Stop-Limit استعمال</th></tr></thead>
+<tbody>
+<tr><td>لاس محدود کرنا</td><td>Stop as Stop-Loss</td></tr>
+<tr><td>گراوٹ پر خریداری</td><td>Buy the dip</td></tr>
+<tr><td>ٹوٹ پھوٹ کے بعد داخلی</td><td>Breakout entry</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 30.2 OCO آرڈر (One-Cancels-the-Other)</h2>
+<blockquote>
+<p><strong>OCO</strong> = ایک ہی وقت میں <strong>دو</strong> آرڈرز لگا دیے جائیں، اور <strong>جو پہلے پورا ہو، دوسرا خود بخود کینسل</strong> ہو جائے۔</p>
+</blockquote>
+<h3>عام ساخت: ایک Limit + ایک Stop-Limit</h3>
+<pre><code>آپ کے پاس 1 BTC ہے (خرید قیمت $96,000)
+
+اوپر:  Limit Sell   @ $100,000   ← منافع کے لیے
+نیچے:  Stop-Limit   @ $94,000 (Limit $93,900)  ← نقصان روکنے کے لیے
+
+اگر قیمت اوپر گئی اور $100,000 چھو گئی → Limit پورا، Stop کینسل ✅
+اگر قیمت نیچے گئی اور $94,000 ٹوٹی  → Stop چالو، Limit کینسل 🛡️</code></pre>
+<blockquote>
+<p>🔴 <strong>لازمی نکتہ:</strong> OCO اسپاٹ کا ٹول ہے۔ فیوچرز میں OCO نہیں ہوتا — وہاں <strong>الگ Take Profit اور Stop Loss فیلڈز</strong> پوزیشن کے ساتھ جُڑے ہوتے ہیں۔ (باب 16 دیکھیں۔)</p>
+</blockquote>
+<h3>کب استعمال</h3>
+<ul>
+<li>تاجر بازار سے دور ہے اور ایک ساتھ منافع + حفاظت چاہتا ہے</li>
+<li>پوزیشن کو "سیٹ اینڈ فارگیٹ" کرنا ہو</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 30.3 Post-Only آرڈر</h2>
+<blockquote>
+<p><strong>Post-Only</strong> = ایسا Limit آرڈر جو <strong>صرف اُس صورت میں</strong> بُک میں شامل ہوگا جب وہ فوراً کسی موجودہ آرڈر سے میچ نہ کرے۔ اگر میچ کرے گا، تو آرڈر <strong>کینسل</strong> ہو جائے گا۔</p>
+</blockquote>
+<pre><code>مقصد: ہمیشہ Maker رہنا، کبھی Taker نہ بننا</code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>اصطلاح</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Maker</strong></td><td>وہ آرڈر جو بُک میں "کھڑا" رہے (لیکویڈیٹی فراہم کرے) — فیس کم</td></tr>
+<tr><td><strong>Taker</strong></td><td>وہ آرڈر جو موجودہ آرڈر سے فوراً ٹکرا جائے — فیس زیادہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>Post-Only کب؟</strong> جب آپ کی ترجیح <strong>کم فیس</strong> ہو اور آپ جلدی میں نہ ہوں۔ اگر مارکیٹ آپ سے آگے نکل گئی تو آرڈر کینسل ہو جائے گا — یہی اس کا مقصد ہے (غلطی نہیں، ڈیزائن ہے)۔</p>
+</blockquote>
+<blockquote>
+<p>⚠️ فیس کے فیصد وقت اور VIP لیول کے ساتھ بدلتے رہتے ہیں — اپنے اکاؤنٹ کی Fee Schedule دیکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 30.4 Time in Force (آرڈر کی مدت)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>GTC</strong> (Good-Till-Cancelled)</td><td>آرڈر کینسل کرنے تک فعال رہے</td></tr>
+<tr><td><strong>IOC</strong> (Immediate-or-Cancel)</td><td>جو حصہ فوراً پورا ہو سکے، ہو جائے؛ باقی کینسل</td></tr>
+<tr><td><strong>FOK</strong> (Fill-or-Kill)</td><td>پورا ایک ساتھ پورا ہو، ورنہ پورا کینسل</td></tr>
+<tr><td><strong>GTD</strong> (Good-Till-Date)</td><td>مخصوص تاریخ تک فعال (بعض مارکیٹوں میں)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ <strong>تکنیکی عمل:</strong> FOK/IOC اُن منڈیوں/ٹریڈرز کے لیے ہیں جو ایک مخصوص قیمت پر فوری پورا ہونا چاہتے ہیں — جزوی فِل قبول نہیں۔</p>
+</blockquote>
+<h3>مثال — IOC بمقابلہ FOK:</h3>
+<pre><code>آپ کا آرڈر: 10 BTC @ $96,000
+بک میں دستیاب: 6 BTC @ $96,000
+
+IOC:  6 BTC پورا، 4 BTC کینسل ✅ (جزوی قبول)
+FOK:  پورا 10 BTC نہیں ہو سکتا → پورا آرڈر کینسل ❌
+GTC:  6 BTC پورا، 4 BTC کھلا رہے (باقی منتظر)</code></pre>
+<hr class="divider">
+
+<h2>📖 30.5 Reduce-Only اور Trailing Stop (تعارف)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹول</th><th>مقصد</th></tr></thead>
+<tbody>
+<tr><td><strong>Reduce-Only</strong></td><td>آرڈر صرف پوزیشن <strong>کم</strong> کرے گا، نئی پوزیشن <strong>نہیں</strong> کھولے گا (Futures)</td></tr>
+<tr><td><strong>Trailing Stop</strong></td><td>اسٹاپ خود بخود قیمت کے ساتھ چلتا رہتا ہے (باب 33)</td></tr>
+<tr><td><strong>Iceberg / TWAP</strong></td><td>بڑے آرڈر کو چھوٹے ٹکڑوں میں تقسیم کرنا (Futures/Pro)</td></tr>
+</tbody></table></div>
+<h3>Reduce-Only کی اہمیت:</h3>
+<pre><code>آپ کی پوزیشن: Long 1 BTC
+آپ لگاتے ہیں: Sell Limit 1 BTC (Reduce-Only ✅)
+→ یہ آرڈر صرف آپ کی پوزیشن بند کرے گا
+
+بغیر Reduce-Only:
+→ اگر پوزیشن پہلے بند ہو چکی ہو، تو یہ آرڈر
+   نئی Short پوزیشن کھول دے گا ❌ (ناگوار حیرت)</code></pre>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>Stop Price اور Limit Price</strong> میں فرق نہ سمجھنا</li>
+<li>❌ دونوں قیمتیں <strong>بالکل برابر</strong> رکھنا — آرڈر اکثر پورا نہیں ہوگا</li>
+<li>❌ OCO کو فیوچرز میں ڈھونڈنا (وہاں TP/SL الگ ہوتے ہیں)</li>
+<li>❌ Post-Only کو "خرابی" سمجھنا، جبکہ مارکیٹ آگے نکل گئی ہو</li>
+<li>❌ <strong>Time in Force</strong> نظر انداز کرنا، پھر حیران ہونا کہ آرڈر کیوں کینسل ہوا</li>
+<li>❌ Reduce-Only کا مطلب نہ جاننا اور نئی پوزیشن کھول بیٹھنا</li>
+<li>❌ Stop-Limit کو Stop-Market سمجھنا (Stop-Market میں slippage ممکن ہے)</li>
+<li>❌ آرڈر لگا کر Address/Amount دوبارہ چیک نہ کرنا</li>
+<li>❌ Market کے بجائے Stop آرڈر غلط قیمت پر لگا دینا</li>
+<li>❌ آرڈر "کیوں نہیں ہوا" کی وجہ (Stop trigger vs Limit price) نہ سمجھنا</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Stop-Limit</strong> = Trigger + Limit، دو قیمتیں</li>
+<li><strong>OCO</strong> = Limit + Stop-Limit، ایک پورا ہو تو دوسرا کینسل</li>
+<li><strong>Post-Only</strong> = ہمیشہ Maker، ورنہ کینسل</li>
+<li><strong>Time in Force</strong> = GTC / IOC / FOK</li>
+<li><strong>Reduce-Only</strong> = صرف پوزیشن کم کرنا</li>
+<li>OCO <strong>صرف اسپاٹ</strong> میں — فیوچرز میں الگ TP/SL</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>ایک <strong>Stop-Limit Buy</strong> کا منظرنامہ لکھیں: موجودہ قیمت، Stop، Limit۔</li>
+<li>ایک <strong>OCO</strong> ترتیب بنائیں: منافع کی حد + حفاظتی حد۔</li>
+<li><strong>Post-Only</strong> اور عام Limit میں فرق ایک سطریں میں لکھیں۔</li>
+<li>GTC، IOC، FOK — ہر ایک کا ایک مثالی استعمال لکھیں۔</li>
+<li>ایک <strong>جدول</strong> بنائیں: Limit / Market / Stop-Limit / OCO — کب کون سا۔</li>
+<li>ٹریڈ صفحے پر جا کر <strong>Order Type</strong> کے تمام آپشنز دیکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>آرڈر ٹائپ آپ کی حکمت عملی کا ترجمہ ہے۔</strong> اگر آپ کا ارادہ "خطرہ محدود کرنا" ہے تو Stop-Limit؛ اگر "ایک ساتھ منافع اور حفاظت" ہے تو OCO؛ اگر "کم فیس" ہے تو Post-Only۔ آرڈر غلط چنا گیا تو بہترین تجزیہ بھی بے کار جاتا ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="part-6.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-31.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 17: سٹاپ لاس اور ٹیک پرافٹ — عملی رہنمائی — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-16.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-4.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 17: سٹاپ لاس اور ٹیک پرافٹ — عملی رہنمائی</h1>
+<blockquote class="chapter-summary">
+<p>یہ باب باب 16 کا <strong>عملی تسلسل</strong> ہے: Stop Loss اور Take Profit کو حقیقی حکمتِ عملیوں کے ساتھ جوڑنا، پوزیشن سائزنگ، اور جذباتی ٹریڈنگ سے بچاؤ۔ پڑھنے کے بعد آپ کے پاس ایک قابلِ عمل ٹریڈنگ فریم ورک ہوگا۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/Demo-Trading-Futures.jpg" alt="Binance Futures Demo Trading Practice">
+  <figcaption>تصویر 17.1: بائننس Futures Demo Trading — حقیقی رقم لگانے سے پہلے SL/TP کی مشق کا محفوظ ماحول۔ (Binance Futures Demo Trading — safe environment to practice SL/TP before using real funds.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>SL اور TP کا عملی فریم ورک</li>
+<li><strong>پوزیشن سائزنگ (Position Sizing)</strong> — 1% اصول</li>
+<li>چھ اہم ٹریڈنگ حکمتِ عملیاں (Swing، Breakout، Pullback، Scalping، Range، DCA)</li>
+<li>کب SL لازمی ہے اور کب اس کا اطلاق نہیں ہوتا</li>
+<li><strong>جذباتی ٹریڈنگ سے بچاؤ</strong></li>
+<li>اپنا SOP (Standard Operating Procedure) بنانا</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 17.1 SL سب سے اہم عنصر</h2>
+<blockquote>
+<p><strong>بغیر SL کے ٹریڈ = جوا۔</strong> SL وہ واحد چیز ہے جو آپ کو ایک بڑے نقصان سے بچاتی ہے۔</p>
+</blockquote>
+<h3>ہر ٹریڈ کے چار ستون</h3>
+<pre><code>Entry + SL + TP + Position Size
+اگر ان میں سے کوئی ایک غائب ہو → ٹریڈ نہ لگائیں</code></pre>
+<h3>کہاں SL لازمی ہے؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹریڈ</th><th>SL کی ضرورت</th></tr></thead>
+<tbody>
+<tr><td><strong>Futures (Long/Short)</strong></td><td>✅ بالکل لازمی (Liquidation کا خطرہ)</td></tr>
+<tr><td><strong>Margin</strong></td><td>✅ بالکل لازمی</td></tr>
+<tr><td><strong>Spot (بڑی پوزیشن)</strong></td><td>✅ ضروری</td></tr>
+<tr><td><strong>Spot (طویل سرمایہ کاری)</strong></td><td>اختیاری (حکمتِ عملی پر منحصر)</td></tr>
+<tr><td><strong>DCA / SIP</strong></td><td>عام طور پر نہیں (طویل مدتی)</td></tr>
+<tr><td><strong>Convert / P2P</strong></td><td>فوری لین دین — SL کا تصور نہیں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>اہم:</strong> DCA اور طویل مدتی سرمایہ کاری میں "SL نہ لگانا" دانشمندی نہیں، بلکہ <strong>الگ حکمتِ عملی</strong> ہے۔ مگر Futures/Margin میں SL کے بغیر ٹریڈ سراسر خودکشی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 17.2 پوزیشن سائزنگ — 1% اصول</h2>
+<h3>یہ SL سے بھی زیادہ اہم ہے</h3>
+<blockquote>
+<p>کامیاب ٹریڈر وہ نہیں جو ہر ٹریڈ جیتتا ہے، بلکہ وہ جو <strong>ایک غلط ٹریڈ میں اپنا سرمایہ نہیں کھوتا</strong>۔</p>
+</blockquote>
+<h3>1% اصول</h3>
+<pre><code>اکاؤنٹ       : 1,000 USDT
+فی ٹریڈ رسک  : 1% = 10 USDT
+
+اگر SL کا فاصلہ 5% ہے:
+پوزیشن سائز = 10 ÷ 0.05 = 200 USDT
+
+نتیجہ: SL لگنے پر صرف 1% نقصان — اکاؤنٹ 99% محفوظ ✅</code></pre>
+<h3>کامیابی اور ناکامی کی حقیقت</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>R:R</th><th>جیت کی شرح</th><th>نتیجہ (طویل مدت)</th></tr></thead>
+<tbody>
+<tr><td>1:2</td><td>40%</td><td>منافع بخش ✅</td></tr>
+<tr><td>1:2</td><td>30%</td><td>تقریباً برابر</td></tr>
+<tr><td>1:3</td><td>30%</td><td>منافع بخش ✅</td></tr>
+<tr><td>1:1</td><td>40%</td><td>نقصان ❌</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 آپ کو ہر بار جیتنے کی ضرورت نہیں — صرف اچھے R:R کے ساتھ اکثریت میں جیتنا کافی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 17.3 چھ اہم ٹریڈنگ حکمتِ عملیاں</h2>
+<h3>حکمتِ عملی 1: Swing Trading</h3>
+<pre><code>ٹائم فریم : 4H / D1
+رجحان     : HH/HL (Long) یا LL/LH (Short)
+Entry     : S/R پر Pullback
+SL        : Swing Low کے نیچے
+TP        : اگلی S/R
+R:R       : 1:2+
+Duration  : دن سے ہفتے</code></pre>
+<h3>حکمتِ عملی 2: Breakout Trading</h3>
+<pre><code>ٹائم فریم : 1H / 4H
+Entry     : مزاحمت کا بریک + تصدیقی کینڈل
+SL        : بریک زون کے اندر
+TP        : بریک کا فاصلہ (Measured Move)
+R:R       : 1:2+
+Duration  : گھنٹے سے دن</code></pre>
+<h3>حکمتِ عملی 3: Pullback Trading</h3>
+<pre><code>ٹائم فریم : 4H / D1
+رجحان     : واضح (بڑی تصویر)
+Entry     : رجحان میں پل بیک + تصدیق
+SL        : پل بیک کے نیچے (Long)
+TP        : رجحان کی سمت اگلی S/R
+R:R       : 1:2+
+Duration  : دن سے ہفتے</code></pre>
+<h3>حکمتِ عملی 4: Scalping</h3>
+<pre><code>ٹائم فریم : 1m / 5m
+Entry     : Pin Bar / Engulfing
+SL        : 5–10 pips
+TP        : 10–20 pips
+R:R       : 1:1.5 سے 1:2
+Duration  : منٹ
+شرط      : بڑا حجم + کم Spread</code></pre>
+<h3>حکمتِ عملی 5: Range Trading</h3>
+<pre><code>ٹائم فریم : 4H / D1
+Entry     : رینج کے نیچے Buy، اوپر Sell
+SL        : رینج کے باہر
+TP        : رینج کا وسط
+R:R       : 1:1.5+
+Duration  : رینج قائم رہنے تک</code></pre>
+<h3>حکمتِ عملی 6: DCA (Dollar Cost Averaging)</h3>
+<pre><code>تصور : مقررہ وقفے پر مقررہ رقم لگائیں
+Entry: قیمت گرے → خریداری جاری
+SL   : باقاعدہ ٹریڈنگ میں SL (طویل سرمایہ کاری میں اختیاری)
+TP   : طویل مدتی ہدف
+Duration: ماہ سے سال</code></pre>
+<blockquote>
+<p>💡 <strong>آسان آغاز:</strong> نئے صارف کے لیے <strong>DCA</strong> اور <strong>Swing Trading</strong> سب سے موزوں ہیں۔ Scalping صرف تجربہ کاروں کے لیے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 17.4 کب SL کا اطلاق نہیں ہوتا</h2>
+<blockquote>
+<p>SL ٹریڈنگ ٹول ہے، ہر لین دین میں لازمی نہیں۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>SL؟</th></tr></thead>
+<tbody>
+<tr><td>Futures / Margin</td><td>✅ لازمی</td></tr>
+<tr><td>Spot (بڑی قلیل مدتی پوزیشن)</td><td>✅ ضروری</td></tr>
+<tr><td>Convert (فوری تبدیلی)</td><td>❌ تصور نہیں</td></tr>
+<tr><td>P2P (فوری بیدل)</td><td>❌ تصور نہیں</td></tr>
+<tr><td>Earn / Staking (قید مدت)</td><td>❌ تصور نہیں</td></tr>
+<tr><td>DCA (طویل سرمایہ کاری)</td><td>اختیاری</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ جہاں SL ممکن نہیں، وہاں <strong>پوزیشن سائز ہی حفاظت</strong> ہے — صرف اتنا لگائیں جتنا کھونے کی برداشت ہو۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 17.5 جذباتی ٹریڈنگ سے بچاؤ</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>جذبہ</th><th>نشانی</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td><strong>لالچ</strong></td><td>TP پر بھی نہ بند کرنا</td><td>TP پہلے سے طے، مرحلہ وار نکاسی</td></tr>
+<tr><td><strong>خوف</strong></td><td>SL ہٹا دینا</td><td>SL کو مقدس سمجھیں</td></tr>
+<tr><td><strong>بے تابی</strong></td><td>بغیر تجزیہ اندھا ٹریڈ</td><td>تحریری چیک لسٹ</td></tr>
+<tr><td><strong>انتقام</strong></td><td>نقصان کے بعد جھٹکے</td><td>وقفہ لیں، دن بند کریں</td></tr>
+<tr><td><strong>ضد</strong></td><td>غلطی نہ ماننا</td><td>جرنل میں دیانت داری</td></tr>
+</tbody></table></div>
+<h3>بچاؤ کے طریقے</h3>
+<ol>
+<li>تحریری <strong>SOP</strong> بنائیں (ہر ٹریڈ ایک ہی عمل سے)</li>
+<li><strong>Demo پر مشق</strong> — حقیقی رقم بعد میں</li>
+<li><strong>روٹین</strong> — ایک ہی وقت، ایک ہی طریقہ</li>
+<li><strong>وقفہ</strong> — بڑے نقصان کے بعد آرام</li>
+<li><strong>جرنل</strong> — ہر ٹریڈ ریکارڈ کریں</li>
+<li><strong>فی ٹریڈ 1–2% رسک</strong> — پوزیشن سائزنگ سے</li>
+</ol>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>SL نہ لگانا</strong> — سب سے بڑی غلطی</li>
+<li>❌ <strong>SL ہٹانا</strong> — جذباتی سوچ</li>
+<li>❌ <strong>TP پر SL نہ بڑھانا</strong> — منافع واپس نقصان میں بدل سکتا ہے</li>
+<li>❌ <strong>R:R نہ نوٹ کرنا</strong> — ہر ٹریڈ میں لکھیں</li>
+<li>❌ <strong>بغیر تجزیہ اندھا اندھا ٹریڈ</strong> — بے تابی نقصان دہ</li>
+<li>❌ <strong>حقیقی رقم Demo سے پہلے</strong> — تجربہ پہلے، پھر سرمایہ</li>
+<li>❌ <strong>ایک ہی ٹریڈ بار بار</strong> — تنوع ضروری</li>
+<li>❌ <strong>پوزیشن سائز غلط</strong> — 1% اصول سیکھیں</li>
+<li>❌ <strong>تھکاوٹ میں ٹریڈ</strong> — فیصلہ کمزور ہوتا ہے</li>
+<li>❌ <strong>جرنل نہ رکھنا</strong> — سیکھنے کا سب سے بڑا ذریعہ ضائع</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>SL = نجات</strong> — بغیر SL ٹریڈ نہ کریں (Futures/Margin میں لازمی)</li>
+<li><strong>TP = ہدف</strong> — مرحلہ وار اہداف بہتر</li>
+<li><strong>R:R = منصوبہ</strong> — کم از کم 1:2</li>
+<li><strong>پوزیشن سائزنگ</strong> — فی ٹریڈ 1% رسک</li>
+<li><strong>حکمتِ عملی</strong> = نظام — ایک طریقہ، مستقل مزاجی</li>
+<li><strong>جذبات</strong> = دشمن — SOP اور جرنل سے قابو</li>
+<li><strong>ترتیب</strong> = Spot → پھر Futures، Demo پہلے</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>چھ حکمتِ عملیوں کا موازنہ جدول بنائیں۔</li>
+<li>اپنی ترجیح لکھیں: "میں _________ اپناؤں گا کیونکہ..."</li>
+<li>R:R نکالیں: Entry 96,000، TP 100,000، SL 94,000 → R:R؟</li>
+<li>پوزیشن سائز نکالیں: اکاؤنٹ 1,000، رسک 1%، SL فاصلہ 4% → Position Size؟</li>
+<li>اپنے SL کا طریقہ لکھیں (S/R، ATR، فیصد)۔</li>
+<li>اپنا سب سے مشکل جذبہ پہچانیں اور حل لکھیں۔</li>
+<li>5-قدمی SOP بنائیں (تجزیہ → ٹریڈ → SL → TP → جائزہ)۔</li>
+<li>جرنل شروع کریں — پہلا ریکارڈ لکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>ٹریڈنگ ایک مہارت ہے، جوا نہیں۔ کامیاب ٹریڈر وہ ہے جو <strong>منصوبہ بندی، پوزیشن سائزنگ، مستقل مزاجی</strong> اور <strong>جذباتی قابو</strong> رکھتا ہے۔</p>
+<p><strong>SL لگاؤ، R:R بہتر رکھو، 1% سے زیادہ رسک نہ کرو، اور ہر ٹریڈ جرنل میں لکھو۔</strong> یہ چار عادتیں وقت کے ساتھ آپ کو ایک منظم ٹریڈر بنا دیں گی۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-16.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-4.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

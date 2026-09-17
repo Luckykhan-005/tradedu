@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 38: سٹیکنگ — پاسیو انکم کا پہلا قدم — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-37.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-39.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 38: سٹیکنگ — پاسیو انکم کا پہلا قدم</h1>
+<blockquote class="chapter-summary">
+<p><strong>سٹیکنگ (Staking)</strong> = اپنی کرپٹو کو بلاک چین نیٹ ورک کی سیکیورٹی اور آپریشن کے لیے لاک (Lock) کرنا، اور اس کے بدلے میں انعام (Rewards) حاصل کرنا۔ یہ بینک کے "منی مارکیٹ اکاؤنٹ" کی طرح ہے، لیکن انعام کرپٹو میں ملتا ہے اور اس میں قیمت کا اتار چڑھاؤ اور لاک اپ کا رسک شامل ہوتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/staking.jpg" alt="Binance Staking">
+  <figcaption>تصویر 38.1: بائننس کے Earn سیکشن میں سٹیکنگ کے اختیارات — ہر پروڈکٹ کے ساتھ اس کی سالانہ شرح (APR/APY)، کم از کم رقم، اور لاک کی مدت دکھائی دیتی ہے۔ (Binance Earn section staking options — each product shows its annual rate (APR/APY), minimum amount, and lock duration.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>سٹیکنگ اصل میں کیوں ہوتی ہے (بلاک چین کی ضرورت، نہ کہ صرف "بونس")</li>
+<li><strong>Proof of Stake، ویلیڈیٹر، ڈیلیگیٹر</strong> اور ایپوک کا مطلب</li>
+<li><strong>Locked Staking</strong> بمقابلہ <strong>Flexible/Flexible Savings</strong> کا حقیقی فرق</li>
+<li><strong>APR اور APY</strong> میں فرق (کمپاؤنڈنگ)</li>
+<li>سٹیکنگ کے اصل رسک (لاک اپ، سلیشنگ، قیمت کی گراوٹ، سمارٹ کانٹریکٹ)</li>
+<li>بائننس پر قدم بہ قدم سٹیک کرنے کا طریقہ اور نکلوانے کی شرائط</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 38.1 سٹیکنگ ہوتی کیوں ہے؟ (بنیادی منطق)</h2>
+<p>زیادہ تر جدید بلاک چینز <strong>Proof of Stake (PoS)</strong> پر چلتی ہیں۔ ان میں کوئی "مائننگ رِگ" نہیں ہوتا؛ بلکہ:</p>
+<pre><code>کوئی بھی صارف ٹوکن (مثلاً ETH, BNB, SOL, ADA) نیٹ ورک میں لاک کرتا ہے
+        ↓
+وہ نیٹ ورک کے فیصلوں (والدیشن) میں حصہ لیتا ہے
+        ↓
+ہر بلاک کے بدلے اُسے انعام (Rewards) ملتا ہے
+        ↓
+اگر وہ دھوکہ دہی کرے → اس کا لاک شدہ ٹوکن "ضبط" (Slashing) ہو جاتا ہے</code></pre>
+<p>یعنی سٹیکنگ صرف "بونس" نہیں — یہ بلاک چین کے لیے <strong>کوئی بھی دھوکہ دہی مشکل بنانے</strong> کا طریقہ ہے۔ اگر آپ نے اب تک سنا ہے کہ "سٹیکنگ = پیسے کماؤ"، تو اس کی حقیقی وجہ یہی سیکیورٹی ماڈل ہے۔</p>
+<h3>اہم اصطلاحات</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>اصطلاح</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Proof of Stake (PoS)</strong></td><td>بلاک چین کی ایسی مکینزم جس میں مالکانہ حقوق (Stake) سے اتفاق ہوتا ہے</td></tr>
+<tr><td><strong>Validator (ویلیڈیٹر)</strong></td><td>نیٹ ورک چلانے والا نوڈ؛ خود لاک شدہ ٹوکن رکھتا ہے</td></tr>
+<tr><td><strong>Delegator (ڈیلیگیٹر)</strong></td><td>وہ صارف جو اپنا ٹوکن ویلیڈیٹر کو "ڈیلیگیٹ" کرتا ہے (بائننس کی طرح)</td></tr>
+<tr><td><strong>Epoch</strong></td><td>وقت کی ایک مدت جس کے بعد انعام کا حساب ہوتا ہے</td></tr>
+<tr><td><strong>APR / APY</strong></td><td>سالانہ شرح — APY میں کمپاؤنڈنگ شامل ہے</td></tr>
+<tr><td><strong>Slashing</strong></td><td>بدعنوانی/بند سرور پر لاک شدہ ٹوکن کا جزوی ضبط ہونا</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 38.2 Locked بمقابلہ Flexible</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>خصوصیت</th><th><strong>Locked Staking</strong></th><th><strong>Flexible (Flexible Savings)</strong></th></tr></thead>
+<tbody>
+<tr><td>شرح (Rewards)</td><td>زیادہ</td><td>کم</td></tr>
+<tr><td>رقم نکلوانا</td><td>مقررہ مدت (7/30/60/90/120 دن) ختم ہونے تک نہیں</td><td>کسی بھی وقت فوری</td></tr>
+<tr><td>لاک پیریڈ</td><td>ہاں</td><td>نہیں</td></tr>
+<tr><td>موزوں</td><td>جو رقم کئی ماہ نہ چاہیے</td><td>جو رقم ہنگامی ضرورت کے لیے رکھنی ہو</td></tr>
+<tr><td>ادائیگی</td><td>روزانہ/ہفتہ وار/مدت کے اختتام پر</td><td>روزانہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>اصول:</strong> ہمیشہ پہلے <strong>Flexible</strong> سے شروع کریں۔ جب آپ کو یقین ہو کہ یہ رقم 30 دن تک نہیں چاہیے، تو <strong>Locked</strong> کا زیادہ APR لیں۔</p>
+</blockquote>
+<h3>APR بمقابلہ APY</h3>
+<pre><code>APR = 10%  (سادہ سالانہ)
+اگر روزانہ کمپاؤنڈ ہو:
+APY ≈ (1 + 0.10/365)^365 − 1 ≈ 10.51%</code></pre>
+<ul>
+<li>اگر پلیٹ فارم <strong>APR</strong> لکھے تو کمپاؤنڈ الگ نہیں ہوتا۔</li>
+<li>اگر <strong>APY</strong> لکھے تو کمپاؤنڈ شامل ہے۔</li>
+<li>روزانہ انعام کا خودکار "Auto-Subscribe" آن ہو تو عملاً APY بنتا ہے۔</li>
+</ul>
+<h3>سادہ حساب کی مثال</h3>
+<pre><code>آپ 1,000 USDT Flexible Savings میں رکھتے ہیں
+APR = 5% (روزانہ ادائیگی، آپ ری-انویسٹ نہیں کرتے)
+ایک سال بعد: 1,000 + 50 = 1,050 USDT انعام
+اگر ری-انویسٹ کریں (APY ≈ 5.13%): ≈ 1,051.3 USDT</code></pre>
+<blockquote>
+<p><strong>نوٹ:</strong> یہ حساب کرپٹو کی <strong>قیمت</strong> شامل نہیں کرتا۔ اگر اس دوران USDT/BTC میں تبدیلی آئے یا ٹوکن کی قیمت گری، تو آپ کے اصل سرمائے پر منافع/نقصان الگ ہوگا۔ سٹیکنگ صرف "تعداد میں اضافے" (Yield) دیتا ہے، <strong>قیمت کا رسک ختم نہیں کرتی</strong>۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 38.3 بائننس پر قدموں بہ قدم</h2>
+<pre><code>1. Binance ایپ/ویب → Wallet → Earn
+2. Simple Earn / Staking کا ٹیب کھولیں
+3. کرپٹو منتخب کریں (USDT, BNB, ETH, SOL …)
+4. Flexible یا Locked کا انتخاب کریں
+5. رقم درج کریں (کم از کم رقم دیکھیں)
+6. Rate/دورانیہ پڑھیں → Subscribe/Confirm
+7. Manage میں جا کر اپنی Positions دیکھیں
+8. Locked کی مدت ختم ہونے پر → Redeem / Auto-Renew آپشن</code></pre>
+<p><strong>نکلوانے کے اصول:</strong></p>
+<ul>
+<li><strong>Flexible:</strong> Redemption فوری — کچھ لمحوں میں Spot Wallet میں آ جاتا ہے۔</li>
+<li><strong>Locked:</strong> وقت سے پہلے نکلوانا ممکن نہیں؛ کچھ پروڈکٹس "Early Redemption" دیتے ہیں لیکن <strong>انعام ضبط</strong> (Forfeit) ہو جاتا ہے۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 38.4 کون سی کرپٹو سٹیک کریں؟</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹوکن</th><th>نیٹ ورک</th><th>خصوصیت</th></tr></thead>
+<tbody>
+<tr><td><strong>BNB</strong></td><td>BNB Smart Chain</td><td>بائننس کا اپنا ٹوکن، اکثر مختلف پروڈکٹس میں بہترین شرح</td></tr>
+<tr><td><strong>ETH</strong></td><td>Ethereum</td><td>نیٹ ورک پر انحصار؛ Flexible اور Locked دونوں دستیاب</td></tr>
+<tr><td><strong>USDT/USDC</strong></td><td>کئی نیٹ ورکس</td><td>"لون/لینڈنگ" کا حصہ — شرح مستحکم لیکن کم</td></tr>
+<tr><td><strong>SOL, ADA, DOT</strong></td><td>اپنے نیٹ ورکس</td><td>Native staking عام طور پر Locked ہوتی ہے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p><strong>یاد رکھیں:</strong> زیادہ APR کا مطلب <strong>ہمیشہ</strong> زیادہ رسک ہے۔ 30%+ APR والے "سٹیکنگ" پروڈکٹس عموماً اصل سٹیکنگ نہیں بلکہ لون/لینڈنگ یا DeFi والٹ ہوتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>"سٹیکنگ = مقررہ منافع"</strong> — نہیں۔ شرح (APR) متغیر ہو سکتی ہے اور ٹوکن کی قیمت گر سکتی ہے۔</li>
+<li>❌ <strong>تمام سرمایہ Locked میں ڈال دینا</strong> — ہنگامی رقم Flexible/Spot میں رکھیں۔</li>
+<li>❌ <strong>APR کو APY سمجھنا</strong> — دونوں میں کمپاؤنڈنگ کا فرق ہے۔</li>
+<li>❌ <strong>صرف High APR دیکھ کر انتخاب</strong> — پروڈکٹ کی قسم (Staking/Lending/DeFi) اور ریسک پڑھیں۔</li>
+<li>❌ <strong>Early Redemption کی شرط نہ پڑھنا</strong> — پہلے نکلوانے پر انعام ضائع ہو سکتا ہے۔</li>
+<li>❌ <strong>DeFi والٹ کو "بائننس سٹیکنگ" سمجھنا</strong> — DeFi والٹ تھرڈ پارٹی پروٹوکول ہیں؛ سمارٹ کانٹریکٹ رسک الگ ہے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>سٹیکنگ</strong> = PoS نیٹ ورک کی سیکیورٹی میں حصہ + انعام۔</li>
+<li><strong>Locked</strong> = زیادہ شرح، رقم بندھی ہوئی۔ <strong>Flexible</strong> = کم شرح، رقم آزاد۔</li>
+<li><strong>APR</strong> میں کمپاؤنڈ نہیں؛ <strong>APY</strong> میں ہے۔</li>
+<li>سٹیکنگ "تعداد" بڑھاتی ہے — <strong>قیمت کا رسک ختم نہیں کرتی</strong>۔</li>
+<li>ہمیشہ رسک دیکھیں: لاک اپ، Slashing، مارکیٹ پرائس، سمارٹ کانٹریکٹ۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس <strong>Earn → Staking</strong> کھولیں اور کم از کم 5 پروڈکٹس کے APR دیکھیں۔</li>
+<li>ایک Flexible اور ایک Locked پروڈکٹ کا موازنہ ٹیبل بنائیں (شرح، مدت، کم از کم رقم)۔</li>
+<li>فرضی 500 USDT پر 5% APR کا ایک سال کا انعام حساب کریں — APR اور APY دونوں سے۔</li>
+<li>اپنے پورٹ فولیو میں وہ حصہ نشان زد کریں جو 30 دن تک نہیں چاہیے (وہیں Locked موزوں)۔</li>
+<li>"سٹیکنگ کے 4 رسک" اپنے الفاظ میں لکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"سٹیکنگ = نیٹ ورک کی حفاظت میں حصہ، بدلے میں انعام — مفت پیسے نہیں۔"</strong></p>
+<p>اصول: <strong>Low APR + Flexible = سکون؛ High APR + Locked = رسک۔</strong> جو رقم بندھ جانے کا متحمل نہ ہو، اُسے Flexible میں رکھیں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-37.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-39.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

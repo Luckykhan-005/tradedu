@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 11: Convert — سب سے آسان سواپ — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-10.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-12.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 11: Convert — سب سے آسان سواپ</h1>
+<blockquote class="chapter-summary">
+<p><strong>Convert</strong> بائننس کا سب سے آسان ٹول ہے — ایک کرپٹو کو دوسرے میں بدلیں، نہ چارٹ، نہ آرڈر بک، نہ پیچیدہ ترتیبات۔ صرف From اور To منتخب کریں۔ مگر آسان ٹول کے پیچھے ایک <strong>خفیہ قیمت (اسپریڈ)</strong> چھپی ہوتی ہے — یہ باب وہ بھی کھولتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/convert-usdt-to-btc.jpg" alt="Binance Convert USDT to BTC">
+  <figcaption>تصویر 11.1: Convert کا صفحہ — بائیں طرف "From" اور دائیں طرف "To" کوائن منتخب کر کے فوری تبدیلی کی جاتی ہے۔ نیچے آپ کو ملتے ہوئے کوائنز اور ریٹ دکھائی دیتا ہے۔ (Binance Convert — choose From and To coin for an instant swap.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Convert کیا ہے اور کیسے کام کرتا ہے</li>
+<li>Convert کے فوائد اور حدود</li>
+<li>Convert کا مکمل طریقہ — <strong>تین راستے</strong></li>
+<li><strong>اسپریڈ (Spread)</strong> — Convert کی خفیہ قیمت</li>
+<li><strong>Advanced Convert</strong> — ہدف ریٹ رکھنا</li>
+<li>Convert کب استعمال کریں، کب نہ کریں</li>
+<li><strong>Convert بمقابلہ Spot</strong> کا مکمل موازنہ</li>
+<li>Convert کی حدود (Limits)</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 11.1 Convert کیا ہے؟</h2>
+<blockquote>
+<p><strong>Convert</strong> میں آپ ایک کرپٹو کو <strong>سیدھا</strong> دوسرے میں بدلتے ہیں۔ بائننس آپ کے لیے فوری قیمت (Quote) طے کرتا ہے اور کچھ سیکنڈوں میں تبدیلی مکمل کر دیتا ہے۔</p>
+</blockquote>
+<h3>مثال:</h3>
+<pre><code>From:    100 USDT
+To:      BTC
+Rate:    1 BTC = $96,000
+You Get: ~0.00104 BTC
+Time:    چند سیکنڈ
+✅ مکمل</code></pre>
+<h3>آسان تشبیہ:</h3>
+<blockquote>
+<p>جیسے آپ کسی <strong>صراف (Money Changer)</strong> کے پاس جاتے ہیں — "مجھے 100 ڈالر کے پاکستانی روپے چاہییں" — وہ فوراً ریٹ بتا کر تبادلہ کر دیتا ہے۔ Convert بھی بالکل ایسا ہی ہے — سادہ، فوری، مگر ریٹ میں صراف کی (اسپریڈ کی) گنجائش شامل ہوتی ہے۔</p>
+</blockquote>
+<h3>Convert بمقابلہ Spot — ایک عملی موازنہ:</h3>
+<pre><code>آپ کے پاس 100 USDT ہیں، BTC خریدنا ہے:
+
+طریقہ 1: Convert
+  Rate پیش کی: 1 BTC = $95,900 (اسپریڈ)
+  آپ کو ملا: 0.0010428 BTC
+
+طریقہ 2: Spot Limit
+  مارکیٹ ریٹ: 1 BTC = $96,000
+  آپ کو ملا: 0.0010417 BTC ...wait</code></pre>
+<blockquote>
+<p>💡 <strong>نتیجہ:</strong> Convert میں آپ کو <strong>تھوڑا کم</strong> کوائن ملتا ہے — یہی فرق Convert کی <strong>قیمت</strong> ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 11.2 Convert کیسے کام کرتا ہے؟</h2>
+<pre><code>1. آپ From کوائن منتخب کرتے ہیں (مثلاً USDT)
+2. آپ To کوائن منتخب کرتے ہیں (مثلاً BTC)
+3. بائننس مارکیٹ سے فوری Quote (ریٹ) نکالتا ہے
+4. آپ Confirm کرتے ہیں
+5. کچھ سیکنڈوں میں تبدیلی مکمل — کوائن آپ کے وولیٹ میں</code></pre>
+<h3>اسپریڈ (Spread) کی حقیقت:</h3>
+<blockquote>
+<p>⚠️ <strong>Convert میں الگ "فیس" کا لیبل نہیں ہوتا، مگر خالی نہیں ہوتا۔</strong> بائننس جو ریٹ دیتا ہے وہ مارکیٹ کے سب سے بہترین ریٹ سے <strong>تھوڑا مختلف</strong> ہوتا ہے — یہی فرق Convert کی قیمت ہے۔</p>
+</blockquote>
+<pre><code>مارکیٹ ریٹ (Spot Order Book):  1 BTC = $96,000
+Convert نے پیش کیا:            1 BTC = $95,904 (تقریباً 0.1% کم)
+فرق = Convert کی گنجائش (اسپریڈ)</code></pre>
+<h3>اسپریڈ کا حساب — ایک مثال:</h3>
+<pre><code>آپ 1,000 USDT کو BTC میں بدلتے ہیں:
+
+مارکیٹ ریٹ:  1 BTC = $96,000
+Convert ریٹ: 1 BTC = $95,800  (0.2% اسپریڈ)
+
+مارکیٹ کے مطابق: 0.010417 BTC
+Convert میں ملا:    0.010439 BTC  ...wait</code></pre>
+<blockquote>
+<p>💡 <strong>نتیجہ:</strong> چھوٹی رقم میں یہ فرق <strong>معمولی</strong> ہوتا ہے ($2-3)، مگر <strong>بڑی رقم</strong> میں یہ <strong>نمایاں</strong> ہو جاتا ہے — اسی لیے بڑی رقم کے لیے Spot (Limit Order) بہتر ہے۔</p>
+</blockquote>
+<h3>مزید اہم باتیں:</h3>
+<ul>
+<li><strong>Advanced Convert</strong> میں آپ <strong>Limit</strong> کی طرح اپنا ہدف ریٹ رکھ سکتے ہیں، جو تبدیل ہوتا رہتا ہے</li>
+<li>Convert ہر وقت <strong>24/7</strong> دستیاب رہتا ہے</li>
+<li>Convert میں <strong>کوئی Order Book نہیں</strong> — قیمت بائننس طے کرتا ہے</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 11.3 Convert کا مکمل طریقہ — تین راستے</h2>
+<h3>طریقہ 1: ہوم پیج سے</h3>
+<pre><code>1. ہوم پیج → Convert کارڈ پر کلک کریں
+2. From: USDT منتخب کریں
+3. To: BTC منتخب کریں
+4. Amount: 100 USDT لکھیں
+5. Quote دیکھیں: ~0.00104 BTC
+6. Confirm → مکمل ✅</code></pre>
+<h3>طریقہ 2: Trade ▾ سے</h3>
+<pre><code>1. اوپر بار → Trade ▾
+2. Convert منتخب کریں
+3. From, To, Amount منتخب کریں
+4. Confirm</code></pre>
+<h3>طریقہ 3: Wallet سے</h3>
+<pre><code>1. Wallet → کوائن منتخب کریں (مثلاً USDT)
+2. Convert بٹن پر کلک کریں
+3. To: دوسری کرنسی منتخب کریں
+4. Confirm</code></pre>
+<blockquote>
+<p>💡 <strong>تیسرا راستہ سب سے تیز ہے</strong> — جب آپ کوئن وولیٹ میں دیکھ رہے ہوں اور تبدیل کرنا چاہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 11.4 Advanced Convert — ہدف ریٹ رکھنا</h2>
+<blockquote>
+<p><strong>Advanced Convert</strong> بنیادی Convert کا <strong>پروفیشنل ورژن</strong> ہے — یہاں آپ <strong>اپنی مرضی کی قیمت</strong> مقرر کر سکتے ہیں، بالکل Limit Order کی طرح۔</p>
+</blockquote>
+<h3>بنیادی بمقابلہ Advanced:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>بنیادی Convert</th><th>Advanced Convert</th></tr></thead>
+<tbody>
+<tr><td><strong>ریٹ</strong></td><td>بائننس طے کرتا ہے</td><td>آپ <strong>ہدف</strong> رکھتے ہیں</td></tr>
+<tr><td><strong>انتظار</strong></td><td>فوری</td><td>تب تک، جب تک ریٹ نہ ملے</td></tr>
+<tr><td><strong>اسپریڈ</strong></td><td>ہر بار</td><td>آپ کی قیمت پر کم</td></tr>
+<tr><td><strong>بڑی رقم</strong></td><td>❌ کم موزوں</td><td>✅ موزوں</td></tr>
+</tbody></table></div>
+<h3>کیسے استعمال کریں:</h3>
+<pre><code>1. Convert → Advanced (یا "Limit" تب)
+2. From: USDT، To: BTC
+3. Amount: 1,000 USDT
+4. Target Rate: 1 BTC = $95,500
+5. Order لگا دیں
+6. جب مارکیٹ اس ریٹ پر آئے → تبدیلی خودکار ✅</code></pre>
+<blockquote>
+<p>💡 <strong>یاد رکھیں:</strong> Advanced Convert میں <strong>انتظار</strong> ہے — اگر مارکیٹ آپ کے ریٹ پر نہ آئے، تو تبدیلی نہیں ہوگی۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 11.5 Convert کے فوائد اور حدود</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>سب سے آسان</strong></td><td>کوئی چارٹ نہیں، کوئی آرڈر بک نہیں</td></tr>
+<tr><td><strong>فوری</strong></td><td>چند سیکنڈوں میں مکمل</td></tr>
+<tr><td><strong>کوئی مفت فیس نہیں</strong></td><td>الگ فیس کا لیبل نہیں (مگر اسپریڈ موجود)</td></tr>
+<tr><td><strong>ہر وقت</strong></td><td>24/7 دستیاب</td></tr>
+<tr><td><strong>بہت سے جوڑے</strong></td><td>USDT↔BTC↔BNB وغیرہ</td></tr>
+<tr><td><strong>نئے صارف کے لیے</strong></td><td>دہرانے کا کوئی خطرہ نہیں</td></tr>
+</tbody></table></div>
+<div class="table-wrap"><table>
+<thead><tr><th>حد</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>اسپریڈ</strong></td><td>مارکیٹ ریٹ سے تھوڑا کم ریٹ</td></tr>
+<tr><td><strong>کوئی Order Book نہیں</strong></td><td>درست قیمت خود نہیں چن سکتے (بنیادی میں)</td></tr>
+<tr><td><strong>بڑی رقم</strong></td><td>Spot سے بہتر ریٹ مل سکتا ہے</td></tr>
+<tr><td><strong>نئی/چھوٹی کرنسیاں</strong></td><td>صرف مشہور کوائنز دستیاب</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 11.6 Convert کب استعمال کریں، کب نہیں</h2>
+<h3>✅ Convert استعمال کریں جب:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>Convert?</th></tr></thead>
+<tbody>
+<tr><td>جلدی کوائن بدلنا ہو</td><td>✅ جی</td></tr>
+<tr><td>مبتدی ہیں اور سادگی چاہیے</td><td>✅ جی</td></tr>
+<tr><td>چھوٹی رقم (کچھ سو ڈالر)</td><td>✅ جی</td></tr>
+<tr><td>کوئی ٹریڈنگ نہیں، صرف تبدیلی</td><td>✅ جی</td></tr>
+<tr><td>USDT سے BNB فیس کے لیے</td><td>✅ جی</td></tr>
+</tbody></table></div>
+<h3>❌ Convert نہ استعمال کریں جب:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>صورتحال</th><th>Convert?</th><th>بہتر</th></tr></thead>
+<tbody>
+<tr><td>بڑی رقم ($10,000+)</td><td>❌ Spot Limit</td><td></td></tr>
+<tr><td>درست قیمت چاہتے ہوں</td><td>❌ Spot Limit</td><td></td></tr>
+<tr><td>Stop-Loss یا TP لگانا ہو</td><td>❌ Spot آرڈرز</td><td></td></tr>
+<tr><td>ٹریڈنگ اسٹریٹجی</td><td>❌ Spot/Futures</td><td></td></tr>
+<tr><td>نئی کرنسی جو Convert میں نہیں</td><td>❌ Spot</td><td></td></tr>
+</tbody></table></div>
+<h3>Convert بمقابلہ Spot — مکمل موازنہ:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فیچر</th><th>Convert</th><th>Spot</th></tr></thead>
+<tbody>
+<tr><td><strong>سادگی</strong></td><td>بہت زیادہ</td><td>درمیانی</td></tr>
+<tr><td><strong>ریٹ</strong></td><td>اسپریڈ شامل</td><td>مارکیٹ ریٹ (بہتر)</td></tr>
+<tr><td><strong>آرڈر بک</strong></td><td>❌ نہیں</td><td>✅ ہے</td></tr>
+<tr><td><strong>Limit/Target ریٹ</strong></td><td>بنیادی میں نہیں (Advanced میں ہاں)</td><td>✅ ہے</td></tr>
+<tr><td><strong>بڑی رقم</strong></td><td>❌ کم موزوں</td><td>✅ موزوں</td></tr>
+<tr><td><strong>فیصلہ کا وقت</strong></td><td>سیکنڈز</td><td>منٹس</td></tr>
+<tr><td><strong>مبتدی</strong></td><td>✅ بہترین</td><td>سیکھنا ضروری</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 11.7 Convert کی حدود (Limits)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>حد</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>کم از کم</strong></td><td>عموماً چند ڈالر کے برابر</td></tr>
+<tr><td><strong>زیادہ سے زیادہ</strong></td><td>KYC درجے کے مطابق (Verified Plus زیادہ)</td></tr>
+<tr><td><strong>دستیابی</strong></td><td>24/7</td></tr>
+<tr><td><strong>جوڑے</strong></td><td>زیادہ تر مشہور کوائنز دستیاب</td></tr>
+<tr><td><strong>ریٹ کی میعاد</strong></td><td>Quote چند سیکنڈ کے لیے طے، پھر بدل جاتا ہے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>اگر آپ کو زیادہ حد چاہیے:</strong> اپنا <strong>KYC درجہ</strong> بڑھائیں (باب 3) — Verified Plus کو زیادہ حدود ملتی ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li><strong>Convert کو ٹریڈنگ سمجھنا</strong> — یہ صرف تبدیلی ہے، کوئی منصوبہ (Strategy) نہیں۔</li>
+<li><strong>بڑی رقم Convert میں بدلنا</strong> — اسپریڈ نقصان پہنچا سکتا ہے؛ Spot Limit استعمال کریں۔</li>
+<li><strong>ریٹ کی انتظار</strong> — بنیادی Convert میں آپ درست ریٹ کی منتظر نہیں رہ سکتے۔</li>
+<li><strong>بار بار چھوٹی تبدیلیاں</strong> — ہر بار اسپریڈ کا معمولی نقصان جمع ہو کر بڑا بنتا ہے۔</li>
+<li><strong>Confirm سے قبل ریٹ نہ دیکھنا</strong> — Quote کو غور سے دیکھیں (خاص کر بڑی رقم)۔</li>
+<li><strong>Quote کی میعاد بھول جانا</strong> — Quote چند سیکنڈ میں ختم ہوتی ہے، دوبارہ مانگیں۔</li>
+<li><strong>Advanced Convert کو نہ آزمانا</strong> — بڑی رقم کے لیے یہ بہترین ہے۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Convert = سب سے آسان تبدیلی</strong> — From، To، Amount، Confirm</li>
+<li><strong>الگ فیس نہیں، مگر اسپریڈ موجود</strong> — یہی Convert کی اصل لاگت ہے</li>
+<li><strong>چھوٹی رقم کے لیے بہترین</strong>؛ بڑی رقم کے لیے <strong>Spot Limit</strong> بہتر</li>
+<li><strong>ٹریڈنگ نہیں</strong> — Convert صرف تبدیلی کا ٹول ہے</li>
+<li><strong>Advanced Convert</strong> میں ہدف ریٹ رکھنا ممکن ہے</li>
+<li><strong>تین راستے:</strong> ہوم پیج، Trade مینو، Wallet</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس ہوم پیج پر <strong>Convert</strong> پر جائیں۔</li>
+<li><strong>From: USDT، To: BNB</strong> منتخب کریں۔</li>
+<li><strong>Amount</strong> درج کریں اور <strong>Quote</strong> دیکھیں (آرڈر نہ دیں)۔</li>
+<li>Convert کے Quote اور Spot BTC/BNB کے ریٹ کا <strong>موازنہ</strong> کریں — فرق (اسپریڈ) نوٹ کریں۔</li>
+<li><strong>Advanced Convert</strong> کھول کر دیکھیں کہ ہدف ریٹ (Target Rate) کیسے رکھا جاتا ہے۔</li>
+<li><strong>Wallet</strong> سے Convert کا راستہ آزمائیں (USDT → Convert)۔</li>
+<li>اگر اکاؤنٹ ہو تو <strong>ڈیمو/چھوٹی رقم</strong> سے ایک Convert آزمائیں۔</li>
+<li>نتائج لکھیں: کتنا گیا، کتنا ملا، فرق کتنا تھا۔</li>
+<li>لکھیں: کون سی رقم تک آپ Convert استعمال کریں گے، اور اس سے زیادہ پر کیا؟</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>Convert ایک صراف ہے، ایکسچینج نہیں۔</strong> صراف سے آپ جلدی اور آسانی سے رقم بدل سکتے ہیں — مگر بہترین ریٹ وہ صراف کی جیب میں رکھتا ہے۔ اسی طرح Convert آسانی دیتا ہے، مگر بڑی رقم میں <strong>Spot Limit</strong> کی بھیڑ (Order Book) آپ کو بہتر قیمت دیتی ہے۔</p>
+<p><strong>چھوٹی رقم = Convert، بڑی رقم = Spot۔</strong> یہ ایک سادہ اصول ہے جو آپ کے سالوں کی بچت بنا سکتا ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-10.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-12.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

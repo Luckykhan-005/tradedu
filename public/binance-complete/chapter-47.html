@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 47: نیٹ ورک اور رسائی کے مسائل — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-46.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-48.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 47: نیٹ ورک اور رسائی کے مسائل</h1>
+<blockquote class="chapter-summary">
+<p>"میں لاگ اِن نہیں ہو سکتا" یا "بائننس یہاں نہیں کھل رہا" کئی مختلف مسائل کا مشترک عنوان ہے۔ ان میں سے کچھ <strong>آپ کے نیٹ ورک</strong> کا مسئلہ ہوتا ہے، کچھ <strong>بائننس کا</strong>، اور کچھ <strong>آپ کے علاقے کے قواعد</strong> کا۔ غلط تشخیص نقصان دہ ہے — اس باب کا مقصد درست فرق سمجھانا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/help-center.jpg" alt="Help Center">
+  <figcaption>تصویر 47.1: بائننس Help Center — "API/Site Status" اور سروس کی دستیابی کی اطلاعات یہاں دیکھیں؛ اگر پلیٹ فارم کی طرف سے سب کچھ ٹھیک ہے تو مسئلہ آپ کے نیٹ ورک کا ہوگا۔ (Binance Help Center — check "API/Site Status" and service availability here; if the platform side is all fine then the problem is with your network.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>نیٹ ورک مسائل اور serve-side (بائننس کی طرف کے) مسائل میں فرق</li>
+<li><strong>"Restricted Location" پیغام</strong> کا مطلب اور وجہ</li>
+<li>VPN کا صحیح اور غلط استعمال</li>
+<li>DNS، Firewall، Proxy کی بنیادی جانچ</li>
+<li>Mobile Data بمقابلہ Wi-Fi سے تشخیص</li>
+<li>جب آپ کچھ نہ کر سکیں — صحیح راستہ</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 47.1 مسئلہ کہاں ہے؟ (تشخیص کا نقشہ)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>علامت</th><th>ممکنہ وجہ</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td>"No Internet" / امیج لوڈ نہیں</td><td>آپ کا انٹرنیٹ</td><td>Wi-Fi/4G بدلیں</td></tr>
+<tr><td>سائٹ کھلتی ہے مگر ڈیٹا پرانا</td><td>کیش/DNS</td><td>ایپ ری اسٹارٹ، DNS بدلیں</td></tr>
+<tr><td>"Service Unavailable"</td><td>بائننس سرور</td><td>📌 Status Page دیکھیں، انتظار کریں</td></tr>
+<tr><td>"Restricted Location"</td><td>علاقائی پابندی</td><td>نہ کھونچیں؛ آفیشل بیانیہ پڑھیں</td></tr>
+<tr><td>2FA کوڈ کام نہیں کر رہا</td><td>فون کا وقت غلط</td><td>Auto Time Sync آن کریں</td></tr>
+<tr><td>لاگ اِن پر Error 1003/1015</td><td>Rate limit / Block</td><td>کچھ دیر بعد آزمائیں</td></tr>
+</tbody></table></div>
+<h3>تشخیص کا نقشہ:</h3>
+<pre><code>"بائننس نہیں کھل رہا" آنے پر:
+
+1. Status Page چیک کریں
+   ├── سائٹ ڈاؤن ہے → انتظار کریں (آپ کا مسئلہ نہیں)
+   └── سائٹ ٹھیک ہے → نیچے جائیں
+
+2. Wi-Fi/4G بدلیں
+   ├── دوسرے نیٹ ورک پر کھل گیا → آپ کا Wi-Fi مسئلہ
+   └── نہیں کھلی → نیچے جائیں
+
+3. VPN/Proxy بند کریں
+   ├── کھل گیا → VPN مسئلہ
+   └── نہیں کھلی → نیچے جائیں
+
+4. DNS بدلیں (1.1.1.1 / 8.8.8.8)
+   ├── کھل گیا → DNS مسئلہ
+   └── نہیں کھلی → ایپ ری اسٹارٹ / اپ ڈیٹ / حکومتی بلاک</code></pre>
+<hr class="divider">
+
+<h2>📖 47.2 VPN — معاملہ سمجھیں</h2>
+<blockquote>
+<p><strong>VPN</strong> آپ کا IP ایک دوسرے ملک کا دکھاتا ہے۔ بائننس <strong>علاقائی تعمیل (Regulatory Compliance)</strong> کی وجہ سے بعض ممالک سے رسائی یا سروسز محدود رکھتا ہے۔</p>
+</blockquote>
+<p><strong>اہم:</strong> VPN استعمال کر کے علاقائی پابندی چھپانا <strong>اپنے ہی اکاؤنٹ کو خطرے میں ڈالنا</strong> ہے — اکاؤنٹ کی جانچ، KYC میں تضاد، یا سروس بند ہو سکتی ہے۔</p>
+<pre><code>درست طریقہ:
+1. اپنے اصل علاقے کے قواعد پڑھیں (Terms/Help Center)
+2. VPN سے "کام چلانے" کی کوشش نہ کریں
+3. مسئلہ ہو تو Live Chat پر بیان کریں</code></pre>
+<p><strong>KYC/2FA میں VPN:</strong></p>
+<ul>
+<li>اگر KYC کے دوران IP مختلف ہو تو دستاویز مسترد ہو سکتی ہے۔</li>
+<li><strong>سفارش:</strong> اکاؤنٹ کے اہم کام (KYC، Security، Withdraw) اپنے معمول کے نیٹ ورک سے کریں۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 47.3 DNS، Proxy اور Firewall</h2>
+<pre><code>مرحلہ 1: Wi-Fi سے 4G پر جائیں (یا اُلٹ)
+مرحلہ 2: ایپ فورس کلوز کر کے دوبارہ کھولیں
+مرحلہ 3: ڈیوائس کا Auto-Time/Auto-TimeZone آن کریں
+مرحلہ 4: VPN/Proxy بند کریں
+مرحلہ 5: DNS بدلیں (1.1.1.1 / 8.8.8.8) — صرف بنیادی
+مرحلہ 6: بائننس آپ ڈیٹ کریں
+مرحلہ 7: Status Page پر دیکھیں — مسئلہ آپ کا نہیں؟</code></pre>
+<blockquote>
+<p><strong>Firewall/Proxy:</strong> Corporate یا کچھ ISP-level فائلٹر بائننس کے کچھ API بلاک کر سکتے ہیں۔ گھریلو نیٹ ورک پر آزمائیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 47.4 Status دیکھنا سب سے پہلے</h2>
+<p>کوئی بھی "بائننس بند ہے" فرض کرنے سے پہلے:</p>
+<pre><code>Binance Help Center → "System Status / Maintenance" صفحہ
+Binance Official Twitter/X → سروس الرٹس
+App → Help → Notices</code></pre>
+<p>اگر وہاں اعلان ہے تو انتظار کے سوا کوئی حل نہیں۔ اگر نہیں، تو مسئلہ آپ کے نیٹ ورک/ڈیوائس کا ہے۔</p>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>ہر مسئلے کا الزام بائننس پر</strong> ڈالنا بغیر Status چیک کیے۔</li>
+<li>❌ <strong>VPN سے علاقائی پابندی چھپانا</strong> — اکاؤنٹ بند کا خطرہ۔</li>
+<li>❌ <strong>فون کا وقت غلط</strong> اور پھر 2FA کوڈ کا نہ چلنا سمجھ نہ پانا۔</li>
+<li>❌ <strong>غیر مصدقہ "comp" اپ ڈیٹ یا Modified ایپ</strong> لگانا۔</li>
+<li>❌ <strong>Public Wi-Fi پر راستے کے بیچ لاگ اِن</strong>۔</li>
+<li>❌ <strong>پرانا کیش/ڈیٹا</strong> — ایپ صاف کیش کے بغیر صورتحال بدلتی نہیں۔</li>
+<li>❌ <strong>جھوٹی "Support" ٹیلی گرام</strong> — کوئی بھی بائننس کی نمائندگی نہیں کرتا۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>پہلے <strong>Status Page</strong> دیکھیں، پھر اپنا نیٹ ورک۔</li>
+<li><strong>Restricted Location</strong> علاقائی تعمیل کا معاملہ ہے — VPN سے حل نہیں۔</li>
+<li>2FA مسائل میں <strong>فون کا وقت</strong> ضرور ٹھیک کریں۔</li>
+<li>Wi-Fi/4G، کیش، اپ ڈیٹ، VPN/Proxy — ترتیب سے جانچیں۔</li>
+<li>علاقائی قواعد پڑھنا آپ کی حفاظت ہے۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>Help Center کا <strong>System Status</strong> صفحہ دیکھیں۔</li>
+<li>اپنے نیٹ ورک پر ایک مسئلے کی ترتیب وار جانچ (Wi-Fi→4G→DNS) لکھیں۔</li>
+<li>اپنے فون کا On-Screen Time اور Authenticator کا Time موازنہ کریں۔</li>
+<li>لکھیں: "Restricted Location" آنے پر کون سے 3 قدم درست ہیں۔</li>
+<li>ایک جدول بنائیں: آپ کے علاقے میں دستیاب سروسز/دستیاب نہیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>"رسائی مسئلہ = پہلے Status، پھر نیٹ ورک، پھر ڈیوائس — VPN کوئی حل نہیں۔"</strong></p>
+<p>اصول: <strong>(1) کچھ بنیے پر الزام نہ لگائیں</strong>، <strong>(2) علاقائی قواعد عزت دیں</strong>، <strong>(3) مسائل کو ترتیب سے تشخیص کریں۔</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-46.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-48.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

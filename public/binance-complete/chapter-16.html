@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 16: فیوچرز میں TP/SL اور لیوریج — مکمل سمجھ — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-15.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-17.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 16: فیوچرز میں TP/SL اور لیوریج — مکمل سمجھ</h1>
+<blockquote class="chapter-summary">
+<p>یہ باب فیوچرز کا <strong>سب سے اہم حصہ</strong> ہے: <strong>Take Profit، Stop Loss، Risk:Reward اور لیوریج</strong>۔ بغیر ان چاروں کو سمجھنے کے فیوچرز ٹریڈ کرنا خودکشی کے برابر ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/futures-leverage.jpg" alt="Binance Futures Leverage Setting">
+  <figcaption>تصویر 16.1: فیوچرز ٹریڈنگ میں لیوریج سیٹنگ کا پینل — Cross/Isolated اور Leverage ایڈجسٹمنٹ۔ (Futures trading leverage setting panel — Cross/Isolated and leverage adjustment.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>Take Profit (TP) کی مکمل سمجھ</li>
+<li>Stop Loss (SL) کی مکمل سمجھ</li>
+<li><strong>R:R (Risk:Reward)</strong> کا درست حساب</li>
+<li>لیوریج اور Liquidation کا تعلق</li>
+<li><strong>Trailing Stop</strong> کیا ہے اور کیسے کام کرتا ہے</li>
+<li>Partial Close (جزوی نکاسی)</li>
+<li>TP/SL سیٹ کرنے کا صحیح طریقہ (Futures)</li>
+<li><strong>Futures میں TP/SL الگ ہیں</strong> — OCO Spot کی طرح نہیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 16.1 Take Profit (TP) — منافع محفوظ کرنا</h2>
+<h3>TP کیا ہے؟</h3>
+<blockquote>
+<p><strong>Take Profit</strong> = ایک ہدف قیمت، جہاں پہنچنے پر پوزیشن <strong>خودکار طور پر بند</strong> ہو کر منافع محفوظ کر لیتی ہے۔</p>
+</blockquote>
+<h3>مثال — کثیر اہداف (Scaling Out)</h3>
+<pre><code>Long BTC @ 96,000
+TP1 : 98,000 → 50% پوزیشن بند
+TP2 : 100,000 → باقی 50% بند
+
+جیسے قیمت بڑھتی جائے، منافع مرحلہ وار قفل ہوتا جاتا ہے</code></pre>
+<h3>TP کی سطحیں کیسے طے کریں؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>Support/Resistance</strong></td><td>اگلی مزاحمت پر TP</td></tr>
+<tr><td><strong>Fibonacci</strong></td><td>61.8%، 100%، 161.8%</td></tr>
+<tr><td><strong>ATR</strong></td><td>Average True Range کے گنا</td></tr>
+<tr><td><strong>Risk:Reward</strong></td><td>R:R کے مطابق ہدف</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 منافع کو <strong>مرحلہ وار</strong> لینا (TP1، TP2) منصوبہ بند انداز ہے — اچانک فیصلے سے بہتر۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 16.2 Stop Loss (SL) — نقصان روکنا</h2>
+<h3>SL کیا ہے؟</h3>
+<blockquote>
+<p><strong>Stop Loss</strong> = آپ کا حفاظتی نیٹ: قیمت اِس سطح تک پہنچے تو پوزیشن <strong>خودکار بند</strong> ہو کر نقصان محدود کر دیتی ہے۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>Long BTC @ 96,000
+SL : 94,000
+SL تک پہنچنے پر بند → نقصان تقریباً 2.1% (per BTC)</code></pre>
+<h3>SL کی سطح کیسے طے کریں؟</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>S/R کے پیچھے</strong></td><td>حمایت (Support) کے نیچے</td></tr>
+<tr><td><strong>ATR</strong></td><td>2x ATR کے فاصلے پر</td></tr>
+<tr><td><strong>Fibonacci</strong></td><td>38.2% پل بیک</td></tr>
+<tr><td><strong>فیصد</strong></td><td>شعوری حد (عموماً 1–3%)</td></tr>
+</tbody></table></div>
+<h3>SL کیوں لازم ہے؟</h3>
+<blockquote>
+<p><strong>بغیر SL کے ٹریڈ = جوا۔</strong> <strong>SL کے ساتھ ٹریڈ = منظم فیصلہ۔</strong></p>
+</blockquote>
+<h3>SL کی اقسام</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>کام</th><th>استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>Regular SL</strong></td><td>مخصوص قیمت پر بند</td><td>ہر ٹریڈ</td></tr>
+<tr><td><strong>Trailing Stop</strong></td><td>قیمت کے ساتھ آگے بڑھتا ہے</td><td>منافع محفوظ کرنے کے لیے</td></tr>
+<tr><td><strong>Stop-Market</strong></td><td>فعال ہوتے ہی فوری بند</td><td>ضمانت شدہ اخراج (Slippage ممکن)</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 فیوچرز میں بائننس عام طور پر <strong>Stop-Market</strong> رویہ رکھتا ہے (Trigger پر فوری بندش)، تاکہ پوزیشن لازماً بند ہو۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 16.3 Trailing Stop — متحرک حفاظت</h2>
+<h3>Trailing Stop کیا ہے؟</h3>
+<blockquote>
+<p><strong>Trailing Stop</strong> = ایسا SL جو قیمت کے ساتھ، ہماری سمت میں <strong>خودکار آگے بڑھتا</strong> جاتا ہے — مگر پیچھے نہیں ہٹتا۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>Long BTC @ 96,000
+Trailing Distance : 500 USDT
+
+قیمت $96,000 → SL ~$95,500
+قیمت $97,000 → SL ~$96,500 (آگے بڑھا)
+قیمت $98,000 → SL ~$97,500 (آگے بڑھا)
+قیمت $97,400 پر گرے → SL $97,500 پر فعال → منافع قفل ✅</code></pre>
+<h3>فوائد و خطرات</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>خطرہ</th></tr></thead>
+<tbody>
+<tr><td>خودکار، بغیر نگرانی</td><td>بہت کم فاصلہ پر شور میں جلدی فعال</td></tr>
+<tr><td>منافع محفوظ</td><td>فاصلہ زیادہ ہو تو منافع کم</td></tr>
+<tr><td>رجحان کے ساتھ چلتا ہے</td><td>رینج مارکیٹ میں غیر مؤثر</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 16.4 Risk:Reward (R:R) — سب سے اہم حساب</h2>
+<h3>R:R کیا ہے؟</h3>
+<blockquote>
+<p><strong>R:R</strong> = آپ کے رسک (SL) اور ہدف (TP) کا تناسب۔</p>
+</blockquote>
+<h3>فارمولا</h3>
+<pre><code>R:R = (TP − Entry) ÷ (Entry − SL)
+
+مثال:
+Entry : 96,000
+TP    : 100,000 → فائدہ = 4,000
+SL    : 94,000  → رسک  = 2,000
+R:R   = 4,000 ÷ 2,000 = 1:2</code></pre>
+<h3>Break-even Win Rate (تصوراتی)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>R:R</th><th>جیتنے کی کم از کم شرح</th></tr></thead>
+<tbody>
+<tr><td>1:1</td><td>50%</td></tr>
+<tr><td>1:1.5</td><td>40%</td></tr>
+<tr><td>1:2</td><td>~33%</td></tr>
+<tr><td>1:3</td><td>25%</td></tr>
+<tr><td>1:4</td><td>20%</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>توصیہ:</strong> کم از کم <strong>1:2</strong> کا R:R رکھیں۔ بہت قریب SL + غیر حقیقی TP سے بچیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 16.5 لیوریج اور Liquidation کا تعلق</h2>
+<pre><code>لیوریج بڑھے → Liquidation قریب آ جاتی ہے
+لیوریج کم → Liquidation دور رہتی ہے</code></pre>
+<h3>تصوراتی مثال</h3>
+<pre><code>5x لیوریج : Liquidation تقریباً 20% دور
+20x لیوریج: Liquidation تقریباً 5% دور 🚨</code></pre>
+<h3>تجویز کردہ فاصلے (شعوری حد)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>لیوریج</th><th>SL کا فاصلہ</th><th>مناسب کس کے لیے</th></tr></thead>
+<tbody>
+<tr><td><strong>2x</strong></td><td>5% تک</td><td>نئے صارفین</td></tr>
+<tr><td><strong>5x</strong></td><td>2–3%</td><td>درمیانے</td></tr>
+<tr><td><strong>10x</strong></td><td>1–2%</td><td>تجربہ کار</td></tr>
+<tr><td><strong>20x+</strong></td><td>🚨</td><td>نہ کریں</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ یہ اعداد تصوراتی رہنما ہیں؛ اصل Liquidation Price ہر پوزیشن کے لیے بائننس خود دکھاتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 16.6 Partial Close — جزوی نکاسی</h2>
+<blockquote>
+<p><strong>Partial Close</strong> = پوزیشن کا صرف ایک حصہ بند کرنا؛ باقی کھلا رہتا ہے۔</p>
+</blockquote>
+<h3>مثال</h3>
+<pre><code>پوزیشن: 0.1 BTC @ 96,000
+
+Step 1 → 0.05 BTC بند @ 98,000 (منافع قفل)
+Step 2 → باقی 0.05 BTC کھلا
+SL   → بقایا پر 95,000
+TP2  → بقایا پر 102,000</code></pre>
+<h3>فائدے</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td>حصہ منافع محفوظ</td><td>تناؤ کم</td></tr>
+<tr><td>باقی پوزیشن چلتی رہے</td><td>بڑے رجحان کا فائدہ بھی</td></tr>
+<tr><td>لچک</td><td>TP1، TP2 کی منصوبہ بندی</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 16.7 Futures میں TP/SL سیٹ کرنے کا صحیح طریقہ</h2>
+<h3>اہم وضاحت</h3>
+<p>Futures میں عام طور پر <strong>پوزیشن کے ساتھ الگ TP اور SL خانے</strong> ہوتے ہیں (OCO Spot کا تصور ہے)۔</p>
+<pre><code>طریقہ:
+1. پوزیشن کھولیں (Long/Short)
+2. Positions ٹیب کھولیں
+3. اُس پوزیشن کے سامنے TP/SL بٹن دبائیں
+4. TP (ہدف) اور SL (حفاظت) قیمتیں درج کریں
+5. Confirm ✅</code></pre>
+<h3>ترتیب (SOP)</h3>
+<pre><code>1. پہلے SL سیٹ کریں (بقا سب سے اہم)
+2. پھر TP1 لگائیں (حصہ منافع)
+3. پھر TP2 (باقی)
+4. منافع آنے پر Trailing Stop فعال کریں</code></pre>
+<figure>
+  <img src="assets/img/futures-position.jpg" alt="Binance Futures Position Panel">
+  <figcaption>تصویر 16.2: فیوچرز Positions پینل — ہر پوزیشن کے ساتھ TP/SL، Unrealized P&L اور Close بٹن کی جگہ۔ (Futures positions panel — each position has TP/SL, Unrealized P&L and close button.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>SL نہ لگانا</strong> — سب سے بڑی غلطی</li>
+<li>❌ <strong>R:R 1:1 سے کم</strong> — طویل مدت میں نقصان دہ</li>
+<li>❌ <strong>SL بعد میں "بہتر کروں گا"</strong> — کبھی بعد میں نہ رکھیں</li>
+<li>❌ <strong>SL ہٹانا</strong> — "گرا تو نہیں" — یہ جذباتی سوچ ہے</li>
+<li>❌ <strong>اعلیٰ لیوریج کے ساتھ قریب SL</strong> — شور میں ہی Liquidation</li>
+<li>❌ <strong>Trailing Stop بہت کم فاصلے پر</strong> — شور سے جلدی فعال</li>
+<li>❌ <strong>TP/SL کا خانہ خالی چھوڑنا</strong> — پوزیشن لاوارث رہتی ہے</li>
+<li>❌ <strong>OCO کو Futures پر لاگو سمجھنا</strong> — Futures میں الگ TP/SL خانے</li>
+<li>❌ <strong>صرف ایک TP</strong> — مرحلہ وار TP بہتر منصوبہ ہے</li>
+<li>❌ <strong>فیصلہ جذبات پر</strong> — پہلے منصوبہ، پھر عمل</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>TP</strong> = منافع قفل، <strong>SL</strong> = نقصان روک</li>
+<li><strong>R:R ≥ 1:2</strong> کا ہدف رکھیں</li>
+<li><strong>Trailing Stop</strong> = خودکار حفاظت</li>
+<li><strong>Partial Close</strong> = مرحلہ وار نکاسی</li>
+<li><strong>Futures میں الگ TP/SL خانے</strong> (OCO Spot میں)</li>
+<li><strong>لیوریج بڑھنے سے</strong> Liquidation قریب</li>
+<li><strong>SL کے بغیر ٹریڈ نہ کریں</strong> — یہی سب سے بڑا اصول</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>R:R حساب کریں: Entry 96,000، TP 100,000، SL 94,000 → R:R؟</li>
+<li>Break-even % نکالیں: R:R 1:2 پر کتنی جیت چاہیے؟</li>
+<li>Trailing Stop مثال: Entry 96,000، فاصلہ 500، قیمت $98,000 → SL کہاں؟</li>
+<li>0.1 BTC کا 50% Partial Close @ 98,000 پر منافع نکالیں۔</li>
+<li>Demo پر ایک Long کھول کر TP/SL خانے بھریں۔</li>
+<li>2x، 5x، 10x کے تخمینی Liquidation فاصلے لکھیں۔</li>
+<li>اپنا 5-نکاتی ٹریڈ چیک لسٹ بنائیں (Entry, SL, TP, R:R, Size)۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>TP، SL، R:R — یہ تینوں آپ کے ٹریڈنگ کی بنیاد ہیں۔</strong> بغیر ان کے ٹریڈ ایک جوا ہے۔</p>
+<p><strong>SL = نجات، TP = ہدف، R:R = منصوبہ۔</strong> تینوں سیٹ کیے بغیر Buy یا Sell نہ دبائیں۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-15.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-17.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

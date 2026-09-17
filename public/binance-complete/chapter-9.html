@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 9: چارٹ انٹرفیس — TradingView کا مکمل سفر — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-8.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-3.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 9: چارٹ انٹرفیس — TradingView کا مکمل سفر</h1>
+<blockquote class="chapter-summary">
+<p>بائننس کا چارٹ پروفیشنل <strong>TradingView</strong> پر مبنی ہے — یہ دنیا کے طاقتور ترین ٹریڈنگ چارٹس میں سے ایک ہے۔ یہ باب آپ کو چارٹ کا <strong>ہر ٹول، ہر بٹن اور ہر عنصر</strong> سمجھاتا ہے۔ یہ باب آپ کے لیے اس لیے اہم ہے کیونکہ <strong>چارٹ پڑھنا = کرپٹو کی زبان سمجھنا</strong> ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-advanced.jpg" alt="Binance Advanced Chart">
+  <figcaption>تصویر 9.1: بائننس کا Advanced چارٹ (TradingView) — یہاں کینڈل اسٹکس، آرڈر بک، ٹائم فریم اور انڈیکیٹرز کی مکمل ترتیب دکھائی دیتی ہے۔ یہ پروفیشنل تاجروں کی مرکزی جنگ کا میدان ہے۔ (Binance Advanced Chart — candlesticks, order book, timeframes and indicators.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بائننس چارٹ کا مکمل نقشہ</li>
+<li><strong>Classic اور Advanced</strong> لے آؤٹ کا فرق</li>
+<li><strong>کینڈل اسٹک (Candlestick)</strong> پڑھنا — آپ کی پہلی زبان</li>
+<li><strong>ٹائم فریمز (Timeframes)</strong> اور ان کی اہمیت</li>
+<li><strong>انڈیکیٹرز (Indicators)</strong> اور ڈرائنگ ٹولز</li>
+<li><strong>آرڈر بک، ٹریڈ ٹیپ، ڈیپتھ چارٹ</strong> — مارکیٹ کی نبض</li>
+<li><strong>Multi-Timeframe تجزیہ</strong> — پروفیشنل طریقہ</li>
+<li>پہلی ٹریڈ کے لیے عملی تیاری</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 9.1 چارٹ کہاں ملتا ہے؟</h2>
+<pre><code>Trade ▾ → Spot (یا Futures) → ٹریڈنگ جوڑا منتخب کریں (مثلاً BTC/USDT)</code></pre>
+<h3>چارٹ کا مکمل نقشہ:</h3>
+<pre><code>┌────────────────────────────────────────────────────────────┐
+│ [🔍 Search] [⏱ Timeframe] [📊 Indicators] [🎨 Layout] [⚙️] │
+├──────────────┬────────────────────────────┬────────────────┤
+│              │                            │                │
+│  Order Book  │                            │  Trade History │
+│  (آرڈر بک)   │      📈 CANDLE CHART       │  (ٹریڈ ٹیپ)    │
+│              │      (کینڈل چارٹ)          │                │
+│  Bids/Asks   │                            │  Buy/Sell rows │
+│              │                            │                │
+├──────────────┼────────────────────────────┼────────────────┤
+│  Price Info  │      📉 Volume / RSI       │  Open Orders   │
+├──────────────┴────────────────────────────┴────────────────┤
+│  [ Buy / Long ]                      [ Sell / Short ]       │
+│  Market | Limit | Stop-Limit | OCO | Trailing Stop          │
+└──────────────────────────────────────────────────────────────┘</code></pre>
+<blockquote>
+<p>💡 <strong>تین اہم علاقے:</strong> بائیں = آرڈر بک (مارکیٹ کی طلب/رسد)، درمیان = چارٹ (قیمت کی کہانی)، دائیں = ٹریڈ ٹیپ (تازہ ترین لین دین)۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.2 Classic بمقابلہ Advanced لے آؤٹ</h2>
+<h3>Classic (کلاسک) — سادہ اور آسان</h3>
+<blockquote>
+<p>محدود جگہ، بڑے بٹن، کم انڈیکیٹرز — نئے سیکھنے والوں کے لیے بہترین۔</p>
+</blockquote>
+<h3>Advanced (ایڈوانسڈ) — پروفیشنل</h3>
+<blockquote>
+<p>مکمل <strong>TradingView</strong> چارٹ، لاتعداد انڈیکیٹرز، ڈرائنگ ٹولز، اور کثیر التقسیم (Multi-Pane) چارٹس۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Classic</th><th>Advanced</th></tr></thead>
+<tbody>
+<tr><td><strong>انڈیکیٹرز</strong></td><td>محدود</td><td>سو سے زیادہ</td></tr>
+<tr><td><strong>ڈرائنگ ٹولز</strong></td><td>بنیادی</td><td>مکمل</td></tr>
+<tr><td><strong>وقت کے فریم</strong></td><td>محدود</td><td>1s سے 1M تک</td></tr>
+<tr><td><strong>ٹیمپلیٹس</strong></td><td>نہیں</td><td>محفوظ کر سکتے ہیں</td></tr>
+<tr><td><strong>کس کے لیے</strong></td><td>مبتدی</td><td>تجربہ کار</td></tr>
+</tbody></table></div>
+<h3>لے آؤٹ کیسے بدلیں:</h3>
+<pre><code>چارٹ کے اوپری حصے میں Layout/Chart Mode ٹوگل → Classic یا Advanced منتخب کریں</code></pre>
+<blockquote>
+<p>💡 <strong>مشورہ:</strong> ایک ہفتہ <strong>Classic</strong> پر گزاریں، پھر آہستہ آہستہ <strong>Advanced</strong> کی طرف بڑھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.3 کینڈل اسٹک پڑھنا — آپ کی پہلی زبان</h2>
+<blockquote>
+<p><strong>کینڈل (Candle)</strong> چارٹ کی بنیادی اکائی ہے۔ ہر کینڈل بتاتی ہے کہ اس دورانیے میں قیمت <strong>کہاں سے شروع ہوئی، کہاں تک گئی، اور کہاں ختم ہوئی</strong>۔</p>
+</blockquote>
+<h3>کینڈل کے 4 حصے:</h3>
+<pre><code>          ╷   ← High (سب سے اوپر)
+          │
+     ┌────┴────┐  ← Close (اختتام — سبز میں اوپر)
+     │         │
+     │   Body  │  ← جسم (Open سے Close تک)
+     │         │
+     └────┬────┘  ← Open (آغاز — سبز میں نیچے)
+          │
+          ╵   ← Low (سب سے نیچے)</code></pre>
+<h3>سبز بمقابلہ سرخ کینڈل:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>رنگ</th><th>مطلب</th><th>کیا ہوا</th></tr></thead>
+<tbody>
+<tr><td>🟢 <strong>سبز (Bullish)</strong></td><td>Close > Open</td><td>قیمت <strong>اوپر</strong> گئی</td></tr>
+<tr><td>🔴 <strong>سرخ (Bearish)</strong></td><td>Close < Open</td><td>قیمت <strong>نیچے</strong> گئی</td></tr>
+</tbody></table></div>
+<h3>مثال سے سمجھیں:</h3>
+<pre><code>1H کینڈل (ایک گھنٹے کی کہانی):
+  Open:   $96,000  (گھنٹے کا آغاز)
+  High:   $96,800  (سب سے زیادہ قیمت)
+  Low:    $95,400  (سب سے کم قیمت)
+  Close:  $96,500  (گھنٹے کا اختتام)
+  
+→ سبز کینڈل (Close > Open)
+→ اس گھنٹے میں خریدار جیتے</code></pre>
+<blockquote>
+<p>💡 <strong> پروفیشنل راز:</strong> کینڈل کا <strong>جسم (Body)</strong> بتاتا ہے کہ خریدار/بیچنے والا کتنا مضبوط تھا۔ <strong>لمبا جسم = مضبوط حرکت</strong>؛ <strong>چھوٹا جسم = کمزور/متزلزل</strong>۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.4 Timeframes (ٹائم فریمز)</h2>
+<h3>ٹائم فریم کیا ہے؟</h3>
+<blockquote>
+<p>ہر <strong>کینڈل (Candle)</strong> کا دورانیہ — یعنی ایک کینڈل میں کتنا عرصہ سمویا گیا ہے۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹائم فریم</th><th>نام</th><th>کس کے لیے</th></tr></thead>
+<tbody>
+<tr><td><strong>1m</strong></td><td>ایک منٹ</td><td>اسکیلپنگ (بہت شور)</td></tr>
+<tr><td><strong>5m</strong></td><td>پانچ منٹ</td><td>ڈے ٹریڈنگ</td></tr>
+<tr><td><strong>15m</strong></td><td>پندرہ منٹ</td><td>ڈے ٹریڈنگ</td></tr>
+<tr><td><strong>1H</strong></td><td>ایک گھنٹہ</td><td>سوئنگ ٹریڈنگ</td></tr>
+<tr><td><strong>4H</strong></td><td>چار گھنٹے</td><td>سوئنگ ٹریڈنگ</td></tr>
+<tr><td><strong>1D</strong></td><td>روزانہ</td><td>سوئنگ / پوزیشن</td></tr>
+<tr><td><strong>1W</strong></td><td>ہفتہ وار</td><td>طویل مدت سرمایہ کاری</td></tr>
+<tr><td><strong>1M</strong></td><td>ماہانہ</td><td>طویل مدت سرمایہ کاری</td></tr>
+</tbody></table></div>
+<h3>تجویز — آپ کے انداز کے مطابق:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>آپ کا انداز</th><th>تجویز شدہ ٹائم فریم</th></tr></thead>
+<tbody>
+<tr><td>اسکیلپنگ</td><td>1m / 5m</td></tr>
+<tr><td>ڈے ٹریڈنگ</td><td>5m / 15m / 1H</td></tr>
+<tr><td>سوئنگ ٹریڈنگ</td><td>4H / 1D</td></tr>
+<tr><td>طویل مدت</td><td>1D / 1W / 1M</td></tr>
+</tbody></table></div>
+<h3>Multi-Timeframe تجزیہ — پروفیشنل طریقہ</h3>
+<blockquote>
+<p>⚠️ <strong>یہ سب سے اہم تکنیک ہے جو نئے تاجر نہیں استعمال کرتے۔</strong></p>
+</blockquote>
+<pre><code>پہلا قدم:  بڑا ٹائم فریم (1D) → رجحان (Trend) دیکھیں
+              └── مارکیٹ اوپر ہے یا نیچے؟
+
+دوسرا قدم: درمیان (4H/1H) → ساخت (Structure) دیکھیں
+              └── سپورٹ/ریزیسٹنس کہاں ہے؟
+
+تیسرا قدم: چھوٹا (15m/5m) → داخلے کا وقت
+              └── بڑے رجحان کے ساتھ داخل ہوں</code></pre>
+<p><strong>مثال:</strong></p>
+<pre><code>1D چارٹ:  قیمت اپر ٹرینڈ میں ہے (MA 200 سے اوپر)  → صرف Buy سوچیں
+4H چارٹ:  قیمت سپورٹ کے قریب آ رہی ہے           → تیار ہوں
+15m چارٹ: سبز کینڈل کی تصدیق                   → ✅ Buy</code></pre>
+<blockquote>
+<p>💡 <strong>فائدہ:</strong> بڑے ٹائم فریم کے <strong>خلاف</strong> ٹریڈ نہ کریں۔ جو 1D پر اوپر ہے، اس پر 15m میں Sell کرنا = پچھلے رجحان کے خلاف تیرنا۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.5 انڈیکیٹرز (Indicators)</h2>
+<h3>انڈیکیٹرز کیا ہیں؟</h3>
+<blockquote>
+<p><strong>انڈیکیٹرز</strong> ایسے حسابی ٹولز ہیں جو قیمت اور حجم کے ڈیٹا پر بن کر <strong>رجحان، رفتار اور سطحیں</strong> واضح کرتے ہیں۔ یہ پیش گوئی نہیں کرتے — صرف <strong>امکان کا اشارہ</strong> دیتے ہیں۔</p>
+</blockquote>
+<h3>اہم انڈیکیٹرز:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>انڈیکیٹر</th><th>کیا بتاتا ہے</th><th>پروفیشنل استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>MA / EMA</strong></td><td>رجحان کی سمت (اوسط قیمت)</td><td>✅ ہمیشہ</td></tr>
+<tr><td><strong>RSI</strong></td><td>خرید/فروخت کی رفتار (0-100)</td><td>✅ زیادہ خرید/فروخت</td></tr>
+<tr><td><strong>MACD</strong></td><td>رجحان کی تبدیلی کا اشارہ</td><td>✅ تصدیق کے لیے</td></tr>
+<tr><td><strong>Bollinger Bands</strong></td><td>اتار چڑھاؤ (Volatility) کی حد</td><td>✅ بریک آؤٹ</td></tr>
+<tr><td><strong>Fibonacci</strong></td><td>ممکنہ پل بیک سطحیں</td><td>✅ سپورٹ/ریزیسٹنس</td></tr>
+<tr><td><strong>Volume</strong></td><td>ٹریڈنگ کا حجم</td><td>✅ <strong>بہت اہم</strong></td></tr>
+<tr><td><strong>VWAP</strong></td><td>حجم کے حساب سے اوسط قیمت</td><td>✅ ڈے ٹریڈنگ</td></tr>
+</tbody></table></div>
+<h3>انڈیکیٹرز کیسے لگائیں:</h3>
+<pre><code>چارٹ پر → [Indicators] 📊 → نام تلاش کریں → Add to chart</code></pre>
+<h3>MA (Moving Average) کی سادہ قرائت:</h3>
+<pre><code>MA 20   = مختصر مدت کا رجحان (تیز)
+MA 50   = درمیانی مدت
+MA 200  = طویل مدت (سب سے اہم)
+
+قیمت MA 200 سے اوپر  = ممکنہ اَپ ٹرینڈ (Bullish)
+قیمت MA 200 سے نیچے  = ممکنہ ڈاؤن ٹرینڈ (Bearish)
+MA 20 > MA 50 > MA 200 = مضبوط اپ ٹرینڈ ✅</code></pre>
+<h3>RSI کی قرائت:</h3>
+<pre><code>RSI 70 سے اوپر  = زیادہ خریدا گیا (Overbought) → ممکنہ گراوٹ
+RSI 30 سے نیچے  = زیادہ بیچا گیا (Oversold) → ممکنہ اچھال
+RSI 50 کے قریب  = غیر جانبدار</code></pre>
+<blockquote>
+<p>⚠️ <strong>زیادہ انڈیکیٹرز = زیادہ الجھن۔</strong> پروفیشنل تاجر عموماً <strong>2 سے 4</strong> انڈیکیٹرز استعمال کرتے ہیں۔ <strong>Volume</strong> ہمیشہ شامل رکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.6 ڈرائنگ ٹولز (Drawing Tools)</h2>
+<blockquote>
+<p>چارٹ پر لکیروں، خانوں اور سطحوں کے ذریعے اپنے تجزیے کو واضح کریں۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹول</th><th>مقصد</th></tr></thead>
+<tbody>
+<tr><td><strong>Trend Line</strong></td><td>رجحان کی لکیر کھینچنا</td></tr>
+<tr><td><strong>Horizontal Line</strong></td><td>سپورٹ/ریزیسٹنس کی افقی سطح</td></tr>
+<tr><td><strong>Fibonacci Retracement</strong></td><td>پل بیک کی ممکنہ سطحیں</td></tr>
+<tr><td><strong>Rectangle</strong></td><td>رینج یا سپلائی/ڈیمانڈ زون</td></tr>
+<tr><td><strong>Parallel Channel</strong></td><td>قیمت کا چلنے کا راستہ</td></tr>
+<tr><td><strong>Long/Short Position Tool</strong></td><td>TP اور SL کے ساتھ منصوبہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>سپورٹ اور ریزیسٹنس کی طاقت:</strong> جتنی بار قیمت کسی سطح سے ٹکرا کر واپس آئی، اتنی ہی وہ <strong>مضبوط</strong> ہے۔ پروفیشنل یہ سطحیں <strong>ہمیشہ</strong> نشان زد کرتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.7 Order Book (آرڈر بک)</h2>
+<h3>آرڈر بک کیا ہے؟</h3>
+<blockquote>
+<p><strong>آرڈر بک</strong> وہ تمام آرڈرز دکھاتی ہے جو ابھی <strong>مکمل نہیں ہوئے</strong> — یعنی خریداروں کی بولی (Bids) اور بیچنے والوں کی پیشکش (Asks)۔</p>
+</blockquote>
+<pre><code>          Price (USDT)   Size (BTC)   Total
+    سرخ →  96,120.50     2.500        2.500
+    سرخ →  96,118.00     1.200        3.700
+    سرخ →  96,115.00     5.000        8.700   ← Asks (فروخت)
+          ───────────────────────────────────
+          96,112.40        ← Last Price (آخری قیمت)
+          ───────────────────────────────────
+    سبز →  96,110.00     3.000        3.000
+    سبز →  96,108.50     1.800        4.800
+    سبز →  96,106.00     4.200        9.000   ← Bids (خرید)</code></pre>
+<h3>قرائت:</h3>
+<ul>
+<li><strong>سرخ (اوپر)</strong> = Asks — بیچنے والوں کے آرڈر (فروخت کی طلب)</li>
+<li><strong>سبز (نیچے)</strong> = Bids — خریداروں کے آرڈر (خرید کی طلب)</li>
+<li><strong>بڑی "دیوار" (Wall)</strong> = کسی ایک قیمت پر بہت بڑا آرڈر، جو ممکنہ سپورٹ/مزاحمت کا اشارہ ہو سکتی ہے</li>
+</ul>
+<blockquote>
+<p>💡 <strong>دیواروں کا راز:</strong> جب کسی قیمت پر بہت بڑا Buy والا آرڈر ہو، تو وہ <strong>مضبوط سپورٹ</strong> لگتا ہے — کیونکہ قیمت گرنے پر وہ خرید لے گا۔ اور الٹا۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.8 Trade History — ٹریڈ ٹیپ</h2>
+<h3>ٹریڈ ٹیپ کیا ہے؟</h3>
+<blockquote>
+<p>وہ تمام ٹریڈز جو <strong>ابھی ہوئی ہیں</strong> — وقت، قیمت، مقدار اور طرف (Side) کے ساتھ۔</p>
+</blockquote>
+<pre><code>Time        Price     Amount     Side
+─────────────────────────────────────
+14:30:21    96,112    0.500      BUY 🟢
+14:30:20    96,110    1.200      SELL 🔴
+14:30:19    96,110    0.300      BUY 🟢</code></pre>
+<h3>سبز بمقابلہ سرخ:</h3>
+<ul>
+<li><strong>سبز (BUY)</strong> = موجودہ مارکیٹ آرڈر نے <strong>Ask</strong> کو مارا (یعنی خریدار <strong>جارحانہ</strong> تھا)</li>
+<li><strong>سرخ (SELL)</strong> = موجودہ مارکیٹ آرڈر نے <strong>Bid</strong> کو مارا (یعنی بیچنے والا <strong>جارحانہ</strong> تھا)</li>
+</ul>
+<blockquote>
+<p>💡 <strong>ٹیپ سے رفتار کا اندازہ:</strong> اگر ٹیپ پر ٹریڈز <strong>بہت تیز</strong> آرہے ہوں، تو مارکیٹ میں <strong>بھیڑ</strong> ہے — اکثر کوئی بڑی خبر یا حرکت ہو رہی ہے۔ اگر ٹیپ <strong>خاموش</strong> ہو، تو مارکیٹ <strong>سو رہی</strong> ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.9 Depth Chart (ڈیپتھ چارٹ)</h2>
+<h3>ڈیپتھ چارٹ کیا ہے؟</h3>
+<blockquote>
+<p><strong>آرڈر بک کی تصویری شکل</strong> — ایک نظر میں دیکھ سکتے ہیں کہ خریدار زیادہ ہیں یا بیچنے والے، اور کس قیمت پر گاڑھی (Liquidity) موجود ہے۔</p>
+</blockquote>
+<pre><code>         │   ▲ Asks (سرخ)
+         │  ╱
+         │ ╱
+   ──────┼────── Mid Price
+         │ ╲
+         │  ╲
+         │   ▼ Bids (سبز)</code></pre>
+<ul>
+<li><strong>بائیں طرف بڑی ڈیپ</strong> = مضبوط سپورٹ (خریداروں کی گاڑھی)</li>
+<li><strong>دائیں طرف بڑی ڈیپ</strong> = مضبوط ریزیسٹنس (بیچنے والوں کی گاڑھی)</li>
+</ul>
+<blockquote>
+<p>💡 <strong>کیوں اہم ہے:</strong> اگر آپ بڑا مارکیٹ آرڈر دیں اور ڈیپتھ کم ہے، تو آپ کو <strong>خراب قیمت</strong> ملے گی (Slippage)۔ ڈیپتھ زیادہ = بہتر قیمت۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 9.10 Order Entry Panel (آرڈر انٹری پینل)</h2>
+<blockquote>
+<p>یہ وہ جگہ ہے جہاں سے آپ خرید/فروخت کا حکم دیتے ہیں۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-limit.jpg" alt="Binance Limit Order">
+  <figcaption>تصویر 9.2: آرڈر انٹری پینل — Price، Amount، Total کے خانے، فیصد بٹن، اور Buy/Sell کے بٹن۔ Limit آرڈر میں آپ خود قیمت لکھتے ہیں۔ (Order entry panel — price/amount/total fields, percentage buttons, buy/sell controls.)</figcaption>
+</figure>
+<h3>پینل کے عناصر:</h3>
+<pre><code>[Price]   96,112.00 USDT        (مارکیٹ قیمت پہلے سے)
+[Amount]  0.0100 BTC            (یا Total میں رقم لکھیں)
+[Total]   961.12 USDT
+[ 25% ] [ 50% ] [ 75% ] [ 100% ]   ← بالکل بٹن
+[ Buy BTC 🟢 ]    [ Sell BTC 🔴 ]</code></pre>
+<h3>آرڈر کی اقسام ایک نظر میں:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>آرڈر</th><th>کیا کرتا ہے</th><th>کب استعمال</th></tr></thead>
+<tbody>
+<tr><td><strong>Market</strong></td><td>فوری موجودہ قیمت پر</td><td>جلدی داخلہ/خروج</td></tr>
+<tr><td><strong>Limit</strong></td><td>مقرر قیمت پر</td><td>درست قیمت چاہتے ہیں</td></tr>
+<tr><td><strong>Stop-Limit</strong></td><td>قیمت کی سطح پر فعال، پھر Limit</td><td>رسک کنٹرول</td></tr>
+<tr><td><strong>Stop-Market</strong></td><td>قیمت کی سطح پر فعال، فوری مارکیٹ</td><td>فوری حفاظتی خروج</td></tr>
+<tr><td><strong>OCO</strong></td><td>ایک وقت میں TP + SL</td><td>بہترین ٹریڈ مینجمنٹ</td></tr>
+<tr><td><strong>Trailing Stop</strong></td><td>قیمت کے ساتھ خودکار ایڈجسٹ SL</td><td>منافع محفوظ کرنا</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>فیصد بٹن:</strong> پینل میں 25%، 50%، 75%، 100% بٹن آپ کے Spot بیلنس کے تناسب سے آرڈر لگاتے ہیں — اس سے حساب کی غلطی نہیں ہوتی۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li><strong>براہ راست Advanced لے آؤٹ</strong> — پہلے Classic پر مشق کریں۔</li>
+<li><strong>1m ٹائم فریم پر ٹریڈ</strong> — بہت زیادہ شور (Noise)؛ 15m/1H سے شروع کریں۔</li>
+<li><strong>آرڈر بک الٹ پڑھنا</strong> — یاد رکھیں: <strong>سبز = خریدار (Bids)، سرخ = بیچنے والے (Asks)</strong>۔</li>
+<li><strong>ٹریڈ ٹیپ نظر انداز کرنا</strong> — ٹیپ سے مارکیٹ کی فوری رفتار کا اندازہ ہوتا ہے۔</li>
+<li><strong>بہت زیادہ انڈیکیٹرز</strong> — 2-4 سے زیادہ نہ لگائیں۔</li>
+<li><strong>ڈیپتھ چارٹ نہ دیکھنا</strong> — یہ مضبوط سطحیں صاف دکھاتا ہے۔</li>
+<li><strong>غلط آرڈر کی قسم</strong> — جلدی چاہیے تو Market؛ درست قیمت چاہیے تو Limit۔</li>
+<li><strong>Volume نہ دیکھنا</strong> — بغیر حجم کے کوئی تجزیہ ادھورا ہے۔</li>
+<li><strong>بڑے ٹائم فریم کو نظر انداز کرنا</strong> — Multi-Timeframe تجزیہ ضروری ہے۔</li>
+<li><strong>ہر کینڈل پر فیصلہ</strong> — صبر کریں، آپ کی حکمت عملی کا انتظار کریں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>Classic</strong> مبتدیوں کے لیے، <strong>Advanced</strong> تجربہ کاروں کے لیے</li>
+<li><strong>کینڈل</strong> = Open, High, Low, Close — سبز = اوپر، سرخ = نیچے</li>
+<li><strong>Timeframes</strong> = ہر کینڈل کا دورانیہ؛ رجحان سے مطابق چنیں</li>
+<li><strong>Multi-Timeframe</strong> = بڑے پر رجحان، چھوٹے پر داخلہ</li>
+<li><strong>Order Book</strong> = منتظر آرڈرز؛ <strong>Trade History</strong> = مکمل ہوئے لین دین</li>
+<li><strong>Depth Chart</strong> = آرڈر بک کی تصویری شکل</li>
+<li><strong>Order Entry</strong> = Buy/Sell پینل، آرڈر کی چھ بنیادی اقسام</li>
+<li><strong>2-4 انڈیکیٹرز</strong> کافی — Volume ہمیشہ شامل</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>بائننس پر <strong>Spot → BTC/USDT</strong> چارٹ کھولیں۔</li>
+<li><strong>Classic</strong> اور <strong>Advanced</strong> دونوں لے آؤٹ دیکھیں اور فرق نوٹ کریں۔</li>
+<li>ٹائم فریم بدلیں: <strong>1m → 5m → 15m → 1H → 1D</strong> — ہر بار کینڈل بننے کا فرق محسوس کریں۔</li>
+<li><strong>10 سبز اور 10 سرخ کینڈلز</strong> دیکھیں — ہر ایک کا Open/High/Low/Close سمجھنے کی کوشش کریں۔</li>
+<li><strong>MA 50</strong> اور <strong>MA 200</strong> لگائیں اور دیکھیں کہ قیمت کہاں ہے۔</li>
+<li><strong>RSI</strong> لگائیں اور دیکھیں کہ کون سی کرنسی 70 سے اوپر یا 30 سے نیچے ہے۔</li>
+<li><strong>Order Book</strong> دیکھیں — سبز (Bids) اور سرخ (Asks) کے حصے پہچانیں۔</li>
+<li><strong>Trade History (Tape)</strong> دیکھیں — BUY اور SELL کی رنگت سے رفتار سمجھیں۔</li>
+<li><strong>Depth Chart</strong> دیکھیں — کہاں گاڑھی (Liquidity) سب سے زیادہ ہے۔</li>
+<li>ایک <strong>Limit آرڈر</strong> کا صفحہ کھولیں (لانے کی ضرورت نہیں) — 25/50/100% بٹن دیکھیں۔</li>
+<li><strong>Multi-Timeframe مشق:</strong> 1D پر رجحان لکھیں، 4H پر سپورٹ، 15m پر داخلے کا جملہ۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>چارٹ ایک زبان ہے۔</strong> کینڈلز اس کے حروف ہیں، ٹائم فریمز جملے، انڈیکیٹرز قواعدِ گرائمر، اور آپ کا تجزیہ ایک کہانی۔ جب تک اس زبان پر عبور نہ ہو، چارٹ آپ کو گم کر دے گا۔</p>
+<p><strong>صبر سے سیکھیں، چھوٹے ٹائم فریم سے بڑے کی طرف بڑھیں، اور کم ٹولز کو اچھی طرح سمجھیں — بہت سے ٹولز سے بہتر ہے۔</strong> اور یاد رکھیں: کوئی بھی انڈیکیٹر <strong>آئندہ کی ضمانت</strong> نہیں دیتا — وہ صرف <strong>معلومات</strong> دیتے ہیں۔ فیصلہ آپ کا ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-8.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-3.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

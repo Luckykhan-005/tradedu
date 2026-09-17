@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy-cyan" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 6: ٹریڈ کیسے کام کرتی ہے؟ (How a Trade Works) — فارکس ٹریڈنگ کورس</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">فارکس ٹریڈنگ کورس</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-5.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-2.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 6: ٹریڈ کیسے کام کرتی ہے؟ (How a Trade Works)</h1>
+<blockquote class="chapter-summary">
+<p>اب تک آپ نے تصورات سیکھے — اب ان سب کو جوڑ کر دیکھتے ہیں کہ ایک ٹریڈ <strong>پیدائش سے موت تک</strong> پورے سفر میں کیسے کام کرتی ہے: پوزیشن کھولنے سے لے کر منافع/نقصان لینے تک، اور راستے میں Stop Loss اور Take Profit کیسے کام کرتے ہیں۔</p>
+</blockquote>
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>ٹریڈ کھولنے (Open) کا عمل — BUY/SELL اور اجرت (اسپریڈ/کمیشن)</li>
+<li>ٹریڈ چلتے ہوئے کیا ہوتا ہے (Floating P&L)</li>
+<li>پوزیشن بند کرنے کے طریقے</li>
+<li>Stop Loss (SL) اور Take Profit (TP) — تصور اور میکانکس</li>
+<li>Breakeven، Trailing Stop (تعارف)</li>
+<li>ایک مکمل مثال: تصویر کے ساتھ سارا سفر</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 6.1 ٹریڈ کھولنا (Opening a Trade)</h2>
+<h3>پہلا قدم: جوڑا اور سمت منتخب کریں</h3>
+<p>آپ EUR/USD پر اپنے تجزیے کی بنیاد پر فیصلہ کرتے ہیں:</p>
+<ul>
+<li><strong>BUY (لمبی):</strong> توقع ہے قیمت بڑھے گی۔ آپ <strong>Ask</strong> پر خریدتے ہیں۔</li>
+<li><strong>SELL (چھوٹی):</strong> توقع ہے قیمت گرے گی۔ آپ <strong>Bid</strong> پر بیچتے ہیں۔</li>
+</ul>
+<h3>دوسرا قدم: حجم (Lot Size) منتخب کریں</h3>
+<ul>
+<li>رسک مینجمنٹ کے اصولوں کے مطابق (حصہ 7)۔</li>
+<li>ابتدا میں 0.01 سے 0.10 تک۔</li>
+</ul>
+<h3>تیسرا قدم: SL اور TP رکھیں (پہلے سے!)</h3>
+<ul>
+<li><strong>Stop Loss:</strong> اگر تجزیہ غلط ہو تو کتنا نقصان برداشت ہے۔</li>
+<li><strong>Take Profit:</strong> کتنا منافع لینا ہے۔</li>
+</ul>
+<h3>چوتھا قدم: ٹریڈ کھولیں</h3>
+<ul>
+<li>آرڈر بھرتا ہے (fill)۔ آپ کا P&L فوراً <strong>اسپریڈ کے برابر منفی</strong> شروع ہوتا ہے۔</li>
+</ul>
+<blockquote>
+<p>📊 <strong>مثال (EUR/USD):</strong></p>
+<ul>
+<li>Ask: 1.08500، Bid: 1.08480 → اسپریڈ = 2 pips</li>
+<li>آپ BUY کرتے ہیں 1.08500 پر (0.10 lot)</li>
+<li>فوری P&L = <strong>-2 pips</strong> × $1 = <strong>-$2.00</strong> (فلوٹنگ)</li>
+</ul>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 6.2 ٹریڈ چلتے ہوئے — Floating P&L</h2>
+<p>پوزیشن کھلی ہونے تک آپ کا منافع/نقصان <strong>فلوٹنگ</strong> (Floating/Unrealized) کہلاتا ہے:</p>
+<ul>
+<li><strong>فلوٹنگ منافع:</strong> کاغذ پر منافع — جب تک بند نہ کریں، یہ آپ کا نہیں۔</li>
+<li><strong>فلوٹنگ نقصان:</strong> کاغذ پر نقصان — جب تک بند نہ کریں، یہ حتمی نہیں۔</li>
+</ul>
+<pre><code>آپ نے 1.08500 پر BUY کیا (0.10 lot)
+اب قیمت 1.09000 ہے → +50 pips → +$50 فلوٹنگ منافع
+اب قیمت 1.08000 ہے → -50 pips → -$50 فلوٹنگ نقصان</code></pre>
+<blockquote>
+<p>🧠 <strong>نفسیاتی نکتہ:</strong> فلوٹنگ P&L کو "اپنا پیسہ" نہ سمجھیں — یہ صرف ایک نمبر ہے جو آپ کے پلان کے تحت چلتا ہے۔ جذباتی فیصلے یہیں شروع ہوتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 6.3 پوزیشن بند کرنا (Closing a Trade)</h2>
+<p>ٹریڈ تین طریقوں سے بند ہو سکتی ہے:</p>
+<h3>1. دستی (Manual Close)</h3>
+<p>آپ خود BUY کو بیچ کر / SELL کو خرید کر پوزیشن بند کرتے ہیں۔ منافع/نقصان <strong>حتمی</strong> ہو جاتا ہے۔</p>
+<h3>2. Stop Loss (SL)</h3>
+<ul>
+<li>پہلے سے طے شدہ نقصان کی حد۔</li>
+<li>قیمت SL لیول کو چھوئے تو بروکر <strong>خود بخود</strong> بند کر دیتا ہے۔</li>
+<li>آپ کا سب سے بڑا دوست — جذبات کو ختم کرتا ہے۔</li>
+</ul>
+<h3>3. Take Profit (TP)</h3>
+<ul>
+<li>پہلے سے طے شدہ منافع کا ہدف۔</li>
+<li>قیمت TP تک پہنچے تو خود بخود بند ہو کر منافع محفوظ کر لیتا ہے۔</li>
+</ul>
+<hr class="divider">
+
+<h2>📖 6.4 Stop Loss اور Take Profit — مکمل میکانکس</h2>
+<h3>مثال: EUR/USD پر BUY</h3>
+<pre><code>آپ نے 1.08500 پر BUY کیا (0.10 lot)
+SL: 1.08300 (20 pips نیچے)   → نقصان کی حد = 20 × $1 = $20
+TP: 1.09000 (50 pips اوپر)   → منافع کا ہدف = 50 × $1 = $50</code></pre>
+<h3>اگر قیمت SL پر جائے</h3>
+<ul>
+<li>ٹریڈ 1.08300 پر بند۔ نقصان <strong>-$20</strong>۔ اکاؤنٹ سے کٹ گیا۔</li>
+</ul>
+<h3>اگر قیمت TP پر جائے</h3>
+<ul>
+<li>ٹریڈ 1.09000 پر بند۔ منافع <strong>+$50</strong>۔ اکاؤنٹ میں شامل۔</li>
+</ul>
+<h3>اگر قیمت ادھر ادھر گھومے (درمیان میں)</h3>
+<ul>
+<li>ٹریڈ کھلی رہتی ہے، P&L فلوٹنگ چلتا رہتا ہے۔</li>
+</ul>
+<blockquote>
+<p>💡 <strong>کیوں SL/TP لازمی ہے؟</strong> کیونکہ جب آپ سو رہے ہوں (یا جذباتی ہوں) تو بروکر آپ کا محافظ ہے۔ بغیر SL کے ایک بڑی حرکت آپ کا پورا اکاؤنٹ ختم کر سکتی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 6.5 Breakeven اور Trailing Stop (اعلیٰ سطح)</h2>
+<h3>Breakeven (بریک ایون)</h3>
+<ul>
+<li>جب ٹریڈ منافع میں جائے تو SL کو <strong>انٹری لیول</strong> پر لے آئیں۔</li>
+<li>اب ٹریڈ <strong>نقصان نہیں</strong> کر سکتی — کم سے کم برابر (0) پر بند ہوگی۔</li>
+<li>"مفت ٹریڈ" (Risk-free trade) کا تصور۔</li>
+</ul>
+<h3>Trailing Stop (ٹریلنگ سٹاپ)</h3>
+<ul>
+<li>SL جو قیمت کے ساتھ <strong>چلتا</strong> ہے۔</li>
+<li>مثال: قیمت 100 pips بڑھی تو SL بھی انٹری سے 50 pips اوپر آ گیا۔</li>
+<li>منافع کو محفوظ کرتا ہے اور پھر بھی بڑھنے دیتا ہے۔</li>
+</ul>
+<blockquote>
+<p>📖 تفصیلی حکمتِ عملی حصہ 3 اور حصہ 7 میں۔ ابھی تصور یاد رکھیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 6.6 مکمل تصویری مثال — ٹریڈ کا پورا سفر</h2>
+<h3>منظر: GBP/USD — نیویارک سیشن، London/NY overlap</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وقت</th><th>واقعہ</th><th>قیمت</th><th>P&L</th></tr></thead>
+<tbody>
+<tr><td>1:30 PM PKT</td><td>آپ نے تجزیہ کیا — اپٹرینڈ، پل بیک پر BUY کا فیصلہ</td><td>1.26500</td><td>—</td></tr>
+<tr><td>1:35 PM PKT</td><td><strong>BUY</strong> 0.10 lot @ Ask 1.26520؛ SL 1.26320 (20p)، TP 1.27020 (50p)</td><td>1.26520</td><td>-2 pips (اسپریڈ)</td></tr>
+<tr><td>2:00 PM PKT</td><td>قیمت اپٹرینڈ کے ساتھ بڑھ رہی ہے</td><td>1.26700</td><td>+18 pips = +$18</td></tr>
+<tr><td>2:45 PM PKT</td><td>قیمت 1.27020 تک پہنچی — <strong>TP خود بخود بند</strong></td><td>1.27020</td><td><strong>+$50</strong></td></tr>
+</tbody></table></div>
+<p><strong>نتیجہ:</strong> آپ نے کچھ نہیں کیا — پلان نے کیا۔ منافع = $50۔</p>
+<h3>الٹا منظر (اگر مارکیٹ آپ کے خلاف جاتی)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>وقت</th><th>واقعہ</th><th>قیمت</th><th>P&L</th></tr></thead>
+<tbody>
+<tr><td>1:35 PM PKT</td><td>BUY 0.10 @ 1.26520؛ SL 1.26320</td><td>1.26520</td><td>-2 pips</td></tr>
+<tr><td>2:10 PM PKT</td><td>اچانک یو کے ڈیٹا — قیمت گرتی ہے</td><td>1.26380</td><td>-14 pips</td></tr>
+<tr><td>2:11 PM PKT</td><td><strong>SL بند</strong> @ 1.26320</td><td>1.26320</td><td><strong>-$20</strong></td></tr>
+</tbody></table></div>
+<p><strong>نتیجہ:</strong> آپ کا نقصان پہلے سے طے شدہ $20 تک محدود — اکاؤنٹ محفوظ۔</p>
+<hr class="divider">
+
+<h2>📖 6.7 ٹریڈنگ کا اخلاقی اصول (باب 6 کا نچوڑ)</h2>
+<pre><code>ایک بہترین ٹریڈ = صحیح سمت + صحیح حجم + پہلے سے SL/TP + کوئی جذبات نہیں</code></pre>
+<p>یہی وہ نظم ہے جو آپ کو 90% نقصان کرنے والوں سے الگ کرے گی۔ باقی کتاب اسی نظم کو <strong>تجزیے کی مہارت</strong> سے جوڑتی ہے۔</p>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ باب 6 کی عام غلطیاں</h2>
+<ol>
+<li><strong>بغیر SL کے ٹریڈ:</strong> "ابھی واپس آ جائے گی" — یہی سوچ اکاؤنٹ ختم کرتی ہے۔</li>
+<li><strong>TP بہت دور/مختصر:</strong> منافع کا ہدف مارکیٹ کی فطرت (سپورٹ/ریزسٹنس) کے مطابق ہونا چاہیے۔</li>
+<li><strong>فلوٹنگ P&L کو دیکھ کر جذباتی:</strong> ہر منٹ چارٹ نہ دیکھیں — پلان پر بھروسہ کریں۔</li>
+<li><strong>SL بڑھانا (Moving SL):</strong> جب ٹریڈ آپ کے خلاف جائے تو SL کو دور کرنا = خود کو بڑا نقصان دینا۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>ٹریڈ = سمت + حجم + SL/TP، سب پہلے سے طے۔</li>
+<li>فلوٹنگ P&L حتمی نہیں؛ بند کرنے پر حتمی ہوتا ہے۔</li>
+<li>SL آپ کا محافظ ہے — بغیر اس کے کوئی ٹریڈ نہ کریں۔</li>
+<li>TP منافع کو محفوظ کرتا ہے۔</li>
+<li>Breakeven اور Trailing جیسے اوزار منافع کو بڑھاتے ہیں۔</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>اپنے ڈیمو اکاؤنٹ پر 0.01 lot کی ایک BUY ٹریڈ کھولیں — اس پر فوراً SL اور TP لگائیں (فاصلہ: SL 20 pips، TP 30 pips)۔</li>
+<li>دیکھیں کہ آپ کا فلوٹنگ P&L کیسے بدلتا ہے۔ جب TP لگے تو جرنل میں لکھیں کہ کیا ہوا۔</li>
+<li>ایک SELL ٹریڈ بھی آزمائیں — سمجھیں کہ SELL میں منافع کیسے ہوتا ہے (قیمت گرنے پر)۔</li>
+</ol>
+</section>
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>ایک کامیاب تاجر وہ نہیں جو صحیح ہمیشہ ہو — وہ ہے جو غلط ہونے پر <strong>مقررہ حد</strong> تک نقصان کرے اور صحیح ہونے پر <strong>مقررہ ہدف</strong> تک منافع لے۔ باقی سب کچھ مارکیٹ کا کام ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-5.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-2.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">فارکس ٹریڈنگ کورس — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

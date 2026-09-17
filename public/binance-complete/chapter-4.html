@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 4: سیکیورٹی سیٹ اپ — 2FA، ANTI-PHISHING، SAFU — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-3.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-2.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 4: سیکیورٹی سیٹ اپ — 2FA، ANTI-PHISHING، SAFU</h1>
+<blockquote class="chapter-summary">
+<p>آپ کے پیسوں کی سب سے بڑی دشمن کوئی ہیکر نہیں — <strong>خود آپ</strong> ہیں، اگر سیکیورٹی نہ سمجھیں۔ ایک کہانی یاد رکھیں: <strong>2019 میں بائننس پر ہیک ہوا اور تقریباً 7,000 BTC چرائے گئے</strong> — مگر صارفین کا ایک پیسہ بھی نہیں گیا، کیونکہ <strong>SAFU فنڈ</strong> نے معاوضہ دیا۔ یہ باب آپ کے اکاؤنٹ کو <strong>محل</strong> بنانے کا نقشہ ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/security.jpg" alt="بائننس کے سیکیورٹی سیٹنگز کے صفحے کی سکرین (Security Settings)">
+  <figcaption>تصویر 4.1: بائننس کا سیکیورٹی (Security) سیٹنگز صفحہ — یہاں 2FA، Anti-Phishing Code، Address Management اور Device Management سب ایک جگہ موجود ہیں۔ یہیں سے آپ کے اکاؤنٹ کی حفاظت شروع ہوتی ہے۔</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>سیکیورٹی کیوں ضروری ہے — حقیقی خطرات تاریخ سے</li>
+<li>ہیکرز آپ کے اکاؤنٹ تک کیسے پہنچتے ہیں (5 راستے)</li>
+<li><strong>2FA</strong> — Google Authenticator کی مکمل ترتیب + Backup Key</li>
+<li><strong>Anti-Phishing Code</strong> — جعلی ای میل پہچاننے کا طریقہ</li>
+<li><strong>Address Whitelist</strong> — وِڈراول کی حفاظت کی سب سے مضبوط دیوار</li>
+<li><strong>SAFU فنڈ</strong> — بائننس کا انشورنس، اور اس کی حدود</li>
+<li><strong>Cold Storage</strong> اور <strong>Proof of Reserves</strong></li>
+<li><strong>Security Checkup</strong> ٹول اور <strong>Device Management</strong></li>
+<li>اکاؤنٹ قفل/رکاوٹ اور بحالی</li>
+<li><strong>سیکیورٹی چیک لسٹ</strong> — 10 اقدامات جو ہر صارف کو کرنے چاہئیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 4.1 سیکیورٹی کیوں ضروری ہے؟</h2>
+<h3>حقیقی خطرات (تاریخ سے سبق):</h3>
+<blockquote>
+<p><strong>2019:</strong> بائننس پر ہیک ہوا اور تقریباً <strong>7,000 BTC</strong> چرائے گئے (اُس وقت تقریباً $40 ملین)۔ بائننس نے <strong>SAFU فنڈ</strong> سے صارفین کو <strong>مکمل معاوضہ</strong> دیا۔</p>
+<p><strong>2022:</strong> FTX ایکسچینج کریش ہوئی — صارفین کے <strong>$8 ارب</strong> سے زیادہ پھنس گئے۔ سبق: <strong>ایکسچینج بھی ایک خطرہ ہے۔</strong></p>
+<p><strong>ہر روز:</strong> ہزاروں صارفین <strong>فلشنگ (Phishing)</strong> کا شکار ہوتے ہیں — جعلی ای میل، جعلی ویب سائٹ، اور "سپورٹ" بن کر کوڈ مانگنے والے دھوکے باز۔</p>
+<p><strong>نتیجہ:</strong> بائننس نے <strong>Proof of Reserves</strong> اور مضبوط SAFU فنڈ متعارف کرایا۔</p>
+</blockquote>
+<h3>آپ کے سامنے عام خطرات:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>خطرہ</th><th>وضاحت</th><th>نقصان</th><th>سے بچاؤ</th></tr></thead>
+<tbody>
+<tr><td><strong>Phishing (فلشنگ)</strong></td><td>جعلی ای میل/ویب سائٹ</td><td>لاگ ان تفصیلات چوری</td><td>Anti-Phishing Code</td></tr>
+<tr><td><strong>SIM Swap</strong></td><td>نمبر ہائی جیک → SMS OTP گیا</td><td>اکاؤنٹ چوری</td><td>Google Authenticator</td></tr>
+<tr><td><strong>Malware</strong></td><td>کمپیوٹر میں کلیدی لاگر</td><td>پاس ورڈ چوری</td><td>اینٹی وائرس + Hardware Wallet</td></tr>
+<tr><td><strong>Social Engineering</strong></td><td>"سپورٹ" بن کر کوڈ مانگنا</td><td>اکاؤنٹ چوری</td><td>کبھی کوڈ مت دیں</td></tr>
+<tr><td><strong>خود کی غلطی</strong></td><td>غلط ایڈریس پر وِڈراول</td><td>فنڈ گئے</td><td>Whitelist + Copy</td></tr>
+</tbody></table></div>
+<h3>ایک ہیکر کا ذہن — وہ کیسے سوچتا ہے:</h3>
+<pre><code>ہیکر کا ہدف:  آپ کا اکاؤنٹ
+     │
+     ├── 1. پاس ورڈ ٹوٹ گیا؟ ── نہیں ──→ 2FA ہے؟
+     │                                    │
+     │                                    ├── ہاں → 2FA کوڈ چرا لیں (SMS swap / phishing)
+     │                                    └── نہیں → ✅ اکاؤنٹ گیا
+     │
+     └── 2. پاس ورڈ ٹوٹ گیا ──→ 2FA ہے؟
+                                   │
+                                   ├── ہاں → 2FA کوڈ ضروری
+                                   └── نہیں → ✅ اکاؤنٹ گیا</code></pre>
+<blockquote>
+<p>💡 <strong>سبق:</strong> اگر آپ کے پاس <strong>صرف پاس ورڈ</strong> ہے، تو ہیکر کے لیے آپ کا اکاؤنٹ <strong>ایک قفل</strong> ہے جس کی ایک ہی چابی ہے۔ اگر آپ کے پاس <strong>2FA + Whitelist + Anti-Phishing</strong> ہے، تو وہ <strong>تین الگ قفلوں</strong> والا خزانہ ہے۔</p>
+</blockquote>
+<h3>بائننس کی طرف سے تحفظ:</h3>
+<pre><code>┌────────────────────────────────────────────┐
+│            بائننس کی حفاظت کے ستون          │
+│                                            │
+│  ┌───────────┐   ┌──────────────────┐      │
+│  │ 2FA (آپ)  │   │ Anti-Phishing    │      │
+│  │           │   │ (آپ سیٹ کریں)    │      │
+│  └───────────┘   └──────────────────┘      │
+│  ┌───────────┐   ┌──────────────────┐      │
+│  │ Whitelist │   │ SAFU Fund        │      │
+│  │ (آپ)      │   │ (بائننس)         │      │
+│  └───────────┘   └──────────────────┘      │
+│  ┌──────────────────────────────────────┐  │
+│  │ Cold Storage — فنڈز کی 95% آف لائن   │  │
+│  └──────────────────────────────────────┘  │
+└────────────────────────────────────────────┘</code></pre>
+<blockquote>
+<p>🎯 <strong>اہم تقسیم:</strong> پہلے تین ستون <strong>آپ</strong> کی ذمہ داری ہیں، آخری دو <strong>بائننس</strong> کی۔ بائننس اپنا حصہ پورا کر رہی ہے — اب آپ اپنا حصہ کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 4.2 دو مرحلے تصدیق (2FA)</h2>
+<p><strong>2FA</strong> (Two-Factor Authentication) یعنی پاس ورڈ کے علاوہ <strong>ایک اور ثبوت</strong>۔ یہ آپ کے اکاؤنٹ کی <strong>سب سے اہم دیوار</strong> ہے۔</p>
+<blockquote>
+<p><strong>کیا ہے؟</strong> پاس ورڈ = <strong>کچھ جو آپ جانتے ہیں</strong>۔ 2FA = <strong>کچھ جو آپ کے پاس ہے</strong> (فون/ڈیوائس)۔ دونوں ملے تب اندر جا سکتے ہیں۔</p>
+</blockquote>
+<h3>طریقوں کا موازنہ:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>سیکیورٹی</th><th>سہولت</th><th>خطرہ</th></tr></thead>
+<tbody>
+<tr><td><strong>SMS 2FA</strong></td><td>⚠️ کمزور</td><td>آسان</td><td><strong>SIM Swap</strong></td></tr>
+<tr><td><strong>Google Authenticator</strong></td><td>✅ بہت مضبوط</td><td>ایک ایپ</td><td>فون گم → Backup Key</td></tr>
+<tr><td><strong>Authy / Microsoft Authenticator</strong></td><td>✅ مضبوط</td><td>بیک اپ سہولت</td><td>—</td></tr>
+<tr><td><strong>YubiKey (ہارڈویئر)</strong></td><td>✅✅ بہترین</td><td>الگ ڈیوائس</td><td>قیمت</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>🔒 <strong>بہترین امتزاج:</strong> <strong>Google Authenticator + Anti-Phishing Code + Whitelist</strong></p>
+</blockquote>
+<h3>SMS 2FA کیوں خطرناک ہے — SIM Swap سمجھیں:</h3>
+<pre><code>1. دھوکے باز آپ کی ذاتی معلومات اکٹھی کرتا ہے (نام، نمبر، CNIC)
+2. آپ کے نمبر والی ٹیلیکام کمپنی سے رابطہ کرتا ہے
+3. "میرا فون کھو گیا، نمبر اس نئے SIM پر منتقل کریں" کہتا ہے
+4. نمبر منتقل ہو جاتا ہے → اب وہ آپ کے تمام SMS وصول کرتا ہے
+5. بائننس پر "Forgot Password" → SMS کوڈ → پاس ورڈ بدل دیتا ہے
+6. ✅ اکاؤنٹ چوری ہو گیا</code></pre>
+<blockquote>
+<p>⚠️ <strong>SIM Swap دنیا بھر میں ہو رہا ہے</strong> — خاص طور پر کرپٹو ہولڈرز کے خلاف۔ کبھی بھی SMS کو اپنا واحد 2FA مت بنائیں۔</p>
+</blockquote>
+<h3>4.2.1 Google Authenticator کی ترتیب</h3>
+<h4>مرحلہ 1: ایپ ڈاؤن لوڈ کریں</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>پلیٹ فارم</th><th>ایپ</th></tr></thead>
+<tbody>
+<tr><td>Android</td><td>Google Authenticator (Play Store)</td></tr>
+<tr><td>iOS</td><td>Google Authenticator (App Store)</td></tr>
+<tr><td>متبادل</td><td>Authy، Microsoft Authenticator، 2FAS</td></tr>
+</tbody></table></div>
+<h4>مرحلہ 2: بائننس میں 2FA شروع کریں</h4>
+<pre><code>Profile → Security → Two-Factor Authentication → Google Authenticator</code></pre>
+<h4>مرحلہ 3: QR کوڈ اسکین کریں</h4>
+<ol>
+<li>Authenticator ایپ کھولیں</li>
+<li><strong>"+"</strong> یا <strong>"Scan QR code"</strong> دبائیں</li>
+<li>بائننس کا <strong>QR کوڈ</strong> اسکین کریں</li>
+<li>ایپ میں <strong>6 ہندسوں کا کوڈ</strong> نمودار ہوگا (ہر <strong>30 سیکنڈ</strong> بدلتا ہے)</li>
+</ol>
+<h4>مرحلہ 4: تصدیق مکمل کریں</h4>
+<ol>
+<li>بائننس میں <strong>6 ہندسوں کا کوڈ</strong> درج کریں</li>
+<li>اکاؤنٹ پاس ورڈ سے تصدیق کریں</li>
+<li><strong>Backup Key</strong> لازماً <strong>آف لائن</strong> محفوظ کریں (نیچے دیکھیں)</li>
+</ol>
+<h4>مرحلہ 5: مکمل</h4>
+<blockquote>
+<p>اب ہر لاگ ان اور ہر اہم کارروائی (وِڈراول، API بنانا، سیٹنگز بدلنا) پر <strong>2FA کوڈ</strong> درکار ہوگا۔</p>
+</blockquote>
+<h3>4.2.2 Backup Key — آپ کی آخری امید</h3>
+<blockquote>
+<p>⚠️ <strong>یہ سب سے اہم حصہ ہے۔</strong> جب آپ کا فون گم، چوری، یا ری سیٹ ہو جائے، تو Backup Key کے بغیر آپ <strong>2FA تک نہیں پہنچ سکتے</strong> — اور آپ کا اکاؤنٹ <strong>ہمیشہ</strong> کے لیے بند ہو سکتا ہے۔</p>
+</blockquote>
+<p><strong>Backup Key کیسے محفوظ رکھیں:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>طریقہ</th><th>مشورہ</th></tr></thead>
+<tbody>
+<tr><td>✅ <strong>کاغذ پر لکھیں</strong></td><td>ہاتھ سے لکھیں، دراز میں رکھیں</td></tr>
+<tr><td>✅ <strong>دو جگہ کاپی</strong></td><td>گھر + محفوظ دوسری جگہ</td></tr>
+<tr><td>❌ <strong>اسکرین شاٹ</strong></td><td>فون/کلاؤڈ میں مت رکھیں</td></tr>
+<tr><td>❌ <strong>WhatsApp/Telegram</strong></td><td>کبھی نہیں</td></tr>
+<tr><td>❌ <strong>ای میل اپ خود</strong></td><td>اگر ای میل ہیک ہو جائے...</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>🔐 <strong>بہترین طریقہ:</strong> کاغذ پر لکھیں اور اسے <strong>فلائنگ آف (offline)</strong> رکھیں۔ یہ 20 کریکٹرز کی ایک سطر ہے — یاد رکھنا مشکل، مگر کاغذ پر محفوظ = ہمیشہ دستیاب۔</p>
+</blockquote>
+<h3>⚠️ 2FA کے اہم نکات:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نکتہ</th><th>وجہ</th></tr></thead>
+<tbody>
+<tr><td><strong>Backup Key محفوظ رکھیں</strong></td><td>فون گم/ری سیٹ ہو تو بحالی کے لیے</td></tr>
+<tr><td><strong>کاغذ پر لکھیں</strong></td><td>اسکرین شاٹ کلاؤڈ میں نہ رکھیں</td></tr>
+<tr><td><strong>کسی کو مت بتائیں</strong></td><td>2FA کوڈ = اکاؤنٹ کی چابی</td></tr>
+<tr><td><strong>SMS 2FA سے بچیں</strong></td><td>SIM Swap سے اکاؤنٹ چوری</td></tr>
+<tr><td><strong>کوڈ کی میعاد</strong></td><td>30 سیکنڈ — وقت پر درج کریں</td></tr>
+<tr><td><strong>ایک ساتھ دو کوڈ مت داخل</strong></td><td>پرانا کوڈ ریجیکٹ ہوگا</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>سنہری قاعدہ:</strong> بائننس، کوئی بینک، یا کوئی "سپورٹ" <strong>کبھی</strong> آپ سے 2FA کوڈ نہیں مانگتا۔ جو مانگے — وہ <strong>دھوکے باز</strong> ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 4.3 Anti-Phishing Code (اینٹی فلشنگ کوڈ)</h2>
+<h3>یہ کیا ہے؟</h3>
+<blockquote>
+<p>آپ ایک <strong>خفیہ کوڈ</strong> سیٹ کرتے ہیں۔ بائننس کے <strong>ہر سرکاری ای میل</strong> میں یہ کوڈ دکھائی دے گا۔ اگر کسی ای میل میں یہ کوڈ <strong>نہ ہو</strong> — وہ <strong>جعلی</strong> ہے، خواہ کتنا ہی حقیقی لگے۔</p>
+</blockquote>
+<p>یہ بالکل ویسا ہی جیسے بینک آپ کو ایک <strong>خفیہ نشان</strong> دے اور کہے: "جب بھی ہم آپ کو خط بھیجیں، یہ نشان ضرور ہوگا۔"</p>
+<h3>سیٹ کرنے کا طریقہ:</h3>
+<pre><code>Profile → Security → Anti-Phishing Code
+1. کوئی یادگار کوڈ لکھیں (مثلاً: MY-CODE-2026)
+2. Save / Confirm کریں (2FA سے تصدیق)</code></pre>
+<h3>سرکاری بمقابلہ جعلی ای میل:</h3>
+<p><strong>✅ سرکاری (Original):</strong></p>
+<pre><code>موضوع: Your withdrawal request
+[Anti-Phishing Code: MY-CODE-2026]   ← آپ کا کوڈ موجود</code></pre>
+<p><strong>❌ فلشنگ (Fake):</strong></p>
+<pre><code>موضوع: ⚠️ URGENT: Verify your account now!
+(کوئی Anti-Phishing Code نہیں)        ← کوڈ غائب
+→ لنک پر کلک نہ کریں!</code></pre>
+<h3>فلشنگ ای میل کی پہچان — 8 نشان:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نشان</th><th>مثال</th></tr></thead>
+<tbody>
+<tr><td>❌ <strong>Anti-Phishing Code غائب</strong></td><td>سب سے پہلا اور یقینی چیک</td></tr>
+<tr><td>❌ <strong>فوری Sens of urgency</strong></td><td>"اکاؤنٹ 24 گھنٹے میں بند ہوگا!"</td></tr>
+<tr><td>❌ <strong>غر ntی دھمکی</strong></td><td>"اگر تصدیق نہ کی تو فنڈ فریز"</td></tr>
+<tr><td>❌ <strong>غلط ای میل ایڈریس</strong></td><td>noreply@binance-secure.com</td></tr>
+<tr><td>❌ <strong> spelnging ایررز</strong></td><td>"Blnace"، "Verifay"</td></tr>
+<tr><td>❌ <strong>غسل لنک</strong></td><td>binance-verify.com</td></tr>
+<tr><td>❌ <strong>کوڈ/پاس ورڈ مانگنا</strong></td><td>اصلی بائننس کبھی نہیں مانگتا</td></tr>
+<tr><td>❌ <strong>بونس/انعام کا لالچ</strong></td><td>"آپ نے 0.5 BTC جیتا!"</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 <strong>اپنے خاندان/ساتھیوں کو بھی بتائیں</strong> کہ وہ یہ کوڈ سیٹ کریں — یہ ایک سادہ مگر طاقتور ہتھیار ہے۔ خاص طور پر وہ لوگ جو ای میل پر فوری کلک کرتے ہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 4.4 وِڈراول ایڈریس وائٹ لسٹ (Address Whitelist)</h2>
+<figure>
+  <img src="assets/img/security-whitelist.jpg" alt="بائننس کی ایڈریس وائٹ لسٹ سیٹنگ کی سکرین (Address Whitelist)">
+  <figcaption>تصویر 4.2: ایڈریس مینجمنٹ / وائٹ لسٹ (Address Management) — یہاں آپ وہ کرپٹو ایڈریس شامل کرتے ہیں جنہیں آپ وِڈراول کا حقدار سمجھتے ہیں۔ جب یہ فعال ہو، تو صرف انہی ایڈریسوں پر پیسے جا سکتے ہیں۔</figcaption>
+</figure>
+<h3>یہ کیا ہے؟</h3>
+<blockquote>
+<p>جب یہ فعال ہو، تو آپ <strong>صرف اُن ایڈریسوں</strong> پر وِڈراول کر سکتے ہیں جو آپ نے پہلے شامل کیے ہوں۔ کوئی ہیکر اکاؤنٹ میں بھی آ جائے، <strong>نئے ایڈریس پر فنڈ نہیں بھیج سکتا</strong> — کیونکہ وہ ایڈریس وائٹ لسٹ میں موجود نہیں۔</p>
+</blockquote>
+<p>یہ آپ کے اکاؤنٹ کی <strong>سب سے مضبوط دیوار</strong> ہے۔ حتیٰ کہ اگر پاس ورڈ + 2FA دونوں چھن جائیں، تب بھی پیسے صرف <strong>آپ کے اپنے</strong> ایڈریس پر جا سکتے ہیں۔</p>
+<h3>سیٹ کرنے کا طریقہ:</h3>
+<pre><code>Profile → Security → Address Management / Whitelist
+1. "Add New Address" دبائیں
+2. EVM/نیٹ ورک منتخب کریں (باب 24)
+3. ایڈریس درج کریں (مثلاً: 0x1234...abcd)
+4. یادگار نام دیں (مثلاً: "میرا Trust Wallet")
+5. تصدیق (2FA/ای میل) کریں</code></pre>
+<h3>اہم خصوصیات:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>خصوصیت</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>فعال ہونے میں وقت</strong></td><td>نئے ایڈریس پر عام طور پر 24 گھنٹے سے کچھ زیادہ</td></tr>
+<tr><td><strong>تبدیلی</strong></td><td>تبدیل کرنے پر دوبارہ تصدیق + انتظار</td></tr>
+<tr><td><strong>تعداد</strong></td><td>محدود تعداد میں ایڈریس رکھ سکتے ہیں</td></tr>
+<tr><td><strong>حفاظت</strong></td><td>ہائی جیک ہونے پر بھی چوری ناممکن</td></tr>
+<tr><td><strong>نیٹ ورک</strong></td><td>ہر نیٹ ورک کے لیے الگ ایڈریس</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ <strong>یاد رکھیں:</strong> ایڈریس ہمیشہ <strong>پوری تفصیل سے</strong> چیک کریں — پہلے اور آخری چند کریکٹر دیکھ کر کاپی کریں۔ اگر ایک بھی کریکٹر غلط ہوا، تو پیسے کسی اور کو چلے جائیں گے — اور واپسی <strong>ناممکن</strong> ہے۔</p>
+</blockquote>
+<h3>وائٹ لسٹ کا حقیقی فائدہ — ایک کہانی:</h3>
+<pre><code>ایک صارف کا پاس ورڈ لیک ہو گیا (اسی ای میل+پاس ورڈ کہیں اور استعمال کیا تھا)
+     │
+     ├── ہیکر نے لاگ ان کیا ✓
+     ├── ہیکر نے وِڈراول کی کوشش کی
+     │      └── اپنا ایڈریس ڈالا → ❌ وائٹ لسٹ میں نہیں!
+     │      └── وِڈراول فیل!
+     │
+     └── صارف کو ای میل آیا → اس نے فوراً پاس ورڈ بدلا + 2FA بدلا
+                                      ↓
+                              ✅ پیسے محفوظ رہے!</code></pre>
+<hr class="divider">
+
+<h2>📖 4.5 SAFU فنڈ — بائننس کا انشورنس</h2>
+<p><strong>SAFU</strong> = <strong>Secure Asset Fund for Users</strong> (صارفین کے اثاثوں کا محفوظ فنڈ)</p>
+<h3>اہم معلومات:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>نکتہ</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>قیام</strong></td><td>2018</td></tr>
+<tr><td><strong>مقصد</strong></td><td>غیر متوقع نقصان/ہیک پر صارفین کی حفاظت</td></tr>
+<tr><td><strong>ذریعہ</strong></td><td>بائننس اپنی ٹریڈنگ فیس کا ایک حصہ SAFU میں ڈالتا ہے</td></tr>
+<tr><td><strong>مقدار</strong></td><td>تقریباً $1 بلین کے آس پاس (مارکیٹ کے ساتھ تبدیل)</td></tr>
+<tr><td><strong>پہلا استعمال</strong></td><td>2019 کے ہیک میں صارفین کو مکمل معاوضہ</td></tr>
+<tr><td><strong>رکھوٹی جگہ</strong></td><td>BNB، BTC، USDT وغیرہ میں diversified</td></tr>
+</tbody></table></div>
+<h3>کب کام آتا ہے؟</h3>
+<ul>
+<li>✅ بائننس پر بڑی سیکیورٹی خلاف ورزی (جیسے 2019)</li>
+<li>✅ ایکسچینج کی طرف سے کمی/نقصان</li>
+<li>✅ غیر متوقع نظامی ناکامی</li>
+</ul>
+<h3>SAFU کیا <strong>نہیں</strong> کرتا:</h3>
+<blockquote>
+<p>⚠️ <strong>SAFU گارنٹی نہیں</strong> — یہ ایک <strong>حفاظتی بفر</strong> ہے۔</p>
+<ul>
+<li>❌ اگر آپ <strong>خود</strong> غلط ایڈریس پر پیسے بھیج دیں → <strong>کوئی معاوضہ نہیں</strong></li>
+<li>❌ اگر آپ کا اکاؤنٹ فلشنگ سے چوری ہو جائے → <strong>کوئی معاوضہ نہیں</strong></li>
+<li>❌ اگر آپ نے کسی کو پاس ورڈ/2FA دے دیا → <strong>کوئی معاوضہ نہیں</strong></li>
+<li>❌ اگر آپ کی اپنی غلطی سے فنڈ گئے → <strong>کوئی معاوضہ نہیں</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>💡 <strong>خلاصہ:</strong> SAFU بنیادی طور پر <strong>ایکسچینج کی سیکیورٹی</strong> کے لیے ہے، <strong>آپ کی غلطی</strong> کے لیے نہیں۔ آپ کی حفاظت کی پہلی لائن <strong>آپ خود</strong> ہیں — 2FA، Whitelist، Anti-Phishing۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 4.6 دیگر حفاظتی خصوصیات</h2>
+<h3>Cold Storage (سرد ذخیرہ)</h3>
+<ul>
+<li>صارفین کے فنڈز کا بڑا حصہ (95%+) <strong>آف لائن</strong> (انٹرنیٹ سے الگ) رکھا جاتا ہے</li>
+<li>آن لائن ہیکروں کی پہنچ سے باہر</li>
+<li>جب بھی ضرورت ہو، صرف ایک چھوٹا حصہ آن لائن لایا جاتا ہے</li>
+</ul>
+<h3>Proof of Reserves (ذخائر کا ثبوت)</h3>
+<ul>
+<li>بائننس شائع کرتا ہے کہ صارفین کے فنڈز <strong>1:1</strong> موجود ہیں</li>
+<li><strong>Merkle Tree</strong> ٹیکنالوجی سے شفافیت — ہر صارف اپنا بیلنس خود چیک کر سکتا ہے</li>
+<li>ہر کچھ ہفتے بعد اپ ڈیٹ ہوتا ہے (2022 سے جاری)</li>
+</ul>
+<blockquote>
+<p>💡 <strong>کیا کرتا ہے یہ؟</strong> یہ ثابت کرتا ہے کہ بائننس کے پاس صارفین کا ہر ڈالر/کوائن <strong>واقعی</strong> موجود ہے — کوئی FTX جیسا فراڈ نہیں۔</p>
+</blockquote>
+<h3>Security Checkup (سیکیورٹی جائزہ)</h3>
+<pre><code>Profile → Security → Security Checkup</code></pre>
+<p>یہ ٹول بتاتا ہے:</p>
+<ul>
+<li>2FA فعال ہے یا نہیں</li>
+<li>Anti-Phishing Code سیٹ ہے یا نہیں</li>
+<li>وائٹ لسٹ موجود ہے یا نہیں</li>
+<li>پاس ورڈ مضبوط ہے یا نہیں</li>
+<li>کوئی غیر معمولی لاگ ان؟</li>
+</ul>
+<blockquote>
+<p>💡 <strong>مشورہ:</strong> یہ چیک اپ <strong>ہر 2-3 ماہ</strong> بعد ضرور چلائیں۔ یہ 30 سیکنڈ کا کام ہے، اور آپ کو بتا دے گا کہ کہیں کوئی سیٹنگ بکھری تو نہیں۔</p>
+</blockquote>
+<h3>Device Management (ڈیوائس مینجمنٹ)</h3>
+<ul>
+<li>تمام لاگ ان ڈیوائسز کی فہرست (فون، لیپ ٹاپ، PC)</li>
+<li>ہر ڈیوائس کا <strong>آخری استعمال</strong> اور <strong>IP ایڈریس</strong></li>
+<li>کسی بھی <strong>نامعلوم ڈیوائس</strong> کو فوراً لاگ آؤٹ کریں</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>اہم:</strong> اگر آپ کوئی نیا فون/لیپ ٹاپ خریدیں، تو پرانا ڈیوائس یہاں سے <strong>لاگ آؤٹ</strong> ضرور کریں۔</p>
+</blockquote>
+<h3>Login History (لاگ ان ہسٹری)</h3>
+<ul>
+<li>کونسی تاریخ/وقت پر کہاں سے لاگ ان ہوا</li>
+<li>اگر کبھی <strong>غیر ملکی IP</strong> نظر آئے، تو فوراً:<ol>
+<li>پاس ورڈ بدلیں</li>
+<li>2FA دوبارہ سیٹ کریں</li>
+<li>سپورٹ کو اطلاع دیں</li>
+</ol></li>
+</ul>
+<h3>اہم سیٹنگز کی فہرست:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>سیٹنگ</th><th>حالت</th><th>نوٹ</th></tr></thead>
+<tbody>
+<tr><td><strong>2FA</strong></td><td>✅ واجب</td><td>Google Authenticator</td></tr>
+<tr><td><strong>Anti-Phishing Code</strong></td><td>✅ واجب</td><td>ہر ای میل چیک ہو</td></tr>
+<tr><td><strong>Whitelist</strong></td><td>✅ انتہائی مفید</td><td>صرف اپنے ایڈریس</td></tr>
+<tr><td><strong>پاس ورڈ</strong></td><td>✅ مضبوط</td><td>12+ کریکٹرز، منفرد</td></tr>
+<tr><td><strong>Backup Key</strong></td><td>✅ آف لائن</td><td>کاغذ پر</td></tr>
+<tr><td><strong>Device Check</strong></td><td>✅ ماہانہ</td><td>نامعلوم ڈیوائس لاگ آؤٹ</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 4.7 اکاؤنٹ قفل / رکاوٹ اور بحالی</h2>
+<h3>اگر اکاؤنٹ لاک ہو جائے:</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>سبب</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td><strong>بار بار غلط پاس ورڈ</strong></td><td>کچھ دیر انتظار → پھر کوشش</td></tr>
+<tr><td><strong>غیر معمولی لاگ ان</strong></td><td>ای میل/SMS سے تصدیق</td></tr>
+<tr><td><strong>KYC مسئلہ</strong></td><td>دوبارہ تصدیق</td></tr>
+<tr><td><strong>مشکوک سرگرمی</strong></td><td>بائننس سپورٹ سے رابطہ</td></tr>
+<tr><td><strong>VPN سے رسائی</strong></td><td>VPN بند کریں، اصلی IP سے</td></tr>
+</tbody></table></div>
+<h3>اکاؤنٹ کو فریز کرنا — خودکاری تحفظ</h3>
+<p>اگر آپ کو شک ہو کہ اکاؤنٹ ہائی جیک ہوا:</p>
+<pre><code>1. Settings → Security → Account Activity
+2. "Freeze Account" یا "Lock Account" چیک کریں
+3. فوراً پاس ورڈ بدلیں
+4. 2FA دوبارہ سیٹ کریں
+5. سپورٹ کو اطلاع دیں (Help Center → Live Chat)</code></pre>
+<h3>بحالی کے لیے:</h3>
+<ol>
+<li>بائننس <strong>سپورٹ</strong> (Help Center) پر جائیں</li>
+<li><strong>درست دستاویزات</strong> (CNIC + سیلفی + متعلقہ ثبوت) اپ لوڈ کریں</li>
+<li><strong>صبر</strong> سے جواب کا انتظار کریں (24-72 گھنٹے)</li>
+</ol>
+<blockquote>
+<p>💡 <strong>فوری مشورہ:</strong> جتنا جلدی آپ ردعمل ظاہر کریں گے، اتنا ہی کم نقصان ہوگا۔ پہلا گھنٹا سب سے اہم ہوتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 4.8 مکمل سیکیورٹی چیک لسٹ — 10 اقدامات</h2>
+<blockquote>
+<p>🎯 <strong>یہ چیک لسٹ آج ہی مکمل کریں۔</strong> یہ 20 منٹ کا کام ہے، اور آپ کے پورے کرپٹو خزانے کو محفوظ بنا دے گا۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>اقدام</th><th>وقت</th><th>فائدہ</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Google Authenticator</strong> انسٹال + 2FA سیٹ</td><td>5 منٹ</td><td>پاس ورڈ لیک ہو تب بھی محفوظ</td></tr>
+<tr><td>2</td><td><strong>Backup Key</strong> کاغذ پر لکھیں</td><td>2 منٹ</td><td>فون گم ہو تو بحالی</td></tr>
+<tr><td>3</td><td><strong>Anti-Phishing Code</strong> سیٹ کریں</td><td>2 منٹ</td><td>جعلی ای میل پکڑیں</td></tr>
+<tr><td>4</td><td><strong>Address Whitelist</strong> آن کریں</td><td>5 منٹ</td><td>ہیکر فنڈ نہ نکال سکے</td></tr>
+<tr><td>5</td><td><strong>پاس ورڈ</strong> 12+ کریکٹرز، منفرد</td><td>3 منٹ</td><td>براؤن فورس سے بچاؤ</td></tr>
+<tr><td>6</td><td><strong>ای میل کا پاس ورڈ</strong> الگ رکھیں</td><td>2 منٹ</td><td>ای میل ہیک = بائننس محفوظ</td></tr>
+<tr><td>7</td><td><strong>Device Management</strong> چیک کریں</td><td>1 منٹ</td><td>نامعلوم ڈیوائس نکالیں</td></tr>
+<tr><td>8</td><td><strong>Security Checkup</strong> چلائیں</td><td>1 منٹ</td><td>کیا کچھ بکھرا ہے پتا چلے</td></tr>
+<tr><td>9</td><td><strong>بوک مارک</strong> binance.com کا</td><td>30 سیکنڈ</td><td>فلشنگ سائٹ سے بچاؤ</td></tr>
+<tr><td>10</td><td><strong>2FA کوڈ کسی کو مت دیں</strong></td><td>0 سیکنڈ</td><td>سب سے بنیادی اصول</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ <strong>مکمل ہونے پر:</strong> آپ کا اکاؤنٹ اب <strong>90% زیادہ محفوظ</strong> ہے۔ باقی 10%؟ وہ آپ کی <strong>حواس رکھنے</strong> کی ذمہ داری ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ <strong>SMS 2FA استعمال کرنا</strong> — SIM Swap سے بچیں، Authenticator استعمال کریں</li>
+<li>❌ <strong>Anti-Phishing Code نہ سیٹ کرنا</strong> — جعلی ای میل پکڑی نہ جائے گی</li>
+<li>❌ <strong>Whitelist نہ بنانا</strong> — ہائی جیک ہونے پر فنڈ چلے جائیں گے</li>
+<li>❌ <strong>Backup Key محفوظ نہ کرنا</strong> — فون گم = اکاؤنٹ لاک</li>
+<li>❌ <strong>کسی کو 2FA کوڈ بتانا</strong> — یہ خودکشی کے برابر ہے</li>
+<li>❌ <strong>VPN سے بار بار لاگ ان</strong> — اکاؤنٹ مشکوک قرار پا کر بند ہو سکتا ہے</li>
+<li>❌ <strong>"سپورٹ" کے کہنے پر کوڈ دینا</strong> — بائننس کبھی نہیں مانگتا</li>
+<li>❌ <strong>ایک ہی پاس ورڈ سب جگہ</strong> — الگ الگ رکھیں</li>
+<li>❌ <strong>ای میل اور بائننس کا پاس ورڈ ایک</strong> — ای میل ہیک = سب ہیک</li>
+<li>❌ <strong>فلشنگ ای میل پر کلک</strong> — Code چیک کیے بغیر کلک مت کریں</li>
+<li>❌ <strong>عوامی Wi-Fi پر لاگ ان</strong> — Man-in-the-middle خطرہ</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>2FA (Google Authenticator)</strong> — سب سے پہلا اور اہم قدم</li>
+<li><strong>Backup Key</strong> آف لائن محفوظ — یہ آپ کی آخری امید ہے</li>
+<li><strong>Anti-Phishing Code</strong> — ہر ای میل کی سچائی کی چابی</li>
+<li><strong>Whitelist</strong> — صرف اپنے ایڈریس پر وِڈراول؛ ہیکر کے لیے ناقابلِ عبور</li>
+<li><strong>SAFU</strong> — بائننس کا بفر، مگر <strong>آپ کی غلطی</strong> کا معاوضہ نہیں</li>
+<li><strong>Cold Storage + Proof of Reserves</strong> — بائننس کی بڑی طاقت (FTX کا سبق)</li>
+<li><strong>Security Checkup</strong> ہر 2-3 ماہ بعد ضرور چلائیں</li>
+<li><strong>Device Management</strong> سے نامعلوم ڈیوائس فوراً نکالیں</li>
+<li><strong>بائننس کبھی 2FA/پاس ورڈ نہیں مانگتا</strong> — جو مانگے وہ دھوکے باز ہے</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li><strong>Google Authenticator</strong> اپنے فون پر انسٹال کریں (صرف انسٹال)۔</li>
+<li>بائننس پروفائل → <strong>Security</strong> صفحہ کا مشاہدہ کریں۔ کون سی سیٹنگز آپ کو دکھائی دیتی ہیں؟</li>
+<li>ایک <strong>Anti-Phishing Code</strong> سوچیں (ذہن میں رکھیں، کسی کو نہ بتائیں) — 8-12 کریکٹرز۔</li>
+<li><strong>Whitelist</strong> کا مطلب اپنے الفاظ میں لکھیں۔</li>
+<li>اپنے پاس ورڈ کا <strong>طاقت ٹیسٹ</strong> کریں (باب 2 کی چیک لسٹ سے)۔</li>
+<li>اگر اکاؤنٹ ہے تو یہ کریں:<ul>
+<li>2FA فعال کریں</li>
+<li>Anti-Phishing Code سیٹ کریں</li>
+<li>ایک ایڈریس وائٹ لسٹ میں شامل کریں</li>
+<li>Backup Key کاغذ پر لکھیں</li>
+</ul></li>
+<li><strong>Security Checkup</strong> چلائیں اور سکرین شاٹ لیں (صرف اپنے لیے)۔</li>
+<li>اپنے براؤزر میں <strong>binance.com کو بوک مارک</strong> کریں۔</li>
+<li><strong>Device Management</strong> چیک کریں — کوئی نامعلوم ڈیوائس تو نہیں؟</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>سیکیورٹی ایک بار نہیں، ہر روز کی عادت ہے۔</strong> آپ کا پاس ورڈ، 2FA کوڈ، اور Backup Key — یہ تینوں آپ کے ڈیجیٹل خزانے کی چابیاں ہیں۔ <strong>کسی کو نہ دیں، کسی پر بھروسہ نہ کریں، اور کبھی لاپرواہ نہ ہوں۔</strong></p>
+<p>اور یہ کہ <strong>سب سے طاقتور ہیکر وہ نہیں جو آپ کا اکاؤنٹ توڑے — بلکہ وہ جو آپ سے </strong>چابیاں خود لے لے<strong>۔</strong> فلشنگ، دھوکے، اور لالچ — یہ وہ ہتھیار ہیں جن کا مقابلہ کوئی سافٹ ویئر نہیں، صرف <strong>آپ کی سمجھ</strong> کر سکتی ہے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-3.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="part-2.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

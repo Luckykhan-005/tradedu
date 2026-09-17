@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 34: گرڈ ٹریڈنگ — خودکار آرڈرز کا جال — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-33.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-35.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 34: گرڈ ٹریڈنگ — خودکار آرڈرز کا جال</h1>
+<blockquote class="chapter-summary">
+<p><strong>گرڈ ٹریڈنگ (Grid Trading)</strong> ایک خودکار حکمت عملی ہے جس میں قیمت کے ایک مقررہ دائرے میں کئی خرید و فروخت کے آرڈر پہلے سے لگا دیے جاتے ہیں۔ قیمت نیچے آئے تو گرڈ خریدتا ہے، اوپر جائے تو بیچتا ہے — یوں مارکیٹ کے اُوپر نیچے ہلنے (Sideways movement) سے منافع جمع ہوتا رہتا ہے۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trading-bots-grid.jpg" alt="Binance Grid Trading Bot">
+  <figcaption>تصویر 34.1: بائننس Trading Bots کا Grid صفحہ — اوپری/نچلی قیمت، گرڈ کی تعداد اور سرمایہ مقرر کرنے کے خانے۔ (Binance Trading Bots Grid page — fields for upper/lower price, number of grids and investment.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>گرڈ ٹریڈنگ کی منطق</li>
+<li><strong>Grid Bot کی سیٹنگز</strong> (Upper/Lower/Grids/Amount)</li>
+<li><strong>Arithmetic بمقابلہ Geometric</strong> گرڈ</li>
+<li><strong>Spot Grid بمقابلہ Futures Grid</strong></li>
+<li>گرڈ کے فوائد</li>
+<li>گرڈ کے <strong>حقیقی خطرات</strong></li>
+<li>کس مارکیٹ میں گرڈ کام کرتا ہے</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 34.1 گرڈ ٹریڈنگ کیسے کام کرتی ہے؟</h2>
+<pre><code>دائرہ:   $92,000  (نچلی حد)
+          $104,000  (اوپری حد)
+گرڈز:    6
+
+نتیجہ: قیمت کے ہر $2,000 کے وقفے پر خرید/فروخت کے آرڈر
+نچلی حد پر خرید → اوپر ایک گرڈ بڑھنے پر فروخت → منافع
+پھر دوبارہ نیچے → خرید → اوپر → فروخت ... اور یہ چکر جاری</code></pre>
+<blockquote>
+<p>🔴 <strong>اہم فہم:</strong> گرڈ ٹریڈنگ کی کمائی <strong>مارکیٹ کے اتار چڑھاؤ</strong> سے ہوتی ہے، قیمت بڑھنے سے نہیں۔ اسی لیے گرڈ <strong>Sideways (جانب دار)</strong> مارکیٹ میں پھلتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 34.2 بائننس Grid Bot کی سیٹنگز</h2>
+<pre><code>Trade → Trading Bots → Grid
+┌──────────────────────────────────────────┐
+│ Upper Price : $104,000   (سب سے اوپر حد) │
+│ Lower Price : $92,000    (سب سے نچلی حد) │
+│ Number of Grids : 6                       │
+│ Investment Amount : $1,000                │
+└──────────────────────────────────────────┘</code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>سیٹنگ</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>Upper Price</strong></td><td>اس سے اوپر کوئی فروخت نہیں</td></tr>
+<tr><td><strong>Lower Price</strong></td><td>اس سے نیچے کوئی خرید نہیں</td></tr>
+<tr><td><strong>Grids</strong></td><td>کل کتنے خرید/فروخت کے درجے</td></tr>
+<tr><td><strong>Amount</strong></td><td>بوٹ کے لیے مختص سرمایہ</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>💡 بائننس عموماً "Auto-fill" بھی دیتا ہے جو حالیہ اتار چڑھاؤ کی بنیاد پر دائرہ تجویز کرتا ہے۔</p>
+</blockquote>
+<h3>Arithmetic بمقابلہ Geometric</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>گرڈ کا فاصلہ</th><th>کب بہتر</th></tr></thead>
+<tbody>
+<tr><td><strong>Arithmetic</strong></td><td>مساوی عددی فاصلہ ($2,000)</td><td>مختصر دائرہ</td></tr>
+<tr><td><strong>Geometric</strong></td><td>مساوی فیصد فاصلہ (2%)</td><td>وسیع دائرہ</td></tr>
+</tbody></table></div>
+<h3>Spot Grid بمقابلہ Futures Grid</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>قسم</th><th>خطرہ</th><th>نوٹ</th></tr></thead>
+<tbody>
+<tr><td><strong>Spot Grid</strong></td><td>محدود (ذخیرہ)</td><td>سودے اسپاٹ میں</td></tr>
+<tr><td><strong>Futures Grid</strong></td><td>زیادہ (Leverage)</td><td>لیوریج + لیکویڈیشن ممکن</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ نئے سیکھنے والوں کے لیے <strong>Spot Grid</strong> ہی محفوظ آغاز ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 34.3 فوائد</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>فائدہ</th><th>وضاحت</th></tr></thead>
+<tbody>
+<tr><td><strong>خودکار</strong></td><td>آپ کے بیٹھے بھی بوٹ چلتا رہے</td></tr>
+<tr><td><strong>جذبات سے آزاد</strong></td><td>لالچ/خوف کا اثر نہیں</td></tr>
+<tr><td><strong>اتار چڑھاؤ سے کمائی</strong></td><td>Sideways مارکیٹ کا استعمال</td></tr>
+<tr><td><strong>پاردرشی نہیں</strong></td><td>24/7 چلتا ہے</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 34.4 حقیقی خطرات</h2>
+<ol>
+<li>🔴 <strong>ایک طرفہ رجحان (Trend)</strong> — قیمت دائرے سے باہر نکل جائے تو بوٹ بے کار بیٹھا رہے گا</li>
+<li>🔴 <strong>ذخیرہ ہو جانا</strong> — قیمت نچلی حد سے نیچے چلی جائے تو آپ کا کوائن پھنسا رہے گا</li>
+<li>🔴 <strong>فیس اور slippage</strong> — ہر گرڈ پر فیس، منافع کو چاٹ جاتی ہے</li>
+<li>🔴 <strong>بہت چھوٹے گرڈز</strong> = زیادہ چھوٹے سودے = زیادہ فیس</li>
+<li>🔴 <strong>Futures Grid + Leverage</strong> = لیکویڈیشن کا خطرہ</li>
+</ol>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ گرڈ کو رجحان (Trending) مارکیٹ میں چلانا</li>
+<li>❌ <strong>Upper/Lower</strong> حدود الگ دائرے کے بغیر مقرر کرنا</li>
+<li>❌ سوچنا کہ گرڈ ہر وقت منافع دے گا</li>
+<li>❌ زیادہ تر سرمایہ گرڈ میں ڈالنا (ذخیرہ کا خطرہ)</li>
+<li>❌ <strong>Fee</strong> کو حساب میں نہ لانا</li>
+<li>❌ گرڈز کی تعداد بہت زیادہ کرنا (فیس کھا جاتی ہے)</li>
+<li>❌ Futures Grid پر لیوریج بڑھا دینا</li>
+<li>❌ بوٹ لگا کر <strong>جائزہ لینا</strong> بھول جانا</li>
+<li>❌ بوٹ بند کرتے وقت مارکیٹ کی کیفیت نہ دیکھنا</li>
+<li>❌ پرانا بوٹ پس منظر میں چلتا رہنے دینا</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li><strong>گرڈ</strong> = دائرے میں خودکار خرید و فروخت</li>
+<li><strong>Sideways مارکیٹ</strong> میں بہترین</li>
+<li><strong>Upper / Lower / Grids / Amount</strong> = بنیادی چار سیٹنگز</li>
+<li><strong>Spot Grid</strong> محفوظ، <strong>Futures Grid</strong> پُر خطر</li>
+<li>خطرہ: <strong>رجحان، ذخیرہ، فیس</strong></li>
+<li>بوٹ لگا کر <strong>نظر بھی رکھیں</strong></li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>ایک گرڈ کا خاکہ بنائیں: $92k–$104k، 6 گرڈز۔</li>
+<li>ہر گرڈ پر تقریباً کتنی فیس لگے گی؟ (اپنے fee tier کے حساب سے)</li>
+<li>ایک <strong>جدول</strong> بنائیں: Spot Grid بمقابلہ Futures Grid۔</li>
+<li>5 صورتحال لکھیں: کب گرڈ بہتر، کب نہیں۔</li>
+<li>لکھیں: "اگر قیمت میری نچلی حد سے نیچے چلی جائے تو میرا ردِعمل ______ ہوگا"</li>
+<li>ڈیمو اکاؤنٹ پر ایک Spot Grid بوٹ چلا کر دیکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>گرڈ ایک مچھلی کے جال کی طرح ہے</strong> — جال اُس وقت کام کرتا ہے جب مچھلیاں (قیمت) اِدھر اُدھر پھرتی رہیں۔ اگر پانی بالکل ساکن ہو (بڑا ٹرینڈ) تو جال خالی رہے گا۔</p>
+<p>یاد رکھیں: <strong>"گرڈ = بازار کے پھڑکنے کی کمائی، بازار کے بھاگنے کی نہیں۔"</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-33.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-35.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

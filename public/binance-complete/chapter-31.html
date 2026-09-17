@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 31: اسٹاپ لاس حکمت عملیاں — نقصان کو محدود رکھیں — بائننس مکمل ٹریننگ اردو</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">بائننس مکمل ٹریننگ اردو</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-30.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-32.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 31: اسٹاپ لاس حکمت عملیاں — نقصان کو محدود رکھیں</h1>
+<blockquote class="chapter-summary">
+<p><strong>اسٹاپ لاس</strong> ایک ایسا آرڈر ہے جو پوزیشن کو خود بخود بند کر دیتا ہے جب قیمت ایک مقررہ حد سے آگے بڑھ جائے۔ یہ "پیشن گوئی" کا آلہ نہیں، بلکہ <strong>بقا کا آلہ</strong> ہے — یہ طے کرتا ہے کہ ایک غلط ٹریڈ آپ کا اکاؤنٹ نہیں اُجاڑے گی۔</p>
+</blockquote>
+<figure>
+  <img src="assets/img/trade-stop.jpg" alt="Binance Stop-Limit Order">
+  <figcaption>تصویر 31.1: بائننس پر Stop-Limit آرڈر کا فارم — Stop (ٹرگر) اور Limit (عملدرآمد) قیمتوں کے دو خانے۔ (Binance Stop-Limit order form — two fields for Stop (trigger) and Limit (execution) prices.)</figcaption>
+</figure>
+<hr class="divider">
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>اسٹاپ لاس کا اصل مقصد</li>
+<li><strong>فیصدی (Fixed %) اسٹاپ</strong></li>
+<li><strong>تکنیکی / سپورٹ</strong> پر مبنی اسٹاپ</li>
+<li><strong>ATR پر مبنی</strong> (اتار چڑھاؤ کے مطابق) اسٹاپ</li>
+<li><strong>پوزیشن سائزنگ — 1% قاعدہ</strong></li>
+<li><strong>Stop-Limit بمقابلہ Stop-Market</strong></li>
+<li>اسٹاپ لاس کی عام غلطیاں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 31.1 اسٹاپ لاس کا اصل مقصد</h2>
+<pre><code>آپ: BTC $96,000 پر خریدا
+اسٹاپ لاس: $93,000 (≈ 3% نیچے)
+
+اگر BTC $93,000 تک گرا → پوزیشن بند، نقصان ≈ $3,000</code></pre>
+<blockquote>
+<p>🔴 <strong>یہ سوچنا خطرناک ہے:</strong> "اسٹاپ لگاؤں گا تو نقصان ہو جائے گا!" — حقیقت اُلٹ ہے۔ اسٹاپ وہ لگاتا ہے جو ایک چھوٹا نقصان قبول کر کے <strong>بڑے نقصان سے بچنا</strong> چاہتا ہے۔ بغیر اسٹاپ، -3% کی جگہ -50% بھی ہو سکتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 31.2 فیصدی (Fixed %) اسٹاپ</h2>
+<pre><code>اسٹاپ قیمت = خرید قیمت × (1 − فیصد)</code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>برداشت</th><th>خرید قیمت</th><th>اسٹاپ قیمت</th><th>نقصان</th></tr></thead>
+<tbody>
+<tr><td><strong>3%</strong></td><td>$96,000</td><td>$93,120</td><td>$2,880</td></tr>
+<tr><td><strong>5%</strong></td><td>$96,000</td><td>$91,200</td><td>$4,800</td></tr>
+<tr><td><strong>10%</strong></td><td>$96,000</td><td>$86,400</td><td>$9,600</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>✅ <strong>سادہ اور تیز</strong> — نئے سیکھنے والوں کے لیے بہترین شروع۔ عام رہنمائی 3–5%، مگر یہ ہر ٹریڈر کی برداشت پر منحصر ہے — یہ کوئی مقدس قانون نہیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 31.3 تکنیکی / سپورٹ پر مبنی اسٹاپ</h2>
+<blockquote>
+<p>چارٹ کی اہم سطح (سپورٹ) کے <strong>نیچے</strong> اسٹاپ لگانا — تاکہ معمولی اتار چڑھاؤ پوزیشن نہ بند کرے۔</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>بنیاد</th><th>تفصیل</th></tr></thead>
+<tbody>
+<tr><td><strong>سپورٹ لیول</strong></td><td>قیمت جہاں بار بار رُکی</td></tr>
+<tr><td><strong>Moving Average</strong></td><td>50 EMA / 200 EMA کے نیچے</td></tr>
+<tr><td><strong>Structure Break</strong></td><td>حالیہ نچلی سطح کا ٹوٹنا</td></tr>
+</tbody></table></div>
+<pre><code>BTC کا سپورٹ: $93,000
+اسٹاپ: $92,700 (سپورٹ سے کچھ نیچے)
+وجہ: اگر $93,000 واقعی ٹوٹے، تب ہی پوزیشن بند ہو</code></pre>
+<blockquote>
+<p>💡 سپورٹ کے <strong>عین اوپر</strong> اسٹاپ لگانا عام غلطی ہے — چھوٹی سی چھلانگ آرڈر اُٹھا لے گی۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 31.4 ATR پر مبنی اسٹاپ (اتار چڑھاؤ کے مطابق)</h2>
+<blockquote>
+<p><strong>ATR (Average True Range)</strong> = مارکیٹ کی اوسط روزانہ حرکت۔ زیادہ اتار چڑھاؤ والی منڈی میں اسٹاپ دور، سکون والی منڈی میں قریب۔</p>
+</blockquote>
+<pre><code>اسٹاپ فاصلہ = ATR × ضرب (مثلاً 2)</code></pre>
+<blockquote>
+<p>✅ فائدہ: ایک ہی فیصد ہر کوائن پر نہیں لگتا — BTC اور کسی چھوٹے کوائن کے اتار چڑھاؤ مختلف ہوتے ہیں۔</p>
+</blockquote>
+<h3>مثال:</h3>
+<pre><code>BTC کا ATR (روزانہ): $2,500
+ضرب: 2
+اسٹاپ فاصلہ = 2,500 × 2 = $5,000
+
+خرید $96,000 → اسٹاپ $91,000</code></pre>
+<hr class="divider">
+
+<h2>📖 31.5 پوزیشن سائزنگ — "1% قاعدہ"</h2>
+<blockquote>
+<p>🔴 <strong>درست ترتیب:</strong> پہلے <strong>اسٹاپ</strong> متعین کریں، پھر <strong>رقم</strong> نکالیں — نہ کہ اُلٹ۔</p>
+</blockquote>
+<pre><code>خطرہ فی ٹریڈ = اکاؤنٹ کا 1%   (بہت قدامت پسند حد)
+
+مثال:
+اکاؤنٹ:        $5,000
+خطرہ (1%):      $50
+اسٹاپ فاصلہ:     3%  (خرید $96,000 → اسٹاپ $93,120)
+
+پوزیشن کا حجم = 50 ÷ 0.03 = $1,666
+یعنی آپ صرف $1,666 کی BTC خریدیں، پوری رقم کی نہیں!</code></pre>
+<blockquote>
+<p>💡 اسی لیے کہا جاتا ہے: <strong>"اسٹاپ کا فاصلہ پوزیشن کا حجم طے کرتا ہے۔"</strong> دور اسٹاپ = چھوٹی پوزیشن۔ قریب اسٹاپ = بڑی پوزیشن۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 31.6 Stop-Limit بمقابلہ Stop-Market</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>پہلو</th><th>Stop-Limit</th><th>Stop-Market</th></tr></thead>
+<tbody>
+<tr><td><strong>عملدرآمد</strong></td><td>Limit پر، پورا نہ ہو تو رُک جائے</td><td>فوراً مارکیٹ پر</td></tr>
+<tr><td><strong>slippage</strong></td><td>ممکن نہیں</td><td>ممکن (تیز گراوٹ میں)</td></tr>
+<tr><td><strong>یقین</strong></td><td>بند ہوگا؟ — ہو سکتا ہے نہ ہو</td><td>بند ہوگا، مگر قیمت بدل سکتی ہے</td></tr>
+</tbody></table></div>
+<blockquote>
+<p>⚠️ تیز گراوٹ (crash) میں Stop-Limit "بند ہی نہ ہونے" کے خطرے میں ہے؛ Stop-Market "غلط قیمت پر بند" کے خطرے میں۔ اپنی حکمت عملی کے مطابق چنیں۔</p>
+</blockquote>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ عام غلطیاں</h2>
+<ol>
+<li>❌ اسٹاپ لاس بالکل نہ لگانا — "میں خود دیکھ لوں گا" مہنگا پڑتا ہے</li>
+<li>❌ اسٹاپ کو نقصان کی <strong>چوٹی</strong> پر لگانا (بہت قریب) — ہر لہر میں بند</li>
+<li>❌ اسٹاپ کو نقصان سے <strong>دور</strong> لگانا — فی ٹریڈ خطرہ حد سے زیادہ</li>
+<li>❌ <strong>پوزیشن سائز اور اسٹاپ کا تعلق</strong> نہ سمجھنا</li>
+<li>❌ مجبوری محسوس کرتے ہوئے اسٹاپ <strong>نیچے کھسکانا</strong> (slippage کا دبناؤ)</li>
+<li>❌ اسٹاپ کے بعد <strong>ٹریڈ دوبارہ کھولنا</strong> — انتقامی ٹریڈنگ (revenge trading)</li>
+<li>❌ مختلف کوائنز پر ایک ہی فیصد لاگو کرنا (ATR مختلف ہے)</li>
+<li>❌ Stop-Limit میں دونوں قیمتیں برابر/الٹی دینا</li>
+<li>❌ وقفہ/خالی کے دوران آرڈر نہ ہونے پر حیران ہونا (Stop آرڈرز گارنٹی نہیں دیتے)</li>
+<li>❌ اسٹاپ لگا کر جائزہ لینا بھول جانا</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ</h2>
+<ul>
+<li>اسٹاپ لاس = <strong>بقا کا آلہ</strong>، پیشن گوئی نہیں</li>
+<li><strong>Deterministic طریقہ:</strong> فیصدی، تکنیکی، ATR</li>
+<li><strong>پہلے اسٹاپ، پھر سائز</strong> — "1% قاعدہ"</li>
+<li><strong>سپورٹ کے نیچے</strong> اسٹاپ لگائیں، عین اوپر نہیں</li>
+<li>Stop-Limit بمقابلہ Stop-Market: کوئی "بہتر" نہیں، مقصد پر منحصر</li>
+<li>اسٹاپ کو <strong>کبھی</strong> نقصان کی طرف نہ کھسکائیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>BTC کے لیے ایک <strong>3% فیصدی اسٹاپ</strong> کا حساب لکھیں۔</li>
+<li>ایک چارٹ دیکھ کر <strong>سپورٹ لیول</strong> پہچانیں اور اسٹاپ کی جگہ لکھیں۔</li>
+<li><strong>1% قاعدہ</strong> کے مطابق اپنی پوزیشن سائز نکالیں ($5,000 اکاؤنٹ کے لیے)۔</li>
+<li><strong>جدول</strong> بنائیں: فیصدی، تکنیکی اور ATR اسٹاپ — ہر ایک کی اچھائی/بُرائی۔</li>
+<li>ایک نوٹ لکھیں: "میں اپنا اسٹاپ کبھی ______ نہیں کروں گا"</li>
+<li>ڈیمو اکاؤنٹ پر ایک Stop-Limit آرڈر لگا کر دیکھیں۔</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p><strong>اسٹاپ لاس آپ کی ناکامی کا نشان نہیں، آپ کی پروفیشنل ازم کا ثبوت ہے۔</strong> ہر بڑا سرمایہ کار چھوٹے نقصان قبول کرتا ہے تاکہ بڑا نقصان نہ ہو۔</p>
+<p>یاد رکھیں: <strong>"ہر ٹریڈ پر اسٹاپ، اور اسٹاپ پر کبھی دوبارہ غور نہیں۔"</strong></p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-30.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-32.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">بائننس مکمل ٹریننگ اردو — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>

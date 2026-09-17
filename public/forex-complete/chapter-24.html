@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" data-theme="navy-cyan" data-mode="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب 24: بولنگر بینڈز — اتار چڑھاؤ کا لفافہ — فارکس ٹریڈنگ کورس</title>
+    <link rel="stylesheet" href="/books/book.css">
+    <link rel="stylesheet" href="/books/manuscript.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="toolbar">
+        <a href="index.html">🏠 فہرست</a>
+        <span class="book-name">فارکس ٹریڈنگ کورس</span>
+    </div>
+
+    <div class="nav">
+        <a href="chapter-23.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-25.html">اگلا →</a>
+    </div>
+
+<h1 class="chapter-title">باب 24: بولنگر بینڈز — اتار چڑھاؤ کا لفافہ</h1>
+<blockquote class="chapter-summary">
+<p>بولنگر بینڈز (Bollinger Bands) قیمت کے گرد ایک لچکدار لفافہ بناتے ہیں جو <strong>اتار چڑھاؤ</strong> (Volatility) کے ساتھ پھیلتا اور سکڑتا ہے۔ یہ باب بتائے گا کہ بینڈ کب سکڑتے ہیں (Squeeze)، کب پھیلتے ہیں (Expansion)، اور ان سے داخلے اور منافع کے اہداف کیسے نکلتے ہیں۔</p>
+</blockquote>
+
+<section class="callout learn">
+<h2>🎯 اس باب میں آپ سیکھیں گے</h2>
+<ul>
+<li>بولنگر بینڈز کی ساخت — درمیانی، اوپری، نچلی لکیریں</li>
+<li>Squeeze — سب سے طاقتور پیش گوئی والا سگنل</li>
+<li>بینڈ چھونے کا حقیقی مطلب — رجحان بمقابلہ حد</li>
+<li>"Walking the Bands" — رجحان والی مارکیٹ کا راز</li>
+<li>بولنگر بینڈز کو MA اور RSI کے ساتھ ملانا</li>
+</ul>
+</section>
+<hr class="divider">
+
+<h2>📖 24.1 بولنگر بینڈز کی ساخت</h2>
+<p>جان بولنگر نے 1980 کی دہائی میں بنائے — تین لکیریں جو قیمت کے گرد لپٹتی ہیں:</p>
+<h3>تین لکیریں</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>لکیر</th><th>حساب</th><th>مطلب</th></tr></thead>
+<tbody>
+<tr><td><strong>درمیانی</strong></td><td>SMA(20)</td><td>بنیادی رجحان (موونگ ایوریج)</td></tr>
+<tr><td><strong>اوپری</strong></td><td>SMA(20) + 2 × معیاری انحراف</td><td>عام حد کی سب سے اوپر والی سرحد</td></tr>
+<tr><td><strong>نچلی</strong></td><td>SMA(20) − 2 × معیاری انحراف</td><td>عام حد کی سب سے نیچے والی سرحد</td></tr>
+</tbody></table></div>
+<h3>معیاری انحراف (Standard Deviation) — کلیدی تصور</h3>
+<p>معیاری انحراف بتاتا ہے کہ قیمتیں اوسط سے <strong>کتنی دور بکھری</strong> ہوئی ہیں:</p>
+<ul>
+<li><strong>زیادہ اتار چڑھاؤ</strong> = بڑا انحراف = <strong>چوڑے بینڈ</strong></li>
+<li><strong>کم اتار چڑھاؤ</strong> = چھوٹا انحراف = <strong>تنگ بینڈ</strong></li>
+</ul>
+<h3>2 × معیاری انحراف کا مطلب</h3>
+<p>اعداد و شمار کے مطابق، تقریباً <strong>95% قیمتیں</strong> اوسط سے 2 انحراف کے اندر رہتی ہیں — یعنی بینڈ کے اندر۔ باہر جانا = غیر معمولی حرکت۔</p>
+<h3>ASCII — بولنگر بینڈز</h3>
+<pre><code>قیمت
+  │ ╭────── اوپری بینڈ (چوڑا — زیادہ اتار چڑھاؤ)
+  │ │  ╱╲        ╱╲
+  │ │ ╱  ╲  ╱╲  ╱  ╲      ← درمیانی بینڈ (SMA 20)
+  │╭╯╱    ╲╱  ╲╱    ╲
+  ││╱            ╲    ╲
+  ││             ╰────── نچلی بینڈ
+  └──────────────────────────→ وقت</code></pre>
+<blockquote>
+<p><strong>اہم</strong>: بولنگر بینڈز <strong>ماضی کے اتار چڑھاؤ</strong> کا عکس ہیں — مستقبل نہیں دیکھتے۔ مگر یہ دکھاتے ہیں کہ مارکیٹ "پرسکون" ہے یا "پریشان" — اور تبدیلی کا آغاز اکثر سکون سے ہوتا ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.2 Squeeze — سکڑاؤ، پھر دھماکہ</h2>
+<p><strong>Squeeze</strong> سب سے قیمتی بولنگر سگنل ہے: جب بینڈ انتہائی تنگ ہو جائیں (کنارے ایک دوسرے کے قریب) — مارکیٹ بہت پرسکون، فیصلہ قریب:</p>
+<h3>Squeeze کے مراحل</h3>
+<ol>
+<li><strong>سکڑاؤ</strong>: بینڈ تنگ — قیمت چھوٹی رینج میں گھوم رہی (خریدار اور بیچنے والے برابری)</li>
+<li><strong>دھماکہ</strong>: ایک سمت میں زبردست حرکت — قیمت بینڈ کو توڑ کر نکلتی ہے</li>
+<li><strong>سمت</strong>: Squeeze خود سمت نہیں بتاتا — سمت دوسرے اوزار (MA، رجحان) سے طے کریں</li>
+</ol>
+<h3>ASCII — Squeeze</h3>
+<pre><code>قیمت
+  │ ╭──────────────────────╮
+  │ │                      │
+  │ │  ← تنگ بینڈز         │
+  │ │     قیمت بہت کم حرکت │
+  │ │                      │
+  │ ╰──────────────────────╯
+  │
+  │ ╭────────────╮        ← بینڈ پھیلے
+  │ │      ╱╲     │
+  │ │     ╱  ╲    │  ← دھماکہ!
+  │ │    ╱    ╲   │
+  └──────────────────────────→ وقت
+        Squeeze → دھماکہ</code></pre>
+<h3>Squeeze کو کیسے پہچانیں؟</h3>
+<ul>
+<li>بینڈ کی چوڑائی <strong>بہت کم</strong> — پچھلے 6 ماہ کی اوسط سے کم</li>
+<li>قیمت درمیانی بینڈ کے آس پاس <strong>بہت سکڑی</strong> ہوئی</li>
+<li><strong>Bandwidth</strong> انڈیکیٹر (بینڈ کی چوڑائی) اپنی کم ترین سطح پر</li>
+</ul>
+<blockquote>
+<p><strong>اہم</strong>: Squeeze کا مطلب ہے "کوئی بڑی حرکت آنے والی ہے" — مگر <strong>سمت نہیں</strong>۔ سمت کے لیے Higher Timeframe رجحان دیکھیں، پھر دھماکے کی تصدیق کا انتظار کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.3 بینڈ چھونے کا مطلب — رجحان بمقابلہ حد</h2>
+<p>یہ سب سے اہم اسباق میں سے ایک ہے: <strong>اوپری بینڈ چھونا = فوراً بیچو؟</strong> نہیں!</p>
+<h3>صورت 1: Range مارکیٹ میں</h3>
+<ul>
+<li>قیمت اوپری بینڈ چھوئے → <strong>ممکنہ پلٹاؤ</strong> نیچے (بیچنے کا موقع)</li>
+<li>قیمت نچلی بینڈ چھوئے → <strong>ممکنہ پلٹاؤ</strong> اوپر (خریدنے کا موقع)</li>
+<li>یہ تب درست ہے جب درمیانی بینڈ <strong>فلیٹ</strong> ہو اور قیمت درمیانی لکیر کے آس پاس گھوم رہی ہو</li>
+</ul>
+<h3>صورت 2: رجحان والی مارکیٹ میں</h3>
+<ul>
+<li>مضبوط اپ ٹرینڈ میں قیمت اوپری بینڈ کو چھو کر <strong>اوپر ہی چلتی رہتی ہے</strong> — یہ طاقت ہے</li>
+<li><strong>"Walking the Bands"</strong>: قیمت اوپری بینڈ کے ساتھ ساتھ چلتی ہے — کبھی بیچیں نہیں</li>
+<li>نچلی بینڈ کی طرف پل بیک = خریداری کا موقع</li>
+</ul>
+<h3>جدول — بینڈ چھونے کا ردعمل</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>حالت</th><th>اوپری بینڈ چھونا</th><th>نچلی بینڈ چھونا</th></tr></thead>
+<tbody>
+<tr><td>Range (فلیٹ وسط)</td><td>بیچیں</td><td>خریدیں</td></tr>
+<tr><td>اپ ٹرینڈ</td><td><strong>مت بیچیں</strong> — طاقت</td><td>پل بیک پر Buy</td></tr>
+<tr><td>ڈاؤن ٹرینڈ</td><td>پل بیک پر Sell</td><td><strong>مت خریدیں</strong> — کمزوری</td></tr>
+</tbody></table></div>
+<h3>ASCII — Walking the Bands (اپ ٹرینڈ)</h3>
+<pre><code>قیمت
+  │ ╭────── اوپری بینڈ ←── قیمت اس کے ساتھ چل رہی
+  │ │╱╲    ╱╲    ╱╲    ╱╲
+  │ │  ╲  ╱  ╲  ╱  ╲  ╱  ╲   ← قیمت بینڈ کو چھو رہی
+  │╭╯   ╲╱    ╲╱    ╲╱    ╲     مگر نیچے نہیں پلٹتی
+  ││
+  └──────────────────────────→ وقت</code></pre>
+<blockquote>
+<p><strong>اہم</strong>: پہلے مارکیٹ کی حالت طے کریں — پھر بینڈ پڑھیں۔ "بینڈ چھوا = پلٹاؤ" صرف Range میں درست ہے، رجحان میں یہ سب سے مہنگی غلطی ہے۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.4 بولنگر سے منافع کے اہداف (Targets)</h2>
+<p>بولنگر بینڈز <strong>منافع کے اہداف</strong> طے کرنے کے لیے بھی استعمال ہوتے ہیں:</p>
+<h3>میتھڈ 1: مخالف بینڈ بطور ٹارگٹ</h3>
+<ul>
+<li><strong>Buy</strong> کیا تو <strong>اوپری بینڈ</strong> ہدف — جب تک اپ ٹرینڈ برقرار</li>
+<li><strong>Sell</strong> کیا تو <strong>نچلی بینڈ</strong> ہدف — جب تک ڈاؤن ٹرینڈ برقرار</li>
+<li>مگر: رجحان مضبوط ہو تو قیمت بینڈ سے آگے نکل جاتی ہے — "بینڈ سے باہر = اوور شوٹ"</li>
+</ul>
+<h3>میتھڈ 2: درمیانی بینڈ بطور ٹارگٹ (Range میں)</h3>
+<ul>
+<li>Range میں Buy کیا تو <strong>درمیانی بینڈ</strong> پہلا ہدف (کمزور پلٹاؤ)</li>
+<li>مکمل حد کا ہدف: مخالف بینڈ</li>
+</ul>
+<h3>میتھڈ 3: Squeeze کے بعد اونچائی</h3>
+<ul>
+<li>Squeeze کے بعد <strong>بینڈ کی چوڑائی</strong> ہی حرکت کی اونچائی کا اندازہ دیتی ہے</li>
+<li>"میژرڈ موو": سکڑاؤ کی چوڑائی = پھٹنے کی کم از کم حرکت</li>
+</ul>
+<h3>عملی ہدف کی مثال</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>ٹریڈ</th><th>داخلہ</th><th>SL</th><th>TP1 (درمیانی)</th><th>TP2 (مخالف بینڈ)</th></tr></thead>
+<tbody>
+<tr><td>EUR/USD Buy (Range)</td><td>1.1000 (نچلا بینڈ)</td><td>1.0980</td><td>1.1030</td><td>1.1060</td></tr>
+</tbody></table></div>
+<hr class="divider">
+
+<h2>📖 24.5 بولنگر سسٹم — RSI کے ساتھ مکمل</h2>
+<p>بولنگر بینڈز اپنی سب سے مضبوط شکل میں ہوتے ہیں جب RSI کے ساتھ مل جائیں:</p>
+<h3>سسٹم 1: Range پلٹاؤ (Bollinger + RSI)</h3>
+<p><strong>شرطیں (چاروں):</strong></p>
+<ol>
+<li>درمیانی بینڈ <strong>فلیٹ</strong> — مارکیٹ Range میں</li>
+<li>قیمت <strong>نچلی بینڈ</strong> چھوئے</li>
+<li>RSI <strong>30 سے نیچے</strong> — Oversold</li>
+<li>پلٹاؤ کی تصدیق — بلش کینڈل / پن بار</li>
+</ol>
+<p><strong>اندراج</strong>: تصدیقی کینڈل کے بند پر Buy <strong>SL</strong>: نچلی بینڈ سے تھوڑا نیچے / Swing Low <strong>TP</strong>: درمیانی بینڈ (پہلا)، اوپری بینڈ (مکمل)</p>
+<h3>سسٹم 2: Squeeze دھماکہ (Bollinger + رجحان)</h3>
+<p><strong>شرطیں:</strong></p>
+<ol>
+<li><strong>Squeeze</strong> ہوا — بینڈ انتہائی تنگ</li>
+<li>رجحان Higher Timeframe پر طے — اپ یا ڈاؤن</li>
+<li>قیمت بینڈ کو <strong>بند کینڈل</strong> سے توڑے (سمت کی تصدیق)</li>
+<li>حجم (Volume) بڑھا ہوا ہو — دھماکے کی طاقت</li>
+</ol>
+<p><strong>اندراج</strong>: توڑنے والی کینڈل کے بند پر <strong>SL</strong>: Squeeze زون کے دوسری طرف <strong>TP</strong>: میژرڈ موو (سکڑاؤ کی چوڑائی)</p>
+<h3>ASCII — مکمل Squeeze سسٹم</h3>
+<pre><code>قیمت
+  │ ╭─────╮      ╭───────╮
+  │ │ Squeeze │    │ ╱╲      │
+  │ │ (تنگ)  │    │╱  ╲     │  ← بند کینڈل سے ٹوٹا
+  │ │        │   ╱     ╲    │
+  │ ╰─────────╯  ╱       ╲  │
+  │             ╱         ╲ │
+  └────────────────────────────→ وقت
+   حجم: کم         حجم: زیادہ</code></pre>
+<blockquote>
+<p><strong>اہم</strong>: Squeeze کے بعد <strong>سمت کی تصدیق</strong> لازمی ہے — Squeeze صرف "دھماکہ آنے والا ہے" بتاتا ہے، کس سمت؟ یہ فیصلہ رجحان، RSI اور حجم سے کریں۔</p>
+</blockquote>
+<hr class="divider">
+
+<h2>📖 24.6 بولنگر بینڈز کی کمزوریاں (Limitations)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>کمزوری</th><th>وضاحت</th><th>حل</th></tr></thead>
+<tbody>
+<tr><td>رجحان میں جھوٹے پلٹاؤ</td><td>مضبوط ٹرینڈ میں بینڈ چھونے پر پلٹاؤ نہیں آتا</td><td>رجحان فلٹر لگائیں (MA)</td></tr>
+<tr><td>Squeeze سمت نہیں دیتا</td><td>سکڑاؤ خود سمت نہیں بتاتا</td><td>رجحان + حجم کی تصدیق</td></tr>
+<tr><td>ماضی پر مبنی</td><td>بینڈ ماضی کے اتار چڑھاؤ دکھاتے ہیں</td><td>اخبارات/خبروں کی پابندی نہیں</td></tr>
+<tr><td>جھوٹے بریک آؤٹ</td><td>بینڈ توڑنا ہمیشہ حقیقی نہیں</td><td>بند کینڈل + حجم دیکھیں</td></tr>
+</tbody></table></div>
+<h3>بولنگر کو کب استعمال نہ کریں؟</h3>
+<ol>
+<li><strong>بہت مضبوط ٹرینڈ</strong> میں بینڈ چھونے پر پلٹاؤ کی امید نہ کریں</li>
+<li><strong>خبروں کے اعلان</strong> کے وقت — بینڈ اچانک پھیل جاتے ہیں، معنی بدل جاتے ہیں</li>
+<li><strong>تنہا</strong> استعمال نہ کریں — RSI / MA / حجم کے ساتھ جوڑیں</li>
+</ol>
+<hr class="divider">
+
+<section class="callout warn">
+<h2>⚠️ باب 24 کی عام غلطیاں</h2>
+<ol>
+<li><strong>غلطی</strong>: ہر Squeeze پر بغیر سمت کے داخلہ — سمت کے بغیر Squeeze جوا ہے</li>
+<li><strong>غلطی</strong>: رجحان میں اوپری بینڈ چھوتے ہی بیچ دینا — Walking the Bands سمجھنا ضروری</li>
+<li><strong>غلطی</strong>: بینڈ کی چوڑائی کو نظر انداز کرنا — بینڈ کا پھیلاؤ/سکڑاؤ اتنا ہی اہم ہے جتنی قیمت</li>
+<li><strong>غلطی</strong>: بغیر حجم کے بریک آؤٹ — جھوٹے بریک آؤٹ عام ہیں</li>
+<li><strong>غلطی</strong>: بینڈ کو سپورٹ/رزسٹنس ماننا — بینڈ لکیریں ہیں، حقیقی لیول نہیں</li>
+</ol>
+</section>
+<hr class="divider">
+
+<section class="callout summary">
+<h2>✅ خلاصہ (Key Takeaways)</h2>
+<ul>
+<li>بولنگر بینڈز = <strong>SMA(20) ± 2 × معیاری انحراف</strong> — اتار چڑھاؤ کا لفافہ</li>
+<li>بینڈ <strong>پھیلتے</strong> ہیں جب اتار چڑھاؤ زیادہ، <strong>سکڑتے</strong> ہیں جب کم</li>
+<li><strong>Squeeze</strong> سب سے طاقتور سگنل — تنگ بینڈ = بڑی حرکت قریب، مگر سمت الگ طے کریں</li>
+<li>"بینڈ چھونا = پلٹاؤ" <strong>صرف Range</strong> میں درست؛ رجحان میں یہ طاقت/کمزوری ہے</li>
+<li><strong>Walking the Bands</strong> — قیمت بینڈ کے ساتھ چل رہی ہو تو ساتھ چلیں، مخالف نہ ہوں</li>
+<li>بولنگر کو <strong>RSI + حجم + رجحان</strong> کے ساتھ ملا کر مکمل سسٹم بنائیں</li>
+</ul>
+</section>
+<hr class="divider">
+
+<section class="callout practice">
+<h2>📝 عملی مشق</h2>
+<ol>
+<li>چارٹ پر <strong>بولنگر بینڈز (20, 2)</strong> لگائیں — بینڈ کی چوڑائی کب سب سے کم تھی؟ اس کے بعد کیا ہوا؟</li>
+<li><strong>Range مارکیٹ</strong> میں نچلے بینڈ + RSI 30 سے نیچے کا موقع تلاش کریں — نتیجہ لکھیں</li>
+<li><strong>اپ ٹرینڈ</strong> میں قیمت اوپری بینڈ چھوتی رہی — کتنے کینڈل تک؟ کیا پلٹاؤ آیا؟</li>
+<li><strong>Squeeze</strong> کی 3 مثالیں نشان زد کریں — ہر ایک کے بعد حرکت کس سمت اور کتنی تھی؟</li>
+<li><strong>مکمل سسٹم</strong> (Squeeze + رجحان + حجم) ڈیمو پر 10 بار آزمائیں — نتائج لکھیں</li>
+</ol>
+</section>
+
+<section class="callout remember">
+<h2>🧠 یاد رکھیں</h2>
+<blockquote>
+<p>بولنگر بینڈز آپ کو بتاتے ہیں کہ مارکیٹ <strong>سانس لے رہی ہے</strong> یا <strong>دوڑ رہی ہے</strong> — سکڑاؤ سانس روکنے جیسا ہے، اور دھماکہ اس کا نتیجہ۔ اگلے باب میں ہم <strong>فبوناچی</strong> سیکھیں گے — وہ اوزار جو ریاضی کے تناسب سے قیمت کے ممکنہ پلٹاؤ اور اہداف کا اندازہ دیتا ہے، اور بولنگر کے ساتھ ملا کر آپ کے اہداف مزید مستند ہو جائیں گے۔</p>
+</blockquote>
+</section>
+
+
+    <hr class="divider">
+
+    <div class="nav">
+        <a href="chapter-23.html">← پچھلا</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter-25.html">اگلا →</a>
+    </div>
+
+    <div class="back">
+        <a href="index.html">🏠 فہرست پر واپس</a>
+    </div>
+
+    <div class="footer">فارکس ٹریڈنگ کورس — 2026 ایڈیشن</div>
+
+<script>
+    document.addEventListener('keydown', function (e) {
+        var k = (e.key || '').toLowerCase();
+        if (e.ctrlKey && (k === 's' || k === 'p' || k === 'c' || k === 'u')) e.preventDefault();
+    });
+</script>
+</body>
+</html>
