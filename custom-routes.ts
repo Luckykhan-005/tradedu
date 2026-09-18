@@ -14,6 +14,26 @@ app.use('*', async (c, next) => {
   await next()
 })
 
+// Public diagnostics — echoes which headers/query params actually reach the
+// backend. Intentionally NOT behind the admin middleware so it works even when
+// admin auth is failing. Use it to confirm if a proxy (e.g. Vercel → Shogo) is
+// stripping the `x-admin-token` / `Authorization` header.
+app.get('/diag', (c) => {
+  const raw: Record<string, string> = {}
+  for (const [k, v] of c.req.raw.headers.entries()) raw[k] = v.length > 24 ? `${v.slice(0, 24)}…(${v.length})` : v
+  return c.json({
+    ok: true,
+    path: c.req.path,
+    method: c.req.method,
+    origin: c.req.header('Origin') || null,
+    hasHeaderToken: Boolean(c.req.header('x-admin-token')),
+    hasAuthorizationHeader: Boolean(c.req.header('Authorization')),
+    hasQueryToken: Boolean(c.req.query('token') || c.req.query('adminToken')),
+    headerNames: Object.keys(raw),
+    headers: raw,
+  })
+})
+
 // Seed sample data
 app.post('/seed', async (c) => {
   // Check if data already exists
@@ -670,24 +690,121 @@ app.post('/auth/reset-password', async (c) => {
 
 // ========== ADMIN AUTH ==========
 
-// In-memory session store (resets on server restart)
-const adminSessions = new Map<string, { email: string; createdAt: number }>()
+// Admin sessions are STATELESS: the token is a signed payload (HMAC-SHA256)
+// instead of a random id kept in a module-level Map.
+//
+// The previous in-memory Map implementation broke in production. The backend
+// runs on pooled/serverless instances, so a token written to one instance's
+// map was unknown to the instance that handled the next request. Every admin
+// call after login therefore returned 403, which silently prevented courses
+// from being created and modules/lessons (video lectures) from being saved.
+// A signed payload carries its own proof of authenticity, so it verifies on
+// any instance with no shared storage required.
+// The signing secret MUST be identical on every pooled instance, otherwise a
+// token signed by the instance that handled login fails verification on the
+// instance that handles the next request (observed: login 200, every admin call
+// 403, 20/20 failures). Env vars proved unreliable across instances here, so we
+// persist ONE shared secret in the database — the same store that already makes
+// login work across instances. Env var is only a fallback if DB access fails.
+const ADMIN_SECRET_PREFIX = 'ADMIN_SECRET::'
+let cachedAdminSecret: string | null = null
 
-function createAdminSession(email: string): string {
-  const token = crypto.randomUUID()
-  adminSessions.set(token, { email, createdAt: Date.now() })
-  return token
+async function getAdminSecret(): Promise<string> {
+  if (cachedAdminSecret) return cachedAdminSecret
+  try {
+    const existing = await prisma.passwordResetToken.findFirst({
+      where: { token: { startsWith: ADMIN_SECRET_PREFIX } },
+      orderBy: { createdAt: 'asc' },
+    })
+    if (existing?.token) {
+      cachedAdminSecret = existing.token.slice(ADMIN_SECRET_PREFIX.length)
+      return cachedAdminSecret
+    }
+    // None stored yet → generate one and persist it so every instance shares it.
+    const randomBytes = crypto.getRandomValues(new Uint8Array(48))
+    const generated = base64UrlEncode(String.fromCharCode(...randomBytes))
+    await prisma.passwordResetToken.create({
+      data: {
+        token: ADMIN_SECRET_PREFIX + generated,
+        email: 'admin-secret@internal',
+        expiresAt: new Date(Date.now() + 100 * 365 * 24 * 60 * 60 * 1000),
+        used: true,
+      },
+    })
+    cachedAdminSecret = generated
+    return generated
+  } catch {
+    // DB unavailable → fall back to env/default so the app still functions.
+    cachedAdminSecret =
+      process.env.ADMIN_TOKEN_SECRET || process.env.ADMIN_SESSION_SECRET || 'tradeed-admin-token-secret-v1'
+    return cachedAdminSecret
+  }
 }
 
-function verifyAdminSession(token: string): boolean {
-  const session = adminSessions.get(token)
-  if (!session) return false
-  // Sessions expire after 24 hours
-  if (Date.now() - session.createdAt > 24 * 60 * 60 * 1000) {
-    adminSessions.delete(token)
+const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000
+
+function base64UrlEncode(input: string): string {
+  return btoa(input).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+}
+
+function base64UrlDecode(input: string): string {
+  const padded = input.replace(/-/g, '+').replace(/_/g, '/')
+  return atob(padded + '='.repeat((4 - (padded.length % 4)) % 4))
+}
+
+async function signAdminPayload(payload: string): Promise<string> {
+  const secret = await getAdminSecret()
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  )
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload))
+  const bytes = Array.from(new Uint8Array(sig))
+  return base64UrlEncode(String.fromCharCode(...bytes))
+}
+
+async function createAdminSession(email: string): Promise<string> {
+  const payload = base64UrlEncode(JSON.stringify({ email, exp: Date.now() + ADMIN_SESSION_TTL_MS }))
+  const signature = await signAdminPayload(payload)
+  return `${payload}.${signature}`
+}
+
+async function verifyAdminSession(token: string): Promise<boolean> {
+  if (!token || !token.includes('.')) return false
+  const [payload, signature] = token.split('.')
+  if (!payload || !signature) return false
+
+  const expected = await signAdminPayload(payload)
+  if (expected !== signature) return false
+
+  try {
+    const data = JSON.parse(base64UrlDecode(payload)) as { email?: string; exp?: number }
+    if (!data.exp || Date.now() > data.exp) return false
+    return typeof data.email === 'string' && data.email.length > 0
+  } catch {
     return false
   }
-  return true
+}
+
+// Resolve the admin token from whatever source actually survives the platform
+// proxy. In production the Vercel `/api/:path*` rewrite to the Shogo backend
+// strips non-standard headers (the same reason `x-user-email` was unreliable),
+// so `x-admin-token` never reached the server and every admin call returned 403
+// even with a perfectly valid token. We therefore accept the token from:
+//   1. the `x-admin-token` header (works in local dev / direct calls)
+//   2. the standard `Authorization: Bearer <token>` header
+//   3. an `adminToken` / `token` query parameter (survives header stripping)
+function getAdminToken(c: any): string | undefined {
+  const headerToken = c.req.header('x-admin-token')
+  if (headerToken) return headerToken
+
+  const auth = c.req.header('Authorization') || c.req.header('authorization')
+  if (auth && auth.startsWith('Bearer ')) return auth.slice(7).trim()
+
+  return c.req.query('adminToken') || c.req.query('token') || undefined
 }
 
 // Admin login — validates email/password against DB (admin user with role='admin')
@@ -714,26 +831,49 @@ app.post('/admin/auth', async (c) => {
     return c.json({ error: 'Invalid email or password' }, 401)
   }
 
-  const token = createAdminSession(email)
+  const token = await createAdminSession(email)
   return c.json({ ok: true, token, email })
 })
 
-// Admin logout — invalidates session
+// Admin logout — tokens are stateless, so the client simply discards the token
 app.post('/admin/logout', async (c) => {
-  const token = c.req.header('x-admin-token')
-  if (token) adminSessions.delete(token)
   return c.json({ ok: true })
 })
 
 // ========== ADMIN ROUTES ==========
 
-// Admin auth check — verifies session token
+// Admin auth check — verifies the signed session token
 app.use('/admin/*', async (c, next) => {
-  const token = c.req.header('x-admin-token')
-  if (!token || !verifyAdminSession(token)) {
-    return c.json({ error: 'Forbidden: valid admin session required' }, 403)
+  const token = getAdminToken(c)
+  if (!token) {
+    // No token arrived at all → the proxy stripped our headers. The frontend
+    // also sends `?token=`, so seeing this means even the query param is missing.
+    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-missing' }, 403)
+  }
+  if (!(await verifyAdminSession(token))) {
+    // A token arrived but failed verification → wrong/rotated secret, or expired.
+    // Call GET /api/diag with the same headers to compare secretFingerprint across instances.
+    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-invalid' }, 403)
   }
   await next()
+})
+
+// Admin diagnostics — reports which token sources arrived on THIS instance and
+// a fingerprint of the signing secret, so token/secret/header problems can be
+// pinpointed without redeploying. Requires a valid admin token to call.
+app.get('/admin/diag', async (c) => {
+  const headerToken = c.req.header('x-admin-token') || ''
+  const authHeader = c.req.header('Authorization') || c.req.header('authorization') || ''
+  const queryToken = (c.req.query('adminToken') || c.req.query('token') || '') as string
+  return c.json({
+    hasHeaderToken: headerToken.length > 0,
+    hasAuthorizationHeader: authHeader.length > 0,
+    hasQueryToken: queryToken.length > 0,
+    authScheme: authHeader.startsWith('Bearer ') ? 'Bearer' : authHeader ? 'other' : 'none',
+    secretFingerprint: (await signAdminPayload('fingerprint')).slice(0, 12),
+    courseCount: await prisma.course.count(),
+    instanceHint: 'if secretFingerprint or courseCount differs between calls, storage is per-instance (not shared)',
+  })
 })
 
 // Admin: get all courses (including unpublished)

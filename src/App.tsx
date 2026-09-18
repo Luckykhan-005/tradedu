@@ -63,10 +63,11 @@ export default function App() {
     setLoading(true)
     try {
       // Try to seed data silently (may fail, that's okay)
-      try { await fetch(api('/api/seed'), { method: 'POST' }) } catch {}
+      try { await fetch(api('/api/seed'), { method: 'POST' }) } catch { }
 
-      // Fetch courses from the courses list endpoint
-      const coursesRes = await fetch(api('/api/courses'))
+      // Fetch published courses only — drafts created in the admin panel must
+      // not leak into the public catalog.
+      const coursesRes = await fetch(api('/api/courses?isPublished=true'))
       const coursesData = await coursesRes.json()
       const items = coursesData.items || []
 
@@ -153,13 +154,25 @@ export default function App() {
     }
   }
 
+  // Force a fresh admin login when the backend rejects the stored token
+  // (expired, tampered, or invalidated by a redeploy). Without this the admin
+  // panel silently showed empty data and looked like courses had vanished.
+  // Wrapped in useCallback so AdminPanel's fetchData dependency stays stable.
+  const handleSessionExpired = useCallback(() => {
+    setUser(null)
+    setShowAuth(true)
+  }, [])
+
   const handleSignOut = async () => {
-    // Invalidate admin session on server if admin
+    // Invalidate admin session on server if admin. The token is sent via every
+    // channel the backend accepts (header, Bearer, and ?token= query param)
+    // because the production proxy strips non-standard headers.
     if (user?.adminToken) {
       try {
-        await fetch(api('/api/admin/logout'), {
+        const logoutsUrl = api('/api/admin/logout')
+        await fetch(`${logoutsUrl}?token=${encodeURIComponent(user.adminToken)}`, {
           method: 'POST',
-          headers: { 'x-admin-token': user.adminToken },
+          headers: { 'x-admin-token': user.adminToken, Authorization: `Bearer ${user.adminToken}` },
         })
       } catch { /* ignore */ }
     }
@@ -330,7 +343,7 @@ export default function App() {
       )}
 
       {currentPage === 'admin' && (
-        <AdminPanel onBack={() => navigate('landing')} user={user} />
+        <AdminPanel onBack={() => navigate('landing')} user={user} onSessionExpired={handleSessionExpired} />
       )}
     </div>
   )

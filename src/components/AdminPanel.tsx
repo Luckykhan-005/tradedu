@@ -73,6 +73,7 @@ interface AdminSession {
   meetLink?: string
   instructor?: { name: string }
   course?: { title: string }
+  courseId?: string
 }
 
 interface AdminStats {
@@ -85,6 +86,8 @@ interface AdminStats {
 interface AdminPanelProps {
   onBack: () => void
   user?: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string } | null
+  /** Called when the backend rejects the admin token (403) so the app can force a re-login. */
+  onSessionExpired?: () => void
 }
 
 // ====== Form Components ======
@@ -257,7 +260,12 @@ function SessionForm({
   )
   const [duration, setDuration] = useState(initial?.duration || '')
   const [meetLink, setMeetLink] = useState(initial?.meetLink || '')
-  const [courseId, setCourseId] = useState(initial?.course?.title || '')
+  // Track the related course by id. Previously this stored the course *title*,
+  // so the <select> whose option values are ids never matched and the picker
+  // always fell back to "None".
+  const [courseId, setCourseId] = useState(
+    initial?.courseId || courses.find((c) => c.title === initial?.course?.title)?.id || ''
+  )
 
   return (
     <Card>
@@ -316,7 +324,7 @@ function SessionForm({
 
 // ====== Main Admin Panel ======
 
-export function AdminPanel({ onBack, user }: AdminPanelProps) {
+export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) {
   // Access control — only admins can view this panel
   if (user && user.role !== 'admin') {
     return (
@@ -339,7 +347,41 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     )
   }
 
-  const adminHeaders = { 'x-admin-token': user?.adminToken || '' }
+  const adminToken = user?.adminToken || ''
+
+  const adminHeaders = { 'x-admin-token': adminToken }
+
+  // Attach the admin token through every channel the backend accepts. The
+  // production Vercel→Shogo proxy strips non-standard headers (x-admin-token),
+  // which made every admin request 403 even with a valid token. So we ALSO send
+  // the standard Authorization header and a `token` query param — the same
+  // query-param fallback the journal API already relies on for this exact reason.
+  const withAdminToken = (path: string) => {
+    const url = api(path)
+    if (!adminToken) return url
+    return `${url}${url.includes('?') ? '&' : '?'}token=${encodeURIComponent(adminToken)}`
+  }
+
+  const adminFetch = (path: string, init: RequestInit = {}) =>
+    fetch(withAdminToken(path), {
+      ...init,
+      headers: {
+        ...(init.body ? { 'Content-Type': 'application/json' } : {}),
+        ...(init.headers as Record<string, string> | undefined),
+        'x-admin-token': adminToken,
+        Authorization: `Bearer ${adminToken}`,
+      },
+    })
+
+  // Shared 403 handling for admin requests. A 403 means the token was rejected
+  // (expired, tampered, or the backend was redeployed), so we surface it and ask
+  // the app to force a fresh login instead of failing silently.
+  const handleUnauthorized = (res: Response, action: string): boolean => {
+    if (res.status !== 403) return false
+    alert(`Your admin session is no longer valid. Please sign in again, then ${action}.`)
+    onSessionExpired?.()
+    return true
+  }
 
   const [courses, setCourses] = useState<AdminCourse[]>([])
   const [sessions, setSessions] = useState<AdminSession[]>([])
@@ -364,10 +406,17 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     setLoading(true)
     try {
       const [coursesRes, sessionsRes, statsRes] = await Promise.all([
-        fetch(api('/api/admin/courses'), { headers: adminHeaders }),
+        adminFetch('/api/admin/courses'),
         fetch(api('/api/dashboard')),
-        fetch(api('/api/admin/stats'), { headers: adminHeaders }),
+        adminFetch('/api/admin/stats'),
       ])
+      // Detect a rejected token before parsing so admins never mistake an empty
+      // panel for "my courses disappeared".
+      if (coursesRes.status === 403 || statsRes.status === 403) {
+        alert('Your admin session is no longer valid. Please sign in again.')
+        onSessionExpired?.()
+        return
+      }
       const coursesData = await coursesRes.json()
       const dashboardData = await sessionsRes.json()
       const statsData = await statsRes.json()
@@ -382,6 +431,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
         meetLink: s.meetLink,
         instructor: s.instructor,
         course: s.course,
+        courseId: s.courseId,
       })))
       setStats(statsData && typeof statsData === 'object' && !Array.isArray(statsData) ? statsData : { courseCount: 0, lessonCount: 0, studentCount: 0, sessionCount: 0 })
     } catch (err) {
@@ -389,15 +439,21 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [onSessionExpired])
 
   useEffect(() => { fetchData() }, [fetchData])
 
   // ====== Course CRUD ======
   const handleSaveCourse = async (data: any) => {
-    const url = editingCourse ? api(`/api/admin/courses/${editingCourse.id}`) : api('/api/admin/courses')
+    const url = editingCourse ? `/api/admin/courses/${editingCourse.id}` : '/api/admin/courses'
     const method = editingCourse ? 'PATCH' : 'POST'
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const res = await adminFetch(url, { method, body: JSON.stringify(data) })
+    if (handleUnauthorized(res, 'save the course')) return
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}))
+      alert(`Could not save course: ${(err as any).error || res.statusText}`)
+      return
+    }
     setShowCourseForm(false)
     setEditingCourse(null)
     const saved = await res.json()
@@ -410,7 +466,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteCourse = async (id: string) => {
     if (!confirm('Delete this course and all its modules/lessons?')) return
-    await fetch(api(`/api/admin/courses/${id}`), { method: 'DELETE', headers: adminHeaders })
+    await adminFetch(`/api/admin/courses/${id}`, { method: 'DELETE' })
     if (selectedCourseId === id) setSelectedCourseId(null)
     fetchData()
   }
@@ -418,29 +474,49 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
   // ====== Module CRUD ======
   const handleAddModule = async (courseId: string) => {
     if (!newModuleName.trim()) return
-    await fetch(api(`/api/admin/courses/${courseId}/modules`), {
+    const res = await adminFetch(`/api/admin/courses/${courseId}/modules`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' },
       body: JSON.stringify({ title: newModuleName }),
     })
+    if (handleUnauthorized(res, 'add a module')) return
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}))
+      alert(`Could not add module: ${(err as any).error || res.statusText}`)
+      return
+    }
+    const created = await res.json().catch(() => null)
     setNewModuleName('')
     setShowModuleInput(null)
-    fetchData()
+    // Expand the new module and open the lesson form right away so the admin
+    // can immediately add video lectures instead of seeing an apparently
+    // inert module that needs a second click to open.
+    if (created?.id) {
+      setExpandedModules((prev) => new Set(prev).add(created.id))
+      setEditingLesson(null)
+      setShowLessonForm(created.id)
+    }
+    await fetchData()
   }
 
   const handleDeleteModule = async (moduleId: string) => {
     if (!confirm('Delete this module and all its lessons?')) return
-    await fetch(api(`/api/admin/modules/${moduleId}`), { method: 'DELETE', headers: adminHeaders })
+    await adminFetch(`/api/admin/modules/${moduleId}`, { method: 'DELETE' })
     fetchData()
   }
 
   // ====== Lesson CRUD ======
   const handleSaveLesson = async (moduleId: string, data: any) => {
     const url = editingLesson
-      ? api(`/api/admin/lessons/${editingLesson.id}`)
-      : api(`/api/admin/modules/${moduleId}/lessons`)
+      ? `/api/admin/lessons/${editingLesson.id}`
+      : `/api/admin/modules/${moduleId}/lessons`
     const method = editingLesson ? 'PATCH' : 'POST'
-    await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const res = await adminFetch(url, { method, body: JSON.stringify(data) })
+    if (handleUnauthorized(res, 'save the lesson')) return
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}))
+      alert(`Could not save lesson: ${(err as any).error || res.statusText}`)
+      return
+    }
     setShowLessonForm(null)
     setEditingLesson(null)
     fetchData()
@@ -448,15 +524,16 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteLesson = async (lessonId: string) => {
     if (!confirm('Delete this lesson?')) return
-    await fetch(api(`/api/admin/lessons/${lessonId}`), { method: 'DELETE', headers: adminHeaders })
+    await adminFetch(`/api/admin/lessons/${lessonId}`, { method: 'DELETE' })
     fetchData()
   }
 
   // ====== Session CRUD ======
   const handleSaveSession = async (data: any) => {
-    const url = editingSession ? api(`/api/admin/sessions/${editingSession.id}`) : api('/api/admin/sessions')
+    const url = editingSession ? `/api/admin/sessions/${editingSession.id}` : '/api/admin/sessions'
     const method = editingSession ? 'PATCH' : 'POST'
-    await fetch(url, { method, headers: { 'Content-Type': 'application/json', 'x-admin-token': user?.adminToken || '' }, body: JSON.stringify(data) })
+    const res = await adminFetch(url, { method, body: JSON.stringify(data) })
+    if (handleUnauthorized(res, 'save the session')) return
     setShowSessionForm(false)
     setEditingSession(null)
     fetchData()
@@ -464,7 +541,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
 
   const handleDeleteSession = async (id: string) => {
     if (!confirm('Delete this session?')) return
-    await fetch(api(`/api/admin/sessions/${id}`), { method: 'DELETE', headers: adminHeaders })
+    await adminFetch(`/api/admin/sessions/${id}`, { method: 'DELETE' })
     fetchData()
   }
 
@@ -646,8 +723,6 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                           </div>
                         ))}
 
-                        {showLessonForm === mod.id && !editingLesson && null}
-
                         <div className="px-4 py-3 ml-8">
                           {showLessonForm === mod.id && editingLesson === null ? (
                             <LessonForm
@@ -666,7 +741,7 @@ export function AdminPanel({ onBack, user }: AdminPanelProps) {
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => setShowLessonForm(mod.id)}
+                              onClick={() => { setEditingLesson(null); setShowLessonForm(mod.id) }}
                               className="text-primary gap-1"
                             >
                               <Plus className="h-3.5 w-3.5" /> Add Lesson
