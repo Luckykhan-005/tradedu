@@ -101,6 +101,42 @@
     --border: #1b263b;
 }
 
+/* ---------- Theme : Binance yellow (dark + gold accent) ---------- */
+[data-theme="binance-yellow"] {
+    --page-bg: #0a0a0a;
+    --card-bg: #111111;
+    --panel-bg: #1a1a1a;
+    --panel-alt: #1a1a1a;
+    --text: #e5e5e5;
+    --text-muted: #a3a3a3;
+    --text-faint: #666666;
+    --accent: #f0b90b;
+    --accent-2: #f0b90b;
+    --accent-3: #f0b90b;
+    --notice-bg: #1a1500;
+    --notice-border: #f0b90b;
+    --notice-text: #f0d060;
+    --border: #262626;
+}
+
+/* ---------- Theme : Exness blue (dark + blue accent) ---------- */
+[data-theme="exness-blue"] {
+    --page-bg: #0b1120;
+    --card-bg: #111c32;
+    --panel-bg: #162040;
+    --panel-alt: #162040;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --text-faint: #64748b;
+    --accent: #0070f3;
+    --accent-2: #0070f3;
+    --accent-3: #0070f3;
+    --notice-bg: #001a33;
+    --notice-border: #0070f3;
+    --notice-text: #60a5fa;
+    --border: #1e2d4a;
+}
+
 /* ---------- Light mode overrides ---------- */
 [data-mode="light"] {
     --page-bg: #f7f5ef;
