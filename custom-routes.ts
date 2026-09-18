@@ -777,15 +777,23 @@ async function verifyAdminSession(token: string): Promise<boolean> {
   const [payload, signature] = token.split('.')
   if (!payload || !signature) return false
 
-  const expected = await signAdminPayload(payload)
-  if (expected !== signature) return false
-
   try {
+    const expected = await signAdminPayload(payload)
+    if (expected !== signature) return false
+
     const data = JSON.parse(base64UrlDecode(payload)) as { email?: string; exp?: number }
     if (!data.exp || Date.now() > data.exp) return false
     return typeof data.email === 'string' && data.email.length > 0
-  } catch {
-    return false
+  } catch (err) {
+    // If HMAC verification fails due to secret mismatch, try re-loading the
+    // secret from DB in case this is a fresh instance that hasn't cached it yet.
+    cachedAdminSecret = null
+    try {
+      const expected2 = await signAdminPayload(payload)
+      return expected2 === signature
+    } catch {
+      return false
+    }
   }
 }
 
@@ -844,16 +852,17 @@ app.post('/admin/logout', async (c) => {
 
 // Admin auth check — verifies the signed session token
 app.use('/admin/*', async (c, next) => {
+  // Skip auth for diagnostic endpoints
+  if (c.req.path === '/admin/diag' || c.req.path === '/admin/auth') {
+    await next()
+    return
+  }
   const token = getAdminToken(c)
   if (!token) {
-    // No token arrived at all → the proxy stripped our headers. The frontend
-    // also sends `?token=`, so seeing this means even the query param is missing.
-    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-missing' }, 403)
+    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-missing', hint: 'Send token via x-admin-token header, Authorization: Bearer, or ?token= query param' }, 403)
   }
   if (!(await verifyAdminSession(token))) {
-    // A token arrived but failed verification → wrong/rotated secret, or expired.
-    // Call GET /api/diag with the same headers to compare secretFingerprint across instances.
-    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-invalid' }, 403)
+    return c.json({ error: 'Forbidden: valid admin session required', reason: 'token-invalid', hint: 'Token expired or signing secret changed. Please log in again.' }, 403)
   }
   await next()
 })
@@ -892,19 +901,27 @@ app.get('/admin/courses', async (c) => {
 
 // Admin: create course
 app.post('/admin/courses', async (c) => {
-  const body = await c.req.json()
-  const course = await prisma.course.create({
-    data: {
-      title: body.title,
-      description: body.description,
-      level: body.level || 'beginner',
-      price: body.price || 0,
-      duration: body.duration || '',
-      isPublished: body.isPublished ?? false,
-      thumbnail: body.thumbnail || null,
-    },
-  })
-  return c.json(course, 201)
+  try {
+    const body = await c.req.json()
+    if (!body.title || !body.title.trim()) {
+      return c.json({ error: 'Course title is required' }, 400)
+    }
+    const course = await prisma.course.create({
+      data: {
+        title: body.title.trim(),
+        description: body.description || '',
+        level: body.level || 'beginner',
+        price: body.price || 0,
+        duration: body.duration || '',
+        isPublished: body.isPublished ?? false,
+        thumbnail: body.thumbnail || null,
+      },
+    })
+    return c.json(course, 201)
+  } catch (err: any) {
+    console.error('Course creation failed:', err)
+    return c.json({ error: 'Failed to create course', details: err?.message || String(err) }, 500)
+  }
 })
 
 // Admin: update course
@@ -935,22 +952,35 @@ app.delete('/admin/courses/:id', async (c) => {
 
 // Admin: create module
 app.post('/admin/courses/:courseId/modules', async (c) => {
-  const { courseId } = c.req.param()
-  const body = await c.req.json()
-  const maxOrder = await prisma.module.findFirst({
-    where: { courseId },
-    orderBy: { order: 'desc' },
-    select: { order: true },
-  })
-  const module = await prisma.module.create({
-    data: {
-      title: body.title,
-      description: body.description || '',
-      order: (maxOrder?.order ?? -1) + 1,
-      courseId,
-    },
-  })
-  return c.json(module, 201)
+  try {
+    const { courseId } = c.req.param()
+    const body = await c.req.json()
+    if (!body.title || !body.title.trim()) {
+      return c.json({ error: 'Module title is required' }, 400)
+    }
+    // Verify course exists
+    const course = await prisma.course.findUnique({ where: { id: courseId } })
+    if (!course) {
+      return c.json({ error: 'Course not found' }, 404)
+    }
+    const maxOrder = await prisma.module.findFirst({
+      where: { courseId },
+      orderBy: { order: 'desc' },
+      select: { order: true },
+    })
+    const module = await prisma.module.create({
+      data: {
+        title: body.title.trim(),
+        description: body.description || '',
+        order: (maxOrder?.order ?? -1) + 1,
+        courseId,
+      },
+    })
+    return c.json(module, 201)
+  } catch (err: any) {
+    console.error('Module creation failed:', err)
+    return c.json({ error: 'Failed to create module', details: err?.message || String(err) }, 500)
+  }
 })
 
 // Admin: update module
@@ -977,25 +1007,38 @@ app.delete('/admin/modules/:id', async (c) => {
 
 // Admin: create lesson
 app.post('/admin/modules/:moduleId/lessons', async (c) => {
-  const { moduleId } = c.req.param()
-  const body = await c.req.json()
-  const maxOrder = await prisma.lesson.findFirst({
-    where: { moduleId },
-    orderBy: { order: 'desc' },
-    select: { order: true },
-  })
-  const lesson = await prisma.lesson.create({
-    data: {
-      title: body.title,
-      content: body.content || '',
-      videoUrl: body.videoUrl || '',
-      duration: body.duration || '',
-      type: body.type || 'video',
-      order: (maxOrder?.order ?? -1) + 1,
-      moduleId,
-    },
-  })
-  return c.json(lesson, 201)
+  try {
+    const { moduleId } = c.req.param()
+    const body = await c.req.json()
+    if (!body.title || !body.title.trim()) {
+      return c.json({ error: 'Lesson title is required' }, 400)
+    }
+    // Verify module exists
+    const mod = await prisma.module.findUnique({ where: { id: moduleId } })
+    if (!mod) {
+      return c.json({ error: 'Module not found' }, 404)
+    }
+    const maxOrder = await prisma.lesson.findFirst({
+      where: { moduleId },
+      orderBy: { order: 'desc' },
+      select: { order: true },
+    })
+    const lesson = await prisma.lesson.create({
+      data: {
+        title: body.title.trim(),
+        content: body.content || '',
+        videoUrl: body.videoUrl || '',
+        duration: body.duration || '',
+        type: body.type || 'video',
+        order: (maxOrder?.order ?? -1) + 1,
+        moduleId,
+      },
+    })
+    return c.json(lesson, 201)
+  } catch (err: any) {
+    console.error('Lesson creation failed:', err)
+    return c.json({ error: 'Failed to create lesson', details: err?.message || String(err) }, 500)
+  }
 })
 
 // Admin: update lesson

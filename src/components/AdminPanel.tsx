@@ -362,8 +362,12 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
     return `${url}${url.includes('?') ? '&' : '?'}token=${encodeURIComponent(adminToken)}`
   }
 
-  const adminFetch = (path: string, init: RequestInit = {}) =>
-    fetch(withAdminToken(path), {
+  const adminFetch = (path: string, init: RequestInit = {}) => {
+    const url = withAdminToken(path)
+    if (!adminToken) {
+      console.warn('adminFetch: No admin token available for', path)
+    }
+    return fetch(url, {
       ...init,
       headers: {
         ...(init.body ? { 'Content-Type': 'application/json' } : {}),
@@ -372,6 +376,7 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
         Authorization: `Bearer ${adminToken}`,
       },
     })
+  }
 
   // Shared 403 handling for admin requests. A 403 means the token was rejected
   // (expired, tampered, or the backend was redeployed), so we surface it and ask
@@ -417,11 +422,17 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
         onSessionExpired?.()
         return
       }
-      const coursesData = await coursesRes.json()
-      const dashboardData = await sessionsRes.json()
-      const statsData = await statsRes.json()
+      if (!coursesRes.ok) {
+        const errBody = await coursesRes.json().catch(() => ({}))
+        console.error('Failed to fetch courses:', coursesRes.status, errBody)
+        setCourses([])
+      } else {
+        const coursesData = await coursesRes.json()
+        setCourses(Array.isArray(coursesData) ? coursesData : [])
+      }
+      const dashboardData = await sessionsRes.json().catch(() => ({}))
+      const statsData = await statsRes.json().catch(() => ({}))
 
-      setCourses(Array.isArray(coursesData) ? coursesData : [])
       setSessions(((dashboardData as any).sessions || []).map((s: any) => ({
         id: s.id,
         title: s.title,
@@ -445,22 +456,30 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
 
   // ====== Course CRUD ======
   const handleSaveCourse = async (data: any) => {
-    const url = editingCourse ? `/api/admin/courses/${editingCourse.id}` : '/api/admin/courses'
-    const method = editingCourse ? 'PATCH' : 'POST'
-    const res = await adminFetch(url, { method, body: JSON.stringify(data) })
-    if (handleUnauthorized(res, 'save the course')) return
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      alert(`Could not save course: ${(err as any).error || res.statusText}`)
-      return
-    }
-    setShowCourseForm(false)
-    setEditingCourse(null)
-    const saved = await res.json()
-    await fetchData()
-    if (!editingCourse && saved?.id) {
-      setSelectedCourseId(saved.id)
-      setActiveTab('courses')
+    const isEditing = !!editingCourse
+    const url = isEditing ? `/api/admin/courses/${editingCourse.id}` : '/api/admin/courses'
+    const method = isEditing ? 'PATCH' : 'POST'
+    try {
+      const res = await adminFetch(url, { method, body: JSON.stringify(data) })
+      if (handleUnauthorized(res, 'save the course')) return
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        const msg = (err as any).error || (err as any).details || res.statusText
+        alert(`Could not save course: ${msg}`)
+        return
+      }
+      setShowCourseForm(false)
+      setEditingCourse(null)
+      const saved = await res.json()
+      // Re-fetch courses to ensure the new course is in the list
+      await fetchData()
+      if (!isEditing && saved?.id) {
+        setSelectedCourseId(saved.id)
+        setActiveTab('courses')
+      }
+    } catch (err: any) {
+      console.error('Course save error:', err)
+      alert(`Network error while saving course: ${err?.message || 'Unknown error'}. Please check your connection and try again.`)
     }
   }
 
@@ -474,28 +493,34 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
   // ====== Module CRUD ======
   const handleAddModule = async (courseId: string) => {
     if (!newModuleName.trim()) return
-    const res = await adminFetch(`/api/admin/courses/${courseId}/modules`, {
-      method: 'POST',
-      body: JSON.stringify({ title: newModuleName }),
-    })
-    if (handleUnauthorized(res, 'add a module')) return
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      alert(`Could not add module: ${(err as any).error || res.statusText}`)
-      return
+    try {
+      const res = await adminFetch(`/api/admin/courses/${courseId}/modules`, {
+        method: 'POST',
+        body: JSON.stringify({ title: newModuleName }),
+      })
+      if (handleUnauthorized(res, 'add a module')) return
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        const msg = (err as any).error || (err as any).details || res.statusText
+        alert(`Could not add module: ${msg}`)
+        return
+      }
+      const created = await res.json().catch(() => null)
+      setNewModuleName('')
+      setShowModuleInput(null)
+      // Expand the new module and open the lesson form right away so the admin
+      // can immediately add video lectures instead of seeing an apparently
+      // inert module that needs a second click to open.
+      if (created?.id) {
+        setExpandedModules((prev) => new Set(prev).add(created.id))
+        setEditingLesson(null)
+        setShowLessonForm(created.id)
+      }
+      await fetchData()
+    } catch (err: any) {
+      console.error('Module creation error:', err)
+      alert(`Network error while adding module: ${err?.message || 'Unknown error'}. Please try again.`)
     }
-    const created = await res.json().catch(() => null)
-    setNewModuleName('')
-    setShowModuleInput(null)
-    // Expand the new module and open the lesson form right away so the admin
-    // can immediately add video lectures instead of seeing an apparently
-    // inert module that needs a second click to open.
-    if (created?.id) {
-      setExpandedModules((prev) => new Set(prev).add(created.id))
-      setEditingLesson(null)
-      setShowLessonForm(created.id)
-    }
-    await fetchData()
   }
 
   const handleDeleteModule = async (moduleId: string) => {
@@ -510,16 +535,22 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
       ? `/api/admin/lessons/${editingLesson.id}`
       : `/api/admin/modules/${moduleId}/lessons`
     const method = editingLesson ? 'PATCH' : 'POST'
-    const res = await adminFetch(url, { method, body: JSON.stringify(data) })
-    if (handleUnauthorized(res, 'save the lesson')) return
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      alert(`Could not save lesson: ${(err as any).error || res.statusText}`)
-      return
+    try {
+      const res = await adminFetch(url, { method, body: JSON.stringify(data) })
+      if (handleUnauthorized(res, 'save the lesson')) return
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        const msg = (err as any).error || (err as any).details || res.statusText
+        alert(`Could not save lesson: ${msg}`)
+        return
+      }
+      setShowLessonForm(null)
+      setEditingLesson(null)
+      await fetchData()
+    } catch (err: any) {
+      console.error('Lesson save error:', err)
+      alert(`Network error while saving lesson: ${err?.message || 'Unknown error'}. Please try again.`)
     }
-    setShowLessonForm(null)
-    setEditingLesson(null)
-    fetchData()
   }
 
   const handleDeleteLesson = async (lessonId: string) => {
