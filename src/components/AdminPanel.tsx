@@ -490,6 +490,26 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
     fetchData()
   }
 
+  const handleTogglePublish = async (course: AdminCourse) => {
+    try {
+      const res = await adminFetch(`/api/admin/courses/${course.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ isPublished: !course.isPublished }),
+      })
+      if (handleUnauthorized(res, 'publish course')) return
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        const msg = (err as any).error || (err as any).details || res.statusText
+        alert(`Could not update publish status: ${msg}`)
+        return
+      }
+      await fetchData()
+    } catch (err: any) {
+      console.error('Toggle publish error:', err)
+      alert(`Network error: ${err?.message || 'Unknown error'}`)
+    }
+  }
+
   // ====== Module CRUD ======
   const handleAddModule = async (courseId: string) => {
     if (!newModuleName.trim()) return
@@ -634,17 +654,27 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                 </div>
                 <p className="text-sm text-muted-foreground">{selectedCourse.description}</p>
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setEditingCourse(selectedCourse)
-                  setShowCourseForm(true)
-                }}
-                className="gap-1"
-              >
-                <Pencil className="h-3.5 w-3.5" /> Edit Course
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant={selectedCourse.isPublished ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => handleTogglePublish(selectedCourse)}
+                  className="gap-1"
+                >
+                  {selectedCourse.isPublished ? <><Eye className="h-3.5 w-3.5" /> Published</> : <><EyeOff className="h-3.5 w-3.5" /> Publish</>}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setEditingCourse(selectedCourse)
+                    setShowCourseForm(true)
+                  }}
+                  className="gap-1"
+                >
+                  <Pencil className="h-3.5 w-3.5" /> Edit Course
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -924,6 +954,14 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                             className="gap-1"
                           >
                             <BookOpen className="h-4 w-4" /> Content
+                          </Button>
+                          <Button
+                            variant={course.isPublished ? 'default' : 'outline'}
+                            size="sm"
+                            onClick={() => handleTogglePublish(course)}
+                            className="gap-1"
+                          >
+                            {course.isPublished ? <><Eye className="h-3.5 w-3.5" /> Unpublish</> : <><EyeOff className="h-3.5 w-3.5" /> Publish</>}
                           </Button>
                           <Button
                             variant="ghost"
