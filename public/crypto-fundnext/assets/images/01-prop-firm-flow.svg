@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" dir="rtl">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#00a381"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#0773c5"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8860b"/>
+      <stop offset="100%" style="stop-color:#996f09"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#b8860b" font-family="Arial" font-size="28" font-weight="bold">پراپ فرم کا مکمل فلو</text>
+  <text x="400" y="70" text-anchor="middle" fill="#888" font-family="Arial" font-size="14">How Prop Firm Works — Complete Flow</text>
+  
+  <!-- Step 1: Trader -->
+  <rect x="50" y="100" width="150" height="80" rx="10" fill="url(#blueGrad)" stroke="#0984e3" stroke-width="2"/>
+  <text x="125" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="18" font-weight="bold"> trader</text>
+  <text x="125" y="158" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">ٹریڈر</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="200" y1="140" x2="250" y2="140" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#b8860b"/>
+    </marker>
+  </defs>
+  
+  <!-- Step 2: Challenge Fee -->
+  <rect x="260" y="100" width="150" height="80" rx="10" fill="url(#goldGrad)" stroke="#b8860b" stroke-width="2"/>
+  <text x="335" y="130" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Challenge Fee</text>
+  <text x="335" y="155" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">$50 - $500</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="410" y1="140" x2="460" y2="140" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 3: Evaluation -->
+  <rect x="470" y="100" width="150" height="80" rx="10" fill="url(#greenGrad)" stroke="#00b894" stroke-width="2"/>
+  <text x="545" y="130" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Evaluation</text>
+  <text x="545" y="155" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">چیلنج پاس</text>
+  
+  <!-- Arrow 3 -->
+  <line x1="620" y1="140" x2="670" y2="140" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 4: Funded Account -->
+  <rect x="670" y="100" width="120" height="80" rx="10" fill="#e17055" stroke="#d63031" stroke-width="2"/>
+  <text x="730" y="130" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Funded</text>
+  <text x="730" y="155" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">$10K-$200K</text>
+  
+  <!-- Step 5: Trading -->
+  <rect x="300" y="230" width="200" height="80" rx="10" fill="#6c5ce7" stroke="#5f27cd" stroke-width="2"/>
+  <text x="400" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="18" font-weight="bold">Trading</text>
+  <text x="400" y="290" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">ٹریڈنگ کرتا ہے</text>
+  
+  <!-- Arrow down from Funded to Trading -->
+  <line x1="730" y1="180" x2="730" y2="220" stroke="#b8860b" stroke-width="3"/>
+  <line x1="730" y1="220" x2="500" y2="220" stroke="#b8860b" stroke-width="3"/>
+  <line x1="500" y1="220" x2="500" y2="230" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 6: Profit -->
+  <rect x="300" y="350" width="200" height="80" rx="10" fill="#00b894" stroke="#00a381" stroke-width="2"/>
+  <text x="400" y="380" text-anchor="middle" fill="white" font-family="Arial" font-size="18" font-weight="bold">Profit</text>
+  <text x="400" y="405" text-anchor="middle" fill="#ddd" font-family="Arial" font-size="12">منافع کماتا ہے</text>
+  
+  <!-- Arrow down from Trading to Profit -->
+  <line x1="400" y1="310" x2="400" y2="350" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 7: Withdrawal -->
+  <rect x="250" y="470" width="300" height="80" rx="10" fill="#fdcb6e" stroke="#f39c12" stroke-width="2"/>
+  <text x="400" y="500" text-anchor="middle" fill="#1a1a2e" font-family="Arial" font-size="18" font-weight="bold">Withdrawal</text>
+  <text x="400" y="525" text-anchor="middle" fill="#333" font-family="Arial" font-size="14">70% - 95% منافع آپ کا</text>
+  
+  <!-- Arrow down from Profit to Withdrawal -->
+  <line x1="400" y1="430" x2="400" y2="470" stroke="#b8860b" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Labels -->
+  <text x="125" y="200" text-anchor="middle" fill="#00b894" font-family="Arial" font-size="11">ہنر دکھائیں</text>
+  <text x="335" y="200" text-anchor="middle" fill="#f39c12" font-family="Arial" font-size="11">ایک بار فیس</text>
+  <text x="545" y="200" text-anchor="middle" fill="#00b894" font-family="Arial" font-size="11">ٹارگٹ ہٹائیں</text>
+  <text x="730" y="200" text-anchor="middle" fill="#d63031" font-family="Arial" font-size="11">اکاؤنٹ ملا</text>
+  
+  <!-- Side note -->
+  <rect x="50" y="350" width="180" height="60" rx="8" fill="#2d3436" stroke="#636e72" stroke-width="1"/>
+  <text x="140" y="375" text-anchor="middle" fill="#74b9ff" font-family="Arial" font-size="12" font-weight="bold">آپ کا خطرہ صرف</text>
+  <text x="140" y="395" text-anchor="middle" fill="#fdcb6e" font-family="Arial" font-size="14" font-weight="bold">$50 - $500</text>
+  
+  <line x1="230" y1="380" x2="300" y2="380" stroke="#636e72" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Bottom note -->
+  <text x="400" y="580" text-anchor="middle" fill="#636e72" font-family="Arial" font-size="11">FundedNext — $306M+ Total Rewarded | 82K+ Traders</text>
+</svg>

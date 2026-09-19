@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" dir="rtl">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#b8860b" font-family="Arial" font-size="26" font-weight="bold">روایتی ٹریڈنگ بمقابلہ پراپ ٹریڈنگ</text>
+  <text x="400" y="62" text-anchor="middle" fill="#888" font-family="Arial" font-size="13">Traditional Trading vs Prop Trading</text>
+  
+  <!-- Left Column: Traditional -->
+  <rect x="30" y="85" width="350" height="380" rx="12" fill="#2d1b1b" stroke="#e74c3c" stroke-width="2"/>
+  <text x="205" y="115" text-anchor="middle" fill="#e74c3c" font-family="Arial" font-size="20" font-weight="bold">روایتی ٹریڈنگ</text>
+  <text x="205" y="135" text-anchor="middle" fill="#999" font-family="Arial" font-size="11">Traditional Trading</text>
+  
+  <!-- Traditional Items -->
+  <text x="180" y="175" text-anchor="middle" fill="#ff7675" font-family="Arial" font-size="14">💰 اپنا پیسہ لگاتے ہیں</text>
+  <text x="205" y="205" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">100% اپنا خطرہ</text>
+  
+  <text x="180" y="245" text-anchor="middle" fill="#ff7675" font-family="Arial" font-size="14">📉 نقصان ہو تو سب آپ کا</text>
+  <text x="205" y="275" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">کوئی معاوضہ نہیں</text>
+  
+  <text x="180" y="315" text-anchor="middle" fill="#ff7675" font-family="Arial" font-size="14">💵 چھوٹا اکاؤنٹ</text>
+  <text x="205" y="345" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">$1K - $10K سے شروع</text>
+  
+  <text x="180" y="385" text-anchor="middle" fill="#ff7675" font-family="Arial" font-size="14">📊 100% منافع آپ کا</text>
+  <text x="205" y="415" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">مگر اپنا پیسہ بھی risk میں</text>
+  
+  <!-- Right Column: Prop -->
+  <rect x="420" y="85" width="350" height="380" rx="12" fill="#1a2e1a" stroke="#00b894" stroke-width="2"/>
+  <text x="595" y="115" text-anchor="middle" fill="#00b894" font-family="Arial" font-size="20" font-weight="bold">پراپ ٹریڈنگ</text>
+  <text x="595" y="135" text-anchor="middle" fill="#999" font-family="Arial" font-size="11">Prop Trading</text>
+  
+  <!-- Prop Items -->
+  <text x="570" y="175" text-anchor="middle" fill="#55efc4" font-family="Arial" font-size="14">🏢 فرم کا پیسہ ملتا ہے</text>
+  <text x="595" y="205" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">صرف چیلنج فیس کا risk</text>
+  
+  <text x="570" y="245" text-anchor="middle" fill="#55efc4" font-family="Arial" font-size="14">🛡️ نقصان فرم کا</text>
+  <text x="595" y="275" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">آپ کا پیسہ محفوظ</text>
+  
+  <text x="570" y="315" text-anchor="middle" fill="#55efc4" font-family="Arial" font-size="14">🏦 بڑا اکاؤنٹ</text>
+  <text x="595" y="345" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">$10K - $200K ملتا ہے</text>
+  
+  <text x="570" y="385" text-anchor="middle" fill="#55efc4" font-family="Arial" font-size="14">💰 70-95% منافع آپ کا</text>
+  <text x="595" y="415" text-anchor="middle" fill="#aaa" font-family="Arial" font-size="12">بڑا اکاؤنٹ = بڑا منافع</text>
+  
+  <!-- VS -->
+  <circle cx="400" cy="275" r="35" fill="#b8860b"/>
+  <text x="400" y="282" text-anchor="middle" fill="white" font-family="Arial" font-size="20" font-weight="bold">VS</text>
+  
+  <!-- Bottom Comparison -->
+  <rect x="30" y="475" width="740" height="20" rx="5" fill="#2d3436"/>
+  <text x="205" y="490" text-anchor="middle" fill="#e74c3c" font-family="Arial" font-size="10"> Risky & Expensive</text>
+  <text x="595" y="490" text-anchor="middle" fill="#00b894" font-family="Arial" font-size="10">Safe & Affordable</text>
+</svg>
