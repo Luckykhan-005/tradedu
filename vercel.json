@@ -3,10 +3,18 @@
     {
       "source": "/api/:path*",
       "destination": "https://f433563c-b214-4c91-81ec-8db56a59a1b4.preview.shogo.ai/api/:path*"
-    },
-    {
-      "source": "/((?!assets/|covers/|crypto-.*|binance-.*|forex-.*|smc-.*|candlestick-.*|books/|index.html).*)",
-      "destination": "/index.html"
     }
+  ],
+  "routes": [
+    { "src": "/binance-complete/(.*)", "dest": "/binance-complete/$1" },
+    { "src": "/candlestick-book/(.*)", "dest": "/candlestick-book/$1" },
+    { "src": "/crypto-advanced/(.*)", "dest": "/crypto-advanced/$1" },
+    { "src": "/crypto-beginner/(.*)", "dest": "/crypto-beginner/$1" },
+    { "src": "/crypto-fundnext/(.*)", "dest": "/crypto-fundnext/$1" },
+    { "src": "/crypto-intermediate/(.*)", "dest": "/crypto-intermediate/$1" },
+    { "src": "/forex-complete/(.*)", "dest": "/forex-complete/$1" },
+    { "src": "/smc-book/(.*)", "dest": "/smc-book/$1" },
+    { "src": "/covers/(.*)", "dest": "/covers/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" }
   ]
 }
