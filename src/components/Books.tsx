@@ -225,6 +225,21 @@ const books: BookItem[] = [
     cover: '/covers/Professional-Trading-System.jpg',
   },
   {
+    id: 'fundednext',
+    title: 'FundedNext Prop Trading Book (Urdu)',
+    titleUrdu: 'فانڈڈ نیکسٹ پراپ ٹریڈنگ کتاب',
+    description:
+      'Complete Urdu guide to prop trading with FundedNext — 10 chapters covering prop firms, challenge types, rules, trading strategy, technical & fundamental analysis, psychology, withdrawal process, and common mistakes.',
+    chapters: 10,
+    pages: '10 chapters · 8 parts',
+    icon: Rocket,
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50',
+    href: './crypto-fundnext/index.html',
+    tags: ['Urdu', 'Prop Trading', 'FundedNext'],
+    cover: '/crypto-fundnext/assets/images/cover.jpg',
+  },
+  {
     id: 'technical-analysis',
     title: 'Technical Analysis Course',
     titleUrdu: 'ٹیکنیکل اینالسس کورس',
