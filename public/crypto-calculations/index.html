@@ -652,9 +652,58 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
       </div>
 
       <h3>2.5 — Break-even Price (Wo Price Jahan Na Profit Na Loss)</h3>
-      <p>Break-even price wo price hai jahan pohanch kar ap na profit mein hon na loss mein — fees nikaal kar bhi apni asal raqam wapis mil jaye.</p>
+      <p>Break-even price woh price hoti hai jahan aap trade close karne par <strong>na profit mein hon, na loss mein</strong>. Lekin ek important baat: trading fee ki wajah se BEP aapki entry price se thori upar hoti hai (agar aap BUY/long trade mein ho).</p>
+
+      <h4>Example Dekhte Hain</h4>
+      <p>Maan lo:</p>
+      <ul>
+        <li>Aapne BTC BUY kiya = $100</li>
+        <li>Exchange fee = 0.01%</li>
+        <li>Aap baad mein BTC SELL karoge</li>
+      </ul>
+      <p>Agar BTC exactly $100 par sell kar diya, to aap break-even par <strong>nahi</strong> ho, kyunki buy fee bhi lagi aur sell fee bhi lagegi. Isliye selling price ko thora $100 se upar jana hoga.</p>
+
+      <h4>Step 1 — Buy Fee</h4>
       <div class="formula-box">
-        <div class="formula-label">FORMULA (SIMPLIFIED)</div>
+        <div class="formula-label">BUY FEE</div>
+        <div class="formula">$100 × 0.01%
+          <span class="note">0.01% = 0.0001</span>
+          <span class="note">100 × 0.0001 = $0.01</span>
+          <span class="note">Buy par fee = $0.01</span>
+        </div>
+      </div>
+
+      <h4>Step 2 — Sell Fee</h4>
+      <p>Agar selling price bhi $100 ho:</p>
+      <div class="formula-box">
+        <div class="formula-label">SELL FEE</div>
+        <div class="formula">$100 × 0.0001 = $0.01
+          <span class="note">Total fees: $0.01 + $0.01 = $0.02</span>
+          <span class="note">Isliye $100 par sell karne se $0.02 loss hoga.</span>
+        </div>
+      </div>
+
+      <h4>Step 3 — Break-even Price</h4>
+      <p>Ab humein aisi selling price chahiye jahan selling ke baad total amount exactly original $100 ban jaye:</p>
+      <div class="formula-box">
+        <div class="formula-label">APPROXIMATION</div>
+        <div class="formula">$100 + $0.02 = $100.02
+          <span class="note">Yani BEP approximately: $100.02</span>
+        </div>
+      </div>
+      <p>Lekin exact calculation thori different hoti hai kyunki sell fee selling value par calculate hoti hai:</p>
+      <div class="formula-box">
+        <div class="formula-label">EXACT FORMULA</div>
+        <div class="formula">BEP = Entry × (1 + Fee%) ÷ (1 − Fee%)
+          <span class="note">BEP = 100 × (1 + 0.0001) ÷ (1 − 0.0001)</span>
+          <span class="note">BEP ≈ $100.020002</span>
+          <span class="note">So practically: $100.02</span>
+        </div>
+      </div>
+
+      <h4>Simplified Formula (Zyada Tar Kaam Aayega)</h4>
+      <div class="formula-box">
+        <div class="formula-label">SIMPLIFIED FORMULA</div>
         <div class="formula">Break-even Price ≈ Buy Price × (1 + Buy Fee % + Sell Fee %)
           <span class="note">Yani fees jitni zyada hongi, break-even price utna hi buy price se upar chala jayega.</span>
         </div>
