@@ -282,7 +282,7 @@ const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: '/crypto-calculations/index.html',
     tags: ['Urdu', 'Calculations', 'Spot & Futures'],
-    cover: '/covers/Crypto-Calculations.jpg',
+    cover: '/covers/crypto-trading-calculations-book.jpg',
   },
 ]
 
