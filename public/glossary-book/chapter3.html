@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۳: بنیادی تجزیہ — Fundamental Analysis Terms</title>
+        <style>
+        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #b8860b; text-align: center; margin-bottom: 30px; }
+        h2 { font-size: 34px; color: #e94560; margin-top: 40px; line-height: 1.7; }
+        h3 { font-size: 30px; color: #b8860b; margin-top: 30px; line-height: 1.7; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .term { background: #16213e; border-right: 5px solid #b8860b; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .term h3 { margin-top: 0; color: #b8860b; font-size: 28px; }
+        .term .en { color: #00b4d8; font-size: 24px; margin-bottom: 10px; }
+        .term .example { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        .term .example strong { color: #e94560; }
+        .diagram { text-align: center; background: #16213e; border-radius: 15px; padding: 30px; margin: 30px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .notice { background: #2d1b1b; border: 2px solid #e94560; border-radius: 12px; padding: 15px 20px; margin: 30px 0; font-size: 22px; color: #f0a0a0; }
+        .nav { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
+        .nav a, .nav span { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        .nav span { color: #666; opacity: 0.45; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        svg text { direction: rtl; }
+        .keypoints { background: #16213e; border-right: 5px solid #b8860b; border-radius: 10px; padding: 18px 24px; margin: 25px 0; }
+        .keypoints h3 { margin-top: 0; color: #b8860b; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #16213e; border-radius: 10px; overflow: hidden; }
+        th { background: #b8860b; color: #1a1a2e; padding: 12px 15px; text-align: right; font-weight: bold; }
+        td { padding: 10px 15px; border-bottom: 1px solid #0f3460; text-align: right; }
+        tr:nth-child(even) { background: #0f3460; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div class="nav">
+        <a href="chapter2.html">⬅ باب ۲</a>
+        <span>باب ۳</span>
+        <a href="chapter4.html">باب ۴ ➡</a>
+    </div>
+    <h1>باب ۳: بنیادی تجزیہ</h1>
+    <p style="text-align:center; color:#aaa; font-size:24px;">Fundamental Analysis — خبریں، ڈیٹا اور بنیادی چیزوں کی اصطلاحات</p>
+
+<div class="diagram">
+<h3>📊 بنیادی تجزیہ کا فلو</h3>
+<svg width="700" height="350" viewBox="0 0 700 350">
+  <rect width="700" height="350" fill="#0d1b2a" rx="15"/>
+  <text x="350" y="35" text-anchor="middle" fill="#b8860b" font-size="20" font-weight="bold">بنیادی تجزیہ — خبروں سے فیصلہ تک</text>
+  
+  <rect x="250" y="55" width="200" height="45" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
+  <text x="350" y="82" text-anchor="middle" fill="#eee" font-size="14">خبریں دیکھیں</text>
+  
+  <line x1="350" y1="100" x2="350" y2="125" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr2)"/>
+  
+  <rect x="50" y="130" width="140" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
+  <text x="120" y="157" text-anchor="middle" fill="#eee" font-size="13">اقتصادی ڈیٹا</text>
+  
+  <rect x="210" y="130" width="140" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
+  <text x="280" y="157" text-anchor="middle" fill="#eee" font-size="13">کمپنی ڈیٹا</text>
+  
+  <rect x="370" y="130" width="140" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
+  <text x="440" y="157" text-anchor="middle" fill="#eee" font-size="13">پالیسی</text>
+  
+  <rect x="530" y="130" width="140" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
+  <text x="600" y="157" text-anchor="middle" fill="#eee" font-size="13">سینٹائمنٹ</text>
+  
+  <line x1="120" y1="175" x2="350" y2="210" stroke="#b8860b" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="280" y1="175" x2="350" y2="210" stroke="#b8860b" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="440" y1="175" x2="350" y2="210" stroke="#b8860b" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="600" y1="175" x2="350" y2="210" stroke="#b8860b" stroke-width="2" marker-end="url(#arr2)"/>
+  
+  <rect x="250" y="215" width="200" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
+  <text x="350" y="242" text-anchor="middle" fill="#eee" font-size="14">تجزیہ کریں</text>
+  
+  <line x1="350" y1="260" x2="350" y2="285" stroke="#26a69a" stroke-width="2" marker-end="url(#arr2)"/>
+  
+  <rect x="150" y="290" width="180" height="40" rx="8" fill="#26a69a"/>
+  <text x="240" y="315" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="bold">خرید سگنل</text>
+  
+  <rect x="380" y="290" width="180" height="40" rx="8" fill="#e94560"/>
+  <text x="470" y="315" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">فروخت سگنل</text>
+  
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#b8860b"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<h2>📰 خبریں اور ڈیٹا</h2>
+
+<div class="term">
+<h3>۱. بنیادی تجزیہ (Fundamental Analysis)</h3>
+<div class="en">English: Fundamental Analysis</div>
+<p>کسی اثاثے کی اصل قیمت کا تجزیہ — کمپنی کی مالی حالت، مارکیٹ کی صورتحال، خبریں، حکومتی پالیسیاں — یہ سب دیکھ کر فیصلہ کرنا۔</p>
+<div class="example">
+<strong>مثال:</strong> Bitcoin کی قیمت اس لیے بڑھی کیونکہ Elon Musk نے خریدنے کا اعلان کیا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۲. فیڈرل ریٹ (Federal Reserve Rate)</h3>
+<div class="en">English: Federal Funds Rate</div>
+<p>امریکی بینک کی بنیادی سود کی شرح — جب یہ بڑھتی ہے تو سٹاکس گرتے ہیں، کم ہوتی ہے تو بڑھتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> Fed نے ریٹ 0.25% بڑھائی — سٹاکس گرے، ڈالر مضبوط ہوا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۳. CPI — Consumer Price Index</h3>
+<div class="en">English: Consumer Price Index</div>
+<p>مہنگائی کی پیمائش — عام آدمیوں کی اشیاء کی قیمتیں کتنی بڑھ گئیں۔ زیادہ CPI = زیادہ مہنگائی۔</p>
+<div class="example">
+<strong>مثال:</strong> CPI 3.5% = پچھلے سال کے مقابلے میں اشیاء 3.5% مہنگی ہوئیں۔
+</div>
+</div>
+
+<div class="term">
+<h3>۴. GDP — Gross Domestic Product</h3>
+<div class="en">English: Gross Domestic Product</div>
+<p>ملک کی کل مالی پیداوار — جتنا زیادہ GDP، اتنا مضبوط ملک۔ GDP بڑھنے سے سٹاکس بڑھتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> چین کا GDP 5% بڑھا — چینی سٹاکس میں اضافہ ہوا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۵. نان فارم پے رولز (Non-Farm Payrolls)</h3>
+<div class="en">English: Non-Farm Payrolls (NFP)</div>
+<p>امریکہ میں کسانوں کے علاوہ نئی نوکریاں — مہینے کی سب سے اہم اقتصادی رپورٹ۔</p>
+<div class="example">
+<strong>مثال:</strong> NFP 300K = 3 لاکھ نئی نوکریاں — امریکی اقتصاد مضبوط — ڈالر بڑھا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۶. انٹریسٹ ریٹ (Interest Rate)</h3>
+<div class="en">English: Interest Rate</div>
+<p>قرض لینے پر سود کی شرح — جب یہ کم ہوتی ہے تو لوگ قرضہ زیادہ لیتے ہیں، مارکیٹ بڑھتا ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> ECB نے ریٹ 0.5% کم کیا — یورپی مارکیٹ بڑھے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۷. سینٹائمنٹ (Sentiment)</h3>
+<div class="en">English: Market Sentiment</div>
+<p>مارکیٹ کے لوگوں کا مجموعی جذبہ — خوشی (Bullish) یا خوف (Bearish)۔</p>
+<div class="example">
+<strong>مثال:</strong> Fear & Greed Index 25 = شدید خوف — لوگ بیچ رہے ہیں۔
+</div>
+</div>
+
+<div class="term">
+<h3>۸. Fear & Greed Index</h3>
+<div class="en">English: Fear & Greed Index</div>
+<p>0-100 نمبر — 0-25 شدید خوف، 25-45 خوف، 45-55 بے پرواہی، 55-75 لالچ، 75-100 شدید لالچ۔</p>
+<div class="example">
+<strong>مثال:</strong> Index = 20 — شدید خوف — اچھا وقت خریدنے کا ہو سکتا ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۹. وolumn (Trading Volume)</h3>
+<div class="en">English: Trading Volume</div>
+<p>ایک وقت میں کل خرید و فروخت کی مقدار — زیادہ وolumn = زیادہ دلچسپی۔</p>
+<div class="example">
+<strong>مثال:</strong> BTC میں Volume $50B — یعنی آج بہت ٹریڈنگ ہوئی۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۰. مارکیٹ کیپ (Market Cap)</h3>
+<div class="en">English: Market Capitalization</div>
+<p>کسی کرنسی کی کل قیمت — قیمت × کل تعداد۔ بڑا market cap = مضبوط کرنسی۔</p>
+<div class="example">
+<strong>مثال:</strong> BTC $60,000 × 19M coins = $1.14T market cap — دنیا کی سب سے بڑی کرپٹو۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۱. ٹوکنomics (Tokenomics)</h3>
+<div class="en">English: Tokenomics</div>
+<p>کرپٹو ٹوکن کی بنیادی ساخت — کل تعداد، اسٹیکنگ، برننگ، distributions۔</p>
+<div class="example">
+<strong>مثال:</strong> ETH میں سالانہ 2% برننگ — supply کم ہو رہی ہے — قیمت بڑھ سکتی ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۲. فانڈامنٹلز (Fundamentals)</h3>
+<div class="en">English: Fundamentals</div>
+<p>کسی پروجیکٹ یا کمپنی کی بنیادی معلومات — ٹیم، ٹیکنالوجی، یوز کیس، ریونیو۔</p>
+<div class="example">
+<strong>مثال:</strong> Ethereum کا فانڈامنٹل مضبوط ہے — بڑی ٹیم، زیادہ یوز، ڈیونٹرلائزڈ۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۳. ریویو (Revenue)</h3>
+<div class="en">English: Revenue</div>
+<p>کمپنی کی کل آمدنہ — کتنے پیسے آئے۔ زیادہ ریویو = مضبوط کمپنی۔</p>
+<div class="example">
+<strong>مثال:</strong> Binance کا ریویو $10B+ سالانہ — دنیا کی سب سے بڑی ایکسچینج۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۴. اے ٹی ایف (ETF)</h3>
+<div class="en">English: Exchange-Traded Fund</div>
+<p>ایک فنڈ جو سٹاکس/کرپٹو میں سرمایہ کاری کرتا ہے — عام لوگ اسے خرید سکتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> Bitcoin ETF approved — institutional investors نے BTC خریدنا شروع کیا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۵. اسٹیکنگ (Staking)</h3>
+<div class="en">English: Staking</div>
+<p>اپنی کرپٹو کو لاک کر کے نیٹ ورک کی حفاظت کرنا اور بدلے میں انعام پانا۔</p>
+<div class="example">
+<strong>مثال:</strong> ETH اسٹیک پر 4-5% سالانہ منافہ — پیسوں پر بینک سود سے بہتر۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۶. ہیلنگ (Halving)</h3>
+<div class="en">English: Halving</div>
+<p>بٹ کوائن میں ہر 4 سال بعد mining reward آدھا ہو جاتا ہے — supply کم ہوتی ہے، قیمت بڑھتی ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> 2024 halving — BTC mining reward 6.25 سے 3.125 ہوا — قیمت اٹھی۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۷. فورک (Fork)</h3>
+<div class="en">English: Fork</div>
+<p>بلاک چین میں تقسیم — جب نیا ورژن بن جائے۔ Hard Fork = نئی کرنسی، Soft Fork = اپ ڈیٹ۔</p>
+<div class="example">
+<strong>مثال:</strong> Ethereum Classic — Ethereum کا Hard Fork 2016 میں ہوا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۸. گس گیس (Gas Fees)</h3>
+<div class="en">English: Gas Fees</div>
+<p>Ethereum پر ٹرانزیکشن کی فیس — جتنا زیادہ network busy, اتنا زیادہ gas fee۔</p>
+<div class="example">
+<strong>مثال:</strong> ETH transfer $5 gas fee — NFT mint $50 gas fee (busy time پر)۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۹. اسٹیبل کوائن (Stablecoin)</h3>
+<div class="en">English: Stablecoin</div>
+<p>کرپٹو جس کی قیمت ہمیشہ $1 کے قریب رہتی ہے — USDT، USDC، DAI۔</p>
+<div class="example">
+<strong>مثال:</strong> USDT — 1 USDT = 1 USD ہمیشہ — stable ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۲۰. اپٹیکن (Adoption)</h3>
+<div class="en">English: Adoption</div>
+<p>کرپٹو یا ٹیکنالوجی کا عام استعمال — جتنا زیادہ adoption، اتنا مضبوط۔</p>
+<div class="example">
+<strong>مثال:</strong> El Salvador نے BTC کو قانونی ادايگي قرار دیا = adoption بڑھا۔
+</div>
+</div>
+
+<div class="keypoints">
+<h3>🔑 اہم نکات</h3>
+<p>بنیادی تجزیہ خبروں پر مبنی فیصلہ ہے — ری اکشن نہیں بلکہ پیش بینی۔</p>
+<p>News سے پہلے market move کر چکتا ہے — "Buy the rumor, sell the news"۔</p>
+<p>ہر خبر اہم نہیں — اہم خبروں پر توجہ دیں (NFP, CPI, Fed Rate)۔</p>
+<p>سینٹائمنٹ index اہم ہے — Extreme Fear میں خریدیں، Extreme Greed میں بیچیں۔</p>
+</div>
+
+<div class="notice">
+<strong>⚠️ یاد رکھیں:</strong> بنیادی تجزیہ میں وقت لگتا ہے — جلد بازی نہ کریں۔ خبروں کا انتظار کریں، فیصلہ سمجھداری سے کریں۔
+</div>
+
+<div class="nav">
+    <a href="chapter2.html">⬅ باب ۲</a>
+    <span>باب ۳</span>
+    <a href="chapter4.html">باب ۴ ➡</a>
+</div>
+
+<div class="footer">
+    © ٹریڈنگ گلوسری — تمام حقوق محفوظ
+</div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۱: چارٹ کی اقسام</title>
+    <style>    body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+    h1 { font-size: 42px; color: #00b4d8; text-align: center; margin-bottom: 30px; }
+    h2 { font-size: 34px; color: #e94560; margin-top: 40px; line-height: 1.7; }
+    h3 { font-size: 30px; color: #00b4d8; margin-top: 30px; line-height: 1.7; }
+    p { margin: 0 0 20px 0; text-align: justify; }
+    .concept { background: #16213e; border-right: 5px solid #00b4d8; padding: 20px; border-radius: 10px; margin: 20px 0; }
+    .concept h3 { margin-top: 0; color: #00b4d8; font-size: 28px; }
+    .concept .en { color: #e94560; font-size: 24px; margin-bottom: 10px; }
+    .example { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 10px; }
+    .example strong { color: #e94560; }
+    .diagram { text-align: center; background: #16213e; border-radius: 15px; padding: 30px; margin: 30px 0; overflow: hidden; }
+    .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .notice { background: #2d1b1b; border: 2px solid #e94560; border-radius: 12px; padding: 15px 20px; margin: 30px 0; font-size: 22px; color: #f0a0a0; }
+    .nav { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
+    .nav a, .nav span { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+    .nav a:hover { background: #e94560; color: #fff; }
+    .nav span { color: #666; opacity: 0.45; }
+    .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+    svg text { direction: rtl; }
+    .keypoints { background: #16213e; border-right: 5px solid #00b4d8; border-radius: 10px; padding: 18px 24px; margin: 25px 0; }
+    .keypoints h3 { margin-top: 0; color: #00b4d8; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #16213e; border-radius: 10px; overflow: hidden; }
+    th { background: #00b4d8; color: #1a1a2e; padding: 12px 15px; text-align: right; font-weight: bold; }
+    td { padding: 10px 15px; border-bottom: 1px solid #0f3460; text-align: right; }
+    tr:nth-child(even) { background: #0f3460; }
+    .tip { background: #0d2818; border-right: 5px solid #26a69a; padding: 15px; border-radius: 10px; margin: 15px 0; }
+    .warning { background: #2d1b1b; border-right: 5px solid #e94560; padding: 15px; border-radius: 10px; margin: 15px 0; }
+</style>
+</head>
+<body oncontextmenu="return false;">
+    <div class="nav">
+        <a href="index.html">فہرست</a>
+        <span>باب ۱</span>
+        <a href="chapter2.html">باب ۲ ➡</a>
+    </div>
+    <h1>باب ۱: چارٹ کی اقسام</h1>
+    <p style="text-align:center; color:#aaa;">Chart Types — قیمت کو سمجھنے کے طریقے</p>
+
+    <div class="concept">
+        <h3>۱. لائن چارٹ (Line Chart)</h3>
+        <div class="en">English: Line Chart</div>
+        <p>سب سے سادہ چارٹ — صرف کلوز قیمت کو لکیروں سے جوڑا جاتا ہے۔ مختصر میں ٹریڈنگ کا رخ دکھاتا ہے۔</p>
+        <div class="example">
+            <strong>استعمال:</strong> جب آپ کو صرف ٹریڈ کی سمت دیکھنی ہو — مثال: BTC 7 دنوں کا لائن چارٹ — اوپر جا رہا ہے = اپ ٹریڈ۔
+        </div>
+    </div>
+
+    <div class="concept">
+        <h3>۲. بار چارٹ (Bar Chart)</h3>
+        <div class="en">English: Bar Chart (OHLC)</div>
+        <p>ہر بار میں 4 قیمتیں — اوپن (Open)، ہائی (High)، لو (Low)، کلوز (Close)۔ لائن چارٹ سے مزید معلومات ملتی ہیں۔</p>
+        <div class="example">
+            <strong>انگلیزی بار:</strong> بائیں طرف خریداری (Open)۔ دائیں طرف فروخت (Close)۔ اوپر/نیچے ریکھیں High/Low۔
+        </div>
+    </div>
+
+    <div class="concept">
+        <h3>۳. کینڈل سٹک چارٹ (Candlestick Chart)</h3>
+        <div class="en">English: Candlestick Chart</div>
+        <p>سب سے مقبول چارٹ — بار چارٹ کی طرح OHLC مگر رنگین۔ سبز = بیچنے والا (Bearish)۔ سُرخ/سبز = خریدنے والا (Bullish)۔</p>
+        <div class="example">
+            <strong>سبز کینڈل:</strong> اوپن = نیچے، کلوز = اوپر (قیمت بڑھی)<br>
+            <strong>سُرخ کینڈل:</strong> اوپن = اوپر، کلوز = نیچے (قیمت گری)
+        </div>
+    </div>
+
+    <div class="concept">
+        <h3>۴. Heikin Ashi</h3>
+        <div class="en">English: Heikin Ashi Candles</div>
+        <p>خ Intro: خبروں کی ڈیٹا — Heikin Ashi ٹریڈنگ کا ڈیٹا</p>
+        <p>خصوصی چارٹ جو قیمت کو چھپاتا ہے — سفید/کالی کینڈلز — خبروں کا خاص انڈیکیٹر</p>
+        <div class="example">
+            <strong>استعمال:</strong> قیمت میں ہونے والی تبدیلی — قیمت بڑھنے کے لیے سبز کینڈلز — قیمت گرنے کے لیے سرخ کینڈلز
+        </div>
+    </div>
+
+    <div class="concept">
+        <h3>۵. چارٹ کا وقت (Timeframes)</h3>
+        <div class="en">English: Timeframes</div>
+        <p>ہر کینڈل کتنا وقت دکھاتی ہے — 1 منٹ، 5 منٹ، 1 گھنٹہ، 4 گھنٹہ، روزانہ، ہفتہ وار، مہینہ وار۔</p>
+        <table>
+            <tr><th>ٹائم فریم</th><th>استعمال</th><th>ٹریڈر</th></tr>
+            <tr><td>1M - 5M</td><td>اسکیلپنگ</td><td>اسکیلپر</td></tr>
+            <tr><td>15M - 1H</td><td>ڈے ٹریڈنگ</td><td>ڈے ٹریڈر</td></tr>
+            <tr><td>4H - Daily</td><td>سوئنگ</td><td>سوئنگ ٹریڈر</td></tr>
+            <tr><td>Weekly - Monthly</td><td>پوزیشن</td><td>پوزیشن ٹریڈر</td></tr>
+        </table>
+    </div>
+
+    <div class="concept">
+        <h3>۶. OHLC قیمتیں</h3>
+        <div class="en">English: OHLC - Open, High, Low, Close</div>
+        <p>ہر کینڈل/بار میں 4 قیمتیں ہوتی ہیں:</p>
+        <table>
+            <tr><th>نام</th><th>معنی</th><th>وضاحت</th></tr>
+            <tr><td>Open</td><td>شروعاتی قیمت</td><td>کینڈل شروع ہونے والی قیمت</td></tr>
+            <tr><td>High</td><td>اعلیٰ ترین قیمت</td><td>اس وقت میں سب سے زیادہ قیمت</td></tr>
+            <tr><td>Low</td><td>کم ترین قیمت</td><td>اس وقت میں سب سے کم قیمت</td></tr>
+            <tr><td>Close</td><td>اختتامی قیمت</td><td>کینڈل ختم ہونے والی قیمت</td></tr>
+        </table>
+    </div>
+
+    <div class="concept">
+        <h3>۷. Body اور Wicks</h3>
+        <div class="en">English: Body and Wicks/Shadows</div>
+        <p><strong>Body:</strong> اوپن اور کلوز کے درمیان عجیب۔<br>
+        <strong>Upper Wick:</strong> کلوز سے High تک۔<br>
+        <strong>Lower Wick:</strong> کلوز سے Low تک۔</p>
+        <div class="example">
+            <strong> Lambi Wick:</strong> قیمت نے تلاش کی مگر واپس آ گئی — رد۔<br>
+            <strong>چھوٹی Body:</strong> خریدار اور فروخت کنندگان برابر — indecision۔
+        </div>
+    </div>
+
+    <div class="keypoints">
+        <h3>🔑 اہم نکات</h3>
+        <p>نئے ٹریڈرز کے لیے کینڈل سٹک چارٹ بہترین ہے۔</p>
+        <p>ہمیشہ کم از کم 2 ٹائم فریم دیکھیں — مثال: Daily + 4H۔</p>
+        <p>OHLC سمجھیں — بغیر اس کے چارٹ پڑھنا ناممکن ہے۔</p>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">فہرست</a>
+        <span>باب ۱</span>
+        <a href="chapter2.html">باب ۲ ➡</a>
+    </div>
+    <div class="footer">© ٹیکنیکل اینالسس کورس — تمام حقوق محفوظ</div>
+</body>
+</html>

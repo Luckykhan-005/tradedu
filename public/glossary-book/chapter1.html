@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب ۱: بنیادی اصطلاحات — Trading Basics</title>
+        <style>
+        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #b8860b; text-align: center; margin-bottom: 30px; }
+        h2 { font-size: 34px; color: #e94560; margin-top: 40px; line-height: 1.7; }
+        h3 { font-size: 30px; color: #b8860b; margin-top: 30px; line-height: 1.7; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .term { background: #16213e; border-right: 5px solid #b8860b; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .term h3 { margin-top: 0; color: #b8860b; font-size: 28px; }
+        .term .en { color: #00b4d8; font-size: 24px; margin-bottom: 10px; }
+        .term .example { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        .term .example strong { color: #e94560; }
+        .diagram { text-align: center; background: #16213e; border-radius: 15px; padding: 30px; margin: 30px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .notice { background: #2d1b1b; border: 2px solid #e94560; border-radius: 12px; padding: 15px 20px; margin: 30px 0; font-size: 22px; color: #f0a0a0; }
+        .nav { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
+        .nav a, .nav span { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        .nav span { color: #666; opacity: 0.45; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        svg text { direction: rtl; }
+        .keypoints { background: #16213e; border-right: 5px solid #b8860b; border-radius: 10px; padding: 18px 24px; margin: 25px 0; }
+        .keypoints h3 { margin-top: 0; color: #b8860b; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #16213e; border-radius: 10px; overflow: hidden; }
+        th { background: #b8860b; color: #1a1a2e; padding: 12px 15px; text-align: right; font-weight: bold; }
+        td { padding: 10px 15px; border-bottom: 1px solid #0f3460; text-align: right; }
+        tr:nth-child(even) { background: #0f3460; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div class="nav">
+        <a href="index.html">فہرست</a>
+        <span>باب ۱</span>
+        <a href="chapter2.html">باب ۲ ➡</a>
+    </div>
+    <h1>باب ۱: بنیادی اصطلاحات</h1>
+    <p style="text-align:center; color:#aaa; font-size:24px;">Trading Basics — شروعاتی ٹریڈنگ کی اصطلاحات</p>
+
+<div class="diagram">
+<h3>📊 ٹریڈنگ کی بنیادی ساخت</h3>
+<svg width="700" height="350" viewBox="0 0 700 350">
+  <rect width="700" height="350" fill="#0d1b2a" rx="15"/>
+  <text x="350" y="40" text-anchor="middle" fill="#b8860b" font-size="22" font-weight="bold">ٹریڈنگ کا بنیادی فلو</text>
+  
+  <rect x="50" y="70" width="150" height="60" rx="10" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
+  <text x="125" y="95" text-anchor="middle" fill="#eee" font-size="16">ٹریڈر</text>
+  <text x="125" y="115" text-anchor="middle" fill="#aaa" font-size="14">(آپ)</text>
+  
+  <rect x="280" y="70" width="150" height="60" rx="10" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
+  <text x="355" y="95" text-anchor="middle" fill="#eee" font-size="16">بروکر / ایکسچینج</text>
+  <text x="355" y="115" text-anchor="middle" fill="#aaa" font-size="14">(Platform)</text>
+  
+  <rect x="500" y="70" width="150" height="60" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2"/>
+  <text x="575" y="95" text-anchor="middle" fill="#eee" font-size="16">مارکیٹ</text>
+  <text x="575" y="115" text-anchor="middle" fill="#aaa" font-size="14">(Market)</text>
+  
+  <line x1="200" y1="100" x2="280" y2="100" stroke="#b8860b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="430" y1="100" x2="500" y2="100" stroke="#00b4d8" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <rect x="50" y="170" width="150" height="60" rx="10" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
+  <text x="125" y="195" text-anchor="middle" fill="#eee" font-size="16">خریداری</text>
+  <text x="125" y="215" text-anchor="middle" fill="#26a69a" font-size="14">(Buy/Long)</text>
+  
+  <rect x="280" y="170" width="150" height="60" rx="10" fill="#16213e" stroke="#e94560" stroke-width="2"/>
+  <text x="355" y="195" text-anchor="middle" fill="#eee" font-size="16">فروخت</text>
+  <text x="355" y="215" text-anchor="middle" fill="#e94560" font-size="14">(Sell/Short)</text>
+  
+  <rect x="500" y="170" width="150" height="60" rx="10" fill="#16213e" stroke="#ffd700" stroke-width="2"/>
+  <text x="575" y="195" text-anchor="middle" fill="#eee" font-size="16">منافہ / نقصان</text>
+  <text x="575" y="215" text-anchor="middle" fill="#ffd700" font-size="14">(Profit/Loss)</text>
+  
+  <rect x="150" y="270" width="400" height="50" rx="10" fill="#0f3460" stroke="#b8860b" stroke-width="2"/>
+  <text x="350" y="300" text-anchor="middle" fill="#eee" font-size="16">آرڈر (Order) — خرید/فروخت کی درخواست</text>
+  
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#b8860b"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+
+<h2>📊 بنیادی اصطلاحات</h2>
+
+<div class="term">
+<h3>۱. ٹریڈنگ (Trading)</h3>
+<div class="en">English: Trading</div>
+<p>مالی اثاثوں (کرپٹو کرنسی، فاریکس، سٹاکس وغیرہ) کی خرید و فروخت کا عمل۔ آپ کسی چیز کی قیمت کم ہونے پر خریدتے ہیں اور زیادہ ہونے پر بیچتے ہیں — اس سے منافہ کماتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> آپ نے بٹ کوائن $30,000 پر خریدا اور $35,000 پر بیچا — $5,000 کا منافہ ہوا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۲. بائی (Buy / Long)</h3>
+<div class="en">English: Buy / Long Position</div>
+<p>کسی اثاثے کی خریداری کرنا اس امید میں کہ اس کی قیمت بڑھے گی۔ جب آپ "لانگ" پوزیشن لیتے ہیں تو آپ چاہتے ہیں کہ مارکیٹ اوپر جائے۔</p>
+<div class="example">
+<strong>مثال:</strong> آپ نے سونا (Gold) $2000 پر خریدا — اگر قیمت $2100 ہوئی تو آپ کا منافہ $100 فی اونس۔
+</div>
+</div>
+
+<div class="term">
+<h3>۳. سیل / شارٹ (Sell / Short)</h3>
+<div class="en">English: Sell / Short Position</div>
+<p>کسی اثاثے کی فروخت کرنا (قرض لے کر بھی) اس امید میں کہ قیمت گرے۔ "شارٹ" پوزیشن میں آپ پہلے بیچتے ہیں اور بعد میں خریدتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> آپ نے ایتھریم (ETH) قرض لے کر $2000 پر بیچا — قیمت $1800 ہوئی تو آپ $200 پر خرید کر واپس کیا — $200 منافہ۔
+</div>
+</div>
+
+<div class="term">
+<h3>۴. پوزیشن (Position)</h3>
+<div class="en">English: Position</div>
+<p>آپ کی فی الحال فعال ٹریڈ — یعنی آپ نے کون سا اثاثہ خریدا یا بیچا ہے اور اس میں کتنا سرمایہ لگایا ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> "میری بٹ کوائن میں $5000 کی پوزیشن ہے" — اس کا مطلب ہے آپ نے $5000 کی بٹ کوائن خرید رکھی ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۵. لیوریج (Leverage)</h3>
+<div class="en">English: Leverage</div>
+<p>بروکر سے قرض لے کر اپنے سرمایے سے زیادہ ٹریڈنگ کرنا۔ لیوریج آپ کے منافے اور نقصان دونوں کو بڑھاتا ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> 10x لیوریج سے $1000 سے $10,000 کی ٹریڈنگ کر سکتے ہیں۔ اگر 1% منافہ ہوا تو $100 (10% آپ کے سرمایے پر)۔
+</div>
+</div>
+
+<div class="term">
+<h3>۶. مارجن (Margin)</h3>
+<div class="en">English: Margin</div>
+<p>لیوریج سے ٹریڈنگ کے لیے بروکر کے پاس رکھی جانے والی ڈپازٹ رقم۔ یہ آپ کی "سیکیورٹی ڈپازٹ" ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> 10x لیوریج سے $10,000 کی ٹریڈ کے لیے $1000 مارجن چاہیے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۷. اسٹاپ لاس (Stop Loss)</h3>
+<div class="en">English: Stop Loss (SL)</div>
+<p>خودکار نقصان بندی — ایک آٹومیٹک آرڈر جو مخصوص قیمت پر آپ کی پوزیشن بند کر دیتا ہے تاکہ نقصان محدود رہے۔</p>
+<div class="example">
+<strong>مثال:</strong> آپ نے BTC $30,000 پر خریدا اور SL $29,000 پر رکھا — اگر قیمت $29,000 آئی تو آٹومیٹک بیچ دیا جائے گا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۸. ٹیک پرافٹ (Take Profit)</h3>
+<div class="en">English: Take Profit (TP)</div>
+<p>خودکار منافہ بندی — ایک آٹومیٹک آرڈر جو مخصوص قیمت پر آپ کی پوزیشن بند کر کے منافہ لے لیتا ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> آپ نے BTC $30,000 پر خریدا اور TP $33,000 پر رکھا — اگر قیمت $33,000 آئی تو آٹومیٹک بیچ کر منافہ ہو جائے گا۔
+</div>
+</div>
+
+<div class="term">
+<h3>۹. پپ (Pip)</h3>
+<div class="en">English: Percentage in Point (Pip)</div>
+<p>فاریکس میں قیمت کی کم ترین حرکت کی اکائی۔ عام طور پر چوتھے اعشاریے کا چوتھا ہندسہ۔</p>
+<div class="example">
+<strong>مثال:</strong> EUR/USD 1.1050 سے 1.1051 — 1 pip حرکت۔ ہر pip کی قیمت لیوریج پر منحصر ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۰. لاس (Lot)</h3>
+<div class="en">English: Lot</div>
+<p>ٹریڈنگ کی معیاری مقدار۔ فاریکس میں 1Standard Lot = 100,000 units، 1Mini Lot = 10,000 units، 1Micro Lot = 1,000 units۔</p>
+<div class="example">
+<strong>مثال:</strong> 1 Standard Lot EUR/USD = 100,000 یورو کی ٹریڈنگ۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۱. اسپریڈ (Spread)</h3>
+<div class="en">English: Spread</div>
+<p>"Buy" (BID) اور "Sell" (ASK) قیمت کے درمیان کا فرق۔ یہ بروکر کی فیس ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> EUR/USD کی BID قیمت 1.1050 اور ASK 1.1052 — اسپریڈ 2 pips۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۲. کمیشن (Commission)</h3>
+<div class="en">English: Commission</div>
+<p>ہر ٹریڈ پر بروکر کو دی جانے والی فیس۔ کچھ بروکرز اسپریڈ سے کماتے ہیں، کچھ کمیشن سے۔</p>
+<div class="example">
+<strong>مثال:</strong> کرپٹو میں 0.1% کمیشن — $10,000 کی ٹریڈ پر $10 فیس۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۳. بُلISH / بیئرش (Bullish / Bearish)</h3>
+<div class="en">English: Bullish / Bearish</div>
+<p><strong>بولش:</strong> مارکیٹ اوپر جانے کی توقع — خوشی کی صورت۔<br><strong>بیئرش:</strong> مارکیٹ نیچے جانے کی توقع — غم کی صورت۔</p>
+<div class="example">
+<strong>مثال:</strong> "آج بولش ڈے ہے" — مارکیٹ بڑھ رہا ہے۔ "بیئرش ٹریڈ" — قیمت گر رہی ہے۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۴. والیٹ (Wallet)</h3>
+<div class="en">English: Wallet</div>
+<p>کرپٹو کرنسی رکھنے کا ڈیجیٹل بٹوا۔ اس میں آپ کی پرائیویٹ کیز اور پبلک کیز ہوتی ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> MetaMask ایک مقبول کرپٹو والیٹ ہے — اس میں ETH اور دوسرے ٹوکنز رکھ سکتے ہیں۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۵. ایکسچینج (Exchange)</h3>
+<div class="en">English: Exchange</div>
+<p>وہ پلیٹ فارم جہاں ٹریڈرز کرپٹو یا دوسرے اثاثے خریدتے اور بیچتے ہیں۔</p>
+<div class="example">
+<strong>مثال:</strong> Binance، Coinbase، Kraken — سب ایکسچینجز ہیں۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۶. بروکر (Broker)</h3>
+<div class="en">English: Broker</div>
+<p>وہ کمپنی جو ٹریڈرز کو مارکیٹ تک رسائی فراہم کرتی ہے۔ بروکر آپ کے آرڈرز مارکیٹ تک پہنچاتا ہے۔</p>
+<div class="example">
+<strong>مثال:</strong> Exness، IC Markets، Pepperstone — فاریکس بروکرز۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۷. ڈیمو اکاؤنٹ (Demo Account)</h3>
+<div class="en">English: Demo Account</div>
+<p>ورچوئل پیسوں سے ٹریڈنگ کی مشق — اصل پیسہ لگایا نہیں جاتا۔ نئے ٹریڈرز کے لیے بہترین۔</p>
+<div class="example">
+<strong>مثال:</strong> Binance پر $10,000 کا ڈیمو اکاؤنٹ — مفت میں ٹریڈنگ سیکھیں۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۸. اسکیلپنگ (Scalping)</h3>
+<div class="en">English: Scalping</div>
+<p>بہت مختصر مدت کی ٹریڈنگ — چند سیکنڈ سے چند منٹ میں ٹریڈ بند کرنا۔ چھوٹے منافے، زیادہ ٹریڈز۔</p>
+<div class="example">
+<strong>مثال:</strong> 1 منٹ میں خریدا اور 2 منٹ میں بیچا — $10-$50 منافہ ہر ٹریڈ پر۔
+</div>
+</div>
+
+<div class="term">
+<h3>۱۹. سوئنگ ٹریڈنگ (Swing Trading)</h3>
+<div class="en">English: Swing Trading</div>
+<p>چند دنوں سے چند ہفتوں تک ٹریڈ رکھنا۔ قیمت کی بڑی حرکات سے منافہ کمانا۔</p>
+<div class="example">
+<strong>مثال:</strong> منگل کو خریدا، جمعہ کو بیچا — ہفتے میں 5% منافہ۔
+</div>
+</div>
+
+<div class="term">
+<h3>۲۰. ڈے ٹریڈنگ (Day Trading)</h3>
+<div class="en">English: Day Trading</div>
+<p>ایک ہی دن میں خریدنا اور بیچنا — رات کو پوزیشن رکھنا ممنوع۔</p>
+<div class="example">
+<strong>مثال:</strong> صبح 9 بجے خریدا، دوپہر 2 بجے بیچا — ایک دن میں ٹریڈ مکمل۔
+</div>
+</div>
+
+<div class="keypoints">
+<h3>🔑 اہم نکات</h3>
+<p>ٹریڈنگ صرف خرید و فروخت نہیں — اس میں حکمت عملی، رسک مینجمنٹ اور صبر ضروری ہے۔</p>
+<p>لیوریج ایک تلوار کی دھار ہے — منافہ بھی بڑھاتا ہے اور نقصان بھی۔</p>
+<p>ہمیشہ اسٹاپ لاس لگانا نہ بھولیں — یہ آپ کی "سیٹ بیلٹ" ہے۔</p>
+<p>ڈیمو اکاؤنٹ سے شروع کریں — اصل پیسہ لگانے سے پہلے مشق ضروری ہے۔</p>
+</div>
+
+<div class="notice">
+<strong>⚠️ یاد رکھیں:</strong> ہر ٹریڈ میں نقصان کا خطرہ ہوتا ہے۔ صرف وہی رقم لگائیں جو آپ گم کر سکتے ہیں۔
+</div>
+
+<div class="nav">
+    <a href="index.html">فہرست</a>
+    <span>باب ۱</span>
+    <a href="chapter2.html">باب ۲ ➡</a>
+</div>
+
+<div class="footer">
+    © ٹریڈنگ گلوسری — تمام حقوق محفوظ
+</div>
+
+</body>
+</html>
