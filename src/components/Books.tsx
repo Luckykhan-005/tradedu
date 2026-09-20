@@ -222,7 +222,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: '/trading-strategies/index.html',
     tags: ['Urdu', 'Strategies', '12 Setups'],
-    cover: '/covers/Trading-Strategies.jpg',
+    cover: '/covers/Trading-Strategies-Setups.jpg',
   },
   {
     id: 'risk-management',
@@ -252,7 +252,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/trading-psychology/index.html',
     tags: ['Urdu', 'Psychology', 'Complete Course'],
-    cover: '/covers/Trading-Psychology.jpg',
+    cover: '/covers/Trading-Psychology-Course.jpg',
   },
   {
     id: 'professional-system',
