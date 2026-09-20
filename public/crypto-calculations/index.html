@@ -6,7 +6,7 @@
 <title>Crypto Trading Calculations — Spot &amp; Futures Mastery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#0a0a0a;
@@ -38,10 +38,8 @@
   }
   body{
     margin:0;
-    font-family:'Noto Nastaliq Urdu', 'Literata', Georgia, serif;
-    line-height:2.4;
-    word-spacing:4px;
-    letter-spacing:0.5px;
+    font-family:'Inter', 'Literata', Georgia, serif;
+    line-height:1.7;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
@@ -54,12 +52,11 @@
   img,svg{ max-width:100%; -webkit-user-drag:none; }
 
   h1,h2,h3,h4{
-    font-family:'Noto Nastaliq Urdu', 'Newsreader', Georgia, serif;
+    font-family:'Newsreader', Georgia, serif;
     color:var(--ink);
     font-weight:600;
-    line-height:2.0;
-    margin:0 0 0.8em 0;
-    padding-bottom:0.3em;
+    line-height:1.25;
+    margin:0 0 0.5em 0;
   }
 
   a{ color:var(--gold-deep); }
@@ -73,7 +70,7 @@
     border-bottom:1px solid var(--line);
   }
   .topbar .brand{
-    font-family:'Noto Nastaliq Urdu', 'Newsreader', serif;
+    font-family:'Newsreader', serif;
     font-weight:600;
     font-size:1.05rem;
     letter-spacing:0.2px;
@@ -166,16 +163,13 @@
   .cover h1{
     font-size:2.6rem;
     max-width:14ch;
-    line-height:2.2;
-    margin-bottom:20px;
   }
   .cover .subtitle{
     font-size:1.15rem;
     color:var(--ink-soft);
     font-style:italic;
-    margin-top:18px;
+    margin-top:14px;
     max-width:44ch;
-    line-height:2.2;
   }
   .cover .meta{
     margin-top:26px;
@@ -198,24 +192,22 @@
     color:var(--gold-deep);
     font-size:0.95rem;
   }
-  .chapter h2{ font-size:1.7rem; margin-bottom:0; line-height:2.0; }
+  .chapter h2{ font-size:1.7rem; margin-bottom:0; }
   .chapter-intro{
     color:var(--ink-soft);
     font-size:1.02rem;
-    margin:18px 0 32px;
-    padding-bottom:28px;
+    margin:14px 0 28px;
+    padding-bottom:26px;
     border-bottom:1px solid var(--line);
-    line-height:2.4;
   }
   .chapter h3{
     font-size:1.2rem;
-    margin-top:40px;
-    padding-top:4px;
-    line-height:2.0;
+    margin-top:34px;
+    padding-top:2px;
   }
-  p{ margin:0 0 20px; line-height:2.4; }
-  ul, ol{ margin:0 0 22px; padding-left:1.5em; }
-  li{ margin-bottom:10px; line-height:2.2; }
+  p{ margin:0 0 16px; }
+  ul, ol{ margin:0 0 18px; padding-left:1.3em; }
+  li{ margin-bottom:6px; }
 
   strong{ color:var(--ink); font-weight:600; }
 
@@ -224,8 +216,8 @@
     border:1px solid var(--line-strong);
     border-left:3px solid var(--gold);
     border-radius:var(--radius);
-    padding:20px 24px;
-    margin:26px 0;
+    padding:16px 20px;
+    margin:22px 0;
   }
   .formula-label{
     font-family:'JetBrains Mono', monospace;
@@ -243,7 +235,7 @@
   }
   .formula .note{
     display:block;
-    font-family:'Noto Nastaliq Urdu', 'Literata', serif;
+    font-family:'Literata', serif;
     font-size:0.86rem;
     color:var(--ink-soft);
     margin-top:8px;
@@ -252,8 +244,8 @@
   .example-box{
     background:var(--paper-deep);
     border-radius:var(--radius);
-    padding:22px 24px;
-    margin:26px 0;
+    padding:18px 20px;
+    margin:22px 0;
   }
   .example-label{
     font-family:'JetBrains Mono', monospace;
@@ -269,10 +261,9 @@
     margin-top:6px;
   }
   .example-box td{
-    padding:10px 8px;
+    padding:6px 4px;
     border-bottom:1px solid var(--line);
     vertical-align:top;
-    line-height:2.0;
   }
   .example-box td:first-child{ color:var(--ink-soft); width:52%; }
   .example-box td:last-child{ font-family:'JetBrains Mono', monospace; text-align:right; }
@@ -281,13 +272,12 @@
   .result-row.loss td:last-child{ color:var(--loss); }
 
   .callout{
-    display:flex; gap:14px;
+    display:flex; gap:12px;
     background:var(--profit-bg);
     border-radius:var(--radius);
-    padding:18px 22px;
-    margin:26px 0;
+    padding:14px 18px;
+    margin:22px 0;
     font-size:0.92rem;
-    line-height:2.2;
   }
   .callout.warn{ background:var(--loss-bg); }
   .callout .dot{ flex-shrink:0; font-family:'JetBrains Mono', monospace; color:var(--ink-faint); }
@@ -298,15 +288,14 @@
     font-family:'JetBrains Mono', monospace;
     font-size:0.72rem;
     color:var(--ink-faint);
-    margin-top:14px;
+    margin-top:10px;
     letter-spacing:0.02em;
-    line-height:1.8;
   }
 
   /* ===== Quiz ===== */
   .quiz-block{
-    margin-top:50px;
-    padding-top:36px;
+    margin-top:40px;
+    padding-top:30px;
     border-top:2px dashed var(--line-strong);
   }
   .quiz-block > .quiz-title{
@@ -320,11 +309,11 @@
     background:var(--card);
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:22px 24px 24px;
-    margin-bottom:20px;
+    padding:18px 20px 20px;
+    margin-bottom:16px;
   }
   .quiz-prompt{
-    font-family:'Noto Nastaliq Urdu', 'Newsreader', serif;
+    font-family:'Newsreader', serif;
     font-weight:500;
     font-size:1.02rem;
     margin-bottom:14px;
@@ -332,7 +321,7 @@
   .quiz-options{ display:flex; flex-direction:column; gap:8px; }
   .quiz-option{
     text-align:left;
-    font-family:'Noto Nastaliq Urdu', 'Literata', serif;
+    font-family:'Literata', serif;
     font-size:0.94rem;
     padding:10px 14px;
     background:var(--paper);
@@ -358,13 +347,12 @@
 
   .glossary dl{ margin:0; }
   .glossary dt{
-    font-family:'Noto Nastaliq Urdu', 'Newsreader', serif;
+    font-family:'Newsreader', serif;
     font-weight:600;
     color:var(--gold-deep);
-    margin-top:22px;
-    line-height:2.0;
+    margin-top:16px;
   }
-  .glossary dd{ margin:6px 0 0; color:var(--ink-soft); line-height:2.2; }
+  .glossary dd{ margin:4px 0 0; color:var(--ink-soft); }
 
   .disclaimer{
     margin-top:60px;
@@ -402,17 +390,17 @@
 
   @media print{
     body::before{
-      content:"یہ مواد اس بک ہب پر آنلائن ریڈنگ کے لیے ہے — پرنٹ/ایکسپورٹ غیر فعال ہے۔";
+      content:"Ye content is book hub par online reading k liye hai — print/export disabled.";
       display:block; padding:40px; text-align:center; font-size:20px;
     }
     .layout{ display:none; }
   }
 </style>
 </head>
-<body oncontextmenu="return false;" style="background:#0a0a0a;">
+<body oncontextmenu="return false;">
 
 <div class="topbar">
-  <button class="menu-btn" id="menuBtn" aria-label="ابواب کا فہرست"></button>
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
   <div class="brand">Crypto Calculations<span> — Spot &amp; Futures</span></div>
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
 </div>
@@ -422,20 +410,20 @@
 <div class="layout">
 
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-label">فہرست</div>
+    <div class="sidebar-label">CONTENTS</div>
     <nav class="toc">
-      <a href="#cover"><span class="toc-num">00</span>مقدمہ</a>
-      <a href="#ch1"><span class="toc-num">01</span>بنیادی اصطلاحات</a>
-      <a href="#ch2"><span class="toc-num">02</span>اسپاٹ ٹریڈنگ کیلکولیشنز</a>
-      <a href="#ch3"><span class="toc-num">03</span>فیوچرز ٹریڈنگ کی بنیادی باتیں</a>
-      <a href="#ch4"><span class="toc-num">04</span>لیوریج سمجھیں</a>
-      <a href="#ch5"><span class="toc-num">05</span>فیوچرز پروفٹ/لوس کیلکولیشن</a>
-      <a href="#ch6"><span class="toc-num">06</span>لیکویڈیشن پرائس</a>
-      <a href="#ch7"><span class="toc-num">07</span>رسک اور پوزیشن سائزنگ</a>
-      <a href="#ch8"><span class="toc-num">08</span>فنڈنگ ریٹ</a>
-      <a href="#ch9"><span class="toc-num">09</span>پیسہ مینجمنٹ</a>
-      <a href="#ch10"><span class="toc-num">10</span>آخری مشق کا امتحان</a>
-      <a href="#glossary"><span class="toc-num">11</span>لغت</a>
+      <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+      <a href="#ch1"><span class="toc-num">01</span>Bunyadi Terminology</a>
+      <a href="#ch2"><span class="toc-num">02</span>Spot Trading Calculations</a>
+      <a href="#ch3"><span class="toc-num">03</span>Futures Trading Basics</a>
+      <a href="#ch4"><span class="toc-num">04</span>Leverage Samajhein</a>
+      <a href="#ch5"><span class="toc-num">05</span>Futures P&amp;L Calculation</a>
+      <a href="#ch6"><span class="toc-num">06</span>Liquidation Price</a>
+      <a href="#ch7"><span class="toc-num">07</span>Risk &amp; Position Sizing</a>
+      <a href="#ch8"><span class="toc-num">08</span>Funding Rate</a>
+      <a href="#ch9"><span class="toc-num">09</span>Money Management</a>
+      <a href="#ch10"><span class="toc-num">10</span>Final Practice Test</a>
+      <a href="#glossary"><span class="toc-num">11</span>Glossary</a>
     </nav>
   </aside>
 
@@ -443,32 +431,32 @@
 
     <div class="cover">
       <div class="eyebrow">SPOT &amp; FUTURES · CALCULATION HANDBOOK</div>
-      <h1>Crypto Trading Calculations, صفر سے مہارت تک</h1>
-      <p class="subtitle">اسپاٹ خرید و فروخت سے لے کر فیوچرز لیوریج، لیکویڈیشن اور رسک مینجمنٹ تک — ہر فارمولا، ہر کیلکولیشن، مثالیں اور ڈائیگرامز کے ساتھ۔</p>
+      <h1>Crypto Trading Calculations, Zero Se Mastery Tak</h1>
+      <p class="subtitle">Spot buying-selling se le kar Futures leverage, liquidation aur risk management tak — har formula, har calculation, examples aur diagrams k saath.</p>
       <div class="meta">
         <span>11 CHAPTERS</span>
         <span>50+ PRACTICE QUESTIONS</span>
-        <span>اردو</span>
+        <span>ROMAN URDU</span>
       </div>
     </div>
 
-    <p>یہ کتاب ان طالب علموں کے لیے لکھی گئی ہے جو کرپٹو ٹریڈنگ سیکھ رہے ہیں اور اصل مسئلہ یہ ہوتا ہے کہ کانسپٹ تو سمجھ آتا ہے، لیکن جب اصلی کیلکولیشن کرنے کی باری آتی ہے — منافع کتنا بنا، لیوریج کتنا اثر ڈال رہی ہے، لیکویڈیشن کہاں ہوگی — تو کنفیوژن شروع ہو جاتی ہے۔</p>
-    <p>اس کتاب میں ہر فارمولا کو قدم بہ قدم، نمبروں کے ساتھ، اور حقیقت جیسی مثالوں کے ساتھ سمجھایا گیا ہے۔ ہر باب کے آخر میں مشق کے سوالات بھی دیے گئے ہیں تاکہ آپ خود چیک کر سکیں کہ کانسپٹ کلیئر ہوا یا نہیں۔</p>
+    <p>Ye book un students k liye likhi gayi hai jo crypto trading seekh rahe hain aur asal masla ye hota hai k concept tou samajh aata hai, lekin jab actual calculation karne ki baari aati hai — profit kitna bana, leverage kitna asar dal rahi hai, liquidation kahan hogi — tou confusion shuru ho jati hai.</p>
+    <p>Is book mein har formula ko step-by-step, numbers k saath, aur real jaisi examples k saath samjhaya gaya hai. Har chapter k akhir mein practice questions bhi diye gaye hain taake ap khud check kar saken k concept clear hua ya nahi.</p>
     <div class="callout">
       <span class="dot">›</span>
-      <span>تجویز: ہر فارمولا کو صرف پڑھیں مت — ایک کیلکولیٹر (یا فون) اٹھائیں اور خود نمبروں ڈال کر مشق کریں۔ کیلکولیشن tabhi یاد رہتی ہے جب ہاتھ سے کی جائے۔</span>
+      <span>Suggestion: Har formula ko sirf parhein mat — ek calculator (ya phone) uthayein aur khud numbers dal kar practice karein. Calculation tabhi yaad rehti hai jab hath se ki jaye.</span>
     </div>
 
     <!-- ================= CHAPTER 1 ================= -->
     <section class="chapter" id="ch1">
-      <div class="chapter-head"><span class="chapter-num">01</span><h2>بنیادی اصطلاحات</h2></div>
-      <p class="chapter-intro">آگے بڑھنے سے پہلے چند بنیادی اصطلاحات کلیئر کر لیتے ہیں جو پوری کتاب میں بار بار استعمال ہوں گی۔</p>
+      <div class="chapter-head"><span class="chapter-num">01</span><h2>Bunyadi Terminology</h2></div>
+      <p class="chapter-intro">Aage barhne se pehle chand basic terms clear kar lete hain jo pori book mein baar baar use hongi.</p>
 
-      <h3>اسپاٹ ٹریڈنگ کیا ہے؟</h3>
-      <p><strong>اسپاٹ ٹریڈنگ</strong> کا مطلب ہے آپ کوئی بھی کرپٹو ایسٹ (جیسے بٹکوائن، ایتھیریم) اس کی <strong>موجودہ مارکیٹ پرائس</strong> پر خرید رہے ہیں اور ایسٹ seedha آپ کی والیٹ/اکاؤنٹ میں آ جاتا ہے۔ آپ صرف اتنا ہی ٹریڈ کر سکتے ہیں جتنی آپ کی اپنی رقم (capital) ہو — کوئی ادھار (borrowed) پیسہ اس میں شامل نہیں ہوتا۔</p>
+      <h3>Spot Trading kya hai?</h3>
+      <p><strong>Spot trading</strong> ka matlab hai ap koi bhi crypto asset (jaise Bitcoin, Ethereum) us ki <strong>current market price</strong> par khareed rahe hain aur asset seedha apki wallet/account mein aa jata hai. Ap sirf utna hi trade kar sakte hain jitni apki apni raqam (capital) ho — koi udhar (borrowed) paisa is mein shamil nahi hota.</p>
 
-      <h3>فیوچرز ٹریڈنگ کیا ہے؟</h3>
-      <p><strong>فیوچرز ٹریڈنگ</strong> میں آپ ایسٹ خریدتے یا بیچتے نہیں، بلکہ پرائس کی <strong>مستقبل حرکت</strong> پر ایک "کنٹریکٹ" لیتے ہیں۔ یہاں آپ <strong>لیوریج</strong> استعمال کر کے اپنی اصل رقم سے زیادہ بڑا پوزیشن کھول سکتے ہیں — جس سے منافع اور نقصان دونوں amplify (بڑھ) جاتے ہیں۔</p>
+      <h3>Futures Trading kya hai?</h3>
+      <p><strong>Futures trading</strong> mein ap asset khareedte ya bechte nahi, balke price k <strong>future movement</strong> par ek "contract" lete hain. Yahan ap <strong>leverage</strong> use kar k apni asal raqam se zyada bara position khol sakte hain — jis se profit aur loss dono amplify (barh) jate hain.</p>
 
       <div class="example-box">
         <div class="example-label">SPOT VS FUTURES — FARQ EK NAZAR MEIN</div>
@@ -480,92 +468,52 @@
         </table>
       </div>
 
-      <figure>
-        <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="280" fill="var(--card)" rx="4"/>
-          <line x1="320" y1="15" x2="320" y2="265" stroke="var(--line-strong)" stroke-width="1.5"/>
-          <text x="160" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="var(--gold)">SPOT</text>
-          <text x="480" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="var(--gold)">FUTURES</text>
-          <line x1="20" y1="50" x2="620" y2="50" stroke="var(--line-strong)" stroke-width="1"/>
-
-          <text x="40" y="80" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Asset ownership</text>
-          <text x="220" y="80" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--profit)">Haan</text>
-          <text x="360" y="80" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Asset ownership</text>
-          <text x="540" y="80" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--loss)">Nahi</text>
-          <line x1="20" y1="95" x2="620" y2="95" stroke="var(--line)" stroke-width="0.5"/>
-
-          <text x="40" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Leverage</text>
-          <text x="220" y="120" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--loss)">Nahi</text>
-          <text x="360" y="120" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Leverage</text>
-          <text x="540" y="120" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--profit)">Haan</text>
-          <line x1="20" y1="135" x2="620" y2="135" stroke="var(--line)" stroke-width="0.5"/>
-
-          <text x="40" y="160" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Short selling</text>
-          <text x="220" y="160" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--loss)">Mushkil</text>
-          <text x="360" y="160" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Short selling</text>
-          <text x="540" y="160" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--profit)">Aasan</text>
-          <line x1="20" y1="175" x2="620" y2="175" stroke="var(--line)" stroke-width="0.5"/>
-
-          <text x="40" y="200" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Liquidation risk</text>
-          <text x="220" y="200" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--profit)">Nahi</text>
-          <text x="360" y="200" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Liquidation risk</text>
-          <text x="540" y="200" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--loss)">Haan</text>
-          <line x1="20" y1="215" x2="620" y2="215" stroke="var(--line)" stroke-width="0.5"/>
-
-          <text x="40" y="240" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Funding fees</text>
-          <text x="220" y="240" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--profit)">Nahi</text>
-          <text x="360" y="240" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink-soft)">Funding fees</text>
-          <text x="540" y="240" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--loss)">Haan</text>
-        </svg>
-        <figcaption>ڈائیگرام 1.1 — اسپاٹ اور فیوچرز کا موازنہ: خصوصیات، فائدے اور خطرے</figcaption>
-      </figure>
-
-      <h3>ضروری لفظ جو بار بار آئیں گے</h3>
+      <h3>Zaroori Lafz jo Baar Baar Aayenge</h3>
       <ul>
-        <li><strong>Entry Price</strong> — جس پرائس پر آپ پوزیشن کھولیں (خرید یا بیچ)۔</li>
-        <li><strong>Exit Price</strong> — جس پرائس پر آپ پوزیشن بند کریں۔</li>
-        <li><strong>Quantity</strong> — کتنی ایسٹ یونٹس آپ ٹریڈ کر رہے ہیں۔</li>
-        <li><strong>Margin</strong> — وہ رقم جو آپ فیوچرز ٹریڈ کے لیے "کولیٹرل" کی طرح لگاتے ہیں۔</li>
-        <li><strong>Notional Value / Position Size</strong> — ٹریڈ کی کل ویلیو (margin × leverage)۔</li>
-        <li><strong>P&amp;L</strong> — Profit and Loss۔</li>
-        <li><strong>ROI</strong> — Return on Investment، فیصد میں۔</li>
+        <li><strong>Entry Price</strong> — Jis price par ap position khole (buy ya sell).</li>
+        <li><strong>Exit Price</strong> — Jis price par ap position band karein.</li>
+        <li><strong>Quantity</strong> — Kitni asset units ap trade kar rahe hain.</li>
+        <li><strong>Margin</strong> — Wo raqam jo ap futures trade k liye "collateral" ki tarah lagate hain.</li>
+        <li><strong>Notional Value / Position Size</strong> — Trade ki total value (margin × leverage).</li>
+        <li><strong>P&amp;L</strong> — Profit and Loss.</li>
+        <li><strong>ROI</strong> — Return on Investment, percentage mein.</li>
       </ul>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 01 · مشق</div>
+        <div class="quiz-title">CHAPTER 01 · PRACTICE</div>
 
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q1. اسپاٹ ٹریڈنگ میں لیوریج دستیاب ہوتی ہے؟</p>
+          <p class="quiz-prompt">Q1. Spot trading mein leverage available hoti hai?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">ہاں، ہمیشہ</button>
-            <button class="quiz-option" data-i="1">نہیں، اسپاٹ میں صرف اپنی رقم استعمال ہوتی ہے</button>
-            <button class="quiz-option" data-i="2">صرف بٹکوائن پر</button>
+            <button class="quiz-option" data-i="0">Haan, hamesha</button>
+            <button class="quiz-option" data-i="1">Nahi, spot mein sirf apni raqam use hoti hai</button>
+            <button class="quiz-option" data-i="2">Sirf Bitcoin par</button>
           </div>
-          <p class="quiz-explain">اسپاٹ ٹریڈنگ میں لیوریج نہیں ہوتی — جو رقم آپ کے پاس ہے، صرف اتنا ہی خرید سکتے ہیں۔</p>
+          <p class="quiz-explain">Spot trading mein leverage nahi hoti — jo raqam apke paas hai, sirf utna hi khareed sakte hain.</p>
         </div>
 
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">Q2. فیوچرز ٹریڈنگ میں پرائس گرنے پر منافع کمانا...</p>
+          <p class="quiz-prompt">Q2. Futures trading mein price girne par profit kamana...</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">ہو ہی نہیں سکتا</button>
-            <button class="quiz-option" data-i="1">صرف اسپاٹ میں ممکن ہے</button>
-            <button class="quiz-option" data-i="2">شورٹ پوزیشن سے ممکن ہے</button>
+            <button class="quiz-option" data-i="0">Ho hi nahi sakta</button>
+            <button class="quiz-option" data-i="1">Sirf spot mein possible hai</button>
+            <button class="quiz-option" data-i="2">Short position se possible hai</button>
           </div>
-          <p class="quiz-explain">فیوچرز میں "شورٹ" پوزیشن لے کر پرائس گرنے پر بھی منافع کمایا جا سکتا ہے۔</p>
+          <p class="quiz-explain">Futures mein "Short" position lekar price girne par bhi profit kamaya ja sakta hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 2 : SPOT ================= -->
     <section class="chapter" id="ch2">
-      <div class="chapter-head"><span class="chapter-num">02</span><h2>اسپاٹ ٹریڈنگ کیلکولیشنز</h2></div>
-      <p class="chapter-intro">یہ باب اس کتاب کی بنیاد ہے۔ یہاں آپ سیکھیں گے کہ خریدتے وقت quantity کیسے نکالتے ہیں، اوسط پرائس کیسے calculate ہوتی ہے، اور بیچتے وقت منافع/نقصان کس فارمولا سے book ہوتا ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">02</span><h2>Spot Trading Calculations</h2></div>
+      <p class="chapter-intro">Ye chapter is book ki bunyad hai. Yahan ap seekhenge k buy karte waqt quantity kaise nikalte hain, average price kaise calculate hoti hai, aur sell k time profit/loss kis formula se book hota hai.</p>
 
-      <h3>2.1 — خریدتے وقت Quantity Calculate کرنا</h3>
+      <h3>2.1 — Buy karte waqt Quantity Calculate Karna</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Quantity = Investment Amount ÷ Buy Price
-          <span class="note">یعنی جتنی رقم لگا رہے ہیں، اسے buy price سے divide کر دیں — جواب quantity ہوگا۔</span>
+          <span class="note">Yani jitni raqam laga rahe hain, use buy price se divide kar den — jawab quantity hoga.</span>
         </div>
       </div>
       <div class="example-box">
@@ -577,8 +525,8 @@
         </table>
       </div>
 
-      <h3>2.2 — اوسط خرید قیمت (جب متعدد بار خرید کریں — DCA)</h3>
-      <p>اگر آپ ایک ہی کوائن کو الگ الگ پرائس پر، الگ الگ وقت پر خریدتے ہیں (اس کو <strong>DCA — Dollar Cost Averaging</strong> کہتے ہیں)، تو آپ کا <strong>اوسط خرید قیمت</strong> یوں nikalta ہے:</p>
+      <h3>2.2 — Average Buy Price (Jab Multiple Baar Buy Karein — DCA)</h3>
+      <p>Agar ap ek hi coin ko alag alag price par, alag alag waqt par khareedte hain (isko <strong>DCA — Dollar Cost Averaging</strong> kehte hain), tou apka <strong>average buy price</strong> yun nikalta hai:</p>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Average Buy Price = Total Invested Amount ÷ Total Quantity Held</div>
@@ -594,14 +542,14 @@
         </table>
       </div>
 
-      <h3>2.3 — ٹریڈنگ فیس کا حساب</h3>
-      <p>ہر ایکسچینج خرید و فروخت دونوں پر ایک چھوٹی سی فی (%) چارج کرتا ہے۔ یہ فیصد ایکسچینج سے ایکسچینج الگ ہوتی ہے، اس لیے اپنی ایکسچینج کی exact فیس ضرور چیک کریں۔ فارمولا یہ ہے:</p>
+      <h3>2.3 — Trading Fee ka Hisaab</h3>
+      <p>Har exchange buy aur sell dono par ek chhoti si fee (%) charge karta hai. Ye percentage exchange se exchange alag hoti hai, isliye apni exchange ki exact fee zaroor check karein. Formula ye hai:</p>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Fee Amount = Trade Value × Fee %</div>
       </div>
 
-      <h3>2.4 — بیچتے وقت منافع/نقصان Calculate کرنا</h3>
+      <h3>2.4 — Sell Karte Waqt Profit/Loss Calculate Karna</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Sell Value = Quantity × Sell Price
@@ -638,12 +586,12 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <h3>2.5 — بریک ایون پرائس (وہ پرائس جہاں نہ منافع نہ نقصان)</h3>
-      <p>بریک ایون پرائس وہ پرائس ہے جہاں پہنچ کر آپ نہ منافع میں ہوں نہ نقصان میں — فیس نکال کر بھی اپنی اصل رقم واپس مل جائے۔</p>
+      <h3>2.5 — Break-even Price (Wo Price Jahan Na Profit Na Loss)</h3>
+      <p>Break-even price wo price hai jahan pohanch kar ap na profit mein hon na loss mein — fees nikaal kar bhi apni asal raqam wapis mil jaye.</p>
       <div class="formula-box">
         <div class="formula-label">FORMULA (SIMPLIFIED)</div>
         <div class="formula">Break-even Price ≈ Buy Price × (1 + Buy Fee % + Sell Fee %)
-          <span class="note">یعنی فیس جتنی زیادہ ہوں گی، بریک ایون پرائس اتنا ہی buy price سے اوپر چلا جائے گا۔</span>
+          <span class="note">Yani fees jitni zyada hongi, break-even price utna hi buy price se upar chala jayega.</span>
         </div>
       </div>
 
@@ -670,14 +618,14 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
             <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker>
           </defs>
         </svg>
-        <figcaption>ڈائیگرام 2.1 — اسپاٹ ٹریڈ کا مکمل فلو: والیٹ → خرید → ہولڈنگ → بیچ → منافع/نقصان</figcaption>
+        <figcaption>DIAGRAM 2.1 — SPOT TRADE KA COMPLETE FLOW: WALLET → BUY → HOLDING → SELL → PROFIT/LOSS</figcaption>
       </figure>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 02 · مشق</div>
+        <div class="quiz-title">CHAPTER 02 · PRACTICE</div>
 
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">Q1. اگر $1,000 سے BTC $40,000 پرائس پر خریدا جائے، تو quantity کیا ہوگی؟</p>
+          <p class="quiz-prompt">Q1. Agar $1,000 se BTC $40,000 price par khareeda jaye, tou quantity kya hogi?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">0.025 BTC</button>
             <button class="quiz-option" data-i="1">0.25 BTC</button>
@@ -687,7 +635,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </div>
 
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q2. 0.05 BTC @ $30,000 اور 0.05 BTC @ $34,000 خریدا گیا۔ اوسط خرید قیمت کیا ہوگی؟</p>
+          <p class="quiz-prompt">Q2. 0.05 BTC @ $30,000 aur 0.05 BTC @ $34,000 khareeda gaya. Average buy price kya hogi?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$30,000</button>
             <button class="quiz-option" data-i="1">$32,000</button>
@@ -697,37 +645,37 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </div>
 
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">Q3. Profit % کس فارمولا سے نکالتے ہیں؟</p>
+          <p class="quiz-prompt">Q3. Profit % kis formula se nikalte hain?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">Sell Price − Buy Price</button>
             <button class="quiz-option" data-i="1">Quantity × Sell Price</button>
             <button class="quiz-option" data-i="2">(Net Profit ÷ Investment) × 100</button>
           </div>
-          <p class="quiz-explain">فیصد ہمیشہ منافع کو سرمایہ سے divide کر کے 100 سے multiply کرنے سے ملتا ہے۔</p>
+          <p class="quiz-explain">Percentage hamesha profit ko investment se divide kar k 100 se multiply karne se milta hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 3 : FUTURES BASICS ================= -->
     <section class="chapter" id="ch3">
-      <div class="chapter-head"><span class="chapter-num">03</span><h2>فیوچرز ٹریڈنگ کی بنیادی باتیں</h2></div>
-      <p class="chapter-intro">اب ہم فیوچرز ٹریڈنگ کی بنیادی کیلکولیشنز کی طرف بڑھتے ہیں — لیکن پہلے کانسپٹ کلیئر کرنا ضروری ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">03</span><h2>Futures Trading Basics</h2></div>
+      <p class="chapter-intro">Ab hum futures trading ki bunyadi calculations ki taraf barhte hain — lekin pehle concept clear karna zaroori hai.</p>
 
-      <h3>3.1 — لانگ بنعم شورٹ</h3>
+      <h3>3.1 — Long vs Short</h3>
       <ul>
-        <li><strong>لانگ پوزیشن</strong> — آپ "خرید" کرتے ہیں یہ سوچ کر کہ پرائس اوپر جائے گی۔ پرائس اوپر جائے تو منافع۔</li>
-        <li><strong>شورٹ پوزیشن</strong> — آپ "بیچ" کرتے ہیں (بغیر ایسٹ رکھے) یہ سوچ کر کہ پرائس نیچے جائے گی۔ پرائس نیچے جائے تو منافع۔</li>
+        <li><strong>Long Position</strong> — Ap "buy" karte hain ye soch kar k price uper jayegi. Price uper jaye tou profit.</li>
+        <li><strong>Short Position</strong> — Ap "sell" karte hain (bina asset rakhe) ye soch kar k price neeche jayegi. Price neeche jaye tou profit.</li>
       </ul>
 
-      <h3>3.2 — مارجن کی قسمیں</h3>
+      <h3>3.2 — Margin Types</h3>
       <ul>
-        <li><strong>ائзолیٹڈ مارجن</strong> — صرف اتنا ہی رقم رسک پر ہوتا ہے جتنا آپ نے اس مخصوص ٹریڈ میں لگایا ہے۔ اگر نقصان زیادہ ہو جائے تو صرف وہ مارجن ختم ہوتی ہے، باقی اکاؤنٹ محفوظ رہتا ہے۔</li>
-        <li><strong>کراس مارجن</strong> — آپ کا پورا اکاؤنٹ بیلنس ایک "مشترکہ پول" کی طرح اس ٹریڈ کو سپورٹ کرتا ہے، جس سے لیکویڈیشن کا خطرہ کم ہوتا ہے لیکن نقصان کی صورت میں زیادہ رقم خطرے میں آ سکتی ہے۔</li>
+        <li><strong>Isolated Margin</strong> — Sirf utni hi raqam risk par hoti hai jitni apne us specific trade mein lagayi hai. Agar loss zyada ho jaye tou sirf wo margin khatam hoti hai, baqi account safe rehta hai.</li>
+        <li><strong>Cross Margin</strong> — Apka pura account balance ek "shared pool" ki tarah us trade ko support karta hai, jis se liquidation ka khatra kam hota hai lekin loss ki soorat mein zyada raqam khatray mein aa sakti hai.</li>
       </ul>
 
       <div class="callout warn">
         <span class="dot">⚠</span>
-        <span>بیننرز کے لیے عام طور پر اائзолیٹڈ مارجن بہتر سمجھا جاتا ہے کیونکہ رسک ایک ٹریڈ تک محدود رہتا ہے۔</span>
+        <span>Beginners k liye generally Isolated margin behtar samjha jata hai kyunke risk ek trade tak mehdood rehta hai.</span>
       </div>
 
       <figure>
@@ -745,38 +693,38 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
             <marker id="arrowr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--loss)"/></marker>
           </defs>
         </svg>
-        <figcaption>ڈائیگرام 3.1 — لانگ پوزیشن: پرائس اوپر = منافع، پرائس نیچے = نقصان (شورٹ میں بالکل الٹا ہوتا ہے)</figcaption>
+        <figcaption>DIAGRAM 3.1 — LONG POSITION: PRICE UPAR = PROFIT, PRICE NEECHE = LOSS (SHORT MEIN EXACT ULTA HOTA HAI)</figcaption>
       </figure>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 03 · مشق</div>
+        <div class="quiz-title">CHAPTER 03 · PRACTICE</div>
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q1. پرائس گرنے پر منافع کمانے کے لیے کون سی پوزیشن لیں گے؟</p>
+          <p class="quiz-prompt">Q1. Price girne par profit kamane k liye kaunsi position lengey?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">لانگ</button>
-            <button class="quiz-option" data-i="1">شورٹ</button>
-            <button class="quiz-option" data-i="2">دونوں ایک جیسی ہیں</button>
+            <button class="quiz-option" data-i="0">Long</button>
+            <button class="quiz-option" data-i="1">Short</button>
+            <button class="quiz-option" data-i="2">Dono ek jaisi hain</button>
           </div>
-          <p class="quiz-explain">شورٹ پوزیشن میں پرائس گرنے پر منافع ہوتا ہے۔</p>
+          <p class="quiz-explain">Short position mein price girne par profit hota hai.</p>
         </div>
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">Q2. اائзолیٹڈ مارجن کا فائدہ کیا ہے؟</p>
+          <p class="quiz-prompt">Q2. Isolated margin ka faida kya hai?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">رسک صرف اس مخصوص ٹریڈ تک محدود رہتا ہے</button>
-            <button class="quiz-option" data-i="1">لیوریج خودکار طور پر 100x ہو جاتی ہے</button>
-            <button class="quiz-option" data-i="2">فیس ختم ہو جاتی ہیں</button>
+            <button class="quiz-option" data-i="0">Risk sirf us specific trade tak mehdood rehta hai</button>
+            <button class="quiz-option" data-i="1">Leverage automatically 100x ho jati hai</button>
+            <button class="quiz-option" data-i="2">Fees khatam ho jati hain</button>
           </div>
-          <p class="quiz-explain">ائзолیٹڈ مارجن میں صرف مختص کی گئی مارجن ہی رسک پر ہوتی ہے۔</p>
+          <p class="quiz-explain">Isolated margin mein sirf allocate ki gayi margin hi risk par hoti hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 4 : LEVERAGE ================= -->
     <section class="chapter" id="ch4">
-      <div class="chapter-head"><span class="chapter-num">04</span><h2>لیوریج سمجھیں</h2></div>
-      <p class="chapter-intro">لیوریج فیوچرز ٹریڈنگ کا سب سے طاقتور — اور سب سے خطرناک — ٹول ہے۔ اس باب میں یہ سمجھیں گے کہ لیوریج کام کیسے کرتی ہے اور منافع/نقصان پر اس کا exact اثر کیا پڑتا ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">04</span><h2>Leverage Samajhein</h2></div>
+      <p class="chapter-intro">Leverage futures trading ka sab se powerful — aur sab se khatarnak — tool hai. Is chapter mein ye samjhenge k leverage kaam kaise karti hai aur profit/loss par iska exact asar kya parta hai.</p>
 
-      <h3>4.1 — پوزیشن سائز (نامنال ویلیو)</h3>
+      <h3>4.1 — Position Size (Notional Value)</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Position Size = Margin × Leverage</div>
@@ -789,14 +737,14 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
           <tr class="result-row"><td>Position Size</td><td>100 × 10 = $1,000</td></tr>
         </table>
       </div>
-      <p>یعنی $100 لگا کر آپ مارکیٹ میں $1,000 جتنا بڑا ٹریڈ کنٹرول کر رہے ہیں — جیسے کوئی آپ کو $900 "ادھار" دے رہا ہو۔</p>
+      <p>Yani $100 lagakar ap market mein $1,000 jitna bara trade control kar rahe hain — jaise koi apko $900 "udhar" de raha ho.</p>
 
-      <h3>4.2 — لیوریج منافع/نقصان کو کیسے amplify کرتی ہے</h3>
+      <h3>4.2 — Leverage Profit/Loss Ko Kaise Amplify Karti Hai</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">ROI % (Margin par) = Price Move % × Leverage</div>
       </div>
-      <p>یعنی اگر پرائس صرف <strong>1% حرکت</strong> کرے اور آپ <strong>10x لیوریج</strong> استعمال کر رہے ہوں، تو آپ کی مارجن پر ROI <strong>10%</strong> ہوگا — چاہے وہ منافع ہو یا نقصان۔</p>
+      <p>Yani agar price sirf <strong>1% move</strong> kare aur ap <strong>10x leverage</strong> use kar rahe hon, tou apki margin par ROI <strong>10%</strong> hoga — chahe wo profit ho ya loss.</p>
 
       <div class="example-box">
         <div class="example-label">MISAAL — SAME 5% PRICE MOVE, ALAG ALAG LEVERAGE</div>
@@ -829,15 +777,15 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
 
           <text x="273" y="14" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">Bars 20x k baad screen se bahar chali jati hain — yani loss margin se zyada</text>
         </svg>
-        <figcaption>ڈائیگرام 4.1 — 5% پرائس موومنٹ، لیوریج کے ساتھ کیسے amplify ہوتی ہے (مارجن پر ROI)</figcaption>
+        <figcaption>DIAGRAM 4.1 — 5% PRICE MOVE, LEVERAGE K SAATH KAISE AMPLIFY HOTI HAI (ROI ON MARGIN)</figcaption>
       </figure>
 
       <div class="callout warn">
         <span class="dot">⚠</span>
-        <span>یاد رہے: لیوریج صرف منافع کو نہیں، <strong>نقصان کو بھی</strong> اسی ratio سے بڑھاتی ہے۔ جتنی زیادہ لیوریج، اتنا ہی قریب لیکویڈیشن پرائس بھی ہو جاتی ہے — اس پر تفصیل باب 06 میں ہے۔</span>
+        <span>Yaad rahe: leverage sirf profit ko nahi, <strong>loss ko bhi</strong> usi ratio se barhati hai. Jitni zyada leverage, utna hi qareeb liquidation price bhi ho jati hai — is par detail Chapter 06 mein hai.</span>
       </div>
 
-      <h3>4.3 — کتنی پرائس موومنٹ سے کتنا ROI</h3>
+      <h3>4.3 — Kitni Price Movement Se Kitna ROI</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Required Price Move % = Target ROI % ÷ Leverage</div>
@@ -852,9 +800,9 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
       </div>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 04 · مشق</div>
+        <div class="quiz-title">CHAPTER 04 · PRACTICE</div>
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">Q1. $200 مارجن، 5x لیوریج — پوزیشن سائز کتنی ہوگی؟</p>
+          <p class="quiz-prompt">Q1. $200 margin, 5x leverage — position size kitni hogi?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$200</button>
             <button class="quiz-option" data-i="1">$500</button>
@@ -863,7 +811,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
           <p class="quiz-explain">200 × 5 = $1,000.</p>
         </div>
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q2. 20x لیوریج پر پرائس صرف 3% حرکت کرے تو مارجن پر ROI کتنا ہوگا؟</p>
+          <p class="quiz-prompt">Q2. 20x leverage par price sirf 3% move kare tou margin par ROI kitna hoga?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">3%</button>
             <button class="quiz-option" data-i="1">60%</button>
@@ -872,23 +820,23 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
           <p class="quiz-explain">3% × 20 = 60%.</p>
         </div>
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">Q3. زیادہ لیوریج کا مطلب ہے...</p>
+          <p class="quiz-prompt">Q3. Zyada leverage ka matlab hai...</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">منافع اور نقصان دونوں amplify، اور لیکویڈیشن قریب</button>
-            <button class="quiz-option" data-i="1">صرف منافع بڑھتا ہے، نقصان نہیں</button>
-            <button class="quiz-option" data-i="2">فیس کم ہو جاتی ہیں</button>
+            <button class="quiz-option" data-i="0">Profit aur loss dono amplify, aur liquidation qareeb</button>
+            <button class="quiz-option" data-i="1">Sirf profit barhta hai, loss nahi</button>
+            <button class="quiz-option" data-i="2">Fees kam ho jati hain</button>
           </div>
-          <p class="quiz-explain">لیوریج دھاری تلوار ہے — دونوں طرف amplify کرتی ہے۔</p>
+          <p class="quiz-explain">Leverage dhari talwaar hai — dono taraf amplify karti hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 5 : FUTURES P&L ================= -->
     <section class="chapter" id="ch5">
-      <div class="chapter-head"><span class="chapter-num">05</span><h2>فیوچرز پروفٹ/لوس کیلکولیشن</h2></div>
-      <p class="chapter-intro">اب دیکھتے ہیں لانگ اور شورٹ دونوں پوزیشنز کا exact منافع/نقصان کیسے nikala جاتا ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">05</span><h2>Futures P&amp;L Calculation</h2></div>
+      <p class="chapter-intro">Ab dekhte hain Long aur Short dono positions ka exact profit/loss kaise nikala jata hai.</p>
 
-      <h3>5.1 — لانگ پوزیشن P&amp;L</h3>
+      <h3>5.1 — Long Position P&amp;L</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">P&amp;L (Long) = (Exit Price − Entry Price) × Quantity</div>
@@ -903,7 +851,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <h3>5.2 — شورٹ پوزیشن P&amp;L</h3>
+      <h3>5.2 — Short Position P&amp;L</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">P&amp;L (Short) = (Entry Price − Exit Price) × Quantity</div>
@@ -918,7 +866,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <h3>5.3 — مارجن پر ROI</h3>
+      <h3>5.3 — ROI on Margin</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">ROI % = (P&amp;L ÷ Margin) × 100</div>
@@ -932,36 +880,8 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <figure>
-        <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="200" fill="var(--card)" rx="2"/>
-          <line x1="320" y1="10" x2="320" y2="190" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="160" y="22" text-anchor="middle" font-family="Newsreader, serif" font-size="14" font-weight="600" fill="var(--gold)">LONG P&L</text>
-          <text x="480" y="22" text-anchor="middle" font-family="Newsreader, serif" font-size="14" font-weight="600" fill="var(--gold)">SHORT P&L</text>
-          <line x1="60" y1="100" x2="280" y2="100" stroke="var(--ink-faint)" stroke-width="1"/>
-          <line x1="360" y1="100" x2="580" y2="100" stroke="var(--ink-faint)" stroke-width="1"/>
-          <line x1="170" y1="40" x2="170" y2="170" stroke="var(--ink)" stroke-width="1.5"/>
-          <text x="170" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Entry</text>
-          <line x1="470" y1="40" x2="470" y2="170" stroke="var(--ink)" stroke-width="1.5"/>
-          <text x="470" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Entry</text>
-          <path d="M170,100 L120,50" stroke="var(--profit)" stroke-width="2" marker-end="url(#arrowgp)"/>
-          <text x="100" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--profit)">Price ↑ = Profit</text>
-          <path d="M170,100 L120,150" stroke="var(--loss)" stroke-width="2" marker-end="url(#arrowrp)"/>
-          <text x="100" y="164" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--loss)">Price ↓ = Loss</text>
-          <path d="M470,100 L520,50" stroke="var(--loss)" stroke-width="2" marker-end="url(#arrowrp)"/>
-          <text x="540" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--loss)">Price ↑ = Loss</text>
-          <path d="M470,100 L520,150" stroke="var(--profit)" stroke-width="2" marker-end="url(#arrowgp)"/>
-          <text x="540" y="164" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--profit)">Price ↓ = Profit</text>
-          <defs>
-            <marker id="arrowgp" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--profit)"/></marker>
-            <marker id="arrowrp" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--loss)"/></marker>
-          </defs>
-        </svg>
-        <figcaption>ڈائیگرام 5.1 — لانگ بنشأ شورٹ P&L: لانگ میں اوپر جانا منافع، نیچے جانا نقصان — شورٹ میں بالکل الٹ</figcaption>
-      </figure>
-
       <div class="quiz-block">
-        <div class="quiz-title">باب 05 · مشق</div>
+        <div class="quiz-title">CHAPTER 05 · PRACTICE</div>
         <div class="quiz-q" data-correct="0">
           <p class="quiz-prompt">Q1. Long: Entry $30,000, Exit $31,500, Quantity 0.5 BTC. P&amp;L?</p>
           <div class="quiz-options">
@@ -978,22 +898,22 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
             <button class="quiz-option" data-i="1">−$200</button>
             <button class="quiz-option" data-i="2">+$100</button>
           </div>
-          <p class="quiz-explain">شورٹ میں پرائس کا اوپر جانا نقصان ہوتا ہے: (2,500−2,600)×2 = −200.</p>
+          <p class="quiz-explain">Short mein price ka upar jana loss hota hai: (2,500−2,600)×2 = −200.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 6 : LIQUIDATION ================= -->
     <section class="chapter" id="ch6">
-      <div class="chapter-head"><span class="chapter-num">06</span><h2>لیکویڈیشن پرائس</h2></div>
-      <p class="chapter-intro">لیکویڈیشن وہ پرائس ہے جہاں پہنچ کر آپ کی مارجن نقصان سے پوری طرح ختم ہو جاتی ہے اور ایکسچینج خودکار طور پر آپ کی پوزیشن بند کر دیتا ہے۔ یہ فیوچرز ٹریڈنگ کا سب سے اہم — اور سب سے زیادہ avoid کرنے والا — نمبر ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">06</span><h2>Liquidation Price</h2></div>
+      <p class="chapter-intro">Liquidation woh price hai jahan pohanch kar apki margin loss se poori tarah khatam ho jati hai aur exchange automatically apki position band kar deta hai. Ye futures trading ka sab se important — aur sab se ziyada avoid karne wala — number hai.</p>
 
       <div class="callout warn">
         <span class="dot">⚠</span>
-        <span>یہ فارمولے <strong>simplified educational version</strong> ہیں تاکہ کانسپٹ سمجھ آئے۔ ریئل ایکسچینج پر exact لیکویڈیشن پرائس فیس، tiered maintenance margin وغیرہ کی وجہ سے تھوڑا different ہو سکتا ہے — ہمیشہ اپنی ایکسچینج کا official لیکویڈیشن کیلکولیٹر استعمال کریں۔</span>
+        <span>Ye formulay <strong>simplified educational version</strong> hain taake concept samajh aaye. Real exchange par exact liquidation price fees, tiered maintenance margin waghera ki wajah se thora different ho sakta hai — hamesha apni exchange ka official liquidation calculator use karein.</span>
       </div>
 
-      <h3>6.1 — لیکویڈیشن پرائس (ائзолیٹڈ مارجن، سادہ)</h3>
+      <h3>6.1 — Liquidation Price (Isolated Margin, Simplified)</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA — LONG</div>
         <div class="formula">Liquidation Price ≈ Entry Price × (1 − 1/Leverage + Maintenance Margin Rate)</div>
@@ -1013,7 +933,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <p>یعنی پرائس صرف <strong>~9.5% نیچے</strong> جائے تو 10x لیوریج پر پوزیشن liquidate ہو جائے گی۔ یہی وجہ ہے کہ <strong>زیادہ لیوریج = لیکویڈیشن پرائس انٹری کے بہت قریب</strong> ہوتی ہے۔</p>
+      <p>Yani price sirf <strong>~9.5% neeche</strong> jaye tou 10x leverage par position liquidate ho jayegi. Yehi wajah hai k <strong>zyada leverage = liquidation price entry k bohot qareeb</strong> hoti hai.</p>
 
       <figure>
         <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
@@ -1031,42 +951,42 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
           <rect x="200" y="150" width="120" height="10" fill="var(--loss-bg)"/>
           <text x="260" y="172" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">Zyada leverage = zone qareeb</text>
         </svg>
-        <figcaption>ڈائیگرام 6.1 — لیوریج جتنی زیادہ، لیکویڈیشن پرائس اتنا ہی انٹری کے قریب (لانگ پوزیشن)</figcaption>
+        <figcaption>DIAGRAM 6.1 — LEVERAGE JITNI ZYADA, LIQUIDATION PRICE UTNA HI ENTRY K QAREEB (LONG POSITION)</figcaption>
       </figure>
 
-      <h3>6.2 — اائзолیٹڈ بنعم کراس مارجن لیکویڈیشن</h3>
-      <p>کراس مارجن میں پورا اکاؤنٹ بیلنس بفر کی طرح کام کرتا ہے، اس لیے لیکویڈیشن پرائس اائзолیٹڈ کے مقابلے دور ہوتی ہے — لیکن اگر لیکویڈیشن ہو جائے تو پورا اکاؤنٹ بیلنس خطرے میں ہوتا ہے، صرف ایک ٹریڈ کا مارجن نہیں۔</p>
+      <h3>6.2 — Isolated vs Cross Margin Liquidation</h3>
+      <p>Cross margin mein pura account balance buffer ki tarah kaam karta hai, isliye liquidation price isolated k muqable door hoti hai — lekin agar liquidation ho jaye tou pura account balance khatray mein hota hai, sirf ek trade ka margin nahi.</p>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 06 · مشق</div>
+        <div class="quiz-title">CHAPTER 06 · PRACTICE</div>
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q1. لیوریج بڑھانے سے لیکویڈیشن پرائس انٹری پرائس کے...</p>
+          <p class="quiz-prompt">Q1. Leverage barhane se liquidation price entry price k...</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">بہت دور چلی جاتی ہے</button>
-            <button class="quiz-option" data-i="1">قریب آ جاتی ہے</button>
-            <button class="quiz-option" data-i="2">کوئی اثر نہیں پڑتا</button>
+            <button class="quiz-option" data-i="0">Bohot door chali jati hai</button>
+            <button class="quiz-option" data-i="1">Qareeb aa jati hai</button>
+            <button class="quiz-option" data-i="2">Koi asar nahi parta</button>
           </div>
-          <p class="quiz-explain">زیادہ لیوریج = کم پرائس موومنٹ میں ہی لیکویڈیشن۔</p>
+          <p class="quiz-explain">Zyada leverage = kam price movement mein hi liquidation.</p>
         </div>
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">Q2. اائзолیٹڈ مارجن میں لیکویڈیشن ہونے پر کتنا نقصان ہوتا ہے؟</p>
+          <p class="quiz-prompt">Q2. Isolated margin mein liquidation hone par kitna nuksaan hota hai?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">صرف اس ٹریڈ کا مختص کردہ مارجن</button>
-            <button class="quiz-option" data-i="1">پورا اکاؤنٹ بیلنس</button>
-            <button class="quiz-option" data-i="2">کچھ نہیں، سب واپس مل جاتا ہے</button>
+            <button class="quiz-option" data-i="0">Sirf us trade ka allocated margin</button>
+            <button class="quiz-option" data-i="1">Pura account balance</button>
+            <button class="quiz-option" data-i="2">Kuch nahi, sab wapis mil jata hai</button>
           </div>
-          <p class="quiz-explain">ائзолیٹڈ مارجن کا پورا پوائنٹ ہی یہ ہے کہ رسک محدود رہے۔</p>
+          <p class="quiz-explain">Isolated margin ka poora point hi ye hai k risk mehdood rahe.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 7 : RISK & POSITION SIZING ================= -->
     <section class="chapter" id="ch7">
-      <div class="chapter-head"><span class="chapter-num">07</span><h2>رسک اور پوزیشن سائزنگ</h2></div>
-      <p class="chapter-intro">یہ باب شاید اس پوری کتاب کا سب سے اہم باب ہے — کیونکہ صحیح کیلکولیشن جاننے کے باوجود، غلط پوزیشن سائز ہی زیادہ تر ٹریڈرز کو نقصان پہنچاتی ہے۔</p>
+      <div class="chapter-head"><span class="chapter-num">07</span><h2>Risk &amp; Position Sizing</h2></div>
+      <p class="chapter-intro">Ye chapter shayad is poori book ka sab se important chapter hai — kyunke sahi calculation janne k bawajood, galat position size hi zyada tar traders ko nuksaan pohanchati hai.</p>
 
-      <h3>7.1 — 1-2% رسک رول</h3>
-      <p>زیادہ تر تجربہ کار ٹریڈرز اپنے کل اکاؤنٹ بیلنس کا صرف <strong>1% سے 2%</strong> کسی ایک ٹریڈ پر رسک کرتے ہیں — چاہے لیوریج کتنی بھی ہو۔</p>
+      <h3>7.1 — 1-2% Risk Rule</h3>
+      <p>Zyada tar experienced traders apne total account balance ka sirf <strong>1% se 2%</strong> kisi ek trade par risk karte hain — chahe leverage kitni bhi ho.</p>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Risk Amount ($) = Account Balance × Risk %</div>
@@ -1080,7 +1000,7 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
         </table>
       </div>
 
-      <h3>7.2 — پوزیشن سائز نکالنا (اسٹاپ لاس کے حساب سے)</h3>
+      <h3>7.2 — Position Size Nikalna (Stop Loss K Hisaab Se)</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Stop Loss Distance % = |Entry − Stop Loss| ÷ Entry × 100
@@ -1097,9 +1017,9 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
           <tr class="result-row"><td>Position Size</td><td>20 ÷ 0.02 = $1,000</td></tr>
         </table>
       </div>
-      <p>اس سے آپ کو پتا چل جاتا ہے کہ اس ٹریڈ میں "کتنا بڑا" پوزیشن لینا چاہیے تاکہ اسٹاپ لاس لگنے پر صرف $20 (آپ کا fix کیا ہوا رسک) کا ہی نقصان ہو — نہ اس سے زیادہ، نہ کم۔</p>
+      <p>Is se apko pata chal jata hai k is trade mein "kitna bara" position lena chahiye taake stop loss lagne par sirf $20 (apka fix kiya hua risk) ka hi nuksaan ho — na is se zyada, na kam.</p>
 
-      <h3>7.3 — رسک:ریوارڈ ریشو</h3>
+      <h3>7.3 — Risk:Reward Ratio</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA (LONG K LIYE)</div>
         <div class="formula">Risk:Reward = (Target − Entry) ÷ (Entry − Stop Loss)</div>
@@ -1113,40 +1033,12 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
           <tr class="result-row profit"><td>Risk:Reward</td><td>3,000 ÷ 1,000 = 1:3</td></tr>
         </table>
       </div>
-      <p>1:3 ratio کا مطلب ہے — اگر آپ 3 ٹریڈز میں سے صرف 1 بھی جیتیں (اور 2 ہار بھی جائیں)، پھر بھی overall منافع بخش رہیں گے۔</p>
-
-      <figure>
-        <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="200" fill="var(--card)" rx="2"/>
-          <rect x="30" y="70" width="110" height="60" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="85" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">Account</text>
-          <text x="85" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--ink)">$1,000</text>
-          <line x1="140" y1="100" x2="185" y2="100" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#arrowf)"/>
-          <text x="162" y="90" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">× 2%</text>
-          <rect x="190" y="70" width="110" height="60" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="245" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">Risk %</text>
-          <text x="245" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--gold)">$20</text>
-          <line x1="300" y1="100" x2="345" y2="100" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#arrowf)"/>
-          <text x="322" y="90" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">÷ 2%</text>
-          <rect x="350" y="70" width="110" height="60" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="405" y="94" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">SL Distance</text>
-          <text x="405" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="var(--ink)">$1,000</text>
-          <line x1="460" y1="100" x2="505" y2="100" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#arrowf)"/>
-          <rect x="510" y="65" width="110" height="70" rx="2" fill="var(--profit-bg)" stroke="var(--profit)" stroke-width="1.5"/>
-          <text x="565" y="89" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--profit)">Position Size</text>
-          <text x="565" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="var(--profit)">$1,000</text>
-          <text x="320" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">Account × Risk% ÷ SL Distance = Position Size</text>
-          <defs>
-            <marker id="arrowf" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--ink-faint)"/></marker>
-          </defs>
-        </svg>
-        <figcaption>ڈائیگرام 7.1 — پوزیشن سائزنگ فلو: اکاؤنٹ بیلنس × رسک فیصد ÷ اسٹاپ لاس فاصلہ = پوزیشن سائز</figcaption>
-      </figure>
+      <p>1:3 ratio ka matlab hai — agar ap 3 trades mein se sirf 1 bhi jeeten (aur 2 haar bhi jayein), phir bhi overall profitable rahenge.</p>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 07 · مشق</div>
+        <div class="quiz-title">CHAPTER 07 · PRACTICE</div>
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">Q1. $2,000 اکاؤنٹ، 1% رسک رول — ایک ٹریڈ پر زیادہ سے زیادہ رسک کتنا ہوگا؟</p>
+          <p class="quiz-prompt">Q1. $2,000 account, 1% risk rule — ek trade par max risk kitna hoga?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$200</button>
             <button class="quiz-option" data-i="1">$2</button>
@@ -1155,27 +1047,27 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
           <p class="quiz-explain">2,000 × 0.01 = $20.</p>
         </div>
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q2. رسک:ریوارڈ ratio 1:3 کا مطلب ہے...</p>
+          <p class="quiz-prompt">Q2. Risk:Reward ratio 1:3 ka matlab hai...</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">ہر ٹریڈ جیتنا ضروری ہے</button>
-            <button class="quiz-option" data-i="1">ریوارڈ، رسک سے 3 گنا زیادہ ہے</button>
-            <button class="quiz-option" data-i="2">لیوریج 3x ہونی چاہیے</button>
+            <button class="quiz-option" data-i="0">Har trade jeetna zaroori hai</button>
+            <button class="quiz-option" data-i="1">Reward, risk se 3 guna zyada hai</button>
+            <button class="quiz-option" data-i="2">Leverage 3x honi chahiye</button>
           </div>
-          <p class="quiz-explain">1:3 کا مطلب رسک کا 3 گنا ریوارڈ ٹارگت رکھا گیا ہے۔</p>
+          <p class="quiz-explain">1:3 ka matlab risk ka 3 guna reward target rakha gaya hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 8 : FUNDING RATE ================= -->
     <section class="chapter" id="ch8">
-      <div class="chapter-head"><span class="chapter-num">08</span><h2>فنڈنگ ریٹ (پیپچوئل فیوچرز)</h2></div>
-      <p class="chapter-intro">پیپچوئل فیوچرز کنٹریکٹس کی کوئی expiry date نہیں ہوتی، اس لیے پرائس کو اسپاٹ پرائس کے قریب رکھنے کے لیے ایک mechanism ہوتی ہے جسے "فنڈنگ ریٹ" کہتے ہیں۔</p>
+      <div class="chapter-head"><span class="chapter-num">08</span><h2>Funding Rate (Perpetual Futures)</h2></div>
+      <p class="chapter-intro">Perpetual futures contracts ki koi expiry date nahi hoti, isliye price ko spot price k qareeb rakhne k liye ek mechanism hoti hai jisay "Funding Rate" kehte hain.</p>
 
-      <h3>8.1 — فنڈنگ ریٹ کیسے کام کرتی ہے</h3>
-      <p>یہ ریٹ عام طور پر چند گھنٹوں بعد (عام طور پر ہر 8 گھنٹے — اپنی ایکسچینج پر exact interval چیک کریں) charge/pay ہوتی ہے:</p>
+      <h3>8.1 — Funding Rate Kaise Kaam Karti Hai</h3>
+      <p>Ye rate generally har kuch ghanton baad (commonly har 8 ghante — apni exchange par exact interval check karein) charge/pay hoti hai:</p>
       <ul>
-        <li>اگر فنڈنگ ریٹ <strong>مثبت</strong> ہو → لانگز، شورٹز کو ادائیگی کرتے ہیں۔</li>
-        <li>اگر فنڈنگ ریٹ <strong>منفی</strong> ہو → شورٹز، لانگز کو ادائیگی کرتے ہیں۔</li>
+        <li>Agar funding rate <strong>positive</strong> ho → Longs, Shorts ko payment karte hain.</li>
+        <li>Agar funding rate <strong>negative</strong> ho → Shorts, Longs ko payment karte hain.</li>
       </ul>
 
       <div class="formula-box">
@@ -1192,61 +1084,35 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </table>
       </div>
 
-      <figure>
-        <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="200" fill="var(--card)" rx="2"/>
-          <rect x="30" y="60" width="120" height="80" rx="2" fill="var(--profit-bg)" stroke="var(--profit)" stroke-width="1.5"/>
-          <text x="90" y="90" text-anchor="middle" font-family="Newsreader, serif" font-size="13" font-weight="600" fill="var(--profit)">LONGS</text>
-          <text x="90" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">Pay / Receive</text>
-          <rect x="270" y="60" width="120" height="80" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="330" y="90" text-anchor="middle" font-family="Newsreader, serif" font-size="13" font-weight="600" fill="var(--ink)">FUNDING</text>
-          <text x="330" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">Rate > 0%</text>
-          <rect x="510" y="60" width="120" height="80" rx="2" fill="var(--loss-bg)" stroke="var(--loss)" stroke-width="1.5"/>
-          <text x="570" y="90" text-anchor="middle" font-family="Newsreader, serif" font-size="13" font-weight="600" fill="var(--loss)">SHORTS</text>
-          <text x="570" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-soft)">Receive / Pay</text>
-          <path d="M150,85 L270,85" stroke="var(--loss)" stroke-width="2" marker-end="url(#arrowfl)"/>
-          <text x="210" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--loss)">Pays →</text>
-          <path d="M390,85 L510,85" stroke="var(--profit)" stroke-width="2" marker-end="url(#arrowfg)"/>
-          <text x="450" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--profit)">← Receives</text>
-          <line x1="30" y1="158" x2="620" y2="158" stroke="var(--line)" stroke-width="0.5"/>
-          <text x="320" y="178" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">Positive Rate: Longs pay Shorts &nbsp;|&nbsp; Negative Rate: Shorts pay Longs</text>
-          <defs>
-            <marker id="arrowfl" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--loss)"/></marker>
-            <marker id="arrowfg" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="var(--profit)"/></marker>
-          </defs>
-        </svg>
-        <figcaption>ڈائیگرام 8.1 — فنڈنگ ریٹ: مثبت ریٹ پر لانگز شورٹز کو ادائیگی کرتے ہیں، منفی ریٹ پر الٹ</figcaption>
-      </figure>
-
       <div class="callout">
         <span class="dot">›</span>
-        <span>چھوٹا سا لگتا ہے، لیکن اگر آپ زیادہ لیوریج کے ساتھ، لمبے عرصے تک پوزیشن hold کرتے ہیں، تو فنڈنگ ریٹ کا کل اثر significant ہو سکتا ہے — اس کو اپنی overall P&amp;L کیلکولیشن میں ضرور شامل کریں۔</span>
+        <span>Chhota sa lagta hai, lekin agar ap zyada leverage k saath, lambe arse tak position hold karte hain, tou funding rate ka total asar significant ho sakta hai — is ko apni overall P&amp;L calculation mein zaroor shamil karein.</span>
       </div>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 08 · مشق</div>
+        <div class="quiz-title">CHAPTER 08 · PRACTICE</div>
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">Q1. اگر فنڈنگ ریٹ منفی ہو تو کون کسے ادائیگی کرتا ہے؟</p>
+          <p class="quiz-prompt">Q1. Agar funding rate negative ho tou kaun kisay pay karta hai?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">لانگز، شورٹز کو</button>
-            <button class="quiz-option" data-i="1">شورٹز، لانگز کو</button>
-            <button class="quiz-option" data-i="2">ایکسچینج ٹریڈرز کو</button>
+            <button class="quiz-option" data-i="0">Longs, Shorts ko</button>
+            <button class="quiz-option" data-i="1">Shorts, Longs ko</button>
+            <button class="quiz-option" data-i="2">Exchange traders ko</button>
           </div>
-          <p class="quiz-explain">منفی فنڈنگ میں شورٹز، لانگز کو ادائیگی کرتے ہیں۔</p>
+          <p class="quiz-explain">Negative funding mein shorts, longs ko payment karte hain.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 9 : MONEY MANAGEMENT ================= -->
     <section class="chapter" id="ch9">
-      <div class="chapter-head"><span class="chapter-num">09</span><h2>ایڈوانسڈ پیسہ مینجمنٹ</h2></div>
-      <p class="chapter-intro">آخری کیلکولیشن پر مبنی باب — compounding اور long-term اکاؤنٹ growth کا حساب۔</p>
+      <div class="chapter-head"><span class="chapter-num">09</span><h2>Advanced Money Management</h2></div>
+      <p class="chapter-intro">Aakhri calculation-focused chapter — compounding aur long-term account growth ka hisaab.</p>
 
-      <h3>9.1 — compounding فارمولا</h3>
+      <h3>9.1 — Compounding Formula</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
         <div class="formula">Future Value = Principal × (1 + Return %) ^ n
-          <span class="note">n = کتنی بار یہ return repeat ہوا (ٹریڈز یا مہینے)</span>
+          <span class="note">n = kitni baar ye return repeat hua (trades ya months)</span>
         </div>
       </div>
       <div class="example-box">
@@ -1259,104 +1125,34 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </table>
       </div>
 
-      <figure>
-        <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="220" fill="var(--card)" rx="2"/>
-          <line x1="50" y1="190" x2="610" y2="190" stroke="var(--line-strong)" stroke-width="1"/>
-          <line x1="50" y1="30" x2="50" y2="190" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="25" y="110" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)" transform="rotate(-90,25,110)">$ Value</text>
-          <text x="330" y="210" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">Months</text>
-          <text x="95" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">0</text>
-          <text x="141" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">2</text>
-          <text x="187" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">4</text>
-          <text x="233" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">6</text>
-          <text x="279" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">8</text>
-          <text x="325" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">10</text>
-          <text x="371" y="205" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink-faint)">12</text>
-          <line x1="50" y1="155" x2="46" y2="155" stroke="var(--ink-faint)" stroke-width="1"/>
-          <text x="42" y="159" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--ink-faint)">$1k</text>
-          <line x1="50" y1="120" x2="46" y2="120" stroke="var(--ink-faint)" stroke-width="1"/>
-          <text x="42" y="124" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--ink-faint)">$1.4k</text>
-          <line x1="50" y1="85" x2="46" y2="85" stroke="var(--ink-faint)" stroke-width="1"/>
-          <text x="42" y="89" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--ink-faint)">$1.8k</text>
-          <path d="M95,155 Q141,152 187,146 Q233,136 279,120 Q325,98 371,70" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
-          <circle cx="95" cy="155" r="4" fill="var(--gold)"/>
-          <text x="95" y="147" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="var(--gold)">$1,000</text>
-          <circle cx="371" cy="70" r="4" fill="var(--profit)"/>
-          <text x="371" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="var(--profit)">$1,796</text>
-          <text x="320" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-faint)">5% monthly compounding · 12 months</text>
-        </svg>
-        <figcaption>ڈائیگرام 9.1 — کمپاؤنڈنگ کرو $1,000 سے شروع ہو کر 12 مہینوں میں $1,796 تک پہنچتا ہے (5% ماہانہ)</figcaption>
-      </figure>
-
       <div class="callout warn">
         <span class="dot">⚠</span>
-        <span>compounding ٹیبل اچھی لگتی ہے لیکن یہ assume کرتی ہے کہ ہر ٹریڈ profitable ہوگا — ریئلٹی میں نقصان بھی آتے ہیں، اس لیے مستقل رسک مینجمنٹ (باب 07) ہی compounding کو پائیدار بناتی ہے۔</span>
+        <span>Compounding table achi lagti hai lekin ye assume karti hai k har trade profitable hoga — reality mein losses bhi aate hain, isliye consistent risk management (Chapter 07) hi compounding ko sustainable banati hai.</span>
       </div>
 
       <div class="quiz-block">
-        <div class="quiz-title">باب 09 · مشق</div>
+        <div class="quiz-title">CHAPTER 09 · PRACTICE</div>
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">Q1. compounding فارمولا میں "n" کیا represent کرتا ہے؟</p>
+          <p class="quiz-prompt">Q1. Compounding formula mein "n" kya represent karta hai?</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">return کتنی بار repeat ہوا (periods)</button>
-            <button class="quiz-option" data-i="1">لیوریج amount</button>
-            <button class="quiz-option" data-i="2">فیس فیصد</button>
+            <button class="quiz-option" data-i="0">Return kitni baar repeat hua (periods)</button>
+            <button class="quiz-option" data-i="1">Leverage amount</button>
+            <button class="quiz-option" data-i="2">Fee percentage</button>
           </div>
-          <p class="quiz-explain">n periods (ماہانہ/ٹریڈز) کی تعداد ہوتی ہے۔</p>
+          <p class="quiz-explain">n periods (months/trades) ki tadaad hoti hai.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= CHAPTER 10 : FINAL TEST ================= -->
     <section class="chapter" id="ch10">
-      <div class="chapter-head"><span class="chapter-num">10</span><h2>آخری مشق کا امتحان</h2></div>
-      <p class="chapter-intro">یہ mixed امتحان ہے — اسپاٹ، فیوچرز، لیوریج اور رسک مینجمنٹ، سب بابوں سے۔ پوری کتاب revise کرنے کے بعد یہ attempt کریں۔</p>
-
-      <figure>
-        <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="640" height="260" fill="var(--card)" rx="2"/>
-          <rect x="240" y="8" width="160" height="36" rx="2" fill="var(--gold-deep)" stroke="none"/>
-          <text x="320" y="32" text-anchor="middle" font-family="Newsreader, serif" font-size="12" font-weight="600" fill="var(--card)">Trading Knowledge</text>
-          <line x1="320" y1="44" x2="320" y2="58" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="20" y="60" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="70" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch1 Terms</text>
-          <line x1="120" y1="78" x2="240" y2="78" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="150" y="60" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="200" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch2 Spot</text>
-          <line x1="250" y1="78" x2="320" y2="78" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="280" y="60" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="330" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch3 Futures</text>
-          <line x1="380" y1="78" x2="450" y2="78" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="450" y="60" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="500" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch4 Leverage</text>
-          <line x1="200" y1="96" x2="200" y2="118" stroke="var(--ink-faint)" stroke-width="1"/>
-          <line x1="500" y1="96" x2="500" y2="118" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="150" y="120" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="200" y="142" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch5 P&L</text>
-          <line x1="250" y1="138" x2="320" y2="138" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="320" y="120" width="110" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="375" y="142" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch6 Liquidation</text>
-          <line x1="375" y1="156" x2="375" y2="178" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="200" y="180" width="110" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="255" y="202" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch7 Risk Sizing</text>
-          <line x1="310" y1="198" x2="375" y2="198" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="375" y="180" width="100" height="36" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="425" y="202" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink)">Ch8 Funding</text>
-          <line x1="425" y1="216" x2="425" y2="232" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="240" y="234" width="120" height="26" rx="2" fill="var(--paper-deep)" stroke="var(--line-strong)" stroke-width="1"/>
-          <text x="300" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--ink)">Ch9 Money Mgmt</text>
-          <line x1="360" y1="247" x2="425" y2="247" stroke="var(--ink-faint)" stroke-width="1"/>
-          <rect x="425" y="234" width="110" height="26" rx="2" fill="var(--profit-bg)" stroke="var(--profit)" stroke-width="1.5"/>
-          <text x="480" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="var(--profit)">Ch10 Mastery</text>
-        </svg>
-        <figcaption>ڈائیگرام 10.1 — مکمل مہارت کا نقشہ: ہر باب کا کانسپٹ اگلے باب میں جڑتا ہے — آخر میں ٹریڈنگ مہارت بن جاتی ہے</figcaption>
-      </figure>
+      <div class="chapter-head"><span class="chapter-num">10</span><h2>Final Practice Test</h2></div>
+      <p class="chapter-intro">Ye mixed test hai — Spot, Futures, Leverage aur Risk Management, sab chapters se. Poori book revise karne k baad ye attempt karein.</p>
 
       <div class="quiz-block" style="border-top:none; padding-top:0; margin-top:0;">
 
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">1. $800 سے ETH $2,000 پرائس پر خریدا گیا۔ quantity کیا ہوگی؟</p>
+          <p class="quiz-prompt">1. $800 se ETH $2,000 price par khareeda gaya. Quantity kya hogi?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">0.04 ETH</button>
             <button class="quiz-option" data-i="1">0.4 ETH</button>
@@ -1366,7 +1162,7 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">2. خرید @ $2,000، بیچ @ $2,200، quantity 0.4 ETH۔ منافع؟</p>
+          <p class="quiz-prompt">2. Buy @ $2,000, Sell @ $2,200, Quantity 0.4 ETH. Profit?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$80</button>
             <button class="quiz-option" data-i="1">$800</button>
@@ -1376,7 +1172,7 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">3. $300 مارجن، 15x لیوریج۔ پوزیشن سائز؟</p>
+          <p class="quiz-prompt">3. $300 margin, 15x leverage. Position size?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$300</button>
             <button class="quiz-option" data-i="1">$3,000</button>
@@ -1386,7 +1182,7 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">4. شورٹ پوزیشن: انٹری $100، ایکزیٹ $90، quantity 10۔ P&amp;L؟</p>
+          <p class="quiz-prompt">4. Short position: Entry $100, Exit $90, Quantity 10. P&amp;L?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">−$100</button>
             <button class="quiz-option" data-i="1">+$100</button>
@@ -1396,7 +1192,7 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">5. 25x لیوریج پر صرف 4% پرائس موومنٹ کا ROI مارجن پر کتنا ہوگا؟</p>
+          <p class="quiz-prompt">5. 25x leverage par sirf 4% price move ka ROI margin par kitna hoga?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">100%</button>
             <button class="quiz-option" data-i="1">4%</button>
@@ -1406,17 +1202,17 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="1">
-          <p class="quiz-prompt">6. زیادہ لیوریج سے لیکویڈیشن پرائس انٹری پرائس کے...</p>
+          <p class="quiz-prompt">6. Zyada leverage se liquidation price entry price k...</p>
           <div class="quiz-options">
-            <button class="quiz-option" data-i="0">دور چلی جاتی ہے</button>
-            <button class="quiz-option" data-i="1">قریب آ جاتی ہے</button>
-            <button class="quiz-option" data-i="2">بالکل same رہتی ہے</button>
+            <button class="quiz-option" data-i="0">Door chali jati hai</button>
+            <button class="quiz-option" data-i="1">Qareeb aa jati hai</button>
+            <button class="quiz-option" data-i="2">Bilkul same rehti hai</button>
           </div>
-          <p class="quiz-explain">زیادہ لیوریج = لیکویڈیشن انٹری کے بہت قریب۔</p>
+          <p class="quiz-explain">Higher leverage = liquidation entry k bohot qareeb.</p>
         </div>
 
         <div class="quiz-q" data-correct="2">
-          <p class="quiz-prompt">7. $5,000 اکاؤنٹ، 2% رسک رول follow کریں تو زیادہ سے زیادہ رسک؟</p>
+          <p class="quiz-prompt">7. $5,000 account, 2% risk rule follow karein tou max risk?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">$500</button>
             <button class="quiz-option" data-i="1">$5</button>
@@ -1426,42 +1222,42 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
         </div>
 
         <div class="quiz-q" data-correct="0">
-          <p class="quiz-prompt">8. رسک $1,000 ہے ریوارڈ $2,500 ہے — رسک:ریوارڈ ratio کیا ہوگا (approx)?</p>
+          <p class="quiz-prompt">8. Risk $1,000 hai reward $2,500 hai — Risk:Reward ratio kya hoga (approx)?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-i="0">1:2.5</button>
             <button class="quiz-option" data-i="1">2.5:1</button>
             <button class="quiz-option" data-i="2">1:1</button>
           </div>
-          <p class="quiz-explain">2,500 ÷ 1,000 = 2.5، یعنی 1:2.5۔</p>
+          <p class="quiz-explain">2,500 ÷ 1,000 = 2.5, yani 1:2.5.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= GLOSSARY ================= -->
     <section class="chapter glossary" id="glossary">
-      <div class="chapter-head"><span class="chapter-num">11</span><h2>لغت</h2></div>
-      <p class="chapter-intro">ضروری اصطلاحات ایک جگہ پر، جلدی refer کرنے کے لیے۔</p>
+      <div class="chapter-head"><span class="chapter-num">11</span><h2>Glossary</h2></div>
+      <p class="chapter-intro">Zaroori terms ek jaga par, jaldi refer karne k liye.</p>
       <dl>
-        <dt>اسپاٹ ٹریڈنگ</dt><dd>موجودہ مارکیٹ پرائس پر ایسٹ خریدنا/بیچنا، اصل مالکیت کے ساتھ۔</dd>
-        <dt>فیوچرز ٹریڈنگ</dt><dd>پرائس کی حرکت پر کنٹریکٹ لینا، لیوریج کے ساتھ، بغیر ایسٹ کی مالکیت کے۔</dd>
-        <dt>لانگ</dt><dd>پرائس اوپر جانے پر منافع والی پوزیشن۔</dd>
-        <dt>شورٹ</dt><dd>پرائس نیچے جانے پر منافع والی پوزیشن۔</dd>
-        <dt>لیوریج</dt><dd>اپنی مارجن سے زیادہ بڑا پوزیشن کنٹرول کرنے کی سہولت (مثلاً 10x، 20x)۔</dd>
-        <dt>مارجن</dt><dd>پوزیشن کھولنے کے لیے لگائی گئی اپنی رقم۔</dd>
-        <dt>نامنال / پوزیشن سائز</dt><dd>مارجن × لیوریج سے بنی کل ٹریڈ ویلیو۔</dd>
-        <dt>لیکویڈیشن پرائس</dt><dd>وہ پرائس جہاں نقصان مارجن کو پورا ختم کر دیتا ہے اور پوزیشن force-close ہو جاتی ہے۔</dd>
-        <dt>ائзолیٹڈ مارجن</dt><dd>رسک صرف مختص کی گئی مارجن تک محدود۔</dd>
-        <dt>کراس مارجن</dt><dd>پورا اکاؤنٹ بیلنس اس ٹریڈ کو سپورٹ کرتا ہے۔</dd>
-        <dt>ROI</dt><dd>Return on Investment — مارجن کے مقابلے فیصد منافع/نقصان۔</dd>
-        <dt>فنڈنگ ریٹ</dt><dd>پیپچوئل فیوچرز میں پرائس کو اسپاٹ کے قریب رکھنے والی periodic ادائیگی۔</dd>
-        <dt>اسٹاپ لاس</dt><dd>وہ پرائس جہاں پہنچ کر ٹریڈ خودکار طور پر بند ہو جائے تاکہ نقصان محدود رہے۔</dd>
-        <dt>رسک:ریوارڈ ریشو</dt><dd>ممکنہ نقصان اور ممکنہ منافع کا ratio۔</dd>
-        <dt>DCA (Dollar Cost Averaging)</dt><dd>الگ الگ پرائس پر تھوڑا تھوڑا خرید کر اوسط قیمت بنانا۔</dd>
+        <dt>Spot Trading</dt><dd>Current market price par asset khareedna/bechna, asal ownership k saath.</dd>
+        <dt>Futures Trading</dt><dd>Price movement par contract lena, leverage k saath, bina asset ki ownership k.</dd>
+        <dt>Long</dt><dd>Price uper jaane par profit wali position.</dd>
+        <dt>Short</dt><dd>Price neeche jaane par profit wali position.</dd>
+        <dt>Leverage</dt><dd>Apni margin se zyada bara position control karne ki suvidha (e.g. 10x, 20x).</dd>
+        <dt>Margin</dt><dd>Position khine k liye lagayi gayi apni raqam.</dd>
+        <dt>Notional / Position Size</dt><dd>Margin × Leverage se bani total trade value.</dd>
+        <dt>Liquidation Price</dt><dd>Wo price jahan loss margin ko poora khatam kar deta hai aur position force-close ho jati hai.</dd>
+        <dt>Isolated Margin</dt><dd>Risk sirf allocate ki gayi margin tak mehdood.</dd>
+        <dt>Cross Margin</dt><dd>Pura account balance us trade ko support karta hai.</dd>
+        <dt>ROI</dt><dd>Return on Investment — margin k against percentage profit/loss.</dd>
+        <dt>Funding Rate</dt><dd>Perpetual futures mein price ko spot k qareeb rakhne wali periodic payment.</dd>
+        <dt>Stop Loss</dt><dd>Wo price jahan pohanch kar trade automatically band ho jaye taake loss mehdood rahe.</dd>
+        <dt>Risk:Reward Ratio</dt><dd>Potential loss aur potential profit ka mutual ratio.</dd>
+        <dt>DCA (Dollar Cost Averaging)</dt><dd>Alag alag price par thora thora khareed kar average cost banana.</dd>
       </dl>
     </section>
 
     <div class="disclaimer">
-      <strong>ڈسکلیمر:</strong> یہ کتاب صرف تعلیمی کیلکولیشن کانسپٹس سکھانے کے لیے ہے — کوئی مالی مشورہ نہیں ہے۔ کرپٹو ٹریڈنگ میں مالی نقصان کا خطرہ ہوتا ہے، خاص طور پر لیوریج کے ساتھ۔ کوئی بھی اصل رقم invest کرنے سے پہلے اپنی ایکسچینج کی exact فیس سٹرکچر، مارجن رولز اور لیکویڈیشن فارمولا خود verify کریں۔
+      <strong>Disclaimer:</strong> Ye book sirf educational calculation concepts sikhane k liye hai — koi financial advice nahi hai. Crypto trading mein financial nuksaan ka khatra hota hai, khaas kar leverage k saath. Koi bhi real raqam invest karne se pehle apni exchange ki exact fee structure, margin rules aur liquidation formula khud verify karein.
     </div>
 
   </main>
