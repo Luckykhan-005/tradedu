@@ -39,7 +39,9 @@
   body{
     margin:0;
     font-family:'Noto Nastaliq Urdu', 'Literata', Georgia, serif;
-    line-height:1.7;
+    line-height:2.4;
+    word-spacing:4px;
+    letter-spacing:0.5px;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
@@ -55,8 +57,9 @@
     font-family:'Noto Nastaliq Urdu', 'Newsreader', Georgia, serif;
     color:var(--ink);
     font-weight:600;
-    line-height:1.25;
-    margin:0 0 0.5em 0;
+    line-height:2.0;
+    margin:0 0 0.8em 0;
+    padding-bottom:0.3em;
   }
 
   a{ color:var(--gold-deep); }
@@ -163,13 +166,16 @@
   .cover h1{
     font-size:2.6rem;
     max-width:14ch;
+    line-height:2.2;
+    margin-bottom:20px;
   }
   .cover .subtitle{
     font-size:1.15rem;
     color:var(--ink-soft);
     font-style:italic;
-    margin-top:14px;
+    margin-top:18px;
     max-width:44ch;
+    line-height:2.2;
   }
   .cover .meta{
     margin-top:26px;
@@ -192,22 +198,24 @@
     color:var(--gold-deep);
     font-size:0.95rem;
   }
-  .chapter h2{ font-size:1.7rem; margin-bottom:0; }
+  .chapter h2{ font-size:1.7rem; margin-bottom:0; line-height:2.0; }
   .chapter-intro{
     color:var(--ink-soft);
     font-size:1.02rem;
-    margin:14px 0 28px;
-    padding-bottom:26px;
+    margin:18px 0 32px;
+    padding-bottom:28px;
     border-bottom:1px solid var(--line);
+    line-height:2.4;
   }
   .chapter h3{
     font-size:1.2rem;
-    margin-top:34px;
-    padding-top:2px;
+    margin-top:40px;
+    padding-top:4px;
+    line-height:2.0;
   }
-  p{ margin:0 0 16px; }
-  ul, ol{ margin:0 0 18px; padding-left:1.3em; }
-  li{ margin-bottom:6px; }
+  p{ margin:0 0 20px; line-height:2.4; }
+  ul, ol{ margin:0 0 22px; padding-left:1.5em; }
+  li{ margin-bottom:10px; line-height:2.2; }
 
   strong{ color:var(--ink); font-weight:600; }
 
@@ -216,8 +224,8 @@
     border:1px solid var(--line-strong);
     border-left:3px solid var(--gold);
     border-radius:var(--radius);
-    padding:16px 20px;
-    margin:22px 0;
+    padding:20px 24px;
+    margin:26px 0;
   }
   .formula-label{
     font-family:'JetBrains Mono', monospace;
@@ -244,8 +252,8 @@
   .example-box{
     background:var(--paper-deep);
     border-radius:var(--radius);
-    padding:18px 20px;
-    margin:22px 0;
+    padding:22px 24px;
+    margin:26px 0;
   }
   .example-label{
     font-family:'JetBrains Mono', monospace;
@@ -261,9 +269,10 @@
     margin-top:6px;
   }
   .example-box td{
-    padding:6px 4px;
+    padding:10px 8px;
     border-bottom:1px solid var(--line);
     vertical-align:top;
+    line-height:2.0;
   }
   .example-box td:first-child{ color:var(--ink-soft); width:52%; }
   .example-box td:last-child{ font-family:'JetBrains Mono', monospace; text-align:right; }
@@ -272,12 +281,13 @@
   .result-row.loss td:last-child{ color:var(--loss); }
 
   .callout{
-    display:flex; gap:12px;
+    display:flex; gap:14px;
     background:var(--profit-bg);
     border-radius:var(--radius);
-    padding:14px 18px;
-    margin:22px 0;
+    padding:18px 22px;
+    margin:26px 0;
     font-size:0.92rem;
+    line-height:2.2;
   }
   .callout.warn{ background:var(--loss-bg); }
   .callout .dot{ flex-shrink:0; font-family:'JetBrains Mono', monospace; color:var(--ink-faint); }
@@ -288,14 +298,15 @@
     font-family:'JetBrains Mono', monospace;
     font-size:0.72rem;
     color:var(--ink-faint);
-    margin-top:10px;
+    margin-top:14px;
     letter-spacing:0.02em;
+    line-height:1.8;
   }
 
   /* ===== Quiz ===== */
   .quiz-block{
-    margin-top:40px;
-    padding-top:30px;
+    margin-top:50px;
+    padding-top:36px;
     border-top:2px dashed var(--line-strong);
   }
   .quiz-block > .quiz-title{
@@ -309,8 +320,8 @@
     background:var(--card);
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:18px 20px 20px;
-    margin-bottom:16px;
+    padding:22px 24px 24px;
+    margin-bottom:20px;
   }
   .quiz-prompt{
     font-family:'Noto Nastaliq Urdu', 'Newsreader', serif;
@@ -350,9 +361,10 @@
     font-family:'Noto Nastaliq Urdu', 'Newsreader', serif;
     font-weight:600;
     color:var(--gold-deep);
-    margin-top:16px;
+    margin-top:22px;
+    line-height:2.0;
   }
-  .glossary dd{ margin:4px 0 0; color:var(--ink-soft); }
+  .glossary dd{ margin:6px 0 0; color:var(--ink-soft); line-height:2.2; }
 
   .disclaimer{
     margin-top:60px;
