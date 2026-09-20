@@ -32,6 +32,29 @@
 <div class="concept"><h3>۲. Buy Side Liquidity</h3><p>ریزسٹنس اوپر — خریداروں کے سٹاپ لاس یہاں ہیں۔ سمارٹ منی قیمت اوپر لے کر جاتا ہے — سٹاپ ہنٹ کرتا ہے۔</p></div>
 <div class="concept"><h3>۳. Sell Side Liquidity</h3><p>سپورٹ نیچے — فروخت کنندگان کے سٹاپ لاس یہاں ہیں۔ سمارٹ منی قیمت نیچے لے کر جاتا ہے — سٹاپ ہنٹ کرتا ہے۔</p></div>
 <div class="concept"><h3>۴. Liquidity Sweep / Stop Hunt</h3><p>قیمت سپورٹ/ریزسٹنس توڑ کر واپس آئے — سٹاپ ہنٹ۔ سمارٹ منی نے liquidity حاصل کر لی۔</p>
+<div class="diagram"><svg width="600" height="300" viewBox="0 0 600 300">
+<defs>
+<marker id="arrowSweep" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#e0a800"/></marker>
+<marker id="arrowSmart" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><polygon points="0,5 7,2.5 0,0" fill="#26a69a"/></marker>
+</defs>
+<rect width="600" height="300" fill="#0d1b2a" rx="10"/>
+<text x="300" y="25" fill="#00b4d8" font-size="14" text-anchor="middle" font-weight="bold">Liquidity Sweep — Stop Hunt</text>
+<rect x="60" y="50" width="480" height="35" fill="#e94560" opacity="0.12" rx="4"/>
+<text x="560" y="73" fill="#e94560" font-size="11">ریزسٹنس</text>
+<text x="300" y="65" fill="#e94560" font-size="10" text-anchor="middle">🔴 Buy Side Liquidity — سٹاپ لاس اوپر</text>
+<rect x="60" y="220" width="480" height="35" fill="#26a69a" opacity="0.12" rx="4"/>
+<text x="560" y="243" fill="#26a69a" font-size="11">سپورٹ</text>
+<text x="300" y="235" fill="#26a69a" font-size="10" text-anchor="middle">🟢 Sell Side Liquidity — سٹاپ لاس نیچے</text>
+<polyline points="80,200 150,140 220,65 290,140 340,200 400,100 460,60 520,130" fill="none" stroke="#00b4d8" stroke-width="2.5"/>
+<polyline points="460,60 480,45" fill="none" stroke="#e0a800" stroke-width="3" marker-end="url(#arrowSweep)"/>
+<text x="490" y="42" fill="#e0a800" font-size="11" font-weight="bold">Sweep!</text>
+<circle cx="460" cy="60" r="5" fill="#e94560"/>
+<text x="460" y="50" fill="#e94560" font-size="9" text-anchor="middle">STOPS HIT</text>
+<polyline points="520,130 500,170 460,200" fill="none" stroke="#26a69a" stroke-width="2.5" marker-end="url(#arrowSmart)"/>
+<text x="480" y="185" fill="#26a69a" font-size="10">واپسی</text>
+<rect x="30" y="265" width="540" height="25" fill="#16213e" rx="5"/>
+<text x="300" y="283" fill="#00b4d8" font-size="11" text-anchor="middle">-entry: سٹاپ ہنٹ کے بعد — قیمت واپس آئے — entry لیں</text>
+</svg></div>
 <div class="example"><strong>مثال:</strong> BTC ,000 سپورٹ توڑ کر ,500 گیا — سٹاپ لاس لگے — فوراً واپس ,500 آ گیا = liquidity sweep۔</div></div>
 <div class="concept"><h3>۵. Liquidity Entry</h3><p>Liquidity sweep کے بعد — قیمت واپس آئے — entry لیں۔ سمارٹ منی کی راہ پر چلیں۔</p></div>
 <div class="keypoints"><h3>🔑 اہم نکات</h3><p>لیکویڈیٹی سمجھیں — سمارٹ منی یہی دیکھتا ہے۔</p><p>Sweep کے بعد entry سب سے بہترین ہے۔</p><p>Stops ہمیشہ سپورٹ/ریزسٹنس کے ایک قدم آگے رکھیں۔</p></div>
