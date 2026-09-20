@@ -269,6 +269,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Complete System', 'Professional'],
     cover: '/covers/Professional-Trading-System.jpg',
   },
+  {
+    id: 'crypto-calculations',
+    title: 'Crypto Calculations — Spot & Futures',
+    titleUrdu: 'کریپٹو کیلکولیشنز — اسپاٹ اور فیوچرز',
+    description:
+      'Complete calculation guide for crypto trading — Spot P&L, Futures leverage, liquidation price, position sizing, funding rate, compounding, and 50+ practice questions.',
+    chapters: 10,
+    pages: '10 chapters · 50+ Practice Questions',
+    icon: Target,
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50',
+    href: '/crypto-calculations/index.html',
+    tags: ['Urdu', 'Calculations', 'Spot & Futures'],
+    cover: '/covers/Crypto-Calculations.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
