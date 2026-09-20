@@ -543,10 +543,75 @@
       </div>
 
       <h3>2.3 — Trading Fee ka Hisaab</h3>
-      <p>Har exchange buy aur sell dono par ek chhoti si fee (%) charge karta hai. Ye percentage exchange se exchange alag hoti hai, isliye apni exchange ki exact fee zaroor check karein. Formula ye hai:</p>
+      <p>Har exchange buy aur sell dono par ek chhoti si fee (%) charge karta hai. Ye percentage exchange se exchange alag hoti hai, isliye apni exchange ki exact fee zaroor check karein.</p>
+
+      <p>Bilkul. Isko bohat simple tareeqay se samajhte hain:</p>
+
+      <h4>% Ka Matlab Kya Hai?</h4>
+      <p><strong>% ka matlab hota hai "100 mein se"</strong></p>
+      <p>Is liye:</p>
       <div class="formula-box">
-        <div class="formula-label">FORMULA</div>
-        <div class="formula">Fee Amount = Trade Value × Fee %</div>
+        <div class="formula-label">DECIMAL CONVERSION</div>
+        <div class="formula">0.01% = 0.01 ÷ 100 = 0.0001</div>
+      </div>
+
+      <h4>Ab 500 USDT Ka Example Dekhte Hain</h4>
+      <p>Aapke paas:</p>
+      <ul>
+        <li>Trade Value = 500 USDT</li>
+        <li>Fee = 0.01%</li>
+      </ul>
+      <div class="formula-box">
+        <div class="formula-label">STEP-BY-STEP CALCULATION</div>
+        <div class="formula">Fee = Trade Value × Fee Rate
+          <span class="note">Fee = 500 × 0.0001</span>
+          <span class="note">Fee = 0.05 USDT</span>
+        </div>
+      </div>
+      <p>Yani 500 USDT ki trade par fee = <strong>0.05 USDT</strong>.</p>
+
+      <h4>Ek Aur Easy Shortcut</h4>
+      <p>Agar fee 0.01% hai, to iska matlab hai:</p>
+      <p><strong>Har 100 USDT par 0.01 USDT fee</strong></p>
+      <div class="formula-box">
+        <div class="formula-label">SHORTCUT METHOD</div>
+        <div class="formula">500 ÷ 100 = 5
+          <span class="note">5 × 0.01 = 0.05 USDT</span>
+          <span class="note">Same answer: 500 USDT → 0.05 USDT fee</span>
+        </div>
+      </div>
+
+      <h4>Ab Buy + Sell Dono Ki Fee Samjho</h4>
+      <p>Suppose aap BUY = 500 USDT karte ho (fee = 0.05 USDT), phir price barhne ke baad SELL = 550 USDT karte ho:</p>
+      <div class="example-box">
+        <div class="example-label">BUY + SELL FEE CALCULATION</div>
+        <table>
+          <tr><td>Buy Fee</td><td>500 × 0.0001 = $0.05</td></tr>
+          <tr><td>Sell Fee</td><td>550 × 0.0001 = $0.055</td></tr>
+          <tr class="result-row"><td>Total Fees</td><td>0.05 + 0.055 = $0.105</td></tr>
+          <tr><td>Profit (before fees)</td><td>$50</td></tr>
+          <tr class="result-row profit"><td>Net Profit</td><td>50 − 0.105 = $49.895</td></tr>
+        </table>
+      </div>
+
+      <h4>Fire Yaad Rakhne Wali Trick</h4>
+      <div class="example-box">
+        <div class="example-label">FEE TABLE — 500 USDT TRADE PAR</div>
+        <table>
+          <tr><td>Fee</td><td>Decimal</td><td>500 USDT Par</td></tr>
+          <tr><td>1%</td><td>0.01</td><td>$5 USDT</td></tr>
+          <tr><td>0.1%</td><td>0.001</td><td>$0.50 USDT</td></tr>
+          <tr><td>0.01%</td><td>0.0001</td><td>$0.05 USDT</td></tr>
+          <tr><td>0.001%</td><td>0.00001</td><td>$0.005 USDT</td></tr>
+        </table>
+      </div>
+
+      <p><strong>Important Formula:</strong></p>
+      <div class="formula-box">
+        <div class="formula-label">FINAL FORMULA</div>
+        <div class="formula">Fee = Trade Amount × (Fee % ÷ 100)
+          <span class="note">Example: 500 × (0.01 ÷ 100) = 500 × 0.0001 = 0.05 USDT</span>
+        </div>
       </div>
 
       <h3>2.4 — Sell Karte Waqt Profit/Loss Calculate Karna</h3>
