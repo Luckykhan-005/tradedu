@@ -7,7 +7,7 @@
       "destination": "https://f433563c-b214-4c91-81ec-8db56a59a1b4.preview.shogo.ai/api/:path*"
     },
     {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!assets/|binance-complete/|forex-complete/|forex-book/|crypto-beginner/|crypto-intermediate/|crypto-advanced/|candlestick-book/|smc-book/|crypto-fundnext/|glossary-book/|technical-analysis/|price-action/|trading-strategies/|risk-management/|trading-psychology/|professional-system/|crypto-calculations/|day-trading-guide/|fundamental-analysis/|advanced-chart-patterns/|market-cycles/|swing-trading/|portfolio-management/|covers/).*)",
       "destination": "/index.html"
     }
   ]
