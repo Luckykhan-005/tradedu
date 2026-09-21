@@ -16,6 +16,7 @@ import {
   BookMarked,
   Target,
   Trophy,
+  BarChart2,
   BarChart3,
   Clock,
   PieChart,
