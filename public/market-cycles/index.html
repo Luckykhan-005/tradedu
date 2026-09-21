@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Market Cycles &amp; Bitcoin Halving — Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:22ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:54ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"\2610";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+  .disclaimer{background:var(--loss-bg);border:1px solid var(--loss);border-radius:var(--radius);padding:18px 22px;margin:40px 0 30px;font-size:0.92rem;color:#f0a0a0;line-height:1.6;}
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Market Cycles &amp; Bitcoin Halving<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Market Cycles Kya Hain</a>
+    <a href="#ch2"><span class="toc-num">02</span>Cycle Ki Phases</a>
+    <a href="#ch3"><span class="toc-num">03</span>Bitcoin Halving Explained</a>
+    <a href="#ch4"><span class="toc-num">04</span>Halving Ki Economics</a>
+    <a href="#ch5"><span class="toc-num">05</span>Cycle Phases Ka Detail</a>
+    <a href="#ch6"><span class="toc-num">06</span>Historical Cycle Analysis</a>
+    <a href="#ch7"><span class="toc-num">07</span>Halving History &amp; Patterns</a>
+    <a href="#ch8"><span class="toc-num">08</span>On-Chain Indicators</a>
+    <a href="#ch9"><span class="toc-num">09</span>Emotional Cycle of Market</a>
+    <a href="#ch10"><span class="toc-num">10</span>Timing Market Cycles</a>
+    <a href="#ch11"><span class="toc-num">11</span>Portfolio Strategy</a>
+    <a href="#ch12"><span class="toc-num">12</span>Current Market Analysis</a>
+  </nav>
+</aside>
+
+<main id="cover">
+
+<div class="cover">
+  <div class="eyebrow">MARKET CYCLES &middot; BITCOIN HALVING &middot; COMPLETE GUIDE</div>
+  <h1>Market Cycles &amp; Bitcoin Halving, Pura Guide</h1>
+  <p class="subtitle">Market cycles samjho, Bitcoin halving se profit banao. Accumulation se le kar distribution tak — sab kuch Roman Urdu mein.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>24+ PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</div>
+
+<p>Market cycles har financial market mein hotay hain — chahe stocks ho, real estate ho, ya cryptocurrency. Ye cycles insaani psychology aur supply-demand ke patterns se bante hain. Bitcoin halving ek unique event hai jo Bitcoin ki supply ko kam karta hai aur market cycles ko directly affect karta hai.</p>
+<p>Har chapter mein aap ko cycle ki psychology, on-chain indicators, aur practical strategies milenge. Shuru karte hain!</p>
+
+<h3>Is Book Mein Kya Hai</h3>
+<ul>
+  <li><strong>Market Cycles Kya Hain:</strong> Bull, bear, accumulation, distribution ka introduction</li>
+  <li><strong>Cycle Ki Phases:</strong> Har phase ki detailed analysis</li>
+  <li><strong>Bitcoin Halving Explained:</strong> Halving kya hai aur kyun important hai</li>
+  <li><strong>Halving History:</strong> 2012, 2016, 2020, 2024 halvings ka analysis</li>
+  <li><strong>On-Chain Indicators:</strong> MVRV, NUPL, Stock-to-Flow, Puell Multiple</li>
+  <li><strong>Emotional Cycle:</strong> Psychology behind each phase</li>
+  <li>Aur bohat kuch jo aap ko cycle trader banayega</li>
+</ul>
+
+<div class="callout">
+  <span class="dot">&rsaquo;</span>
+  <span><strong>Yaad rakhein:</strong> Market cycles sirf probability hai, guarantee nahi. Har cycle mein risk management zaroori hai. Past performance future ki guarantee nahi hai.</span>
+</div>
+
+<!-- CHAPTER 1 -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Market Cycles Kya Hain</h2>
+  </div>
+  <p class="chapter-intro">Market cycles wo patterns hain jo market mein bar bar repeat hotay hain — accumulation, bull market, distribution, aur bear market.</p>
+
+  <h3>Market Cycle Ka Basic Concept</h3>
+  <p>Market cycles wo natural patterns hain jo har financial market mein hotay hain. Ye insaani psychology — greed aur fear — se chaltay hain. Jab log greedy hotay hain toh market upar jaata hai, jab dar jaate hain toh neeche gir jaata hai.</p>
+  <p>Ye cycles roughly 4 phases mein divided hotay hain:</p>
+  <ul>
+    <li><strong>Accumulation Phase:</strong> Smart money khareed raha hota hai, market bottom pe hota hai</li>
+    <li><strong>Mark-Up (Bull Market):</strong> Price tezi se barh rahi hoti hai, logon mein excitement hota hai</li>
+    <li><strong>Distribution Phase:</strong> Smart money bech raha hota hai, market top pe hota hai</li>
+    <li><strong>Mark-Down (Bear Market):</strong> Price gir rahi hoti hai, logon mein panic hota hai</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-label">CYCLE PHASES OVERVIEW</div>
+    <table>
+      <tr><td><strong>Accumulation</strong></td><td>Market bottom, smart money buying</td></tr>
+      <tr><td><strong>Mark-Up</strong></td><td>Bull market, prices rising</td></tr>
+      <tr><td><strong>Distribution</strong></td><td>Market top, smart money selling</td></tr>
+      <tr><td><strong>Mark-Down</strong></td><td>Bear market, prices falling</td></tr>
+    </table>
+  </div>
+
+  <h3>Cycle Ki Duration</h3>
+  <p>Bitcoin mein ek cycle roughly 4 saal ka hota hai — ye Bitcoin halving se related hai. Har halving ke baad naya bull market start hota hai aur phir bear market aata hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="280" fill="#0a0a0a"/>
+      <line x1="60" y1="240" x2="660" y2="240" stroke="#333" stroke-width="1"/>
+      <line x1="60" y1="240" x2="60" y2="30" stroke="#333" stroke-width="1"/>
+      <path d="M80,200 Q130,195 180,180 Q230,165 280,100 Q330,40 380,80 Q430,120 480,190 Q530,220 580,200 Q610,190 640,185" fill="none" stroke="#f0b90b" stroke-width="2.5"/>
+      <text x="100" y="258" fill="#666" font-family="JetBrains Mono,monospace" font-size="9">Accumulation</text>
+      <text x="230" y="258" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9">Mark-Up</text>
+      <text x="400" y="258" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9">Distribution</text>
+      <text x="540" y="258" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9">Mark-Down</text>
+      <rect x="70" y="242" width="140" height="3" fill="#666" opacity="0.4"/>
+      <rect x="210" y="242" width="160" height="3" fill="#00b300" opacity="0.4"/>
+      <rect x="370" y="242" width="120" height="3" fill="#ff4444" opacity="0.4"/>
+      <rect x="490" y="242" width="120" height="3" fill="#ff4444" opacity="0.4"/>
+      <text x="40" y="244" fill="#666" font-family="JetBrains Mono,monospace" font-size="8">Low</text>
+      <text x="40" y="50" fill="#666" font-family="JetBrains Mono,monospace" font-size="8">High</text>
+    </svg>
+    <figcaption>Figure 1 — Market Cycle ka Basic Pattern</figcaption>
+  </figure>
+
+  <h3>Cycle Kyun Repeat Hota Hai</h3>
+  <p>Ye cycle is liye repeat hota hai kyunke insaani psychology change nahi hoti. Greed aur fear hamesha same tareeqe se kaam karte hain. Jab market upar jaata hai toh log aur khareedna chahte hain (FOMO), jab neeche jaata hai toh log bechna chahte hain (panic selling).</p>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Key Insight:</strong> Market cycles ko samajhna is ka ek hissa hai — dusra hissa hai un pe amal karna. Sab ko pata hai k market bottom pe buy karna chahiye, lekin jab actual mein market bottom pe hota hai toh sab darr jaate hain.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Market cycle ki sab se pehli phase kaun si hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Mark-Up (Bull Market)</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Accumulation</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Distribution</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Mark-Down (Bear Market)</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Accumulation phase sab se pehli hoti hai jab smart money market bottom pe khareed raha hota hai aur prices sab se kam hotay hain.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Market cycles kyun repeat hotay hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Government rules ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Insaani psychology (greed aur fear) ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Technical analysis ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Random hota hai, koi reason nahi</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Market cycles insaani psychology — greed aur fear — se repeat hotay hain. Ye emotions hamesha same tareeqe se market ko influence kartay hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Cycle Ki Phases</h2>
+  </div>
+  <p class="chapter-intro">Har cycle phase ki psychology, price action, aur indicators kaise kaam karte hain.</p>
+
+  <h3>1. Accumulation Phase</h3>
+  <p>Jab market bottom pe hota hai aur smart money dheere dheere khareed raha hota hai. Is phase mein:</p>
+  <ul>
+    <li>Prices kam hotay hain lekin stable hotay hain</li>
+    <li>Volume kam hota hai</li>
+    <li>Negative news zyada hoti hai</li>
+    <li>Log market se door ho rahe hotay hain</li>
+    <li>Smart money quietly buy kar raha hota hai</li>
+  </ul>
+
+  <h3>2. Mark-Up (Bull Market)</h3>
+  <p>Jab prices tezi se barhna shuru kartay hain. Is phase mein:</p>
+  <ul>
+    <li>Prices rapidly barhtay hain</li>
+    <li>Volume barhta hai</li>
+    <li>Positive news aati hai</li>
+    <li>Log FOMO mein khareedna shuru karte hain</li>
+    <li>Media coverage barhti hai</li>
+  </ul>
+
+  <h3>3. Distribution Phase</h3>
+  <p>Jab smart money bech raha hota hai aur market top pe hota hai. Is phase mein:</p>
+  <ul>
+    <li>Prices high hotay hain lekin volatile hotay hain</li>
+    <li>Volume hota hai lekin price barh nahi rahi</li>
+    <li>Euphoria hota hai — "Bitcoin $100K jaayega!"</li>
+    <li>Smart money gradually sell kar raha hota hai</li>
+  </ul>
+
+  <h3>4. Mark-Down (Bear Market)</h3>
+  <p>Jab prices girna shuru kartay hain. Is phase mein:</p>
+  <ul>
+    <li>Prices tezi se girtay hain</li>
+    <li>Volume kam hota hai</li>
+    <li>Negative news zyada hoti hai</li>
+    <li>Log panic mein bechna shuru karte hain</li>
+    <li>Media coverage kam hoti hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#0a0a0a"/>
+      <line x1="60" y1="280" x2="660" y2="280" stroke="#333" stroke-width="1"/>
+      <line x1="60" y1="280" x2="60" y2="20" stroke="#333" stroke-width="1"/>
+      <rect x="80" y="180" width="120" height="80" fill="#111" stroke="#666" stroke-width="1" rx="2"/>
+      <rect x="210" y="60" width="140" height="200" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <rect x="360" y="40" width="120" height="220" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <rect x="490" y="100" width="120" height="160" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="140" y="200" fill="#666" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">ACCUMULATION</text>
+      <text x="140" y="216" fill="#666" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Smart Money Buying</text>
+      <text x="140" y="232" fill="#666" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Low Prices, Low Volume</text>
+      <text x="280" y="80" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">MARK-UP</text>
+      <text x="280" y="96" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Bull Market</text>
+      <text x="280" y="112" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Rapid Price Increase</text>
+      <text x="420" y="60" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">DISTRIBUTION</text>
+      <text x="420" y="76" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Smart Money Selling</text>
+      <text x="420" y="92" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">High Prices, Euphoria</text>
+      <text x="550" y="120" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">MARK-DOWN</text>
+      <text x="550" y="136" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Bear Market</text>
+      <text x="550" y="152" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Panic Selling</text>
+      <path d="M100,240 Q160,235 200,230 Q260,220 310,80 Q340,40 370,60 Q420,80 470,200 Q510,240 560,220 Q600,200 640,190" fill="none" stroke="#f0b90b" stroke-width="2"/>
+    </svg>
+    <figcaption>Figure 2 — Market Cycle Ki Char Phases</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Important:</strong> Har phase ki duration alag hoti hai. Accumulation aur distribution chhoti hoti hain jabke bull aur bear markets lambe ho sakte hain.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Distribution phase mein kya hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Smart money khareed raha hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Smart money bech raha hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market bottom pe hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Volume bilkul kam hota hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Distribution phase mein smart money gradually sell kar raha hota hai jab market top pe hota hai. Prices high hotay hain lekin barh nahi rahe.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Bull market mein log kyun khareedte hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Kyunke unhe pata hai k market girne wala hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">FOMO (Fear of Missing Out) ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Kyunke prices bahut kam hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Government ne force kiya hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Bull market mein log FOMO ki wajah se khareedte hain — unhe dar hota hai k woh profit miss kar denge. Ye greed ka natural result hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Bitcoin Halving Explained</h2>
+  </div>
+  <p class="chapter-intro">Bitcoin halving kya hai, kyun hota hai, aur market cycles ko kaise directly affect karta hai.</p>
+
+  <h3>Halving Kya Hai</h3>
+  <p>Bitcoin halving ek scheduled event hai jo har 4 saal (210,000 blocks) mein hota hai. Is event mein Bitcoin miners ko jo reward milta hai — woh aadha ho jaata hai. Ye is liye hota hai kyunke Bitcoin ki total supply 21 million se zyada nahi ho sakti.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">HALVING FORMULA</div>
+    <div class="formula">New Reward = Current Reward / 2<span class="note">Har halving ke baad Bitcoin ki supply growth rate aadhi ho jaati hai. Is se scarcity barhti hai.</span></div>
+  </div>
+
+  <h3>Halving Kyun Important Hai</h3>
+  <ul>
+    <li><strong>Supply Shock:</strong> Kam Bitcoin mil rahi hai miners ko, kam supply = zyada demand = price barh sakti hai</li>
+    <li><strong>Inflation Rate Kam:</strong> Bitcoin ka annual inflation rate halving ke baad aadha ho jaata hai</li>
+    <li><strong>Historical Pattern:</strong> Har halving ke baad major bull market aaya hai</li>
+    <li><strong>Miner Economics:</strong> Miners ko survive karna hai toh unhe BTC bechna padta hai, lekin kam reward = kam selling pressure long-term</li>
+  </ul>
+
+  <h3>Halving Ka Timeline</h3>
+  <div class="example-box">
+    <div class="example-label">HALVING HISTORY</div>
+    <table>
+      <tr><td><strong>First Halving</strong></td><td>November 2012 — 50 to 25 BTC</td></tr>
+      <tr><td><strong>Second Halving</strong></td><td>July 2016 — 25 to 12.5 BTC</td></tr>
+      <tr><td><strong>Third Halving</strong></td><td>May 2020 — 12.5 to 6.25 BTC</td></tr>
+      <tr><td><strong>Fourth Halving</strong></td><td>April 2024 — 6.25 to 3.125 BTC</td></tr>
+      <tr><td><strong>Fifth Halving</strong></td><td>~2028 (Expected) — 3.125 to 1.5625 BTC</td></tr>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="200" fill="#0a0a0a"/>
+      <line x1="60" y1="100" x2="640" y2="100" stroke="#333" stroke-width="2"/>
+      <circle cx="120" cy="100" r="8" fill="#f0b90b"/>
+      <circle cx="260" cy="100" r="8" fill="#f0b90b"/>
+      <circle cx="400" cy="100" r="8" fill="#f0b90b"/>
+      <circle cx="540" cy="100" r="8" fill="#f0b90b"/>
+      <text x="120" y="80" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">2012</text>
+      <text x="120" y="130" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">50 to 25 BTC</text>
+      <text x="260" y="80" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">2016</text>
+      <text x="260" y="130" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">25 to 12.5 BTC</text>
+      <text x="400" y="80" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">2020</text>
+      <text x="400" y="130" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">12.5 to 6.25 BTC</text>
+      <text x="540" y="80" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">2024</text>
+      <text x="540" y="130" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">6.25 to 3.125 BTC</text>
+      <circle cx="620" cy="100" r="6" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="620" y="80" fill="#666" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">~2028</text>
+      <text x="620" y="130" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">3.125 to 1.5625</text>
+    </svg>
+    <figcaption>Figure 3 — Bitcoin Halving Timeline</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Key Point:</strong> Halving sirf supply side ko affect karta hai. Demand side market sentiment, adoption, aur macro factors se control hoti hai. Is liye halving guarantee nahi hai k price barhegi — lekin historically strong correlation hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Bitcoin halving kitne saal mein hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">2 saal</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">4 saal (210,000 blocks)</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">6 saal</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">8 saal</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Bitcoin halving har 210,000 blocks mein hota hai jo roughly 4 saal ke barabar hai. Is se Bitcoin ki supply growth rate aadhi hoti hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Halving ke baad miners ko kitna BTC milta hai (2024 ke baad)?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">6.25 BTC</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">3.125 BTC</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">1.5625 BTC</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">12.5 BTC</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: 2024 halving ke baad block reward 6.25 se 3.125 BTC ho gaya hai. Ye Bitcoin ki scarcity ko barhata hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Halving Ki Economics</h2>
+  </div>
+  <p class="chapter-intro">Halving supply-demand dynamics ko kaise affect karta hai aur price impact kya hota hai.</p>
+
+  <h3>Supply Shock Theory</h3>
+  <p>Jab miners ko kam BTC milta hai, toh kam supply market mein aati hai. Agar demand same rahe ya barhe, toh price barhni chahiye. Ye basic economics hai — kam supply + same/zyada demand = price increase.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">SUPPLY-DEMAND RELATIONSHIP</div>
+    <div class="formula">Price is proportional to Demand / Supply<span class="note">Agar supply kam ho aur demand same rahe, toh price barhegi. Agar demand bhi barhe, toh price aur zyada barhegi.</span></div>
+  </div>
+
+  <h3>Miner Selling Pressure</h3>
+  <p>Miners ko apne operations cover karna hota hai — electricity, hardware, etc. Is liye woh mined BTC bechte hain. Halving ke baad:</p>
+  <ul>
+    <li>Kam BTC milti hai miners ko</li>
+    <li>Miners ko zyada efficient hona padta hai</li>
+    <li>Kamzor miners market se bahar ho jaate hain</li>
+    <li>Bachne wale miners kam bechte hain (kam supply)</li>
+    <li>Long-term mein selling pressure kam hota hai</li>
+  </ul>
+
+  <h3>Historical Price Impact</h3>
+  <div class="example-box">
+    <div class="example-label">PRICE IMPACT AFTER HALVINGS</div>
+    <table>
+      <tr><td><strong>2012 Halving</strong></td><td>Price: $12 to $1,100 (12 months)</td></tr>
+      <tr><td><strong>2016 Halving</strong></td><td>Price: $650 to $20,000 (18 months)</td></tr>
+      <tr><td><strong>2020 Halving</strong></td><td>Price: $8,700 to $69,000 (18 months)</td></tr>
+      <tr><td><strong>2024 Halving</strong></td><td>Price: $64,000 to TBD</td></tr>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="280" fill="#0a0a0a"/>
+      <line x1="80" y1="240" x2="660" y2="240" stroke="#333" stroke-width="1"/>
+      <line x1="80" y1="240" x2="80" y2="20" stroke="#333" stroke-width="1"/>
+      <line x1="180" y1="30" x2="180" y2="240" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="330" y1="30" x2="330" y2="240" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="480" y1="30" x2="480" y2="240" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="600" y1="30" x2="600" y2="240" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,4"/>
+      <path d="M100,230 L160,228 L180,225 L200,220 L250,180 L300,140 L330,130 L360,100 L400,80 L440,60 L480,55 L520,90 L560,120 L600,100 L640,95" fill="none" stroke="#00b300" stroke-width="2"/>
+      <text x="180" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">HALVING 1</text>
+      <text x="330" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">HALVING 2</text>
+      <text x="480" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">HALVING 3</text>
+      <text x="600" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">HALVING 4</text>
+      <text x="100" y="250" fill="#666" font-family="JetBrains Mono,monospace" font-size="7">$12</text>
+      <text x="330" y="145" fill="#666" font-family="JetBrains Mono,monospace" font-size="7">$650</text>
+      <text x="480" y="50" fill="#666" font-family="JetBrains Mono,monospace" font-size="7">$8,700</text>
+      <text x="600" y="95" fill="#666" font-family="JetBrains Mono,monospace" font-size="7">$64,000</text>
+    </svg>
+    <figcaption>Figure 4 — Halving ke baad Price Movement (Simplified)</figcaption>
+  </figure>
+
+  <div class="callout warn">
+    <span class="dot">!</span>
+    <span><strong>Warning:</strong> Past performance future ki guarantee nahi hai. Har halving ke baad price impact alag hota hai. Diminishing returns ka pattern hai — returns har cycle mein kam hotay ja rahe hain.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Supply Shock Theory kya kehti hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Supply barhni chahiye prices barhne ke liye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Kam supply + same/zyada demand = price increase</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Supply aur demand dono barhni chahiye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf demand matter karti hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Supply Shock Theory kehti hai k jab supply kam ho aur demand same rahe ya barhe, toh price barhni chahiye. Ye basic economics hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Halving ke baad miners ka kya hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab miners ko zyada BTC milti hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Kamzor miners market se bahar ho jaate hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Miners ko koi farq nahi padta</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Miners double kaam karte hain</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Halving ke baad kamzor miners market se bahar ho jaate hain kyunke unka profit kam ho jaata hai. Efficient miners bachte hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Cycle Phases Ka Detail</h2>
+  </div>
+  <p class="chapter-intro">Har cycle phase mein kya hota hai, indicators kaise react karte hain, aur trader ko kya karna chahiye.</p>
+
+  <h3>Accumulation Phase Ka Detail</h3>
+  <p>Accumulation phase market ka sab se interesting phase hai — yahan smart money quietly position bana raha hota hai. Key characteristics:</p>
+  <ul>
+    <li><strong>Price Action:</strong> Sideways movement, range-bound trading</li>
+    <li><strong>Volume:</strong> Kam lekin gradually barh raha hota hai</li>
+    <li><strong>Sentiment:</strong> Negative — "Bitcoin dead hai"</li>
+    <li><strong>On-Chain:</strong> HODLing barh rahi hai, exchange reserves kam ho rahe hain</li>
+    <li><strong>Smart Money:</strong> Dheere dheere buy kar raha hota hai</li>
+  </ul>
+
+  <h3>Bull Market Phase Ka Detail</h3>
+  <ul>
+    <li><strong>Price Action:</strong> Higher highs, higher lows — clear uptrend</li>
+    <li><strong>Volume:</strong> High — FOMO buying</li>
+    <li><strong>Sentiment:</strong> Positive — "Bitcoin $100K jaayega!"</li>
+    <li><strong>On-Chain:</strong> New addresses barh rahe hain, exchange inflows barh rahe hain</li>
+    <li><strong>Media:</strong> Sab jagah Bitcoin ki coverage</li>
+  </ul>
+
+  <h3>Distribution Phase Ka Detail</h3>
+  <ul>
+    <li><strong>Price Action:</strong> Sideways movement at top, failed breakouts</li>
+    <li><strong>Volume:</strong> High lekin price barh nahi rahi — bearish divergence</li>
+    <li><strong>Sentiment:</strong> Euphoric — "Bitcoin kabhi girayega nahi"</li>
+    <li><strong>On-Chain:</strong> Exchange inflows barh rahe hain — smart money sell kar raha hai</li>
+    <li><strong>Smart Money:</strong> Gradually position reduce kar raha hai</li>
+  </ul>
+
+  <h3>Bear Market Phase Ka Detail</h3>
+  <ul>
+    <li><strong>Price Action:</strong> Lower highs, lower lows — clear downtrend</li>
+    <li><strong>Volume:</strong> Low — panic selling ke baad</li>
+    <li><strong>Sentiment:</strong> Negative — "Bitcoin scam hai"</li>
+    <li><strong>On-Chain:</strong> Long-term holders accumulate kar rahe hain</li>
+    <li><strong>Smart Money:</strong> Phir se quietly buy kar raha hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <line x1="60" y1="260" x2="660" y2="260" stroke="#333" stroke-width="1"/>
+      <line x1="60" y1="260" x2="60" y2="20" stroke="#333" stroke-width="1"/>
+      <path d="M80,220 Q120,215 160,200 Q200,185 240,120 Q280,60 320,50 Q360,45 400,80 Q440,115 480,180 Q520,210 560,195 Q600,180 640,175" fill="none" stroke="#f0b90b" stroke-width="2.5"/>
+      <rect x="70" y="195" width="130" height="55" fill="#666" opacity="0.1"/>
+      <rect x="200" y="30" width="160" height="220" fill="#00b300" opacity="0.06"/>
+      <rect x="360" y="30" width="120" height="220" fill="#ff4444" opacity="0.06"/>
+      <rect x="480" y="170" width="140" height="80" fill="#ff4444" opacity="0.06"/>
+      <text x="135" y="275" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">ACCUMULATION</text>
+      <text x="280" y="275" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">BULL MARKET</text>
+      <text x="420" y="275" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">DISTRIBUTION</text>
+      <text x="550" y="275" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">BEAR MARKET</text>
+      <text x="135" y="210" fill="#666" font-family="Newsreader,serif" font-size="9" text-anchor="middle" font-style="italic">Apathy</text>
+      <text x="280" y="65" fill="#00b300" font-family="Newsreader,serif" font-size="9" text-anchor="middle" font-style="italic">Greed / FOMO</text>
+      <text x="420" y="65" fill="#ff4444" font-family="Newsreader,serif" font-size="9" text-anchor="middle" font-style="italic">Euphoria</text>
+      <text x="550" y="200" fill="#ff4444" font-family="Newsreader,serif" font-size="9" text-anchor="middle" font-style="italic">Fear / Panic</text>
+    </svg>
+    <figcaption>Figure 5 — Complete Market Cycle with Emotions</figcaption>
+  </figure>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Distribution phase mein volume kaisa hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Bahut kam hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">High hota hai lekin price barh nahi rahi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Medium hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Volume zero ho jaata hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Distribution phase mein volume high hota hai lekin price barh nahi rahi — ye bearish divergence hai. Smart money sell kar raha hota hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Bear market mein long-term holders kya karte hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab bech dete hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Dheere dheere accumulate karte hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market chhod dete hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Short selling karte hain</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Bear market mein long-term holders accumulate karte hain — woh jaante hain k ye temporary hai aur quality projects saste mil rahe hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 6 -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>Historical Cycle Analysis</h2>
+  </div>
+  <p class="chapter-intro">Bitcoin ke har cycle ka detailed analysis — patterns, durations, aur key observations.</p>
+
+  <h3>Cycle 1: 2011-2015</h3>
+  <ul>
+    <li><strong>Accumulation:</strong> 2011-2012 — $2 se $12 tak</li>
+    <li><strong>Bull Market:</strong> 2012-2013 — $12 se $1,100 tak (90x!)</li>
+    <li><strong>Distribution:</strong> Late 2013 — $1,100 pe top</li>
+    <li><strong>Bear Market:</strong> 2014-2015 — $1,100 se $200 tak (-82%)</li>
+    <li><strong>Duration:</strong> ~4 saal</li>
+  </ul>
+
+  <h3>Cycle 2: 2015-2018</h3>
+  <ul>
+    <li><strong>Accumulation:</strong> 2015 — $200-$300 range</li>
+    <li><strong>Bull Market:</strong> 2016-2017 — $300 se $20,000 tak (66x)</li>
+    <li><strong>Distribution:</strong> December 2017 — $20,000 pe top</li>
+    <li><strong>Bear Market:</strong> 2018 — $20,000 se $3,200 tak (-84%)</li>
+    <li><strong>Duration:</strong> ~3 saal</li>
+  </ul>
+
+  <h3>Cycle 3: 2018-2022</h3>
+  <ul>
+    <li><strong>Accumulation:</strong> 2018-2019 — $3,200-$10,000 range</li>
+    <li><strong>Bull Market:</strong> 2020-2021 — $8,700 se $69,000 tak (8x)</li>
+    <li><strong>Distribution:</strong> November 2021 — $69,000 pe top</li>
+    <li><strong>Bear Market:</strong> 2022 — $69,000 se $15,500 tak (-78%)</li>
+    <li><strong>Duration:</strong> ~4 saal</li>
+  </ul>
+
+  <h3>Cycle 4: 2022-Present</h3>
+  <ul>
+    <li><strong>Accumulation:</strong> 2022-2023 — $15,500-$30,000 range</li>
+    <li><strong>Bull Market:</strong> 2024-present — $30,000 se $100,000+</li>
+    <li><strong>Current Phase:</strong> Bull market ya distribution?</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <line x1="60" y1="260" x2="660" y2="260" stroke="#333" stroke-width="1"/>
+      <line x1="60" y1="260" x2="60" y2="20" stroke="#333" stroke-width="1"/>
+      <path d="M80,250 Q100,248 120,240 Q150,220 180,120 Q200,80 220,75 Q240,70 260,200 Q280,230 300,235" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <text x="190" y="275" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">CYCLE 1</text>
+      <path d="M300,235 Q320,230 340,225 Q360,210 380,100 Q395,50 410,45 Q425,50 440,200 Q455,230 470,235" fill="none" stroke="#00b300" stroke-width="2"/>
+      <text x="385" y="275" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">CYCLE 2</text>
+      <path d="M470,235 Q490,230 510,225 Q530,215 550,130 Q560,100 575,95 Q590,100 605,210 Q615,230 630,235" fill="none" stroke="#ff4444" stroke-width="2"/>
+      <text x="555" y="275" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">CYCLE 3</text>
+      <text x="220" y="68" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7">$1,100</text>
+      <text x="410" y="38" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7">$20,000</text>
+      <text x="575" y="88" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7">$69,000</text>
+      <text x="350" y="20" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Diminishing Returns Pattern</text>
+    </svg>
+    <figcaption>Figure 6 — Bitcoin Historical Cycles Comparison</figcaption>
+  </figure>
+
+  <h3>Key Patterns Jo Repeat Hue Hain</h3>
+  <div class="example-box">
+    <div class="example-label">RECURRING PATTERNS</div>
+    <table>
+      <tr><td><strong>Cycle Duration</strong></td><td>~4 saal (halving se related)</td></tr>
+      <tr><td><strong>Bull Market Duration</strong></td><td>12-18 months</td></tr>
+      <tr><td><strong>Bear Market Duration</strong></td><td>12-14 months</td></tr>
+      <tr><td><strong>Peak Drawdown</strong></td><td>78-84% from top</td></tr>
+      <tr><td><strong>Diminishing Returns</strong></td><td>Har cycle mein returns kam hotay hain</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Note:</strong> Diminishing returns ka pattern hai — 2012 mein 90x, 2017 mein 66x, 2021 mein 8x. Har cycle mein returns kam hotay ja rahe hain kyunke market bada ho raha hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Bitcoin ke historical cycles mein bear market ka average drawdown kitna hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">50-60%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">78-84%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">90-95%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">30-40%</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Historical data ke mutabiq bear market mein top se 78-84% tak drawdown hota hai. 2014 mein 82%, 2018 mein 84%, 2022 mein 78%.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Diminishing returns ka pattern kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Har cycle mein returns barhte hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Har cycle mein returns kam hotay hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Returns same rehte hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Koi pattern nahi hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Diminishing returns ka matlab hai k har cycle mein bull market ke returns kam hotay ja rahe hain — 2012 mein 90x, 2017 mein 66x, 2021 mein 8x.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2>Halving History &amp; Patterns</h2>
+  </div>
+  <p class="chapter-intro">Bitcoin ke har halving ka detailed analysis — reward changes, price impact, aur recurring patterns.</p>
+
+  <h3>2012 Halving: Pehla Halving</h3>
+  <p>Bitcoin ka pehla halving November 2012 mein hua jab block reward 50 BTC se 25 BTC ho gaya. Us waqt BTC ki price sirf $12 thi.</p>
+  <ul>
+    <li><strong>Reward Change:</strong> 50 to 25 BTC</li>
+    <li><strong>Price at Halving:</strong> ~$12</li>
+    <li><strong>Peak After:</strong> $1,100 (November 2013)</li>
+    <li><strong>Return:</strong> ~90x in 12 months</li>
+    <li><strong>Bear Market Bottom:</strong> $200 (-82%)</li>
+  </ul>
+
+  <h3>2016 Halving: Dusra Halving</h3>
+  <p>Dusra halving July 2016 mein hua jab reward 25 BTC se 12.5 BTC ho gaya. Price halving ke waqt $650 thi.</p>
+  <ul>
+    <li><strong>Reward Change:</strong> 25 to 12.5 BTC</li>
+    <li><strong>Price at Halving:</strong> ~$650</li>
+    <li><strong>Peak After:</strong> $20,000 (December 2017)</li>
+    <li><strong>Return:</strong> ~30x in 18 months</li>
+    <li><strong>Bear Market Bottom:</strong> $3,200 (-84%)</li>
+  </ul>
+
+  <h3>2020 Halving: Teesra Halving</h3>
+  <p>Teesra halving May 2020 mein hua jab reward 12.5 BTC se 6.25 BTC ho gaya. Price $8,700 thi.</p>
+  <ul>
+    <li><strong>Reward Change:</strong> 12.5 to 6.25 BTC</li>
+    <li><strong>Price at Halving:</strong> ~$8,700</li>
+    <li><strong>Peak After:</strong> $69,000 (November 2021)</li>
+    <li><strong>Return:</strong> ~8x in 18 months</li>
+    <li><strong>Bear Market Bottom:</strong> $15,500 (-78%)</li>
+  </ul>
+
+  <h3>2024 Halving: Chautha Halving</h3>
+  <p>Chautha halving April 2024 mein hua jab reward 6.25 BTC se 3.125 BTC ho gaya.</p>
+  <ul>
+    <li><strong>Reward Change:</strong> 6.25 to 3.125 BTC</li>
+    <li><strong>Price at Halving:</strong> ~$64,000</li>
+    <li><strong>ETF Impact:</strong> Is baar institutional demand pehli baar ETF ke through aaya</li>
+    <li><strong>Current Status:</strong> Post-halving rally jaari hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#0a0a0a"/>
+      <line x1="40" y1="160" x2="660" y2="160" stroke="#333" stroke-width="2"/>
+      <rect x="60" y="40" width="140" height="100" fill="#111" stroke="#f0b90b" stroke-width="1" rx="2"/>
+      <text x="130" y="60" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">2012 HALVING</text>
+      <text x="130" y="78" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">50 to 25 BTC</text>
+      <text x="130" y="95" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Price: $12</text>
+      <text x="130" y="110" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Peak: $1,100 (90x)</text>
+      <text x="130" y="125" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bottom: $200 (-82%)</text>
+      <circle cx="130" cy="160" r="6" fill="#f0b90b"/>
+      <rect x="220" y="40" width="140" height="100" fill="#111" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="290" y="60" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">2016 HALVING</text>
+      <text x="290" y="78" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">25 to 12.5 BTC</text>
+      <text x="290" y="95" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Price: $650</text>
+      <text x="290" y="110" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Peak: $20,000 (30x)</text>
+      <text x="290" y="125" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bottom: $3,200 (-84%)</text>
+      <circle cx="290" cy="160" r="6" fill="#00b300"/>
+      <rect x="380" y="40" width="140" height="100" fill="#111" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="450" y="60" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">2020 HALVING</text>
+      <text x="450" y="78" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">12.5 to 6.25 BTC</text>
+      <text x="450" y="95" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Price: $8,700</text>
+      <text x="450" y="110" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Peak: $69,000 (8x)</text>
+      <text x="450" y="125" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bottom: $15,500 (-78%)</text>
+      <circle cx="450" cy="160" r="6" fill="#ff4444"/>
+      <rect x="540" y="40" width="120" height="100" fill="#111" stroke="#a3a3a3" stroke-width="1" rx="2"/>
+      <text x="600" y="60" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">2024 HALVING</text>
+      <text x="600" y="78" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">6.25 to 3.125 BTC</text>
+      <text x="600" y="95" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Price: $64,000</text>
+      <text x="600" y="110" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Peak: TBD</text>
+      <text x="600" y="125" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Status: Active</text>
+      <circle cx="600" cy="160" r="6" fill="#a3a3a3"/>
+      <text x="350" y="200" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">PATTERN: Pre-Halving Rally, Post-Halving Bull Run, Bear Market</text>
+      <text x="350" y="230" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">Diminishing Returns: 90x, 30x, 8x</text>
+      <rect x="60" y="175" width="120" height="80" fill="#00b300" opacity="0.08"/>
+      <rect x="220" y="175" width="140" height="80" fill="#00b300" opacity="0.08"/>
+      <rect x="380" y="175" width="140" height="80" fill="#00b300" opacity="0.08"/>
+      <text x="120" y="240" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bull Run</text>
+      <text x="290" y="240" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bull Run</text>
+      <text x="450" y="240" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Bull Run</text>
+    </svg>
+    <figcaption>Figure 7 — All Halvings Comparison: Reward, Price, aur Returns</figcaption>
+  </figure>
+
+  <h3>Diminishing Returns Pattern</h3>
+  <p>Har halving ke baad returns kam hotay ja rahe hain:</p>
+  <div class="example-box">
+    <div class="example-label">DIMINISHING RETURNS DATA</div>
+    <table>
+      <tr><td><strong>2012 Halving</strong></td><td>90x return</td></tr>
+      <tr><td><strong>2016 Halving</strong></td><td>30x return</td></tr>
+      <tr><td><strong>2020 Halving</strong></td><td>8x return</td></tr>
+      <tr><td><strong>2024 Halving</strong></td><td>Expected: 3-5x?</td></tr>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <span class="dot">!</span>
+    <span><strong>Important:</strong> Diminishing returns ka pattern hai lekin guarantee nahi hai. Market conditions har cycle mein alag hotay hain. 2024 mein ETF approval ne institutional demand barha di hai jo pehle nahi tha.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. 2020 halving ke baad Bitcoin ka peak price kya tha?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">$20,000</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">$69,000</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">$100,000</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">$50,000</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: 2020 halving ke baad Bitcoin November 2021 mein $69,000 tak pahuncha — ye all-time high tha.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Diminishing returns pattern kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Har cycle mein returns barhte hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Har cycle mein bull market ke returns kam hotay hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Bear market draws kam hotay hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Halving ke baad price hamesha barhti hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Diminishing returns ka pattern hai k har cycle mein bull market ke returns kam hotay ja rahe hain — 90x se 30x se 8x. Market bada ho raha hai is liye.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 8 -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2>On-Chain Indicators for Cycles</h2>
+  </div>
+  <p class="chapter-intro">On-chain data se market cycles ko identify kaise karein — MVRV, NUPL, Stock-to-Flow, aur more.</p>
+
+  <h3>MVRV Ratio (Market Value to Realized Value)</h3>
+  <p>MVRV ratio batata hai k market mein overvalued hai ya undervalued. Ye Bitcoin ki total market cap ko uski realized value se divide karta hai.</p>
+  <ul>
+    <li><strong>MVRV greater than 3.5:</strong> Overvalued — market top ka signal</li>
+    <li><strong>MVRV 2-3.5:</strong> Neutral to slightly overvalued</li>
+    <li><strong>MVRV 1-2:</strong> Fair value zone</li>
+    <li><strong>MVRV less than 1:</strong> Undervalued — market bottom ka signal</li>
+  </ul>
+
+  <h3>NUPL (Net Unrealized Profit/Loss)</h3>
+  <p>NUPL batata hai k kitne holders abhi profit mein hain ya loss mein. Ye market sentiment ka powerful indicator hai.</p>
+  <ul>
+    <li><strong>NUPL greater than 0.75:</strong> Euphoria — extreme greed, market top zone</li>
+    <li><strong>NUPL 0.5-0.75:</strong> Greed — bullish but cautious</li>
+    <li><strong>NUPL 0.25-0.5:</strong> Hope — early recovery</li>
+    <li><strong>NUPL 0-0.25:</strong> Fear — bearish sentiment</li>
+    <li><strong>NUPL less than 0:</strong> Capitulation — extreme fear, bottom zone</li>
+  </ul>
+
+  <h3>Stock-to-Flow Model</h3>
+  <p>Ye model Bitcoin ki scarcity ko dekhta hai. Stock-to-flow ratio jitna zyada ho, utna Bitcoin scarce hai.</p>
+  <div class="formula-box">
+    <div class="formula-label">STOCK-TO-FLOW FORMULA</div>
+    <div class="formula">S2F = Stock / Flow<span class="note">Stock = Total existing supply, Flow = Annual new production. Halving ke baad flow aadhi ho jaati hai, S2F ratio double ho jaata hai.</span></div>
+  </div>
+
+  <h3>Puell Multiple</h3>
+  <p>Puell Multiple miner revenue ko dekhta hai. Ye batata hai k miners kitna pressure mein hain.</p>
+  <ul>
+    <li><strong>Puell greater than 4:</strong> Miner distress — potential top signal</li>
+    <li><strong>Puell 2-4:</strong> Normal mining revenue</li>
+    <li><strong>Puell less than 1:</strong> Miner capitulation — potential bottom signal</li>
+  </ul>
+
+  <h3>RHODL Ratio</h3>
+  <p>RHODL (Realized HODL) Wave ratio long-term holders ki activity ko measure karta hai.</p>
+  <ul>
+    <li><strong>High RHODL:</strong> Long-term holders sell kar rahe hain — top signal</li>
+    <li><strong>Low RHODL:</strong> Long-term holders hold kar rahe hain — accumulation zone</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" font-weight="700">ON-CHAIN INDICATORS DASHBOARD</text>
+      <rect x="30" y="45" width="150" height="130" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="105" y="65" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">MVRV RATIO</text>
+      <rect x="40" y="80" width="130" height="18" fill="#ff4444" opacity="0.2"/>
+      <text x="105" y="93" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&gt; 3.5 = OVERVALUED</text>
+      <rect x="40" y="100" width="130" height="18" fill="#f0b90b" opacity="0.2"/>
+      <text x="105" y="113" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">2 - 3.5 = NEUTRAL</text>
+      <rect x="40" y="120" width="130" height="18" fill="#00b300" opacity="0.2"/>
+      <text x="105" y="133" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">1 - 2 = FAIR VALUE</text>
+      <rect x="40" y="140" width="130" height="18" fill="#00b300" opacity="0.3"/>
+      <text x="105" y="153" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&lt; 1 = UNDERVALUED</text>
+      <rect x="195" y="45" width="150" height="130" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="270" y="65" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">NUPL</text>
+      <rect x="205" y="80" width="130" height="18" fill="#ff4444" opacity="0.2"/>
+      <text x="270" y="93" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&gt; 0.75 = EUPHORIA</text>
+      <rect x="205" y="100" width="130" height="18" fill="#f0b90b" opacity="0.2"/>
+      <text x="270" y="113" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">0.5 - 0.75 = GREED</text>
+      <rect x="205" y="120" width="130" height="18" fill="#00b300" opacity="0.2"/>
+      <text x="270" y="133" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">0 - 0.25 = FEAR</text>
+      <rect x="205" y="140" width="130" height="18" fill="#00b300" opacity="0.3"/>
+      <text x="270" y="153" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&lt; 0 = CAPITULATION</text>
+      <rect x="360" y="45" width="150" height="130" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="435" y="65" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">PUELL MULTIPLE</text>
+      <rect x="370" y="80" width="130" height="18" fill="#ff4444" opacity="0.2"/>
+      <text x="435" y="93" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&gt; 4 = MINER DISTRESS</text>
+      <rect x="370" y="100" width="130" height="18" fill="#f0b90b" opacity="0.2"/>
+      <text x="435" y="113" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">2 - 4 = NORMAL</text>
+      <rect x="370" y="120" width="130" height="18" fill="#00b300" opacity="0.3"/>
+      <text x="435" y="133" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">&lt; 1 = CAPITULATION</text>
+      <rect x="525" y="45" width="150" height="130" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="600" y="65" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">STOCK-TO-FLOW</text>
+      <rect x="535" y="80" width="130" height="40" fill="#00b300" opacity="0.1"/>
+      <text x="600" y="98" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Price vs S2F Model</text>
+      <text x="600" y="112" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Above line = Overvalued</text>
+      <rect x="535" y="125" width="130" height="30" fill="#00b300" opacity="0.15"/>
+      <text x="600" y="143" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Below line = Undervalued</text>
+      <text x="350" y="200" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">TRACKING TOOLS</text>
+      <rect x="60" y="215" width="180" height="50" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="150" y="235" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">lookintobitcoin.com</text>
+      <text x="150" y="250" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV, NUPL, S2F sab milega</text>
+      <rect x="260" y="215" width="180" height="50" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="350" y="235" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">glassnode.com</text>
+      <text x="350" y="250" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Professional on-chain data</text>
+      <rect x="460" y="215" width="180" height="50" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="550" y="235" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">checkonchain.com</text>
+      <text x="550" y="250" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">Free on-chain analytics</text>
+      <rect x="120" y="285" width="460" height="40" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="350" y="308" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">COMBINE: MVRV + NUPL + Puell = Stronger Signals</text>
+    </svg>
+    <figcaption>Figure 8 — On-Chain Indicators Dashboard: Key Metrics aur Zones</figcaption>
+  </figure>
+
+  <h3>Indicators Ko Combine Kaise Karein</h3>
+  <p>Akela indicator kabhi kabhi galat signal deta hai. Behtar approach hai k multiple indicators ko saath mein dekho:</p>
+  <ul>
+    <li><strong>Bottom Signal:</strong> MVRV less than 1 + NUPL less than 0 + Puell less than 1 = Strong buy signal</li>
+    <li><strong>Top Signal:</strong> MVRV greater than 3.5 + NUPL greater than 0.75 + Puell greater than 4 = Strong sell signal</li>
+    <li><strong>Neutral:</strong> Indicators mixed hain = Wait karo</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> On-chain indicators sirf ek tool hain — in ke saath price action, volume, aur macro factors bhi dekho. Single indicator pe depend mat ho.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. MVRV ratio 0.8 hai toh iska kya matlab hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market overvalued hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Market undervalued hai — bottom zone</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market neutral hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Koi signal nahi hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: MVRV 1 se kam hai is ka matlab hai market undervalued hai. Ye bottom zone ka signal hai — historical data ke mutabiq is waqt buy karna best hota hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. NUPL greater than 0.75 hai toh market mein kya ho raha hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab log loss mein hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Euphoria hai — extreme greed, potential top</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market neutral hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab accumulate kar rahe hain</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: NUPL greater than 0.75 ka matlab hai euphoria — logon mein extreme greed hai. Ye top signal hai kyunke jab sab greedy hotay hain, market girne wala hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 9 -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2>Emotional Cycle of Market</h2>
+  </div>
+  <p class="chapter-intro">Market ki har phase ke peeche insaani emotions hain — fear aur greed ko samjho toh profit bana sakte ho.</p>
+
+  <h3>Psychology Behind Each Phase</h3>
+  <p>Market cycles insaani emotions se chaltay hain. Har phase mein log alag alag feel kartay hain:</p>
+
+  <div class="example-box">
+    <div class="example-label">EMOTIONAL PHASES</div>
+    <table>
+      <tr><td><strong>Accumulation</strong></td><td>Apathy — logon ko market se koi interest nahi</td></tr>
+      <tr><td><strong>Early Bull</strong></td><td>Hope — "shayad market recover ho raha hai"</td></tr>
+      <tr><td><strong>Mid Bull</strong></td><td>Optimism — "accha profit ho raha hai"</td></tr>
+      <tr><td><strong>Late Bull</strong></td><td>Greed / FOMO — "aur khareedna hai!"</td></tr>
+      <tr><td><strong>Top</strong></td><td>Euphoria — "Bitcoin kabhi girayega nahi"</td></tr>
+      <tr><td><strong>Early Bear</strong></td><td>Denial — "ye sirf correction hai"</td></tr>
+      <tr><td><strong>Mid Bear</strong></td><td>Panic — "sab khatam ho gaya"</td></tr>
+      <tr><td><strong>Late Bear</strong></td><td>Capitulation — "Bitcoin dead hai"</td></tr>
+    </table>
+  </div>
+
+  <h3>Fear and Greed Index</h3>
+  <p>Crypto Fear and Greed Index 0 se 100 tak scale pe market sentiment dikhata hai:</p>
+  <ul>
+    <li><strong>0-24:</strong> Extreme Fear — market bahut darr mein hai</li>
+    <li><strong>25-49:</strong> Fear — log nervous hain</li>
+    <li><strong>50:</strong> Neutral — koi clear direction nahi</li>
+    <li><strong>51-74:</strong> Greed — log khareed rahe hain</li>
+    <li><strong>75-100:</strong> Extreme Greed — FOMO chal raha hai</li>
+  </ul>
+
+  <h3>Maximum Financial Opportunity</h3>
+  <p>Warren Buffett ne kaha: "Be greedy when others are fearful." Jab sab log darr rahe hain aur market gir raha hai — woh sab se badhiya buying opportunity hai.</p>
+
+  <h3>Maximum Financial Risk</h3>
+  <p>Ulti baat bhi sach hai: "Be fearful when others are greedy." Jab sab log greedy hain aur market Upar ja raha hai — woh sab se khatarnak zone hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <path d="M60,280 Q100,275 140,260 Q180,240 220,160 Q260,80 300,60 Q340,50 380,90 Q420,130 460,220 Q500,260 540,245 Q580,230 620,220" fill="none" stroke="#f0b90b" stroke-width="2.5"/>
+      <circle cx="100" cy="277" r="5" fill="#666"/>
+      <text x="100" y="295" fill="#666" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">APATHY</text>
+      <text x="100" y="305" fill="#666" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Bitcoin dead hai"</text>
+      <circle cx="180" cy="240" r="5" fill="#a3a3a3"/>
+      <text x="180" y="295" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">HOPE</text>
+      <text x="180" y="305" fill="#a3a3a3" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Shayad recover"</text>
+      <circle cx="260" cy="160" r="5" fill="#00b300"/>
+      <text x="260" y="295" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">OPTIMISM</text>
+      <text x="260" y="305" fill="#00b300" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Accha profit hai"</text>
+      <circle cx="300" cy="60" r="5" fill="#f0b90b"/>
+      <text x="300" y="45" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">FOMO</text>
+      <text x="300" y="35" fill="#f0b90b" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Aur khareedna hai!"</text>
+      <circle cx="340" cy="50" r="6" fill="#ff4444"/>
+      <text x="340" y="38" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">EUPHORIA</text>
+      <text x="380" y="38" fill="#ff4444" font-family="Newsreader,serif" font-size="7" font-style="italic">"Kabhi nahi girayega"</text>
+      <circle cx="420" cy="130" r="5" fill="#f0b90b"/>
+      <text x="420" y="295" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">DENIAL</text>
+      <text x="420" y="305" fill="#f0b90b" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Sirf correction hai"</text>
+      <circle cx="500" cy="260" r="5" fill="#ff4444"/>
+      <text x="500" y="295" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">PANIC</text>
+      <text x="500" y="305" fill="#ff4444" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Sab khatam"</text>
+      <circle cx="580" cy="230" r="5" fill="#a3a3a3"/>
+      <text x="580" y="295" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">CAPITULATION</text>
+      <text x="580" y="305" fill="#a3a3a3" font-family="Newsreader,serif" font-size="7" text-anchor="middle" font-style="italic">"Bitcoin dead hai"</text>
+      <rect x="60" y="265" width="120" height="15" fill="#00b300" opacity="0.15"/>
+      <text x="120" y="262" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="6" text-anchor="middle">MAX OPPORTUNITY</text>
+      <rect x="310" y="38" width="100" height="15" fill="#ff4444" opacity="0.15"/>
+      <text x="360" y="55" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="6" text-anchor="middle">MAX RISK</text>
+    </svg>
+    <figcaption>Figure 9 — Emotional Cycle: Har Phase Mein Kaisa Feel Hota Hai</figcaption>
+  </figure>
+
+  <h3>Emotions Ko Control Kaise Karein</h3>
+  <ul>
+    <li><strong>Plan Banao:</strong> Trading plan pehle se banao aur us pe amal karo</li>
+    <li><strong>Stop Loss Lagao:</strong> Emotions tab control mein hote hain jab aap ko pata hai max loss kitna hai</li>
+    <li><strong>DCA Strategy:</strong> Dollar Cost Averaging se FOMO aur panic dono kam hotay hain</li>
+    <li><strong>Journal Rakho:</strong> Apne trades likho — emotions samajhne mein madad milta hai</li>
+    <li><strong>Contrarian Socho:</strong> Jab sab ek taraf ja rahe hain, socho k opposite kya ho sakta hai</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Contrarian Investing:</strong> Sab se mushkil kaam hai k jab market gir raha ho toh khareedo aur jab upar ja raha ho toh becho. Lekin yahi sab se profitable strategy hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Maximum Financial Opportunity kab aati hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Jab sab log greedy hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Jab sab log darr rahe hain aur market gir raha hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Jab market neutral hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Jab sab log FOMO mein hain</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Maximum Financial Opportunity tab aati hai jab sab log darr rahe hain — "Be greedy when others are fearful." Ye bottom buying zone hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Fear and Greed Index 85 hai toh market mein kya ho raha hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Extreme Fear hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Extreme Greed hai — potential top signal</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market neutral hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Market crash ho raha hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Fear and Greed Index 85 hai toh extreme greed hai. Ye potential top signal hai kyunke jab sab greedy hotay hain, market girne wala hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 10 -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2>Timing Market Cycles</h2>
+  </div>
+  <p class="chapter-intro">Market cycles ko time karna possible hai? Probabilistic approach aur practical framework.</p>
+
+  <h3>Kya Hum Market Time Kar Sakte Hain?</h3>
+  <p>Exact timing impossible hai — lekin probabilistic approach se aap kahi zyada better decisions le sakte ho. Market timing ka matlab hai k aap higher probability ke zones mein position banao.</p>
+
+  <h3>Multiple Timeframe Analysis</h3>
+  <p>Ek hi timeframe pe depend mat ho. Multiple timeframes se dekho:</p>
+  <ul>
+    <li><strong>Weekly:</strong> Long-term trend samjho</li>
+    <li><strong>Daily:</strong> Medium-term direction dekho</li>
+    <li><strong>4-Hour:</strong> Short-term entry/exit points dhundho</li>
+  </ul>
+
+  <h3>Key Metrics for Cycle Timing</h3>
+  <div class="example-box">
+    <div class="example-label">TIMING METRICS</div>
+    <table>
+      <tr><td><strong>Halving Proximity</strong></td><td>Halving se 12-18 months baad bull market peak</td></tr>
+      <tr><td><strong>MVRV Zone</strong></td><td>less than 1 = bottom, greater than 3.5 = top</td></tr>
+      <tr><td><strong>NUPL Sentiment</strong></td><td>less than 0 = bottom, greater than 0.75 = top</td></tr>
+      <tr><td><strong>Fear/Greed Index</strong></td><td>less than 20 = bottom zone, greater than 80 = top zone</td></tr>
+      <tr><td><strong>200-Week MA</strong></td><td>Price historically bottoms around 200-week MA</td></tr>
+    </table>
+  </div>
+
+  <h3>Combination Approach</h3>
+  <p>Sab se powerful approach hai k multiple signals ko combine karo:</p>
+  <ul>
+    <li><strong>Strong Bottom Signal:</strong> Halving proximity + MVRV less than 1 + NUPL less than 0 + Fear less than 20</li>
+    <li><strong>Strong Top Signal:</strong> 18 months post-halving + MVRV greater than 3.5 + NUPL greater than 0.75 + Greed greater than 80</li>
+    <li><strong>Neutral:</strong> Mixed signals — wait karo ya small positions banao</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="360" fill="#0a0a0a"/>
+      <text x="350" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" font-weight="700">CYCLE TIMING FRAMEWORK — DECISION TREE</text>
+      <rect x="250" y="40" width="200" height="35" fill="#111" stroke="#f0b90b" stroke-width="1.5" rx="2"/>
+      <text x="350" y="62" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">START: WHERE ARE WE?</text>
+      <line x1="350" y1="75" x2="350" y2="100" stroke="#333" stroke-width="1"/>
+      <rect x="200" y="100" width="300" height="35" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="350" y="122" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Step 1: Halving Proximity Check</text>
+      <line x1="250" y1="135" x2="150" y2="165" stroke="#00b300" stroke-width="1"/>
+      <line x1="450" y1="135" x2="550" y2="165" stroke="#ff4444" stroke-width="1"/>
+      <rect x="50" y="165" width="200" height="35" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="150" y="187" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Pre/During Halving - Accumulate</text>
+      <rect x="450" y="165" width="200" height="35" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="550" y="187" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Post-Halving 12-18mo - Watch Top</text>
+      <line x1="350" y1="135" x2="350" y2="220" stroke="#333" stroke-width="1"/>
+      <rect x="200" y="220" width="300" height="35" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="350" y="242" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Step 2: On-Chain Indicators Check</text>
+      <line x1="200" y1="255" x2="100" y2="280" stroke="#00b300" stroke-width="1"/>
+      <line x1="350" y1="255" x2="350" y2="280" stroke="#f0b90b" stroke-width="1"/>
+      <line x1="500" y1="255" x2="600" y2="280" stroke="#ff4444" stroke-width="1"/>
+      <rect x="20" y="280" width="160" height="35" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="100" y="302" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV&lt;1, NUPL&lt;0</text>
+      <text x="100" y="312" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">AGGRESSIVE BUY</text>
+      <rect x="200" y="280" width="300" height="35" fill="#111" stroke="#f0b90b" stroke-width="1" rx="2"/>
+      <text x="350" y="302" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV 1-2.5, NUPL 0-0.5</text>
+      <text x="350" y="312" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">HOLD / SMALL DCA</text>
+      <rect x="520" y="280" width="160" height="35" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="600" y="302" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV&gt;3.5, NUPL&gt;0.75</text>
+      <text x="600" y="312" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">TAKE PROFITS</text>
+      <rect x="150" y="335" width="400" height="20" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="350" y="349" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">LIMITATIONS: Timing perfect nahi, risk management zaroori</text>
+    </svg>
+    <figcaption>Figure 10 — Cycle Timing Framework: Decision Tree</figcaption>
+  </figure>
+
+  <h3>Timing Ki Limitations</h3>
+  <ul>
+    <li><strong>Exact bottom/top impossible hai:</strong> Aap approximate zone mein aa sakte ho lekin exact point nahi</li>
+    <li><strong>Black swan events:</strong> COVID, FTX collapse — ye predict nahi ho saktay</li>
+    <li><strong>False signals:</strong> Kabhi kabhi indicators galat signal dete hain</li>
+    <li><strong>Patience zaroori hai:</strong> Signals aane mein waqt lagta hai</li>
+  </ul>
+
+  <h3>Better Approach: Trend Following + Cycles</h3>
+  <p>Sab se practical approach hai k cycles ke sath-sath trend following bhi karo:</p>
+  <ul>
+    <li>Cycle analysis se overall direction pata chalega</li>
+    <li>Trend following se entry/exit points milenge</li>
+    <li>Dono ka combination zyada reliable hai</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Practical Tip:</strong> Perfect timing ka chase mat karo. Better hai k DCA strategy use karo aur major cycle phases ke hisab se allocation adjust karo.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Strong bottom signal kaun sa hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">MVRV greater than 3.5 + NUPL greater than 0.75</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">MVRV less than 1 + NUPL less than 0 + Fear less than 20</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf Fear index dekho</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf halving proximity dekho</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Strong bottom signal tab hota hai jab multiple indicators same direction mein ho — MVRV less than 1, NUPL less than 0, Fear index less than 20, aur halving proximity.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Perfect market timing possible hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Nahi, exact timing impossible hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Haan, indicators se perfect timing ho sakti hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf professionals kar sakte hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">AI se possible hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Exact market timing impossible hai. Lekin probabilistic approach aur multiple indicators se aap better decisions le sakte ho — higher probability zones mein position banao.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2>Portfolio Strategy for Each Phase</h2>
+  </div>
+  <p class="chapter-intro">Har cycle phase mein portfolio kaisa hona chahiye — allocation, rebalancing, aur risk management.</p>
+
+  <h3>Accumulation Phase Strategy</h3>
+  <p>Accumulation phase mein aggressive buying karni chahiye — market sab se sasta hai:</p>
+  <ul>
+    <li><strong>Allocation:</strong> 70-80% Crypto, 20-30% Cash</li>
+    <li><strong>Focus:</strong> Quality projects accumulate karo — Bitcoin, Ethereum</li>
+    <li><strong>Altcoins:</strong> Risky altcoins mein bhi invest karo — high risk, high reward</li>
+    <li><strong>DCA:</strong> Regular intervals pe buy karo — timing ka pressure nahi</li>
+  </ul>
+
+  <h3>Bull Market Strategy</h3>
+  <p>Bull market mein gradually profits lena chahiye:</p>
+  <ul>
+    <li><strong>Early Bull:</strong> Hold karo, position maintain karo</li>
+    <li><strong>Mid Bull:</strong> Profits ka 20-30% nikaalo</li>
+    <li><strong>Late Bull:</strong> BTC/stablecoins mein shift ho jao — 50%+ stablecoins</li>
+    <li><strong>Altcoins:</strong> gradually BTC mein convert karo</li>
+  </ul>
+
+  <h3>Distribution Phase Strategy</h3>
+  <p>Distribution phase mein mostly stablecoins mein rehna chahiye:</p>
+  <ul>
+    <li><strong>Allocation:</strong> 80-90% Stablecoins, 10-20% Small positions</li>
+    <li><strong>Focus:</strong> Capital preservation</li>
+    <li><strong>Staking:</strong> Stablecoins pe staking se passive income</li>
+    <li><strong>Wait:</strong> Next accumulation zone ka wait karo</li>
+  </ul>
+
+  <h3>Bear Market Strategy</h3>
+  <p>Bear market mein quality projects accumulate karte raho:</p>
+  <ul>
+    <li><strong>DCA:</strong> Fixed amount regularly invest karo</li>
+    <li><strong>Focus:</strong> Sirf quality projects — Bitcoin, Ethereum, blue-chip altcoins</li>
+    <li><strong>Patience:</strong> Jaldi mat karo — bear market lambe ho sakte hain</li>
+    <li><strong>Learning:</strong> Research karo, next cycle ke liye tayyar ho jao</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#0a0a0a"/>
+      <text x="350" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" font-weight="700">PORTFOLIO ALLOCATION BY PHASE</text>
+      <circle cx="120" cy="120" r="60" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M120,120 L120,60 A60,60 0 1,1 60,120 Z" fill="#00b300" opacity="0.6"/>
+      <path d="M120,120 L60,120 A60,60 0 0,1 120,60 Z" fill="#f0b90b" opacity="0.6"/>
+      <text x="120" y="200" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">ACCUMULATION</text>
+      <text x="120" y="215" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">75% Crypto</text>
+      <text x="120" y="228" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">25% Cash</text>
+      <circle cx="280" cy="120" r="60" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M280,120 L280,60 A60,60 0 1,1 220,120 Z" fill="#00b300" opacity="0.6"/>
+      <path d="M280,120 L220,120 A60,60 0 0,1 280,60 Z" fill="#f0b90b" opacity="0.6"/>
+      <text x="280" y="200" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">EARLY BULL</text>
+      <text x="280" y="215" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">60% Crypto</text>
+      <text x="280" y="228" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">40% Stablecoins</text>
+      <circle cx="440" cy="120" r="60" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M440,120 L440,60 A60,60 0 1,1 380,120 Z" fill="#f0b90b" opacity="0.6"/>
+      <path d="M440,120 L380,120 A60,60 0 0,1 440,60 Z" fill="#ff4444" opacity="0.6"/>
+      <text x="440" y="200" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">LATE BULL</text>
+      <text x="440" y="215" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">30% Crypto</text>
+      <text x="440" y="228" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">70% Stablecoins</text>
+      <circle cx="600" cy="120" r="60" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M600,120 L600,60 A60,60 0 1,1 540,120 Z" fill="#ff4444" opacity="0.6"/>
+      <path d="M600,120 L540,120 A60,60 0 0,1 600,60 Z" fill="#ff4444" opacity="0.3"/>
+      <text x="600" y="200" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">DISTRIBUTION</text>
+      <text x="600" y="215" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">10% Crypto</text>
+      <text x="600" y="228" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">90% Stablecoins</text>
+      <text x="350" y="275" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">REBALANCING: Har phase mein allocation adjust karo</text>
+      <rect x="150" y="290" width="400" height="25" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="350" y="307" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">RULE: Jab market upar jaaye, profits lo. Jab neeche jaaye, buy karo.</text>
+    </svg>
+    <figcaption>Figure 11 — Portfolio Allocation by Phase: Pie Charts</figcaption>
+  </figure>
+
+  <h3>Rebalancing Strategy</h3>
+  <p>Rebalancing ka matlab hai k aap ki allocation target se door ho jaaye toh usay wapas lao:</p>
+  <ul>
+    <li><strong>Time-based:</strong> Har mahine ya quarter mein ek baar check karo</li>
+    <li><strong>Threshold-based:</strong> Jab allocation 5% se zyada door jaaye toh rebalance karo</li>
+    <li><strong>Profit-taking:</strong> Jab koi position 2x+ ho jaye toh profit ka ek hissa nikaalo</li>
+  </ul>
+
+  <h3>Risk Management Across Cycles</h3>
+  <ul>
+    <li><strong>Position Sizing:</strong> Har trade pe sirf 1-2% risk karo</li>
+    <li><strong>Diversification:</strong> Sirf ek project mein sab mat lagao</li>
+    <li><strong>Emergency Fund:</strong> Hamesha 3-6 months ka expenses rakho</li>
+    <li><strong>Never Invest More:</strong> Woh paisa invest mat karo jo aap ko zaroorat ho</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Golden Rule:</strong> Bull market mein profit lo, bear market mein buy karo. Sab se simple strategy hai lekin emotions ki wajah se follow karna mushkil hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Bear market mein portfolio mein kya hona chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">100% stablecoins</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">DCA se quality projects accumulate karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab bech do</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf altcoins khareedo</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Bear market mein DCA strategy use karo — regular intervals pe quality projects (Bitcoin, Ethereum) khareedte raho. Patience rakho.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Late bull market mein kitne percent stablecoins mein honi chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">10-20%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">50-70%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">100%</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">0%</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Late bull market mein 50-70% stablecoins mein hona chahiye — profit booking karte jao aur distribution phase ke liye tayyar ho jao.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 12 -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2>Current Market Analysis Framework</h2>
+  </div>
+  <p class="chapter-intro">How to analyze where we are in the cycle right now — step-by-step process aur monthly checklist.</p>
+
+  <h3>Step-by-Step Analysis Process</h3>
+  <p>Market mein kahan hain ye jaanne ke liye ye steps follow karo:</p>
+
+  <h3>Step 1: Halving Status Dekho</h3>
+  <ul>
+    <li>Halving kab hua? Kitna waqt guzra hai?</li>
+    <li>Pre-halving ya post-halving zone mein hain?</li>
+    <li>Historical pattern ke mutabiq kya expected hai?</li>
+  </ul>
+
+  <h3>Step 2: On-Chain Indicators Check Karo</h3>
+  <ul>
+    <li>MVRV ratio kya hai? (less than 1 = bottom, greater than 3.5 = top)</li>
+    <li>NUPL kya hai? (less than 0 = bottom, greater than 0.75 = top)</li>
+    <li>Puell Multiple kya hai? (less than 1 = bottom, greater than 4 = top)</li>
+  </ul>
+
+  <h3>Step 3: Sentiment Check Karo</h3>
+  <ul>
+    <li>Fear and Greed Index kya hai?</li>
+    <li>Social media pe kaisa mahaul hai?</li>
+    <li>News mein kya chal raha hai?</li>
+  </ul>
+
+  <h3>Step 4: Price Action Dekho</h3>
+  <ul>
+    <li>200-week MA ke upar ya neeche hai price?</li>
+    <li>Higher highs / higher lows ban rahe hain ya nahi?</li>
+    <li>Volume kaisa hai?</li>
+  </ul>
+
+  <h3>Decision Matrix</h3>
+  <div class="example-box">
+    <div class="example-label">MARKET PHASE DECISION MATRIX</div>
+    <table>
+      <tr><td><strong>Accumulation Signals</strong></td><td>MVRV less than 1, NUPL less than 0, Fear less than 20, Price near 200-week MA</td></tr>
+      <tr><td><strong>Bull Market Signals</strong></td><td>MVRV 1-3, NUPL 0-0.75, Greed 50-80, Higher highs forming</td></tr>
+      <tr><td><strong>Distribution Signals</strong></td><td>MVRV greater than 3.5, NUPL greater than 0.75, Greed greater than 80, Volume divergence</td></tr>
+      <tr><td><strong>Bear Market Signals</strong></td><td>MVRV less than 1, NUPL less than 0, Fear less than 20, Lower lows forming</td></tr>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="380" fill="#0a0a0a"/>
+      <text x="350" y="25" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" text-anchor="middle" font-weight="700">MARKET PHASE DECISION TREE</text>
+      <rect x="250" y="40" width="200" height="35" fill="#111" stroke="#f0b90b" stroke-width="1.5" rx="2"/>
+      <text x="350" y="62" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">CURRENT MARKET ANALYSIS</text>
+      <line x1="350" y1="75" x2="350" y2="100" stroke="#333" stroke-width="1"/>
+      <rect x="200" y="100" width="300" height="30" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="350" y="120" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">Check: MVRV, NUPL, Fear/Greed, Halving</text>
+      <line x1="200" y1="140" x2="100" y2="170" stroke="#00b300" stroke-width="1"/>
+      <line x1="300" y1="140" x2="250" y2="170" stroke="#00b300" stroke-width="1"/>
+      <line x1="400" y1="140" x2="450" y2="170" stroke="#f0b90b" stroke-width="1"/>
+      <line x1="500" y1="140" x2="600" y2="170" stroke="#ff4444" stroke-width="1"/>
+      <rect x="20" y="170" width="140" height="55" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="90" y="190" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">ACCUMULATION</text>
+      <text x="90" y="205" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV&lt;1, NUPL&lt;0</text>
+      <text x="90" y="215" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">ACTION: BUY</text>
+      <rect x="175" y="170" width="140" height="55" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="245" y="190" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">BULL MARKET</text>
+      <text x="245" y="205" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV 1-3, NUPL 0-0.75</text>
+      <text x="245" y="215" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">ACTION: HOLD</text>
+      <rect x="330" y="170" width="140" height="55" fill="#1a0505" stroke="#f0b90b" stroke-width="1" rx="2"/>
+      <text x="400" y="190" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">DISTRIBUTION</text>
+      <text x="400" y="205" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV&gt;3.5, NUPL&gt;0.75</text>
+      <text x="400" y="215" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">ACTION: SELL</text>
+      <rect x="485" y="170" width="140" height="55" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="555" y="190" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">BEAR MARKET</text>
+      <text x="555" y="205" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">MVRV&lt;1, NUPL&lt;0</text>
+      <text x="555" y="215" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">ACTION: DCA BUY</text>
+      <rect x="80" y="250" width="540" height="80" fill="#111" stroke="#333" stroke-width="1" rx="2"/>
+      <text x="350" y="275" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle">MONTHLY REVIEW CHECKLIST</text>
+      <text x="350" y="295" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">1. Halving proximity    2. MVRV ratio    3. NUPL    4. Fear/Greed Index</text>
+      <text x="350" y="310" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="7" text-anchor="middle">5. Price vs 200-week MA    6. Volume analysis    7. News/sentiment    8. Portfolio rebalance</text>
+      <text x="350" y="360" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8" text-anchor="middle">LONG-TERM: Accumulate in bear, take profit in bull, repeat.</text>
+    </svg>
+    <figcaption>Figure 12 — Market Phase Decision Tree: Flowchart</figcaption>
+  </figure>
+
+  <h3>Monthly Review Checklist</h3>
+  <ul class="checklist">
+    <li>Halving proximity check karo</li>
+    <li>MVRV ratio dekho</li>
+    <li>NUPL level check karo</li>
+    <li>Fear and Greed Index dekho</li>
+    <li>Price vs 200-week MA analysis</li>
+    <li>Volume trends check karo</li>
+    <li>News aur sentiment review</li>
+    <li>Portfolio rebalancing zaroorat hai?</li>
+  </ul>
+
+  <h3>Long-Term Wealth Building Strategy</h3>
+  <p>Crypto se long-term wealth banane ka sab se simple aur effective formula:</p>
+  <ul>
+    <li><strong>Bear Market:</strong> Quality projects accumulate karo (DCA)</li>
+    <li><strong>Bull Market:</strong> Gradually profits lo</li>
+    <li><strong>Repeat:</strong> Har cycle mein yehi karo</li>
+    <li><strong>Patience:</strong> Minimum 2-3 cycles wait karo</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Final Note:</strong> Market cycles samajhna aur un pe amal karna dono alag cheezein hain. Sab ko pata hai k bear market mein buy karna chahiye — lekin jab actual mein market gir raha hota hai toh log darr jaate hain. Plan banao aur us pe amal karo.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Market analysis ka sab se pehla step kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Price prediction karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Halving status check karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">News padho</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Twitter dekho</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Sab se pehla step hai halving status check karna — ye batata hai k aap cycle mein kahan hain. Phir on-chain indicators aur sentiment dekho.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Long-term wealth building ka formula kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf bull market mein buy karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Bear market mein buy, bull market mein sell, repeat</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Hamesha hold karo, kabhi mat becho</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Roz trading karo</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Long-term wealth ka formula hai — bear market mein quality projects accumulate karo, bull market mein gradually profits lo, aur har cycle mein yehi repeat karo. Patience zaroori hai.</div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Ye book sirf educational purposes k liye hai — koi financial advice nahi hai. Market cycles based hain historical data par, future guaranteed nahi hai. Koi bhi investment karne se pehle apni research karein aur risk samjhein.
+</div>
+
+</main>
+</div>
+
+<script>
+function checkAnswer(btn, result) {
+  var parent = btn.closest('.quiz-q');
+  var options = parent.querySelectorAll('.quiz-option');
+  var explain = parent.querySelector('.quiz-explain');
+
+  options.forEach(function(opt) {
+    opt.disabled = true;
+    if (opt === btn) {
+      opt.classList.add(result);
+    } else if (opt.getAttribute('onclick').includes("'correct'")) {
+      opt.classList.add('correct');
+    }
+  });
+
+  if (explain) {
+    explain.classList.add('show');
+  }
+}
+
+window.addEventListener('scroll', function() {
+  var main = document.querySelector('main');
+  if (!main) return;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var docHeight = main.scrollHeight - window.innerHeight;
+  var progress = Math.min((scrollTop / docHeight) * 100, 100);
+  var fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = progress + '%';
+});
+
+var menuBtn = document.getElementById('menuBtn');
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('overlay');
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+}
+</script>
+
+</body>
+</html>

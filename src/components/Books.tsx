@@ -329,6 +329,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Chart Patterns', 'Advanced'],
     cover: '/covers/Advanced-Chart-Patterns.jpg',
   },
+  {
+    id: 'market-cycles',
+    title: 'Market Cycles & Bitcoin Halving (Urdu)',
+    titleUrdu: 'مارکیٹ سائیکلز اور بٹ کوائن ہالونگ',
+    description:
+      'Market cycles samjho, Bitcoin Halving ka impact jaano, aur har phase mein profit banao. Accumulation, Bull, Distribution, Bear — sab kuch Roman Urdu mein.',
+    chapters: 12,
+    pages: '12 chapters · 24+ Practice Questions',
+    icon: Clock,
+    color: 'text-green-600',
+    bgColor: 'bg-green-50',
+    href: '/market-cycles/index.html',
+    tags: ['Urdu', 'Market Cycles', 'Bitcoin Halving'],
+    cover: '/covers/Market-Cycles.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
