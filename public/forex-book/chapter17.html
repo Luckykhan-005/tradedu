@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبق ۱۷ — ملٹی ٹائم فریم تجزیہ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 26px; line-height: 2.2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
+        * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        h1 { font-size: 42px; color: #00b4d8; text-align: center; }
+        h2 { font-size: 34px; color: #e0a800; margin-top: 40px; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .nav a:hover { background: #e94560; color: #fff; }
+        p { margin: 0 0 20px 0; text-align: justify; }
+        .divider { border: none; border-top: 2px solid #333; margin: 30px 0; }
+        .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
+        .diagram { text-align: center; background: #122540; border-radius: 12px; padding: 25px; margin: 20px 0; overflow: hidden; }
+        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .info { background: #122540; border-right: 5px solid #00b4d8; padding: 15px 20px; border-radius: 10px; margin: 20px 0; }
+        .info strong { color: #00b4d8; }
+        svg text { direction: rtl; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="nav">
+        <a href="chapter16.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+    </div>
+
+    <h1>سبق ۱۷: ملٹی ٹائم فریم تجزیہ</h1>
+
+    <p>ایک ہی چارٹ کو دیکھ کر ٹریڈ کرنا بہت آسان لگتا ہے، لیکن حقیقت یہ ہے کہ <strong>ایک ہی ٹائم فریم کو دیکھنا اکثر خطرناک اور گمراہ کن</strong> ہوتا ہے۔ ایک ہی کرنسی پیئر کو اگر آپ 5 منٹ (5m) کے چارٹ پر دیکھیں تو بہت کے ٹائم پر نیچے دکھے، لیکن اسی کو آپ 4 گھنٹے (4H) یا ڈیلی (D1) چارٹ پر دیکھیں تو یہ واضح اوپر چل رہی ہو۔ <strong>ملٹی ٹائم فریم تجزیہ</strong> کا مطلب ایک ہی مسئلے کو مختلف ٹائم فریموں سے دیکھنا ہے تاکہ آپ کو قیمت کی پوری تصویر ملے اور آپ چھوٹے شور سے دھوکہ نہ کھائیں۔</p>
+
+    <p>ملٹی ٹائم فریم تجزیے کی ساخت ایک مشہور اصول پر ٹکی ہے — <strong>اوپر سے نیچے تجزیہ (Top-Down Analysis)</strong>۔ آپ <strong>بڑے ٹائم فریم (HTF)</strong> سے شروع کر کے پہلے طے کرتے ہیں کہ بڑے رجحان کی سمت کیا ہے — عموماً D1 یا W1۔ پھر آپ <strong>درمیانے ٹائم فریم (MTF)</strong> — مثلاً H4 یا H1 — پر دیکھتے ہیں کہ جات رجحان کے اندر کیا سیٹ اپ بن رہا ہے، جیسے واپسی یا نمونہ۔ آخر میں آپ <strong>چھوٹے ٹائم فریم (LTF)</strong> — مثلاً M15 یا M5 — پر جاتے ہیں تاکہ بہترین انٹری پوائنٹ تلاش کریں۔</p>
+
+    <div class="diagram">
+        <svg width="600" height="340" viewBox="0 0 600 340">
+            <rect width="600" height="340" fill="#122540" rx="10"/>
+            <text x="300" y="40" fill="#00b4d8" font-size="22" font-family="sans-serif" text-anchor="middle" font-weight="bold">ملٹی ٹائم فریم تجزیہ</text>
+            <rect x="80" y="70" width="440" height="60" fill="#00b4d8" rx="8"/>
+            <text x="300" y="107" fill="#0a1628" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">بڑا ٹائم فریم (HTF) — رجحان طے کریں</text>
+            <rect x="120" y="150" width="360" height="60" fill="#e0a800" rx="8"/>
+            <text x="300" y="187" fill="#0a1628" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">درمیانہ ٹائم فریم (MTF) — سیٹ اپ تلاش کریں</text>
+            <rect x="160" y="230" width="280" height="60" fill="#00ff9c" rx="8"/>
+            <text x="300" y="267" fill="#0a1628" font-size="20" font-family="sans-serif" text-anchor="middle" font-weight="bold">چھوٹا ٹائم فریم (LTF) — بہترین انٹری</text>
+            <text x="300" y="320" fill="#ccc" font-size="15" font-family="sans-serif" text-anchor="middle">تینوں سمت ایک جیسی ہوں تو بہترین موقع (الائنمنٹ)</text>
+        </svg>
+    </div>
+
+    <p>سادہ رہنما اصول: پیٹر/وقت کی عجلت کے مطابق ٹائم فریم چنیں۔ <strong>اسکیلپنگ (Scalping)</strong> کے لیے 1m یا 5m استعمال کریں — یہ بہت تیز لیکن خطرناک اور زیادہ ڈر سے بھرا ہوتا ہے۔ <strong>ڈے ٹریڈنگ</strong> کے لیے 15m/1H۔ <strong>سوئنگ ٹریڈنگ (Swing)</strong> کے لیے 4H یا D1 سب سے موزوں ہے — یہ زیادہ پرسکون اور کم شور، چند دنوں سے چند ہفتوں تک پوزیشن۔ اور <strong>پوزیشن ٹریڈنگ</strong> کے لیے W1 اور مہینے کا چارٹ بہترین ہے — یہ بہت طویل مدتی ہوتا ہے۔ اپنے ٹائم فریم کا انتخاب اپنے دستیاب وقت کے مطابق کریں، نہ کہ اپنی خواہش کے مطابق۔</p>
+
+    <p><strong>الائنمنٹ (Alignment)</strong> ملٹی ٹائم فریم تجزیے کی روح ہے۔ جب بڑے، درمیانے اور چھوٹے تینوں ٹائم فریم ایک ہی سمت میں ہوں تو اس ٹریڈ کی کامیابی کا امکان بہت بڑھ جاتا ہے۔ مثال کے طور پر، اگر D1 اوپر، H4 واپسی پر ہو، اور M5 مضبوط بریک اپ دکھا رہا ہو، تو یہ مثالی "منصوبہ" خون ترتیب ہے۔ لیکن اگر صرف M5 اوپر دکھے جبکہ D1 نیچے ہو، تو یہ شاید صرف ایک مختصر سا راستہ ہے۔ اس طرح تینوں فریموں کو ملا کر آپ اپنے نقصان کو بہت حد تک گھٹا سکتے ہیں اور اپنی جیت کے امکانات بڑھا سکتے ہیں۔</p>
+
+    <p>آخر میں یاد رکھیں کہ ملٹی ٹائم فریم تجزیہ ایک فن ہے، کوئی جادو نہیں۔ ہمیشہ <strong>اوپر سے نیچے</strong> تجزیہ کریں، کبھی بھی چھوٹے ٹائم فریم کو بڑے ٹائم فریم سمت پر ترجیح نہ دیں۔ اور ہمیشہ سٹاپ لاس اور رسک مینجمنٹ کو نہ بھولیں — کیونکہ ٹائم فریم جو بھی ہو، خطرہ ہمیشہ موجود رہتا ہے۔ اگر تینوں فریم متفق ہوں تو خوب، ورنہ صبر کریں اور بہتر موقع کا انتظار کریں۔</p>
+
+    <div class="info">
+        <strong>ٹائم فریم کی ترکیب:</strong> HTF (رجحان) = D1/W1، MTF (سیٹ اپ) = H4/H1، LTF (انٹری) = M15/M5۔ تینوں ایک سمت = بہترین موقع۔
+    </div>
+
+    <div class="info">
+        <strong>مختصر فارمولہ:</strong> سکیلپنگ = 1m/5m، ڈے = 15m/1H، سوئنگ = 4H/D1، پوزیشن = W1/مہینہ۔ اپنے وقت کے مطابق چنیں۔
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>اہم نکات</h2>
+    <p>۱۔ ایک ہی ٹائم فریم دیکھنا گمراہ کن ہو سکتا ہے — ملٹی ٹائم فریم ضروری ہے۔</p>
+    <p>۲۔ تجزیہ اوپر سے نیچے کریں: HTF → MTF → LTF۔</p>
+    <p>۳۔ HTF رجحان، MTF سیٹ اپ، LTF انٹری کے لیے۔</p>
+    <p>۴۔ تینوں فریموں کی الائنمنٹ کامیابی کے امکانات بڑھاتی ہے۔</p>
+    <p>۵۔ اپنی وقت کی بنیاد پر ٹائم فریم چنیں، نہ کہ جوش کے مطابق۔</p>
+
+    <h2>ہوم ورک</h2>
+    <p>۱۔ ایک کرنسی پیئر کو D1، H4 اور M5 پر دیکھ کر لکھیں کہ تینوں کی سمت الگ الگ کیا ہے۔</p>
+    <p>۲۔ ایک ایسا واقعہ تلاش کریں جہاں D1 نیچے لیکن M5 اوپر تھا — پھر دیکھیں کہ کون سا ٹائم فریم جیتا۔</p>
+    <p>۳۔ اپنے لیے بہترین ٹائم فریم منتخب کریں اور لکھیں کہ کیوں۔</p>
+
+    <div class="divider"></div>
+
+    <div class="nav">
+        <a href="chapter16.html">← پچھلا سبق</a>
+        <a href="index.html">🏠 فہرست</a>
+    </div>
+
+    <div class="back">
+        <a href="../index.html">⬅ TradeEd پر واپس جائیں</a>
+    </div>
+
+    <div class="footer">© مکمل فاریکس ٹریڈنگ کورس</div>
+
+    <script>
+        document.addEventListener('keydown', function(e) { if (e.ctrlKey && (e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); } });
+    </script>
+
+</body>
+</html>

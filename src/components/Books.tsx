@@ -75,6 +75,21 @@ const books: BookItem[] = [
     cover: '/covers/forex-complete.jpg',
   },
   {
+    id: 'forex-book',
+    title: 'Forex Trading Course Part 1 (Urdu)',
+    titleUrdu: 'فاریکس ٹریڈنگ کورس پارٹ 1',
+    description:
+      'Forex trading ka complete course — currency pairs, pips, lots, market structure, price action, indicators, chart patterns, fundamentals, risk management aur psychology. 24 chapters.',
+    chapters: 24,
+    pages: '24 chapters · Part 1',
+    icon: TrendingUp,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+    href: '/forex-book/index.html',
+    tags: ['Urdu', 'Forex', 'Part 1'],
+    cover: '/covers/forex-complete.jpg',
+  },
+  {
     id: 'crypto-beginner',
     title: 'Crypto Trading — Phase 1 (Beginner)',
     titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۱ (بیگنر)',
