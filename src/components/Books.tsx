@@ -297,7 +297,7 @@ const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: '/day-trading-guide/index.html',
     tags: ['Urdu', 'Day Trading', 'Complete Guide'],
-    cover: '/covers/Day-Trading-Guide.jpg',
+    cover: '/covers/Day Trading Guide.png',
   },
   {
     id: 'fundamental-analysis',
@@ -312,7 +312,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/fundamental-analysis/index.html',
     tags: ['Urdu', 'Fundamental Analysis', 'Crypto'],
-    cover: '/covers/Fundamental-Analysis.jpg',
+    cover: '/covers/Fundamental Analysis.png',
   },
   {
     id: 'advanced-chart-patterns',
@@ -327,7 +327,7 @@ const books: BookItem[] = [
     bgColor: 'bg-red-50',
     href: '/advanced-chart-patterns/index.html',
     tags: ['Urdu', 'Chart Patterns', 'Advanced'],
-    cover: '/covers/Advanced-Chart-Patterns.jpg',
+    cover: '/covers/Advanced Chart Patterns.png',
   },
   {
     id: 'market-cycles',
@@ -342,7 +342,7 @@ const books: BookItem[] = [
     bgColor: 'bg-green-50',
     href: '/market-cycles/index.html',
     tags: ['Urdu', 'Market Cycles', 'Bitcoin Halving'],
-    cover: '/covers/Market-Cycles.jpg',
+    cover: '/covers/Market Cycle.png',
   },
   {
     id: 'swing-trading',
@@ -357,7 +357,7 @@ const books: BookItem[] = [
     bgColor: 'bg-indigo-50',
     href: '/swing-trading/index.html',
     tags: ['Urdu', 'Swing Trading', 'Mastery'],
-    cover: '/covers/Swing-Trading.jpg',
+    cover: '/covers/Sweing Trading.png',
   },
   {
     id: 'portfolio-management',
@@ -372,7 +372,7 @@ const books: BookItem[] = [
     bgColor: 'bg-teal-50',
     href: '/portfolio-management/index.html',
     tags: ['Urdu', 'Portfolio', 'Management'],
-    cover: '/covers/Portfolio-Management.jpg',
+    cover: '/covers/Crypto Portfolio Management.png',
   },
 ]
 
