@@ -1,0 +1,1845 @@
+﻿<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crypto Portfolio Management — Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:22ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:54ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"\2610";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+  .disclaimer{background:var(--loss-bg);border:1px solid var(--loss);border-radius:var(--radius);padding:18px 22px;margin:40px 0 30px;font-size:0.92rem;color:#f0a0a0;line-height:1.6;}
+  .comparison-table{width:100%;border-collapse:collapse;font-size:0.92rem;margin:22px 0;}
+  .comparison-table th{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.04em;color:var(--gold-deep);text-align:left;padding:10px 12px;border-bottom:2px solid var(--line-strong);font-weight:500;}
+  .comparison-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .comparison-table tr:last-child td{border-bottom:none;}
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Portfolio Management<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Portfolio Management Kya Hai</a>
+    <a href="#ch2"><span class="toc-num">02</span>Asset Allocation Strategy</a>
+    <a href="#ch3"><span class="toc-num">03</span>Diversification in Crypto</a>
+    <a href="#ch4"><span class="toc-num">04</span>Rebalancing Portfolio</a>
+    <a href="#ch5"><span class="toc-num">05</span>Risk-Adjusted Returns</a>
+    <a href="#ch6"><span class="toc-num">06</span>Portfolio Tracking Tools</a>
+    <a href="#ch7"><span class="toc-num">07</span>Position Sizing Strategies</a>
+    <a href="#ch8"><span class="toc-num">08</span>Tax Planning for Crypto</a>
+    <a href="#ch9"><span class="toc-num">09</span>Psychology of Holding</a>
+    <a href="#ch10"><span class="toc-num">10</span>Institutional Portfolio Strategies</a>
+    <a href="#ch11"><span class="toc-num">11</span>DeFi Portfolio Management</a>
+    <a href="#ch12"><span class="toc-num">12</span>Complete Portfolio System</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- COVER -->
+<header class="cover" id="cover">
+  <div class="eyebrow">PORTFOLIO MANAGEMENT · CRYPTO GUIDE</div>
+  <h1>Crypto Portfolio Management, Apna Paisa Samjho</h1>
+  <p class="subtitle">Sirf buy-hold nahi — smart portfolio management seekho. Allocation, diversification, rebalancing, risk management — sab kuch Roman Urdu mein.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>24+ PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="chapter" id="intro">
+  <h2>Kyun Zaroori Hai Portfolio Management?</h2>
+  <p>Sochiye — aapne apni saari savings ek hi coin mein daal di. Agar wo coin 50% gir jaye to aapka poora investment barbaad. Portfolio management isi liye zaroori hai — taake aapka paisa mukhtalif jagahon par ho, risk kam ho, aur returns behtar hon.</p>
+  <p>Sirf ek coin mein invest karna bilkul aisa hai jaise aap apni zindagi ka sab kuch ek hi jagah rakh dein. Agar woh jagah khatarnak ho jaye to kuch nahi bachega. Portfolio management ka matlab hai — apne paisay ko smart tareeqay se distribute karna.</p>
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>"Don't put all eggs in one basket"</strong> — Is purani kahani ka matlab hai ke apna saara paisa ek hi jagah mat rakho. Crypto mein yeh rule aur bhi zyada important hai kyunki yeh market bohat volatile hai. Agar aap sirf Bitcoin mein ho aur woh gir jaye, to aapka poora portfolio affected hoga. Lekin agar aap Bitcoin, Ethereum, aur kuch achhi altcoins mein distribute kar dein, to ek ka girna doosron se cover ho jayega.</div>
+  </div>
+  <p>Is guide mein hum seekhenge ke apne crypto portfolio ko kaise manage karein — kaise allocate karein, kaise diversify karein, kaise rebalance karein, aur kaise risk ko control mein rakhein. Yeh sab kuch Roman Urdu mein hai, asaan zubaan mein, taake har koi samajh sake.</p>
+</section>
+
+<!-- CHAPTER 01 -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Portfolio Management Kya Hai</h2>
+  </div>
+  <p class="chapter-intro">Crypto portfolio management ka basic idea, active vs passive approaches, aur kyun sirf hold karna kaafi nahi hai.</p>
+
+  <h3>Portfolio Management — Asal Mein Kya Hai?</h3>
+  <p>Portfolio management ka matlab hai apne investments — yani aapke crypto coins, tokens, aur digital assets — ko is tarah se organize karna ke maximum returns milen aur minimum risk ho. Yeh ek systematic approach hai jismein aap decide karte ho ke kitna paisa kahan rakha jaye, kab buy karna hai, kab sell karna hai, aur kaise track karna hai.</p>
+  <p>Portfolio management sirf有钱 wale logon ke liye nahi hai. Agar aapne sirf $100 bhi crypto mein invest kiye hain, to aapko un $100 ko manage karna chahiye. Yeh aadat aapko aage bohat faida degi jab aapka portfolio bada hoga.</p>
+
+  <h3>Portfolio Management Kyun Zaroori Hai?</h3>
+  <p>Bitcoin mein invest karna aur usay chor dena — yeh sabse asaan strategy hai. Lekin kya yeh sabse achhi strategy hai? Bilkul nahi. Crypto market bohat volatile hai. Ek din Bitcoin 20% up ho sakta hai, agle din 15% down. Agar aapne sirf ek coin mein sab kuch daal diya hai, to aap poore market ke mood ka shikaar ho jayenge.</p>
+  <p>Portfolio management aapko yeh control deta hai ke aapka paisa mukhtalif jagahon par ho. Agar Bitcoin gir jaye to Ethereum ya koi altcoin sambhal sakta hai. Agar koi altcoin zero ho jaye to Bitcoin ya Ethereum uska nuksan cover kar sakta hai.</p>
+
+  <h3>Active vs Passive Management</h3>
+  <p>Crypto portfolio management do tareeqon se ho sakta hai:</p>
+  <p><strong>Active Management:</strong> Ismein aap khud market ko dekhte ho, analysis karte ho, aur baar baar apne portfolio ko adjust karte ho. Yeh zyada time leta hai lekin agar sahi kiya jaye to zyada returns de sakta hai. Ismein aap kisi bhi coin ko kabhi bhi buy ya sell kar sakte ho.</p>
+  <p><strong>Passive Management:</strong> Ismein aap ek plan bana lete ho — jaise "60% Bitcoin, 30% Ethereum, 10% altcoins" — aur sirf quarterly ya monthly usay rebalance karte ho. Yeh kam time leta hai aur aam logon ke liye zyada suitable hai. Aapko har roz market nahi dekhni padti.</p>
+  <p>Zyada tar logon ke liye <strong>passive management</strong> behtar hai. Active management mein aapko bohat zyada knowledge, time, aur discipline chahiye. Passive management mein aap ek achi strategy bana sakte ho aur us par amal kar sakte ho bina roz market ko dekhe.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#111111" rx="4"/>
+      <text x="350" y="36" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="14" text-anchor="middle" font-weight="600">PORTFOLIO MANAGEMENT OVERVIEW</text>
+      <!-- Central Circle -->
+      <circle cx="350" cy="175" r="55" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <text x="350" y="170" fill="#e5e5e5" font-family="Newsreader, serif" font-size="14" text-anchor="middle" font-weight="600">Portfolio</text>
+      <text x="350" y="190" fill="#a3a3a3" font-family="Newsreader, serif" font-size="12" text-anchor="middle">Management</text>
+      <!-- Allocation -->
+      <circle cx="160" cy="120" r="45" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+      <text x="160" y="115" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Allocation</text>
+      <text x="160" y="132" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Kahan invest</text>
+      <line x1="205" y1="135" x2="300" y2="160" stroke="#333" stroke-width="1.5" stroke-dasharray="4"/>
+      <!-- Rebalancing -->
+      <circle cx="540" cy="120" r="45" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+      <text x="540" y="115" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Rebalancing</text>
+      <text x="540" y="132" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Kab adjust</text>
+      <line x1="495" y1="135" x2="400" y2="160" stroke="#333" stroke-width="1.5" stroke-dasharray="4"/>
+      <!-- Risk Management -->
+      <circle cx="160" cy="240" r="45" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+      <text x="160" y="235" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Risk</text>
+      <text x="160" y="252" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Kitna risk</text>
+      <line x1="205" y1="225" x2="300" y2="195" stroke="#333" stroke-width="1.5" stroke-dasharray="4"/>
+      <!-- Tracking -->
+      <circle cx="540" cy="240" r="45" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+      <text x="540" y="235" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Tracking</text>
+      <text x="540" y="252" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Kahan dekhein</text>
+      <line x1="495" y1="225" x2="400" y2="195" stroke="#333" stroke-width="1.5" stroke-dasharray="4"/>
+      <!-- Arrows -->
+      <polygon points="205,135 210,130 210,140" fill="#333"/>
+      <polygon points="495,135 490,130 490,140" fill="#333"/>
+      <polygon points="205,225 210,220 210,230" fill="#333"/>
+      <polygon points="495,225 490,220 490,230" fill="#333"/>
+    </svg>
+    <figcaption>Figure 1.1 — Portfolio Management ka Overview: Allocation, Rebalancing, Risk, aur Tracking — char pillars</figcaption>
+  </figure>
+
+  <h3>Portfolio Management ke Benefits</h3>
+  <ul>
+    <li><strong>Risk kam hota hai:</strong> Jab aapka paisa mukhtalif coins mein ho, to ek ka girna doosre se cover hota hai.</li>
+    <li><strong>Returns behtar hote hain:</strong> Sahi allocation se aapko market ke har hissay se faida milta hai.</li>
+    <li><strong>Discipline aati hai:</strong> Portfolio management se aap emotionally nahi, balki logically soch sakte ho.</li>
+    <li><strong>Long-term growth:</strong> Agar sahi se manage kiya jaye to aapka portfolio lambay arsay mein grow hota rahega.</li>
+    <li><strong>Peace of mind:</strong> Jab aapko pata ho ke aapka paisa safe hai to aap chain se so sakte ho.</li>
+  </ul>
+
+  <h3>Aam Ghaltiyan Jo Log Karte Hain</h3>
+  <ul class="checklist">
+    <li>Sirf ek coin mein sab kuch daal dena — yeh sabse bari ghalti hai.</li>
+    <li>FOMO (Fear Of Missing Out) se buy karna — jab sab log buy kar rahe hon to aap bhi bina soche buy kar lete ho.</li>
+    <li>Portfolio ko bar baar check karna — har ghantay mein check karna anxiety badhata hai.</li>
+    <li>Rebalancing na karna — jab allocation bigad jaye to usey fix na karna.</li>
+    <li>Risk management na karna — stop loss na lagana ya position sizing na samajhna.</li>
+    <li>Emotional decisions lena — jab market gir jaye to ghabra ke sell kar dena.</li>
+  </ul>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 01</div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">1. Passive portfolio management ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Har roz market dekhna aur trades karna</button>
+        <button class="quiz-option" data-val="1">Sirf ek coin mein invest karna</button>
+        <button class="quiz-option" data-val="2">Ek plan banana aur usay monthly/quarterly follow karna</button>
+        <button class="quiz-option" data-val="3">Sab kuch bech dena jab market gir jaye</button>
+      </div>
+      <div class="quiz-explain">Passive management mein aap ek plan bana lete ho — jaise allocation decide karna — aur sirf monthly ya quarterly usay rebalance karte ho. Har roz market dekhna zaroori nahi.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">2. Portfolio management ka sabse pehla benefit kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Jaldi ameer hona</button>
+        <button class="quiz-option" data-val="1">Risk kam hota hai</button>
+        <button class="quiz-option" data-val="2">Tax dena padta hai</button>
+        <button class="quiz-option" data-val="3">Market ko roz dekhna padta hai</button>
+      </div>
+      <div class="quiz-explain">Portfolio management ka sabse pehla aur zaroori benefit yeh hai ke risk kam hota hai. Jab aapka paisa mukhtalif coins mein ho, to ek ka girna doosre se cover hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 02 -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Asset Allocation Strategy</h2>
+  </div>
+  <p class="chapter-intro">Apne crypto portfolio ko kaise allocate karein — conservative, balanced, aur aggressive strategies ke saath.</p>
+
+  <h3>Asset Allocation Kya Hai?</h3>
+  <p>Asset allocation ka matlab hai apne total investment ko mukhtalif assets — yani coins aur tokens — mein distribute karna. Yeh decide karna ke kitna paisa Bitcoin mein, kitna Ethereum mein, aur kitna altcoins mein jayega. Yeh portfolio management ki sabse important cheez hai kyunki yeh directly aapke returns aur risk ko affect karti hai.</p>
+  <p>Asset allocation sirf crypto mein nahi — balki har tarah ke investments mein hoti hai. Stock market mein bhi log bonds, stocks, aur cash mein allocate karte hain. Crypto mein ham Bitcoin, Ethereum, aur altcoins mein allocate karte hain.</p>
+
+  <h3>Conservative Portfolio</h3>
+  <p>Conservative portfolio un logon ke liye hai jo kam risk lena chahte hain. Yeh portfolio zyada tar Bitcoin mein hota hai kyunki Bitcoin sabse stable aur established cryptocurrency hai.</p>
+  <div class="example-box">
+    <div class="example-label">CONSERVATIVE ALLOCATION</div>
+    <table>
+      <tr><td>Bitcoin (BTC)</td><td>70%</td></tr>
+      <tr><td>Ethereum (ETH)</td><td>20%</td></tr>
+      <tr><td>Altcoins (ALT)</td><td>10%</td></tr>
+    </table>
+  </div>
+  <p>Is portfolio mein risk kam hota hai kyunki Bitcoin market ka leader hai. Jab market gir jata hai to Bitcoin zyada nahi girta aur jab upar jata hai to aaram se chalta hai. Ethereum bhi kaafi stable hai. Altcoins thore risky hain lekin unka weight sirf 10% hai.</p>
+  <p>Yeh portfolio un logon ke liye best hai jo naye hain, ya jinka risk tolerance kam hai, ya jinka investment time kam hai.</p>
+
+  <h3>Balanced Portfolio</h3>
+  <p>Balanced portfolio moderate risk aur moderate returns ka combination hai. Yeh portfolio Bitcoin, Ethereum, aur altcoins mein barabar ya near-barabar distribute hota hai.</p>
+  <div class="example-box">
+    <div class="example-label">BALANCED ALLOCATION</div>
+    <table>
+      <tr><td>Bitcoin (BTC)</td><td>40%</td></tr>
+      <tr><td>Ethereum (ETH)</td><td>30%</td></tr>
+      <tr><td>Altcoins (ALT)</td><td>30%</td></tr>
+    </table>
+  </div>
+  <p>Is portfolio mein aapko Bitcoin ka stability bhi milta hai, Ethereum ka growth potential bhi, aur altcoins ka high reward bhi. Risk thora zyada hota hai conservative se, lekin returns bhi zyada ho sakte hain.</p>
+  <p>Yeh portfolio un logon ke liye best hai jo thoda risk le sakte hain, jinka experience medium hai, aur jinka investment time 2-5 saal hai.</p>
+
+  <h3>Aggressive Portfolio</h3>
+  <p>Aggressive portfolio un logon ke liye hai jo zyada risk le sakte hain aur zyada returns chahte hain. Is portfolio mein altcoins ka weight zyada hota hai kyunki altcoins ka potential zyada hai.</p>
+  <div class="example-box">
+    <div class="example-label">AGGRESSIVE ALLOCATION</div>
+    <table>
+      <tr><td>Bitcoin (BTC)</td><td>20%</td></tr>
+      <tr><td>Ethereum (ETH)</td><td>30%</td></tr>
+      <tr><td>Altcoins (ALT)</td><td>50%</td></tr>
+    </table>
+  </div>
+  <p>Is portfolio mein risk sabse zyada hota hai kyunki altcoins bohat volatile hain. Lekin agar sahi altcoins choose kiye jayen to returns bohat zyada ho sakte hain. Ek altcoin 10x bhi ho sakta hai.</p>
+  <p>Yeh portfolio un logon ke liye best hai jo experienced hain, unka risk tolerance zyada hai, aur jinka investment time 5+ saal hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">THREE PORTFOLIO TYPES</text>
+      <!-- Conservative Pie -->
+      <circle cx="140" cy="165" r="70" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M140,165 L140,95 A70,70 0 0,1 198.4,131.7 Z" fill="#f0b90b" opacity="0.85"/>
+      <path d="M140,165 L198.4,131.7 A70,70 0 0,1 173.2,225.3 Z" fill="#00b300" opacity="0.7"/>
+      <path d="M140,165 L173.2,225.3 A70,70 0 0,1 140,235 Z" fill="#666" opacity="0.5"/>
+      <text x="140" y="265" fill="#e5e5e5" font-family="Newsreader, serif" font-size="13" text-anchor="middle" font-weight="600">Conservative</text>
+      <text x="140" y="282" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">BTC 70% · ETH 20% · ALT 10%</text>
+      <!-- Balanced Pie -->
+      <circle cx="350" cy="165" r="70" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M350,165 L350,95 A70,70 0 0,1 398,205 Z" fill="#f0b90b" opacity="0.85"/>
+      <path d="M350,165 L398,205 A70,70 0 0,1 302,205 Z" fill="#00b300" opacity="0.7"/>
+      <path d="M350,165 L302,205 A70,70 0 0,1 350,95 Z" fill="#666" opacity="0.5"/>
+      <text x="350" y="265" fill="#e5e5e5" font-family="Newsreader, serif" font-size="13" text-anchor="middle" font-weight="600">Balanced</text>
+      <text x="350" y="282" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">BTC 40% · ETH 30% · ALT 30%</text>
+      <!-- Aggressive Pie -->
+      <circle cx="560" cy="165" r="70" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M560,165 L560,95 A70,70 0 0,1 612,131.7 Z" fill="#f0b90b" opacity="0.85"/>
+      <path d="M560,165 L612,131.7 A70,70 0 0,1 631,225.3 Z" fill="#00b300" opacity="0.7"/>
+      <path d="M560,165 L631,225.3 A70,70 0 0,1 560,235 Z" fill="#666" opacity="0.5"/>
+      <text x="560" y="265" fill="#e5e5e5" font-family="Newsreader, serif" font-size="13" text-anchor="middle" font-weight="600">Aggressive</text>
+      <text x="560" y="282" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">BTC 20% · ETH 30% · ALT 50%</text>
+    </svg>
+    <figcaption>Figure 2.1 — Teen tarah ke portfolios: Conservative (kam risk), Balanced (moderate), Aggressive (zyada risk)</figcaption>
+  </figure>
+
+  <h3>Risk Tolerance ke Hisaab se Choose Karein</h3>
+  <p>Apna portfolio choose karte waqt sabse pehle apna risk tolerance samjhein. Risk tolerance ka matlab hai ke aap kitna loss bear kar sakte ho bina ghabraye.</p>
+  <div class="example-box">
+    <div class="example-label">RISK TOLERANCE GUIDE</div>
+    <table>
+      <tr><td>Conservative</td><td>Aapko loss se dar lagta hai, paisa chahiye within 1-2 saal</td></tr>
+      <tr><td>Balanced</td><td>Thoda loss bear kar sakte ho, paisa 3-5 saal baad chahiye</td></tr>
+      <tr><td>Aggressive</td><td>Loss se dar nahi lagta, paisa 5+ saal baad chahiye</td></tr>
+    </table>
+  </div>
+
+  <h3>Age-Based Allocation</h3>
+  <p>Aapki umar bhi allocation ko affect karti hai. Jitni kam umar, utna zyada aggressive ho sakte ho kyunki aapke paas waqt hai recovery ke liye.</p>
+  <ul>
+    <li><strong>20-30 saal:</strong> Aggressive portfolio — zyada altcoins, kam Bitcoin. Aapke paas 30+ saal hain recovery ke liye.</li>
+    <li><strong>30-40 saal:</strong> Balanced portfolio — barabar distribution. Abhi bhi time hai lekin thoda cautious hona zaroori hai.</li>
+    <li><strong>40-50 saal:</strong> Conservative portfolio — zyada Bitcoin, kam altcoins. Abhi se retirement ka sochna shuru karein.</li>
+    <li><strong>50+ saal:</strong> Ultra conservative — sirf Bitcoin aur Ethereum. Risk lene ka waqt nahi hai.</li>
+  </ul>
+  <p>Lekin yeh sirf general guidelines hain. Har kisi ki situation alag hoti hai. Agar aapke paas bahut saara paisa hai to aap aggressive ho sakte ho chahe umar zyada ho. Agar aapke paas sirf thoda sa paisa hai to conservative rehna behtar hai.</p>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 02</div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">1. Conservative portfolio mein Bitcoin ka weight kitna hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">20%</button>
+        <button class="quiz-option" data-val="1">40%</button>
+        <button class="quiz-option" data-val="2">70%</button>
+        <button class="quiz-option" data-val="3">50%</button>
+      </div>
+      <div class="quiz-explain">Conservative portfolio mein Bitcoin ka weight 70% hota hai kyunki Bitcoin sabse stable cryptocurrency hai aur risk kam karta hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">2. 25 saal ke nojawan ke liye kaunsa portfolio suitable hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Conservative — sirf Bitcoin</button>
+        <button class="quiz-option" data-val="1">Aggressive — zyada altcoins</button>
+        <button class="quiz-option" data-val="2">Ultra conservative — sirf stablecoins</button>
+        <button class="quiz-option" data-val="3">No portfolio — paisa bank mein rakho</button>
+      </div>
+      <div class="quiz-explain">25 saal ke nojawan ke liye aggressive portfolio suitable hai kyunki unke paas waqt hai recovery ke liye. Agar koi coin gir bhi jaye to waqt mil jayega wapas aane ka.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 03 -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Diversification in Crypto</h2>
+  </div>
+  <p class="chapter-intro">Crypto mein diversification ke tareeqay — coins, sectors, aur time ke hisaab se.</p>
+
+  <h3>Diversification Kya Hai?</h3>
+  <p>Diversification ka matlab hai apne investments ko mukhtalif jagahon par distribute karna taake agar ek jagah nuksan ho to doosri jagah se cover ho. Yeh portfolio management ka golden rule hai. Jaise kaha jata hai — "Don't put all eggs in one basket."</p>
+  <p>Crypto mein diversification teen tareeqon se ho sakti hai: coins ke hisaab se, sectors ke hisaab se, aur time ke hisaab se. Har tareeqa alag hai aur har ka apna faida hai.</p>
+
+  <h3>Crypto Mein Diversification — Coins ke Hisaab se</h3>
+  <p>Sabse asaan diversification yeh hai ke aap sirf ek coin mein na jayen balki 3-5 coins mein invest karein. Lekin sirf coins ki tadaad badhana kaafi nahi — aapko achhe coins choose karne hain.</p>
+  <p>Ek achha portfolio aisa hona chahiye:</p>
+  <ul>
+    <li><strong>Large Cap (Bada coins):</strong> Bitcoin, Ethereum — yeh stable hain aur market leaders hain. Inka weight zyada hona chahiye.</li>
+    <li><strong>Mid Cap (Darmiyani coins):</strong> Solana, Cardano, Polkadot — yeh growth potential rakhte hain lekin thore risky hain.</li>
+    <li><strong>Small Cap (Chhote coins):</strong> Naye projects, DeFi tokens — yeh bohat risky hain lekin agar sahi choose ho jayen to 10x-100x de sakte hain.</li>
+  </ul>
+  <p>Yeh distribute karna important hai ke aapka paisa sirf ek category mein na ho. Agar sirf small cap mein ho to risk bohat zyada hai. Agar sirf large cap mein ho to returns kam ho sakte hain.</p>
+
+  <h3>Sectors ke Hisaab se Diversification</h3>
+  <p>Crypto mein mukhtalif sectors hain — har sector ka apna utility hai aur apna market hai. Agar aap sirf ek sector mein ho to risk zyada hai. Diversification ke liye mukhtalif sectors mein invest karein.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="360" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">CRYPTO SECTORS DIVERSIFICATION</text>
+      <!-- Layer 1 -->
+      <rect x="40" y="55" width="140" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="110" y="80" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">Layer 1</text>
+      <text x="110" y="100" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Bitcoin, ETH</text>
+      <text x="110" y="115" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Solana, ADA</text>
+      <text x="110" y="145" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">35-50%</text>
+      <!-- Layer 2 -->
+      <rect x="200" y="55" width="140" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="270" y="80" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">Layer 2</text>
+      <text x="270" y="100" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Polygon, ARB</text>
+      <text x="270" y="115" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Optimism</text>
+      <text x="270" y="145" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">10-20%</text>
+      <!-- DeFi -->
+      <rect x="360" y="55" width="140" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="430" y="80" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">DeFi</text>
+      <text x="430" y="100" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Uniswap, AAVE</text>
+      <text x="430" y="115" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Maker, Compound</text>
+      <text x="430" y="145" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">10-20%</text>
+      <!-- NFT / Gaming -->
+      <rect x="520" y="55" width="140" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="590" y="80" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">NFT / Gaming</text>
+      <text x="590" y="100" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">AXS, SAND</text>
+      <text x="590" y="115" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">MANA, ENJ</text>
+      <text x="590" y="145" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">5-15%</text>
+      <!-- Infrastructure -->
+      <rect x="120" y="190" width="180" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="210" y="215" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">Infrastructure</text>
+      <text x="210" y="235" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Chainlink, Filecoin</text>
+      <text x="210" y="250" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">The Graph, Band</text>
+      <text x="210" y="280" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">5-15%</text>
+      <!-- Stablecoins -->
+      <rect x="400" y="190" width="180" height="110" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="490" y="215" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">Stablecoins</text>
+      <text x="490" y="235" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">USDT, USDC</text>
+      <text x="490" y="250" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Emergency Fund</text>
+      <text x="490" y="280" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">5-10%</text>
+      <!-- Bottom Note -->
+      <text x="350" y="340" fill="#666" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">Note: Percentages approximate hain — apne risk tolerance ke hisaab se adjust karein</text>
+    </svg>
+    <figcaption>Figure 3.1 — Crypto Sectors: Layer 1, Layer 2, DeFi, NFT/Gaming, Infrastructure, aur Stablecoins</figcaption>
+  </figure>
+
+  <h3>Time ke Hisaab se Diversification (DCA)</h3>
+  <p>DCA — Dollar Cost Averaging — ka matlab hai ke aap ek fixed amount har week ya har month invest karein, chahe market up ho ya down. Yeh time ke hisaab se diversification hai.</p>
+  <p>Jaise agar aap $500 invest karna chahte ho to usay 5 hafton mein $100-$100 kar ke invest karein. Agar market up ho to kam coins milenge, agar down ho to zyada coins milenge. Is tarah se aapka average cost balanced rehta hai.</p>
+  <p>DCA ka sabse bada faida yeh hai ke aapko market ka bottom ya top pakadne ki zaroorat nahi padti. Aap systematically invest karte raho aur time aapke saath kaam karta hai.</p>
+
+  <h3>Over-Diversification ka Problem</h3>
+  <p>Diversification achhi hai lekin <strong>over-diversification</strong> buri hai. Agar aapne 20-30 coins mein invest kar diya hai to aapka portfolio manage karna mushkil ho jayega. Aur agar saare coins ek hi sector mein hain to asal diversification nahi hai.</p>
+  <p>Research kehti hai ke <strong>3-5 coins ka portfolio</strong> optimal hai. Ismein aapko diversification bhi milta hai aur manage karna bhi asaan hota hai. 10 se zyada coins rakhne ki zaroorat nahi hai agar sahi sector distribution hai.</p>
+
+  <h3>Coins ka Correlation</h3>
+  <p>Correlation ka matlab hai ke do coins ek saath move karte hain ya nahi. Agar Bitcoin gir jaye aur Ethereum bhi gir jaye to yeh high correlation hai. Agar Bitcoin gir jaye lekin koi coin upar jaye to yeh low correlation hai.</p>
+  <p>Diversification tab effective hai jab aapke coins ka correlation kam ho. Agar saare coins ek saath move karte hain to diversification ka faida nahi. Isliye mukhtalif sectors ke coins choose karein — Layer 1, DeFi, Infrastructure — taake correlation kam ho.</p>
+  <p>Ek practical example: Bitcoin aur Ethereum ka correlation high hai — dono aam tor par ek saath move karte hain. Lekin Bitcoin aur kisi DeFi token ka correlation kam ho sakta hai. Isliye sirf Bitcoin aur Ethereum mein invest karna asal diversification nahi hai.</p>
+
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>Minimum Diversification:</strong> Kam se kam 3-5 coins mein invest karein. Sirf ek coin mein sab kuch rakhna bilkul riski hai. Lekin 10 se zyada coins bhi rakhne ki zaroorat nahi — quality over quantity.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 03</div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">1. DCA kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Ek saath saara paisa invest karna</button>
+        <button class="quiz-option" data-val="1">Sirf market ke upar hone par invest karna</button>
+        <button class="quiz-option" data-val="2">Fixed amount har week/month invest karna</button>
+        <button class="quiz-option" data-val="3">Sirf ek coin mein invest karna</button>
+      </div>
+      <div class="quiz-explain">DCA — Dollar Cost Averaging — mein aap fixed amount har week ya har month invest karte ho, chahe market up ho ya down. Yeh average cost ko balance karta hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">2. Optimal crypto portfolio mein kitne coins hone chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">1 coin — sirf Bitcoin</button>
+        <button class="quiz-option" data-val="1">3-5 coins — quality over quantity</button>
+        <button class="quiz-option" data-val="2">10-15 coins — zyada diversification</button>
+        <button class="quiz-option" data-val="3">20+ coins — sab kuch mein invest karo</button>
+      </div>
+      <div class="quiz-explain">Research kehti hai ke 3-5 coins ka portfolio optimal hai. Ismein diversification bhi milta hai aur manage karna bhi asaan hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 04 -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Rebalancing Portfolio</h2>
+  </div>
+  <p class="chapter-intro">Portfolio ko rebalance kyun karna chahiye, kab karna chahiye, aur kaise karna chahiye.</p>
+
+  <h3>Rebalancing Kya Hai?</h3>
+  <p>Rebalancing ka matlab hai apne portfolio ki allocation wapas us target par laana jo aapne pehle decide ki thi. Jaise agar aapne decide kiya tha ke 60% Bitcoin aur 40% Ethereum hoga, lekin 3 mahine baad dekha ke Bitcoin badh gaya hai aur ab 70% Bitcoin aur 30% Ethereum hai — to rebalancing ka matlab hai wapas 60-40 par aana.</p>
+  <p>Rebalancing zaroori hai kyunki market hamesha change hota rahta hai. Jab koi coin upar jata hai to uska weight portfolio mein badh jata hai, aur jab koi neeche jata hai to uska weight kam ho jata hai. Agar aap rebalance nahi karein to aapki allocation bigad jati hai aur risk badh jata hai.</p>
+
+  <h3>Kyun Rebalance Karein?</h3>
+  <p>Rebalancing ke kai reasons hain:</p>
+  <ul>
+    <li><strong>Drift control:</strong> Agar allocation bigad jaye to risk badh jata hai. Rebalancing se wapas control mein aata hai.</li>
+    <li><strong>Profit booking:</strong> Jab koi coin upar jaye to uska weight badh jata hai. Rebalancing mein aap uska kuch hissa bech dete ho aur profit book kar lete ho.</li>
+    <li><strong>Discipline:</strong> Rebalancing aapko disciplined rakhta hai. Aap emotional decisions nahi lete — sirf plan ke according chalte ho.</li>
+    <li><strong>Risk management:</strong> Agar altcoins bohat upar chale gaye hain to unka weight zyada ho gaya hai. Rebalancing se risk kam hota hai.</li>
+  </ul>
+
+  <h3>Calendar-Based Rebalancing</h3>
+  <p>Is method mein aap fix time par rebalance karte ho — monthly, quarterly, ya yearly. Sabse common approach quarterly rebalancing hai — yani har 3 mahine mein ek baar.</p>
+  <p>Calendar-based rebalancing ka faida yeh hai ke aapko har waqt market nahi dekhni padti. Aap ek date fix kar lete ho — jaise 1st of every quarter — aur us din rebalance kar lete ho. Yeh simple hai aur emotional decisions ko kam karta hai.</p>
+  <p>Lekin iska nuksan yeh hai ke agar market mein bada change aaye to aap waqt par react nahi kar paoge. Agar koi coin ek mahine mein 100% upar chala gaya hai to aapko 3 mahine tak wait karna padega.</p>
+
+  <h3>Threshold-Based Rebalancing</h3>
+  <p>Is method mein aap ek threshold set karte ho — jaise "jab allocation 5% ya zyada drift ho jaye tab rebalance karein." Yeh calendar-based se zyada flexible hai.</p>
+  <p>Jaise agar aapka target hai 60% Bitcoin aur 40% Ethereum, to agar Bitcoin 66% ya zyada ho jaye (5% drift) ya 54% ya kam ho jaye (5% drift) to aap rebalance kar lete ho.</p>
+  <p>Threshold-based rebalancing ka faida yeh hai ke aap market ke according react karte ho. Agar bada move ho to aap turant rebalance kar sakte ho. Lekin iska nuksan yeh hai ke aapko portfolio regularly dekhna padega.</p>
+
+  <h3>Tax Implications</h3>
+  <p>Rebalancing ka ek important aspect hai tax. Jab aap koi coin bechte ho to capital gains hota hai — yani profit hota hai jo taxable hai. Har rebalancing transaction taxable ho sakti hai.</p>
+  <p>Isliye rebalancing karte waqt tax ka khayal rakhein. Agar aap kisi coin ko bech rahe ho jo profit par hai to uska tax dena padega. Kuch log tax-efficient rebalancing karte hain — jaise sirf buy karte hain (kam se kam sell karte hain) taake tax kam aaye.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">REBALANCING PROCESS</text>
+      <!-- Before Rebalancing -->
+      <rect x="30" y="55" width="200" height="160" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="130" y="78" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">BEFORE REBALANCE</text>
+      <rect x="50" y="95" width="160" height="20" fill="#f0b90b" opacity="0.8" rx="2"/>
+      <text x="130" y="109" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">BTC: 75% (+15% drift)</text>
+      <rect x="50" y="122" width="80" height="20" fill="#00b300" opacity="0.7" rx="2"/>
+      <text x="90" y="136" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">ETH: 20%</text>
+      <rect x="50" y="149" width="40" height="20" fill="#666" opacity="0.6" rx="2"/>
+      <text x="70" y="163" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">ALT: 5%</text>
+      <text x="130" y="200" fill="#a3a3a3" font-family="Newsreader, serif" font-size="10" text-anchor="middle">Target se drift ho gaya</text>
+      <!-- Arrow -->
+      <text x="350" y="140" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="24" text-anchor="middle">→</text>
+      <text x="350" y="165" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">REBALANCE</text>
+      <text x="350" y="185" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Sell BTC, Buy ETH/ALT</text>
+      <!-- After Rebalancing -->
+      <rect x="470" y="55" width="200" height="160" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="570" y="78" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">AFTER REBALANCE</text>
+      <rect x="490" y="95" width="160" height="20" fill="#f0b90b" opacity="0.8" rx="2"/>
+      <text x="570" y="109" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">BTC: 60% (Target)</text>
+      <rect x="490" y="122" width="120" height="20" fill="#00b300" opacity="0.7" rx="2"/>
+      <text x="550" y="136" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">ETH: 30% (Target)</text>
+      <rect x="490" y="149" width="60" height="20" fill="#666" opacity="0.6" rx="2"/>
+      <text x="520" y="163" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">ALT: 10%</text>
+      <text x="570" y="200" fill="#a3a3a3" font-family="Newsreader, serif" font-size="10" text-anchor="middle">Wapas target par</text>
+      <!-- Bottom Note -->
+      <text x="350" y="250" fill="#a3a3a3" font-family="Newsreader, serif" font-size="11" text-anchor="middle">Rebalancing mein upar wale coins bechte ho, neeche wale khareedte ho</text>
+      <text x="350" y="275" fill="#666" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Target: BTC 60% · ETH 30% · ALT 10%</text>
+      <text x="350" y="320" fill="#666" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Tip: Tax ka khayal rakhein — rebalancing se capital gains ho sakta hai</text>
+    </svg>
+    <figcaption>Figure 4.1 — Rebalancing Process: Drift se wapas target allocation par aana</figcaption>
+  </figure>
+
+  <h3>Step-by-Step Rebalancing Guide</h3>
+  <p>Rebalancing kaise karein — step by step:</p>
+  <ul>
+    <li><strong>Step 1:</strong> Apna current portfolio dekhein — kitna Bitcoin, kitna Ethereum, kitna altcoins hai abhi.</li>
+    <li><strong>Step 2:</strong> Apna target allocation yaad karein — jo aapne pehle decide ki thi.</li>
+    <li><strong>Step 3:</strong> Difference nikalein — kitna zyada ya kam hai har coin mein.</li>
+    <li><strong>Step 4:</strong> Calculate karein kitna bechna hai aur kitna khareedna hai.</li>
+    <li><strong>Step 5:</strong> Trades execute karein — pehle bechein, phir khareedein.</li>
+    <li><strong>Step 6:</strong> Verify karein ke allocation wapas target par hai.</li>
+  </ul>
+  <p>Rebalancing ke baad apna record rakhein — kab rebalance kiya, kitna trade hua, aur kitna tax aaya. Yeh future ke liye helpful hoga.</p>
+
+  <div class="callout warn">
+    <span class="dot">!</span>
+    <div><strong>Rebalancing Warning:</strong> Rebalancing mat karo jab market bohat volatile ho. Agar market ek din mein 20% gir gaya hai to rebalancing ka wait karein jab market settle ho jaye. Emotional rebalancing se nuksan hota hai.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 04</div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">1. Threshold-based rebalancing mein kab rebalance karte hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Jab allocation 5% ya zyada drift ho jaye</button>
+        <button class="quiz-option" data-val="1">Sirf January mein</button>
+        <button class="quiz-option" data-val="2">Har roz</button>
+        <button class="quiz-option" data-val="3">Jab market upar ho</button>
+      </div>
+      <div class="quiz-explain">Threshold-based rebalancing mein aap ek threshold set karte ho — jaise 5% drift — aur jab us level par allocation pahunche to rebalance karte ho.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">2. Rebalancing ka tax implication kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Koi tax nahi lagta</button>
+        <button class="quiz-option" data-val="1">Sirf loss par tax lagta hai</button>
+        <button class="quiz-option" data-val="2">Coin bechne par capital gains tax lagta hai</button>
+        <button class="quiz-option" data-val="3">Tax sirf stock market mein lagta hai</button>
+      </div>
+      <div class="quiz-explain">Jab aap koi coin bechte ho jo profit par hai to capital gains hota hai jo taxable hai. Isliye rebalancing karte waqt tax ka khayal rakhein.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 05 -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Risk-Adjusted Returns</h2>
+  </div>
+  <p class="chapter-intro">Risk ke hisaab se returns kaise measure karein — Sharpe Ratio, Sortino Ratio, aur Maximum Drawdown.</p>
+
+  <h3>Risk-Adjusted Returns Kya Hai?</h3>
+  <p>Risk-adjusted return ka matlab hai ke aapne kitna return kamaya hai kitne risk ke saath. Sirf yeh dekhna ke aapka portfolio 50% upar gaya kaafi nahi — aapko yeh bhi dekhna hai ke uske liye kitna risk liya gaya.</p>
+  <p>Misal ke liye agar do portfolios hain — A ne 50% return diya lekin bohat zyada risk liya, aur B ne 30% return diya lekin bohat kam risk — to B portfolio actually behtar hai kyunki uska risk-adjusted return behtar hai. Aap chain se so sakte ho jab aapka portfolio kam risk par behtar returns de raha ho.</p>
+
+  <h3>Sharpe Ratio</h3>
+  <p>Sharpe Ratio sabse famous risk-adjusted return metric hai. Yeh batata hai ke aapne risk-free rate ke muqable kitna extra return kamaya hai per unit of risk.</p>
+  <div class="formula-box">
+    <div class="formula-label">SHARPE RATIO FORMULA</div>
+    <div class="formula">
+      Sharpe Ratio = (Portfolio Return - Risk-Free Rate) / Portfolio Standard Deviation
+      <span class="note">Risk-Free Rate: T-bills ya savings account ka return (typically 2-5%)</span>
+      <span class="note">Standard Deviation: Portfolio ki volatility ka measure</span>
+    </div>
+  </div>
+  <p>Sharpe Ratio jitna zyada ho, utna behtar hai. 1 se zyada Sharpe Ratio acha hai, 2 se zyada bohat acha hai. Agar Sharpe Ratio negative hai to aap risk le rahe ho aur return bhi nahi mil raha.</p>
+
+  <h3>Sortino Ratio</h3>
+  <p>Sortino Ratio Sharpe Ratio jaisa hai lekin sirf downside risk consider karta hai. Yeh aapko batata hai ke aapne kitna downside risk liya hai — yani kitna loss hua hai — uske muqable kitna return mila.</p>
+  <div class="formula-box">
+    <div class="formula-label">SORTINO RATIO FORMULA</div>
+    <div class="formula">
+      Sortino Ratio = (Portfolio Return - Risk-Free Rate) / Downside Deviation
+      <span class="note">Downside Deviation: Sirf negative returns ki standard deviation</span>
+    </div>
+  </div>
+  <p>Sortino Ratio Sharpe Ratio se zyada accurate hai kyunki yeh sirf negative risk consider karta hai. Agar aapke portfolio mein zyada positive moves hain aur kam negative moves to Sortino Ratio behtar hoga.</p>
+
+  <h3>Maximum Drawdown</h3>
+  <p>Maximum Drawdown batata hai ke aapka portfolio peak se kitna neeche gaya hai. Yeh sabse important risk metric hai kyunki yeh aapko batata hai ke worst case mein aapko kitna loss ho sakta hai.</p>
+  <div class="formula-box">
+    <div class="formula-label">MAXIMUM DRAWDOWN</div>
+    <div class="formula">
+      Max Drawdown = (Peak Value - Trough Value) / Peak Value × 100
+      <span class="note">Misal: Agar portfolio $10,000 se $6,000 gaya to Max Drawdown = 40%</span>
+    </div>
+  </div>
+  <p>Maximum Drawdown jitna kam ho, utna behtar hai. Agar aapka portfolio 50% drawdown de raha hai to yeh bohat risky hai. Kam se kam try karein ke drawdown 20% se kam rahe.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">RISK-RETURN COMPARISON</text>
+      <!-- Axes -->
+      <line x1="80" y1="280" x2="660" y2="280" stroke="#333" stroke-width="1.5"/>
+      <line x1="80" y1="280" x2="80" y2="50" stroke="#333" stroke-width="1.5"/>
+      <text x="370" y="310" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">RISK (Volatility)</text>
+      <text x="30" y="165" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" transform="rotate(-90,30,165)">RETURN</text>
+      <!-- Risk-Free -->
+      <circle cx="120" cy="260" r="8" fill="#00b300" opacity="0.8"/>
+      <text x="120" y="245" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Risk-Free</text>
+      <text x="120" y="230" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">2-5%</text>
+      <!-- Bonds -->
+      <circle cx="200" cy="230" r="8" fill="#f0b90b" opacity="0.7"/>
+      <text x="200" y="215" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Bonds</text>
+      <text x="200" y="200" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">5-8%</text>
+      <!-- Stock Index -->
+      <circle cx="350" cy="190" r="10" fill="#f0b90b" opacity="0.8"/>
+      <text x="350" y="170" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Stock Index</text>
+      <text x="350" y="155" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">8-12%</text>
+      <!-- Bitcoin -->
+      <circle cx="500" cy="130" r="14" fill="#f0b90b"/>
+      <text x="500" y="105" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" font-weight="600">Bitcoin</text>
+      <text x="500" y="90" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">15-30%</text>
+      <!-- Altcoins -->
+      <circle cx="620" cy="80" r="16" fill="#ff4444" opacity="0.8"/>
+      <text x="620" y="55" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" font-weight="600">Altcoins</text>
+      <text x="620" y="40" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">30-100%+</text>
+      <!-- Trend Line -->
+      <line x1="100" y1="270" x2="640" y2="60" stroke="#f0b90b" stroke-width="1" stroke-dasharray="6" opacity="0.4"/>
+      <text x="400" y="240" fill="#666" font-family="Newsreader, serif" font-size="9" text-anchor="middle" font-style="italic">Jitna zyada risk, utna zyada potential return</text>
+    </svg>
+    <figcaption>Figure 5.1 — Risk vs Return: Risk-Free se Altcoins tak — risk barhne ke saath potential return bhi barhta hai</figcaption>
+  </figure>
+
+  <h3>Win Rate aur Profit Factor</h3>
+  <p><strong>Win Rate:</strong> Kitne trades profitable the total trades ke muqable. Agar aapne 10 trades kiye aur 6 profitable the to win rate 60% hai.</p>
+  <div class="formula-box">
+    <div class="formula-label">WIN RATE</div>
+    <div class="formula">
+      Win Rate = Winning Trades / Total Trades × 100
+    </div>
+  </div>
+  <p><strong>Profit Factor:</strong> Total profit ko total loss se divide karna. Agar aapka total profit $10,000 hai aur total loss $5,000 hai to profit factor 2 hai — yani har $1 loss ke liye $2 profit hua.</p>
+  <div class="formula-box">
+    <div class="formula-label">PROFIT FACTOR</div>
+    <div class="formula">
+      Profit Factor = Gross Profit / Gross Loss
+      <span class="note">1 se zyada profit factor acha hai, 2 se zyada bohat acha hai</span>
+    </div>
+  </div>
+
+  <h3>Risk-Adjusted Returns Kaise Improve Karein</h3>
+  <ul>
+    <li><strong>Stop Loss lagayein:</strong> Har trade mein stop loss lagayein taake loss limited rahe.</li>
+    <li><strong>Position Sizing:</strong> Har trade mein sirf 1-2% se zyada risk na lein.</li>
+    <li><strong>Diversification:</strong> Sirf ek coin mein na jayen — 3-5 coins mein distribute karein.</li>
+    <li><strong>Rebalancing:</strong> Regularly rebalance karein taake allocation controlled rahe.</li>
+    <li><strong>Emotional Trading se bachein:</strong> Emotional decisions se nuksan hota hai. Plan ke according chalein.</li>
+  </ul>
+
+  <h3>Position Sizing for Risk Management</h3>
+  <p>Position sizing ka matlab hai ke har trade mein kitna paisa lagana hai. Yeh risk-adjusted returns ka sabse important hissa hai. Agar aapne sirf 1% risk liya hai har trade mein to aap 100 trades haarne ke baad bhi sirf 100% loss karoge — jo ke practically possible nahi hai kyunki 100 trades ek saath haarne mushkil hai.</p>
+  <div class="example-box">
+    <div class="example-label">POSITION SIZING EXAMPLE</div>
+    <table>
+      <tr><td>Portfolio Size</td><td>$10,000</td></tr>
+      <tr><td>Risk Per Trade</td><td>1% = $100</td></tr>
+      <tr><td>Stop Loss Distance</td><td>10%</td></tr>
+      <tr><td>Position Size</td><td>$100 / 10% = $1,000</td></tr>
+    </table>
+  </div>
+  <p>Yeh method aapko batata hai ke kitna paisa ek trade mein lagana hai taake agar stop loss hit ho jaye to sirf 1% loss ho. Yeh systematic approach hai risk manage karne ka.</p>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 05</div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">1. Sharpe Ratio 2 hona kya mean karta hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Portfolio 2% upar gaya hai</button>
+        <button class="quiz-option" data-val="1">Risk ke muqable double return mila hai</button>
+        <button class="quiz-option" data-val="2">Portfolio 2 coins mein hai</button>
+        <button class="quiz-option" data-val="3">Loss 2% hai</button>
+      </div>
+      <div class="quiz-explain">Sharpe Ratio 2 hone ka matlab hai ke risk-free rate ke muqable, per unit of risk, double return mila hai. Yeh bohat acha Sharpe Ratio hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">2. Maximum Drawdown 30% hone ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Portfolio peak se 30% neeche gaya hai</button>
+        <button class="quiz-option" data-val="1">Portfolio 30% upar gaya hai</button>
+        <button class="quiz-option" data-val="2">30 trades haar gaye</button>
+        <button class="quiz-option" data-val="3">30% tax dena padega</button>
+      </div>
+      <div class="quiz-explain">Maximum Drawdown 30% hone ka matlab hai ke portfolio apne highest point se 30% neeche gaya hai. Yeh worst case scenario hai jo hua hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 06 -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>Portfolio Tracking Tools</h2>
+  </div>
+  <p class="chapter-intro">Apne crypto portfolio ko track karne ke liye best tools — apps, websites, aur spreadsheets.</p>
+
+  <h3>Portfolio Tracking Kyun Zaroori Hai?</h3>
+  <p>Portfolio tracking ke bina aapko pata nahi hoga ke aap kitna profit ya loss mein ho, kahan invest kiya hai, aur kya change karna hai. Tracking aapko data deta hai decisions lene ke liye. Bina data ke aap sirf guess kar rahe ho — aur guessing investing mein sabse bura hai.</p>
+  <p>Aaj kal bohat saare tools hain jo aapke portfolio ko automatically track karte hain. Aapko sirf apne exchanges connect karna hai aur tool baaki kaam kar deta hai. Yeh tools aapko real-time data, profit/loss tracking, aur performance analysis dete hain.</p>
+
+  <h3>CoinMarketCap Portfolio</h3>
+  <p>CoinMarketCap duniya ka sabse popular crypto data website hai aur iska portfolio tracker bhi bohat acha hai. Aap manually apne coins add kar sakte ho ya exchange API se connect kar sakte ho.</p>
+  <p>Iska faida yeh hai ke yeh free hai, easy to use hai, aur bohat saare coins support karte hain. Aapko real-time price, profit/loss, aur allocation dikhai deta hai. Dashboard bohat clean hai aur beginners ke liye best hai.</p>
+
+  <h3>CoinGecko Portfolio</h3>
+  <p>CoinGecko bhi CoinMarketCap jaisa hai lekin ismein kuch extra features hain. Ismein aap portfolio sharing kar sakte ho — yani apna portfolio doosron ko dikha sakte ho. Ismein DeFi tracking bhi hai — agar aapne DeFi protocols mein liquidity di hai to usko bhi track kar sakte ho.</p>
+  <p>CoinGecko ka advantage yeh hai ke ismein zyada data hai aur DeFi support behtar hai. Agar aap DeFi mein active ho to CoinGecko behtar choice hai.</p>
+
+  <h3>Delta App</h3>
+  <p>Delta ek mobile app hai jo portfolio tracking ke liye bohat famous hai. Iska interface bohat clean hai aur ye automatic sync karta hai apne exchanges se. Aap sirf apne exchange ka API key do aur Delta khud sab kuch track kar lega.</p>
+  <p>Delta ka sabse bada faida yeh hai ke ismein <strong>multi-device sync</strong> hai — aapka data phone, tablet, aur computer par sync hota rahega. Ismein profit/loss tracking, allocation pie charts, aur performance history sab kuch hai. Free version mein 2 portfolios ban sakte hain.</p>
+
+  <h3>TradingView Watchlists</h3>
+  <p>TradingView primarily charting tool hai lekin iska watchlist feature bhi portfolio tracking ke liye useful hai. Aap apne coins ki watchlist bana sakte ho aur unki price movements track kar sakte ho.</p>
+  <p>TradingView ka faida yeh hai ke ismein <strong>advanced charting</strong> hai. Agar aap technical analysis karte ho to aapko charts bhi milenge aur watchlist bhi. Lekin yeh sirf price tracking hai — profit/loss tracking ke liye dusra tool chahiye.</p>
+
+  <h3>Excel / Google Sheets Tracker</h3>
+  <p>Agar aap manually track karna chahte ho to Excel ya Google Sheets best hai. Aap khud ka spreadsheet bana sakte ho jo aapki needs ke according customize ho.</p>
+  <div class="example-box">
+    <div class="example-label">SPREADSHEET COLUMNS</div>
+    <table>
+      <tr><td>Coin Name</td><td>Bitcoin, Ethereum, etc.</td></tr>
+      <tr><td>Quantity</td><td>Kitne coins hain</td></tr>
+      <tr><td>Buy Price</td><td>Kis price par khareede</td></tr>
+      <tr><td>Current Price</td><td>Abhi kitne ka hai</td></tr>
+      <tr><td>Profit/Loss</td><td>Kitna profit ya loss</td></tr>
+      <tr><td>Allocation %</td><td>Portfolio mein kitna % hai</td></tr>
+    </table>
+  </div>
+  <p>Spreadsheet ka sabse bada faida yeh hai ke aap full control mein ho. Aap jo chahe column add kar sakte ho, jo chahe formula lagao. Lekin iska nuksan yeh hai ke manually update karna padta hai — automatic nahi hota.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="350" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">TOOL COMPARISON</text>
+      <!-- Header Row -->
+      <rect x="30" y="50" width="640" height="30" fill="#1a1a1a" rx="2"/>
+      <text x="90" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">TOOL</text>
+      <text x="230" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">FREE</text>
+      <text x="330" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">AUTO SYNC</text>
+      <text x="440" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">DEFI</text>
+      <text x="540" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">MOBILE</text>
+      <text x="630" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">BEST FOR</text>
+      <!-- CoinMarketCap -->
+      <rect x="30" y="85" width="640" height="35" fill="#111" rx="2"/>
+      <text x="90" y="107" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">CoinMarketCap</text>
+      <text x="230" y="107" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="330" y="107" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="440" y="107" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Limited</text>
+      <text x="540" y="107" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="630" y="107" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Beginners</text>
+      <!-- CoinGecko -->
+      <rect x="30" y="125" width="640" height="35" fill="#111" rx="2"/>
+      <text x="90" y="147" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">CoinGecko</text>
+      <text x="230" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="330" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="440" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="540" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="630" y="147" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">DeFi Users</text>
+      <!-- Delta -->
+      <rect x="30" y="165" width="640" height="35" fill="#111" rx="2"/>
+      <text x="90" y="187" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Delta App</text>
+      <text x="230" y="187" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="330" y="187" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="440" y="187" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9">Partial</text>
+      <text x="540" y="187" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="630" y="187" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Mobile</text>
+      <!-- TradingView -->
+      <rect x="30" y="205" width="640" height="35" fill="#111" rx="2"/>
+      <text x="90" y="227" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">TradingView</text>
+      <text x="230" y="227" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="330" y="227" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Nahi</text>
+      <text x="440" y="227" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Nahi</text>
+      <text x="540" y="227" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="630" y="227" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Charts</text>
+      <!-- Excel -->
+      <rect x="30" y="245" width="640" height="35" fill="#111" rx="2"/>
+      <text x="90" y="267" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Excel/Sheets</text>
+      <text x="230" y="267" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="330" y="267" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Nahi</text>
+      <text x="440" y="267" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Nahi</text>
+      <text x="540" y="267" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9">Partial</text>
+      <text x="630" y="267" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Custom</text>
+      <!-- Bottom Note -->
+      <text x="350" y="310" fill="#666" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Tip: Ek tool se shuru karein — CoinMarketCap ya Delta beginners ke liye best hain</text>
+      <text x="350" y="335" fill="#666" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Advanced users: TradingView (charts) + Excel (custom tracking) ka combo use karein</text>
+    </svg>
+    <figcaption>Figure 6.1 — Portfolio Tracking Tools ka Comparison: Features, pricing, aur best use case</figcaption>
+  </figure>
+
+  <h3>Tracking System Setup Kaise Karein</h3>
+  <p>Apna tracking system setup karna asaan hai — steps follow karein:</p>
+  <ul>
+    <li><strong>Step 1:</strong> Choose karein kaunsa tool use karna hai — beginners ke liye CoinMarketCap ya Delta.</li>
+    <li><strong>Step 2:</strong> Apne accounts create karein aur login karein.</li>
+    <li><strong>Step 3:</strong> Agar auto sync hai to apne exchange API key dein (safe rakhein!).</li>
+    <li><strong>Step 4:</strong> Agar manual hai to apne saare coins manually add karein — quantity aur buy price ke saath.</li>
+    <li><strong>Step 5:</strong> Dashboard dekhein — profit/loss, allocation, aur performance sab kuch dikhega.</li>
+    <li><strong>Step 6:</strong> Notifications set karein — jab price bade ya allocation drift ho to alert aaye.</li>
+  </ul>
+
+  <h3>Regular Review Schedule</h3>
+  <p>Sirf track karna kaafi nahi — regular review bhi zaroori hai. Koi bhi tool use karein, weekly ya monthly review karein:</p>
+  <ul>
+    <li><strong>Weekly:</strong> Sirf portfolio ka overall performance dekhein. Koi action nahi lena — sirf dekhna hai ke sab kuch theek hai.</li>
+    <li><strong>Monthly:</strong> Allocation check karein — kya rebalancing zaroori hai? Profit/loss dekhein — kya strategy kaam kar rahi hai?</li>
+    <li><strong>Quarterly:</strong> Full review — portfolio restructure karein agar zaroorat ho. Tax planning karein. Naye opportunities dekhein.</li>
+  </ul>
+  <p>Regular review se aapko pata rahta hai ke aap kahan ho aur kahan jaana hai. Bina review ke aap andheray mein chal rahe ho.</p>
+
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>Pro Tip:</strong> Ek tool se shuru karein. Agar aap beginner hain to CoinMarketCap ya Delta best hain. Jab experience ho jaye to TradingView (charts) + Excel (custom tracking) ka combo use karein. Sab kuch ek saath mat karo — overwhelm ho jaoge.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 06</div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">1. Delta App ka sabse bada faida kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Yeh free nahi hai</button>
+        <button class="quiz-option" data-val="1">Multi-device sync aur clean interface</button>
+        <button class="quiz-option" data-val="2">Yeh sirf desktop par chalta hai</button>
+        <button class="quiz-option" data-val="3">Yeh DeFi track nahi karta</button>
+      </div>
+      <div class="quiz-explain">Delta App ka sabse bada faida hai ke ismein multi-device sync hai — aapka data phone, tablet, aur computer par sync hota rahega. Iska interface bhi bohat clean hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">2. Portfolio review kitni baar karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Sirf saal mein ek baar</button>
+        <button class="quiz-option" data-val="1">Har roz</button>
+        <button class="quiz-option" data-val="2">Weekly light review, monthly full review</button>
+        <button class="quiz-option" data-val="3">Kabhi nahi — sirf hold karo</button>
+      </div>
+      <div class="quiz-explain">Weekly sirf portfolio ka overall performance dekhein, monthly allocation aur profit/loss check karein, aur quarterly full review karein. Regular review se pata rahta hai ke sab kuch theek hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 07 -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2>Position Sizing Strategies</h2>
+  </div>
+  <p class="chapter-intro">Har trade mein kitna paisa lagana hai — position sizing ke methods, risk management, aur scaling strategies.</p>
+
+  <h3>Position Sizing Kya Hai?</h3>
+  <p>Position sizing ka matlab hai ke aap har trade mein kitna paisa ya kitne coins lagate ho. Yeh risk management ka sabse important hissa hai. Agar aapne sahi position sizing ki hai to aap kitni bhi trades haar jayen, aapka account survive karega. Lekin agar position sizing galat hai to sirf ek trade aapka account khatam kar sakta hai.</p>
+  <p>Position sizing sirf is baat par depend nahi karti ke aap kitna afford kar sakte ho — balki is par bhi ke aapka risk tolerance kya hai, stop loss kitna door hai, aur aapka overall portfolio kitna hai. Yeh calculation-based honi chahiye, guessing-based nahi.</p>
+
+  <h3>Fixed Position Sizing</h3>
+  <p>Fixed position sizing sabse asaan method hai. Ismein aap har trade mein ek fixed amount lagate ho — chahe trade kitna bhi ho ya portfolio kitna bhi bada ho. Jaise agar aapne decide kiya ke $500 se zyada ek trade mein nahi lagunga to har trade mein sirf $500 lagayenge.</p>
+  <p>Iska faida yeh hai ke yeh simple hai aur aapko sochna nahi padta. Lekin iska problem yeh hai ke jaise jaise aapka portfolio bada hota hai, fixed amount ka risk percentage kam hota rehta hai. Agar aapka portfolio $10,000 hai aur aap $500 lagate ho to 5% risk hai. Lekin agar portfolio $100,000 ho gaya to $500 sirf 0.5% risk hai — bahut kam.</p>
+
+  <h3>Percentage-Based Position Sizing</h3>
+  <p>Percentage-based sizing mein aap har trade mein apne portfolio ka ek fixed percentage lagate ho — jaise 1% ya 2%. Yeh method adaptive hai kyunki jab portfolio bada ho jata hai to position size bhi barhta hai.</p>
+  <div class="formula-box">
+    <div class="formula-label">POSITION SIZE CALCULATION</div>
+    <div class="formula">
+      Position Size = (Portfolio × Risk%) / Stop Loss Distance
+      <span class="note">Misal: Portfolio $10,000, Risk 1%, Stop Loss 10%</span>
+      <span class="note">Position Size = ($10,000 × 1%) / 10% = $1,000</span>
+    </div>
+  </div>
+  <p>Most traders 1% ya 2% risk rule follow karte hain. Iska matlab hai ke agar ek trade haar jaye to sirf 1-2% account loss hoga. Is tarah se aap 50-100 trades haarne ke baad bhi survive kar sakte ho — jo ke practically bahut mushkil hai.</p>
+  <div class="example-box">
+    <div class="example-label">PERCENTAGE-BASED EXAMPLE</div>
+    <table>
+      <tr><td>Portfolio Size</td><td>$5,000</td></tr>
+      <tr><td>Risk Per Trade</td><td>1% = $50</td></tr>
+      <tr><td>Stop Loss</td><td>8%</td></tr>
+      <tr><td>Position Size</td><td>$50 / 8% = $625</td></tr>
+      <tr><td>Coins (at $50 each)</td><td>12.5 coins</td></tr>
+    </table>
+  </div>
+
+  <h3>Kelly Criterion</h3>
+  <p>Kelly Criterion ek advanced position sizing method hai jo professional traders use karte hain. Yeh batata hai ke optimal kitna risk lena chahiye taake long-term growth maximize ho.</p>
+  <div class="formula-box">
+    <div class="formula-label">KELLY CRITERION FORMULA</div>
+    <div class="formula">
+      Kelly % = W - [(1 - W) / R]
+      <span class="note">W = Win Rate (jitne trades jeete total trades mein se)</span>
+      <span class="note">R = Average Win / Average Loss</span>
+      <span class="note">Misal: Win Rate 60%, Average Win/Loss = 1.5</span>
+      <span class="note">Kelly = 0.60 - (0.40 / 1.5) = 0.33 = 33%</span>
+    </div>
+  </div>
+  <p>Lekin practical use mein aap Kelly Criterion ka sirf half ya quarter use karte ho — jaise agar Kelly 33% keh raha hai to aap sirf 15-17% risk lo. Full Kelly se risk bahut zyada ho jata hai aur drawdowns bohat bade ho sakte hain.</p>
+
+  <h3>Volatility-Based Position Sizing</h3>
+  <p>Volatility-based sizing mein aap position size is ke hisaab se adjust karte ho ke trade kitna volatile hai. Zyada volatile coin mein kam position lo, kam volatile coin mein zyada position lo. Is tarah se risk har trade mein barabar rehta hai.</p>
+  <div class="formula-box">
+    <div class="formula-label">VOLATILITY-BASED SIZING</div>
+    <div class="formula">
+      Position Size = Risk Amount / (ATR × Multiplier)
+      <span class="note">ATR = Average True Range (volatility measure)</span>
+      <span class="note">Misal: Risk $100, ATR $5, Multiplier 2</span>
+      <span class="note">Position Size = $100 / ($5 × 2) = 10 units</span>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="360" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">POSITION SIZING METHODS COMPARISON</text>
+      <!-- Header Row -->
+      <rect x="30" y="50" width="640" height="30" fill="#1a1a1a" rx="2"/>
+      <text x="120" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">METHOD</text>
+      <text x="270" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">DIFFICULTY</text>
+      <text x="390" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">ADAPTIVE</text>
+      <text x="500" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">BEST FOR</text>
+      <text x="620" y="70" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">RISK</text>
+      <!-- Fixed -->
+      <rect x="30" y="85" width="640" height="35" fill="#111" rx="2"/>
+      <text x="120" y="107" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Fixed Amount</text>
+      <text x="270" y="107" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Easy</text>
+      <text x="390" y="107" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Nahi</text>
+      <text x="500" y="107" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Naye Traders</text>
+      <text x="620" y="107" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">HIGH</text>
+      <!-- Percentage -->
+      <rect x="30" y="125" width="640" height="35" fill="#111" rx="2"/>
+      <text x="120" y="147" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Percentage-Based</text>
+      <text x="270" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Easy</text>
+      <text x="390" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="500" y="147" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Sab Ke Liye</text>
+      <text x="620" y="147" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">LOW</text>
+      <!-- Kelly -->
+      <rect x="30" y="165" width="640" height="35" fill="#111" rx="2"/>
+      <text x="120" y="187" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Kelly Criterion</text>
+      <text x="270" y="187" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9">Hard</text>
+      <text x="390" y="187" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="500" y="187" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Professionals</text>
+      <text x="620" y="187" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9">MEDIUM</text>
+      <!-- Volatility -->
+      <rect x="30" y="205" width="640" height="35" fill="#111" rx="2"/>
+      <text x="120" y="227" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9">Volatility-Based</text>
+      <text x="270" y="227" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9">Medium</text>
+      <text x="390" y="227" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">Haan</text>
+      <text x="500" y="227" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Experienced</text>
+      <text x="620" y="227" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9">LOW</text>
+      <!-- Recommendation Box -->
+      <rect x="80" y="260" width="540" height="55" fill="#0a1a00" stroke="#00b300" stroke-width="1.5" rx="3"/>
+      <text x="350" y="282" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" font-weight="600">RECOMMENDATION</text>
+      <text x="350" y="302" fill="#e5e5e5" font-family="Newsreader, serif" font-size="10" text-anchor="middle">Beginners: Percentage-Based (1-2%) | Advanced: Half-Kelly + Volatility Combo</text>
+    </svg>
+    <figcaption>Figure 7.1 — Position Sizing Methods ka Comparison: Difficulty, adaptability, aur risk level</figcaption>
+  </figure>
+
+  <h3>Scaling In aur Scaling Out</h3>
+  <p><strong>Scaling In:</strong> Ek saath poori position na lekar thoda thoda kar ke lena. Jaise agar aap 10 coins khareedna chahte ho to 3-3-4 ke pattern mein khareedein. Pehle 3 coins jab price 5% gire, phir 3 aur jab 10% gire, aur last 4 jab confirm ho jaye.</p>
+  <p><strong>Scaling Out:</strong> Ek saath poori position na bech kar thoda thoda kar ke bechna. Jaise agar aapne 10 coins khareede the to pehle 3 bech dein jab 20% profit ho, phir 3 aur jab 50% profit ho, aur last 4 hold karein long-term ke liye.</p>
+  <p>Scaling ka faida yeh hai ke aap ek saath poora decision nahi lete — balki market ke according adjust karte ho. Yeh risk kam karta hai aur average entry/exit behtar banata hai.</p>
+
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>Golden Rule:</strong> Hamesha pehle risk calculate karo, phir position size decide karo. Position sizing ke bina koi bhi strategy kaam nahi karegi — chahe kitni bhi achi ho.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 07</div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">1. 1% risk rule ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Har trade mein 1 coin khareedein</button>
+        <button class="quiz-option" data-val="1">Sirf 1% coins hold karein</button>
+        <button class="quiz-option" data-val="2">Har trade mein sirf 1% portfolio risk lein</button>
+        <button class="quiz-option" data-val="3">1% profit ke baad sell karein</button>
+      </div>
+      <div class="quiz-explain">1% risk rule ka matlab hai ke agar ek trade haar jaye to sirf 1% aapka account loss hoga. Is tarah se aap bohat saari trades haarne ke baad bhi survive kar sakte ho.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">2. Kelly Criterion ka practical use kaise karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Full Kelly use karein — maximum growth</button>
+        <button class="quiz-option" data-val="1">Half ya Quarter Kelly use karein — risk kam rakhne ke liye</button>
+        <button class="quiz-option" data-val="2">Kelly Criterion ka use mat karein — bahut risky hai</button>
+        <button class="quiz-option" data-val="3">Sirf Bitcoin ke liye Kelly use karein</button>
+      </div>
+      <div class="quiz-explain">Practical mein aap Kelly Criterion ka sirf half ya quarter use karte ho. Full Kelly se risk bahut zyada ho jata hai aur drawdowns bohat bade ho sakte hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 08 -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2>Tax Planning for Crypto</h2>
+  </div>
+  <p class="chapter-intro">Crypto taxes samajhna — Pakistan context mein capital gains, record keeping, aur tax-loss harvesting.</p>
+
+  <h3>Crypto Tax Basics</h3>
+  <p>Crypto taxes samajhna zaroori hai kyunki government crypto transactions par tax leti hai. Agar aapne profit kamaya hai to uspar tax dena padega. Pakistan mein abhi crypto ke liye koi specific law nahi hai, lekin FBR ke guidelines ke mutabiq digital assets par income tax lagta hai.</p>
+  <p>Important baat yeh hai ke har crypto transaction taxable ho sakti hai — buy, sell, trade, aur even crypto se crypto exchange. Sirf sell karna hi taxable nahi hai — agar aapne Bitcoin ko Ethereum mein convert kiya to bhi taxable hai kyunki aapne profit book kiya hai.</p>
+
+  <h3>Capital Gains Tax</h3>
+  <p>Capital gains tax ka hai ke jab aap koi crypto bechte ho jo aapne profit par becha hai to us profit par tax lagta hai. Yeh stock market ke capital gains tax jaisa hai.</p>
+  <div class="example-box">
+    <div class="example-label">CAPITAL GAINS EXAMPLE</div>
+    <table>
+      <tr><td>Buy Price</td><td>$1,000</td></tr>
+      <tr><td>Sell Price</td><td>$1,500</td></tr>
+      <tr><td>Capital Gain</td><td>$500</td></tr>
+      <tr><td>Tax Rate (approx.)</td><td>15-30%</td></tr>
+      <tr><td>Tax Amount</td><td>$75-$150</td></tr>
+    </table>
+  </div>
+  <p>Tax rate aapki total income ke upar depend karta hai. Agar aapki salaried income hai to crypto income usmein add hoti hai aur aapka total income tax rate apply hota hai.</p>
+
+  <h3>Record Keeping Requirements</h3>
+  <p>Har crypto transaction ka record rakho — yeh bahut zaroori hai. Agar FBR aapko notice bheje to aapko sab kuch proof karna hoga. Yeh cheezein record mein rakho:</p>
+  <ul>
+    <li><strong>Buy Date aur Price:</strong> Kab khareeda aur kis price par.</li>
+    <li><strong>Sell Date aur Price:</strong> Kab becha aur kis price par.</li>
+    <li><strong>Transaction ID:</strong> Blockchain transaction hash.</li>
+    <li><strong>Exchange Name:</strong> Kis exchange par trade hua.</li>
+    <li><strong>Fees:</strong> Trading fees, gas fees, sab kuch.</li>
+    <li><strong>Coin Type:</strong> Kaunsa coin tha — BTC, ETH, etc.</li>
+  </ul>
+  <p>Ye records kam se kam 6 saal tak rakho. FBR ki limitation period 6 saal hai — yani woh 6 saal purane transactions bhi check kar sakte hain.</p>
+
+  <h3>Tax-Loss Harvesting</h3>
+  <p>Tax-loss harvesting ek strategy hai jismein aap loss wale coins bech kar tax kam karte ho. Jab aap koi coin bechte ho jo loss par hai to us loss se aapke profit wale coins ka tax kam ho jata hai.</p>
+  <div class="example-box">
+    <div class="example-label">TAX-LOSS HARVESTING EXAMPLE</div>
+    <table>
+      <tr><td>Coin A Profit</td><td>+$1,000</td></tr>
+      <tr><td>Coin B Loss</td><td>-$400</td></tr>
+      <tr><td>Net Taxable Gain</td><td>$600</td></tr>
+      <tr><td>Tax Saved</td><td>$60-$120</td></tr>
+    </table>
+  </div>
+  <p>Lekin dhyan dein ke wash sale rule lag sakta hai — agar aapne loss wala coin becha aur 30 din ke andar wapas khareeda to IRS (ya FBR equivalent) us loss ko allow nahi karega. Isliye kuch din wait karein ya doosra coin khareedein.</p>
+
+  <h3>Holding Period: Short-Term vs Long-Term</h3>
+  <p> Crypto khareedne aur bechne ke darmiyan ka time jo hota hai usse holding period kehte hain. Iska tax par asar hota hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">TAX PLANNING TIMELINE</text>
+      <!-- Timeline Line -->
+      <line x1="50" y1="150" x2="650" y2="150" stroke="#333" stroke-width="2"/>
+      <!-- Start Point -->
+      <circle cx="80" cy="150" r="10" fill="#f0b90b"/>
+      <text x="80" y="155" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" font-weight="700">BUY</text>
+      <text x="80" y="180" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Crypto Khareeda</text>
+      <!-- 30 Days -->
+      <circle cx="200" cy="150" r="8" fill="#ff4444"/>
+      <text x="200" y="154" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">30D</text>
+      <text x="200" y="180" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Short-Term</text>
+      <text x="200" y="195" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Higher Tax Rate</text>
+      <!-- 1 Year -->
+      <circle cx="450" cy="150" r="10" fill="#00b300"/>
+      <text x="450" y="155" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">1YR</text>
+      <text x="450" y="180" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Long-Term</text>
+      <text x="450" y="195" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Lower Tax Rate</text>
+      <!-- End -->
+      <circle cx="620" cy="150" r="10" fill="#f0b90b"/>
+      <text x="620" y="155" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">SELL</text>
+      <text x="620" y="180" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Sell Point</text>
+      <!-- Labels -->
+      <text x="200" y="115" fill="#ff4444" font-family="Newsreader, serif" font-size="10" text-anchor="middle">Income Tax Rate</text>
+      <text x="450" y="115" fill="#00b300" font-family="Newsreader, serif" font-size="10" text-anchor="middle">Preferential Rate</text>
+      <!-- Note -->
+      <text x="350" y="250" fill="#a3a3a3" font-family="Newsreader, serif" font-size="10" text-anchor="middle">1 saal se zyada hold karo to kam tax lagega</text>
+      <text x="350" y="275" fill="#666" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Tip: Long-term holding tax-efficient hai — patience ka faida hai</text>
+    </svg>
+    <figcaption>Figure 8.1 — Tax Planning Timeline: Short-term (30 din - 1 saal) vs Long-term (1 saal+) tax rates</figcaption>
+  </figure>
+
+  <h3>Tools for Tax Tracking</h3>
+  <ul>
+    <li><strong>CoinTracker:</strong> Automatic transaction tracking aur tax report generation.</li>
+    <li><strong>Koinly:</strong> Pakistan ke tax laws support karta hai aur CSV import karta hai.</li>
+    <li><strong>Manual Spreadsheet:</strong> Agar transactions kam hain to Excel mein track karein.</li>
+    <li><strong>Exchange Reports:</strong> Binance, Coinbase sab tax reports dete hain — unhe download karein.</li>
+  </ul>
+
+  <div class="callout warn">
+    <span class="dot">!</span>
+    <div><strong>Tax Professional se Consult Karein:</strong> Ye sirf educational hai — asal tax planning ke liye qualified tax professional se baat karein. Har kisi ki situation alag hoti hai aur tax laws change hote rehte hain.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 08</div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">1. Tax-loss harvesting ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Loss wale coins hold karna</button>
+        <button class="quiz-option" data-val="1">Loss wale coins bech kar tax kam karna</button>
+        <button class="quiz-option" data-val="2">Sirf profit wale coins bechna</button>
+        <button class="quiz-option" data-val="3">Tax na dena — bilkul legal hai</button>
+      </div>
+      <div class="quiz-explain">Tax-loss harvesting mein aap loss wale coins bech kar apne profit wale coins ke tax ko kam karte ho. Yeh perfectly legal strategy hai jo bohat log use karte hain.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">2. Crypto transactions ka record kitne saal tak rakhna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Kam se kam 6 saal</button>
+        <button class="quiz-option" data-val="1">1 saal</button>
+        <button class="quiz-option" data-val="2">3 saal</button>
+        <button class="quiz-option" data-val="3">Record rakhne ki zaroorat nahi</button>
+      </div>
+      <div class="quiz-explain">FBR ki limitation period 6 saal hai — yani woh 6 saal purane transactions bhi check kar sakte hain. Isliye kam se kam 6 saal tak records rakho.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 09 -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2>Long-Term vs Short-Term Holdings</h2>
+  </div>
+  <p class="chapter-intro">HODL strategy, short-term trading, hybrid approach, aur Core-Satellite model — apne liye best strategy choose karo.</p>
+
+  <h3>Long-Term (HODL) Strategy</h3>
+  <p>HODL ka matlab hai — Hold On for Dear Life. Yeh strategy mein aap achhe coins khareedte ho aur lambay arsay ke liye hold karte ho — 1 saal, 5 saal, ya usse zyada. Aap market ki short-term fluctuations ki parwah nahi karte.</p>
+  <p>HODL strategy un logon ke liye best hai jo:
+  <ul>
+    <li>Time nahi chahte daily market dekhne ka.</li>
+    <li>Emotional trading se bachna chahte hain.</li>
+    <li>Long-term wealth banana chahte hain.</li>
+    <li>Technology aur projects mein believe karte hain.</li>
+  </ul>
+  <p>HODL ka sabse bada risk yeh hai ke agar aapne galat coin choose kiya to uska price permanently gir sakta hai. Isliye sirf achhe coins mein HODL karein — Bitcoin, Ethereum, aur established projects mein.</p>
+
+  <h3>Short-Term Trading Strategy</h3>
+  <p>Short-term trading mein aap kuch dinon ya hafton ke liye coins hold karte ho aur phir bech dete ho. Yeh active management hai — aapko market dekhna padta hai, analysis karna padta hai, aur decisions lene padte hain.</p>
+  <p>Short-term trading un logon ke liye best hai jo:
+  <ul>
+    <li>Time de sakte hain daily market dekhne ka.</li>
+    <li>Technical analysis samajhte hain.</li>
+    <li>Discipline aur patience rakh sakte hain.</li>
+    <li>Extra income banana chahte hain.</li>
+  </ul>
+  <p>Lekin short-term trading risky hai — 80% log paise gawa dete hain. Isliye sirf wohi karein jo experienced hain aur proper risk management follow karte hain.</p>
+
+  <h3>Hybrid Approach</h3>
+  <p>Hybrid approach mein aap dono strategies ka combination use karte ho — kuch coins long-term ke liye hold karte ho aur kuch se short-term trading karte ho. Yeh most practical approach hai kyunki aapko dono ka faida milta hai.</p>
+  <div class="example-box">
+    <div class="example-label">HYBRID APPROACH EXAMPLE</div>
+    <table>
+      <tr><td>Long-Term Hold (70%)</td><td>Bitcoin, Ethereum — 1+ saal hold</td></tr>
+      <tr><td>Short-Term Trading (20%)</td><td>Altcoins — 1-4 hafton ke liye</td></tr>
+      <tr><td>Cash Reserve (10%)</td><td>Opportunities ke liye ready</td></tr>
+    </table>
+  </div>
+  <p>Hybrid approach ka faida yeh hai ke agar short-term trading mein loss ho jaye to long-term holdings sambhal lete hain. Aur agar market bohat upar jaye to short-term se extra profit ho jata hai.</p>
+
+  <h3>Core-Satellite Strategy</h3>
+  <p>Core-Satellite strategy ek advanced version hai jismein aapka "Core" (zyada paisa) safe aur stable coins mein hota hai aur "Satellite" (kam paisa) risky aur high-reward coins mein hota hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="360" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">CORE-SATELLITE MODEL</text>
+      <!-- Core Circle -->
+      <circle cx="350" cy="185" r="85" fill="#1a1a1a" stroke="#f0b90b" stroke-width="2.5"/>
+      <text x="350" y="170" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="14" text-anchor="middle" font-weight="700">CORE</text>
+      <text x="350" y="190" fill="#e5e5e5" font-family="Newsreader, serif" font-size="11" text-anchor="middle">70-80%</text>
+      <text x="350" y="208" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">BTC + ETH</text>
+      <text x="350" y="222" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Safe + Stable</text>
+      <!-- Satellite 1 -->
+      <circle cx="140" cy="100" r="40" fill="#0a1a00" stroke="#00b300" stroke-width="1.5"/>
+      <text x="140" y="95" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">SATELLITE</text>
+      <text x="140" y="112" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">DeFi</text>
+      <text x="140" y="125" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">5-10%</text>
+      <line x1="175" y1="125" x2="280" y2="160" stroke="#00b300" stroke-width="1" stroke-dasharray="4"/>
+      <!-- Satellite 2 -->
+      <circle cx="560" cy="100" r="40" fill="#0a1a00" stroke="#00b300" stroke-width="1.5"/>
+      <text x="560" y="95" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">SATELLITE</text>
+      <text x="560" y="112" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Layer 2</text>
+      <text x="560" y="125" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">5-10%</text>
+      <line x1="525" y1="125" x2="420" y2="160" stroke="#00b300" stroke-width="1" stroke-dasharray="4"/>
+      <!-- Satellite 3 -->
+      <circle cx="140" cy="270" r="40" fill="#1a0505" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="140" y="265" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">SATELLITE</text>
+      <text x="140" y="282" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Small Cap</text>
+      <text x="140" y="295" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">5%</text>
+      <line x1="175" y1="255" x2="280" y2="210" stroke="#ff4444" stroke-width="1" stroke-dasharray="4"/>
+      <!-- Satellite 4 -->
+      <circle cx="560" cy="270" r="40" fill="#1a0505" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="560" y="265" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle" font-weight="600">SATELLITE</text>
+      <text x="560" y="282" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">NFT/Gaming</text>
+      <text x="560" y="295" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">5%</text>
+      <line x1="525" y1="255" x2="420" y2="210" stroke="#ff4444" stroke-width="1" stroke-dasharray="4"/>
+      <!-- Legend -->
+      <rect x="80" y="330" width="540" height="25" fill="#1a1a1a" rx="2"/>
+      <text x="350" y="347" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Core = Safe, Long-Term | Satellite = Risky, Growth-Oriented | Rebalance Quarterly</text>
+    </svg>
+    <figcaption>Figure 9.1 — Core-Satellite Model: Core (70-80%) safe aur stable, Satellite (20-30%) risky aur high-reward</figcaption>
+  </figure>
+
+  <h3>Kaise Divide Karein Long aur Short Term</h3>
+  <p>Apne portfolio ko long aur short term mein divide karne ka asaan formula:</p>
+  <ul>
+    <li><strong>Age 20-30:</strong> 60% long-term, 30% short-term, 10% cash.</li>
+    <li><strong>Age 30-40:</strong> 70% long-term, 20% short-term, 10% cash.</li>
+    <li><strong>Age 40-50:</strong> 80% long-term, 10% short-term, 10% cash.</li>
+    <li><strong>Age 50+:</strong> 90% long-term, 5% short-term, 5% cash.</li>
+  </ul>
+  <p>Lekin yeh sirf general guideline hai. Agar aapke paas time hai aur risk le sakte ho to short-term portion zyada rakh sakte ho.</p>
+
+  <h3>Rebalancing Between Strategies</h3>
+  <p>Long-term aur short-term ke beech regularly rebalance karein. Agar short-term trading mein profit ho gaya hai to uska kuch hissa long-term mein daal dein. Agar short-term trading mein loss ho gaya hai to long-term se cover karne ki zaroorat nahi — sirf short-term budget reduce karein.</p>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 09</div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">1. HODL strategy ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Achhe coins khareed kar lambay arsay ke liye hold karna</button>
+        <button class="quiz-option" data-val="1">Har din buy aur sell karna</button>
+        <button class="quiz-option" data-val="2">Sirf loss par sell karna</button>
+        <button class="quiz-option" data-val="3">Short-term trading karna</button>
+      </div>
+      <div class="quiz-explain">HODL — Hold On for Dear Life — mein aap achhe coins khareedte ho aur lambay arsay ke liye hold karte ho. Market ki short-term fluctuations ki parwah nahi karte.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">2. Core-Satellite strategy mein "Core" mein kya hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Sirf altcoins</button>
+        <button class="quiz-option" data-val="1">Cash reserve</button>
+        <button class="quiz-option" data-val="2">Safe aur stable coins — Bitcoin, Ethereum</button>
+        <button class="quiz-option" data-val="3">Short-term trading ke liye coins</button>
+      </div>
+      <div class="quiz-explain">Core-Satellite strategy mein "Core" (70-80%) safe aur stable coins mein hota hai — jaise Bitcoin aur Ethereum. "Satellite" (20-30%) risky aur high-reward coins mein hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 10 -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2>Portfolio Hedging</h2>
+  </div>
+  <p class="chapter-intro">Market girne par apne portfolio ko protect karna — hedging strategies, stablecoins, options, aur DCA.</p>
+
+  <h3>Hedging Kya Hai?</h3>
+  <p>Hedging ka matlab hai apne portfolio ko nuksan se bachana. Jaise aap apni car ka insurance karte ho taake accident ho jaye to damage cover ho — usi tarah se portfolio hedging bhi hai. Agar market gir jaye to hedging se aapka poora portfolio barbaad nahi hoga.</p>
+  <p>Hedging ka sabse asaan example hai stablecoins. Agar aapke paas $10,000 ka crypto hai aur aap dar rahe ho ke market gir jayega to kuch coins bech kar USDT ya USDC mein daal dein. Agar market 30% gir jaye to aapka USDT wala hissa safe rahega.</p>
+
+  <h3>Stablecoin Allocation as Hedge</h3>
+  <p>Stablecoin allocation sabse asaan hedging strategy hai. Aap apne portfolio ka kuch hissa — jaise 10-20% — stablecoins mein rakhte ho. Agar market gir jaye to aapke paas cash hai低价 mein coins khareedne ke liye.</p>
+  <div class="example-box">
+    <div class="example-label">STABLECOIN HEDGE EXAMPLE</div>
+    <table>
+      <tr><td>Total Portfolio</td><td>$10,000</td></tr>
+      <tr><td>Crypto Holdings</td><td>$8,000 (80%)</td></tr>
+      <tr><td>USDT/USDC Hedge</td><td>$2,000 (20%)</td></tr>
+      <tr><td>Market Crash 30%</td><td>Crypto: $5,600</td></tr>
+      <tr><td>Total After Crash</td><td>$7,600 (vs $7,000 bina hedge)</td></tr>
+    </table>
+  </div>
+  <p>Hedge ki wajah se aapne $600 bachaye. Aur ab aapke paas $2,000 hain低价 mein aur coins khareedne ke liye — jab market recover ho to aapka profit zyada hoga.</p>
+
+  <h3>Options Buying (Protective Puts)</h3>
+  <p>Options ek derivative instrument hai jo aapko right deta hai kisi coin ko ek fix price par bechne ka — chahe market kitna bhi gire. Protective put ka matlab hai ke aap ek option khareedte ho jo aapke holdings ko protect karta hai.</p>
+  <p>Lekin Pakistan mein crypto options limited hain aur inka use complex hai. Beginners ke liye yeh recommended nahi hai. Sirf experienced traders options use karein.</p>
+
+  <h3>Futures Hedging</h3>
+  <p>Futures mein aap short position le sakte ho — yani market girne par profit hota hai. Agar aapne 1 BTC hold kiya hai aur dar rahe ho ke market gir jayega to 1 BTC ka short futures le lo. Agar market gir jaye to futures se profit hoga aur spot holdings ka loss cover ho jayega.</p>
+  <p>Lekin futures mein leverage hota hai jo risk barha deta hai. Beginners ke liye futures hedging recommended nahi hai.</p>
+
+  <h3>Dollar-Cost Averaging into Hedge</h3>
+  <p>Agar aap hedge karna chahte ho lekin ek saath sab kuch stablecoin mein daalne ka mann nahi kar raha to DCA use karein. Har mahine thoda thoda stablecoin mein transfer karte jao — jaise 5-10% monthly. Is tarah se aapka hedge gradually build hota hai bina market timing ki tension ke.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="360" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">HEDGING STRATEGIES COMPARISON</text>
+      <!-- Stablecoins -->
+      <rect x="30" y="55" width="310" height="130" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="185" y="80" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">STABLECOIN ALLOCATION</text>
+      <text x="185" y="100" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">10-20% portfolio in USDT/USDC</text>
+      <text x="185" y="118" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Sabse asaan aur safe</text>
+      <text x="185" y="140" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Difficulty: Easy</text>
+      <text x="185" y="165" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">BEST FOR: Beginners</text>
+      <!-- Options -->
+      <rect x="360" y="55" width="310" height="130" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="515" y="80" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">OPTIONS (PUTS)</text>
+      <text x="515" y="100" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Protective puts for downside</text>
+      <text x="515" y="118" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Cost: Premium payment</text>
+      <text x="515" y="140" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Difficulty: Hard</text>
+      <text x="515" y="165" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">BEST FOR: Advanced</text>
+      <!-- Futures -->
+      <rect x="30" y="200" width="310" height="130" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="185" y="225" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">FUTURES SHORT</text>
+      <text x="185" y="245" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Short position for hedging</text>
+      <text x="185" y="263" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Risk: Liquidation possible</text>
+      <text x="185" y="285" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Difficulty: Hard</text>
+      <text x="185" y="310" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">BEST FOR: Experienced</text>
+      <!-- DCA -->
+      <rect x="360" y="200" width="310" height="130" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="3"/>
+      <text x="515" y="225" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">DCA INTO HEDGE</text>
+      <text x="515" y="245" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Gradually build stablecoin reserve</text>
+      <text x="515" y="263" fill="#a3a3a3" font-family="Newsreader, serif" font-size="9" text-anchor="middle">Monthly 5-10% transfer</text>
+      <text x="515" y="285" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Difficulty: Easy</text>
+      <text x="515" y="310" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle">BEST FOR: Everyone</text>
+    </svg>
+    <figcaption>Figure 10.1 — Hedging Strategies: Stablecoins se Futures tak — har strategy ka apna level hai</figcaption>
+  </figure>
+
+  <h3>Kab Hedge Karein?</h3>
+  <ul>
+    <li><strong>Market Top Feel Ho:</strong> Agar lagta hai market overvalued hai to 10-20% hedge karein.</li>
+    <li><strong>Major Event Aane Wala Ho:</strong> Elections, regulations, ya macroeconomic events se pehle.</li>
+    <li><strong>Portfolio Bada Ho:</strong> Jab portfolio $10,000 se upar ho to hedge zaroori hai.</li>
+    <li><strong>Personal Risk Tolerance Kam Ho:</strong> Agar aapko tension ho rahi hai to hedge karein.</li>
+  </ul>
+
+  <h3>Hedging ka Cost</h3>
+  <p>Hedging free nahi hai — iska cost hota hai. Stablecoins mein opportunity cost hai — agar market upar jaye to aapne profit miss kiya. Options mein premium lagta hai. Futures mein funding rate lagta hai. Isliye sirf tab hedge karein jab zaroorat ho — hamesha nahi.</p>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 10</div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">1. Hedging ka basic purpose kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Maximum profit kamana</button>
+        <button class="quiz-option" data-val="1">Portfolio ko nuksan se bachana</button>
+        <button class="quiz-option" data-val="2">Market timing karna</button>
+        <button class="quiz-option" data-val="3">Sab kuch stablecoin mein daal dena</button>
+      </div>
+      <div class="quiz-explain">Hedging ka basic purpose hai portfolio ko nuksan se bachana — jaise car ka insurance. Agar market gir jaye to hedging se poora portfolio barbaad nahi hoga.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">2. Beginners ke liye sabse asaan hedging strategy kaunsi hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Futures short lena</button>
+        <button class="quiz-option" data-val="1">Options khareedna</button>
+        <button class="quiz-option" data-val="2">Stablecoin allocation (10-20%)</button>
+        <button class="quiz-option" data-val="3">Koi hedge nahi — sirf hold karo</button>
+      </button>
+      </div>
+      <div class="quiz-explain">Beginners ke liye sabse asaan hedging strategy hai stablecoin allocation. 10-20% portfolio USDT/USDC mein rakhein — simple hai aur risk kam karta hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2>Performance Measurement</h2>
+  </div>
+  <p class="chapter-intro">Apne portfolio ki performance kaise measure karein — total return, benchmark comparison, alpha, beta, aur tracking.</p>
+
+  <h3>Total Return Calculation</h3>
+  <p>Total return ka matlab hai aapne kitna kamaya hai apne pure investment par — sirf price appreciation nahi, balki dividends, airdrops, aur staking rewards bhi. Total return sabse important metric hai kyunki yeh aapko batata hai ke aapne actually kitna kamaya.</p>
+  <div class="formula-box">
+    <div class="formula-label">TOTAL RETURN FORMULA</div>
+    <div class="formula">
+      Total Return = (Current Value - Invested Amount + Rewards) / Invested Amount × 100
+      <span class="note">Misal: Invested $10,000, Current $15,000, Staking Rewards $500</span>
+      <span class="note">Total Return = ($15,000 - $10,000 + $500) / $10,000 × 100 = 55%</span>
+    </div>
+  </div>
+  <p>Sirf price dekhna kaafi nahi — airdrops, staking rewards, aur farming rewards bhi count karte hain. Agar aapne kisi coin ke staking se $500 kamaye hain to woh bhi aapka return hai.</p>
+
+  <h3>Benchmark Comparison</h3>
+  <p>Apne portfolio ki performance ko market se compare karna zaroori hai. Agar aapka portfolio 20% upar gaya hai lekin Bitcoin 50% upar gaya hai to actually aapne underperform kiya hai. Isliye benchmark comparison karna important hai.</p>
+  <div class="example-box">
+    <div class="example-label">BENCHMARK COMPARISON</div>
+    <table>
+      <tr><td>Portfolio Return</td><td>+25%</td></tr>
+      <tr><td>BTC Benchmark</td><td>+40%</td></tr>
+      <tr><td>ETH Benchmark</td><td>+30%</td></tr>
+      <tr><td>Result</td><td>Underperformed (BTC se -15%)</td></tr>
+    </table>
+  </div>
+  <p>Benchmark ke liye Bitcoin aur Ethereum use karein — kyunki yeh market leaders hain. Agar aapka portfolio in se kam kar raha hai to aapko strategy change karni chahiye.</p>
+
+  <h3>Alpha aur Beta</h3>
+  <p><strong>Alpha:</strong> Yeh batata hai ke aapne market ke muqable kitna extra return kamaya hai. Agar market 20% upar gaya hai aur aapka portfolio 25% to aapka alpha +5% hai. Positive alpha ka matlab hai aapne market se behtar perform kiya.</p>
+  <p><strong>Beta:</strong> Yeh batata hai ke aapka portfolio market ki volatility se kitna affect hota hai. Beta 1 ka matlab hai market jitna volatile hai. Beta 1.5 ka matlab hai market se 50% zyada volatile. Beta 0.5 ka matlab hai market se kam volatile.</p>
+  <div class="formula-box">
+    <div class="formula-label">ALPHA AND BETA</div>
+    <div class="formula">
+      Alpha = Portfolio Return - (Benchmark Return × Beta)
+      <span class="note">Positive Alpha = Behtar performance | Negative Alpha = Buri performance</span>
+    </div>
+  </div>
+  <p>Ideally aap chahenge ke aapka alpha positive ho aur beta controlled rahe. High beta ka matlab hai zyada risk, low beta ka matlab hai kam risk.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="350" fill="#111111" rx="4"/>
+      <text x="350" y="32" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">PERFORMANCE DASHBOARD - KEY METRICS</text>
+      <!-- Metric Cards -->
+      <!-- Card 1: Total Return -->
+      <rect x="30" y="55" width="150" height="100" fill="#1a1a1a" stroke="#00b300" stroke-width="1.5" rx="3"/>
+      <text x="105" y="80" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">TOTAL RETURN</text>
+      <text x="105" y="115" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="22" text-anchor="middle" font-weight="700">+45.2%</text>
+      <text x="105" y="140" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Last 12 Months</text>
+      <!-- Card 2: Alpha -->
+      <rect x="200" y="55" width="150" height="100" fill="#1a1a1a" stroke="#f0b90b" stroke-width="1.5" rx="3"/>
+      <text x="275" y="80" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">ALPHA</text>
+      <text x="275" y="115" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="22" text-anchor="middle" font-weight="700">+8.5%</text>
+      <text x="275" y="140" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">vs BTC Benchmark</text>
+      <!-- Card 3: Beta -->
+      <rect x="370" y="55" width="150" height="100" fill="#1a1a1a" stroke="#f0b90b" stroke-width="1.5" rx="3"/>
+      <text x="445" y="80" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">BETA</text>
+      <text x="445" y="115" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="22" text-anchor="middle" font-weight="700">0.85</text>
+      <text x="445" y="140" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Lower than Market</text>
+      <!-- Card 4: Max Drawdown -->
+      <rect x="540" y="55" width="130" height="100" fill="#1a1a1a" stroke="#ff4444" stroke-width="1.5" rx="3"/>
+      <text x="605" y="80" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">MAX DD</text>
+      <text x="605" y="115" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="22" text-anchor="middle" font-weight="700">-18%</text>
+      <text x="605" y="140" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Acceptable Range</text>
+      <!-- Comparison Chart -->
+      <rect x="30" y="175" width="640" height="140" fill="#0a0a0a" rx="3"/>
+      <text x="350" y="195" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">MONTHLY PERFORMANCE vs BENCHMARK</text>
+      <!-- Bars -->
+      <rect x="60" y="260" width="40" height="0" fill="#f0b90b" rx="2"/>
+      <rect x="60" y="245" width="40" height="15" fill="#f0b90b" rx="2" opacity="0.8"/>
+      <text x="80" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Jan</text>
+      <rect x="120" y="230" width="40" height="30" fill="#f0b90b" rx="2" opacity="0.8"/>
+      <text x="140" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Feb</text>
+      <rect x="180" y="215" width="40" height="45" fill="#f0b90b" rx="2" opacity="0.8"/>
+      <text x="200" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Mar</text>
+      <rect x="240" y="250" width="40" height="10" fill="#ff4444" rx="2" opacity="0.8"/>
+      <text x="260" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Apr</text>
+      <rect x="300" y="225" width="40" height="35" fill="#f0b90b" rx="2" opacity="0.8"/>
+      <text x="320" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">May</text>
+      <rect x="360" y="200" width="40" height="60" fill="#f0b90b" rx="2" opacity="0.8"/>
+      <text x="380" y="285" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Jun</text>
+      <!-- Legend -->
+      <rect x="450" y="210" width="12" height="12" fill="#f0b90b" rx="1"/>
+      <text x="470" y="221" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">Portfolio</text>
+      <rect x="530" y="210" width="12" height="12" fill="#666" rx="1"/>
+      <text x="550" y="221" fill="#a3a3a3" font-family="JetBrains Mono, monospace" font-size="8">BTC Benchmark</text>
+      <text x="350" y="310" fill="#666" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Tip: Monthly review karein aur benchmark se compare karein — consistency key hai</text>
+    </svg>
+    <figcaption>Figure 11.1 — Performance Dashboard: Total Return, Alpha, Beta, Max Drawdown, aur Monthly Comparison</figcaption>
+  </figure>
+
+  <h3>Portfolio Value Tracking</h3>
+  <p>Portfolio value ko regularly track karein — daily nahi to weekly zaroor. Tracking se aapko pata chalta hai ke kya kaam kar raha hai aur kya nahi. Spreadsheet ya tracking tool use karein aur har hafte portfolio value likhein.</p>
+  <p>Tracking mein yeh note karein:</p>
+  <ul>
+    <li>Total invested amount</li>
+    <li>Current value</li>
+    <li>Profit/loss percentage</li>
+    <li>Allocation changes</li>
+    <li>Any rewards earned (staking, airdrops)</li>
+  </ul>
+
+  <h3>Monthly/Quarterly Review</h3>
+  <p>Har month ek light review karein aur har quarter ek full review. Monthly review mein sirf performance dekhein. Quarterly review mein strategy evaluate karein, rebalancing karein, aur goals set karein.</p>
+
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>Review Checklist:</strong> Kya aapka portfolio benchmark se behtar hai? Kya allocation sahi hai? Kya risk level acceptable hai? Kya koi coin replace karna chahiye? Har quarter yeh questions karein.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 11</div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">1. Positive alpha ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Portfolio ne market se behtar perform kiya</button>
+        <button class="quiz-option" data-val="1">Portfolio ne market se bura perform kiya</button>
+        <button class="quiz-option" data-val="2">Portfolio volatile hai</button>
+        <button class="quiz-option" data-val="3">Portfolio mein zyada coins hain</button>
+      </div>
+      <div class="quiz-explain">Positive alpha ka matlab hai ke aapne benchmark (market) ke muqable zyada return kamaya hai. Yeh achi performance ka sign hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="1">
+      <p class="quiz-prompt">2. Portfolio review kitni baar karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Har roz — taake kuch miss na ho</button>
+        <button class="quiz-option" data-val="1">Monthly light review, quarterly full review</button>
+        <button class="quiz-option" data-val="2">Sirf saal mein ek baar</button>
+        <button class="quiz-option" data-val="3">Kabhi nahi — sirf hold karo</button>
+      </div>
+      <div class="quiz-explain">Monthly sirf performance dekhein, quarterly full review karein — allocation, strategy, aur goals evaluate karein. Regular review se pata rahta hai ke sab kuch theek hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 12 -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2>Complete Portfolio Strategy</h2>
+  </div>
+  <p class="chapter-intro">Complete portfolio system — goals set karna, risk assessment, allocation, diversification, aur review system.</p>
+
+  <h3>Investment Goals Set Karein</h3>
+  <p>Sabse pehle apne investment goals clear karein. Bina goals ke aap kisi bhi direction mein ja rahe ho. Goals hone se aapko pata hota hai ke kitna chahiye, kab chahiye, aur kaise achieve karna hai.</p>
+  <div class="example-box">
+    <div class="example-label">INVESTMENT GOALS EXAMPLE</div>
+    <table>
+      <tr><td>Emergency Fund</td><td>$5,000 (6 months expenses)</td></tr>
+      <tr><td>Short-Term Goal</td><td>$10,000 (2 saal mein — car down payment)</td></tr>
+      <tr><td>Long-Term Goal</td><td>$100,000 (10 saal mein — retirement)</td></tr>
+      <tr><td>Monthly Investment</td><td>$500</td></tr>
+    </table>
+  </div>
+  <p>Goals SMART honi chahiye — Specific, Measurable, Achievable, Relevant, Time-bound. "Mujhe ameer banna hai" goal nahi hai. "Mujhe 10 saal mein $100,000 chahiye" goal hai.</p>
+
+  <h3>Risk Tolerance Assessment</h3>
+  <p>Apna risk tolerance samajhein. Yeh sawaal jawab dein honesti se:</p>
+  <ul>
+    <li>Agar mera portfolio 30% gir jaye to main kya karunga?</li>
+    <li>Mujhe kitna loss bear hai bina ghabraye?</li>
+    <li>Mera investment time horizon kitna hai?</li>
+    <li>Mere paas emergency fund hai ya nahi?</li>
+  </ul>
+  <p>Agar 30% loss par aap sell kar denge to aapke liye conservative portfolio best hai. Agar hold kar sakte ho to aggressive.</p>
+
+  <h3>Asset Allocation Selection</h3>
+  <p>Apne risk tolerance ke hisaab se allocation choose karein:</p>
+  <ul>
+    <li><strong>Conservative:</strong> 70% BTC, 20% ETH, 10% ALT</li>
+    <li><strong>Balanced:</strong> 40% BTC, 30% ETH, 30% ALT</li>
+    <li><strong>Aggressive:</strong> 20% BTC, 30% ETH, 50% ALT</li>
+  </ul>
+
+  <h3>Diversification Plan</h3>
+  <p>Sirf coins hi nahi — sectors mein bhi diversify karein. Layer 1, Layer 2, DeFi, Infrastructure — mukhtalif sectors ke coins choose karein taake correlation kam rahe.</p>
+  <div class="example-box">
+    <div class="example-label">DIVERSIFICATION EXAMPLE</div>
+    <table>
+      <tr><td>Layer 1</td><td>BTC, ETH, SOL — 50%</td></tr>
+      <tr><td>Layer 2</td><td>MATIC, ARB — 15%</td></tr>
+      <tr><td>DeFi</td><td>UNI, AAVE — 15%</td></tr>
+      <tr><td>Infrastructure</td><td>LINK, FIL — 10%</td></tr>
+      <tr><td>Stablecoin Reserve</td><td>USDT — 10%</td></tr>
+    </table>
+  </div>
+
+  <h3>Rebalancing Schedule</h3>
+  <p>Rebalancing ka schedule banayein — quarterly sabse best hai. Har 3 mahine mein portfolio check karein aur target allocation par wapas aayein. Agar 5% se zyada drift ho to turant rebalance karein.</p>
+
+  <h3>Tracking aur Review System</h3>
+  <p>Tracking ke liye tool choose karein — CoinMarketCap ya Delta beginners ke liye best hain. Monthly performance track karein, quarterly full review karein, aur yearly strategy evaluate karein.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="400" fill="#111111" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" font-weight="600">COMPLETE PORTFOLIO STRATEGY FLOWCHART</text>
+      <!-- Start -->
+      <rect x="260" y="45" width="180" height="35" fill="#f0b90b" rx="3"/>
+      <text x="350" y="67" fill="#0a0a0a" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" font-weight="600">START: SET GOALS</text>
+      <line x1="350" y1="80" x2="350" y2="100" stroke="#f0b90b" stroke-width="1.5"/>
+      <!-- Step 1 -->
+      <rect x="260" y="100" width="180" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="122" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">RISK TOLERANCE</text>
+      <line x1="350" y1="135" x2="350" y2="155" stroke="#f0b90b" stroke-width="1.5"/>
+      <!-- Decision -->
+      <polygon points="350,155 440,185 350,215 260,185" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="182" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">RISK</text>
+      <text x="350" y="193" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">LEVEL?</text>
+      <!-- Three Paths -->
+      <!-- Conservative -->
+      <line x1="260" y1="185" x2="120" y2="185" stroke="#00b300" stroke-width="1.5"/>
+      <text x="185" y="180" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="7">LOW</text>
+      <rect x="40" y="170" width="80" height="30" fill="#0a1a00" stroke="#00b300" stroke-width="1" rx="2"/>
+      <text x="80" y="190" fill="#00b300" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">70/20/10</text>
+      <!-- Balanced -->
+      <line x1="350" y1="215" x2="350" y2="240" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="365" y="230" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="7">MED</text>
+      <rect x="260" y="240" width="180" height="35" fill="#111" stroke="#f0b90b" stroke-width="1.5" rx="2"/>
+      <text x="350" y="262" fill="#f0b90b" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">40/30/30 ALLOCATION</text>
+      <!-- Aggressive -->
+      <line x1="440" y1="185" x2="580" y2="185" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="510" y="180" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="7">HIGH</text>
+      <rect x="580" y="170" width="80" height="30" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="620" y="190" fill="#ff4444" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">20/30/50</text>
+      <!-- Continue from Balanced -->
+      <line x1="350" y1="275" x2="350" y2="295" stroke="#f0b90b" stroke-width="1.5"/>
+      <!-- Step: Diversify -->
+      <rect x="260" y="295" width="180" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="317" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">DIVERSIFY + HEDGE</text>
+      <line x1="350" y1="330" x2="350" y2="350" stroke="#f0b90b" stroke-width="1.5"/>
+      <!-- Step: Track -->
+      <rect x="230" y="350" width="240" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="372" fill="#e5e5e5" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">TRACK + REVIEW (MONTHLY/QUARTERLY)</text>
+      <text x="350" y="395" fill="#666" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">Continuous Process — Goals Se Start, Tracking Se End</text>
+    </svg>
+    <figcaption>Figure 12.1 — Complete Portfolio Strategy Workflow: Goals se lekar tracking tak — ek complete system</figcaption>
+  </figure>
+
+  <h3>Master Checklist (12 Items)</h3>
+  <div class="formula-box">
+    <div class="formula-label">MASTER CHECKLIST — PORTFOLIO BANANE SE PEHLE</div>
+    <div class="formula">
+      <div class="checklist">
+        <ul>
+          <li>Investment goals clear hain? (SMART goals set hain?)</li>
+          <li>Emergency fund hai? (6 months expenses)</li>
+          <li>Risk tolerance assess kiya hai?</li>
+          <li>Asset allocation choose ki hai? (Conservative/Balanced/Aggressive)</li>
+          <li>Diversification plan hai? (Sectors wise)</li>
+          <li>Position sizing fix hai? (1-2% risk rule)</li>
+          <li>Hedging strategy hai? (Stablecoin reserve)</li>
+          <li>Rebalancing schedule hai? (Quarterly)</li>
+          <li>Tracking tool setup hai? (CoinMarketCap/Delta)</li>
+          <li>Records maintain ho rahe hain? (Tax ke liye)</li>
+          <li>Review schedule hai? (Monthly/Quarterly)</li>
+          <li>Emergency exit plan hai? (Kab sell karna hai)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Common Portfolio Mistakes</h3>
+  <ul>
+    <li><strong>Goals na hona:</strong> Bina goals ke investment andheray mein hai.</li>
+    <li><strong>Sirf ek coin mein sab kuch:</strong> Diversification na karna — sabse bari ghalti.</li>
+    <li><strong>Rebalancing na karna:</strong> Allocation bigadne par fix na karna.</li>
+    <li><strong>Emotional decisions:</strong> FOMO ya Fear se buy/sell karna.</li>
+    <li><strong>Tracking na karna:</strong> Portfolio nahi dekhna — pata nahi kya ho raha hai.</li>
+    <li><strong>Tax planning na karna:</strong> Tax ke bina plan ke decisions lena.</li>
+    <li><strong>Hedging na karna:</strong> Market girne par poora portfolio barbaad hona.</li>
+    <li><strong>Overtrading:</strong> Baar baar buy/sell karna — fees barhti hai.</li>
+    <li><strong>Leverage ka galat use:</strong> Chhote account mein leverage zyada lena.</li>
+    <li><strong>No emergency fund:</strong> Emergency ke liye paisa na hona.</li>
+    <li><strong>Copying others:</strong> Dusron ki strategy blindly follow karna.</li>
+    <li><strong>Patience na hona:</strong> Jaldi results chahte hona — long-term soch na hona.</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">→</span>
+    <div><strong>Final Tip:</strong> Ye 12 chapters padh kar aapke paas sab kuch hai portfolio management seekhne ke liye. Ab amal karein — pehle chhote se start karein, seekhte jayen, aur gradually apna portfolio grow karein. Consistency aur patience sabse important hain.</div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">QUIZ — CHAPTER 12</div>
+
+    <div class="quiz-q" data-correct="2">
+      <p class="quiz-prompt">1. Investment goals kaisi honi chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Vague — "mujhe ameer banna hai"</button>
+        <button class="quiz-option" data-val="1">Random — jo ho jaye</button>
+        <button class="quiz-option" data-val="2">SMART — Specific, Measurable, Achievable, Relevant, Time-bound</button>
+        <button class="quiz-option" data-val="3">Short-term hi sab kuch</button>
+      </div>
+      <div class="quiz-explain">Investment goals SMART honi chahiye — Specific, Measurable, Achievable, Relevant, Time-bound. "Mujhe 10 saal mein $100,000 chahiye" — yeh achi goal hai.</div>
+    </div>
+
+    <div class="quiz-q" data-correct="0">
+      <p class="quiz-prompt">2. Master checklist mein sabse pehla item kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-val="0">Investment goals clear hona</button>
+        <button class="quiz-option" data-val="1">Tracking tool setup hona</button>
+        <button class="quiz-option" data-val="2">Coin khareedna</button>
+        <button class="quiz-option" data-val="3">Profit dekhna</button>
+      </div>
+      <div class="quiz-explain">Sabse pehle investment goals clear honi chahiye. Bina goals ke aap kisi bhi direction mein ja rahe ho — pata nahi kahan jaana hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Ye book sirf educational purposes k liye hai — koi financial advice nahi hai. Crypto investing mein financial nuksaan ka khatra hota hai. Koi bhi investment karne se pehle apni research karein aur risk samjhein.
+</div>
+
+</main>
+</div>
+
+<script>
+var menuBtn = document.getElementById('menuBtn');
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('overlay');
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+}
+
+window.addEventListener('scroll', function() {
+  var main = document.querySelector('main');
+  if (!main) return;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var docHeight = main.scrollHeight - window.innerHeight;
+  var progress = Math.min((scrollTop / docHeight) * 100, 100);
+  var fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = progress + '%';
+});
+
+document.querySelectorAll('.quiz-option').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var parent = btn.closest('.quiz-q');
+    var correctVal = parent.getAttribute('data-correct');
+    var options = parent.querySelectorAll('.quiz-option');
+    var explain = parent.querySelector('.quiz-explain');
+
+    options.forEach(function(opt) {
+      opt.disabled = true;
+      if (opt.getAttribute('data-val') === correctVal) {
+        opt.classList.add('correct');
+      }
+    });
+
+    if (btn.getAttribute('data-val') === correctVal) {
+      btn.classList.add('correct');
+    } else {
+      btn.classList.add('incorrect');
+    }
+
+    if (explain) {
+      explain.classList.add('show');
+    }
+  });
+});
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>

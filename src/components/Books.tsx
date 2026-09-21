@@ -359,6 +359,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Swing Trading', 'Mastery'],
     cover: '/covers/Swing-Trading.jpg',
   },
+  {
+    id: 'portfolio-management',
+    title: 'Crypto Portfolio Management (Urdu)',
+    titleUrdu: 'کرپٹو پورٹ فولیو منیجمنٹ',
+    description:
+      'Crypto portfolio manage karo — allocation, diversification, rebalancing, risk-adjusted returns, hedging aur complete strategy. 12 chapters with 24+ practice questions.',
+    chapters: 12,
+    pages: '12 chapters · 24+ Practice Questions',
+    icon: PieChart,
+    color: 'text-teal-600',
+    bgColor: 'bg-teal-50',
+    href: '/portfolio-management/index.html',
+    tags: ['Urdu', 'Portfolio', 'Management'],
+    cover: '/covers/Portfolio-Management.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
