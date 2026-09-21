@@ -16,6 +16,9 @@ import {
   BookMarked,
   Target,
   Trophy,
+  BarChart3,
+  Clock,
+  PieChart,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
