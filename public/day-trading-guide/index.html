@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Day Trading Complete Guide — Roman Urdu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:18ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:50ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"☐";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0;}
+  .pros-cons .pros,.pros-cons .cons{background:var(--card);border-radius:var(--radius);padding:16px 18px;}
+  .pros-cons .pros{border-left:3px solid var(--profit);}
+  .pros-cons .cons{border-left:3px solid var(--loss);}
+  .pros-cons h4{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;margin-bottom:12px;}
+  .pros-cons .pros h4{color:var(--profit);}
+  .pros-cons .cons h4{color:var(--loss);}
+  .pros-cons ul{margin:0;padding-left:1.2em;}
+  .pros-cons li{font-size:0.92rem;margin-bottom:5px;}
+
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    .pros-cons{grid-template-columns:1fr;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Day Trading Guide<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Day Trading Kya Hai?</a>
+    <a href="#ch2"><span class="toc-num">02</span>Day Trading Ka Setup</a>
+    <a href="#ch3"><span class="toc-num">03</span>Market Sessions &amp; Timing</a>
+    <a href="#ch4"><span class="toc-num">04</span>Support &amp; Resistance</a>
+    <a href="#ch5"><span class="toc-num">05</span>Candlestick Patterns</a>
+    <a href="#ch6"><span class="toc-num">06</span>Volume &amp; Order Flow</a>
+    <a href="#ch7"><span class="toc-num">07</span>Risk Management</a>
+    <a href="#ch8"><span class="toc-num">08</span>Indicators Deep Dive</a>
+    <a href="#ch9"><span class="toc-num">09</span>Entry &amp; Exit Strategies</a>
+    <a href="#ch10"><span class="toc-num">10</span>Trading Psychology</a>
+    <a href="#ch11"><span class="toc-num">11</span>Live Trade Examples</a>
+    <a href="#ch12"><span class="toc-num">12</span>Final Practice Test</a>
+  </nav>
+</aside>
+
+<main id="cover">
+
+<!-- ========== COVER ========== -->
+<div class="cover">
+  <div class="eyebrow">DAY TRADING · COMPLETE GUIDE</div>
+  <h1>Day Trading Complete Guide, Zero Se Pro Tak</h1>
+  <p class="subtitle">Day trading seekhein Roman Urdu mein — bunyadiyon se le kar advanced strategies, risk management, aur live trade examples tak.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>30+ PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</div>
+
+<!-- ========== INTRO ========== -->
+<p>Ye book un logon ke liye hai jo day trading seekhna chahte hain lekin abhi shuru nahi kar pa rahe. Agar aap ne kabhi socha hai k log rozana trading se kaise kamate hain, ya aap khud trading start karna chahte hain lekin samajh nahi aa raha kahan se shuru karein — toh ye guide aap ke liye hai.</p>
+<p>Is guide mein hum day trading ki dunya ko step-by-step samjhenge. Pehle samjhenge k day trading hota kya hai, phir setup kaise karein, market kab open hota hai, kaise charts padhte hain, aur sab se zaroori baat — kaise apna paisa bacha kar trading karein. Har chapter mein diagrams, real examples, aur practice questions diye gaye hain.</p>
+<div class="callout">
+  <span class="dot">&rsaquo;</span>
+  <span><strong>Sab se pehli salah:</strong> Day trading seekhne ka sab se accha tareeqa ye hai k pehle demo account (paper trading) par practice karein. Asli paisa lagane se pehle kam se kam 2-3 mahine demo par trade karein aur dekhein k aap consistently profit kama pa rahe hain ya nahi.</span>
+</div>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 01                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Day Trading Kya Hai?</h2>
+  </div>
+  <p class="chapter-intro">Day trading ka matlab hai kisi bhi financial instrument ko usi din khareedna aur bechna — rat ko apne saath position le kar nahi jana.</p>
+
+  <h3>Day Trading ki Definition</h3>
+  <p>Day trading ek trading style hai jismein trader apni positions usi din open karta hai aur usi din close karta hai. Market band hone se pehle tamam trades band ho jaati hain. Ye stocks, forex, commodities, aur crypto sab mein ho sakta hai.</p>
+  <p>Day traders ka maqsad chote-chote price movements se profit kamana hota hai. Wo din mein kai baar trade karte hain — kabhi 2-3, kabhi 10-20 trades bhi. Har trade se thoda profit uthate hain aur din ke akhir mein unki positions zero hoti hain.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">DAY TRADING KA FUNDAMENTAL RULE</div>
+    <div class="formula">
+      Subah trade kholein &rarr; Din bhar monitor karein &rarr; Shaam tak close karein
+      <span class="note">Koi bhi position overnight nahi jaati. Ye risk ko kam karta hai.</span>
+    </div>
+  </div>
+
+  <h3>Trading Styles ki Comparison</h3>
+  <p>Ye samajhna zaroori hai k day trading baqi trading styles se kaise alag hai. Har style ka apna time horizon hai aur apna risk profile hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trading Styles Comparison">
+      <defs>
+        <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+        <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f0b90b"/>
+        </marker>
+      </defs>
+      <rect width="700" height="380" fill="url(#bg1)" rx="4"/>
+      <text x="350" y="36" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">TRADING STYLES COMPARISON</text>
+
+      <!-- Scalping -->
+      <rect x="40" y="70" width="145" height="280" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="40" y="70" width="145" height="44" rx="3" fill="#f0b90b" fill-opacity="0.15"/>
+      <text x="112" y="96" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">SCALPING</text>
+      <text x="112" y="140" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="24" font-weight="700">1-15</text>
+      <text x="112" y="162" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="11">min per trade</text>
+      <line x1="60" y1="185" x2="165" y2="185" stroke="#333" stroke-width="1"/>
+      <text x="112" y="210" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Trades/day: 10-50+</text>
+      <text x="112" y="232" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Target: Rs50-200/trade</text>
+      <text x="112" y="262" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="10">Risk: LOW</text>
+      <text x="112" y="290" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Focus: Speed</text>
+      <text x="112" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Charts: 1min-5min</text>
+      <text x="112" y="330" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Best: Crypto, Forex</text>
+
+      <!-- Day Trading -->
+      <rect x="205" y="70" width="145" height="280" rx="3" fill="#111" stroke="#f0b90b" stroke-width="2"/>
+      <rect x="205" y="70" width="145" height="44" rx="3" fill="#f0b90b" fill-opacity="0.25"/>
+      <text x="277" y="96" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700">DAY TRADING</text>
+      <text x="277" y="140" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="22" font-weight="700">15min-4hr</text>
+      <text x="277" y="162" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="11">per trade</text>
+      <line x1="225" y1="185" x2="330" y2="185" stroke="#f0b90b" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="277" y="210" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Trades/day: 2-10</text>
+      <text x="277" y="232" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Target: Rs500-5000</text>
+      <text x="277" y="262" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10">Risk: MEDIUM</text>
+      <text x="277" y="290" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Focus: Patterns</text>
+      <text x="277" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Charts: 5min-1hr</text>
+      <text x="277" y="330" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Best: All markets</text>
+
+      <!-- Swing Trading -->
+      <rect x="370" y="70" width="145" height="280" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="370" y="70" width="145" height="44" rx="3" fill="#3b82f6" fill-opacity="0.15"/>
+      <text x="442" y="96" text-anchor="middle" fill="#3b82f6" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">SWING TRADING</text>
+      <text x="442" y="140" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="24" font-weight="700">2-30</text>
+      <text x="442" y="162" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="11">days per trade</text>
+      <line x1="390" y1="185" x2="495" y2="185" stroke="#333" stroke-width="1"/>
+      <text x="442" y="210" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Trades/week: 2-5</text>
+      <text x="442" y="232" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Target: Rs2000-20000</text>
+      <text x="442" y="262" text-anchor="middle" fill="#3b82f6" font-family="Inter,sans-serif" font-size="10">Risk: MED-HIGH</text>
+      <text x="442" y="290" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Focus: Trends</text>
+      <text x="442" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Charts: 4hr-Daily</text>
+      <text x="442" y="330" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Best: Stocks, Crypto</text>
+
+      <!-- Position -->
+      <rect x="535" y="70" width="145" height="280" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="535" y="70" width="145" height="44" rx="3" fill="#a855f7" fill-opacity="0.15"/>
+      <text x="607" y="96" text-anchor="middle" fill="#a855f7" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">POSITION</text>
+      <text x="607" y="140" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="24" font-weight="700">Mo-Yr</text>
+      <text x="607" y="162" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="11">months to years</text>
+      <line x1="555" y1="185" x2="660" y2="185" stroke="#333" stroke-width="1"/>
+      <text x="607" y="210" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Trades/month: 1-3</text>
+      <text x="607" y="232" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Target: 10%+ returns</text>
+      <text x="607" y="262" text-anchor="middle" fill="#a855f7" font-family="Inter,sans-serif" font-size="10">Risk: HIGH</text>
+      <text x="607" y="290" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Focus: Fundamentals</text>
+      <text x="607" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Charts: Weekly-Monthly</text>
+      <text x="607" y="330" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Best: Stocks, Bonds</text>
+
+      <path d="M277 58 L277 66" stroke="#f0b90b" stroke-width="2" marker-end="url(#arrowGold)"/>
+      <text x="277" y="54" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="0.3">&#9650; THIS BOOK</text>
+    </svg>
+    <figcaption>Figure 1.1 &mdash; Trading styles ka comparison. Day trading 15 minute se 4 ghante ke beech hota hai.</figcaption>
+  </figure>
+
+  <h3>Day Trading ke Pros aur Cons</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>&#10003; FAAYDE</h4>
+      <ul>
+        <li><strong>Koi overnight risk nahi</strong> &mdash; tamam trades usi din band ho jaati hain.</li>
+        <li><strong>Quick results</strong> &mdash; aap ko pata chal jata hai k trade mein profit hua ya loss.</li>
+        <li><strong>Compounding</strong> &mdash; daily profit reinvest kar ke tezi se barha sakte hain.</li>
+        <li><strong>Market hours mein flexibility</strong> &mdash; aap apni marzi se trading kar sakte hain.</li>
+        <li><strong>Kam capital se shuru</strong> &mdash; forex aur crypto mein choti rakaam se bhi shuru kar sakte hain.</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>&#10007; NUQSAN</h4>
+      <ul>
+        <li><strong>Zyada stress</strong> &mdash; constantly screen par rehna hota hai.</li>
+        <li><strong>Commission/fees</strong> &mdash; zyada trades = zyada fees.</li>
+        <li><strong>Overtrading ka khatra</strong> &mdash; jaldi jaldi mein galat trades le lena.</li>
+        <li><strong>Emotional trading</strong> &mdash; loss mein revenge trading karna.</li>
+        <li><strong>Time consuming</strong> &mdash; poora din research aur monitoring chahiye.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <span class="dot" style="color:var(--loss);">!</span>
+    <span><strong>Warning:</strong> Day trading mein 90% log initial stages mein paisa gawa dete hain. Sirf wahi log consistently kamate hain jo proper training, risk management, aur discipline ke saath trading karte hain. Bina seekhe seedha live market mein mat jaayein.</span>
+  </div>
+
+  <!-- Quiz Ch1 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Day trading mein position kitne tak hold ki jaati hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Hafte bhar tak</button>
+        <button class="quiz-option" data-correct="true">B) Usi din band karna hota hai</button>
+        <button class="quiz-option" data-correct="false">C) Mahine bhar tak</button>
+        <button class="quiz-option" data-correct="false">D) Jab marzi tab</button>
+      </div>
+      <div class="quiz-explain">Day trading ka rule ye hai k trader apni tamam positions usi din close karta hai. Koi bhi position overnight nahi hoti.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Day trading ka sab se bada khatra kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Kam profit hona</button>
+        <button class="quiz-option" data-correct="true">B) Overtrading aur emotional decisions</button>
+        <button class="quiz-option" data-correct="false">C) Market band hona</button>
+        <button class="quiz-option" data-correct="false">D) Internet slow hona</button>
+      </div>
+      <div class="quiz-explain">Overtrading aur emotional decisions day trading ka sab se bada khatra hai. Bina strategy ke jaldi jaldi trades lena nuqsan ka sab se bara sabab hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 02                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Day Trading Ka Setup</h2>
+  </div>
+  <p class="chapter-intro">Sahi setup hona day trading ki safalta ka pehla qadam hai. Platform, charts, indicators, aur screen layout sab kuch hona chahiye.</p>
+
+  <h3>Platform Choose Karein</h3>
+  <p>Day trading ke liye aap ko ek reliable trading platform chahiye jo fast execution de aur kam fees ho. Crypto ke liye Binance aur Bybit sab se popular hain.</p>
+  <ul>
+    <li><strong>Binance</strong> &mdash; sab se bara crypto exchange, kam fees (0.1%), futures bhi available hain.</li>
+    <li><strong>Bybit</strong> &mdash; futures ke liye best, user-friendly interface.</li>
+    <li><strong>TradingView</strong> &mdash; charting ke liye sab se accha tool, free aur paid dono versions hain.</li>
+  </ul>
+
+  <h3>Chart Setup</h3>
+  <p>Day trading ke liye aap ko multiple timeframes dekhne chahiye. Aik chart par 1-2 timeframe kaafi nahi hote. Kam se kam 2-3 timeframes par nazar rakhna chahiye.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">RECOMMENDED TIMEFRAMES</div>
+    <div class="formula">
+      Higher TF (1hr/4hr) &rarr; Trend dekhein<br>
+      Middle TF (15min/30min) &rarr; Structure samjhein<br>
+      Entry TF (1min/5min) &rarr; Entry/Exit lein
+      <span class="note">Higher timeframe ka trend hamesha respect karein. Chota timeframe sirf entry ke liye hai.</span>
+    </div>
+  </div>
+
+  <h3>Recommended Indicators</h3>
+  <p>Har indicator ka apna kaam hai. Day trading ke liye ye indicators sab se zyada useful hain:</p>
+  <ul>
+    <li><strong>EMA (9, 21, 50)</strong> &mdash; trend direction aur dynamic support/resistance.</li>
+    <li><strong>VWAP</strong> &mdash; average price ka benchmark, institutional traders bhi use karte hain.</li>
+    <li><strong>RSI (14)</strong> &mdash; overbought/oversold zones identify karna.</li>
+    <li><strong>Volume Profile</strong> &mdash; kahan sab se zyada trading hui hai.</li>
+  </ul>
+
+  <h3>Recommended Setup Diagram</h3>
+  <figure>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recommended Day Trading Setup">
+      <defs>
+        <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="420" fill="url(#bg2)" rx="4"/>
+      <text x="350" y="32" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">RECOMMENDED DAY TRADING SETUP</text>
+
+      <!-- Screen Layout -->
+      <rect x="40" y="55" width="340" height="200" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <rect x="40" y="55" width="340" height="30" rx="3" fill="#f0b90b" fill-opacity="0.15"/>
+      <text x="210" y="75" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10">MAIN CHART (5min)</text>
+
+      <!-- Candlestick representation -->
+      <line x1="70" y1="130" x2="70" y2="180" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="65" y="140" width="10" height="20" fill="#00b300"/>
+      <line x1="100" y1="110" x2="100" y2="170" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="95" y="120" width="10" height="30" fill="#ff4444"/>
+      <line x1="130" y1="125" x2="130" y2="185" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="125" y="135" width="10" height="30" fill="#00b300"/>
+      <line x1="160" y1="100" x2="160" y2="160" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="155" y="110" width="10" height="30" fill="#00b300"/>
+      <line x1="190" y1="95" x2="190" y2="155" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="185" y="105" width="10" height="30" fill="#ff4444"/>
+      <line x1="220" y1="105" x2="220" y2="165" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="215" y="115" width="10" height="30" fill="#00b300"/>
+      <line x1="250" y1="90" x2="250" y2="150" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="245" y="100" width="10" height="30" fill="#00b300"/>
+      <line x1="280" y1="100" x2="280" y2="160" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="275" y="110" width="10" height="30" fill="#ff4444"/>
+      <line x1="310" y1="95" x2="310" y2="155" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="305" y="105" width="10" height="30" fill="#00b300"/>
+
+      <!-- EMA lines -->
+      <path d="M65 155 Q130 145 195 125 Q260 108 340 115" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <text x="348" y="118" fill="#f0b90b" font-family="Inter,sans-serif" font-size="8">EMA9</text>
+      <path d="M65 160 Q130 150 195 135 Q260 118 340 122" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+      <text x="348" y="125" fill="#3b82f6" font-family="Inter,sans-serif" font-size="8">EMA21</text>
+
+      <!-- Indicators panel -->
+      <rect x="40" y="265" width="340" height="80" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="40" y="265" width="340" height="26" rx="3" fill="#f0b90b" fill-opacity="0.08"/>
+      <text x="210" y="283" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">INDICATORS: RSI(14) + VOLUME</text>
+      <!-- RSI line -->
+      <path d="M60 320 Q120 305 180 315 Q240 310 300 308 Q340 312 370 318" stroke="#a855f7" stroke-width="1.5" fill="none"/>
+      <line x1="60" y1="300" x2="370" y2="300" stroke="#ff4444" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <text x="375" y="303" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">70</text>
+      <line x1="60" y1="340" x2="370" y2="340" stroke="#00b300" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <text x="375" y="343" fill="#00b300" font-family="Inter,sans-serif" font-size="7">30</text>
+
+      <!-- Right panel: Checklist -->
+      <rect x="400" y="55" width="270" height="290" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="400" y="55" width="270" height="30" rx="3" fill="#f0b90b" fill-opacity="0.15"/>
+      <text x="535" y="75" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10">SETUP CHECKLIST</text>
+
+      <text x="420" y="110" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="110" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">2 monitors minimum</text>
+      <text x="420" y="135" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="135" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Fast internet (50Mbps+)</text>
+      <text x="420" y="160" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="160" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">TradingView Pro+</text>
+      <text x="420" y="185" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="185" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Exchange app ready</text>
+      <text x="420" y="210" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="210" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Stop-loss always set</text>
+      <text x="420" y="235" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="235" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Risk max 1-2% per trade</text>
+      <text x="420" y="260" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="260" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Trading journal ready</text>
+      <text x="420" y="285" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="440" y="285" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10">Noise-free environment</text>
+
+      <!-- Bottom note -->
+      <rect x="40" y="360" width="630" height="45" rx="3" fill="#1a0505"/>
+      <text x="355" y="380" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="10">IMPORTANT: Pehle 3 mahine sirf demo account par practice karein. Real money tabhi lagayein jab consistently profitable hon.</text>
+      <text x="355" y="396" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Demo trading se galtiyon se seekhein bina paisa gawaye.</text>
+    </svg>
+    <figcaption>Figure 2.1 &mdash; Recommended day trading setup with chart layout, indicators, aur checklist.</figcaption>
+  </figure>
+
+  <h3>Screen Layout Recommendations</h3>
+  <ul>
+    <li><strong>Monitor 1:</strong> Main chart (5min timeframe) + indicators pane.</li>
+    <li><strong>Monitor 2:</strong> Order book, positions, aur watchlist.</li>
+    <li>Agar sirf ek screen hai toh tabs bana lein &mdash; chart, exchange, aur news alag alag.</li>
+    <li>Phone par exchange app rakhein taake emergency mein快速ly position close kar sakein.</li>
+  </ul>
+
+  <h3>Setup Checklist</h3>
+  <ul class="checklist">
+    <li>Fast internet connection (kam se kam 50 Mbps)</li>
+    <li>2 ya us se zyada monitors (ek chart, ek trading panel)</li>
+    <li>TradingView ya similar charting software</li>
+    <li>Exchange account verified aur funded</li>
+    <li>Stop-loss mechanism tayar</li>
+    <li>Risk management rules likhe hue</li>
+    <li>Trading journal ready</li>
+    <li>Distractions band &mdash; phone silent, darwaza band</li>
+  </ul>
+
+  <!-- Quiz Ch2 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Day trading ke liye kitne monitors recommended hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Sirf ek</button>
+        <button class="quiz-option" data-correct="true">B) Kam se kam do</button>
+        <button class="quiz-option" data-correct="false">C) Paanch</button>
+        <button class="quiz-option" data-correct="false">D) Koi bhi chalega</button>
+      </div>
+      <div class="quiz-explain">Kam se kam 2 monitors chahiye &mdash; ek par chart aur indicators, dusre par trading panel aur watchlist. Agar ek screen hai toh tabs ka use karein.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Entry ke liye kaun sa timeframe best hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Daily chart</button>
+        <button class="quiz-option" data-correct="false">B) 4 hour chart</button>
+        <button class="quiz-option" data-correct="true">C) 1min ya 5min chart</button>
+        <button class="quiz-option" data-correct="false">D) Weekly chart</button>
+      </div>
+      <div class="quiz-explain">Entry ke liye chota timeframe (1min ya 5min) use hota hai, lekin trend higher timeframe (1hr/4hr) se confirm karna zaroori hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 03                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Market Sessions &amp; Timing</h2>
+  </div>
+  <p class="chapter-intro">Market kab sab se zyada active hota hai? Kaun sa time trading ke liye best hai? Ye sab samajhna day trading mein bohot zaroori hai.</p>
+
+  <h3>Crypto 24/7 Market</h3>
+  <p>Crypto market kabhi nahi sota. Ye 24 hours, 7 din, 365 din chalta hai. Lekin har waqt trading karna ka matlab nahi. Har market mein kuch specific hours hote hain jab sab se zyada volume aur volatility hoti hai.</p>
+
+  <h3>Forex Sessions</h3>
+  <p>Forex market mein 3 major trading sessions hain. Har session ka apna character hai:</p>
+  <ul>
+    <li><strong>Asian Session (Tokyo)</strong> &mdash; Subah 6:00 AM se 3:00 PM PKT. Kam volatility, chote moves.</li>
+    <li><strong>London Session</strong> &mdash; Dophar 1:00 PM se 10:00 PM PKT. High volume, strong trends.</li>
+    <li><strong>New York Session</strong> &mdash; Raat 6:00 PM se 3:00 AM PKT. Sab se zyada volatility, major news releases.</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Global Trading Sessions Timeline">
+      <defs>
+        <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="400" fill="url(#bg3)" rx="4"/>
+      <text x="350" y="32" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">GLOBAL TRADING SESSIONS (24-HOUR CLOCK)</text>
+
+      <!-- 24hr clock background -->
+      <circle cx="350" cy="210" r="150" fill="none" stroke="#262626" stroke-width="2"/>
+      <circle cx="350" cy="210" r="120" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+      <circle cx="350" cy="210" r="90" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+
+      <!-- Hour markers -->
+      <text x="350" y="55" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">00:00</text>
+      <text x="500" y="90" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">06:00</text>
+      <text x="500" y="215" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">12:00</text>
+      <text x="350" y="375" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">18:00</text>
+      <text x="200" y="215" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">06:00</text>
+
+      <!-- Asian Session arc (00:00-09:00 UTC = 06:00-15:00 PKT) -->
+      <path d="M350 60 A150 150 0 0 1 493 120" stroke="#a855f7" stroke-width="8" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+      <text x="445" y="72" fill="#a855f7" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">ASIAN</text>
+      <text x="445" y="86" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Tokyo/Sydney</text>
+      <text x="445" y="98" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">06:00-15:00 PKT</text>
+
+      <!-- London Session arc (07:00-16:00 UTC = 13:00-22:00 PKT) -->
+      <path d="M493 120 A150 150 0 0 1 493 300" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+      <text x="530" y="170" fill="#3b82f6" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">LONDON</text>
+      <text x="530" y="184" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">13:00-22:00 PKT</text>
+      <text x="530" y="196" fill="#00b300" font-family="Inter,sans-serif" font-size="8">HIGH VOLUME</text>
+
+      <!-- New York Session arc (13:00-22:00 UTC = 18:00-03:00 PKT) -->
+      <path d="M493 300 A150 150 0 0 1 207 300" stroke="#f0b90b" stroke-width="8" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+      <text x="300" y="355" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">NEW YORK</text>
+      <text x="300" y="369" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">18:00-03:00 PKT</text>
+      <text x="300" y="381" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">MAX VOLATILITY</text>
+
+      <!-- Overlap zone (London + NY) -->
+      <path d="M493 300 A150 150 0 0 1 420 340" stroke="#ff4444" stroke-width="12" fill="none" stroke-linecap="round" stroke-opacity="0.3"/>
+      <text x="470" y="340" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">OVERLAP</text>
+
+      <!-- Center label -->
+      <text x="350" y="200" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="14" font-weight="600">CRYPTO</text>
+      <text x="350" y="218" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">24/7 Open</text>
+      <text x="350" y="234" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">Best: 13:00-22:00 PKT</text>
+    </svg>
+    <figcaption>Figure 3.1 &mdash; Global trading sessions. London + New York overlap sab se volatile hota hai.</figcaption>
+  </figure>
+
+  <h3>Volatility Windows</h3>
+  <p>Volatility ka matlab hai price kitni tezi se move kar rahi hai. Zyada volatility = zyada mauke (lekin zyada risk bhi).</p>
+
+  <div class="example-box">
+    <div class="example-label">VOLATILITY WINDOWS (PKT TIMING)</div>
+    <table>
+      <tr><td>Subah 6:00 - 12:00</td><td style="color:var(--ink-faint);">LOW volatility &mdash; Asian session, chote moves</td></tr>
+      <tr><td>Dophar 12:00 - 3:00</td><td style="color:var(--gold);">MEDIUM volatility &mdash; London shuru hota hai</td></tr>
+      <tr><td>Shaam 3:00 - 7:00</td><td style="color:var(--loss);">HIGH volatility &mdash; London + NY overlap</td></tr>
+      <tr><td>Raat 7:00 - 11:00</td><td style="color:var(--loss);">HIGH volatility &mdash; NY active hai</td></tr>
+      <tr><td>Raat 11:00 - Subah 6:00</td><td style="color:var(--ink-faint);">LOW volatility &mdash; NY band, Asian shuru nahi hua</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Best time for day trading:</strong> Agar crypto trade kar rahe hain toh 1:00 PM se 7:00 PM PKT ka time best hai jab London aur New York dono active hain. Forex ke liye bhi yahi window best hai.</span>
+  </div>
+
+  <!-- Quiz Ch3 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Kaun sa session sab se zyada volatility deta hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Asian Session</button>
+        <button class="quiz-option" data-correct="true">B) London + New York Overlap</button>
+        <button class="quiz-option" data-correct="false">C) Weekend</button>
+        <button class="quiz-option" data-correct="false">D) Subah ka waqt</button>
+      </div>
+      <div class="quiz-explain">London aur New York ke overlap mein sab se zyada volume aur volatility hoti hai. Ye time 3:00 PM se 7:00 PM PKT ke beech hota hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Crypto market kitne ghante chalta hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 8 ghante</button>
+        <button class="quiz-option" data-correct="false">B) 12 ghante</button>
+        <button class="quiz-option" data-correct="true">C) 24 ghante, 7 din</button>
+        <button class="quiz-option" data-correct="false">D) Sirf weekdays</button>
+      </div>
+      <div class="quiz-explain">Crypto market 24/7 chalta hai &mdash; 24 hours, 7 din, 365 din. Lekin har waqt same volatility nahi hoti.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 04                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Support &amp; Resistance (Intraday)</h2>
+  </div>
+  <p class="chapter-intro">Support aur Resistance level identify karna day trading ki sab se bunyadi skill hai. Ye levels batate hain k price rukegi kahan ya reverse hogi kahan.</p>
+
+  <h3>Support aur Resistance kya hai?</h3>
+  <p><strong>Support</strong> woh price level hai jahan buyers active ho jaate hain aur price neeche nahi jaati. Jaise koi floor ho &mdash; price girti hai toh yahan ruk jaati hai.</p>
+  <p><strong>Resistance</strong> woh price level hai jahan sellers active ho jaate hain aur price upar nahi jaati. Jaise koi ceiling ho &mdash; price upar jaati hai toh yahan se reject ho jaati hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">S/R LEVELS KA BASIC RULE</div>
+    <div class="formula">
+      Price = Support &rarr; BUY zone<br>
+      Price = Resistance &rarr; SELL zone<br>
+      Level tod diya &rarr; Role reverse hota hai
+      <span class="note">Purana resistance naya support ban jata hai, aur pura support naya resistance. Ye "Role Reversal" kahlata hai.</span>
+    </div>
+  </div>
+
+  <h3>S/R Levels kaise draw karein?</h3>
+  <p>Chart par S/R levels draw karna ek art hai. Ye steps follow karein:</p>
+  <ol>
+    <li>Chart par wo jagah dhundhein jahan price ne 2 ya us se zyada baar reverse kiya ho.</li>
+    <li>Prior swing highs aur lows dekhein &mdash; ye natural resistance/support hain.</li>
+    <li>Round numbers dekhein &mdash; jaise 40000, 42500, 45000. Psychological levels hote hain.</li>
+    <li>Volume clusters dekhein &mdash; jahan sab se zyada volume thi, wahan strong level hota hai.</li>
+  </ol>
+
+  <h3>Round Numbers &amp; Pivot Points</h3>
+  <p>Round numbers (jaise 40000, 50000, 100000) psychologically important hote hain. Logon ka dil in numbers par buy/sell karne ka hota hai. Pivot points automatic calculate hone wale levels hain jo previous day ke high, low, aur close se nikalte hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Support and Resistance Identification">
+      <defs>
+        <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="380" fill="url(#bg4)" rx="4"/>
+      <text x="350" y="28" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">SUPPORT &amp; RESISTANCE IDENTIFICATION</text>
+
+      <!-- Price axis -->
+      <text x="660" y="68" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">44000</text>
+      <text x="660" y="128" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">42500</text>
+      <text x="660" y="188" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">41000</text>
+      <text x="660" y="248" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">39500</text>
+      <text x="660" y="308" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">38000</text>
+
+      <!-- Resistance zone -->
+      <rect x="60" y="55" width="580" height="30" fill="#ff4444" fill-opacity="0.08"/>
+      <line x1="60" y1="70" x2="640" y2="70" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="70" y="65" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">RESISTANCE ZONE &mdash; 44000</text>
+
+      <!-- Middle resistance -->
+      <rect x="60" y="115" width="580" height="25" fill="#ff4444" fill-opacity="0.05"/>
+      <line x1="60" y1="128" x2="640" y2="128" stroke="#ff4444" stroke-width="1" stroke-dasharray="4,4" stroke-opacity="0.6"/>
+      <text x="70" y="124" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" stroke-opacity="0.8">R2 &mdash; 42500</text>
+
+      <!-- Price action candles -->
+      <!-- Uptrend to resistance -->
+      <rect x="90" y="280" width="8" height="15" fill="#00b300"/>
+      <rect x="110" y="265" width="8" height="18" fill="#00b300"/>
+      <rect x="130" y="248" width="8" height="20" fill="#00b300"/>
+      <rect x="150" y="228" width="8" height="22" fill="#00b300"/>
+      <rect x="170" y="205" width="8" height="24" fill="#00b300"/>
+      <rect x="190" y="180" width="8" height="26" fill="#00b300"/>
+
+      <!-- Rejection at resistance -->
+      <rect x="210" y="75" width="8" height="50" fill="#ff4444"/>
+      <rect x="230" y="85" width="8" height="40" fill="#ff4444"/>
+      <rect x="250" y="95" width="8" height="35" fill="#ff4444"/>
+
+      <!-- Drop to support -->
+      <rect x="270" y="130" width="8" height="25" fill="#ff4444"/>
+      <rect x="290" y="160" width="8" height="25" fill="#ff4444"/>
+      <rect x="310" y="190" width="8" height="22" fill="#ff4444"/>
+      <rect x="330" y="220" width="8" height="20" fill="#ff4444"/>
+
+      <!-- Bounce at support -->
+      <rect x="350" y="240" width="8" height="18" fill="#00b300"/>
+      <rect x="370" y="225" width="8" height="20" fill="#00b300"/>
+      <rect x="390" y="205" width="8" height="22" fill="#00b300"/>
+      <rect x="410" y="185" width="8" height="22" fill="#00b300"/>
+      <rect x="430" y="165" width="8" height="22" fill="#00b300"/>
+
+      <!-- Second rejection -->
+      <rect x="450" y="100" width="8" height="60" fill="#ff4444"/>
+      <rect x="470" y="115" width="8" height="45" fill="#ff4444"/>
+
+      <!-- Support zone -->
+      <rect x="60" y="240" width="580" height="25" fill="#00b300" fill-opacity="0.08"/>
+      <line x1="60" y1="248" x2="640" y2="248" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="70" y="244" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">SUPPORT ZONE &mdash; 39500</text>
+
+      <!-- Lower support -->
+      <rect x="60" y="295" width="580" height="25" fill="#00b300" fill-opacity="0.05"/>
+      <line x1="60" y1="308" x2="640" y2="308" stroke="#00b300" stroke-width="1" stroke-dasharray="4,4" stroke-opacity="0.6"/>
+      <text x="70" y="304" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" stroke-opacity="0.8">S2 &mdash; 38000</text>
+
+      <!-- Labels -->
+      <text x="218" y="170" fill="#ff4444" font-family="Inter,sans-serif" font-size="9" font-weight="600">REJECT</text>
+      <text x="355" y="280" fill="#00b300" font-family="Inter,sans-serif" font-size="9" font-weight="600">BOUNCE</text>
+      <text x="455" y="155" fill="#ff4444" font-family="Inter,sans-serif" font-size="9" font-weight="600">REJECT</text>
+
+      <!-- Legend -->
+      <rect x="60" y="345" width="12" height="3" fill="#ff4444"/>
+      <text x="78" y="350" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Resistance (Sellers active)</text>
+      <rect x="250" y="345" width="12" height="3" fill="#00b300"/>
+      <text x="268" y="350" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Support (Buyers active)</text>
+      <rect x="430" y="345" width="12" height="3" fill="#f0b90b"/>
+      <text x="448" y="350" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Round Number Level</text>
+    </svg>
+    <figcaption>Figure 4.1 &mdash; Support aur Resistance levels. Price in levels par bounce ya reject hota hai.</figcaption>
+  </figure>
+
+  <h3>Intraday S/R Tips</h3>
+  <ul>
+    <li>Pehle 30 minute ka high aur low &mdash; ye aaj ke pehle S/R levels hain.</li>
+    <li>Previous day ka high, low, aur close &mdash; ye powerful levels hain.</li>
+    <li>Volume Profile se dekhein k sab se zyada trading kahan hui hai.</li>
+    <li>Hamesha multiple confirmations lein &mdash; sirf ek candle se decision na lein.</li>
+  </ul>
+
+  <!-- Quiz Ch4 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Agar price resistance level tod de toh kya hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Price hamesha neeche aa jata hai</button>
+        <button class="quiz-option" data-correct="true">B) Purana resistance naya support ban jata hai</button>
+        <button class="quiz-option" data-correct="false">C) Market band ho jata hai</button>
+        <button class="quiz-option" data-correct="false">D) Kuch nahi hota</button>
+      </div>
+      <div class="quiz-explain">Ye "Role Reversal" hai. Jab resistance tod diya jaata hai, toh wo level support ban jaata hai. Isi tarah support todne par wo resistance ban jaata hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Round numbers kyun important hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Mathematically special hain</button>
+        <button class="quiz-option" data-correct="true">B) Psychologically powerful hain &mdash; log in par trade karte hain</button>
+        <button class="quiz-option" data-correct="false">C) Exchange inhe automatically banata hai</button>
+        <button class="quiz-option" data-correct="false">D) Sirf stocks mein important hain</button>
+      </div>
+      <div class="quiz-explain">Round numbers (40000, 50000, 100000) psychological levels hain. Logon ka dil in numbers par buy/sell karne ka hota hai, is liye ye naturally strong S/R levels ban jaate hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 05                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Candlestick Patterns for Quick Trades</h2>
+  </div>
+  <p class="chapter-intro">Candlestick patterns padhna day trading ki sab se zaroori skill hai. Ye patterns batate hain k market kis direction mein ja raha hai aur entry/exit kahan lena hai.</p>
+
+  <h3>Top 5 Patterns jo Har Trader ko Aanay Chahiye</h3>
+
+  <h3>1. Engulfing Pattern</h3>
+  <p>Engulfing tab banta hai jab ek choti candle ko agli bari candle puri tarah cover kar le. Ye reversal signal hai &mdash; agar uptrend mein bane toh bearish, agar downtrend mein bane toh bullish.</p>
+  <ul>
+    <li><strong>Bullish Engulfing:</strong> Downtrend ke baad green candle peechli red candle ko cover kare &rarr; BUY signal.</li>
+    <li><strong>Bearish Engulfing:</strong> Uptrend ke baad red candle peechli green candle ko cover kare &rarr; SELL signal.</li>
+  </ul>
+
+  <h3>2. Pin Bar (Hammer / Shooting Star)</h3>
+  <p>Pin bar mein ek lambi "tail" (wick) hoti hai aur choti body. Tail batati hai k price ek taraf gayi thi lekin wapas aa gayi.</p>
+  <ul>
+    <li><strong>Hammer (bullish):</strong> Uptrend ke baad, neeche lambi tail &rarr; buyers ne control le liya.</li>
+    <li><strong>Shooting Star (bearish):</strong> Uptrend ke baad, upar lambi tail &rarr; sellers ne control le liya.</li>
+  </ul>
+
+  <h3>3. Doji</h3>
+  <p>Doji mein open aur close almost same hota hai. Ye batata hai k buyers aur sellers mein tay hue hain. Trend reversal ka signal ho sakta hai.</p>
+
+  <h3>4. Morning Star / Evening Star</h3>
+  <p>Ye teen candle ka pattern hai. Morning Star bullish reversal hai, Evening Star bearish reversal hai.</p>
+
+  <h3>5. Hammer (Alag se Important)</h3>
+  <p>Hammer candle bottom par banti hai aur batati hai k sellers ne price neeche dhakela lekin buyers ne wapas upar khaincha. Ye strong reversal signal hai.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Candlestick Pattern Recognition Guide">
+      <defs>
+        <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="450" fill="url(#bg5)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">CANDLESTICK PATTERN RECOGNITION GUIDE</text>
+
+      <!-- Row 1: Engulfing -->
+      <text x="175" y="62" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">ENGULFING</text>
+
+      <!-- Bullish Engulfing -->
+      <text x="105" y="82" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="8">BULLISH</text>
+      <rect x="80" y="100" width="18" height="25" fill="#ff4444"/>
+      <line x1="89" y1="95" x2="89" y2="128" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="105" y="88" width="18" height="40" fill="#00b300"/>
+      <line x1="114" y1="82" x2="114" y2="132" stroke="#a3a3a3" stroke-width="1"/>
+      <text x="105" y="148" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="7">BUY signal</text>
+
+      <!-- Bearish Engulfing -->
+      <text x="245" y="82" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">BEARISH</text>
+      <rect x="220" y="92" width="18" height="35" fill="#00b300"/>
+      <line x1="229" y1="86" x2="229" y2="130" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="245" y="80" width="18" height="48" fill="#ff4444"/>
+      <line x1="254" y1="74" x2="254" y2="132" stroke="#a3a3a3" stroke-width="1"/>
+      <text x="245" y="148" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">SELL signal</text>
+
+      <!-- Row 1: Pin Bar -->
+      <text x="455" y="62" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">PIN BAR</text>
+
+      <!-- Hammer -->
+      <text x="405" y="82" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="8">HAMMER</text>
+      <rect x="396" y="100" width="18" height="18" fill="#00b300"/>
+      <line x1="405" y1="118" x2="405" y2="145" stroke="#a3a3a3" stroke-width="2"/>
+      <line x1="405" y1="96" x2="405" y2="100" stroke="#a3a3a3" stroke-width="2"/>
+      <text x="405" y="158" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="7">BUY signal</text>
+
+      <!-- Shooting Star -->
+      <text x="545" y="82" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">SHOOTING STAR</text>
+      <rect x="536" y="112" width="18" height="18" fill="#ff4444"/>
+      <line x1="545" y1="88" x2="545" y2="112" stroke="#a3a3a3" stroke-width="2"/>
+      <line x1="545" y1="130" x2="545" y2="136" stroke="#a3a3a3" stroke-width="2"/>
+      <text x="545" y="158" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">SELL signal</text>
+
+      <!-- Divider -->
+      <line x1="40" y1="175" x2="660" y2="175" stroke="#262626" stroke-width="1"/>
+
+      <!-- Row 2: Doji -->
+      <text x="175" y="200" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">DOJI</text>
+
+      <!-- Standard Doji -->
+      <text x="105" y="218" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">STANDARD</text>
+      <line x1="105" y1="228" x2="105" y2="268" stroke="#a3a3a3" stroke-width="1.5"/>
+      <rect x="97" y="245" width="16" height="3" fill="#a3a3a3"/>
+      <text x="105" y="285" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">Indecision</text>
+
+      <!-- Dragonfly Doji -->
+      <text x="245" y="218" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="8">DRAGONFLY</text>
+      <rect x="237" y="232" width="16" height="3" fill="#00b300"/>
+      <line x1="245" y1="235" x2="245" y2="268" stroke="#a3a3a3" stroke-width="1.5"/>
+      <text x="245" y="285" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="7">Bullish reversal</text>
+
+      <!-- Gravestone Doji -->
+      <text x="405" y="218" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">GRAVESTONE</text>
+      <line x1="405" y1="228" x2="405" y2="262" stroke="#a3a3a3" stroke-width="1.5"/>
+      <rect x="397" y="260" width="16" height="3" fill="#ff4444"/>
+      <text x="405" y="285" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">Bearish reversal</text>
+
+      <!-- Divider -->
+      <line x1="40" y1="300" x2="660" y2="300" stroke="#262626" stroke-width="1"/>
+
+      <!-- Row 3: Star Patterns -->
+      <text x="350" y="325" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">MORNING &amp; EVENING STAR (3-CANDLE)</text>
+
+      <!-- Morning Star -->
+      <text x="175" y="345" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="8">MORNING STAR (Bullish)</text>
+      <rect x="110" y="355" width="16" height="35" fill="#ff4444"/>
+      <line x1="118" y1="350" x2="118" y2="393" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="135" y="372" width="16" height="8" fill="#a3a3a3"/>
+      <line x1="143" y1="368" x2="143" y2="384" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="160" y="352" width="16" height="38" fill="#00b300"/>
+      <line x1="168" y1="346" x2="168" y2="393" stroke="#a3a3a3" stroke-width="1"/>
+      <text x="143" y="408" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="7">Strong BUY signal</text>
+
+      <!-- Evening Star -->
+      <text x="475" y="345" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">EVENING STAR (Bearish)</text>
+      <rect x="410" y="352" width="16" height="38" fill="#00b300"/>
+      <line x1="418" y1="346" x2="418" y2="393" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="435" y="355" width="16" height="8" fill="#a3a3a3"/>
+      <line x1="443" y1="350" x2="443" y2="367" stroke="#a3a3a3" stroke-width="1"/>
+      <rect x="460" y="355" width="16" height="35" fill="#ff4444"/>
+      <line x1="468" y1="350" x2="468" y2="393" stroke="#a3a3a3" stroke-width="1"/>
+      <text x="443" y="408" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">Strong SELL signal</text>
+
+      <!-- Bottom note -->
+      <rect x="60" y="425" width="580" height="20" rx="2" fill="#f0b90b" fill-opacity="0.1"/>
+      <text x="350" y="439" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">Hamesha pattern ko volume aur support/resistance ke saath confirm karein. Akela pattern kaafi nahi hai.</text>
+    </svg>
+    <figcaption>Figure 5.1 &mdash; Top candlestick patterns jo day trading mein sab se zyada use hote hain.</figcaption>
+  </figure>
+
+  <h3>Entry Triggers kaise use karein</h3>
+  <div class="example-box">
+    <div class="example-label">PATTERN + CONFIRMATION = ENTRY</div>
+    <table>
+      <tr><td>Pattern dekha</td><td>Pehla qadam</td></tr>
+      <tr><td>S/R level par hai?</td><td>Doosra confirmation</td></tr>
+      <tr><td>Volume barha hai?</td><td>Teesra confirmation</td></tr>
+      <tr><td>Stop-loss lagaya?</td><td>Entry lene se pehle zaroori</td></tr>
+      <tr><td>Risk:Reward 1:2 ya us se zyada?</td><td>Sirf tabhi trade karein</td></tr>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <span class="dot" style="color:var(--loss);">!</span>
+    <span><strong>Warning:</strong> Akela candlestick pattern kabhi kaafi nahi hota. Hamesha doosre confirmations dekhein &mdash; support/resistance level, volume, aur trend direction. Pattern ke saath bina confirmation ke trade mat lein.</span>
+  </div>
+
+  <!-- Quiz Ch5 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Bullish Engulfing pattern kab banta hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Uptrend ke beech mein</button>
+        <button class="quiz-option" data-correct="true">B) Downtrend ke baad, jab green candle peechli red candle ko cover kare</button>
+        <button class="quiz-option" data-correct="false">C) Market band hone par</button>
+        <button class="quiz-option" data-correct="false">D) Sirf stocks mein</button>
+      </div>
+      <div class="quiz-explain">Bullish Engulfing tab banta hai jab downtrend mein ek bari green candle peechli choti red candle ko puri tarah cover kar le. Ye reversal signal hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Doji candle kya batati hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Market strongly bullish hai</button>
+        <button class="quiz-option" data-correct="false">B) Market strongly bearish hai</button>
+        <button class="quiz-option" data-correct="true">C) Buyers aur sellers mein tay hue hain (indecision)</button>
+        <button class="quiz-option" data-correct="false">D) Market band ho raha hai</button>
+      </div>
+      <div class="quiz-explain">Doji mein open aur close almost same hota hai. Ye batata hai k buyers aur sellers mein tay hue hain &mdash; market indecision mein hai. Trend reversal ka signal ho sakta hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 06                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>Volume &amp; Order Flow</h2>
+  </div>
+  <p class="chapter-intro">Volume batata hai k market mein kitni activity ho rahi hai. Bina volume ke sirf price dekhna adhoora hai. Volume se pata chalta hai k move asli hai ya fake.</p>
+
+  <h3>Volume kyun Zaroori Hai?</h3>
+  <p>Price ke saath volume dekhna bohot zaroori hai. Agar price barh rahi hai aur volume bhi barh raha hai &mdash; toh move strong hai. Agar price barh rahi hai lekin kam ho raha hai &mdash; toh move weak hai aur reversal ho sakta hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">VOLUME + PRICE RULES</div>
+    <div class="formula">
+      Price &#8593; + Volume &#8593; = STRONG UPTREND (Buy)<br>
+      Price &#8593; + Volume &#8595; = WEAK MOVE (Caution)<br>
+      Price &#8595; + Volume &#8593; = STRONG DOWNTREND (Sell)<br>
+      Price &#8595; + Volume &#8595; = WEAK DROP (Possible reversal)
+      <span class="note">Volume confirmation sab se powerful signal hai. Price bina volume ke jhooth bol sakta hai.</span>
+    </div>
+  </div>
+
+  <h3>Volume Spikes kya hote hain?</h3>
+  <p>Volume spike tab hota hai jab achanak bohot zyada buying ya selling hoti hai. Ye batata hai k kuch bada ho raha hai &mdash; koi bada player (institutional trader) enter ya exit kar raha hai.</p>
+  <ul>
+    <li><strong>Uptrend mein volume spike:</strong> Naye buyers aa rahe hain, trend strong ho raha hai.</li>
+    <li><strong>Resistance par volume spike + rejection:</strong> Sellers ne entry li, trend reverse ho sakta hai.</li>
+    <li><strong>Support par volume spike + bounce:</strong> Buyers ne entry li, support strong hai.</li>
+    <li><strong>Breakout ke saath volume spike:</strong> Breakout genuine hai, chase kar sakte hain.</li>
+  </ul>
+
+  <h3>VWAP (Volume Weighted Average Price)</h3>
+  <p>VWAP ek powerful indicator hai jo batata hai k din mein average mein kahan trading ho rahi hai. Ye institutional traders ka benchmark hai.</p>
+  <ul>
+    <li>Price VWAP ke upar hai &rarr; Bulls control mein hain.</li>
+    <li>Price VWAP ke neeche hai &rarr; Bears control mein hain.</li>
+    <li>VWAP ko support/resistance ki tarah treat kar sakte hain.</li>
+    <li>VWAP ke paas entry lena zyada safe hota hai.</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Volume Analysis Guide">
+      <defs>
+        <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="420" fill="url(#bg6)" rx="4"/>
+      <text x="350" y="28" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">VOLUME ANALYSIS &amp; VWAP GUIDE</text>
+
+      <!-- Price chart area -->
+      <rect x="60" y="50" width="400" height="220" rx="2" fill="#0d0d0d" stroke="#262626" stroke-width="1"/>
+      <text x="70" y="68" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8">PRICE + VWAP</text>
+
+      <!-- VWAP line -->
+      <path d="M70 180 Q120 170 170 165 Q220 160 270 155 Q320 148 370 142 Q420 138 450 135" stroke="#f0b90b" stroke-width="2" fill="none"/>
+      <text x="455" y="133" fill="#f0b90b" font-family="Inter,sans-serif" font-size="8">VWAP</text>
+
+      <!-- Price candles above VWAP (bullish) -->
+      <rect x="80" y="170" width="8" height="15" fill="#00b300"/>
+      <rect x="100" y="162" width="8" height="16" fill="#00b300"/>
+      <rect x="120" y="155" width="8" height="14" fill="#00b300"/>
+      <rect x="140" y="148" width="8" height="14" fill="#00b300"/>
+      <rect x="160" y="140" width="8" height="15" fill="#00b300"/>
+
+      <!-- Price dips to VWAP (support) -->
+      <rect x="180" y="152" width="8" height="12" fill="#ff4444"/>
+      <rect x="200" y="158" width="8" height="10" fill="#ff4444"/>
+      <rect x="220" y="162" width="8" height="8" fill="#00b300"/>
+
+      <!-- Bounce from VWAP -->
+      <rect x="240" y="150" width="8" height="14" fill="#00b300"/>
+      <rect x="260" y="140" width="8" height="16" fill="#00b300"/>
+      <rect x="280" y="128" width="8" height="18" fill="#00b300"/>
+      <rect x="300" y="115" width="8" height="18" fill="#00b300"/>
+
+      <!-- Price drops below VWAP -->
+      <rect x="320" y="135" width="8" height="15" fill="#ff4444"/>
+      <rect x="340" y="148" width="8" height="15" fill="#ff4444"/>
+      <rect x="360" y="158" width="8" height="14" fill="#ff4444"/>
+      <rect x="380" y="165" width="8" height="12" fill="#ff4444"/>
+      <rect x="400" y="172" width="8" height="10" fill="#ff4444"/>
+
+      <!-- VWAP labels -->
+      <text x="150" y="130" fill="#00b300" font-family="Inter,sans-serif" font-size="8">Above VWAP = Bullish</text>
+      <text x="240" y="108" fill="#00b300" font-family="Inter,sans-serif" font-size="8">Bounce = BUY</text>
+      <text x="350" y="192" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">Below VWAP = Bearish</text>
+
+      <!-- Volume bars -->
+      <rect x="60" y="290" width="400" height="100" rx="2" fill="#0d0d0d" stroke="#262626" stroke-width="1"/>
+      <text x="70" y="306" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8">VOLUME</text>
+
+      <!-- Volume bars -->
+      <rect x="80" y="350" width="8" height="25" fill="#00b300" fill-opacity="0.5"/>
+      <rect x="100" y="340" width="8" height="35" fill="#00b300" fill-opacity="0.6"/>
+      <rect x="120" y="335" width="8" height="40" fill="#00b300" fill-opacity="0.7"/>
+      <rect x="140" y="330" width="8" height="45" fill="#00b300" fill-opacity="0.8"/>
+      <rect x="160" y="325" width="8" height="50" fill="#00b300" fill-opacity="0.9"/>
+
+      <!-- Volume spike -->
+      <rect x="180" y="310" width="8" height="65" fill="#f0b90b"/>
+      <text x="184" y="305" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="7">SPIKE!</text>
+
+      <rect x="200" y="345" width="8" height="30" fill="#ff4444" fill-opacity="0.5"/>
+      <rect x="220" y="355" width="8" height="20" fill="#ff4444" fill-opacity="0.4"/>
+      <rect x="240" y="348" width="8" height="27" fill="#00b300" fill-opacity="0.5"/>
+      <rect x="260" y="338" width="8" height="37" fill="#00b300" fill-opacity="0.7"/>
+      <rect x="280" y="328" width="8" height="47" fill="#00b300" fill-opacity="0.8"/>
+      <rect x="300" y="320" width="8" height="55" fill="#00b300" fill-opacity="0.9"/>
+
+      <rect x="320" y="330" width="8" height="45" fill="#ff4444" fill-opacity="0.6"/>
+      <rect x="340" y="340" width="8" height="35" fill="#ff4444" fill-opacity="0.5"/>
+      <rect x="360" y="348" width="8" height="27" fill="#ff4444" fill-opacity="0.4"/>
+      <rect x="380" y="355" width="8" height="20" fill="#ff4444" fill-opacity="0.3"/>
+      <rect x="400" y="360" width="8" height="15" fill="#ff4444" fill-opacity="0.2"/>
+
+      <!-- Right panel: Volume Rules -->
+      <rect x="480" y="50" width="200" height="340" rx="2" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="480" y="50" width="200" height="28" rx="2" fill="#f0b90b" fill-opacity="0.12"/>
+      <text x="580" y="70" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9">VOLUME RULES</text>
+
+      <text x="500" y="100" fill="#00b300" font-family="Inter,sans-serif" font-size="9" font-weight="600">STRONG SIGNALS:</text>
+      <text x="500" y="120" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &#8593; + Vol &#8593; = Real rally</text>
+      <text x="500" y="140" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &#8595; + Vol &#8593; = Real dump</text>
+      <text x="500" y="160" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Breakout + Vol &#8593; = Genuine</text>
+
+      <text x="500" y="190" fill="#ff4444" font-family="Inter,sans-serif" font-size="9" font-weight="600">WEAK SIGNALS:</text>
+      <text x="500" y="210" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &#8593; + Vol &#8595; = Fake rally</text>
+      <text x="500" y="230" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &#8595; + Vol &#8595; = Weak drop</text>
+
+      <text x="500" y="260" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9" font-weight="600">VWAP RULES:</text>
+      <text x="500" y="280" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &gt; VWAP = Bulls win</text>
+      <text x="500" y="300" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">Price &lt; VWAP = Bears win</text>
+      <text x="500" y="320" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8.5">VWAP bounce = Entry point</text>
+
+      <text x="500" y="355" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Volume = Truth serum of market</text>
+      <text x="500" y="372" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7.5">Price bina volume ke jhooth bol sakta hai</text>
+    </svg>
+    <figcaption>Figure 6.1 &mdash; Volume analysis aur VWAP. Volume barhna confirm karta hai k move real hai.</figcaption>
+  </figure>
+
+  <h3>Volume se Fake Moves Pakdein</h3>
+  <div class="example-box">
+    <div class="example-label">REAL MOVE vs FAKE MOVE</div>
+    <table>
+      <tr><td>Price barh rahi hai, volume barh raha hai</td><td style="color:var(--profit);">REAL &mdash; Trend follow karein</td></tr>
+      <tr><td>Price barh rahi hai, volume kam ho raha hai</td><td style="color:var(--loss);">FAKE &mdash; Reversal ka intezaar karein</td></tr>
+      <tr><td>Breakout hua, volume spike aaya</td><td style="color:var(--profit);">GENUINE &mdash; Entry le sakte hain</td></tr>
+      <tr><td>Breakout hua, volume kam hai</td><td style="color:var(--loss);">FAKE BREAKOUT &mdash; Door rahein</td></tr>
+      <tr><td>Price VWAP ke upar hai + volume strong</td><td style="color:var(--profit);">BULLISH CONFIRMED</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> VWAP ke paas entry lena sab se safe hota hai. Jab price VWAP ko touch kare aur bounce kare, tab entry lein. Stop-loss VWAP ke neeche lagayein. Risk:Reward 1:2 ya us se zyada hona chahiye.</span>
+  </div>
+
+  <!-- Quiz Ch6 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Price barh rahi hai lekin volume kam ho raha hai &mdash; iska kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Trend strong hai</button>
+        <button class="quiz-option" data-correct="true">B) Move weak hai, reversal ho sakta hai</button>
+        <button class="quiz-option" data-correct="false">C) Aur price barhegi</button>
+        <button class="quiz-option" data-correct="false">D) Kuch nahi, normal hai</button>
+      </div>
+      <div class="quiz-explain">Jab price barh rahi hai lekin volume kam ho raha hai, toh move weak hai. Ye batata hai k naye buyers kam aa rahe hain aur trend reverse ho sakta hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: VWAP ke upar price hone ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Bears control mein hain</button>
+        <button class="quiz-option" data-correct="true">B) Bulls control mein hain</button>
+        <button class="quiz-option" data-correct="false">C) Market band hai</button>
+        <button class="quiz-option" data-correct="false">D) VWAP ka koi matlab nahi</button>
+      </div>
+      <div class="quiz-explain">Jab price VWAP ke upar hoti hai, iska matlab hai k buyers (bulls) control mein hain. VWAP ke neeche hone par sellers (bears) control mein hote hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 07                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2>Strategy — Trend Following</h2>
+  </div>
+  <p class="chapter-intro">Trend following ka matlab hai k price jis direction mein ja rahi hai usi direction mein trade karna. "Trend is your friend" — ye day trading ki sab se purani aur sab se effective strategy hai.</p>
+
+  <h3>Moving Average Crossover Strategy (EMA 9/21)</h3>
+  <p>EMA (Exponential Moving Average) crossover strategy mein do EMAs use hote hain — EMA 9 (fast) aur EMA 21 (slow). Jab fast EMA upar se slow EMA ko cross kare (bullish crossover), toh buy signal milta hai. Jab neeche se cross kare (bearish crossover), toh sell signal milta hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">EMA CROSSOVER RULES</div>
+    <div class="formula">
+      BUY: EMA 9 &gt; EMA 21 (Golden Cross) &rarr; Long Entry<br>
+      SELL: EMA 9 &lt; EMA 21 (Death Cross) &rarr; Short Entry
+      <span class="note">Hamesha higher timeframe (15min/1hr) se trend confirm karein. Chote timeframe par whipsaws zyada hote hain.</span>
+    </div>
+  </div>
+
+  <h3>Breakout Strategy (Support/Resistance Break)</h3>
+  <p>Breakout strategy mein price ke kisi strong resistance level ko todne ka wait kiya jaata hai. Jab price resistance ke upar close ho aur volume barh jaye, toh ye genuine breakout hai aur long entry le sakte hain.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">BREAKOUT ENTRY RULES</div>
+    <div class="formula">
+      1. Resistance level identify karein (2+ touches)<br>
+      2. Price resistance ke upar close ho<br>
+      3. Volume spike ho (confirmation)<br>
+      4. Breakout candle ke low par stop-loss lagayein
+      <span class="note">Fake breakouts se bachne ke liye hamesha volume confirmation dekhein. Bina volume ke breakout ka matlab nahi.</span>
+    </div>
+  </div>
+
+  <h3>Pullback Entries in Trending Market</h3>
+  <p>Trend following mein sab se acchi entry tab hoti hai jab price pullback kare trend ke against. Agar uptrend hai toh price neeche aaye aur support ya EMA ko touch kare — yahan buy entry lein.</p>
+  <ul>
+    <li><strong>Uptrend:</strong> Price pullback karke EMA 21 ya previous resistance (ab support) ko touch kare &rarr; BUY</li>
+    <li><strong>Downtrend:</strong> Price pullback karke EMA 21 ya previous support (ab resistance) ko touch kare &rarr; SELL</li>
+    <li><strong>Confirmation:</strong> Pullback ke baad bullish/bearish candle baney</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trend Following Setup">
+      <defs>
+        <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+        <marker id="arrowGreen7" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#00b300"/>
+        </marker>
+        <marker id="arrowRed7" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#ff4444"/>
+        </marker>
+      </defs>
+      <rect width="700" height="400" fill="url(#bg7)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">TREND FOLLOWING SETUP — EMA 9/21 CROSSOVER</text>
+
+      <!-- Trend line (uptrend) -->
+      <line x1="60" y1="340" x2="640" y2="80" stroke="#f0b90b" stroke-width="1.5" stroke-dasharray="6,4" stroke-opacity="0.4"/>
+      <text x="580" y="70" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9" font-weight="600">UPTREND</text>
+
+      <!-- EMA 9 line (fast) -->
+      <polyline points="80,300 120,280 160,290 200,260 240,240 280,250 320,220 360,200 400,180 440,170 480,155 520,140 560,125 600,110" stroke="#00b300" stroke-width="2" fill="none"/>
+      <text x="608" y="107" fill="#00b300" font-family="Inter,sans-serif" font-size="8">EMA 9</text>
+
+      <!-- EMA 21 line (slow) -->
+      <polyline points="80,310 120,295 160,300 200,275 240,260 280,265 320,240 360,225 400,210 440,200 480,190 520,175 560,160 600,145" stroke="#3b82f6" stroke-width="2" fill="none"/>
+      <text x="608" y="142" fill="#3b82f6" font-family="Inter,sans-serif" font-size="8">EMA 21</text>
+
+      <!-- Crossover point 1 (Golden Cross) -->
+      <circle cx="200" cy="265" r="8" fill="none" stroke="#00b300" stroke-width="2"/>
+      <text x="200" y="248" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">GOLDEN CROSS</text>
+      <text x="200" y="238" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="7">BUY SIGNAL</text>
+
+      <!-- Entry point -->
+      <line x1="210" y1="270" x2="210" y2="350" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="195" y="350" width="30" height="18" rx="2" fill="#00b300" fill-opacity="0.2"/>
+      <text x="210" y="362" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7">ENTRY</text>
+
+      <!-- Stop loss -->
+      <line x1="210" y1="300" x2="300" y2="300" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="310" y="303" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">STOP LOSS (EMA 21 neeche)</text>
+
+      <!-- Take profit arrow -->
+      <line x1="500" y1="155" x2="500" y2="95" stroke="#00b300" stroke-width="1.5" marker-end="url(#arrowGreen7)"/>
+      <text x="500" y="88" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">TARGET</text>
+
+      <!-- Legend -->
+      <rect x="60" y="375" width="12" height="3" fill="#00b300"/>
+      <text x="78" y="380" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">EMA 9 (Fast)</text>
+      <rect x="170" y="375" width="12" height="3" fill="#3b82f6"/>
+      <text x="188" y="380" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">EMA 21 (Slow)</text>
+      <rect x="280" y="375" width="12" height="3" fill="#f0b90b"/>
+      <text x="298" y="380" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Trend Line</text>
+      <rect x="390" y="375" width="12" height="3" fill="#ff4444"/>
+      <text x="408" y="380" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Stop Loss Zone</text>
+    </svg>
+    <figcaption>Figure 7.1 — Trend following setup. EMA 9/21 golden cross buy signal deta hai, stop loss EMA 21 ke neeche lagta hai.</figcaption>
+  </figure>
+
+  <h3>Entry Rules</h3>
+  <ol>
+    <li>Pehle higher timeframe (15min/1hr) par trend identify karein.</li>
+    <li>Entry timeframe (1min/5min) par EMA crossover ya breakout ka wait karein.</li>
+    <li>Volume se confirmation lein.</li>
+    <li>Candlestick pattern se additional confirmation (bullish engulfing, hammer).</li>
+  </ol>
+
+  <h3>Exit Rules</h3>
+  <ul>
+    <li><strong>Take Profit:</strong> Risk:Reward 1:2 ya us se zyada hona chahiye.</li>
+    <li><strong>Stop Loss:</strong> Entry ke neeche (long) ya upar (short) lagayein.</li>
+    <li><strong>Trailing Stop:</strong> Jab price profit mein aaye, stop loss ko move karein.</li>
+  </ul>
+
+  <h3>Stop Loss Placement</h3>
+  <div class="example-box">
+    <div class="example-label">STOP LOSS PLACEMENT OPTIONS</div>
+    <table>
+      <tr><td>Below EMA 21</td><td style="color:var(--profit);">Dynamic — trend ke saath move hota hai</td></tr>
+      <tr><td>Below recent swing low</td><td style="color:var(--profit);">Structure-based — zyada reliable</td></tr>
+      <tr><td>Fixed percentage (1-2%)</td><td style="color:var(--gold);">Simple — lekin flexible nahi</td></tr>
+      <tr><td>ATR-based (1.5x ATR)</td><td style="color:var(--profit);">Volatility-adjusted — best approach</td></tr>
+    </table>
+  </div>
+
+  <!-- Quiz Ch7 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: EMA 9 jab EMA 21 ko upar se cross kare toh kya signal milta hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="true">A) Golden Cross — Buy signal</button>
+        <button class="quiz-option" data-correct="false">B) Death Cross — Sell signal</button>
+        <button class="quiz-option" data-correct="false">C) Koi signal nahi</button>
+        <button class="quiz-option" data-correct="false">D) Wait karna chahiye</button>
+      </div>
+      <div class="quiz-explain">Jab fast EMA (9) slow EMA (21) ko upar se cross kare, ye Golden Cross kehlata hai aur ye buy signal hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Trend following mein entry ke liye sab se accha mauka kab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Jab price tezi se barh rahi ho</button>
+        <button class="quiz-option" data-correct="true">B) Jab pullback ho aur support touch ho</button>
+        <button class="quiz-option" data-correct="false">C) Jab market flat ho</button>
+        <button class="quiz-option" data-correct="false">D) Jab breakout ho bina volume ke</button>
+      </div>
+      <div class="quiz-explain">Pullback mein entry lena sab se safe hota hai kyunki aap better price par entry paate hain aur risk kam hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 08                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2>Strategy — Reversal Trading</h2>
+  </div>
+  <p class="chapter-intro">Reversal trading mein hum wo mauke dhoondhte hain jab market apni direction change karne wala ho. Ye trend following se alag hai — yahan hum against the trend jaate hain lekin confirmation ke saath.</p>
+
+  <h3>RSI Divergence (Bullish/Bearish)</h3>
+  <p>RSI divergence tab hota hai jab price aur RSI alag direction mein ja rahe hain. Ye reversal ka strong signal hai.</p>
+  <ul>
+    <li><strong>Bullish Divergence:</strong> Price lower low bana raha hai lekin RSI higher low bana raha hai &rarr; Upward reversal ka signal</li>
+    <li><strong>Bearish Divergence:</strong> Price higher high bana raha hai lekin RSI lower high bana raha hai &rarr; Downward reversal ka signal</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="formula-label">RSI DIVERGENCE RULES</div>
+    <div class="formula">
+      1. RSI (14) use karein<br>
+      2. Price ka swing low/high note karein<br>
+      3. RSI ka swing low/high note karein<br>
+      4. Agar direction alag hai = DIVERGENCE<br>
+      5. Confirmation candle ka wait karein
+      <span class="note">RSI divergence 100% accurate nahi hai. Hamesha volume aur candlestick confirmation dekhein.</span>
+    </div>
+  </div>
+
+  <h3>Double Top aur Double Bottom</h3>
+  <p>Ye classic reversal patterns hain jo chart par baar baar bante hain.</p>
+  <ul>
+    <li><strong>Double Top (M Pattern):</strong> Price do baar same resistance level ko touch kare aur neeche aaye &rarr; Bearish reversal</li>
+    <li><strong>Double Bottom (W Pattern):</strong> Price do baar same support level ko touch kare aur upar jaaye &rarr; Bullish reversal</li>
+  </ul>
+
+  <h3>Support/Resistance Bounce Trades</h3>
+  <p>Jab price kisi strong support ya resistance level par pohanchay aur wahan se reverse ho, toh ye bounce trade hai. Key levels hain:</p>
+  <ol>
+    <li>Previous day high/low</li>
+    <li>Round numbers (40000, 42500, 45000)</li>
+    <li>Volume profile ke high volume nodes</li>
+    <li>Fibonacci retracement levels (38.2%, 50%, 61.8%)</li>
+  </ol>
+
+  <figure>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reversal Setup Double Bottom with RSI Divergence">
+      <defs>
+        <linearGradient id="bg8" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="420" fill="url(#bg8)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">REVERSAL SETUP — DOUBLE BOTTOM + RSI DIVERGENCE</text>
+
+      <!-- Price chart area -->
+      <rect x="60" y="50" width="400" height="250" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+
+      <!-- Support line -->
+      <line x1="60" y1="260" x2="460" y2="260" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="70" y="255" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9">SUPPORT — 39500</text>
+
+      <!-- Price action: Double Bottom (W pattern) -->
+      <polyline points="80,120 120,160 160,200 200,250 240,260 280,250 300,220 320,200 340,220 360,250 380,260 400,250 420,210 440,170" stroke="#e5e5e5" stroke-width="2" fill="none"/>
+
+      <!-- Double Bottom labels -->
+      <circle cx="240" cy="260" r="6" fill="#00b300" fill-opacity="0.3" stroke="#00b300" stroke-width="1.5"/>
+      <text x="240" y="280" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BOTTOM 1</text>
+
+      <circle cx="380" cy="260" r="6" fill="#00b300" fill-opacity="0.3" stroke="#00b300" stroke-width="1.5"/>
+      <text x="380" y="280" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BOTTOM 2</text>
+
+      <!-- Neckline -->
+      <line x1="300" y1="200" x2="460" y2="200" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="465" y="203" fill="#f0b90b" font-family="Inter,sans-serif" font-size="8">NECKLINE</text>
+
+      <!-- Breakout arrow -->
+      <line x1="440" y1="170" x2="440" y2="100" stroke="#00b300" stroke-width="2"/>
+      <polygon points="440,95 435,105 445,105" fill="#00b300"/>
+      <text x="440" y="90" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">BREAKOUT</text>
+
+      <!-- RSI panel -->
+      <rect x="60" y="310" width="400" height="90" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <text x="70" y="325" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">RSI (14)</text>
+
+      <!-- RSI line showing divergence -->
+      <polyline points="80,370 120,365 160,360 200,355 240,370 280,365 300,350 320,345 340,355 360,360 380,370 400,365 420,340 440,330" stroke="#a855f7" stroke-width="1.5" fill="none"/>
+
+      <!-- RSI levels -->
+      <line x1="60" y1="340" x2="460" y2="340" stroke="#ff4444" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <text x="465" y="343" fill="#ff4444" font-family="Inter,sans-serif" font-size="7">70</text>
+      <line x1="60" y1="380" x2="460" y2="380" stroke="#00b300" stroke-width="0.5" stroke-dasharray="3,3"/>
+      <text x="465" y="383" fill="#00b300" font-family="Inter,sans-serif" font-size="7">30</text>
+
+      <!-- Divergence annotation -->
+      <text x="350" y="395" text-anchor="middle" fill="#a855f7" font-family="Inter,sans-serif" font-size="8">RSI DIVERGENCE — Higher Low while Price = Lower Low</text>
+
+      <!-- Right side: Explanation -->
+      <rect x="480" y="50" width="200" height="350" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="480" y="50" width="200" height="30" rx="3" fill="#f0b90b" fill-opacity="0.15"/>
+      <text x="580" y="70" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10">REVERSAL CHECKLIST</text>
+
+      <text x="500" y="105" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="105" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">Double bottom formed</text>
+      <text x="500" y="130" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="130" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">RSI divergence present</text>
+      <text x="500" y="155" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="155" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">Neckline break confirm</text>
+      <text x="500" y="180" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="180" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">Volume spike on breakout</text>
+      <text x="500" y="205" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="205" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">Stop loss below bottom</text>
+      <text x="500" y="230" fill="#00b300" font-family="Inter,sans-serif" font-size="11">&#10003;</text>
+      <text x="520" y="230" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">R:R ratio 1:2 minimum</text>
+
+      <line x1="500" y1="250" x2="660" y2="250" stroke="#333" stroke-width="1"/>
+
+      <text x="500" y="275" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">WHEN NOT TO TRADE:</text>
+      <text x="500" y="298" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8">&#10007; Sideways market mein</text>
+      <text x="500" y="318" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8">&#10007; Strong trend ke beech mein</text>
+      <text x="500" y="338" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8">&#10007; News release ke time</text>
+      <text x="500" y="358" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8">&#10007; Low volume sessions mein</text>
+      <text x="500" y="378" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="8">&#10007; Bina confirmation ke</text>
+    </svg>
+    <figcaption>Figure 8.1 — Double bottom reversal pattern RSI divergence ke saath. Neckline break par entry, bottom ke neeche stop loss.</figcaption>
+  </figure>
+
+  <h3>Kab Reversals Trade NA Karein</h3>
+  <div class="callout warn">
+    <span class="dot" style="color:var(--loss);">!</span>
+    <span><strong>Warning:</strong> Reversal trading risky hai kyunki aap trend ke against ja rahe hain. In halaat mein reversal trade mat lein: (1) Jab market strong trend mein ho, (2) Jab major news release aane wali ho, (3) Jab low volume ho, (4) Jab bina confirmation ke sirf "lagta hai" ke basis par trade lein.</span>
+  </div>
+
+  <!-- Quiz Ch8 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Bullish RSI Divergence mein kya hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Price aur dono neeche ja rahe hain</button>
+        <button class="quiz-option" data-correct="true">B) Price lower low bana raha hai, RSI higher low</button>
+        <button class="quiz-option" data-correct="false">C) RSI 70 ke upar hai</button>
+        <button class="quiz-option" data-correct="false">D) Price barh rahi hai, RSI bhi barh raha hai</button>
+      </div>
+      <div class="quiz-explain">Bullish divergence mein price toh neeche ja raha hota hai lekin RSI ke indicator mein opposite direction mein move hota hai — ye upward reversal ka signal hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Double Bottom pattern mein entry kahan leni chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Pehle bottom par</button>
+        <button class="quiz-option" data-correct="false">B) Dusre bottom par</button>
+        <button class="quiz-option" data-correct="true">C) Neckline break ke baad</button>
+        <button class="quiz-option" data-correct="false">D) Pattern banne se pehle</button>
+      </div>
+      <div class="quiz-explain">Double bottom mein safe entry tab hoti hai jab neckline (highest point between two bottoms) break ho jaye aur close ho uske upar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 09                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2>Scalping Strategies</h2>
+  </div>
+  <p class="chapter-intro">Scalping mein chote-chote price movements se profit kamaya jaata hai — kai baar sirf 5-10 points ka target. Ye fastest trading style hai jismein speed aur discipline sab se zaroori hai.</p>
+
+  <h3>1-Minute aur 5-Minute Scalping</h3>
+  <p>Scalping ke liye sab se chote timeframes use hote hain. 1-minute chart par entries milti hain lekin bohot fast hona padta hai. 5-minute chart thoda stable hai aur beginners ke liye behtar hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">SCALPING TIMEFRAME RULE</div>
+    <div class="formula">
+      Entry: 1min ya 5min chart<br>
+      Trend Confirmation: 15min chart<br>
+      Higher Bias: 1hr chart
+      <span class="note">Scalping mein 3 timeframe rule follow karein. sirf 1min chart par trade karna gambling hai.</span>
+    </div>
+  </div>
+
+  <h3>Quick Entries aur Exits</h3>
+  <p>Scalping mein entry aur exit dono bahut fast hote hain. Aik trade 2-15 minute tak hold hota hai. Key rules:</p>
+  <ul>
+    <li><strong>Entry:</strong> EMA bounce, VWAP bounce, ya order block par entry</li>
+    <li><strong>Target:</strong> 5-15 points (forex) ya 0.1-0.3% (crypto)</li>
+    <li><strong>Stop Loss:</strong> 3-8 points (forex) ya 0.05-0.15% (crypto)</li>
+    <li><strong>Time Limit:</strong> Agar 15 minute mein target hit na ho, manually close karein</li>
+  </ul>
+
+  <h3>Spread Management</h3>
+  <p>Scalping mein spread (bid-ask difference) bohot important hai. Agar spread zyada hai toh scalping profitable nahi hogi.</p>
+  <div class="example-box">
+    <div class="example-label">SPREAD RULE FOR SCALPING</div>
+    <table>
+      <tr><td>EUR/USD Spread</td><td style="color:var(--profit);">0.1-0.3 pips — BEST for scalping</td></tr>
+      <tr><td>BTC/USDT Spread</td><td style="color:var(--profit);">0.01-0.05% — GOOD</td></tr>
+      <tr><td>Exotic Pairs Spread</td><td style="color:var(--loss);">2-10 pips — AVOID scalping</td></tr>
+      <tr><td>Low Volume Altcoins</td><td style="color:var(--loss);">0.5-2% — NEVER scalp</td></tr>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scalping Flowchart">
+      <defs>
+        <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+        <marker id="arrowGold9" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f0b90b"/>
+        </marker>
+        <marker id="arrowGreen9" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#00b300"/>
+        </marker>
+        <marker id="arrowRed9" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#ff4444"/>
+        </marker>
+      </defs>
+      <rect width="700" height="400" fill="url(#bg9)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">SCALPING DECISION FLOWCHART</text>
+
+      <!-- Step 1: Setup -->
+      <rect x="250" y="55" width="200" height="45" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="82" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">1. SETUP CHECK</text>
+      <text x="350" y="95" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Trend confirmed? Volume hai?</text>
+
+      <!-- Arrow down -->
+      <line x1="350" y1="100" x2="350" y2="130" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold9)"/>
+
+      <!-- Step 2: Confirm -->
+      <rect x="250" y="135" width="200" height="45" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="162" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">2. CONFIRMATION</text>
+      <text x="350" y="175" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Candle pattern + RSI + Volume</text>
+
+      <!-- Arrow down -->
+      <line x1="350" y1="180" x2="350" y2="210" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold9)"/>
+
+      <!-- Step 3: Enter -->
+      <rect x="250" y="215" width="200" height="45" rx="3" fill="#111" stroke="#00b300" stroke-width="2"/>
+      <text x="350" y="242" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700">3. ENTER TRADE</text>
+      <text x="350" y="255" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Market order, size calculated</text>
+
+      <!-- Branch: Target Hit? -->
+      <line x1="350" y1="260" x2="350" y2="290" stroke="#f0b90b" stroke-width="1.5"/>
+
+      <!-- Decision diamond -->
+      <polygon points="350,290 420,315 350,340 280,315" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="318" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9">TARGET HIT?</text>
+
+      <!-- YES path -->
+      <line x1="420" y1="315" x2="510" y2="315" stroke="#00b300" stroke-width="1.5" marker-end="url(#arrowGreen9)"/>
+      <text x="465" y="308" fill="#00b300" font-family="Inter,sans-serif" font-size="9" font-weight="600">YES</text>
+      <rect x="515" y="295" width="140" height="40" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="585" y="313" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">BOOK PROFIT</text>
+      <text x="585" y="327" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Next setup dhundhein</text>
+
+      <!-- NO path -->
+      <line x1="350" y1="340" x2="350" y2="370" stroke="#ff4444" stroke-width="1.5" marker-end="url(#arrowRed9)"/>
+      <text x="365" y="358" fill="#ff4444" font-family="Inter,sans-serif" font-size="9" font-weight="600">NO</text>
+
+      <!-- Time check -->
+      <polygon points="350,370 420,390 350,405 280,390" fill="#111" stroke="#ff4444" stroke-width="1"/>
+      <text x="350" y="393" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">15 MIN PASSED?</text>
+
+      <!-- YES = close -->
+      <line x1="420" y1="390" x2="510" y2="390" stroke="#ff4444" stroke-width="1.5" marker-end="url(#arrowRed9)"/>
+      <text x="465" y="383" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">YES</text>
+      <rect x="515" y="375" width="140" height="30" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="585" y="394" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9">MANUALLY CLOSE</text>
+
+      <!-- NO = wait -->
+      <line x1="280" y1="390" x2="200" y2="390" stroke="#a3a3a3" stroke-width="1" marker-end="url(#arrowGold9)"/>
+      <text x="240" y="383" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">NO</text>
+      <rect x="60" y="375" width="140" height="30" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <text x="130" y="394" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">HOLD &amp; MONITOR</text>
+    </svg>
+    <figcaption>Figure 9.1 — Scalping decision flowchart. Har step par confirmation zaroori hai, time limit 15 minute.</figcaption>
+  </figure>
+
+  <h3>Best Pairs/Assets for Scalping</h3>
+  <div class="example-box">
+    <div class="example-label">TOP SCALPING ASSETS</div>
+    <table>
+      <tr><td>EUR/USD</td><td style="color:var(--profit);">Best — Low spread, high volume, predictable moves</td></tr>
+      <tr><td>GBP/USD</td><td style="color:var(--profit);">Good — Volatile, acche moves milte hain</td></tr>
+      <tr><td>BTC/USDT</td><td style="color:var(--profit);">Good — High volume, tight spread</td></tr>
+      <tr><td>ETH/USDT</td><td style="color:var(--gold);">Decent — BTC se correlated hai</td></tr>
+      <tr><td>Exotic Pairs</td><td style="color:var(--loss);">AVOID — Spread zyada, volume kam</td></tr>
+    </table>
+  </div>
+
+  <!-- Quiz Ch9 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Scalping mein ek trade kitne tak hold hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 1-2 din</button>
+        <button class="quiz-option" data-correct="false">B) 4-6 ghante</button>
+        <button class="quiz-option" data-correct="true">C) 2-15 minute</button>
+        <button class="quiz-option" data-correct="false">D) 1 mahina</button>
+      </div>
+      <div class="quiz-explain">Scalping mein trades bahut fast hote hain — 2 se 15 minute tak hold hota hai. 15 minute se zyada hold karna scalping nahi rehti.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Scalping ke liye sab se zaroori cheez kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Bada target rakhna</button>
+        <button class="quiz-option" data-correct="true">B) Tight spread aur fast execution</button>
+        <button class="quiz-option" data-correct="false">C) Zyada leverage lagana</button>
+        <button class="quiz-option" data-correct="false">D) Sirf ek baar trade karna</button>
+      </div>
+      <div class="quiz-explain">Scalping mein profit chota hota hai isliye spread kam hona aur execution fast hona zaroori hai. Spread zyada hua toh profit khatam ho jayega.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 10                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2>Risk Management for Day Traders</h2>
+  </div>
+  <p class="chapter-intro">Risk management day trading ki sab se zaroori skill hai. Bina risk management ke aap kitni bhi strategy seekh lein, eventually paisa gawa denge. Ye chapter aap ki trading ko safe banayega.</p>
+
+  <h3>1-2% Risk Rule Per Trade</h3>
+  <p>Ye rule sab se important hai: <strong>Har trade mein sirf 1-2% apne total account se risk karein.</strong> Agar aap ke paas $1000 hain, toh ek trade mein maximum $10-$20 ka loss hona chahiye.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">1% RISK RULE</div>
+    <div class="formula">
+      Account Balance: $1,000<br>
+      Risk Per Trade: 1% = $10<br>
+      Maximum Loss Per Day: 3% = $30
+      <span class="note">Ye rule tootne par account ki death hoti hai. Koi bhi trade itna risk na le k account 10%+ down ho jaye.</span>
+    </div>
+  </div>
+
+  <h3>Position Sizing Formula</h3>
+  <p>Position size nikalna zaroori hai taake pata ho k kitna lot ya quantity trade karna hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">POSITION SIZE FORMULA</div>
+    <div class="formula">
+      Position Size = (Account × Risk%) ÷ (Entry Price − Stop Loss Price)
+      <span class="note">Example: $1,000 account, 1% risk, Entry $50,000, SL $49,800</span>
+      <span class="note">Position Size = ($1,000 × 0.01) ÷ ($50,000 − $49,800) = $10 ÷ $200 = 0.05 BTC</span>
+    </div>
+  </div>
+
+  <h3>Stop Loss Placement Strategies</h3>
+  <ul>
+    <li><strong>Structure-based:</strong> Recent swing low/high ke neeche/upar</li>
+    <li><strong>ATR-based:</strong> 1.5x ATR value entry se door</li>
+    <li><strong>Percentage-based:</strong> Entry se 1-2% door (fixed)</li>
+    <li><strong>Time-based:</strong> Agar specified time mein target na mile, close</li>
+  </ul>
+
+  <h3>Risk:Reward Minimum 1:2</h3>
+  <p>Har trade mein minimum 1:2 Risk:Reward ratio hona chahiye. Yani agar $10 risk le rahe hain toh kam se kam $20 ka target hona chahiye.</p>
+
+  <div class="example-box">
+    <div class="example-label">RISK:REWARD EXAMPLE</div>
+    <table>
+      <tr><td>Entry Price</td><td>$50,000</td></tr>
+      <tr><td>Stop Loss</td><td>$49,800 (Risk = $200)</td></tr>
+      <tr><td>Take Profit</td><td>$50,400 (Reward = $400)</td></tr>
+      <tr class="result-row"><td>Risk:Reward</td><td>1:2 ✅</td></tr>
+    </table>
+  </div>
+
+  <h3>Daily Loss Limit</h3>
+  <p>Agar din mein 3-5% account se loss ho jaye toh trading band karein. Aaj ka din khatam. Kal nayi soch ke saath aayein.</p>
+
+  <div class="callout warn">
+    <span class="dot" style="color:var(--loss);">!</span>
+    <span><strong>Daily Loss Limit Rule:</strong> Agar aap ka account $1,000 hai aur aaj $30-$50 (3-5%) loss ho gaya — abhi band karein. Revenge trading mat karein. Market kal bhi rahegi.</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Risk Calculation Flow">
+      <defs>
+        <linearGradient id="bg10" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+        <marker id="arrowGold10" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f0b90b"/>
+        </marker>
+      </defs>
+      <rect width="700" height="380" fill="url(#bg10)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">RISK CALCULATION — ACCOUNT TO POSITION SIZE</text>
+
+      <!-- Step 1: Account -->
+      <rect x="50" y="60" width="160" height="60" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="130" y="85" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">ACCOUNT BALANCE</text>
+      <text x="130" y="105" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="18" font-weight="700">$1,000</text>
+
+      <!-- Arrow -->
+      <line x1="210" y1="90" x2="260" y2="90" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold10)"/>
+
+      <!-- Step 2: Risk % -->
+      <rect x="265" y="60" width="160" height="60" rx="3" fill="#111" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="345" y="85" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">RISK PER TRADE</text>
+      <text x="345" y="105" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="18" font-weight="700">1% = $10</text>
+
+      <!-- Arrow -->
+      <line x1="425" y1="90" x2="475" y2="90" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold10)"/>
+
+      <!-- Step 3: Risk Amount -->
+      <rect x="480" y="60" width="180" height="60" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="570" y="85" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">MAX RISK $</text>
+      <text x="570" y="105" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="18" font-weight="700">$10</text>
+
+      <!-- Middle section: Formula -->
+      <rect x="50" y="150" width="610" height="80" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <text x="355" y="175" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">POSITION SIZE FORMULA</text>
+      <text x="355" y="200" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="12">Risk $ ÷ (Entry − Stop Loss) = Position Size</text>
+      <text x="355" y="220" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">$10 ÷ ($50,000 − $49,800) = 0.05 BTC</text>
+
+      <!-- Arrow down -->
+      <line x1="355" y1="230" x2="355" y2="255" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold10)"/>
+
+      <!-- Result: Position Size -->
+      <rect x="200" y="260" width="310" height="55" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="2"/>
+      <text x="355" y="285" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700">POSITION SIZE: 0.05 BTC</text>
+      <text x="355" y="302" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Trade Value = 0.05 × $50,000 = $2,500</text>
+
+      <!-- Daily limit box -->
+      <rect x="50" y="330" width="610" height="40" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="355" y="355" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10">DAILY LOSS LIMIT: $1,000 × 3% = $30 MAX LOSS PER DAY</text>
+    </svg>
+    <figcaption>Figure 10.1 — Risk calculation flow. Account balance se risk amount nikalta hai, phir position size calculate hota hai.</figcaption>
+  </figure>
+
+  <h3>Example with Numbers</h3>
+  <div class="example-box">
+    <div class="example-label">COMPLETE TRADE EXAMPLE</div>
+    <table>
+      <tr><td>Account Balance</td><td>$5,000</td></tr>
+      <tr><td>Risk Per Trade (1%)</td><td>$50</td></tr>
+      <tr><td>Entry Price (BTC)</td><td>$45,000</td></tr>
+      <tr><td>Stop Loss</td><td>$44,500</td></tr>
+      <tr><td>Risk per BTC</td><td>$500</td></tr>
+      <tr><td>Position Size</td><td>$50 ÷ $500 = 0.1 BTC</td></tr>
+      <tr><td>Trade Value</td><td>0.1 × $45,000 = $4,500</td></tr>
+      <tr><td>Take Profit (1:2 RR)</td><td>$46,000</td></tr>
+      <tr class="result-row profit"><td>Max Profit</td><td>$100 (0.1 × $1,000)</td></tr>
+      <tr class="result-row loss"><td>Max Loss</td><td>$50 (1% of account)</td></tr>
+    </table>
+  </div>
+
+  <!-- Quiz Ch10 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: $2,000 account par 1% risk rule ke mutabiq ek trade mein maximum kitna risk le sakte hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) $200</button>
+        <button class="quiz-option" data-correct="true">B) $20</button>
+        <button class="quiz-option" data-correct="false">C) $2000</button>
+        <button class="quiz-option" data-correct="false">D) $50</button>
+      </div>
+      <div class="quiz-explain">1% of $2,000 = $2,000 × 0.01 = $20. Ye maximum risk hai ek trade mein.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Agar din mein 3% account se loss ho jaye toh kya karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Aur zyada trade karein wapas kamane ke liye</button>
+        <button class="quiz-option" data-correct="true">B) Trading band karein, kal aayein</button>
+        <button class="quiz-option" data-correct="false">C) Leverage barha dein</button>
+        <button class="quiz-option" data-correct="false">D) Stop loss hatayein</button>
+      </div>
+      <div class="quiz-explain">Daily loss limit cross hone par trading band karna zaroori hai. Revenge trading se sirf aur loss hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 11                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2>Trading Psychology — Day Trader Edition</h2>
+  </div>
+  <p class="chapter-intro">Trading 80% psychology hai aur 20% strategy. Aap kitni bhi acchi strategy jaante hon, agar emotions control nahi kar paate toh consistently profit karna mumkin nahi.</p>
+
+  <h3>FOMO (Fear of Missing Out)</h3>
+  <p>FOMO tab hota hai jab aap dekhte hain k price tezi se barh rahi hai aur aap sochte hain "abhi enter karta hoon, mujhe bhi profit chahiye." Ye emotion sab se zyada traders ko taba karta hai.</p>
+  <ul>
+    <li>FOMO mein li gayi trade aksar top par hoti hai</li>
+    <li>Price already 5% barh chuki hai, aap 6% par entry lete hain, phir 3% gir jati hai</li>
+    <li><strong>Solution:</strong> Sirf apne setup ka wait karein. Agar setup nahi bana, trade mat lein.</li>
+  </ul>
+
+  <h3>Revenge Trading</h3>
+  <p>Revenge trading tab hota hai jab loss ke baad aap turant wapas trade lete hain paisa wapas kamane ke liye. Ye sab se dangerous cycle hai.</p>
+  <ul>
+    <li>Loss hua &rarr; Gussa aaya &rarr; Turant trade liya &rarr; Aur loss hua</li>
+    <li>Ek ghante mein 5-6 trades lena = revenge trading</li>
+    <li><strong>Solution:</strong> Loss ke baad 30 minute ka break lein. Screen se uthein.</li>
+  </ul>
+
+  <h3>Overtrading</h3>
+  <p>Overtrading tab hota hai jab bina kisi clear signal ke baar baar trade lete hain. Boredom, lalach, ya frustration ki wajah se hota hai.</p>
+  <ul>
+    <li>Din mein 20-30 trades lena = overtrading</li>
+    <li>Har candle par entry lena = overtrading</li>
+    <li><strong>Solution:</strong> Maximum 3-5 trades per day ka rule banayein.</li>
+  </ul>
+
+  <h3>Greed vs Fear Cycle</h3>
+  <p>Ye cycle har trader ke saath hoti hai:</p>
+  <ol>
+    <li><strong>Greed:</strong> Jab profit ho raha hai toh sochte hain "aur barhao"</li>
+    <li><strong>Fear:</strong> Jab price thoda neeche aaye toh dar jaate hain aur profit book kar lete hain</li>
+    <li><strong>Regret:</strong> Baad mein dekhte hain price aur barh gayi thi</li>
+    <li><strong>Greed (phir se):</strong> Next time zyada der hold karte hain, lekin price gir jaati hai</li>
+  </ol>
+
+  <h3>Discipline aur Routine</h3>
+  <p>Successful traders ka ek hi common factor hai — <strong>discipline.</strong> Har din ek hi routine follow karte hain chahe market kuch bhi kar raha ho.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">TRADER KI DAILY ROUTINE</div>
+    <div class="formula">
+      Subah 8:00 &rarr; Market analysis, news check<br>
+      8:30 &rarr; Levels identify karein (S/R, EMA, VWAP)<br>
+      9:00 &rarr; Trading shuru, sirf setup par trade<br>
+      12:00 &rarr; Break, review karein kya hua<br>
+      1:00 &rarr; Best session (London+NY overlap)<br>
+      4:00 &rarr; Trading band, journal likhein<br>
+      5:00 &rarr; Review aur next day ki tayyari
+      <span class="note">Routine fix hona discipline banata hai. Har din ek hi jagah se trading karein.</span>
+    </div>
+  </div>
+
+  <h3>Trading Journal Importance</h3>
+  <p>Trading journal mein har trade ka record rakhein — entry/exit, reason, emotion, result. Ye aap ko patterns dikhata hai k aap kahan galti kar rahe hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emotional Cycle of a Trader">
+      <defs>
+        <linearGradient id="bg11" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+      </defs>
+      <rect width="700" height="400" fill="url(#bg11)" rx="4"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">EMOTIONAL CYCLE OF A TRADER</text>
+
+      <!-- Circle path -->
+      <circle cx="350" cy="210" r="130" fill="none" stroke="#262626" stroke-width="1.5"/>
+
+      <!-- Stage 1: Confidence (top) -->
+      <circle cx="350" cy="80" r="22" fill="#0a1a00" stroke="#00b300" stroke-width="2"/>
+      <text x="350" y="77" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">CONFIDENCE</text>
+      <text x="350" y="90" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">"Main pro hoon"</text>
+
+      <!-- Arrow to Stage 2 -->
+      <path d="M372 95 A130 130 0 0 1 455 140" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- Stage 2: Greed (right-top) -->
+      <circle cx="470" cy="155" r="22" fill="#111" stroke="#f0b90b" stroke-width="2"/>
+      <text x="470" y="152" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">GREED</text>
+      <text x="470" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">"Aur kamana hai"</text>
+
+      <!-- Arrow to Stage 3 -->
+      <path d="M488 175 A130 130 0 0 1 475 280" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- Stage 3: Loss (right-bottom) -->
+      <circle cx="460" cy="300" r="22" fill="#1a0505" stroke="#ff4444" stroke-width="2"/>
+      <text x="460" y="297" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">LOSS</text>
+      <text x="460" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">"Sab khatam"</text>
+
+      <!-- Arrow to Stage 4 -->
+      <path d="M440 315 A130 130 0 0 1 260 315" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- Stage 4: Fear (left-bottom) -->
+      <circle cx="240" cy="300" r="22" fill="#1a0505" stroke="#ff4444" stroke-width="2"/>
+      <text x="240" y="297" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">FEAR</text>
+      <text x="240" y="310" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">"Dubara loss"</text>
+
+      <!-- Arrow to Stage 5 -->
+      <path d="M225 280 A130 130 0 0 1 212 175" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- Stage 5: Revenge (left-top) -->
+      <circle cx="230" cy="155" r="22" fill="#1a0505" stroke="#ff4444" stroke-width="2"/>
+      <text x="230" y="152" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">REVENGE</text>
+      <text x="230" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">"Wapas jeetunga"</text>
+
+      <!-- Arrow back to start -->
+      <path d="M215 140 A130 130 0 0 1 328 95" stroke="#f0b90b" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- Center label -->
+      <text x="350" y="205" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="14" font-weight="600">EMOTIONAL</text>
+      <text x="350" y="222" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="14" font-weight="600">TRAP</text>
+
+      <!-- Break the cycle label -->
+      <rect x="50" y="360" width="600" height="30" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="350" y="380" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="10">BREAK THE CYCLE: DISCIPLINE + JOURNAL + RULES = CONSISTENT PROFIT</text>
+    </svg>
+    <figcaption>Figure 11.1 — Emotional cycle jo har trader guzarta hai. Is cycle ko todne ka tareeqa hai discipline aur rules.</figcaption>
+  </figure>
+
+  <h3>Tips to Stay Disciplined</h3>
+  <ol>
+    <li><strong>Trading Plan Likhein:</strong> Sab kuch likha hona chahiye — entry, exit, risk, size.</li>
+    <li><strong>Journal Maintain Karein:</strong> Har trade ka record rakhein.</li>
+    <li><strong>Max Trades Set Karein:</strong> Din mein sirf 3-5 trades.</li>
+    <li><strong>Daily Loss Limit:</strong> 3% cross karein toh band.</li>
+    <li><strong>Break Lein:</strong> Loss ke baad 30 min break.</li>
+    <li><strong>Physical Health:</strong> Exercise, neend, khana — sab important hai.</li>
+    <li><strong>Screen Time Limit:</strong> 6-8 ghante se zyada na baithen.</li>
+    <li><strong>Emotions Notice Karein:</strong> Jab lalach ya dar mehsoos karein, trade band karein.</li>
+  </ol>
+
+  <!-- Quiz Ch11 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: FOMO kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Trading ka ek strategy</button>
+        <button class="quiz-option" data-correct="true">B) Miss hone ka darr aur bina setup ke trade lena</button>
+        <button class="quiz-option" data-correct="false">C) Profit book karna</button>
+        <button class="quiz-option" data-correct="false">D) Stop loss lagana</button>
+      </div>
+      <div class="quiz-explain">FOMO (Fear of Missing Out) mein trader bina setup ke trade le leta hai kyunki use lagta hai wo profit miss kar raha hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Revenge trading se kaise bachein?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Aur zyada trades karein</button>
+        <button class="quiz-option" data-correct="false">B) Leverage barha dein</button>
+        <button class="quiz-option" data-correct="true">C) Loss ke baad break lein aur plan par wapas aayein</button>
+        <button class="quiz-option" data-correct="false">D) Stop loss na lagayein</button>
+      </div>
+      <div class="quiz-explain">Revenge trading se bachne ka sab se accha tareeqa hai break lena aur apne original trading plan par wapas aana.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHAPTER 12                                                       -->
+<!-- ================================================================ -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2>Complete Trading Plan</h2>
+  </div>
+  <p class="chapter-intro">Ye chapter aap ke liye ek complete trading plan template hai. Agar aap ne ye plan follow kiya toh aap systematically trading karenge bina emotions ke.</p>
+
+  <h3>Pre-Market Routine (30 Minute Before)</h3>
+  <ol>
+    <li>Market news check karein (forex factory, coin calendar)</li>
+    <li>Higher timeframe (1hr/4hr) par trend identify karein</li>
+    <li>Key support/resistance levels draw karein</li>
+    <li>VWAP aur EMAs note karein</li>
+    <li>Watchlist tayar karein (max 5 pairs/assets)</li>
+    <li>Economic calendar dekhein (bade news ke time careful rahein)</li>
+  </ol>
+
+  <h3>Entry Rules Checklist</h3>
+  <ul class="checklist">
+    <li>Trend higher timeframe par confirm hai?</li>
+    <li>Entry signal mila hai (EMA crossover/breakout/pullback)?</li>
+    <li>Volume se confirmation hai?</li>
+    <li>Risk:Reward 1:2 ya us se zyada hai?</li>
+    <li>Stop loss set hai?</li>
+    <li>Position size calculate hai (1-2% risk)?</li>
+  </ul>
+
+  <h3>Exit Rules</h3>
+  <div class="example-box">
+    <div class="example-label">EXIT STRATEGY</div>
+    <table>
+      <tr><td>Take Profit</td><td style="color:var(--profit);">Risk:Reward 1:2 ke mutabiq, ya resistance par</td></tr>
+      <tr><td>Stop Loss</td><td style="color:var(--loss);">Entry ke neeche (long) / upar (short), max 1-2%</td></tr>
+      <tr><td>Trailing Stop</td><td style="color:var(--gold);">Profit mein aane ke baad, EMA 21 ke saath move kare</td></tr>
+      <tr><td>Time Exit</td><td style="color:var(--ink-soft);">15-30 minute mein target na mile toh manually close</td></tr>
+      <tr><td>Daily Limit</td><td style="color:var(--loss);">3% din ka loss ho jaye toh sab band</td></tr>
+    </table>
+  </div>
+
+  <h3>Position Sizing Rules</h3>
+  <ul>
+    <li>Har trade mein 1-2% risk</li>
+    <li>Din mein maximum 3% total risk</li>
+    <li>Ek hi asset mein maximum 5% exposure</li>
+    <li>Leverage 5x se zyada na ho (beginners ke liye 2-3x)</li>
+  </ul>
+
+  <h3>Post-Market Review</h3>
+  <ol>
+    <li>Har trade ka record journal mein likhein</li>
+    <li>Profit/loss calculate karein</li>
+    <li>Galtiyan identify karein kya galat hua</li>
+    <li>Achhaiyan note karein kya sahi hua</li>
+    <li>Next day ke liye levels mark karein</li>
+    <li>Emotions note karein kaisa feel hua</li>
+  </ol>
+
+  <figure>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trading Plan Template Flowchart">
+      <defs>
+        <linearGradient id="bg12" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#111111"/>
+          <stop offset="100%" style="stop-color:#0a0a0a"/>
+        </linearGradient>
+        <marker id="arrowGold12" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#f0b90b"/>
+        </marker>
+      </defs>
+      <rect width="700" height="420" fill="url(#bg12)" rx="4"/>
+      <text x="350" y="28" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="0.5">COMPLETE TRADING PLAN — DAILY WORKFLOW</text>
+
+      <!-- Pre-Market -->
+      <rect x="50" y="50" width="150" height="70" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="125" y="75" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">PRE-MARKET</text>
+      <text x="125" y="92" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">News + Trend + Levels</text>
+      <text x="125" y="107" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">30 min routine</text>
+
+      <!-- Arrow -->
+      <line x1="200" y1="85" x2="240" y2="85" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold12)"/>
+
+      <!-- Watchlist -->
+      <rect x="245" y="50" width="130" height="70" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <text x="310" y="75" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">WATCHLIST</text>
+      <text x="310" y="92" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Max 5 pairs</text>
+      <text x="310" y="107" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Key levels marked</text>
+
+      <!-- Arrow -->
+      <line x1="375" y1="85" x2="415" y2="85" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold12)"/>
+
+      <!-- Wait for Setup -->
+      <rect x="420" y="50" width="140" height="70" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="490" y="75" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">WAIT FOR SETUP</text>
+      <text x="490" y="92" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Patience rakhein</text>
+      <text x="490" y="107" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Setup na mile = trade na lein</text>
+
+      <!-- Arrow down -->
+      <line x1="490" y1="120" x2="490" y2="150" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowGold12)"/>
+
+      <!-- Entry Check -->
+      <polygon points="490,155 560,185 490,215 420,185" fill="#111" stroke="#00b300" stroke-width="1.5"/>
+      <text x="490" y="182" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600">ALL RULES</text>
+      <text x="490" y="195" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">MET?</text>
+
+      <!-- YES path -->
+      <line x1="560" y1="185" x2="620" y2="185" stroke="#00b300" stroke-width="1.5" marker-end="url(#arrowGold12)"/>
+      <text x="590" y="178" fill="#00b300" font-family="Inter,sans-serif" font-size="8" font-weight="600">YES</text>
+      <rect x="625" y="165" width="60" height="40" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1.5"/>
+      <text x="655" y="183" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">EXECUTE</text>
+      <text x="655" y="197" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">SL+TP set</text>
+
+      <!-- NO path -->
+      <line x1="490" y1="215" x2="490" y2="250" stroke="#ff4444" stroke-width="1.5" marker-end="url(#arrowGold12)"/>
+      <text x="505" y="235" fill="#ff4444" font-family="Inter,sans-serif" font-size="8">NO</text>
+
+      <!-- Wait more -->
+      <rect x="420" y="255" width="140" height="40" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <text x="490" y="275" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">KEEP WAITING</text>
+      <text x="490" y="288" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Patient trader = Profitable trader</text>
+
+      <!-- Bottom section: Post-Market -->
+      <rect x="50" y="310" width="610" height="100" rx="3" fill="#111" stroke="#333" stroke-width="1"/>
+      <rect x="50" y="310" width="610" height="28" rx="3" fill="#f0b90b" fill-opacity="0.12"/>
+      <text x="355" y="330" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">POST-MARKET REVIEW</text>
+
+      <text x="80" y="358" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">1. Journal update</text>
+      <text x="250" y="358" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">2. P/L calculate</text>
+      <text x="420" y="358" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">3. Galtiyan note</text>
+
+      <text x="80" y="380" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">4. Achhaiyan note</text>
+      <text x="250" y="380" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">5. Next day levels</text>
+      <text x="420" y="380" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="9">6. Emotions review</text>
+
+      <text x="355" y="402" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Review karna seekhna = Growth karna</text>
+    </svg>
+    <figcaption>Figure 12.1 — Complete daily trading workflow. Pre-market se post-market tak sab kuch planned hona chahiye.</figcaption>
+  </figure>
+
+  <h3>Complete Checklist (10 Items)</h3>
+  <ul class="checklist">
+    <li>Pre-market analysis complete hai (news, trend, levels)</li>
+    <li>Watchlist tayar hai (max 5 assets)</li>
+    <li>Entry rules ka paas kiya hai (trend + signal + volume + R:R)</li>
+    <li>Position size calculate hai (1-2% risk)</li>
+    <li>Stop loss set hai</li>
+    <li>Take profit set hai (minimum 1:2 R:R)</li>
+    <li>Max 3-5 trades per day ka rule follow ho raha hai</li>
+    <li>Daily loss limit (3%) ka khayal rakh rahe hain</li>
+    <li>Emotions control mein hain (FOMO/revenge nahi kar rahe)</li>
+    <li>Trading journal update hai</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Final Advice:</strong> Ye plan sirf ek baar parh kar chhod dein. Ise print karein ya screen par rakhein aur har din follow karein. Discipline hi success ka raaz hai.</span>
+  </div>
+
+  <!-- Quiz Ch12 -->
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Pre-market routine mein sab se pehle kya karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Turant trade khol lena</button>
+        <button class="quiz-option" data-correct="true">B) Market news aur trend analysis karna</button>
+        <button class="quiz-option" data-correct="false">C) Leverage set karna</button>
+        <button class="quiz-option" data-correct="false">D) Social media check karna</button>
+      </div>
+      <div class="quiz-explain">Pre-market mein sab se pehle market ka overall trend samjhein aur news check karein. Bina analysis ke trade lena gambling hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Trading plan mein post-market review kyun zaroori hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Sirf time pass ke liye</button>
+        <button class="quiz-option" data-correct="false">B) Dusron ko dikhane ke liye</button>
+        <button class="quiz-option" data-correct="true">C) Galtiyon se seekhne ke liye aur improve karne ke liye</button>
+        <button class="quiz-option" data-correct="false">D) Profit count karne ke liye</button>
+      </div>
+      <div class="quiz-explain">Post-market review aap ko dikhata hai k kya sahi hua aur kya galat. Is se aap ki strategy improve hoti hai aur aap better trader bante hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- DISCLAIMER                                                        -->
+<!-- ================================================================ -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Ye book sirf educational purposes k liye hai — koi financial advice nahi hai. Day trading mein financial nuksaan ka khatra hota hai. Koi bhi real raqam invest karne se pehle apni research karein aur risk samjhein.
+</div>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  // Sidebar toggle
+  var sidebar = document.getElementById('sidebar');
+  var menuBtn = document.getElementById('menuBtn');
+  var overlay = document.getElementById('overlay');
+  function closeMenu(){ sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', function(){
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click', function(){ closeMenu(); });
+  });
+
+  // Progress bar
+  var fill = document.getElementById('progressFill');
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrollTop = h.scrollTop || document.body.scrollTop;
+    var scrollHeight = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    fill.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // Quiz logic
+  document.querySelectorAll('.quiz-q').forEach(function(q){
+    var options = q.querySelectorAll('.quiz-option');
+    var explain = q.querySelector('.quiz-explain');
+    options.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        options.forEach(function(o){ o.disabled = true; });
+        if(opt.getAttribute('data-correct') === 'true'){
+          opt.classList.add('correct');
+        } else {
+          opt.classList.add('incorrect');
+          options.forEach(function(o){ if(o.getAttribute('data-correct') === 'true') o.classList.add('correct'); });
+        }
+        if(explain){ explain.classList.add('show'); }
+      });
+    });
+  });
+
+  // Context menu block
+  document.addEventListener('copy', function(e){ e.preventDefault(); });
+  document.addEventListener('cut', function(e){ e.preventDefault(); });
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('keydown', function(e){
+    var k = e.key ? e.key.toLowerCase() : '';
+    var blockedCombo = (e.ctrlKey || e.metaKey) && ['c','x','s','p','u'].indexOf(k) !== -1;
+    if (blockedCombo || k === 'f12') { e.preventDefault(); }
+  });
+})();
+</script>
+
+</body>
+</html>

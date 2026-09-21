@@ -284,6 +284,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Calculations', 'Spot & Futures'],
     cover: '/covers/crypto-trading-calculations-book.jpg',
   },
+  {
+    id: 'day-trading-guide',
+    title: 'Day Trading Complete Guide (Urdu)',
+    titleUrdu: 'ڈے ٹریڈنگ مکمل گائیڈ',
+    description:
+      'Complete day trading course — Scalping, Trend Following, Reversal Trading, Risk Management, Psychology, and a complete trading plan. 12 chapters with 30+ practice questions.',
+    chapters: 12,
+    pages: '12 chapters · 30+ Practice Questions',
+    icon: Target,
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
+    href: '/day-trading-guide/index.html',
+    tags: ['Urdu', 'Day Trading', 'Complete Guide'],
+    cover: '/covers/Day-Trading-Guide.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
