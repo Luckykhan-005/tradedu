@@ -1,0 +1,1459 @@
+﻿<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advanced Chart Patterns — Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:22ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:54ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"☐";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+  .disclaimer{background:var(--loss-bg);border:1px solid var(--loss);border-radius:var(--radius);padding:18px 22px;margin:40px 0 30px;font-size:0.92rem;color:#f0a0a0;line-height:1.6;}
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Advanced Chart Patterns<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Chart Patterns Ki Dunya</a>
+    <a href="#ch2"><span class="toc-num">02</span>Head &amp; Shoulders</a>
+    <a href="#ch3"><span class="toc-num">03</span>Double Top &amp; Double Bottom</a>
+    <a href="#ch4"><span class="toc-num">04</span>Triple Top &amp; Triple Bottom</a>
+    <a href="#ch5"><span class="toc-num">05</span>Triangles</a>
+    <a href="#ch6"><span class="toc-num">06</span>Wedges (Rising &amp; Falling)</a>
+    <a href="#ch7"><span class="toc-num">07</span>Flags &amp; Pennants</a>
+    <a href="#ch8"><span class="toc-num">08</span>Channels (Ascending &amp; Descending)</a>
+    <a href="#ch9"><span class="toc-num">09</span>Round Bottom &amp; Cup &amp; Handle</a>
+    <a href="#ch10"><span class="toc-num">10</span>Harmonic Patterns</a>
+    <a href="#ch11"><span class="toc-num">11</span>Pattern Combinations</a>
+    <a href="#ch12"><span class="toc-num">12</span>Complete Pattern Trading Plan</a>
+  </nav>
+</aside>
+
+<main id="cover">
+
+<div class="cover">
+  <div class="eyebrow">CHART PATTERNS · ADVANCED GUIDE</div>
+  <h1>Advanced Chart Patterns, Price Ka Irada Samjho</h1>
+  <p class="subtitle">Chart patterns pehchano, breakout pakro, aur profit banao. Head &amp; Shoulders se le kar Triangles tak — sab kuch Roman Urdu mein.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>24+ PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</div>
+
+<p>Chart patterns technical analysis ki rooh hain. Jab market ke andar buyers aur sellers ki larrai ek particular shape le leti hai, toh woh shape hi aap ko batata hai k aage kya hone wala hai. Ye book aap ko woh sab patterns sikhayi jo real trading mein sab se zyada kaam aate hain.</p>
+<p>Har chapter mein aap ko ek pattern ki psychology, uska structure, entry/exit rules, aur practice questions milenge. Shuru karte hain!</p>
+
+<h3>Is Book Mein Kya Hai</h3>
+<ul>
+  <li><strong>Chart Patterns Ki Dunya:</strong> Reversal aur continuation patterns ka introduction</li>
+  <li><strong>Head &amp; Shoulders:</strong> Sab se powerful reversal pattern</li>
+  <li><strong>Double Top / Double Bottom:</strong> M-shape aur W-shape patterns</li>
+  <li><strong>Triple Top / Triple Bottom:</strong> Double patterns se bhi powerful</li>
+  <li><strong>Triangles:</strong> Ascending, Descending, Symmetrical</li>
+  <li><strong>Wedges:</strong> Rising aur Falling wedges</li>
+  <li>Aur bohat kuch jo aap ko complete trader banayega</li>
+</ul>
+
+<div class="callout">
+  <span class="dot">&rsaquo;</span>
+  <span><strong>Yaad rakhein:</strong> Pattern sirf probability hai, guarantee nahi. Har pattern ke sath risk management zaroori hai. Stop loss lagana mat bhoolen — bina stop loss ke koi bhi pattern aap ko barbaad kar sakta hai.</span>
+</div>
+
+<!-- INTRO: Chart Patterns Overview -->
+<section class="chapter" id="intro">
+  <h3>Chart Patterns Kya Hain?</h3>
+  <p>Chart patterns price charts pe bante hain jab buyers aur sellers ek doosre se larrte hain. Jab ye larrai ek fixed shape banati hai jaise triangle, head, ya double top — toh us shape ko chart pattern kehte hain.</p>
+  <p>Ye patterns is liye kaam karte hain kyunke har market mein insaani psychology same hoti hai. Jab price ek resistance tak pahunchti hai, log profit lena shuru karte hain. Jab support tak aati hai, log khareedna shuru karte hain. Ye repeat hone wali harkat patterns banaati hai.</p>
+
+  <h3>Reversal vs Continuation Patterns</h3>
+  <p>Chart patterns do tarah ke hote hain:</p>
+
+  <div class="example-box">
+    <div class="example-label">PATTERN CATEGORIES</div>
+    <table>
+      <tr><td><strong>Reversal Patterns</strong></td><td>Trend change hone ka signal</td></tr>
+      <tr><td><strong>Continuation Patterns</strong></td><td>Trend continue hone ka signal</td></tr>
+      <tr><td><strong>Reversal Examples</strong></td><td>H&S, Double Top/Bottom, Triple Top/Bottom</td></tr>
+      <tr><td><strong>Continuation Examples</strong></td><td>Triangles, Flags, Pennants, Wedges</td></tr>
+      <tr><td><strong>Best Use</strong></td><td>Dono ko sahi jagah pe pehchano</td></tr>
+    </table>
+  </div>
+
+  <h3>Kyun Kaam Karte Hain</h3>
+  <p>Ye patterns psychology pe kaam karte hain. Jab price ek level se baar baar reject hoti hai, toh wo level resistance ban jaata hai. Jab baar baar support milta hai, toh wo level demand zone ban jaata hai. Ye levels break hone pe price tezi se move karti hai — isi ko breakout kehte hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="1">PATTERN CATEGORIES</text>
+
+      <!-- Left: Reversal -->
+      <rect x="20" y="50" width="320" height="270" rx="3" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="180" y="78" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.5">REVERSAL PATTERNS</text>
+      <text x="180" y="96" text-anchor="middle" fill="#a3a3a3" font-family="Newsreader,serif" font-size="10">Trend ka direction badalta hai</text>
+
+      <!-- H&S icon -->
+      <polyline points="60,200 90,170 120,190 145,145 170,190 200,170 230,200" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <line x1="60" y1="200" x2="230" y2="200" stroke="#555555" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="145" y="230" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Head &amp; Shoulders</text>
+
+      <!-- Double Top icon -->
+      <polyline points="260,195 275,170 290,195 305,170 320,195" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <line x1="260" y1="195" x2="320" y2="195" stroke="#555555" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="290" y="230" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Double Top/Bottom</text>
+
+      <!-- Triple Top icon -->
+      <polyline points="50,300 65,280 80,300 95,280 110,300 125,280 140,300" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <line x1="50" y1="300" x2="140" y2="300" stroke="#555555" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="95" y="320" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Triple Top/Bottom</text>
+
+      <!-- Rounding Bottom icon -->
+      <path d="M200,300 Q240,260 280,300" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <text x="240" y="320" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Rounding Bottom</text>
+
+      <!-- Arrow: Trend Flip -->
+      <path d="M180,110 L180,130" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+      <text x="198" y="125" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9">Trend Flip</text>
+
+      <!-- Right: Continuation -->
+      <rect x="360" y="50" width="320" height="270" rx="3" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="520" y="78" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.5">CONTINUATION PATTERNS</text>
+      <text x="520" y="96" text-anchor="middle" fill="#a3a3a3" font-family="Newsreader,serif" font-size="10">Trend same direction mein rehta hai</text>
+
+      <!-- Triangle icon -->
+      <polyline points="400,200 520,170 500,200" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <line x1="400" y1="200" x2="520" y2="200" stroke="#555555" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="460" y="230" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Triangles</text>
+
+      <!-- Flag icon -->
+      <polyline points="550,190 610,170 590,195 650,175" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <line x1="550" y1="200" x2="550" y2="170" stroke="#555555" stroke-width="1"/>
+      <text x="600" y="230" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Flags &amp; Pennants</text>
+
+      <!-- Wedge icon -->
+      <polyline points="390,300 460,275 470,300" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <text x="430" y="320" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Wedges</text>
+
+      <!-- Channel icon -->
+      <polyline points="540,280 620,290 540,300 620,310" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      <text x="580" y="320" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Channels</text>
+
+      <!-- Arrow: Same Dir -->
+      <path d="M520,110 L520,130" stroke="#00b300" stroke-width="2" marker-end="url(#arrowGreen)"/>
+      <text x="538" y="125" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9">Same Dir</text>
+
+      <defs>
+        <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ff4444"/>
+        </marker>
+        <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 1 — Reversal aur Continuation patterns ka comparison</figcaption>
+  </figure>
+
+  <h3>Pattern Psychology: Buyer vs Seller Battle</h3>
+  <p>Har pattern ke peeche ek kahani hai. Jab buyers strong hain toh price upar jaati hai. Jab sellers dominate karte hain toh price neeche girti hai. Patterns tab bante hain jab dono side ek doosre ke barabar hote hain aur phir koi jeetta hai.</p>
+  <ul>
+    <li><strong>Resistance Test:</strong> Price bar bar upar se reject hoti hai — sellers strong hain</li>
+    <li><strong>Support Test:</strong> Price bar bar neeche se bounce karti hai — buyers strong hain</li>
+    <li><strong>Breakout:</strong> Jab koi side haar jaata hai, price tezi se us direction mein jaati hai</li>
+    <li><strong>Volume:</strong> Breakout pe volume barhna zaroori hai — warna fake breakout ho sakta hai</li>
+  </ul>
+
+  <div class="callout warn">
+    <span class="dot">&mdash;</span>
+    <span><strong>Warning:</strong> Pattern sirf probability hai, guarantee nahi. 100% accuracy wala koi bhi pattern nahi hai. Hamesha stop loss lagayein aur risk management follow karein.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Reversal pattern kya karta hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Trend ka direction change karta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Trend ko same direction mein continue karta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Price ko stabilize karta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Volume ko barhata hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Reversal pattern ka matlab hai k trend ka direction badalne wala hai — uptrend se downtrend ya downtrend se uptrend.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Chart patterns kyun kaam karte hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sirf technical indicators ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Insaani psychology aur buyer-seller battle ki wajah se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Random price movements se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Government regulations ki wajah se</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Patterns insaani psychology pe kaam karte hain — jab buyers aur sellers ek doosre se larrte hain toh repeat hone wali shapes banti hain jo patterns kehlata hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH01: Chart Patterns Ki Dunya -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Chart Patterns Ki Dunya</h2>
+  </div>
+  <p class="chapter-intro">Is chapter mein hum chart patterns ki poori dunya ko dekhenge — reversal patterns, continuation patterns, aur unki psychology.</p>
+
+  <h3>Chart Patterns Kya Hain?</h3>
+  <p>Chart patterns price action ki visual representation hain. Jab price ek particular shape banati hai chart pe, toh wo shape humein batati hai k buyers ya sellers mein se kaun jeet raha hai. Ye patterns technical analysis ka sab se important hissa hain.</p>
+  <p>Ye patterns tab bante hain jab market consolidation mein hota hai — yaani price ek range mein move karti hai aur phir breakout karti hai. Ye breakout humein trading opportunity deta hai.</p>
+
+  <h3>Reversal Patterns</h3>
+  <p>Reversal patterns tab bante hain jab existing trend khatam hone wala ho aur naya trend shuru hone wala ho. In mein:</p>
+  <ul>
+    <li><strong>Head &amp; Shoulders:</strong> Sab se powerful bearish reversal pattern. Uptrend ke end pe banta hai.</li>
+    <li><strong>Inverse Head &amp; Shoulders:</strong> Bullish reversal pattern. Downtrend ke end pe banta hai.</li>
+    <li><strong>Double Top:</strong> M-shape pattern. Uptrend ke end pe banta hai — bearish signal.</li>
+    <li><strong>Double Bottom:</strong> W-shape pattern. Downtrend ke end pe banta hai — bullish signal.</li>
+    <li><strong>Triple Top:</strong> Double top se bhi powerful. Teen equal highs banate hain.</li>
+    <li><strong>Triple Bottom:</strong> Double bottom se bhi powerful. Teen equal lows banate hain.</li>
+    <li><strong>Rounding Bottom:</strong> Slow reversal pattern. Price ek bowl shape banata hai.</li>
+  </ul>
+
+  <h3>Continuation Patterns</h3>
+  <p>Continuation patterns tab bante hain jab trend ek time ke liye rukta hai (consolidation) aur phir usi direction mein continue karta hai. In mein:</p>
+  <ul>
+    <li><strong>Ascending Triangle:</strong> Bullish continuation. Flat top aur rising bottom.</li>
+    <li><strong>Descending Triangle:</strong> Bearish continuation. Flat bottom aur falling top.</li>
+    <li><strong>Symmetrical Triangle:</strong> Neutral — dono taraf breakout ho sakta hai.</li>
+    <li><strong>Rising Wedge:</strong> Uptrend mein bearish reversal, downtrend mein continuation.</li>
+    <li><strong>Falling Wedge:</strong> Downtrend mein bullish reversal, uptrend mein continuation.</li>
+    <li><strong>Flags &amp; Pennants:</strong> Short-term continuation patterns jo strong move ke baad bante hain.</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="400" fill="#0a0a0a"/>
+      <text x="350" y="28" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="1">PATTERN CLASSIFICATION MAP</text>
+
+      <!-- Central node -->
+      <rect x="270" y="50" width="160" height="40" rx="4" fill="#f0b90b" stroke="none"/>
+      <text x="350" y="76" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700">CHART PATTERNS</text>
+
+      <!-- Left branch line -->
+      <line x1="310" y1="90" x2="170" y2="130" stroke="#555555" stroke-width="1"/>
+      <!-- Right branch line -->
+      <line x1="390" y1="90" x2="530" y2="130" stroke="#555555" stroke-width="1"/>
+
+      <!-- LEFT: Reversal -->
+      <rect x="90" y="130" width="160" height="36" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="170" y="153" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="11">REVERSAL</text>
+
+      <!-- Reversal items -->
+      <line x1="130" y1="166" x2="130" y2="195" stroke="#555555" stroke-width="1"/>
+      <line x1="210" y1="166" x2="210" y2="195" stroke="#555555" stroke-width="1"/>
+      <line x1="170" y1="166" x2="170" y2="220" stroke="#555555" stroke-width="1"/>
+
+      <rect x="60" y="195" width="140" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="130" y="214" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Head &amp; Shoulders</text>
+
+      <rect x="140" y="195" width="140" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="210" y="214" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Inverse H&amp;S</text>
+
+      <!-- More reversal items -->
+      <line x1="170" y1="248" x2="100" y2="270" stroke="#555555" stroke-width="1"/>
+      <line x1="170" y1="248" x2="240" y2="270" stroke="#555555" stroke-width="1"/>
+
+      <rect x="30" y="270" width="140" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="100" y="289" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Double Top / Bottom</text>
+
+      <rect x="170" y="270" width="140" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="240" y="289" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Triple Top / Bottom</text>
+
+      <line x1="170" y1="298" x2="170" y2="320" stroke="#555555" stroke-width="1"/>
+      <rect x="100" y="320" width="140" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="170" y="339" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Rounding Bottom</text>
+
+      <!-- RIGHT: Continuation -->
+      <rect x="450" y="130" width="200" height="36" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="550" y="153" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="11">CONTINUATION</text>
+
+      <!-- Continuation items -->
+      <line x1="500" y1="166" x2="500" y2="195" stroke="#555555" stroke-width="1"/>
+      <line x1="550" y1="166" x2="550" y2="195" stroke="#555555" stroke-width="1"/>
+      <line x1="600" y1="166" x2="600" y2="195" stroke="#555555" stroke-width="1"/>
+
+      <rect x="440" y="195" width="120" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="500" y="214" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Triangles</text>
+
+      <rect x="490" y="195" width="120" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="550" y="214" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Wedges</text>
+
+      <rect x="540" y="195" width="120" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="600" y="214" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Flags</text>
+
+      <!-- More continuation items -->
+      <line x1="550" y1="248" x2="500" y2="270" stroke="#555555" stroke-width="1"/>
+      <line x1="550" y1="248" x2="600" y2="270" stroke="#555555" stroke-width="1"/>
+
+      <rect x="440" y="270" width="120" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="500" y="289" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Pennants</text>
+
+      <rect x="540" y="270" width="120" height="28" rx="2" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="600" y="289" text-anchor="middle" fill="#e5e5e5" font-family="Newsreader,serif" font-size="11">Channels</text>
+
+      <!-- Legend -->
+      <rect x="220" y="370" width="10" height="10" rx="2" fill="#ff4444"/>
+      <text x="236" y="380" fill="#a3a3a3" font-family="Newsreader,serif" font-size="10">Trend Change</text>
+      <rect x="340" y="370" width="10" height="10" rx="2" fill="#00b300"/>
+      <text x="356" y="380" fill="#a3a3a3" font-family="Newsreader,serif" font-size="10">Trend Continue</text>
+    </svg>
+    <figcaption>Figure 2 — Chart patterns ka complete classification map</figcaption>
+  </figure>
+
+  <h3>Psychology Behind Patterns</h3>
+  <p>Har pattern ke peeche buyer-seller ki battle hai. Jab market mein ek trend hota hai (uptrend ya downtrend), toh ek waqt aata hai jab woh trend thak jaata hai. Buyers ya sellers exhausted ho jaate hain aur doosri taraf taqat aati hai.</p>
+  <p>Ye exhaustion patterns banaati hai. Jaise:</p>
+  <ul>
+    <li><strong>Higher Highs ruk jaate hain</strong> — uptrend mein sellers aa rahe hain</li>
+    <li><strong>Lower Lows ruk jaate hain</strong> — downtrend mein buyers aa rahe hain</li>
+    <li><strong>Consolidation</strong> — dono taraf ki taqat barabar hai, abhi pata nahi</li>
+    <li><strong>Breakout</strong> — koi ek side jeetta hai, price us taraf tezi se jaati hai</li>
+  </ul>
+
+  <div class="formula-box">
+    <div class="formula-label">TRADING RULE</div>
+    <div class="formula">Pattern tab tak mat trade karo jab tak breakout na ho jaye<span class="note">Breakout ke bina pattern sirf drawin hai. Patience rakhein — breakout ka wait karein.</span></div>
+  </div>
+
+  <h3>Timeframes Ka Role</h3>
+  <p>Chart patterns har timeframe pe bante hain — 1 minute se le kar monthly charts tak. Lekin:</p>
+  <ul>
+    <li><strong>Higher Timeframes (4H, Daily, Weekly):</strong> Patterns zyada reliable hote hain</li>
+    <li><strong>Lower Timeframes (1m, 5m, 15m):</strong> Patterns chhote hain, false breakouts zyada milte hain</li>
+    <li><strong>Sab se acha approach:</strong> Daily chart pe pattern pehchano, execution ke liye 4H ya 1H use karo</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Jab aap koi pattern pehchano, toh hamesha multiple timeframes check karein. Agar daily chart pe pattern hai aur 4H pe bhi confirm ho raha hai, toh signal zyada strong hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Kaunsa pattern reversal nahi hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Double Top</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Ascending Triangle</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Head &amp; Shoulders</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Triple Bottom</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Ascending Triangle ek continuation pattern hai, reversal pattern nahi. Ye generally bullish continuation signal deta hai jab flat resistance ke upar breakout hota hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Pattern trade karne ke liye sab se zaroori cheez kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Pattern ka size</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Timeframe ka hona</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Breakout ka wait karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Pattern ka colour</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Breakout ke bina pattern trade karna gambling hai. Hamesha breakout ka wait karein aur volume se confirm karein ke asli breakout hai ya fake.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH02: Head & Shoulders -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Head &amp; Shoulders</h2>
+  </div>
+  <p class="chapter-intro">Head &amp; Shoulders sab se powerful aur well-known reversal pattern hai. Jab ye banta hai, toh trend change hone ka signal milta hai.</p>
+
+  <h3>Regular Head &amp; Shoulders (Bearish Reversal)</h3>
+  <p>Ye pattern uptrend ke end pe banta hai aur downtrend ki shuruat ka signal deta hai. Is mein teen peaks (tops) hote hain:</p>
+  <ul>
+    <li><strong>Left Shoulder:</strong> Pehla peak — uptrend mein banta hai, phir thoda correction aata hai</li>
+    <li><strong>Head:</strong> Dusra peak — sab se ooncha hota hai, left shoulder se zyada</li>
+    <li><strong>Right Shoulder:</strong> Teesra peak — head se chhota hota hai, left shoulder ke barabar ya thoda kam</li>
+    <li><strong>Neckline:</strong> Support line jo left shoulder ke baad ke low aur head ke baad ke low ko join karti hai</li>
+  </ul>
+
+  <h3>Inverse Head &amp; Shoulders (Bullish Reversal)</h3>
+  <p>Ye pattern downtrend ke end pe banta hai aur uptrend ki shuruat ka signal deta hai. Is ka ulta hota hai — teen lows (bottoms) hote hain:</p>
+  <ul>
+    <li><strong>Left Shoulder:</strong> Pehla bottom — downtrend mein banta hai</li>
+    <li><strong>Head:</strong> Dusra bottom — sab se neeche hota hai</li>
+    <li><strong>Right Shoulder:</strong> Teesra bottom — head se ooncha hota hai</li>
+    <li><strong>Neckline:</strong> Resistance line jo dono shoulders ke highs ko join karti hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">HEAD &amp; SHOULDERS PATTERN</text>
+
+      <!-- Price line -->
+      <polyline points="50,200 90,180 120,210 160,150 200,195 240,170 290,145 340,185 370,165 420,190 470,210 530,240 580,260 630,280" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="120" y1="210" x2="420" y2="190" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="435" y="187" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">NECKLINE</text>
+
+      <!-- Left Shoulder label -->
+      <line x1="160" y1="150" x2="160" y2="130" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="160" y="124" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">LEFT SHOULDER</text>
+
+      <!-- Head label -->
+      <line x1="290" y1="145" x2="290" y2="108" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="290" y="102" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">HEAD</text>
+
+      <!-- Right Shoulder label -->
+      <line x1="370" y1="165" x2="370" y2="140" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="370" y="134" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">RIGHT SHOULDER</text>
+
+      <!-- Breakout point -->
+      <circle cx="470" cy="210" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="470" y1="215" x2="470" y2="235" stroke="#00b300" stroke-width="2" marker-end="url(#gArr)"/>
+      <text x="475" y="232" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BREAKOUT</text>
+
+      <!-- Target -->
+      <line x1="530" y1="145" x2="530" y2="210" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="545" y="180" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">TARGET</text>
+
+      <!-- Stop loss line -->
+      <line x1="350" y1="165" x2="430" y2="165" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="440" y="162" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">STOP LOSS</text>
+
+      <!-- Entry arrow -->
+      <text x="490" y="250" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">ENTRY: Sell</text>
+
+      <defs>
+        <marker id="gArr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 3 — Regular Head &amp; Shoulders pattern (bearish reversal)</figcaption>
+  </figure>
+
+  <h3>Neckline Kaise Draw Karein</h3>
+  <p>Neckline draw karna simple hai:</p>
+  <ol>
+    <li>Left shoulder ke baad ka low point pehchano</li>
+    <li>Head ke baad ka low point pehchano</li>
+    <li>In dono points ko ek line se join karo</li>
+    <li>Ye line neckline hai — is ke tootne pe sell signal milta hai</li>
+  </ol>
+  <p>Neckline horizontal ho sakti hai ya slightly tilted. Dono cases mein kaam karti hai.</p>
+
+  <h3>Target Calculation</h3>
+  <div class="formula-box">
+    <div class="formula-label">TARGET FORMULA</div>
+    <div class="formula">Target = Neckline - (Head - Neckline)<span class="note">Yaani: Neckline se Head ki doori utna neeche target hota hai. Jitna ooncha Head, utna bada target.</span></div>
+  </div>
+  <p>Example: Agar neckline 100 pe hai aur head 130 pe hai, toh target = 100 - (130 - 100) = 70.</p>
+
+  <h3>Volume Confirmation</h3>
+  <p>Volume bahut important hai Head &amp; Shoulders mein:</p>
+  <ul>
+    <li><strong>Left Shoulder:</strong> Volume normal ya thoda zyada</li>
+    <li><strong>Head:</strong> Volume kam hona chahiye left shoulder se — yehi weakness ka sign hai</li>
+    <li><strong>Right Shoulder:</strong> Volume sab se kam hona chahiye</li>
+    <li><strong>Neckline Break:</strong> Volume barhna chahiye — asli breakout hai</li>
+  </ul>
+
+  <h3>Entry Rules</h3>
+  <ul>
+    <li><strong>Aggressive Entry:</strong> Neckline tootte hi sell karo</li>
+    <li><strong>Conservative Entry:</strong> Neckline tootne ke baad retest ka wait karo — jab price wapas neckline tak aaye aur reject ho</li>
+    <li><strong>Stop Loss:</strong> Right shoulder ke upar lagao</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">INVERSE HEAD &amp; SHOULDERS</text>
+
+      <!-- Price line -->
+      <polyline points="50,140 90,160 120,130 160,180 200,145 240,170 290,210 340,170 370,190 420,160 470,140 530,110 580,90 630,70" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="120" y1="130" x2="420" y2="160" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="435" y="158" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">NECKLINE</text>
+
+      <!-- Left Shoulder label -->
+      <line x1="160" y1="180" x2="160" y2="210" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="160" y="224" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">LEFT SHOULDER</text>
+
+      <!-- Head label -->
+      <line x1="290" y1="210" x2="290" y2="240" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="290" y="254" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">HEAD</text>
+
+      <!-- Right Shoulder label -->
+      <line x1="370" y1="190" x2="370" y2="215" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="370" y="229" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">RIGHT SHOULDER</text>
+
+      <!-- Breakout point -->
+      <circle cx="470" cy="140" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="470" y1="135" x2="470" y2="115" stroke="#00b300" stroke-width="2" marker-end="url(#gArr)"/>
+      <text x="475" y="112" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BREAKOUT</text>
+
+      <!-- Target -->
+      <line x1="530" y1="210" x2="530" y2="140" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="545" y="178" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">TARGET</text>
+
+      <!-- Stop loss -->
+      <line x1="350" y1="190" x2="430" y2="190" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="440" y="193" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">STOP LOSS</text>
+
+      <text x="490" y="128" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">ENTRY: Buy</text>
+
+      <defs>
+        <marker id="gArr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 4 — Inverse Head &amp; Shoulders pattern (bullish reversal)</figcaption>
+  </figure>
+
+  <h3>Trading Rules Summary</h3>
+  <div class="example-box">
+    <div class="example-label">HEAD &amp; SHOULDERS TRADING PLAN</div>
+    <table>
+      <tr><td><strong>Pattern Type</strong></td><td>Bearish Reversal (Regular) / Bullish (Inverse)</td></tr>
+      <tr><td><strong>Entry Signal</strong></td><td>Neckline break + Volume confirmation</td></tr>
+      <tr><td><strong>Stop Loss</strong></td><td>Right shoulder ke upar (Regular) / neeche (Inverse)</td></tr>
+      <tr><td><strong>Target</strong></td><td>Neckline - Head-Neckline distance</td></tr>
+      <tr><td><strong>Volume Check</strong></td><td>Breakout pe volume barha hona chahiye</td></tr>
+      <tr><td><strong>Timeframe</strong></td><td>Daily ya 4H sab se reliable</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Head &amp; Shoulders pattern mein Head kaisa hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Sab se chhota peak</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Sab se ooncha peak</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Dono shoulders ke barabar</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Neckline ke neeche</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Head sab se ooncha peak hota hai — left aur right shoulders se zyada ooncha. Yehi pattern ko recognizable banata hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Agar neckline 200 pe hai aur head 250 pe hai, toh target kya hoga?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">150</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">150</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">250</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">100</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Target = Neckline - (Head - Neckline) = 200 - (250 - 200) = 200 - 50 = 150.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH03: Double Top & Double Bottom -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Double Top &amp; Double Bottom</h2>
+  </div>
+  <p class="chapter-intro">Double Top aur Double Bottom sab se commonly dekhe jaane wale reversal patterns hain. In ko M-shape aur W-shape bhi kehte hain.</p>
+
+  <h3>Double Top (M Pattern) — Bearish Reversal</h3>
+  <p>Double Top uptrend ke end pe banta hai aur downtrend ki shuruat ka signal deta hai. Is ki shakal M jaisi hoti hai:</p>
+  <ul>
+    <li><strong>Pehla Top:</strong> Price uptrend mein oonchi jaati hai aur resistance level pe rukti hai</li>
+    <li><strong>Correction:</strong> Price thoda neeche aata hai support tak</li>
+    <li><strong>Dusra Top:</strong> Price phir se upar jaati hai lekin pehle top ko cross nahi kar paati</li>
+    <li><strong>Breakout:</strong> Jab support (neckline) tootta hai, price neeche girti hai</li>
+  </ul>
+
+  <h3>Double Bottom (W Pattern) — Bullish Reversal</h3>
+  <p>Double Bottom downtrend ke end pe banta hai aur uptrend ki shuruat ka signal deta hai. Is ki shakal W jaisi hoti hai:</p>
+  <ul>
+    <li><strong>Pehla Bottom:</strong> Price downtrend mein neeche jaati hai aur support level pe rukti hai</li>
+    <li><strong>Correction:</strong> Price thoda upar aata hai resistance tak</li>
+    <li><strong>Dusra Bottom:</strong> Price phir se neeche jaati hai lekin pehle bottom ko cross nahi kar paati</li>
+    <li><strong>Breakout:</strong> Jab resistance (neckline) tootta hai, price upar jaati hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">DOUBLE TOP (M PATTERN)</text>
+
+      <!-- Price line -->
+      <polyline points="50,200 100,170 150,130 200,100 250,100 300,140 350,170 400,140 450,100 500,100 550,140 600,180 650,210" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="50" y1="170" x2="650" y2="170" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="660" y="173" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">NECKLINE</text>
+
+      <!-- Top 1 label -->
+      <line x1="225" y1="100" x2="225" y2="75" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="225" y="69" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">TOP 1</text>
+
+      <!-- Top 2 label -->
+      <line x1="475" y1="100" x2="475" y2="75" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="475" y="69" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">TOP 2</text>
+
+      <!-- Resistance line -->
+      <line x1="150" y1="100" x2="550" y2="100" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="560" y="103" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">RESISTANCE</text>
+
+      <!-- Breakout -->
+      <circle cx="600" cy="180" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="600" y1="185" x2="600" y2="210" stroke="#00b300" stroke-width="2" marker-end="url(#gArr3)"/>
+      <text x="560" y="200" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SELL</text>
+
+      <!-- Target line -->
+      <line x1="640" y1="100" x2="640" y2="170" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="620" y="140" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7" transform="rotate(-90,620,140)">TARGET</text>
+
+      <defs>
+        <marker id="gArr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 5 — Double Top pattern (M-shape, bearish reversal)</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">DOUBLE BOTTOM (W PATTERN)</text>
+
+      <!-- Price line -->
+      <polyline points="50,100 100,130 150,170 200,200 250,200 300,160 350,130 400,160 450,200 500,200 550,160 600,120 650,90" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="50" y1="130" x2="650" y2="130" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="660" y="133" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">NECKLINE</text>
+
+      <!-- Bottom 1 label -->
+      <line x1="225" y1="200" x2="225" y2="230" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="225" y="244" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">BOTTOM 1</text>
+
+      <!-- Bottom 2 label -->
+      <line x1="475" y1="200" x2="475" y2="230" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="475" y="244" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="9">BOTTOM 2</text>
+
+      <!-- Support line -->
+      <line x1="150" y1="200" x2="550" y2="200" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="560" y="203" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SUPPORT</text>
+
+      <!-- Breakout -->
+      <circle cx="600" cy="120" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="600" y1="115" x2="600" y2="90" stroke="#00b300" stroke-width="2" marker-end="url(#gArr4)"/>
+      <text x="560" y="108" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BUY</text>
+
+      <!-- Target line -->
+      <line x1="640" y1="200" x2="640" y2="130" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="620" y="168" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7" transform="rotate(-90,620,168)">TARGET</text>
+
+      <defs>
+        <marker id="gArr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 6 — Double Bottom pattern (W-shape, bullish reversal)</figcaption>
+  </figure>
+
+  <h3>Confirmation: Neckline Break</h3>
+  <p>Double patterns mein neckline bahut important hai. Pattern tab tak confirm nahi hota jab tak neckline na toot jaye. Price ko neckline ke neeche (Double Top) ya upar (Double Bottom) close karna hota hai.</p>
+
+  <h3>Target Calculation</h3>
+  <div class="formula-box">
+    <div class="formula-label">TARGET FORMULA</div>
+    <div class="formula">Double Top: Target = Neckline - (Top - Neckline)<span class="note">Double Bottom: Target = Neckline + (Neckline - Bottom)<br/>Yaani: Top/Bottom se neckline ki doori utna target hota hai.</span></div>
+  </div>
+
+  <h3>Volume Analysis During Formation</h3>
+  <ul>
+    <li><strong>Pehla Top/Bottom:</strong> Volume normal hota hai</li>
+    <li><strong>Dusra Top/Bottom:</strong> Volume pehle se kam hota hai — yehi weakness ka sign hai</li>
+    <li><strong>Neckline Break:</strong> Volume barhna chahiye — asli breakout hai</li>
+    <li><strong>Volume kam hai breakout pe:</strong> Fake breakout ka chance hai — bach ke rahein</li>
+  </ul>
+
+  <h3>Entry and Stop Loss Rules</h3>
+  <div class="example-box">
+    <div class="example-label">DOUBLE TOP/BOTTOM TRADING PLAN</div>
+    <table>
+      <tr><td><strong>Entry</strong></td><td>Neckline break ke baad retest ka wait karo ya break ke turant baad</td></tr>
+      <tr><td><strong>Stop Loss (Top)</strong></td><td>Right top ke upar</td></tr>
+      <tr><td><strong>Stop Loss (Bottom)</strong></td><td>Right bottom ke neeche</td></tr>
+      <tr><td><strong>Target</strong></td><td>Pattern ki height neckline se add/subtract karo</td></tr>
+      <tr><td><strong>Risk:Reward</strong></td><td>Kam se kam 1:2 hona chahiye</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Double Top ki shakal kaisi hoti hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">W jaisi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">M jaisi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Triangle jaisi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">V jaisi</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Double Top ki shakal M jaisi hoti hai — do equal highs banate hain jo resistance pe ruk jaate hain. Is liye is ko M-pattern bhi kehte hain.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Double Top mein second top pe volume kaisa hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Pehle se zyada</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Pehle se kam</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Same hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Zero ho jaata hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Second top pe volume kam hota hai — ye weakness ka sign hai. Agar buyers strong hote toh volume zyada hota aur price pehle top ko cross kar leti.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH04: Triple Top & Triple Bottom -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Triple Top &amp; Triple Bottom</h2>
+  </div>
+  <p class="chapter-intro">Triple Top aur Triple Bottom double patterns ka advanced version hain. Ye zyada powerful hain kyunke teen dafa resistance/support test hone ke baad breakout zyada strong hota hai.</p>
+
+  <h3>Triple Top — Three Equal Highs</h3>
+  <p>Triple Top uptrend ke end pe banta hai. Is mein price teen dafa ek hi resistance level pe rukti hai aur phir neeche girti hai:</p>
+  <ul>
+    <li><strong>Teen Tops:</strong> Price teen dafa lagatar resistance tak jaati hai lekin cross nahi kar paati</li>
+    <li><strong>Neckline:</strong> Support level jo teeno lows ko connect karta hai</li>
+    <li><strong>Breakout:</strong> Jab neckline tootta hai, price tezi se neeche jaati hai</li>
+    <li><strong>Volume:</strong> Har top ke sath volume kam hota jaata hai — yehi weakness ka sign hai</li>
+  </ul>
+
+  <h3>Triple Bottom — Three Equal Lows</h3>
+  <p>Triple Bottom downtrend ke end pe banta hai. Price teen dafa ek hi support level pe rukti hai aur phir upar jaati hai:</p>
+  <ul>
+    <li><strong>Teen Bottoms:</strong> Price teen dafa lagatar support tak jaati hai lekin neeche nahi ja paati</li>
+    <li><strong>Neckline:</strong> Resistance level jo teeno highs ko connect karta hai</li>
+    <li><strong>Breakout:</strong> Jab neckline tootta hai, price tezi se upar jaati hai</li>
+    <li><strong>Volume:</strong> Har bottom ke sath volume kam hota jaata hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">TRIPLE TOP PATTERN</text>
+
+      <!-- Price line -->
+      <polyline points="30,210 70,180 110,140 150,100 190,100 230,140 270,170 310,140 350,100 390,100 430,140 470,170 510,140 550,100 590,100 630,140 670,180" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="30" y1="170" x2="670" y2="170" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="675" y="173" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8">NECKLINE</text>
+
+      <!-- Top 1 -->
+      <line x1="170" y1="100" x2="170" y2="72" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="170" y="66" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">TOP 1</text>
+
+      <!-- Top 2 -->
+      <line x1="370" y1="100" x2="370" y2="72" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="370" y="66" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">TOP 2</text>
+
+      <!-- Top 3 -->
+      <line x1="570" y1="100" x2="570" y2="72" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="570" y="66" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">TOP 3</text>
+
+      <!-- Resistance -->
+      <line x1="110" y1="100" x2="630" y2="100" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="370" y="92" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">RESISTANCE</text>
+
+      <!-- Breakout -->
+      <circle cx="670" cy="180" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="670" y1="185" x2="670" y2="215" stroke="#00b300" stroke-width="2" marker-end="url(#gArr5)"/>
+      <text x="630" y="210" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SELL</text>
+
+      <!-- Volume bars hint -->
+      <rect x="165" y="260" width="10" height="30" fill="#333333" opacity="0.8"/>
+      <rect x="365" y="268" width="10" height="22" fill="#333333" opacity="0.6"/>
+      <rect x="565" y="274" width="10" height="16" fill="#333333" opacity="0.4"/>
+      <text x="370" y="298" text-anchor="middle" fill="#666666" font-family="JetBrains Mono,monospace" font-size="7">Volume declining with each top</text>
+
+      <defs>
+        <marker id="gArr5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 7 — Triple Top pattern (bearish reversal, declining volume)</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">TRIPLE BOTTOM PATTERN</text>
+
+      <!-- Price line -->
+      <polyline points="30,90 70,120 110,160 150,200 190,200 230,160 270,130 310,160 350,200 390,200 430,160 470,130 510,160 550,200 590,200 630,160 670,120" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Neckline -->
+      <line x1="30" y1="130" x2="670" y2="130" stroke="#555555" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="675" y="133" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="8">NECKLINE</text>
+
+      <!-- Bottom 1 -->
+      <line x1="170" y1="200" x2="170" y2="232" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="170" y="246" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">BOTTOM 1</text>
+
+      <!-- Bottom 2 -->
+      <line x1="370" y1="200" x2="370" y2="232" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="370" y="246" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">BOTTOM 2</text>
+
+      <!-- Bottom 3 -->
+      <line x1="570" y1="200" x2="570" y2="232" stroke="#a3a3a3" stroke-width="0.8"/>
+      <text x="570" y="246" text-anchor="middle" fill="#e5e5e5" font-family="JetBrains Mono,monospace" font-size="8">BOTTOM 3</text>
+
+      <!-- Support -->
+      <line x1="110" y1="200" x2="630" y2="200" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="370" y="218" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SUPPORT</text>
+
+      <!-- Breakout -->
+      <circle cx="670" cy="120" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="670" y1="115" x2="670" y2="90" stroke="#00b300" stroke-width="2" marker-end="url(#gArr6)"/>
+      <text x="630" y="100" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">BUY</text>
+
+      <!-- Volume bars -->
+      <rect x="165" y="45" width="10" height="30" fill="#333333" opacity="0.8"/>
+      <rect x="365" y="53" width="10" height="22" fill="#333333" opacity="0.6"/>
+      <rect x="565" y="59" width="10" height="16" fill="#333333" opacity="0.4"/>
+      <text x="370" y="40" text-anchor="middle" fill="#666666" font-family="JetBrains Mono,monospace" font-size="7">Volume declining with each bottom</text>
+
+      <defs>
+        <marker id="gArr6" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 8 — Triple Bottom pattern (bullish reversal, declining volume)</figcaption>
+  </figure>
+
+  <h3>Kyun Stronger Hain Double Se</h3>
+  <p>Triple patterns double patterns se is liye strong hain kyunke:</p>
+  <ul>
+    <li><strong>3 Dafa Test:</strong> Resistance ya support 3 dafa test ho chuka hai — yehi level bahut strong hai</li>
+    <li><strong>Thakaan:</strong> Buyers ya sellers 3 dafa haar chuke hain — unki taqat khatam ho rahi hai</li>
+    <li><strong>Zyada Confirmation:</strong> 3 peaks/lows dekh kar confirm karna asaan hota hai</li>
+    <li><strong>Bigger Move:</strong> Breakout ke baad move zyada bada hota hai kyunki zyada logon ne is level pe trade kiya hota hai</li>
+  </ul>
+
+  <h3>Target Calculation</h3>
+  <div class="formula-box">
+    <div class="formula-label">TARGET FORMULA</div>
+    <div class="formula">Triple Top: Target = Neckline - (Top - Neckline)<span class="note">Triple Bottom: Target = Neckline + (Neckline - Bottom)<br/>Pattern ki height se target nikalte hain — same as Double patterns.</span></div>
+  </div>
+
+  <h3>Volume Declining During Formation</h3>
+  <p>Triple patterns mein volume ek key indicator hai:</p>
+  <ul>
+    <li><strong>First Peak/Trough:</strong> Sab se zyada volume</li>
+    <li><strong>Second Peak/Trough:</strong> Volume kam hota hai</li>
+    <li><strong>Third Peak/Trough:</strong> Volume sab se kam hota hai</li>
+    <li><strong>Breakout:</strong> Volume suddenly barhta hai — asli move shuru hua</li>
+  </ul>
+  <p>Ye declining volume pattern ye confirm karta hai k trend khatam ho raha hai aur naya trend shuru hone wala hai.</p>
+
+  <h3>Trading Rules</h3>
+  <div class="example-box">
+    <div class="example-label">TRIPLE TOP/BOTTOM TRADING PLAN</div>
+    <table>
+      <tr><td><strong>Entry</strong></td><td>Neckline break + Volume spike ka wait karo</td></tr>
+      <tr><td><strong>Stop Loss (Top)</strong></td><td>Third top ke upar — ye sab se safe jagah hai</td></tr>
+      <tr><td><strong>Stop Loss (Bottom)</strong></td><td>Third bottom ke neeche</td></tr>
+      <tr><td><strong>Target</strong></td><td>Pattern ki height neckline se door</td></tr>
+      <tr><td><strong>Risk:Reward</strong></td><td>Kam se kam 1:2, ideally 1:3</td></tr>
+      <tr><td><strong>Confirmation</strong></td><td>Candle close zaroori hai breakout ke baad</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Triple Top mein kitne peaks hote hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Do</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Teen</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Char</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Paanch</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Triple Top mein teen equal peaks hote hain jo resistance level pe ruk jaate hain. Is ko teen dafa test karna yehi pattern ko special banata hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Triple patterns double se kyun strong hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Kyunke unka size bada hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Kyunke 3 dafa test hone ke baad breakout zyada powerful hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Kyunke volume zyada hota hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Kyunke wo rare hote hain</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Jab koi level 3 dafa test ho chuka hai aur phir tootta hai, toh us level pe bahut sare orders hote hain jo ek sath trigger hote hain — is liye breakout zyada powerful hota hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH05: Triangles -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Triangles (Ascending, Descending, Symmetrical)</h2>
+  </div>
+  <p class="chapter-intro">Triangles sab se commonly dekhe jaane wale continuation patterns hain. Ye jab bante hain toh price consolidation mein hoti hai aur phir ek direction mein break karti hai.</p>
+
+  <h3>Ascending Triangle (Bullish)</h3>
+  <p>Ascending triangle mein ek flat resistance hota hai aur rising support hota hai:</p>
+  <ul>
+    <li><strong>Flat Top:</strong> Price bar bar ek hi resistance level pe rukti hai</li>
+    <li><strong>Rising Bottom:</strong> Har baar price neeche se zyada oonchi jagah pe rukti hai — buyers strong hain</li>
+    <li><strong>Breakout:</strong> Zyada tar breakout upar hota hai — resistance tootta hai</li>
+    <li><strong>Volume:</strong> Triangle ke andar volume kam hota hai, breakout pe barhta hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">ASCENDING TRIANGLE (BULLISH)</text>
+
+      <!-- Price line -->
+      <polyline points="80,200 130,170 180,130 230,160 280,140 330,130 380,150 430,135 480,130 530,130 580,110 630,80" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Resistance line (flat top) -->
+      <line x1="80" y1="130" x2="540" y2="130" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="550" y="127" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">RESISTANCE</text>
+
+      <!-- Support line (rising bottom) -->
+      <line x1="80" y1="220" x2="540" y2="135" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="200" y="215" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(-25,200,215)">RISING SUPPORT</text>
+
+      <!-- Breakout arrow -->
+      <circle cx="560" cy="120" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="560" y1="115" x2="560" y2="80" stroke="#00b300" stroke-width="2.5" marker-end="url(#gArr7)"/>
+      <text x="575" y="95" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">BREAKOUT UP!</text>
+
+      <!-- Target -->
+      <line x1="620" y1="130" x2="620" y2="80" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="635" y="108" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7">TARGET</text>
+
+      <!-- Triangle shading -->
+      <polygon points="80,130 540,130 540,135 80,220" fill="#f0b90b" opacity="0.04"/>
+
+      <defs>
+        <marker id="gArr7" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 9 — Ascending Triangle: flat resistance, rising support (bullish breakout)</figcaption>
+  </figure>
+
+  <h3>Descending Triangle (Bearish)</h3>
+  <p>Descending triangle mein ek flat support hota hai aur falling resistance hota hai:</p>
+  <ul>
+    <li><strong>Flat Bottom:</strong> Price bar bar ek hi support level pe rukti hai</li>
+    <li><strong>Falling Top:</strong> Har baar price upar se zyada neeche rukti hai — sellers strong hain</li>
+    <li><strong>Breakout:</strong> Zyada tar breakout neeche hota hai — support tootta hai</li>
+    <li><strong>Volume:</strong> Triangle ke andar volume kam hota hai, breakout pe barhta hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">DESCENDING TRIANGLE (BEARISH)</text>
+
+      <!-- Price line -->
+      <polyline points="80,100 130,130 180,170 230,140 280,160 330,170 380,150 430,165 480,170 530,170 580,190 630,220" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Support line (flat bottom) -->
+      <line x1="80" y1="170" x2="540" y2="170" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="550" y="173" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SUPPORT</text>
+
+      <!-- Resistance line (falling top) -->
+      <line x1="80" y1="80" x2="540" y2="165" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="200" y="100" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(20,200,100)">FALLING RESISTANCE</text>
+
+      <!-- Breakout arrow -->
+      <circle cx="560" cy="180" r="5" fill="none" stroke="#ff4444" stroke-width="2"/>
+      <line x1="560" y1="185" x2="560" y2="220" stroke="#ff4444" stroke-width="2.5" marker-end="url(#gArr8)"/>
+      <text x="575" y="210" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">BREAKOUT DOWN!</text>
+
+      <!-- Target -->
+      <line x1="620" y1="170" x2="620" y2="220" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="635" y="198" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7">TARGET</text>
+
+      <!-- Triangle shading -->
+      <polygon points="80,170 540,170 540,165 80,80" fill="#f0b90b" opacity="0.04"/>
+
+      <defs>
+        <marker id="gArr8" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ff4444"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 10 — Descending Triangle: flat support, falling resistance (bearish breakout)</figcaption>
+  </figure>
+
+  <h3>Symmetrical Triangle (Neutral)</h3>
+  <p>Symmetrical triangle mein dono lines converge karti hain — na resistance flat hai na support:</p>
+  <ul>
+    <li><strong>Converging Lines:</strong> Upar wali line neeche aa rahi hai, neeche wali line upar ja rahi hai</li>
+    <li><strong>Breakout Direction:</strong> Dono taraf ho sakta hai — upar ya neeche</li>
+    <li><strong>Trend Bias:</strong> Agar pehle uptrend tha toh zyada tar breakout upar hota hai, aur vice versa</li>
+    <li><strong>Volume:</strong> Triangle ke andar volume consistently kam hota hai</li>
+  </ul>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">SYMMETRICAL TRIANGLE (NEUTRAL)</text>
+
+      <!-- Price line -->
+      <polyline points="80,140 130,170 180,130 230,160 280,140 330,155 380,145 430,150 480,148 530,147 580,120 630,90" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Upper line (falling) -->
+      <line x1="80" y1="100" x2="540" y2="148" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="250" y="105" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(6,250,105)">FALLING RESISTANCE</text>
+
+      <!-- Lower line (rising) -->
+      <line x1="80" y1="200" x2="540" y2="150" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="250" y="205" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(-6,250,205)">RISING SUPPORT</text>
+
+      <!-- Breakout UP arrow -->
+      <line x1="580" y1="140" x2="580" y2="90" stroke="#00b300" stroke-width="2" marker-end="url(#gArr7)"/>
+      <text x="595" y="105" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">UP</text>
+
+      <!-- Breakout DOWN arrow -->
+      <line x1="580" y1="160" x2="580" y2="210" stroke="#ff4444" stroke-width="2" marker-end="url(#gArr8)"/>
+      <text x="595" y="195" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">DOWN</text>
+
+      <!-- Question mark -->
+      <text x="610" y="155" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="14">?</text>
+
+      <!-- Triangle shading -->
+      <polygon points="80,100 540,148 540,150 80,200" fill="#f0b90b" opacity="0.04"/>
+
+      <!-- Convergence point -->
+      <circle cx="540" cy="149" r="4" fill="#f0b90b" opacity="0.5"/>
+      <text x="540" y="175" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="7">CONVERGENCE</text>
+    </svg>
+    <figcaption>Figure 11 — Symmetrical Triangle: dono taraf breakout possible hai</figcaption>
+  </figure>
+
+  <h3>Breakout Direction and Timing</h3>
+  <p>Triangles mein breakout ka time aur direction bahut important hai:</p>
+  <ul>
+    <li><strong>Timing:</strong> Triangle ke 2/3 hisse tak breakout hona chahiye — agar apex tak wait karo toh weak breakout milega</li>
+    <li><strong>Volume Spike:</strong> Breakout pe volume barha hona chahiye — warna fake hai</li>
+    <li><strong>Candle Close:</strong> breakout ke baad candle close hona zaroori hai — sirf wick nahi chalegi</li>
+    <li><strong>Retest:</strong> Breakout ke baad price retest karti hai toh aur bhi strong signal hai</li>
+  </ul>
+
+  <h3>Target Calculation</h3>
+  <div class="formula-box">
+    <div class="formula-label">TARGET FORMULA</div>
+    <div class="formula">Target = Triangle ki height + Breakout point<span class="note">Yaani: Triangle ke sab se oonche point se sab se neeche point ki doori, us ko breakout point pe add (ya subtract) karo.</span></div>
+  </div>
+
+  <h3>Volume: Declining During Formation</h3>
+  <p>Sab hi triangles mein volume declining hota hai jab tak breakout na ho. Ye normal hai kyunke consolidation mein traders wait karte hain. Jab breakout hota hai toh sab ek sath enter karte hain — is liye volume spike hota hai.</p>
+  <ul>
+    <li><strong>Ascending:</strong> Breakout upar ka volume zyada hota hai</li>
+    <li><strong>Descending:</strong> Breakout neeche ka volume zyada hota hai</li>
+    <li><strong>Symmetrical:</strong> Dono taraf ka breakout volume-dependent hai</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Triangle ke apex ke bilkul qareeb breakout weak hota hai. Agar price apex tak aa gayi hai aur breakout nahi hua, toh behtar hai wait karein aur naya pattern dekhein.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Ascending triangle mein breakout zyada tar kis direction mein hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Upar — bullish breakout</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Neeche — bearish breakout</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Dono taraf equal chances</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Pata nahi, random hota hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Ascending triangle mein flat resistance hai aur rising support hai — matlab buyers har baar zyada strong ho rahe hain. Is liye breakout zyada tar upar hota hai.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Triangle ke andar volume kaisa hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Barhta jaata hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Same rehta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Kam hota jaata hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Pehle zero hota hai phir barhta hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Triangle ke andar volume consistently kam hota hai kyunke consolidation mein traders wait karte hain. Volume sirf breakout pe barhta hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH06: Wedges -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>Wedges (Rising &amp; Falling)</h2>
+  </div>
+  <p class="chapter-intro">Wedges triangles jaise dikhte hain lekin un mein ek major farq hai — dono lines same direction mein tilt hoti hain. Wedges zyada tar reversal signals dete hain.</p>
+
+  <h3>Rising Wedge (Bearish)</h3>
+  <p>Rising wedge mein dono lines upar ki taraf jati hain lekin convergence hoti hai. Ye pattern do situations mein milta hai:</p>
+  <ul>
+    <li><strong>Uptrend ke end pe:</strong> Bearish reversal signal — price neeche girne wali hai</li>
+    <li><strong>Downtrend ke beech mein:</strong> Continuation signal — price neeche jaayegi</li>
+  </ul>
+  <p>Rising wedge mein resistance line support line se zyada steep hoti hai — is liye dono converge karti hain aur price squeeze hoti hai.</p>
+
+  <h3>Falling Wedge (Bullish)</h3>
+  <p>Falling wedge mein dono lines neeche ki taraf jati hain lekin convergence hoti hai:</p>
+  <ul>
+    <li><strong>Downtrend ke end pe:</strong> Bullish reversal signal — price upar jaane wali hai</li>
+    <li><strong>Uptrend ke beech mein:</strong> Continuation signal — price upar jaayegi</li>
+  </ul>
+  <p>Falling wedge mein support line resistance line se zyada steep hoti hai — buyers har baar zyada jaldi aa rahe hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">RISING WEDGE (BEARISH)</text>
+
+      <!-- Price line -->
+      <polyline points="80,220 120,200 160,210 200,185 240,195 280,175 320,185 360,170 400,178 440,168 480,172 520,165 560,160 600,200 640,230" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Upper line (resistance - less steep) -->
+      <line x1="80" y1="180" x2="540" y2="155" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="400" y="148" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8">RESISTANCE</text>
+
+      <!-- Lower line (support - more steep) -->
+      <line x1="80" y1="240" x2="540" y2="162" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="250" y="240" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(-22,250,240)">SUPPORT (STEEP)</text>
+
+      <!-- Breakout DOWN -->
+      <circle cx="570" cy="175" r="5" fill="none" stroke="#ff4444" stroke-width="2"/>
+      <line x1="570" y1="180" x2="570" y2="220" stroke="#ff4444" stroke-width="2.5" marker-end="url(#gArr9)"/>
+      <text x="585" y="210" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">SELL</text>
+
+      <!-- Target -->
+      <line x1="630" y1="155" x2="630" y2="220" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="640" y="190" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7">TARGET</text>
+
+      <!-- Wedge shading -->
+      <polygon points="80,180 540,155 540,162 80,240" fill="#f0b90b" opacity="0.04"/>
+
+      <!-- Stop loss -->
+      <line x1="480" y1="172" x2="530" y2="172" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="480" y="168" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7">STOP</text>
+
+      <defs>
+        <marker id="gArr9" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#ff4444"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 12 — Rising Wedge: bearish reversal signal (downtrend expected)</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="25" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="0.8">FALLING WEDGE (BULLISH)</text>
+
+      <!-- Price line -->
+      <polyline points="80,80 120,100 160,90 200,115 240,105 280,125 320,115 360,130 400,122 440,132 480,128 520,135 560,140 600,100 640,70" fill="none" stroke="#f0b90b" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Upper line (resistance - more steep) -->
+      <line x1="80" y1="60" x2="540" y2="138" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="250" y="62" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="8" transform="rotate(12,250,62)">RESISTANCE (STEEP)</text>
+
+      <!-- Lower line (support - less steep) -->
+      <line x1="80" y1="110" x2="540" y2="142" stroke="#00b300" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="400" y="150" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="8">SUPPORT</text>
+
+      <!-- Breakout UP -->
+      <circle cx="570" cy="130" r="5" fill="none" stroke="#00b300" stroke-width="2"/>
+      <line x1="570" y1="125" x2="570" y2="80" stroke="#00b300" stroke-width="2.5" marker-end="url(#gArr10)"/>
+      <text x="585" y="95" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">BUY</text>
+
+      <!-- Target -->
+      <line x1="630" y1="138" x2="630" y2="80" stroke="#00b300" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="640" y="112" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="7">TARGET</text>
+
+      <!-- Wedge shading -->
+      <polygon points="80,60 540,138 540,142 80,110" fill="#f0b90b" opacity="0.04"/>
+
+      <!-- Stop loss -->
+      <line x1="480" y1="128" x2="530" y2="128" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="480" y="124" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="7">STOP</text>
+
+      <defs>
+        <marker id="gArr10" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#00b300"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Figure 13 — Falling Wedge: bullish reversal signal (uptrend expected)</figcaption>
+  </figure>
+
+  <h3>Wedge vs Triangle: Kya Farq Hai</h3>
+  <div class="example-box">
+    <div class="example-label">WEDGE vs TRIANGLE</div>
+    <table>
+      <tr><td><strong>Wedge</strong></td><td>Dono lines same direction mein tilt hoti hain</td></tr>
+      <tr><td><strong>Triangle</strong></td><td>Ek line flat hoti hai ya dono converge karti hain</td></tr>
+      <tr><td><strong>Wedge Signal</strong></td><td>Zyada tar reversal signal deta hai</td></tr>
+      <tr><td><strong>Triangle Signal</strong></td><td>Zyada tar continuation signal deta hai</td></tr>
+      <tr><td><strong>Wedge Slope</strong></td><td>Dono lines ka slope alag hota hai</td></tr>
+      <tr><td><strong>Triangle Slope</strong></td><td>Kam se kam ek line flat hoti hai</td></tr>
+    </table>
+  </div>
+
+  <h3>Breakout Timing</h3>
+  <p>Wedges mein breakout ka time triangle se thoda alag hota hai:</p>
+  <ul>
+    <li><strong>Wedge ke andar:</strong> Price multiple touches karti hai support/resistance pe — kam se kam 5-6 touches zaroori hain</li>
+    <li><strong>Breakout point:</strong> Jab wedge ki dono lines ka gap bahut chhota ho jaaye — us se pehle breakout hona chahiye</li>
+    <li><strong>Time limit:</strong> Agar wedge 3-4 hafton se zyada lamba ho gaya hai toh signal weak hota hai</li>
+  </ul>
+
+  <h3>Target Calculation</h3>
+  <div class="formula-box">
+    <div class="formula-label">TARGET FORMULA</div>
+    <div class="formula">Target = Wedge ki beginning ki height - Breakout point<span class="note">Yaani: Wedge ke sab se pehle point ki doori se target milta hai. Jitna bada wedge, utna bada target.</span></div>
+  </div>
+
+  <h3>Volume Analysis</h3>
+  <p>Wedges mein volume triangle se thoda different hota hai:</p>
+  <ul>
+    <li><strong>Formation ke dauran:</strong> Volume gradually kam hota hai — same as triangles</li>
+    <li><strong>Rising Wedge:</strong> Uptrend mein volume barh raha hota hai lekin wedge ke andar kam ho raha hai — bearish sign</li>
+    <li><strong>Falling Wedge:</strong> Downtrend mein volume barh raha hota hai lekin wedge ke andar kam ho raha hai — bullish sign</li>
+    <li><strong>Breakout pe:</strong> Volume spike hona chahiye — same as other patterns</li>
+  </ul>
+
+  <h3>Entry and Stop Loss Rules</h3>
+  <div class="example-box">
+    <div class="example-label">WEDGE TRADING PLAN</div>
+    <table>
+      <tr><td><strong>Rising Wedge Entry</strong></td><td>Support line ke neeche close hone pe sell karo</td></tr>
+      <tr><td><strong>Falling Wedge Entry</strong></td><td>Resistance line ke upar close hone pe buy karo</td></tr>
+      <tr><td><strong>Stop Loss (Rising)</strong></td><td>Wedge ke andar last swing high ke upar</td></tr>
+      <tr><td><strong>Stop Loss (Falling)</strong></td><td>Wedge ke andar last swing low ke neeche</td></tr>
+      <tr><td><strong>Target</strong></td><td>Wedge ki beginning ki height</td></tr>
+      <tr><td><strong>Risk:Reward</strong></td><td>Kam se kam 1:2</td></tr>
+      <tr><td><strong>Confirmation</strong></td><td>Volume spike + candle close zaroori</td></tr>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Important Note:</strong> Rising Wedge hamesha bearish nahi hota. Agar ye uptrend ke beech mein continuation ke taur pe banta hai, toh iska matlab hai k price thoda neeche aayegi phir se upar jaayegi. Context bahut important hai!</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1. Falling wedge kis direction ka signal deta hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Bearish — price neeche jaayegi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Bullish — price upar jaayegi</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Neutral — dono taraf ho sakta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Koi signal nahi deta</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Falling wedge bullish reversal pattern hai. Jab ye downtrend ke end pe banta hai toh price upar jaane ka signal milta hai — buyers gradually strong ho rahe hain.</div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2. Wedge aur triangle mein kya farq hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Koi farq nahi hai, same hain</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Wedge chhota hota hai triangle se</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'correct')">Wedge mein dono lines same direction mein tilt hoti hain, triangle mein kam se kam ek flat hoti hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,'incorrect')">Wedge sirf uptrend mein banta hai</button>
+      </div>
+      <div class="quiz-explain">Sahi jawab: Wedge mein dono lines ek hi taraf tilt hoti hain (dono upar ya dono neeche) jabke triangle mein kam se kam ek line flat hoti hai ya dono symmetrically converge karti hain. Is farq se signals bhi alag hote hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for quizzes and interactivity -->
+<script>
+function checkAnswer(btn, result) {
+  var parent = btn.closest('.quiz-q');
+  var options = parent.querySelectorAll('.quiz-option');
+  var explain = parent.querySelector('.quiz-explain');
+
+  options.forEach(function(opt) {
+    opt.disabled = true;
+    if (opt === btn) {
+      opt.classList.add(result);
+    } else if (opt.getAttribute('onclick').includes("'correct'")) {
+      opt.classList.add('correct');
+    }
+  });
+
+  if (explain) {
+    explain.classList.add('show');
+  }
+}
+
+// Progress bar
+window.addEventListener('scroll', function() {
+  var main = document.querySelector('main');
+  if (!main) return;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var docHeight = main.scrollHeight - window.innerHeight;
+  var progress = Math.min((scrollTop / docHeight) * 100, 100);
+  var fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = progress + '%';
+});
+
+// Mobile menu
+var menuBtn = document.getElementById('menuBtn');
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('overlay');
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+}
+</script>

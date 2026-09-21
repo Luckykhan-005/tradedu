@@ -314,6 +314,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Fundamental Analysis', 'Crypto'],
     cover: '/covers/Fundamental-Analysis.jpg',
   },
+  {
+    id: 'advanced-chart-patterns',
+    title: 'Advanced Chart Patterns (Urdu)',
+    titleUrdu: 'ایڈوانس چارٹ پیٹرنز',
+    description:
+      'Advanced chart patterns seekho — Head & Shoulders, Triangles, Wedges, Flags, Cup & Handle, Breakout Strategy aur Fakeout se bachna. 12 chapters with 24+ practice questions.',
+    chapters: 12,
+    pages: '12 chapters · 24+ Practice Questions',
+    icon: BarChart3,
+    color: 'text-red-600',
+    bgColor: 'bg-red-50',
+    href: '/advanced-chart-patterns/index.html',
+    tags: ['Urdu', 'Chart Patterns', 'Advanced'],
+    cover: '/covers/Advanced-Chart-Patterns.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
