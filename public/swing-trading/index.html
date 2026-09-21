@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swing Trading Mastery — Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5),0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:22ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:54ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"\2610";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+  .disclaimer{background:var(--loss-bg);border:1px solid var(--loss);border-radius:var(--radius);padding:18px 22px;margin:40px 0 30px;font-size:0.92rem;color:#f0a0a0;line-height:1.6;}
+  .comparison-table{width:100%;border-collapse:collapse;font-size:0.92rem;margin:22px 0;}
+  .comparison-table th{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.04em;color:var(--gold-deep);text-align:left;padding:10px 12px;border-bottom:2px solid var(--line-strong);font-weight:500;}
+  .comparison-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .comparison-table tr:last-child td{border-bottom:none;}
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Swing Trading Mastery<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Swing Trading Kya Hai</a>
+    <a href="#ch2"><span class="toc-num">02</span>Timeframes &amp; Chart Selection</a>
+    <a href="#ch3"><span class="toc-num">03</span>Entry Strategies</a>
+    <a href="#ch4"><span class="toc-num">04</span>Exit Strategies</a>
+    <a href="#ch5"><span class="toc-num">05</span>Risk Management</a>
+    <a href="#ch6"><span class="toc-num">06</span>Trend Following Strategies</a>
+    <a href="#ch7"><span class="toc-num">07</span>Counter-Trend Strategies</a>
+    <a href="#ch8"><span class="toc-num">08</span>Multiple Timeframe Analysis</a>
+    <a href="#ch9"><span class="toc-num">09</span>Swing Trading Indicators</a>
+    <a href="#ch10"><span class="toc-num">10</span>Swing Trading Patterns</a>
+    <a href="#ch11"><span class="toc-num">11</span>Trading Psychology</a>
+    <a href="#ch12"><span class="toc-num">12</span>Complete Swing Trading System</a>
+  </nav>
+</aside>
+
+<main id="cover">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="eyebrow">SWING TRADING &middot; MASTERY GUIDE</div>
+  <h1>Swing Trading Mastery, 2-30 Din Ka Profit</h1>
+  <p class="subtitle">Swing trading seekho — trend pakro, entry karo, aur profit kamao. Day trading ki tension nahi, position trading ka patience. Sab kuch Roman Urdu mein.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>24+ PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<h3>Swing Trading Mein Aap Kiya Seekhenge</h3>
+<p>Swing trading ek trading style hai jisme 2 se 30 din ke liye positions hold ki jati hain. Ye day trading se zyada relaxed hai aur position trading se zyada active. Agar aap ke paas full-time job hai ya business hai lekin trading bhi karni hai — swing trading aap ke liye best hai.</p>
+<p>Ye book aap ko batayegi ke trend kaise identify karein, entry aur exit kaise time karein, risk kaise manage karein, aur consistently profit kaise banayein. Har chapter mein practical examples, SVG diagrams, aur quizzes hain.</p>
+
+<h3>Ye Book Kis Ke Liye Hai</h3>
+<ul>
+  <li><strong>Beginners:</strong> Jo trading shuru karna chahte hain lekin day trading ki stress nahi chahte</li>
+  <li><strong>Part-time Traders:</strong> Jo job ya business ke sath trading karna chahte hain</li>
+  <li><strong>Intermediate Traders:</strong> Jo apni strategy improve karna chahte hain</li>
+</ul>
+
+<div class="callout">
+  <span class="dot">&rsaquo;</span>
+  <span><strong>Best For:</strong> Ye guide un logon ke liye hai jo roz 1-2 ghante de kar trading karna chahte hain. Agar aap ke paas job hai, business hai, ya daily routine hai — swing trading aap ki life mein perfectly fit hota hai.</span>
+</div>
+
+<!-- CHAPTER 1 -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Swing Trading Kya Hai</h2>
+  </div>
+  <div class="chapter-intro">Swing trading ek trading style hai jisme price swings ko catch kiya jata hai — kuch dinon se le kar kuch hafton tak. Ye trend ke sath chal kar profit kamane ka tarika hai.</div>
+
+  <h3>Swing Trading Ki Definition</h3>
+  <p>Swing trading mein aap kisi asset ko 2 se 30 din ke liye hold karte hain. Aap ka goal ye hota hai ke ek "swing" — jo ke kuch dinon ya hafton ka ek move hota hai — pakro aur us se profit kamao. Ye day trading se alag hai kyunki aap ko rozana charts dekhne ki zaroorat nahi hoti.</p>
+  <p>Swing trader trend ke sath chalta hai. Jab trend up ho to buy karta hai, jab trend down ho to sell (short) karta hai. Lekin sab se important baat ye hai ke wo <strong>patience</strong> rakhta hai — jab tak position exit na ho, wo chart ko baar baar nahi dekhta.</p>
+
+  <h3>Day Trading vs Swing Trading vs Position Trading</h3>
+  <div class="example-box">
+    <div class="example-label">TRADING STYLES COMPARISON</div>
+    <table class="comparison-table">
+      <tr>
+        <th>Feature</th>
+        <th>Day Trading</th>
+        <th>Swing Trading</th>
+        <th>Position Trading</th>
+      </tr>
+      <tr>
+        <td>Holding Period</td>
+        <td>Minutes to Hours</td>
+        <td>2-30 Days</td>
+        <td>Weeks to Months</td>
+      </tr>
+      <tr>
+        <td>Time Required</td>
+        <td>Full day (6-8 hrs)</td>
+        <td>1-2 hrs/day</td>
+        <td>30 min/week</td>
+      </tr>
+      <tr>
+        <td>Frequency of Trades</td>
+        <td>5-20 per day</td>
+        <td>3-10 per month</td>
+        <td>1-3 per month</td>
+      </tr>
+      <tr>
+        <td>Stress Level</td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Low</td>
+      </tr>
+      <tr>
+        <td>Commission Cost</td>
+        <td>High</td>
+        <td>Low-Medium</td>
+        <td>Low</td>
+      </tr>
+      <tr>
+        <td>Best For</td>
+        <td>Full-time traders</td>
+        <td>Part-time traders</td>
+        <td>Investors</td>
+      </tr>
+    </table>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#f0b90b" stop-opacity="0.15"/>
+          <stop offset="50%" stop-color="#f0b90b" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#f0b90b" stop-opacity="0.15"/>
+        </linearGradient>
+      </defs>
+      <!-- Background -->
+      <rect width="700" height="260" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="258" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <!-- Timeline axis -->
+      <line x1="60" y1="180" x2="660" y2="180" stroke="#333" stroke-width="2"/>
+      
+      <!-- Time labels -->
+      <text x="60" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Min</text>
+      <text x="160" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Hr</text>
+      <text x="280" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Day</text>
+      <text x="420" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Week</text>
+      <text x="560" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Month</text>
+      <text x="660" y="200" fill="#666" font-family="JetBrains Mono" font-size="11" text-anchor="middle">1 Year</text>
+      
+      <!-- Day Trading bar -->
+      <rect x="55" y="60" width="140" height="30" rx="2" fill="#ff4444" fill-opacity="0.2" stroke="#ff4444" stroke-width="1"/>
+      <text x="125" y="80" fill="#ff4444" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">DAY TRADING</text>
+      <text x="125" y="50" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">Minutes → Hours</text>
+      
+      <!-- Swing Trading bar -->
+      <rect x="265" y="60" width="200" height="30" rx="2" fill="#f0b90b" fill-opacity="0.2" stroke="#f0b90b" stroke-width="1"/>
+      <text x="365" y="80" fill="#f0b90b" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">SWING TRADING</text>
+      <text x="365" y="50" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">2 Days → 30 Days</text>
+      
+      <!-- Position Trading bar -->
+      <rect x="495" y="60" width="170" height="30" rx="2" fill="#00b300" fill-opacity="0.2" stroke="#00b300" stroke-width="1"/>
+      <text x="580" y="80" fill="#00b300" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">POSITION TRADING</text>
+      <text x="580" y="50" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">Weeks → Months</text>
+      
+      <!-- Arrows -->
+      <polygon points="195,75 205,70 205,80" fill="#666"/>
+      <polygon points="465,75 475,70 475,80" fill="#666"/>
+      
+      <!-- Labels -->
+      <text x="350" y="235" fill="#a3a3a3" font-family="JetBrains Mono" font-size="10" text-anchor="middle">← SHORTER TIMEFRAME          LONGER TIMEFRAME →</text>
+    </svg>
+    <figcaption>Fig 1.1 — Trading Styles Ka Timeframe Comparison</figcaption>
+  </figure>
+
+  <h3>Swing Trading Ke Pros</h3>
+  <ul>
+    <li><strong>Kam Time Lagta Hai:</strong> Roz sirf 1-2 ghante charts dekhna kaafi hai</li>
+    <li><strong>Flexibility:</strong> Job ya business ke sath easily kar sakte hain</li>
+    <li><strong>Kam Stress:</strong> Day trading ki tarah har minute chart nahi dekhna</li>
+    <li><strong>Better R:R:</strong> Bade moves catch karne ka mauka milta hai</li>
+    <li><strong>Kam Commission:</strong> Kam trades = kam fees</li>
+  </ul>
+
+  <h3>Swing Trading Ke Cons</h3>
+  <ul>
+    <li><strong>Overnight Risk:</strong> Market ke band hone ke baad price gap ho sakti hai</li>
+    <li><strong>Patience Chahiye:</strong> Trade setup banne mein din lag sakte hain</li>
+    <li><strong>Missed Moves:</strong> Intraday moves miss ho sakti hain</li>
+    <li><strong>Swing Failure:</strong> Kabhi kabhi expected move nahi aata</li>
+  </ul>
+
+  <h3>Ye Kis Ke Liye Best Hai</h3>
+  <p>Swing trading un logon ke liye best hai jo:</p>
+  <ul>
+    <li>Roz 1-2 ghante de sakte hain trading ko</li>
+    <li>Full-time job ya business karte hain</li>
+    <li>Day trading ki stress nahi chahte</li>
+    <li>Medium-term trends follow karna chahte hain</li>
+    <li>Consistent returns chahte hain bari capital growth ke sath</li>
+  </ul>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 01</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Swing trading mein position kitne dinon tak hold ki jati hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Day trading mein position same day close hoti hai.')">A. 1 din se kam</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Swing trading mein 2-30 din tak position hold hoti hai.')">B. 2 se 30 din</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye position trading hai.')">C. 1 se 6 mahine</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye long-term investing hai.')">D. 1 saal se zyada</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Swing trading ka sab se bada faida kya hai part-time traders ke liye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Swing trading mein kam trades hote hain.')">A. Zyada trades karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Roz 1-2 ghante de kar trading ho jati hai.')">B. Kam time lagta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Overnight risk hota hai.')">C. Koi risk nahi hota</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Leverage strategy nahi hai.')">D. Leverage zyada milta hai</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Timeframes &amp; Chart Selection</h2>
+  </div>
+  <div class="chapter-intro">Swing trading mein sahi timeframe choose karna sab se pehla kadam hai. Daily chart primary, H4 secondary, aur H1 entry timing ke liye use hota hai. Multi-timeframe analysis se aap ke trade ki accuracy barhti hai.</div>
+
+  <h3>Daily Chart (D1) — Primary Timeframe</h3>
+  <p>Swing trader ka main chart hota hai <strong>D1 (Daily)</strong>. Is mein har candle ek din ka price action dikhata hai. D1 par aap ko trend clearly nazar aata hai — kaun sa trend strong hai, kahan support hai, kahan resistance hai.</p>
+  <p>Daily chart par aap apne major levels identify karte hain: support zones, resistance zones, trend lines, aur key moving averages. Ye aap ki "big picture" hai.</p>
+
+  <h3>4-Hour Chart (H4) — Secondary Timeframe</h3>
+  <p>H4 chart D1 ke baad second most important timeframe hai. Is mein aap ko D1 ke andar ke moves dikhte hain. H4 par aap dekh sakte hain ke kya pullback ho raha hai ya breakout ho raha hai. H4 aap ko D1 ke signal ko confirm karta hai.</p>
+
+  <h3>1-Hour Chart (H1) — Entry Timing</h3>
+  <p>H1 chart sirf entry aur exit ke liye use hota hai. Jab aap ne D1 aur H4 par decision le liya ke ye trade karna hai, to H1 par exact entry point dhundhte hain. H1 par aap candlestick patterns, small support/resistance levels, aur precise stop loss levels identify karte hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="338" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <!-- D1 Box -->
+      <rect x="40" y="30" width="180" height="120" rx="4" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="130" y="55" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="700">D1 — DAILY</text>
+      <text x="130" y="78" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Trend Identify</text>
+      <text x="130" y="95" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Major S/R Levels</text>
+      <text x="130" y="112" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Key Moving Averages</text>
+      <text x="130" y="138" fill="#a3a3a3" font-family="JetBrains Mono" font-size="10" text-anchor="middle">PRIMARY TIMEFRAME</text>
+      
+      <!-- Arrow D1 to H4 -->
+      <line x1="220" y1="90" x2="260" y2="90" stroke="#f0b90b" stroke-width="2" stroke-dasharray="5,3"/>
+      <polygon points="260,85 272,90 260,95" fill="#f0b90b"/>
+      
+      <!-- H4 Box -->
+      <rect x="272" y="30" width="180" height="120" rx="4" fill="#111" stroke="#f0b90b" stroke-width="1" stroke-opacity="0.6"/>
+      <text x="362" y="55" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="700">H4 — 4 HOUR</text>
+      <text x="362" y="78" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Trend Confirmation</text>
+      <text x="362" y="95" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Pullback / Breakout</text>
+      <text x="362" y="112" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Setup Formation</text>
+      <text x="362" y="138" fill="#a3a3a3" font-family="JetBrains Mono" font-size="10" text-anchor="middle">SECONDARY TIMEFRAME</text>
+      
+      <!-- Arrow H4 to H1 -->
+      <line x1="452" y1="90" x2="492" y2="90" stroke="#f0b90b" stroke-width="2" stroke-dasharray="5,3"/>
+      <polygon points="492,85 504,90 492,95" fill="#f0b90b"/>
+      
+      <!-- H1 Box -->
+      <rect x="504" y="30" width="180" height="120" rx="4" fill="#111" stroke="#f0b90b" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="594" y="55" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="700">H1 — 1 HOUR</text>
+      <text x="594" y="78" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Exact Entry Point</text>
+      <text x="594" y="95" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Stop Loss Place</text>
+      <text x="594" y="112" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Candlestick Patterns</text>
+      <text x="594" y="138" fill="#a3a3a3" font-family="JetBrains Mono" font-size="10" text-anchor="middle">ENTRY TIMEFRAME</text>
+      
+      <!-- Flow diagram bottom -->
+      <text x="350" y="190" fill="#a3a3a3" font-family="JetBrains Mono" font-size="11" text-anchor="middle">MULTI-TIMEFRAME WORKFLOW</text>
+      
+      <!-- Step boxes -->
+      <rect x="60" y="210" width="150" height="50" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="135" y="232" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">STEP 1: D1 ANALYSIS</text>
+      <text x="135" y="248" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Trend aur direction decide</text>
+      
+      <line x1="210" y1="235" x2="250" y2="235" stroke="#333" stroke-width="1.5"/>
+      <polygon points="250,230 260,235 250,240" fill="#333"/>
+      
+      <rect x="260" y="210" width="160" height="50" rx="3" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="340" y="232" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">STEP 2: H4 CONFIRM</text>
+      <text x="340" y="248" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Setup ka confirmation</text>
+      
+      <line x1="420" y1="235" x2="460" y2="235" stroke="#333" stroke-width="1.5"/>
+      <polygon points="460,230 470,235 460,240" fill="#333"/>
+      
+      <rect x="470" y="210" width="180" height="50" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="560" y="232" fill="#ff4444" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">STEP 3: H1 ENTRY</text>
+      <text x="560" y="248" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Exact entry aur stop loss</text>
+      
+      <!-- Bottom note -->
+      <rect x="60" y="285" width="590" height="40" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <text x="355" y="310" fill="#a3a3a3" font-family="Newsreader" font-size="11" text-anchor="middle">Rule: Hamesha pehle D1 dekho, phir H4, aur last mein H1 par entry karo</text>
+    </svg>
+    <figcaption>Fig 2.1 — Multi-Timeframe Setup: D1 → H4 → H1 Flow</figcaption>
+  </figure>
+
+  <h3>Timeframes Ko Kaise Combine Karein</h3>
+  <div class="formula-box">
+    <div class="formula-label">MULTI-TIMEFRAME RULE</div>
+    <div class="formula">
+      1. D1 par trend identify karo (up ya down)<br>
+      2. H4 par pullback ya breakout confirm karo<br>
+      3. H1 par exact entry aur stop loss lagao<br>
+      <span class="note">Hamesha higher timeframe se lower timeframe ki taraf jao. Never skip steps.</span>
+    </div>
+  </div>
+
+  <h3>Best Pairs For Swing Trading</h3>
+  <div class="example-box">
+    <div class="example-label">RECOMMENDED PAIRS</div>
+    <table>
+      <tr><td><strong>Major Pairs</strong></td><td>EUR/USD, GBP/USD, USD/JPY</td></tr>
+      <tr><td><strong>Cross Pairs</strong></td><td>EUR/GBP, GBP/JPY, EUR/JPY</td></tr>
+      <tr><td><strong>Commodities</strong></td><td>XAU/USD (Gold), XAG/USD (Silver)</td></tr>
+      <tr><td><strong>Crypto</strong></td><td>BTC/USD, ETH/USD</td></tr>
+      <tr><td><strong>Indices</strong></td><td>S&amp;P 500, NASDAQ, DAX</td></tr>
+    </table>
+  </div>
+
+  <h3>Chart Settings Recommendations</h3>
+  <ul>
+    <li><strong>Candlestick Chart:</strong> Bar ya line chart mat use karo — hamesha candlestick</li>
+    <li><strong>EMA 20 &amp; 50:</strong> Dono moving averages chart par lagao</li>
+    <li><strong>Volume:</strong> Volume indicator hamesha on rakho</li>
+    <li><strong>Colors:</strong> Green candle = bullish, Red candle = bearish</li>
+    <li><strong>Grid:</strong> Grid off rakho — distractions kam honi chahiye</li>
+  </ul>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 02</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Swing trading mein primary timeframe kaun sa hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. H1 sirf entry timing ke liye hai.')">A. 1-Hour (H1)</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. H4 secondary timeframe hai.')">B. 4-Hour (H4)</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Daily chart swing trading ka primary timeframe hai.')">C. Daily (D1)</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Weekly zyada bada hai swing ke liye.')">D. Weekly</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Multi-timeframe analysis mein konsa pattern follow hota hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye ulta hai.')">A. H1 → H4 → D1</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Hamesha higher se lower timeframe ki taraf jao.')">B. D1 → H4 → H1</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sab timeframes same time par nahi dekhte.')">C. D1 + H4 + H1 simultaneously</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sirf ek timeframe se kaam nahi hota.')">D. Sirf Daily chart</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Entry Strategies</h2>
+  </div>
+  <div class="chapter-intro">Sahi entry strategy aap ke trade ka 50% kaam hai. Pullback, breakout, ya retest — har strategy ka apna time aur jagah hai. Entry karte waqt patience aur discipline sab se zaroori hai.</div>
+
+  <h3>Pullback Entry (Buy The Dip)</h3>
+  <p>Uptrend mein jab price thoda neeche aaye — ye pullback hai — to wo buy opportunity hai. Aap trend ke sath chal rahe hain aur better price par entry le rahe hain. Pullback entry mein aap ko support level ya moving average par entry leni hoti hai.</p>
+  <p><strong>Kaise karein:</strong> Uptrend identify karo, jab price kisi support ya EMA 20/50 tak aaye aur wahan se bullish candle banaye — ye entry signal hai. Stop loss pullback ke low ke neeche rakho.</p>
+
+  <h3>Breakout Entry</h3>
+  <p>Jab price kisi important resistance level ko cross kare — ye breakout hai. Breakout ke baad price usually tezi se aage badhta hai. Lekin dhyan rahe — fake breakout bhi hotay hain. Volume hona chahiye breakout ke sath.</p>
+  <p><strong>Kaise karein:</strong> Resistance level identify karo. Jab us level ke upar candle close ho aur volume barh jaye — ye breakout confirm hai. Entry us candle ke close par, stop loss resistance ke neeche.</p>
+
+  <h3>Retest Entry (Breakout + Retest)</h3>
+  <p>Breakout ke baad price wapas aakar usi level ko test kare — ye retest hai. Retest entry breakout se zyada safe hai kyunki confirmation mil jati hai ke support kaam kar raha hai. Jab price retest kare aur wahan se反弹 kare — ye best entry hai.</p>
+
+  <h3>Entry Strategy Ka Flowchart</h3>
+  <figure>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="420" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="418" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <!-- Start -->
+      <rect x="250" y="15" width="200" height="36" rx="18" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="38" fill="#f0b90b" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">TREND IDENTIFIED</text>
+      
+      <line x1="350" y1="51" x2="350" y2="75" stroke="#333" stroke-width="1.5"/>
+      <polygon points="345,75 350,85 355,75" fill="#333"/>
+      
+      <!-- Decision: Trend Direction -->
+      <polygon points="350,90 470,125 350,160 230,125" fill="#111" stroke="#f0b90b" stroke-width="1"/>
+      <text x="350" y="122" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Trend konsa hai?</text>
+      <text x="350" y="137" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Up / Down / Sideways</text>
+      
+      <!-- Uptrend path -->
+      <line x1="230" y1="125" x2="150" y2="125" stroke="#00b300" stroke-width="1.5"/>
+      <text x="195" y="118" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">UPTREND</text>
+      
+      <rect x="50" y="108" width="100" height="34" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="100" y="129" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle">BUY SETUP</text>
+      
+      <line x1="100" y1="142" x2="100" y2="170" stroke="#00b300" stroke-width="1"/>
+      
+      <!-- Buy Options -->
+      <rect x="20" y="175" width="160" height="60" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <text x="100" y="195" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">1. Pullback to EMA/Support</text>
+      <text x="100" y="210" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">2. Breakout + Retest</text>
+      <text x="100" y="225" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9" text-anchor="middle">BEST: Wait for retest</text>
+      
+      <!-- Downtrend path -->
+      <line x1="470" y1="125" x2="550" y2="125" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="510" y="118" fill="#ff4444" font-family="JetBrains Mono" font-size="9" text-anchor="middle">DOWNTREND</text>
+      
+      <rect x="550" y="108" width="100" height="34" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="600" y="129" fill="#ff4444" font-family="JetBrains Mono" font-size="10" text-anchor="middle">SELL SETUP</text>
+      
+      <line x1="600" y1="142" x2="600" y2="170" stroke="#ff4444" stroke-width="1"/>
+      
+      <rect x="520" y="175" width="160" height="60" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <text x="600" y="195" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">1. Pullback to EMA/Resistance</text>
+      <text x="600" y="210" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">2. Breakdown + Retest</text>
+      <text x="600" y="225" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9" text-anchor="middle">BEST: Wait for retest</text>
+      
+      <!-- Sideways path -->
+      <line x1="350" y1="160" x2="350" y2="270" stroke="#666" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="370" y="200" fill="#666" font-family="JetBrains Mono" font-size="9">SIDEWAYS</text>
+      
+      <rect x="280" y="275" width="140" height="34" rx="3" fill="#111" stroke="#666" stroke-width="1"/>
+      <text x="350" y="296" fill="#666" font-family="JetBrains Mono" font-size="10" text-anchor="middle">WAIT / NO TRADE</text>
+      
+      <!-- Entry Checklist -->
+      <rect x="180" y="330" width="340" height="75" rx="3" fill="#111" stroke="#f0b90b" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="350" y="350" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">ENTRY CHECKLIST</text>
+      <text x="200" y="368" fill="#a3a3a3" font-family="Newsreader" font-size="10">1. Trend confirm (D1)  2. Setup form (H4)  3. Entry signal (H1)</text>
+      <text x="200" y="385" fill="#a3a3a3" font-family="Newsreader" font-size="10">4. Stop loss set  5. R:R 1:2 minimum</text>
+    </svg>
+    <figcaption>Fig 3.1 — Entry Strategy Decision Flowchart</figcaption>
+  </figure>
+
+  <h3>Entry Checklist</h3>
+  <ul class="checklist">
+    <li>D1 par trend clearly identify ho chuka hai</li>
+    <li>H4 par setup form ho raha hai (pullback/breakout/retest)</li>
+    <li>H1 par entry signal mila hai (bullish/bearish candle)</li>
+    <li>Stop loss level decide ho chuka hai</li>
+    <li>Risk:Reward ratio minimum 1:2 hai</li>
+  </ul>
+
+  <h3>Timing Entries With Candle Close</h3>
+  <p>Entry sirf tab leni hai jab candle <strong>close</strong> ho jaye. Jab tak candle band nahi hoti, us ka direction confirm nahi hota. Agar aap candle ke beech mein entry lete ho to wo move reverse ho sakta hai. Patience rakho — candle close ka wait karo.</p>
+  <div class="callout warn">
+    <span class="dot">&!</span>
+    <span><strong>Warning:</strong> Candle ke open par ya middle mein entry mat lo. Hamesha candle close ka wait karo. Ek ghanta ya ek din — jo bhi timeframe use kar rahe ho, us ki candle close zaroor wait karo.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 03</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Uptrend mein best entry strategy konsi hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Uptrend mein buy karna hota hai.')">A. Uptrend mein sell karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Pullback entry mein better price milta hai uptrend mein.')">B. Pullback par buy karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Uptrend ke top par buy karna risky hai.')">C. Top par buy karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye trend ke khilaf hai.')">D. Neeche girne ka wait karna</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Entry karte waqt candle ka kya wait karna chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Open par entry risky hai.')">A. Candle ke open par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Middle mein direction confirm nahi hoti.')">B. Candle ke middle mein</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Candle close hone ka wait karo — tab direction confirm hoti hai.')">C. Candle ke close par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Next candle ka wait zyada deri hai.')">D. Next candle ke open par</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Exit Strategies</h2>
+  </div>
+  <div class="chapter-intro">Entry se zyada important hai exit. Sahi exit strategy aap ke profit ko protect karti hai. Take profit, trailing stop, time-based exit — har situation ke liye alag approach hai.</div>
+
+  <h3>Take Profit Targets (R:R Based)</h3>
+  <p>Har trade ke liye pehle se decide karo ke kahan profit loge. Risk:Reward ratio ke basis par target set karo. Agar aap ne $50 risk kiya hai aur R:R 1:2 hai, to $100 profit target hai. Ye math-based approach hai — emotion se door rakhta hai.</p>
+
+  <h3>Trailing Stop Loss</h3>
+  <p>Trailing stop loss ek dynamic stop hai jo price ke sath move hota hai. Jab price aap ke favor mein jaaye, stop loss bhi usi direction mein move hota rahega. Is se aap ka profit lock hota rahega aur agar price reverse bhi ho jaye, aap ka profit safe rahega.</p>
+
+  <h3>Time-Based Exit</h3>
+  <p>Kabhi kabhi trade setup theek hai lekin price expected move nahi karti. Agar 5-7 din ke andar expected move nahi aaya, to trade se bahar nikalna better hai. Is ko "time stop" kehte hain. Paise kisi ek trade mein zyada der atke nahi rehne chahiye.</p>
+
+  <h3>Signal-Based Exit</h3>
+  <p>Jab aap ko opposite signal mile — jaise downtrend ke signals uptrend mein — to exit karo. Reversal patterns, bearish engulfing candles, ya trend line break — ye sab exit signals hain. Jab market aap ko bataye ke trend khatam ho raha hai, turant nikal jao.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="380" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="378" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <!-- Start -->
+      <rect x="240" y="15" width="220" height="36" rx="18" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="38" fill="#f0b90b" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">POSITION OPEN — EXIT DECISION</text>
+      
+      <line x1="350" y1="51" x2="350" y2="75" stroke="#333" stroke-width="1.5"/>
+      <polygon points="345,75 350,85 355,75" fill="#333"/>
+      
+      <!-- Decision 1: Target Hit? -->
+      <polygon points="350,90 480,125 350,160 220,125" fill="#111" stroke="#f0b90b" stroke-width="1"/>
+      <text x="350" y="120" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Target hit hua?</text>
+      <text x="350" y="137" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Take Profit Level</text>
+      
+      <!-- Yes -->
+      <line x1="220" y1="125" x2="130" y2="125" stroke="#00b300" stroke-width="1.5"/>
+      <text x="178" y="118" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HAAN</text>
+      
+      <rect x="40" y="108" width="90" height="34" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="85" y="129" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle">EXIT NOW</text>
+      
+      <!-- No -->
+      <line x1="350" y1="160" x2="350" y2="195" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="365" y="180" fill="#ff4444" font-family="JetBrains Mono" font-size="9">NAHI</text>
+      
+      <!-- Decision 2: Stop Loss Hit? -->
+      <polygon points="350,200 480,235 350,270 220,235" fill="#111" stroke="#f0b90b" stroke-width="1"/>
+      <text x="350" y="230" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Stop loss hit hua?</text>
+      <text x="350" y="247" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Protective Stop</text>
+      
+      <!-- Yes -->
+      <line x1="220" y1="235" x2="130" y2="235" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="178" y="228" fill="#ff4444" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HAAN</text>
+      
+      <rect x="40" y="218" width="90" height="34" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="85" y="239" fill="#ff4444" font-family="JetBrains Mono" font-size="10" text-anchor="middle">EXIT NOW</text>
+      
+      <!-- No -->
+      <line x1="350" y1="270" x2="350" y2="305" stroke="#333" stroke-width="1.5"/>
+      <text x="365" y="290" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9">NAHI</text>
+      
+      <!-- Decision 3: Reversal Signal? -->
+      <polygon points="350,310 480,340 350,370 220,340" fill="#111" stroke="#f0b90b" stroke-width="1"/>
+      <text x="350" y="337" fill="#e5e5e5" font-family="Newsreader" font-size="11" text-anchor="middle">Reversal signal hai?</text>
+      <text x="350" y="354" fill="#a3a3a3" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Ya Time Stop</text>
+      
+      <!-- Yes -->
+      <line x1="220" y1="340" x2="130" y2="340" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="178" y="333" fill="#ff4444" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HAAN</text>
+      
+      <rect x="40" y="323" width="90" height="34" rx="3" fill="#1a0505" stroke="#ff4444" stroke-width="1"/>
+      <text x="85" y="344" fill="#ff4444" font-family="JetBrains Mono" font-size="10" text-anchor="middle">EXIT NOW</text>
+      
+      <!-- No -->
+      <line x1="480" y1="340" x2="570" y2="340" stroke="#00b300" stroke-width="1.5"/>
+      <text x="528" y="333" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">NAHI</text>
+      
+      <rect x="570" y="323" width="110" height="34" rx="3" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="625" y="344" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle">HOLD POSITION</text>
+    </svg>
+    <figcaption>Fig 4.1 — Exit Strategy Decision Tree</figcaption>
+  </figure>
+
+  <h3>Partial Profit Taking</h3>
+  <p>Ek strategy ye hai ke jab price thoda profit dein, to half position close kar do aur baaki half ko trailing stop ke sath chhod do. Is se aap ka kuch profit lock ho jata hai aur baaki ka potential bhi bana rahta hai. Ye emotional pressure bhi kam karta hai.</p>
+
+  <h3>Break-Even Stop</h3>
+  <p>Jab price aap ke favor mein thoda chale, to stop loss ko entry price par move kar do. Is se agar price reverse ho bhi jaye, aap ko loss nahi hoga — break even pe exit ho jaoge. Ye free trade ban jata hai.</p>
+
+  <div class="formula-box">
+    <div class="formula-label">EXIT RULES SUMMARY</div>
+    <div class="formula">
+      1. Take Profit: R:R ratio ke hisaab se target set karo<br>
+      2. Trailing Stop: Profit barhne par stop loss move karo<br>
+      3. Time Stop: 5-7 din mein expected move nahi aaya to exit<br>
+      4. Reversal Signal: Opposite signal mila to exit<br>
+      <span class="note">Partial exit se profit lock hota hai. Break-even stop se free trade milta hai.</span>
+    </div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 04</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Trailing stop loss kya karta hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye fixed stop loss hai.')">A. Stop loss fix rakhta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Trailing stop price ke sath move karta hai aur profit lock karta hai.')">B. Price ke sath stop loss move karta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye time stop hai.')">C. Har ghante stop loss change karta hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye stop loss ko kam nahi karta.')">D. Stop loss ko hata deta hai</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Agar trade ne 7 din mein expected move nahi kiya, to kya karna chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Aur wait karna risky hai.')">A. Aur wait karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Position double karna risky hai.')">B. Position double karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Time stop lagao aur trade se nikal jao.')">C. Time stop lagao aur exit karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Stop loss hata dena bilkul galat hai.')">D. Stop loss hata do</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Risk Management</h2>
+  </div>
+  <div class="chapter-intro">Risk management trading ka sab se important hissa hai. Bina risk management ke aap ka account barbaad ho sakta hai. 1-2% rule, position sizing, aur drawdown limits — ye sab aap ki survival ka guarantee hai.</div>
+
+  <h3>1-2% Risk Per Trade Rule</h3>
+  <p>Har trade mein sirf apne account ka <strong>1% se 2%</strong> risk karo. Agar aap ka account $10,000 hai, to ek trade mein maximum $100-$200 risk. Is se agar 5 trades bhi连续 loss ho jayen, to sirf 5-10% account gaya hai — aap abhi bhi zinda ho trading mein.</p>
+
+  <h3>Position Sizing Formula</h3>
+  <div class="formula-box">
+    <div class="formula-label">POSITION SIZE FORMULA</div>
+    <div class="formula">
+      Position Size = (Account × Risk %) ÷ (Entry Price − Stop Loss Price)<br>
+      <span class="note">Example: $10,000 account, 1% risk ($100), Entry $50, Stop Loss $48</span>
+      <span class="note">$100 ÷ ($50 − $48) = $100 ÷ $2 = 50 shares</span>
+    </div>
+  </div>
+
+  <h3>Stop Loss Placement</h3>
+  <p>Stop loss hamesha <strong>structure</strong> ke hisaab se lagao — random number se nahi. Uptrend mein stop loss recent swing low ke neeche, downtrend mein recent swing high ke upar. Is se aap ka stop logical jagah par hota hai aur market noise se trigger nahi hota.</p>
+
+  <h3>Risk:Reward Minimum 1:2</h3>
+  <p>Har trade mein minimum 1:2 R:R hona chahiye. Is ka matlab hai ke agar $1 risk kar rahe ho, to kam se kam $2 target hona chahiye. Agar aap ki 10 trades mein sirf 4 hi sahi hain bhi — aap tab bhi profit mein ho ge kyunki winners losers se zyada bade hain.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="280" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="278" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <text x="350" y="30" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="700">RISK MANAGEMENT FORMULA</text>
+      
+      <!-- Account Box -->
+      <rect x="40" y="55" width="180" height="70" rx="4" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="130" y="80" fill="#f0b90b" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">ACCOUNT SIZE</text>
+      <text x="130" y="100" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">$10,000</text>
+      <text x="130" y="115" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Aap ka total capital</text>
+      
+      <line x1="220" y1="90" x2="260" y2="90" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="240" y="83" fill="#f0b90b" font-family="JetBrains Mono" font-size="16" text-anchor="middle">×</text>
+      
+      <!-- Risk % Box -->
+      <rect x="260" y="55" width="180" height="70" rx="4" fill="#111" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="350" y="80" fill="#ff4444" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">RISK PERCENTAGE</text>
+      <text x="350" y="100" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">1% = $100</text>
+      <text x="350" y="115" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Max risk per trade</text>
+      
+      <line x1="440" y1="90" x2="480" y2="90" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="460" y="83" fill="#f0b90b" font-family="JetBrains Mono" font-size="16" text-anchor="middle">÷</text>
+      
+      <!-- Risk Per Share Box -->
+      <rect x="480" y="55" width="180" height="70" rx="4" fill="#111" stroke="#00b300" stroke-width="1.5"/>
+      <text x="570" y="80" fill="#00b300" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">RISK PER SHARE</text>
+      <text x="570" y="100" fill="#e5e5e5" font-family="Newsreader" font-size="12" text-anchor="middle">$2 (Entry−SL)</text>
+      <text x="570" y="115" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Entry − Stop Loss</text>
+      
+      <!-- Equals -->
+      <line x1="350" y1="145" x2="350" y2="170" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="370" y="162" fill="#f0b90b" font-family="JetBrains Mono" font-size="14">=</text>
+      
+      <!-- Result Box -->
+      <rect x="220" y="175" width="260" height="55" rx="4" fill="#0a1a00" stroke="#00b300" stroke-width="1.5"/>
+      <text x="350" y="198" fill="#00b300" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">POSITION SIZE</text>
+      <text x="350" y="218" fill="#e5e5e5" font-family="Newsreader" font-size="14" text-anchor="middle" font-weight="600">50 Shares / Units</text>
+      
+      <!-- Bottom note -->
+      <rect x="60" y="245" width="580" height="25" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <text x="350" y="262" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Position size = Account Risk Amount ÷ Risk Per Unit (Entry Price − Stop Loss)</text>
+    </svg>
+    <figcaption>Fig 5.1 — Position Sizing Formula Visual Breakdown</figcaption>
+  </figure>
+
+  <h3>Maximum Open Trades</h3>
+  <p>Ek time mein maximum <strong>3 se 5</strong> open trades rakho. Agar sab trades mein capital lag gaya, to naye opportunity ka mauka miss ho jayega. Diversification important hai — lekin over-diversification bhi nahi.</p>
+
+  <h3>Portfolio Risk Management</h3>
+  <ul>
+    <li><strong>Total Portfolio Risk:</strong> Ek time mein total 6-10% se zyada risk mat lo</li>
+    <li><strong>Correlation:</strong> Ek hi direction mein correlated trades avoid karo</li>
+    <li><strong>Max Daily Loss:</strong> 3% se zyada daily loss ho to trading band karo</li>
+    <li><strong>Max Weekly Loss:</strong> 5-6% se zyada weekly loss ho to strategy review karo</li>
+  </ul>
+
+  <h3>Drawdown Limits</h3>
+  <p>Drawdown hai jab aap ka account peak se neeche aata hai. Agar 10% drawdown ho jaye, to position sizes chhote karo. Agar 20% drawdown ho jaye, to trading band karo aur strategy review karo. Emotional trading se bachna hai — drawdown limit set karo aur us par amal karo.</p>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Golden Rule:</strong> Pehle survive karo, phir profit kamao. Risk management aap ki survival ka guarantee hai. Bina risk management ke trading = gambling hai.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 05</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: $10,000 account par 1% risk kitna hoga?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye 10% hai — bohat zyada hai.')">$1,000</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! 1% of $10,000 = $100.')">$100</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye 5% hai.')">$500</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye 2.5% hai.')">$250</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Risk:Ratio minimum kitna hona chahiye har trade mein?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye break-even hai — profit nahi hoga.')">A. 1:1</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! 1:2 minimum hona chahiye — $1 risk pe $2 reward.')">B. 1:2</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye zyada ambitious hai.')">C. 1:5</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye ideal hai lekin minimum nahi.')">D. 1:3</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 6 -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>Trend Following Strategies</h2>
+  </div>
+  <div class="chapter-intro">Trend ke sath chalna trading ka sab se powerful concept hai. Moving averages, trendlines, channels — ye sab tools hain jo aap ko trend ke sath entry karne mein madad karte hain. "Trend is your friend" — ye sirf quote nahi, ye strategy hai.</div>
+
+  <h3>Moving Average Strategy (EMA 20/50 Cross)</h3>
+  <p>Jab <strong>EMA 20</strong> (fast) <strong>EMA 50</strong> (slow) ke upar cross kare — ye bullish signal hai. Jab EMA 20 neeche cross kare — ye bearish signal hai. Lekin hamesha higher timeframe ke trend ke sath hi trade karo. Downtrend mein bullish cross ka wait mat karo — wo signal weak hota hai.</p>
+
+  <h3>Trendline Bounce Strategy</h3>
+  <p>Trendline draw karo — uptrend mein lows ko connect karo, downtrend mein highs ko. Jab price trendline tak aaye aur wahan se反弹 kare — ye entry opportunity hai. Trendline bounce ke sath candlestick confirmation zaroori hai — sirf touch par trade mat karo.</p>
+
+  <h3>Channel Trading Strategy</h3>
+  <p>Jab price do parallel lines ke beech trade kare — ye channel hai. Channel ke bottom par buy, top par sell. Lekin jab channel break ho — to breakout strategy use karo. Channel trading range market mein best kaam karta hai.</p>
+
+  <h3>Pullback To Support In Uptrend</h3>
+  <p>Uptrend mein jab price thoda neeche aaye aur kisi support level ya moving average tak pahunche — ye "buy the dip" hai. Support par bullish candle ya pattern ka wait karo — phir entry lo. Stop loss support ke neeche rakho.</p>
+
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" rx="4" fill="#0a0a0a"/>
+      <rect x="1" y="1" width="698" height="298" rx="4" fill="none" stroke="#262626" stroke-width="1"/>
+      
+      <text x="350" y="25" fill="#f0b90b" font-family="JetBrains Mono" font-size="11" text-anchor="middle" font-weight="600">TREND FOLLOWING — UPTREND WITH ENTRY POINTS</text>
+      
+      <!-- Uptrend line -->
+      <line x1="50" y1="230" x2="650" y2="80" stroke="#00b300" stroke-width="2" stroke-opacity="0.6"/>
+      
+      <!-- Price waves -->
+      <polyline points="60,220 100,190 140,210 180,170 220,190 260,150 300,175 340,130 380,160 420,115 460,145 500,100 540,130 580,85 620,110 660,70" fill="none" stroke="#e5e5e5" stroke-width="2"/>
+      
+      <!-- Higher Highs -->
+      <text x="180" y="160" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      <text x="260" y="140" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      <text x="340" y="120" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      <text x="420" y="105" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      <text x="500" y="90" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      <text x="580" y="75" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HH</text>
+      
+      <!-- Higher Lows -->
+      <text x="140" y="225" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      <text x="220" y="205" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      <text x="300" y="190" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      <text x="380" y="175" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      <text x="460" y="160" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      <text x="540" y="145" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">HL</text>
+      
+      <!-- Entry points -->
+      <circle cx="140" cy="210" r="7" fill="#f0b90b" fill-opacity="0.3" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="140" y="242" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">ENTRY 1</text>
+      
+      <circle cx="300" cy="175" r="7" fill="#f0b90b" fill-opacity="0.3" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="300" y="207" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">ENTRY 2</text>
+      
+      <circle cx="460" cy="145" r="7" fill="#f0b90b" fill-opacity="0.3" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="460" y="172" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">ENTRY 3</text>
+      
+      <!-- Legend -->
+      <rect x="50" y="265" width="600" height="25" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <circle cx="80" cy="277" r="5" fill="#00b300"/>
+      <text x="92" y="280" fill="#a3a3a3" font-family="Newsreader" font-size="10">Uptrend Line (HH + HL)</text>
+      <circle cx="220" cy="277" r="5" fill="#f0b90b"/>
+      <text x="232" y="280" fill="#a3a3a3" font-family="Newsreader" font-size="10">Buy Entry at Pullback</text>
+      <line x1="370" y1="277" x2="390" y2="277" stroke="#e5e5e5" stroke-width="2"/>
+      <text x="398" y="280" fill="#a3a3a3" font-family="Newsreader" font-size="10">Price Action</text>
+    </svg>
+    <figcaption>Fig 6.1 — Trend Following Entry Points In Uptrend</figcaption>
+  </figure>
+
+  <h3>Trend Kaise Identify Karein</h3>
+  <div class="formula-box">
+    <div class="formula-label">TREND IDENTIFICATION RULES</div>
+    <div class="formula">
+      UPTREND: Higher Highs (HH) + Higher Lows (HL)<br>
+      DOWNTREND: Lower Highs (LH) + Lower Lows (LL)<br>
+      SIDEWAYS: Range-bound — no clear HH/HL or LH/LL<br>
+      <span class="note">Hamesha D1 par trend identify karo — H4/H1 par sirf entry timing ke liye dekho.</span>
+    </div>
+  </div>
+
+  <h3>Trend Strength Indicators</h3>
+  <ul>
+    <li><strong>ADX (Average Directional Index):</strong> 25 se ooper = strong trend, 20 se neeche = weak/none</li>
+    <li><strong>Moving Average Slope:</strong> Jitna steep MA ka slope, utna strong trend</li>
+    <li><strong>Price Distance From MA:</strong> Price MA se door hai = strong momentum</li>
+    <li><strong>Volume:</strong> Strong trend mein volume barhta hai</li>
+    <li><strong>Higher Timeframe Alignment:</strong> D1 aur H4 same direction mein = high probability</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Trend ke khilaf trade mat karo — chahe kitna bhi attractive lage. "Catching falling knife" sab se bada risk hai. Hamesha trend ke sath chalo, pullback par entry lo.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 06</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Uptrend ka kya definition hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye downtrend hai.')">A. Lower Highs + Lower Lows</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Uptrend mein Higher Highs aur Higher Lows bante hain.')">B. Higher Highs + Higher Lows</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye sideways market hai.')">C. Flat highs aur flat lows</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Random pattern nahi hota.')">D. Random pattern</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: ADX 30 hai — is ka kya matlab hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. ADX 30 weak nahi hai.')">A. Market sideways hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! ADX 25+ strong trend dikhata hai.')">B. Strong trend hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. ADX trend strength batata hai, direction nahi.')">C. Trend khatam ho raha hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. ADX koi buy/sell signal nahi hai.')">D. Sell signal hai</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2>Counter-Trend Strategies</h2>
+  </div>
+  <div class="chapter-intro">Counter-trend trading matlab trend ke khilaf trade karna. Ye risky hai lekin jab sahi setup mile to high reward mil sakta hai. Sirf experienced traders ko karna chahiye — aur hamesha chhoti position size mein.</div>
+
+  <h3>RSI Divergence Trades</h3>
+  <p>RSI divergence tab hota hai jab price naya high banata hai lekin RSI nahi banata (bearish divergence) ya price naya low banata hai lekin RSI nahi banata (bullish divergence). Ye trend reversal ka early signal hai.</p>
+  <ul>
+    <li><strong>Bullish Divergence:</strong> Price lower low banata hai, RSI higher low banata hai — buy signal</li>
+    <li><strong>Bearish Divergence:</strong> Price higher high banata hai, RSI lower high banata hai — sell signal</li>
+    <li><strong>Confirmation:</strong> Divergence ke baad price action ka wait karo — candle pattern ya break of structure</li>
+    <li><strong>Best Timeframe:</strong> H4 aur D1 par divergence zyada reliable hota hai</li>
+  </ul>
+
+  <h3>Support/Resistance Bounce</h3>
+  <p>Jab price strong support ya resistance level par pahunchta hai aur wahan se reverse hota hai, to counter-trend trade ka mauqa milta hai.</p>
+  <ul>
+    <li><strong>Support Bounce:</strong> Price support par aata hai, bullish candle banata hai — buy</li>
+    <li><strong>Resistance Bounce:</strong> Price resistance par aata hai, bearish candle banata hai — sell</li>
+    <li><strong>Confluence:</strong> Support/resistance + RSI oversold/overbought + candle pattern = high probability</li>
+    <li><strong>Risk:</strong> Agar support break ho jaye to stop loss hit hoga — chhoti position rakho</li>
+  </ul>
+
+  <h3>Range Trading (Sideways Market)</h3>
+  <p>Jab market trend mein nahi hota aur ek range ke andar move karta hai, to range trading ki ja sakti hai.</p>
+  <ul>
+    <li><strong>Buy at Support:</strong> Range ke neeche se buy karo</li>
+    <li><strong>Sell at Resistance:</strong> Range ke oopar se sell karo</li>
+    <li><strong>ADX Check:</strong> ADX 20 se neeche hona chahiye — sideways market confirm</li>
+    <li><strong>Breakout Warning:</strong> Range se bahar breakout ho sakta hai — stop loss zaroor lagao</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">COUNTER-TREND ENTRY — RSI DIVERGENCE</text>
+      
+      <!-- Price chart area -->
+      <rect x="50" y="50" width="300" height="230" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="200" y="45" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">Price Chart</text>
+      
+      <!-- Price line showing divergence -->
+      <polyline points="70,200 100,180 130,210 160,170 190,190 220,150 250,180 280,140 310,165 330,130" fill="none" stroke="#e5e5e5" stroke-width="2"/>
+      
+      <!-- Higher highs in price -->
+      <circle cx="220" cy="150" r="4" fill="#ff4444"/>
+      <text x="220" y="143" fill="#ff4444" font-family="JetBrains Mono" font-size="8" text-anchor="middle">HH</text>
+      <circle cx="330" cy="130" r="4" fill="#ff4444"/>
+      <text x="330" y="123" fill="#ff4444" font-family="JetBrains Mono" font-size="8" text-anchor="middle">HH</text>
+      
+      <!-- Downtrend line -->
+      <line x1="70" y1="200" x2="330" y2="130" stroke="#ff4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+      
+      <!-- RSI chart area -->
+      <rect x="390" y="50" width="260" height="230" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="520" y="45" fill="#a3a3a3" font-family="Newsreader" font-size="10" text-anchor="middle">RSI (14)</text>
+      
+      <!-- RSI line showing lower highs -->
+      <polyline points="410,140 430,120 460,150 490,130 510,145 540,125 570,140 600,120 620,135" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      
+      <!-- RSI lower highs -->
+      <circle cx="540" cy="125" r="4" fill="#f0b90b"/>
+      <text x="540" y="118" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">LH</text>
+      <circle cx="620" cy="135" r="4" fill="#f0b90b"/>
+      <text x="620" y="128" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">LH</text>
+      
+      <!-- Divergence line -->
+      <line x1="540" y1="125" x2="620" y2="135" stroke="#f0b90b" stroke-width="1" stroke-dasharray="4,3"/>
+      
+      <!-- Entry point -->
+      <circle cx="310" cy="165" r="8" fill="#00b300" fill-opacity="0.3" stroke="#00b300" stroke-width="2"/>
+      <text x="310" y="195" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">ENTRY</text>
+      
+      <!-- Stop loss -->
+      <line x1="50" y1="220" x2="350" y2="220" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="355" y="223" fill="#ff4444" font-family="JetBrains Mono" font-size="8">STOP LOSS</text>
+      
+      <!-- Arrow showing divergence -->
+      <line x1="340" y1="80" x2="385" y2="80" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+      <text x="362" y="75" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">DIVERGENCE</text>
+      
+      <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#f0b90b"/>
+        </marker>
+      </defs>
+      
+      <!-- Legend -->
+      <rect x="50" y="285" width="600" height="25" rx="3" fill="#111" stroke="#262626" stroke-width="1"/>
+      <circle cx="80" cy="297" r="5" fill="#ff4444"/>
+      <text x="92" y="300" fill="#a3a3a3" font-family="Newsreader" font-size="10">Price: Higher Highs (Bearish Divergence)</text>
+      <circle cx="300" cy="297" r="5" fill="#f0b90b"/>
+      <text x="312" y="300" fill="#a3a3a3" font-family="Newsreader" font-size="10">RSI: Lower Highs</text>
+      <circle cx="480" cy="297" r="5" fill="#00b300"/>
+      <text x="492" y="300" fill="#a3a3a3" font-family="Newsreader" font-size="10">Entry Point</text>
+    </svg>
+    <figcaption>Fig 7.1 — Counter-Trend Entry Using RSI Divergence</figcaption>
+  </figure>
+
+  <h3>Kab Counter-Trend Mat Karo</h3>
+  <div class="formula-box">
+    <div class="formula-label">DO NOT COUNTER-TREND</div>
+    <div class="formula">
+      STRONG TREND mein counter-trend mat karo (ADX &gt; 30)<br>
+      NEWS events ke dauran counter-trend mat karo<br>
+      BREAKOUT ke turant baad counter-trend mat karo<br>
+      <span class="note">Counter-trend sirf range ya weak trend mein karo — aur hamesha chhoti position size mein.</span>
+    </div>
+  </div>
+
+  <h3>Risk:Reward Considerations</h3>
+  <ul>
+    <li><strong>Minimum R:R:</strong> Counter-trend trades mein kam se kam 1:2 R:R rakho</li>
+    <li><strong>Chhoti Position Size:</strong> Normal trade se 50% chhoti position lo — risk zyada hai</li>
+    <li><strong>Quick Exit:</strong> Profit aaye to jaldi niklo — reversal ho sakta hai</li>
+    <li><strong>Stop Loss:</strong> Hamesha tight stop lagao — support/resistance ke peeche</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Counter-trend trading ek advanced skill hai. Pehle trend following master karo, phir counter-trend try karo. Beginners ke liye counter-trend bilkul mat karo.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 07</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: RSI divergence kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. RSI divergence price aur RSI ke beech ka difference hai.')">A. Price aur MA ka difference</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Jab price aur RSI opposite direction mein move karein to divergence hota hai.')">B. Price aur RSI ke move ka opposite direction</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye bollinger band ka concept hai.')">C. Price ka band ke bahar jana</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye volume profile hai.')">D. Volume ka barhna</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Counter-trend trading mein position size kaisi honi chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Zyada position size risky hai counter-trend mein.')">A. Normal se zyada</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Counter-trend mein risk zyada hai is liye chhoti position lo.')">B. Normal se 50% chhoti</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Full position risky hai.')">C. Full position</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Double position bilkul galat hai.')">D. Double position</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 8 -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2>Multiple Timeframe Analysis</h2>
+  </div>
+  <div class="chapter-intro">Multiple Timeframe Analysis (MTA) ka matlab hai ek se zyada timeframes par chart dekhna. Top-down approach se pehle bigger picture samjho, phir entry time karo. Ye aap ki accuracy bohat barha deta hai.</div>
+
+  <h3>Top-Down Approach</h3>
+  <p>Top-down approach mein pehle highest timeframe dekhte hain, phir dheere dheere lower timeframe par aate hain. Is se trend clear hota hai aur entry precise hoti hai.</p>
+  <ul>
+    <li><strong>Monthly (M1):</strong> Long-term trend aur major levels dekho — overall direction</li>
+    <li><strong>Weekly (W1):</strong> Intermediate trend aur key zones dekho — trend confirmation</li>
+    <li><strong>Daily (D1):</strong> Primary swing trading timeframe — entry setups dhundho</li>
+    <li><strong>H4:</strong> Secondary timeframe — entry timing aur pattern confirmation</li>
+    <li><strong>H1:</strong> Entry precision — exact entry point find karo</li>
+  </ul>
+
+  <h3>Higher TF Ka Lower TF Par Effect</h3>
+  <p>Higher timeframe ka trend lower timeframe par dominant hota hai. Agar D1 par uptrend hai to H4 aur H1 par pullbacks buy opportunities hain.</p>
+  <ul>
+    <li><strong>D1 Uptrend:</strong> H4 par pullback = buy opportunity</li>
+    <li><strong>D1 Downtrend:</strong> H4 par bounce = sell opportunity</li>
+    <li><strong>D1 Sideways:</strong> H4 par range trading karo</li>
+    <li><strong>Rule:</strong> Kabhi bhi higher TF ke trend ke khilaf mat jao</li>
+  </ul>
+
+  <h3>Confluence of Signals</h3>
+  <p>Jab multiple timeframes se same signal aaye to probability bohat barhti hai. Ye confluence kehlata hai.</p>
+  <ul>
+    <li><strong>Strong Confluence:</strong> D1 trend + H4 pattern + H1 entry = high probability</li>
+    <li><strong>Medium Confluence:</strong> D1 trend + H4 entry = decent probability</li>
+    <li><strong>Weak Confluence:</strong> Sirf H1 signal = low probability — skip karo</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="340" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">MULTIPLE TIMEFRAME ANALYSIS FLOW</text>
+      
+      <!-- Monthly TF -->
+      <rect x="50" y="50" width="140" height="80" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="120" y="72" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">MONTHLY</text>
+      <text x="120" y="90" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Long-term Trend</text>
+      <text x="120" y="105" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">UPTREND</text>
+      
+      <!-- Arrow down -->
+      <line x1="120" y1="130" x2="120" y2="155" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+      
+      <!-- Weekly TF -->
+      <rect x="50" y="155" width="140" height="80" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="120" y="177" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">WEEKLY</text>
+      <text x="120" y="195" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Trend Confirmation</text>
+      <text x="120" y="210" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">PULLBACK ZONE</text>
+      
+      <!-- Arrow right -->
+      <line x1="190" y1="195" x2="230" y2="195" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+      
+      <!-- Daily TF -->
+      <rect x="230" y="50" width="140" height="80" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="300" y="72" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">DAILY</text>
+      <text x="300" y="90" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Primary TF — Setup</text>
+      <text x="300" y="105" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">SUPPORT BOUNCE</text>
+      
+      <!-- Arrow down -->
+      <line x1="300" y1="130" x2="300" y2="155" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+      
+      <!-- H4 TF -->
+      <rect x="230" y="155" width="140" height="80" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="300" y="177" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">H4</text>
+      <text x="300" y="195" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Pattern Confirmation</text>
+      <text x="300" y="210" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">BULLISH ENGULFING</text>
+      
+      <!-- Arrow right -->
+      <line x1="370" y1="195" x2="410" y2="195" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+      
+      <!-- H1 TF -->
+      <rect x="410" y="155" width="140" height="80" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="480" y="177" fill="#f0b90b" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">H1</text>
+      <text x="480" y="195" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Entry Precision</text>
+      <text x="480" y="210" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">EXACT ENTRY</text>
+      
+      <!-- Confluence Box -->
+      <rect x="410" y="50" width="240" height="80" fill="#0a1a00" stroke="#00b300" stroke-width="1.5" rx="3"/>
+      <text x="530" y="72" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">CONFLUENCE = HIGH PROBABILITY</text>
+      <text x="530" y="92" fill="#e5e5e5" font-family="Newsreader" font-size="10" text-anchor="middle">Jab sab TF same direction mein ho</text>
+      <text x="530" y="110" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle">D1 + H4 + H1 = BEST TRADE</text>
+      
+      <!-- Legend -->
+      <rect x="50" y="260" width="600" height="60" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="350" y="280" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">RULES</text>
+      <text x="80" y="298" fill="#e5e5e5" font-family="Newsreader" font-size="9">1. Higher TF trend ke khilaf mat jao</text>
+      <text x="80" y="312" fill="#e5e5e5" font-family="Newsreader" font-size="9">2. Entry lower TF par karo, direction higher TF se lo</text>
+      <text x="400" y="298" fill="#e5e5e5" font-family="Newsreader" font-size="9">3. Confluence milne par hi trade lo</text>
+      <text x="400" y="312" fill="#e5e5e5" font-family="Newsreader" font-size="9">4. Conflict ho to skip karo — no trade</text>
+      
+      <defs>
+        <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#f0b90b"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 8.1 — Multiple Timeframe Analysis Flow</figcaption>
+  </figure>
+
+  <h3>Conflict Resolution Between Timeframes</h3>
+  <p>Kabhi kabhi different timeframes different signals dete hain. Is situation mein kya karna hai?</p>
+  <ul>
+    <li><strong>D1 vs H4 Conflict:</strong> D1 trend ke sath jao — H4 signal ignore karo</li>
+    <li><strong>H4 vs H1 Conflict:</strong> H4 pattern ke sath jao — H1 entry adjust karo</li>
+    <li><strong>Sab Conflict Mein:</strong> Trade mat lo — wait karo jab confluence mile</li>
+    <li><strong>Golden Rule:</strong> Higher timeframe ka word final hai</li>
+  </ul>
+
+  <h3>Practical Example</h3>
+  <div class="formula-box">
+    <div class="formula-label">EXAMPLE: BTC/USDT ANALYSIS</div>
+    <div class="formula">
+      M1: Uptrend — bullish structure intact<br>
+      W1: Price weekly support zone mein hai<br>
+      D1: Bullish engulfing candle support par bani<br>
+      H4: RSI oversold se upar aaya — bullish divergence<br>
+      H1: Break of minor resistance — ENTRY POINT<br>
+      <span class="note">Sab timeframes same direction mein = HIGH PROBABILITY BUY TRADE</span>
+    </div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 08</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Top-down approach mein sab se pehle konsa timeframe dekhte hain?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. H1 sab se chhota hai.')">A. H1</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. D1 middle mein hai.')">B. Daily</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Top-down mein sab se pehle highest timeframe dekho.')">C. Monthly</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. H4 secondary hai.')">D. H4</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Agar D1 uptrend hai aur H4 sell signal de raha hai to kya karna hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Higher TF ke khilaf mat jao.')">A. Sell karo H4 ke signal par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! D1 higher TF hai — H4 signal ignore karo.')">B. D1 ke sath jao — buy karo pullback par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Dono signals trade karna risky hai.')">C. Dono trade karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Wait karna passive hai jab clear direction ho.')">D. Wait karo sab clear hone ka</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 9 -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2>Swing Trading Indicators</h2>
+  </div>
+  <div class="chapter-intro">Indicators aap ko price action samajhne mein madad karte hain. Moving Averages, RSI, MACD, Bollinger Bands — ye sab useful hain. Lekin zyada indicators mat lagao — 2-3 best indicators kafi hain.</div>
+
+  <h3>Moving Averages (EMA, SMA)</h3>
+  <p>Moving Averages price ka average dikhate hain aur trend identify karne mein madad karte hain.</p>
+  <ul>
+    <li><strong>SMA (Simple Moving Average):</strong> Saari prices ka equal weight — smooth hai lekin slow react karta hai</li>
+    <li><strong>EMA (Exponential Moving Average):</strong> Recent prices ko zyada weight — fast react karta hai</li>
+    <li><strong>Popular Periods:</strong> 20 EMA (short-term), 50 EMA (medium), 200 SMA (long-term)</li>
+    <li><strong>Golden Cross:</strong> 50 MA 200 MA ke upar jaaye = buy signal</li>
+    <li><strong>Death Cross:</strong> 50 MA 200 MA ke neeche jaaye = sell signal</li>
+    <li><strong>MA as Support:</strong> Uptrend mein price MA par aata hai aur bounce karta hai</li>
+  </ul>
+
+  <h3>RSI (Relative Strength Index)</h3>
+  <p>RSI momentum dikhata hai — kitna tezi se price move ho raha hai.</p>
+  <ul>
+    <li><strong>Reading:</strong> 0-100 scale par</li>
+    <li><strong>Oversold:</strong> 30 se neeche = potential buy zone</li>
+    <li><strong>Overbought:</strong> 70 se oopar = potential sell zone</li>
+    <li><strong>50 Line:</strong> 50 ke oopar = bullish momentum, 50 ke neeche = bearish momentum</li>
+    <li><strong>Divergence:</strong> Price aur RSI ka opposite move = reversal signal</li>
+  </ul>
+
+  <h3>MACD (Moving Average Convergence Divergence)</h3>
+  <p>MACD trend aur momentum dono dikhata hai. Ye do moving averages ka difference hai.</p>
+  <ul>
+    <li><strong>MACD Line:</strong> 12 EMA - 26 EMA</li>
+    <li><strong>Signal Line:</strong> 9 EMA of MACD Line</li>
+    <li><strong>Histogram:</strong> MACD - Signal = momentum strength</li>
+    <li><strong>Bullish Crossover:</strong> MACD Signal ke upar jaaye = buy</li>
+    <li><strong>Bearish Crossover:</strong> MACD Signal ke neeche jaaye = sell</li>
+    <li><strong>Zero Line:</strong> MACD zero ke oopar = uptrend, neeche = downtrend</li>
+  </ul>
+
+  <h3>Bollinger Bands</h3>
+  <p>Bollinger Bands volatility dikhate hain — price kitna volatile hai.</p>
+  <ul>
+    <li><strong>Upper Band:</strong> 20 SMA + 2 Standard Deviation</li>
+    <li><strong>Middle Band:</strong> 20 SMA</li>
+    <li><strong>Lower Band:</strong> 20 SMA - 2 Standard Deviation</li>
+    <li><strong>Squeeze:</strong> Bands narrow ho = low volatility = breakout aane wala hai</li>
+    <li><strong>Expansion:</strong> Bands wide ho = high volatility = trend chal raha hai</li>
+    <li><strong>Mean Reversion:</strong> Price band ke bahar jaaye to wapas aata hai 95% cases mein</li>
+  </ul>
+
+  <h3>Volume Profile</h3>
+  <p>Volume Profile dikhata hai kitne volume kis price par trade hua hai.</p>
+  <ul>
+    <li><strong>High Volume Node (HVN):</strong> Jahan sab se zyada volume hai = strong S/R level</li>
+    <li><strong>Low Volume Node (LVN):</strong> Jahan kam volume hai = price fast move karega</li>
+    <li><strong>POC (Point of Control):</strong> Sab se zyada volume wala price = fair value</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="350" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">INDICATOR CHEAT SHEET</text>
+      
+      <!-- Table header -->
+      <rect x="50" y="45" width="600" height="30" fill="#262626" rx="2"/>
+      <text x="120" y="65" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">INDICATOR</text>
+      <text x="280" y="65" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">USE CASE</text>
+      <text x="440" y="65" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">BEST FOR</text>
+      <text x="580" y="65" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">TIMEFRAME</text>
+      
+      <!-- Row 1 -->
+      <rect x="50" y="75" width="600" height="35" fill="#111" rx="2"/>
+      <text x="120" y="97" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle">EMA (20/50/200)</text>
+      <text x="280" y="97" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Trend + Support/Resistance</text>
+      <text x="440" y="97" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Trend Direction</text>
+      <text x="580" y="97" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">D1, H4</text>
+      
+      <!-- Row 2 -->
+      <rect x="50" y="110" width="600" height="35" fill="#0a0a0a" rx="2"/>
+      <text x="120" y="132" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle">RSI (14)</text>
+      <text x="280" y="132" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Momentum + Divergence</text>
+      <text x="440" y="132" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Overbought/Oversold</text>
+      <text x="580" y="132" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">H4, D1</text>
+      
+      <!-- Row 3 -->
+      <rect x="50" y="145" width="600" height="35" fill="#111" rx="2"/>
+      <text x="120" y="167" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle">MACD</text>
+      <text x="280" y="167" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Trend + Momentum</text>
+      <text x="440" y="167" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Crossover Signals</text>
+      <text x="580" y="167" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">D1, H4</text>
+      
+      <!-- Row 4 -->
+      <rect x="50" y="180" width="600" height="35" fill="#0a0a0a" rx="2"/>
+      <text x="120" y="202" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Bollinger Bands</text>
+      <text x="280" y="202" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Volatility + Squeeze</text>
+      <text x="440" y="202" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Breakout/Breakdown</text>
+      <text x="580" y="202" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">H4, D1</text>
+      
+      <!-- Row 5 -->
+      <rect x="50" y="215" width="600" height="35" fill="#111" rx="2"/>
+      <text x="120" y="237" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle">Volume Profile</text>
+      <text x="280" y="237" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Key Levels + Liquidity</text>
+      <text x="440" y="237" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">S/R Zones</text>
+      <text x="580" y="237" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">D1, W1</text>
+      
+      <!-- Best Combinations -->
+      <rect x="50" y="265" width="600" height="75" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="350" y="285" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">BEST COMBINATIONS</text>
+      <text x="80" y="303" fill="#e5e5e5" font-family="Newsreader" font-size="9">1. EMA + RSI (Trend + Momentum)</text>
+      <text x="80" y="318" fill="#e5e5e5" font-family="Newsreader" font-size="9">2. EMA + MACD (Trend + Direction)</text>
+      <text x="380" y="303" fill="#e5e5e5" font-family="Newsreader" font-size="9">3. RSI + Bollinger (Overbought + Volatility)</text>
+      <text x="380" y="318" fill="#e5e5e5" font-family="Newsreader" font-size="9">4. EMA + Volume (Trend + Confirmation)</text>
+    </svg>
+    <figcaption>Fig 9.1 — Swing Trading Indicator Cheat Sheet</figcaption>
+  </figure>
+
+  <h3>Indicator Overload Se Bacho</h3>
+  <div class="formula-box">
+    <div class="formula-label">INDICATOR RULES</div>
+    <div class="formula">
+      Maximum 2-3 indicators use karo ek chart par<br>
+      Same type ke indicators mat lagao (RSI + Stochastic = duplicate)<br>
+      Trend indicator + Momentum indicator = best combo<br>
+      <span class="note">Zyada indicators = zyada confusion = analysis paralysis. Simple raho.</span>
+    </div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 09</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: RSI 25 hai — is ka kya matlab hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. 25 ooper nahi hai.')">A. Overbought hai — sell karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! RSI 30 se neeche = oversold = potential buy zone.')">B. Oversold hai — potential buy zone</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. 25 neutral nahi hai.')">C. Market neutral hai</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. RSI trend strength nahi dikhata.')">D. Trend khatam ho gaya hai</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Golden Cross kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye death cross hai.')">A. 50 MA 200 MA ke neeche jaaye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Golden Cross mein 50 MA 200 MA ke upar jaata hai — buy signal.')">B. 50 MA 200 MA ke upar jaaye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye RSI ka concept hai.')">C. RSI 70 ke oopar jaaye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye bollinger band hai.')">D. Price bollinger band ke bahar jaaye</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 10 -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2>Swing Trading Patterns</h2>
+  </div>
+  <div class="chapter-intro">Chart patterns aur candlestick patterns swing trading mein bohat important hain. Ye aap ko batate hain ke price kis direction mein move karega. Patterns + Trend = High Probability trades.</div>
+
+  <h3>Chart Patterns for Swing Trading</h3>
+  <p>Ye patterns kuch dinon mein bante hain aur swing trading ke liye best hain.</p>
+  <ul>
+    <li><strong>Head & Shoulders:</strong> Reversal pattern — trend change hone wala hai. Left shoulder, head, right shoulder banne ka wait karo</li>
+    <li><strong>Triangles (Ascending/Descending/Symmetrical):</strong> Consolidation pattern — breakout aane wala hai. Breakout ki direction follow karo</li>
+    <li><strong>Flags & Pennants:</strong> Continuation pattern — trend continue karega. Flag pole ke sath same direction mein breakout</li>
+    <li><strong>Wedges (Rising/Falling):</strong> Reversal ya continuation — depends on context. Volume se confirm karo</li>
+    <li><strong>Double Top/Bottom:</strong> Strong reversal pattern — support/resistance par banta hai</li>
+  </ul>
+
+  <h3>Candlestick Patterns</h3>
+  <p>Ye single ya do candles mein bante hain aur entry signals dete hain.</p>
+  <ul>
+    <li><strong>Bullish Engulfing:</strong> Chhoti bearish candle ke baad bari bullish candle — buy signal especially support par</li>
+    <li><strong>Bearish Engulfing:</strong> Chhoti bullish candle ke baad bari bearish candle — sell signal especially resistance par</li>
+    <li><strong>Pin Bar (Hammer/Shooting Star):</strong> Lambi shadow, chhota body — rejection signal. Support par hammer = buy, resistance par shooting star = sell</li>
+    <li><strong>Doji:</strong> Indecision candle — market decide nahi kar pa raha. Trend ke end par aaye to reversal signal</li>
+    <li><strong>Morning/Evening Star:</strong> Three candle reversal pattern — high reliability</li>
+  </ul>
+
+  <h3>Patterns + Indicators Combine Karo</h3>
+  <p>Patterns akle kaam nahi karte — indicators se confirm karo.</p>
+  <ul>
+    <li><strong>Pattern + RSI:</strong> Bullish pattern + RSI oversold = strong buy</li>
+    <li><strong>Pattern + Volume:</strong> Breakout + high volume = valid breakout</li>
+    <li><strong>Pattern + MA:</strong> Pattern near MA support/resistance = confluence</li>
+    <li><strong>Pattern + MACD:</strong> Bullish pattern + MACD bullish crossover = high probability</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="320" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">PATTERN + TREND COMBINATION</text>
+      
+      <!-- Uptrend context -->
+      <rect x="50" y="45" width="300" height="200" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="200" y="42" fill="#00b300" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">UPTREND + FLAG PATTERN</text>
+      
+      <!-- Uptrend line -->
+      <line x1="70" y1="210" x2="180" y2="100" stroke="#00b300" stroke-width="2"/>
+      <text x="110" y="165" fill="#00b300" font-family="JetBrains Mono" font-size="8" transform="rotate(-35,110,165)">FLAGPOLE</text>
+      
+      <!-- Flag consolidation -->
+      <polyline points="180,100 200,110 220,105 240,115 260,110" fill="none" stroke="#e5e5e5" stroke-width="1.5"/>
+      <line x1="180" y1="95" x2="260" y2="105" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="180" y1="115" x2="260" y2="125" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="220" y="85" fill="#a3a3a3" font-family="Newsreader" font-size="9" text-anchor="middle">FLAG</text>
+      
+      <!-- Breakout -->
+      <line x1="260" y1="110" x2="320" y2="60" stroke="#00b300" stroke-width="2"/>
+      <circle cx="320" cy="60" r="6" fill="#00b300" fill-opacity="0.3" stroke="#00b300" stroke-width="1.5"/>
+      <text x="325" y="55" fill="#00b300" font-family="JetBrains Mono" font-size="8">BREAKOUT</text>
+      
+      <!-- Trend label -->
+      <text x="200" y="235" fill="#00b300" font-family="Newsreader" font-size="10" text-anchor="middle">Pattern ke baad trend continue hota hai</text>
+      
+      <!-- Downtrend context -->
+      <rect x="380" y="45" width="280" height="200" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="520" y="42" fill="#ff4444" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">DOWNTREND + H&S</text>
+      
+      <!-- Downtrend line -->
+      <line x1="400" y1="80" x2="520" y2="180" stroke="#ff4444" stroke-width="2"/>
+      <text x="440" y="145" fill="#ff4444" font-family="JetBrains Mono" font-size="8" transform="rotate(35,440,145)">DOWNTREND</text>
+      
+      <!-- H&S pattern -->
+      <circle cx="430" cy="95" r="12" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+      <text x="430" y="80" fill="#e5e5e5" font-family="Newsreader" font-size="7" text-anchor="middle">LS</text>
+      <circle cx="480" cy="80" r="16" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+      <text x="480" y="62" fill="#e5e5e5" font-family="Newsreader" font-size="7" text-anchor="middle">HEAD</text>
+      <circle cx="530" cy="95" r="12" fill="none" stroke="#e5e5e5" stroke-width="1"/>
+      <text x="530" y="80" fill="#e5e5e5" font-family="Newsreader" font-size="7" text-anchor="middle">RS</text>
+      
+      <!-- Neckline -->
+      <line x1="415" y1="110" x2="545" y2="110" stroke="#f0b90b" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="555" y="113" fill="#f0b90b" font-family="JetBrains Mono" font-size="7">NECKLINE</text>
+      
+      <!-- Breakdown -->
+      <circle cx="550" cy="130" r="6" fill="#ff4444" fill-opacity="0.3" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="555" y="145" fill="#ff4444" font-family="JetBrains Mono" font-size="8">BREAKDOWN</text>
+      
+      <text x="520" y="235" fill="#ff4444" font-family="Newsreader" font-size="10" text-anchor="middle">Trend ke khilaf pattern = reversal</text>
+      
+      <!-- Bottom Legend -->
+      <rect x="50" y="260" width="600" height="45" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="350" y="278" fill="#f0b90b" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">HIGH PROBABILITY = PATTERN + TREND ALIGNMENT</text>
+      <text x="350" y="296" fill="#e5e5e5" font-family="Newsreader" font-size="9" text-anchor="middle">Uptrend + Bullish Pattern = BUY | Downtrend + Bearish Pattern = SELL</text>
+    </svg>
+    <figcaption>Fig 10.1 — Pattern + Trend Combination for High Probability Trades</figcaption>
+  </figure>
+
+  <h3>Entry Triggers From Patterns</h3>
+  <div class="formula-box">
+    <div class="formula-label">PATTERN ENTRY CHECKLIST</div>
+    <div class="formula">
+      1. Pehle trend identify karo (D1 par)<br>
+      2. Pattern dhundho (H4 par)<br>
+      3. Breakout/breakdown ka wait karo (candle close hona chahiye)<br>
+      4. Volume se confirm karo (breakout par volume barha ho)<br>
+      5. Indicator se confirm karo (RSI/MACD support kare)<br>
+      <span class="note">Pattern sirf trend ke sath trade karo — pattern + trend = high probability.</span>
+    </div>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 10</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Uptrend mein bullish flag pattern mila — kya karna hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Uptrend mein sell nahi karte.')">A. Sell karo breakdown par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Uptrend + bullish pattern = buy opportunity.')">B. Buy karo breakout par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Pattern ka wait karo.')">C. Kuch mat karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Trend ke khilaf trade risky hai.')">D. Counter-trend trade karo</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Breakout ke baad kya confirm karna zaroori hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sirf candle se kaam nahi hota.')">A. Sirf ek green candle</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sirf RSI kaafi nahi hai.')">B. Sirf RSI oversold ho</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Breakout par volume barha hona chahiye — fake breakout se bacho.')">C. Volume barha ho breakout par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. MA nahi batata breakout validity.')">D. MA crossover ho jaye</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 11 -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2>Trading Psychology for Swing Traders</h2>
+  </div>
+  <div class="chapter-intro">Swing trading mein strategy sirf 20% hai — 80% psychology hai. Patience, discipline, aur emotion control — ye sab aap ko consistently profitable banayenge. Bina psychology ke strategy kaam nahi karegi.</div>
+
+  <h3>Patience — Setup Ka Wait Karo</h3>
+  <p>Swing trading mein sab se mushkil cheez hai wait karna. Aap ko days tak kuch nahi karna jab tak perfect setup na mile.</p>
+  <ul>
+    <li><strong>Setup Ka Wait:</strong> Har din chart dekho lekin trade tab hi lo jab sab criteria meet ho</li>
+    <li><strong>FOMO Se Bacho:</strong> "Mauka miss ho raha hai" soch se bacho — opportunities hamesha aati hain</li>
+    <li><strong>Quality Over Quantity:</strong> 1 achha trade 10 average trades se behtar hai</li>
+    <li><strong>Daily Routine:</strong> Fixed time par charts dekho — 15-30 min kaafi hain</li>
+  </ul>
+
+  <h3>Discipline — Rules Follow Karo</h3>
+  <p>Rules banane aasan hain, follow karna mushkil. Lekin sirf rules follow karne se hi aap profitable ho sakte ho.</p>
+  <ul>
+    <li><strong>Written Rules:</strong> Apne rules likh lo — risk management, entry, exit</li>
+    <li><strong>No Exceptions:</strong> "Sirf ek baar" ka koi scene nahi — rules hamesha follow karo</li>
+    <li><strong>Plan The Trade:</strong> Trade lene se pehle plan banao — entry, stop loss, take profit</li>
+    <li><strong>Trade The Plan:</strong> Plan ke hisaab se trade karo — emotions se nahi</li>
+  </ul>
+
+  <h3>Drawdowns Mein Emotions</h3>
+  <p>Har trader drawdowns face karta hai. Losing streak aayegi — ye normal hai. Mushkil yeh hai ke aap us waqt kya karte ho.</p>
+  <ul>
+    <li><strong>Acceptance:</strong> Losses trading ka hissa hain — ye accept karo</li>
+    <li><strong>No Revenge Trading:</strong> Loss ke baad turant trade mat lo — thanda dimaag rakho</li>
+    <li><strong>Reduce Size:</strong> Drawdown mein position size chhoti karo — capital preserve karo</li>
+    <li><strong>Take Break:</strong> Agar 3-4 consecutive losses ho to ek din break lo</li>
+  </ul>
+
+  <h3>Overtrading Se Bacho</h3>
+  <p>Zyada trading ka matlab hai zyada commission, zyada mistakes, aur zyada losses.</p>
+  <ul>
+    <li><strong>Daily Limit:</strong> Maximum 1-2 trades per week — swing trading mein zyada trades nahi chahiye</li>
+    <li><strong>Quality Check:</strong> Har trade se pehle pucho — ye setup criteria match karta hai?</li>
+    <li><strong>Boredom Trading:</strong> Agar bored ho ke trade kar rahe ho to mat karo</li>
+    <li><strong>Account Size:</strong> Chhote account mein zyada trades = quick death</li>
+  </ul>
+
+  <h3>Missed Trades Deal Karo</h3>
+  <p>Trade miss hona normal hai — hamesha mauke aayenge. Important hai ke aap us miss se lesson lo.</p>
+  <ul>
+    <li><strong>Missed Entry:</strong> Agar entry miss ho gayi to dusri entry mat lo — next setup ka wait karo</li>
+    <li><strong>Missed Profit:</strong> Agar profit miss ho gaya to FOMO mat karo — discipline rakho</li>
+    <li><strong>Journaling:</strong> Missed trades ko journal mein likho — kya seekha</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="300" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">SWING TRADER PSYCHOLOGICAL JOURNEY</text>
+      
+      <!-- Emotional Journey Curve -->
+      <rect x="50" y="45" width="600" height="180" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      
+      <!-- Zero line -->
+      <line x1="50" y1="135" x2="650" y2="135" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="45" y="138" fill="#666" font-family="JetBrains Mono" font-size="8" text-anchor="end">NEUTRAL</text>
+      
+      <!-- Emotional curve -->
+      <path d="M80,135 C120,135 140,60 180,60 C220,60 240,135 280,135 C320,135 340,200 380,200 C420,200 440,135 480,135 C520,135 540,80 580,80 C620,80 640,135 640,135" fill="none" stroke="#f0b90b" stroke-width="2"/>
+      
+      <!-- Labels on curve -->
+      <circle cx="180" cy="60" r="5" fill="#00b300"/>
+      <text x="180" y="50" fill="#00b300" font-family="JetBrains Mono" font-size="8" text-anchor="middle">WIN</text>
+      <text x="180" y="175" fill="#a3a3a3" font-family="Newsreader" font-size="9" text-anchor="middle">Confidence</text>
+      
+      <circle cx="380" cy="200" r="5" fill="#ff4444"/>
+      <text x="380" y="218" fill="#ff4444" font-family="JetBrains Mono" font-size="8" text-anchor="middle">LOSS</text>
+      <text x="380" y="175" fill="#a3a3a3" font-family="Newsreader" font-size="9" text-anchor="middle">Frustration</text>
+      
+      <circle cx="580" cy="80" r="5" fill="#00b300"/>
+      <text x="580" y="70" fill="#00b300" font-family="JetBrains Mono" font-size="8" text-anchor="middle">RECOVERY</text>
+      <text x="580" y="175" fill="#a3a3a3" font-family="Newsreader" font-size="9" text-anchor="middle">Discipline</text>
+      
+      <!-- Emotional States Table -->
+      <rect x="50" y="240" width="600" height="50" fill="#111" stroke="#262626" stroke-width="1" rx="3"/>
+      <text x="100" y="260" fill="#00b300" font-family="JetBrains Mono" font-size="8" text-anchor="middle" font-weight="600">CONFIDENCE</text>
+      <text x="100" y="278" fill="#a3a3a3" font-family="Newsreader" font-size="8" text-anchor="middle">Win streak</text>
+      <text x="250" y="260" fill="#ff4444" font-family="JetBrains Mono" font-size="8" text-anchor="middle" font-weight="600">FEAR</text>
+      <text x="250" y="278" fill="#a3a3a3" font-family="Newsreader" font-size="8" text-anchor="middle">Loss streak</text>
+      <text x="400" y="260" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle" font-weight="600">GREED</text>
+      <text x="400" y="278" fill="#a3a3a3" font-family="Newsreader" font-size="8" text-anchor="middle">Big profit</text>
+      <text x="550" y="260" fill="#00b300" font-family="JetBrains Mono" font-size="8" text-anchor="middle" font-weight="600">CALM</text>
+      <text x="550" y="278" fill="#a3a3a3" font-family="Newsreader" font-size="8" text-anchor="middle">Following rules</text>
+    </svg>
+    <figcaption>Fig 11.1 — Psychological States of a Swing Trader</figcaption>
+  </figure>
+
+  <h3>Weekly Routine Mindset</h3>
+  <div class="formula-box">
+    <div class="formula-label">WEEKLY MINDSET ROUTINE</div>
+    <div class="formula">
+      Sunday: Market review + weekly plan banao<br>
+      Monday-Friday: Daily 15-30 min chart review + trade management<br>
+      Saturday: Trade journal review + lessons likho<br>
+      <span class="note">Consistency se psychology strong hoti hai. Har din same routine follow karo.</span>
+    </div>
+  </div>
+
+  <h3>Journaling for Improvement</h3>
+  <ul>
+    <li><strong>Har Trade Likho:</strong> Entry reason, exit reason, emotions kya the</li>
+    <li><strong>Mistakes Track Karo:</strong> Kya galat kiya — us se kya seekha</li>
+    <li><strong>Weekly Review:</strong> Haftay ka review karo — kya improve kar sakte ho</li>
+    <li><strong>Patterns Dhundho:</strong> Kya aap hamesha ek hi galti karte ho? Usse fix karo</li>
+  </ul>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 11</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: 3 consecutive losses ke baad kya karna chahiye?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Revenge trading se nuksaan aur barhta hai.')">A. Revenge trading karo — loss recover karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Break lo, thanda dimaag karo, phir analysis karo.')">B. Break lo aur thanda dimaag karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Double down se account barbaad hota hai.')">C. Position double karo — recovery karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Trading band karna permanent solution nahi hai.')">D. Trading bilkul band karo</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Overtrading se kaise bachega?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Har opportunity trade karna overtrading hai.')">A. Har opportunity par trade karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Weekly limit set karo aur quality par focus karo.')">B. Weekly trade limit set karo</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Zyada indicators se analysis paralysis hota hai.')">C. Zyada indicators lagao</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sab timeframes par trade karna overtrading hai.')">D. Sab timeframes par trade karo</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 12 -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2>Complete Swing Trading System</h2>
+  </div>
+  <div class="chapter-intro">Ab tak jo sab seekha wo ek complete system mein daal dete hain. Daily routine, screening, entry rules, exit rules, position sizing — sab kuch ek jagah. Ye aap ka final trading playbook hai.</div>
+
+  <h3>Daily Routine (15-30 Min Per Day)</h3>
+  <ul>
+    <li><strong>Morning (10 min):</strong> Charts check karo — D1 aur H4 par levels update karo</li>
+    <li><strong>Afternoon (5 min):</strong> Watchlist update karo — naye setups note karo</li>
+    <li><strong>Evening (10 min):</strong> Open trades manage karo — stops aur targets adjust karo</li>
+    <li><strong>Weekend (30 min):</strong> Weekly review — journal update karo, next week plan banao</li>
+  </ul>
+
+  <h3>Screening Process</h3>
+  <p>Hafte mein 1-2 bar screening karo — achhe setups dhundho.</p>
+  <ul>
+    <li><strong>Step 1:</strong> D1 chart par trending assets dhundho (EMA alignment check karo)</li>
+    <li><strong>Step 2:</strong> H4 par pullback ya pattern bana hai ya nahi — dekho</li>
+    <li><strong>Step 3:</strong> Support/resistance levels mark karo</li>
+    <li><strong>Step 4:</strong> RSI/MACD check karo — oversold ya signal ready hai ya nahi</li>
+    <li><strong>Step 5:</strong> Watchlist mein add karo — entry trigger ka wait karo</li>
+  </ul>
+
+  <h3>Entry Rules — 5-Step Checklist</h3>
+  <div class="formula-box">
+    <div class="formula-label">ENTRY CHECKLIST (SAB YES HONA CHAHIYE)</div>
+    <div class="formula">
+      1. D1 trend clear hai? (EMA alignment ya HH/HL structure)<br>
+      2. H4 par setup ready hai? (Pullback, pattern, ya level bounce)<br>
+      3. Indicator confirm kar raha hai? (RSI oversold/overbought, MACD signal)<br>
+      4. Risk:Reward 1:2 ya us se zyada hai?<br>
+      5. Stop loss defined hai? (Level ke peeche)<br>
+      <span class="note">Agar ek bhi answer NO hai to trade mat lo — wait karo.</span>
+    </div>
+  </div>
+
+  <h3>Exit Rules</h3>
+  <ul>
+    <li><strong>Take Profit:</strong> Pre-defined level par — support/resistance ya fib level</li>
+    <li><strong>Stop Loss:</strong> Hamesha lagao — support ke neeche (buy) ya resistance ke oopar (sell)</li>
+    <li><strong>Trailing Stop:</strong> 1:1 R:R ke baad trailing stop lagao — profit lock karo</li>
+    <li><strong>Time Stop:</strong> 10-15 din mein kuch nahi hua? Exit karo — capital free karo</li>
+    <li><strong>Partial Exit:</strong> 50% profit par 50% position close karo — baaki trailing</li>
+  </ul>
+
+  <h3>Position Sizing Rules</h3>
+  <ul>
+    <li><strong>1% Rule:</strong> Har trade mein maximum 1% account risk karo</li>
+    <li><strong>Position Size Formula:</strong> (Account × 1%) ÷ (Entry - Stop Loss) = Lot Size</li>
+    <li><strong>Max Exposure:</strong> Ek time par maximum 3-4 open trades</li>
+    <li><strong>Correlation:</strong> Same direction mein 2 se zyada correlated trades mat lo</li>
+  </ul>
+
+  <h3>Trade Management Rules</h3>
+  <ul>
+    <li><strong>After Entry:</strong> Stop loss lagao aur bhool jao — chart ko baar baar mat dekho</li>
+    <li><strong>Move Stop:</strong> 1:1 R:R ke baad stop loss entry par lao (breakeven)</li>
+    <li><strong>Add Position:</strong> Sirf trend ke sath add karo — averaging mat karo</li>
+    <li><strong>Exit Plan:</strong> Entry ke saath exit plan bhi hona chahiye</li>
+  </ul>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="400" fill="#0a0a0a" rx="4"/>
+      <text x="350" y="28" fill="#f0b90b" font-family="JetBrains Mono" font-size="12" text-anchor="middle" font-weight="600">COMPLETE SWING TRADING SYSTEM FLOWCHART</text>
+      
+      <!-- Start -->
+      <rect x="280" y="45" width="140" height="35" fill="#f0b90b" rx="3"/>
+      <text x="350" y="67" fill="#0a0a0a" font-family="JetBrains Mono" font-size="10" text-anchor="middle" font-weight="600">START: DAILY ROUTINE</text>
+      
+      <!-- Arrow -->
+      <line x1="350" y1="80" x2="350" y2="100" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+      
+      <!-- Step 1 -->
+      <rect x="260" y="100" width="180" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="122" fill="#e5e5e5" font-family="JetBrains Mono" font-size="9" text-anchor="middle">SCREENING: WATCHLIST</text>
+      
+      <!-- Arrow -->
+      <line x1="350" y1="135" x2="350" y2="155" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+      
+      <!-- Decision Diamond -->
+      <polygon points="350,155 440,185 350,215 260,185" fill="#111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="182" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">SETUP</text>
+      <text x="350" y="193" fill="#f0b90b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">READY?</text>
+      
+      <!-- No path -->
+      <line x1="260" y1="185" x2="180" y2="185" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="220" y="180" fill="#ff4444" font-family="JetBrains Mono" font-size="8">NO</text>
+      <rect x="100" y="172" width="80" height="26" fill="#1a0505" stroke="#ff4444" stroke-width="1" rx="2"/>
+      <text x="140" y="190" fill="#ff4444" font-family="JetBrains Mono" font-size="8" text-anchor="middle">WAIT</text>
+      
+      <!-- Yes path -->
+      <line x1="350" y1="215" x2="350" y2="235" stroke="#00b300" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+      <text x="365" y="228" fill="#00b300" font-family="JetBrains Mono" font-size="8">YES</text>
+      
+      <!-- 5-Step Entry -->
+      <rect x="250" y="235" width="200" height="45" fill="#0a1a00" stroke="#00b300" stroke-width="1.5" rx="2"/>
+      <text x="350" y="253" fill="#00b300" font-family="JetBrains Mono" font-size="9" text-anchor="middle" font-weight="600">5-STEP ENTRY CHECKLIST</text>
+      <text x="350" y="270" fill="#e5e5e5" font-family="Newsreader" font-size="8" text-anchor="middle">All criteria met?</text>
+      
+      <!-- Arrow -->
+      <line x1="350" y1="280" x2="350" y2="300" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+      
+      <!-- Execute -->
+      <rect x="260" y="300" width="180" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="322" fill="#e5e5e5" font-family="JetBrains Mono" font-size="9" text-anchor="middle">EXECUTE TRADE</text>
+      
+      <!-- Arrow -->
+      <line x1="350" y1="335" x2="350" y2="355" stroke="#f0b90b" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+      
+      <!-- Management -->
+      <rect x="230" y="355" width="240" height="35" fill="#111" stroke="#262626" stroke-width="1" rx="2"/>
+      <text x="350" y="377" fill="#e5e5e5" font-family="JetBrains Mono" font-size="9" text-anchor="middle">MANAGE: TP / SL / TRAILING</text>
+      
+      <defs>
+        <marker id="arrowhead3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#f0b90b"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 12.1 — Complete Swing Trading System Workflow</figcaption>
+  </figure>
+
+  <h3>Master Checklist (15 Items)</h3>
+  <div class="formula-box">
+    <div class="formula-label">MASTER CHECKLIST — TRADE LENE SE PEHLE</div>
+    <div class="formula">
+      <div class="checklist">
+        <ul>
+          <li>D1 trend clear hai? (EMA / HH-HL structure)</li>
+          <li>H4 par setup hai? (Pullback / Pattern / Level)</li>
+          <li>Support/Resistance levels mark hain?</li>
+          <li>Entry trigger mila hai? (Candle close / Breakout)</li>
+          <li>Stop loss defined hai? (Level ke peeche)</li>
+          <li>Take profit defined hai? (R:R 1:2 minimum)</li>
+          <li>Position size calculate hai? (1% risk rule)</li>
+          <li>Indicator confirm kar raha hai? (RSI / MACD)</li>
+          <li>Volume support kar raha hai? (Breakout par volume)</li>
+          <li>News event nahi aane wala? (High impact avoid)</li>
+          <li>Correlated trades zyada nahi hain? (Max 3-4)</li>
+          <li>Emotions stable hain? (No FOMO / Revenge)</li>
+          <li>Journal mein likha hai? (Trade plan ready)</li>
+          <li>Risk:Reward 1:2 ya zyada hai?</li>
+          <li>Sab YES hai? Tabhi trade lo!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Common Mistakes to Avoid</h3>
+  <ul>
+    <li><strong>Stop Loss Nahi Lagana:</strong> Ye sab se badi galti hai — hamesha lagao</li>
+    <li><strong>Overleveraging:</strong> Chhote account mein leverage zyada mat lo — 1-2% risk</li>
+    <li><strong>Emotional Trading:</strong> Fear ya greed mein trade mat lo — plan follow karo</li>
+    <li><strong>No Journal:</strong> Bina journal ke progress nahi hoti — har trade likho</li>
+    <li><strong>Skip Learning:</strong> Har din kuch naya seekho — market evolve hota hai</li>
+    <li><strong>Copying Others:</strong> Dusron ki trade copy mat karo — apni strategy banao</li>
+    <li><strong>Ignoring Risk:</strong> Profit ke pehle risk dekho — survival pehle</li>
+  </ul>
+
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Final Tip:</strong> Ye system follow karo aur consistently execute karo. Pehle 6 months demo par practice karo, phir live trading shuru karo. Sab kuch time aur practice se aata hai — jaldi mat bano.</span>
+  </div>
+
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUIZ — CHAPTER 12</div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q1: Daily routine mein kitna time lagta hai swing trading mein?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Ye day trading ki timing hai.')">A. 4-6 ghante</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Swing trading mein 15-30 min daily kaafi hain.')">B. 15-30 minute</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Sirf weekend par kaam nahi hota.')">C. Sirf weekend par</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. 24/7 possible nahi hai.')">D. 24 ghante</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+    <div class="quiz-q">
+      <div class="quiz-prompt">Q2: Master checklist mein sab se important item kya hai?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Profit zaroori hai lekin survival pehle.')">A. Profit target set karna</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. Indicator important hai lekin rules se pehle nahi.')">B. Indicator lagana</button>
+        <button class="quiz-option" onclick="checkAnswer(this,true,'Sahi! Sab YES hai — tabhi trade lo. Agar ek bhi NO hai to wait karo.')">C. Sab criteria YES hona chahiye</button>
+        <button class="quiz-option" onclick="checkAnswer(this,false,'Incorrect. News important hai lekin sab se important nahi.')">D. News check karna</button>
+      </div>
+      <div class="quiz-explain"></div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Ye book sirf educational purposes k liye hai — koi financial advice nahi hai. Swing trading mein financial nuksaan ka khatra hota hai. Koi bhi trade lene se pehle apni research karein aur risk management follow karein.
+</div>
+
+</main>
+</div>
+
+<script>
+function checkAnswer(btn, result) {
+  var parent = btn.closest('.quiz-q');
+  var options = parent.querySelectorAll('.quiz-option');
+  var explain = parent.querySelector('.quiz-explain');
+
+  options.forEach(function(opt) {
+    opt.disabled = true;
+    if (opt === btn) {
+      opt.classList.add(result);
+    } else if (opt.getAttribute('onclick').includes("'correct'")) {
+      opt.classList.add('correct');
+    }
+  });
+
+  if (explain) {
+    explain.classList.add('show');
+  }
+}
+
+window.addEventListener('scroll', function() {
+  var main = document.querySelector('main');
+  if (!main) return;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var docHeight = main.scrollHeight - window.innerHeight;
+  var progress = Math.min((scrollTop / docHeight) * 100, 100);
+  var fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = progress + '%';
+});
+
+var menuBtn = document.getElementById('menuBtn');
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('overlay');
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+}
+</script>
+
+</body>
+</html>

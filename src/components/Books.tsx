@@ -344,6 +344,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Market Cycles', 'Bitcoin Halving'],
     cover: '/covers/Market-Cycles.jpg',
   },
+  {
+    id: 'swing-trading',
+    title: 'Swing Trading Mastery (Urdu)',
+    titleUrdu: 'سوئنگ ٹریڈنگ ماسٹری',
+    description:
+      'Swing trading seekho — 2-30 din mein profit kamao. Trend following, counter-trend, multi-timeframe analysis, indicators, patterns, psychology aur complete trading system. 12 chapters with 24+ practice questions.',
+    chapters: 12,
+    pages: '12 chapters · 24+ Practice Questions',
+    icon: TrendingUp,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-50',
+    href: '/swing-trading/index.html',
+    tags: ['Urdu', 'Swing Trading', 'Mastery'],
+    cover: '/covers/Swing-Trading.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
