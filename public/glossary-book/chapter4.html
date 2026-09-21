@@ -1,312 +1,233 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>باب ۴: ایڈوانسڈ اصطلاحات — Advanced Trading Terms</title>
-        <style>
-        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+    <title>صفحہ 4 — جدید تصورات (کریپٹو اور فاریکس)</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 25px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
         * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-        h1 { font-size: 42px; color: #b8860b; text-align: center; margin-bottom: 30px; }
-        h2 { font-size: 34px; color: #e94560; margin-top: 40px; line-height: 1.7; }
-        h3 { font-size: 30px; color: #b8860b; margin-top: 30px; line-height: 1.7; }
-        p { margin: 0 0 20px 0; text-align: justify; }
-        .term { background: #16213e; border-right: 5px solid #b8860b; padding: 20px; border-radius: 10px; margin: 20px 0; }
-        .term h3 { margin-top: 0; color: #b8860b; font-size: 28px; }
-        .term .en { color: #00b4d8; font-size: 24px; margin-bottom: 10px; }
-        .term .example { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 10px; }
-        .term .example strong { color: #e94560; }
-        .diagram { text-align: center; background: #16213e; border-radius: 15px; padding: 30px; margin: 30px 0; overflow: hidden; }
-        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-        .notice { background: #2d1b1b; border: 2px solid #e94560; border-radius: 12px; padding: 15px 20px; margin: 30px 0; font-size: 22px; color: #f0a0a0; }
-        .nav { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
-        .nav a, .nav span { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+        h1 { font-size: 40px; color: #00b4d8; text-align: center; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
         .nav a:hover { background: #e94560; color: #fff; }
-        .nav span { color: #666; opacity: 0.45; }
+        .term { background: #122540; border-radius: 12px; padding: 18px 22px; margin-bottom: 16px; border-right: 4px solid #00b4d8; }
+        .term .head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .term .icon { font-size: 30px; }
+        .term .name { font-size: 26px; font-weight: bold; color: #00b4d8; }
+        .term .en { font-size: 16px; color: #7dd3fc; }
+        .term .def-en { font-size: 19px; color: #cbd5e1; margin-bottom: 4px; }
+        .term .def-ur { font-size: 22px; color: #e2e8f0; border-top: 1px dashed #2c3e5f; padding-top: 6px; margin-top: 6px; }
+        .term .example { font-size: 17px; color: #94a3b8; font-style: italic; margin-top: 6px; background: #0f2038; padding: 8px 12px; border-radius: 8px; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
-        svg text { direction: rtl; }
-        .keypoints { background: #16213e; border-right: 5px solid #b8860b; border-radius: 10px; padding: 18px 24px; margin: 25px 0; }
-        .keypoints h3 { margin-top: 0; color: #b8860b; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #16213e; border-radius: 10px; overflow: hidden; }
-        th { background: #b8860b; color: #1a1a2e; padding: 12px 15px; text-align: right; font-weight: bold; }
-        td { padding: 10px 15px; border-bottom: 1px solid #0f3460; text-align: right; }
-        tr:nth-child(even) { background: #0f3460; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
     <div class="nav">
-        <a href="chapter3.html">⬅ باب ۳</a>
-        <span>باب ۴</span>
-        <a href="index.html">فہرست</a>
+        <a href="index.html">🏠 فہرست</a>
+        <a href="chapter3.html">← پچھلا</a>
     </div>
-    <h1>باب ۴: ایڈوانسڈ اصطلاحات</h1>
-    <p style="text-align:center; color:#aaa; font-size:24px;">Advanced Terms — حرفہ اور پیشہ ورانہ اصطلاحات</p>
 
-<div class="diagram">
-<h3>📊 ایڈوانسڈ ٹریڈنگ کی ساخت</h3>
-<svg width="700" height="400" viewBox="0 0 700 400">
-  <rect width="700" height="400" fill="#0d1b2a" rx="15"/>
-  <text x="350" y="35" text-anchor="middle" fill="#b8860b" font-size="20" font-weight="bold">پیشہ ورانہ ٹریڈنگ سسٹم</text>
-  
-  <rect x="50" y="60" width="150" height="50" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
-  <text x="125" y="80" text-anchor="middle" fill="#eee" font-size="13">ٹریڈنگ پلان</text>
-  <text x="125" y="100" text-anchor="middle" fill="#aaa" font-size="11">Rules + Strategy</text>
-  
-  <rect x="225" y="60" width="150" height="50" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
-  <text x="300" y="80" text-anchor="middle" fill="#eee" font-size="13">رسک مینجمنٹ</text>
-  <text x="300" y="100" text-anchor="middle" fill="#aaa" font-size="11">Position Sizing</text>
-  
-  <rect x="400" y="60" width="150" height="50" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
-  <text x="475" y="80" text-anchor="middle" fill="#eee" font-size="13">انٹری/ایگزٹ</text>
-  <text x="475" y="100" text-anchor="middle" fill="#aaa" font-size="11">Entry + Exit</text>
-  
-  <rect x="575" y="60" width="100" height="50" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
-  <text x="625" y="80" text-anchor="middle" fill="#eee" font-size="13">جنرل</text>
-  <text x="625" y="100" text-anchor="middle" fill="#aaa" font-size="11">Discipline</text>
-  
-  <line x1="125" y1="110" x2="125" y2="140" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr3)"/>
-  <line x1="300" y1="110" x2="300" y2="140" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr3)"/>
-  <line x1="475" y1="110" x2="475" y2="140" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr3)"/>
-  <line x1="625" y1="110" x2="625" y2="140" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr3)"/>
-  
-  <rect x="30" y="145" width="640" height="3" fill="#b8860b" rx="2"/>
-  
-  <rect x="50" y="165" width="130" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
-  <text x="115" y="192" text-anchor="middle" fill="#eee" font-size="12">SR + TP + SL</text>
-  
-  <rect x="200" y="165" width="130" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
-  <text x="265" y="192" text-anchor="middle" fill="#eee" font-size="12">Risk 1-2%</text>
-  
-  <rect x="350" y="165" width="130" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
-  <text x="415" y="192" text-anchor="middle" fill="#eee" font-size="12">1:2+ RR Ratio</text>
-  
-  <rect x="500" y="165" width="130" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
-  <text x="565" y="192" text-anchor="middle" fill="#eee" font-size="12">Journal Likhyn</text>
-  
-  <rect x="150" y="230" width="400" height="50" rx="8" fill="#16213e" stroke="#e94560" stroke-width="2"/>
-  <text x="350" y="250" text-anchor="middle" fill="#eee" font-size="14">پرفارمنس ٹریکنگ</text>
-  <text x="350" y="270" text-anchor="middle" fill="#aaa" font-size="12">Win Rate | Profit Factor | Max DD | Sharpe Ratio</text>
-  
-  <line x1="350" y1="280" x2="350" y2="305" stroke="#e94560" stroke-width="2" marker-end="url(#arr3)"/>
-  
-  <rect x="100" y="310" width="200" height="40" rx="8" fill="#26a69a"/>
-  <text x="200" y="335" text-anchor="middle" fill="#1a1a2e" font-size="13" font-weight="bold">مستقل منافہ</text>
-  
-  <rect x="400" y="310" width="200" height="40" rx="8" fill="#e94560"/>
-  <text x="500" y="335" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">ترقی/بہتری</text>
-  
-  <defs>
-    <marker id="arr3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#b8860b"/>
-    </marker>
-  </defs>
-</svg>
-</div>
+    <h1>جدید تصورات (کریپٹو اور فاریکس)</h1>
 
-<h2>💼 پیشہ ورانہ اصطلاحات</h2>
+    <div class="term">
+        <div class="head"><span class="icon">🧊</span><span class="name">Order Block</span></div>
+        <div class="en">English: Order Block</div>
+        <div class="def-en">An order block is the last down candle before an up move, or the last up candle before a down move, representing institutional buying or selling. Price often returns to this zone before continuing its trend.</div>
+        <div class="def-ur">اردو تعریف: آرڈر بلاک اوپر جانے سے پہلے کی آخری گرتی ہوئی کندل، یا نیچے جانے سے پہلے کی آخری اٹھتی ہوئی کندل ہے، جو ادارہ جاتی خرید یا فروخت کو ظاہر کرتی ہے۔ قیمت عموماً اپنے رجحان جاری رکھنے سے پہلے اس علاقے پر واپس آتی ہے۔</div>
+        <div class="example">مثال: Price returns to the daily order block and bounces, confirming a bullish continuation.</div>
+    </div>
 
-<div class="term">
-<h3>۱. ٹریڈنگ پلان (Trading Plan)</h3>
-<div class="en">English: Trading Plan</div>
-<p>لکھی گئی حکمت عملی — کب خریدنا ہے، کب بیچنا ہے، کتنا رسک لینا ہے۔ بغیر پلان کے ٹریڈنگ = قمار۔</p>
-<div class="example">
-<strong>پلان میں ہوتا ہے:</strong> Entry rules, Exit rules, Risk per trade, Maximum daily loss, ٹریڈنگ کے اوقات۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🚪</span><span class="name">Fair Value Gap (FVG)</span></div>
+        <div class="en">English: Fair Value Gap</div>
+        <div class="def-en">A fair value gap is a price imbalance created by a large impulse candle, leaving an area with little trading. Price often retraces into this gap to rebalance before continuing.</div>
+        <div class="def-ur">اردو تعریف: فیئر ویلیو گیپ ایک بڑی تیز کندل سے بننے والا عدم توازن ہے، جو کم ٹریڈنگ والا خالی علاقہ چھوڑ دیتا ہے۔ قیمت عموماً جاری رہنے سے پہلے توازن قائم کرنے کے لیے اس خلا میں واپس آتی ہے۔</div>
+        <div class="example">مثال: After a strong bullish impulse, price fills the FVG lower and then resumes upward.</div>
+    </div>
 
-<div class="term">
-<h3>۲. پوزیشن سائیزنگ (Position Sizing)</h3>
-<div class="en">English: Position Sizing</div>
-<p>ہر ٹریڈ میں کتنا سرمایہ لگانا ہے — عام طور پر 1-2% کل سرمایے سے زیادہ نہیں۔</p>
-<div class="example">
-<strong>مثال:</strong> $10,000 اکاؤنٹ — 1% risk = $100 maximum loss per trade — SL $100 دور رکھیں۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🌊</span><span class="name">Liquidity Sweep</span></div>
+        <div class="en">English: Liquidity Sweep</div>
+        <div class="def-en">A liquidity sweep is a sharp move that takes out a previous high or low to trigger stop losses, then quickly reverses. It is used by institutions to gather liquidity before the true move.</div>
+        <div class="def-ur">اردو تعریف: لیکویڈیٹی سویپ وہ تیز حرکت ہے جو پچھلی بلندی یا پستی کو توڑ کر اسٹاپ لاس ٹرگر کرتی ہے اور پھر فوراً واپس پلٹتی ہے۔ ادارے حقیقی حرکت سے پہلے لیکویڈیٹی اکٹھا کرنے کے لیے اسے استعمال کرتے ہیں۔</div>
+        <div class="example">مثال: Price sweeps the prior low, triggers stops, then reverses upward for the real trend.</div>
+    </div>
 
-<div class="term">
-<h3>۳. رسک ریوارڈ ریشیو (Risk-Reward Ratio)</h3>
-<div class="en">English: Risk-Reward Ratio (RR)</div>
-<p>ہر ٹریڈ میں کتنا خطرہ ہے بنام کتنا منافہ۔ 1:2 کا مطلب — $1 خطرہ، $2 منافہ۔</p>
-<div class="example">
-<strong>مثال:</strong> SL $50، TP $100 — RR = 1:2 — بہترین۔ ہمیشہ 1:2 سے زیادہ رکھیں۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🧩</span><span class="name">Break of Structure (BOS)</span></div>
+        <div class="en">English: Break of Structure</div>
+        <div class="def-en">A break of structure is when price breaks an important swing high or low, confirming continuation of the existing trend. It signals that the prior trend is still healthy.</div>
+        <div class="def-ur">اردو تعریف: بریک آف اسٹرکچر وہ لمحہ ہے جب قیمت اہم سوئنگ بلندی یا پستی کو توڑتی ہے، جو موجودہ رجحان کے تسلسل کی تصدیق کرتا ہے۔ یہ اشارہ دیتا ہے کہ پچھلا رجحان ابھی مضبوط ہے۔</div>
+        <div class="example">مثال: In a bullish trend, price breaks the previous swing high, confirming another BOS upward.</div>
+    </div>
 
-<div class="term">
-<h3>۴. ون ریٹ (Win Rate)</h3>
-<div class="en">English: Win Rate</div>
-<p>کل ٹریڈز میں سے کتنی ٹریڈز منافہ دیں — 60% win rate = 10 میں سے 6 ٹریڈز منافہ۔</p>
-<div class="example">
-<strong>مثال:</strong> 100 ٹریڈز — 60 منفی، 40 ناقابل — win rate 40% مگر RR 1:3 سے منافہ ہو رہا ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔄</span><span class="name">Change of Character (CHOCH)</span></div>
+        <div class="en">English: Change of Character</div>
+        <div class="def-en">A change of character is the first break of structure against the existing trend, hinting at a potential reversal. It is often the early signal that the trend is weakening.</div>
+        <div class="def-ur">اردو تعریف: چینج آف کریکٹر موجودہ رجحان کے خلاف اسٹرکچر کا پہلا توڑ ہے، جو ممکنہ الٹاؤ کی جانب اشارہ کرتا ہے۔ یہ عموماً ابتدائی نشان ہے کہ رجحان کمزور پڑ رہا ہے۔</div>
+        <div class="example">مثال: In an uptrend, price finally breaks a swing low, signalling a possible CHOCH to the downside.</div>
+    </div>
 
-<div class="term">
-<h3>۵. پرافٹ فیکٹر (Profit Factor)</h3>
-<div class="en">English: Profit Factor</div>
-<p>کل منافہ ÷ کل نقصان — 2.0 سے زیادہ = بہترین۔ 1.0 = بریک ایون۔</p>
-<div class="example">
-<strong>مثال:</strong> منافہ $10,000، نقصان $5,000 — Profit Factor = 2.0 — اچھا ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🏗️</span><span class="name">Market Structure</span></div>
+        <div class="en">English: Market Structure</div>
+        <div class="def-en">Market structure is the pattern of swing highs and swing lows that defines the current trend. Recognizing it helps traders align with the dominant direction of the market.</div>
+        <div class="def-ur">اردو تعریف: مارکیٹ اسٹرکچر سوئنگ بلندیوں اور سوئنگ پستیوں کا وہ نمونہ ہے جو موجودہ رجحان کا تعین کرتا ہے۔ اس کو پہچاننا ٹریڈرز کو مارکیٹ کی غالب سمت کے ساتھ ہم آہنگ ہونے میں مدد کرتا ہے۔</div>
+        <div class="example">مثال: Higher highs and higher lows show a clear bullish market structure, so you only look for buy setups.</div>
+    </div>
 
-<div class="term">
-<h3>۶. ڈراپ ڈاؤن (Drawdown)</h3>
-<div class="en">English: Drawdown (DD)</div>
-<p>اکاؤنٹ کی سب سے بڑی گراوٹ — ہائی پوائنٹ سے نیچے آنے کا فیصد۔</p>
-<div class="example">
-<strong>مثال:</strong> $10,000 سے $8,000 — 20% drawdown — اب واپس $10,000 کرنا ہے (25% منافہ)۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📦</span><span class="name">Supply &amp; Demand Zone</span></div>
+        <div class="en">English: Supply &amp; Demand Zone</div>
+        <div class="def-en">A supply zone is a price area with heavy selling, and a demand zone is an area with heavy buying. Price tends to react strongly when it returns to these zones.</div>
+        <div class="def-ur">اردو تعریف: سپلائی زون وہ قیمتی علاقہ ہے جہاں بھاری فروخت ہوتی ہے، اور ڈیمانڈ زون وہ علاقہ ہے جہاں بھاری خریداری ہوتی ہے۔ قیمت ان زونز پر واپس آنے پر اکثر زوردار ردعمل دکھاتی ہے۔</div>
+        <div class="example">مثال: Price reaches a demand zone and bounces, so you enter a long near the top of the zone.</div>
+    </div>
 
-<div class="term">
-<h3>۷. مکسیمم ڈراپ ڈاؤن (Max Drawdown)</h3>
-<div class="en">English: Maximum Drawdown</div>
-<p>سابقہ اکاؤنٹ ہائی سے سب سے بڑی گراوٹ — سسٹم کی بری ترین صورتحال۔</p>
-<div class="example">
-<strong>مثال:</strong> Max DD 15% — اکاؤنٹ کبھی 15% سے زیادہ نہیں گرا۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🏦</span><span class="name">DeFi</span></div>
+        <div class="en">English: Decentralized Finance</div>
+        <div class="def-en">DeFi refers to financial services built on blockchains that work without banks or central authorities. It uses smart contracts to offer lending, borrowing, and trading directly between users.</div>
+        <div class="def-ur">اردو تعریف: ڈی فائی وہ مالی خدمات ہیں جو بلاک چینز پر بنی ہوتی ہیں اور بینکوں یا مرکزی اداروں کے بغیر کام کرتی ہیں۔ یہ سمارٹ کنٹریکٹس کے ذریعے صارفین کے درمیان براہِ راست قرض، ادھار اور ٹریڈنگ فراہم کرتی ہے۔</div>
+        <div class="example">مثال: You lend stablecoins on a DeFi protocol and earn interest without any bank account.</div>
+    </div>
 
-<div class="term">
-<h3>۸. شارپ ریشو (Sharpe Ratio)</h3>
-<div class="en">English: Sharpe Ratio</div>
-<p>منافہ اور رسک کا تناسب — 1.0 سے زیادہ = اچھا، 2.0 سے زیادہ = بہترین۔</p>
-<div class="example">
-<strong>مثال:</strong> Sharpe Ratio 2.5 — منافہ رسک سے 2.5 گنا زیادہ ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔒</span><span class="name">Staking</span></div>
+        <div class="en">English: Staking</div>
+        <div class="def-en">Staking is locking up cryptocurrency to support a network and earn rewards in return. It helps secure proof-of-stake chains and generates passive income for holders.</div>
+        <div class="def-ur">اردو تعریف: اسٹیکنگ کریپٹو کرنسی لاک کرنا ہے تاکہ نیٹ ورک کو سپورٹ ملے اور بدلے میں انعامات حاصل ہوں۔ یہ پروف آف اسٹیک چینز کو محفوظ بناتا ہے اور ہولڈرز کے لیے غیر فعال آمدنی پیدا کرتا ہے۔</div>
+        <div class="example">مثال: You stake your ETH and receive periodic rewards as new blocks are validated.</div>
+    </div>
 
-<div class="term">
-<h3>۹. بیک ٹیسٹنگ (Backtesting)</h3>
-<div class="en">English: Backtesting</div>
-<p>اپنی ٹریڈنگ سٹریٹجی کو پچھلے ڈیٹا پر چیک کرنا — کیا یہ کام کرتی؟</p>
-<div class="example">
-<strong>مثال:</strong> 5 سال کے ڈیٹا پر سٹریٹجی چلائی — 1000 ٹریڈز — 55% win rate — اچھا ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🌾</span><span class="name">Yield Farming</span></div>
+        <div class="en">English: Yield Farming</div>
+        <div class="def-en">Yield farming is moving crypto assets between protocols to maximize returns. It often involves providing liquidity or lending to earn the highest rewards, but carries high risk.</div>
+        <div class="def-ur">اردو تعریف: ییلڈ فارمنگ زیادہ سے زیادہ منافع کے لیے کریپٹو اثاثوں کو مختلف پروٹوکولز کے درمیان منتقل کرنا ہے۔ اس میں عموماً لیکویڈیٹی فراہم کرنا یا قرض دینا شامل ہے تاکہ سب سے زیادہ انعام ملے، مگر اس میں رسک بھی زیادہ ہوتا ہے۔</div>
+        <div class="example">مثال: You move your tokens between liquidity pools chasing higher APY, but volatility can quickly erase the gains.</div>
+    </div>
 
-<div class="term">
-<h3>۱۰. فوروارڈ ٹیسٹنگ (Forward Testing)</h3>
-<div class="en">English: Forward Testing / Paper Trading</div>
-<p>ڈیمو اکاؤنٹ پر سٹریٹجی چلانا — اصل پیسہ نہیں، مگر اصل مارکیٹ ڈیٹا۔</p>
-<div class="example">
-<strong>مثال:</strong> 3 مہینے ڈیمو پر چلایا — 100 ٹریڈز — 52% win rate — اب اصل پر آئیں۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">♾️</span><span class="name">Perpetual Contract</span></div>
+        <div class="en">English: Perpetual Contract</div>
+        <div class="def-en">A perpetual contract is a futures contract without an expiry date, letting traders hold a position indefinitely. It tracks the spot price and uses a funding rate to stay in line.</div>
+        <div class="def-ur">اردو تعریف: پرفیچوئل کنٹریکٹ ایک ایسا فیوچرز معاہدہ ہے جس کی میعاد ختم نہیں ہوتی، جس سے ٹریڈر پوزیشن لامحدود مدت تک رکھ سکتا ہے۔ یہ اسپاٹ قیمت کے ساتھ چلتا ہے اور مطابقت رکھنے کے لیے فنڈنگ ریٹ استعمال کرتا ہے۔</div>
+        <div class="example">مثال: You open a BTC perpetual long with 10x leverage and hold it for several days without rolling over.</div>
+    </div>
 
-<div class="term">
-<h3>۱۱. ٹریڈنگ جرنل (Trading Journal)</h3>
-<div class="en">English: Trading Journal</div>
-<p>ہر ٹریڈ کا ریکارڈ — کیوں خریدا، کیوں بیچا، کیا سیکھا۔ سب سے اہم ٹول۔</p>
-<div class="example">
-<strong>جمل میں لکھیں:</strong> Date, Pair, Entry, Exit, SL, TP, RR, Reason, Emotion, Result۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">💸</span><span class="name">Funding Rate</span></div>
+        <div class="en">English: Funding Rate</div>
+        <div class="def-en">The funding rate is a periodic payment exchanged between long and short holders of a perpetual contract. It keeps the contract price near the spot price and clears the imbalance of buyers and sellers.</div>
+        <div class="def-ur">اردو تعریف: فنڈنگ ریٹ وہ وقتاً فوقتاً ادائیگی ہے جو پرفیچوئل کنٹریکٹ کے لانگ اور شارٹ ہولڈرز کے درمیان تبادلہ ہوتی ہے۔ یہ کنٹریکٹ کی قیمت کو اسپاٹ قیمت کے قریب رکھتی ہے اور خریداروں و بیچنے والوں کے عدم توازن کو ختم کرتی ہے۔</div>
+        <div class="example">مثال: When funding is positive and high, longs pay shorts, signalling an overheated full market.</div>
+    </div>
 
-<div class="term">
-<h3>۱۲. ایجویکیشن (Equity)</h3>
-<div class="en">English: Equity</div>
-<p>آپ کے اکاؤنٹ کی فی الحال قیمت — کل سرمایہ + غیر منافع/نقصان۔</p>
-<div class="example">
-<strong>مثال:</strong> $10,000 balance + $500 open profit = $10,500 equity۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔥</span><span class="name">Liquidation</span></div>
+        <div class="en">English: Liquidation</div>
+        <div class="def-en">Liquidation is when a leveraged position is forcibly closed because losses exceed the required margin. The exchange takes the remaining margin, and the trader loses that amount.</div>
+        <div class="def-ur">اردو تعریف: لیکویڈیشن وہ حالت ہے جب لیوریج والی پوزیشن زبردستی بند کردی جاتی ہے کیونکہ نقصان مطلوبہ مارجن سے تجاوز کر جاتا ہے۔ ایکسچینج بقیہ مارجن لے لیتی ہے اور ٹریڈر وہ رقم کھو دیتا ہے۔</div>
+        <div class="example">مثال: With 20x leverage on BTC, a small 5% drop liquidates your entire position.</div>
+    </div>
 
-<div class="term">
-<h3>۱۳. مارجن لیول (Margin Level)</h3>
-<div class="en">English: Margin Level</div>
-<p>Equity ÷ Used Margin × 100 — جب یہ 100% سے نیچے آئے تو liquidation ہوتا ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> Margin Level 500% = اکاؤنٹ محفوظ ہے۔ 100% = خطرناک — liquidation قریب۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📉</span><span class="name">Short Selling</span></div>
+        <div class="en">English: Short Selling</div>
+        <div class="def-en">Short selling is selling an asset you do not own in hope of buying it back at a lower price. It profits from a price decline and is the opposite of going long.</div>
+        <div class="def-ur">اردو تعریف: شارٹ سیلنگ وہ عمل ہے جس میں آپ ایسا اثاثہ بیچتے ہیں جو آپ کی ملکیت میں نہیں، تاکہ بعد میں کم قیمت پر واپس خرید سکیں۔ یہ قیمت کی گراوٹ سے منافع کماتا ہے اور لانگ جانے کے بالعکس ہے۔</div>
+        <div class="example">مثال: You short EUR/USD at 1.10 and buy it back at 1.08, pocketing the difference.</div>
+    </div>
 
-<div class="term">
-<h3>۱۴. لیکویڈیشن (Liquidation)</h3>
-<div class="en">English: Liquidation</div>
-<p>جب مارجن ختم ہو جائے اور بروکر آپ کی پوزیشن خود بخود بند کر دے — پیسے ڈوب جاتے ہیں۔</p>
-<div class="example">
-<strong>مثال:</strong> 100x لیوریج — 1% حرکت = مکمل liquidation — سب پیسے ڈوبے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔄</span><span class="name">Arbitrage</span></div>
+        <div class="en">English: Arbitrage</div>
+        <div class="def-en">Arbitrage is profiting from the price difference of the same asset on different markets. Traders buy where it is cheaper and sell where it is pricier to capture the spread.</div>
+        <div class="def-ur">اردو تعریف: آرپیٹریج مختلف بازاروں میں اسی اثاثے کی قیمت کے فرق سے منافع کمایا جاتا ہے۔ ٹریڈر جہاں سستا ہو وہاں خریدتے ہیں اور جہاں مہنگا ہو وہاں بیچتے ہیں تاکہ فرق حاصل کریں۔</div>
+        <div class="example">مثال: BTC trades at $30,000 on one exchange and $30,100 on another, so you buy and sell for a quick profit.</div>
+    </div>
 
-<div class="term">
-<h3>۱۵. ہیجنگ (Hedging)</h3>
-<div class="en">English: Hedging</div>
-<p>نقصان سے بچنے کے لیے الگ پوزیشن لینا — ایک ٹریڈ میں منافہ، دوسرے میں نقصان — خالص صفر۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC خریدا + ETH شارٹ کیا — اگر مارکیٹ گرے تو ETH سے منافہ، BTC سے نقصان — بیلنس۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🧪</span><span class="name">Backtesting</span></div>
+        <div class="en">English: Backtesting</div>
+        <div class="def-en">Backtesting is testing a trading strategy against historical price data to measure its performance. It helps traders refine rules and assess profitability before risking real money.</div>
+        <div class="def-ur">اردو تعریف: بیک ٹیسٹنگ کسی حکمتِ عملی کو تاریخی قیمت کے اعداد و شمار پر آزمانا ہے تاکہ اس کی کارکردگی ناپی جا سکے۔ یہ ٹریڈرز کو اصول بہتر بنانے اور حقیقی پیسہ لگانے سے پہلے منافع کا اندازہ لگانے میں مدد کرتا ہے۔</div>
+        <div class="example">مثال: You backtest a cross-over strategy over ten years and find it is only profitable in trending markets.</div>
+    </div>
 
-<div class="term">
-<h3>۱۶. سکیلپنگ (Scalping)</h3>
-<div class="en">English: Scalping</div>
-<p>بہت مختصر مدت کی ٹریڈنگ — چند سیکنڈ سے چند منٹ — چھوٹے منافے، زیادہ ٹریڈز۔</p>
-<div class="example">
-<strong>مثال:</strong> 5 pip منافہ، 3 pip نقصان — 50 ٹریڈز روزانہ — مستقل معمولہ منافہ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🤖</span><span class="name">Trading Bot</span></div>
+        <div class="en">English: Trading Bot</div>
+        <div class="def-en">A trading bot is automated software that executes trades based on predefined rules. It removes emotion and can act faster than humans, but still requires careful setup and monitoring.</div>
+        <div class="def-ur">اردو تعریف: ٹریڈنگ بوٹ وہ خودکار سافٹ ویئر ہے جو پہلے سے طے شدہ اصولوں کے مطابق ٹریڈز کرتا ہے۔ یہ جذبات کو ختم کرتا ہے اور انسان سے تیز کام کرتا ہے، مگر اسے بھی درست سیٹ اپ اور نگرانی کی ضرورت ہوتی ہے۔</div>
+        <div class="example">مثال: You run a bot that sells when the RSI crosses above 70, executing millions of decisions without hesitation.</div>
+    </div>
 
-<div class="term">
-<h3>۱۷. سوئنگ ٹریڈنگ (Swing Trading)</h3>
-<div class="en">English: Swing Trading</div>
-<p>چند دنوں سے چند ہفتوں تک ٹریڈ رکھنا — بڑی حرکات سے منافہ۔</p>
-<div class="example">
-<strong>مثال:</strong> Monday خریدا، Friday بیچا — 5% منافہ — ہفتے میں ایک ٹریڈ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🗜️</span><span class="name">Grid Trading</span></div>
+        <div class="en">English: Grid Trading</div>
+        <div class="def-en">Grid trading is placing a series of buy and sell orders at evenly spaced price levels. It profits from market oscillations and works best in ranging, non-trending markets.</div>
+        <div class="def-ur">اردو تعریف: گرِڈ ٹریڈنگ برابر فاصلہ والی قیمتوں پر خرید و فروخت کے متعدد آرڈرز لگانا ہے۔ یہ مارکیٹ کے اتار چڑھاؤ سے منافع کماتی ہے اور بہترین طور پر رینج یا بغیر رجحان والے بازار میں کام کرتی ہے۔</div>
+        <div class="example">مثال: You place buy orders every $100 as price moves between $10,000 and $10,500.</div>
+    </div>
 
-<div class="term">
-<h3>۱۸. پوزیشن ٹریڈنگ (Position Trading)</h3>
-<div class="en">English: Position Trading</div>
-<p>مہینوں یا سالوں تک ٹریڈ رکھنا — بنیادی تجزیہ پر مبنی۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC $20,000 پر خریدا — 1 سال رکھا — $60,000 پر بیچا — 200% منافہ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">💰</span><span class="name">Dollar Cost Averaging (DCA)</span></div>
+        <div class="en">English: Dollar Cost Averaging</div>
+        <div class="def-en">Dollar cost averaging is investing a fixed amount at regular intervals regardless of price. This smooths out the average cost over time and reduces the impact of volatility.</div>
+        <div class="def-ur">اردو تعریف: ڈالر کاسٹ ایوریجنگ کسی بھی قیمت پر مقررہ وقفے سے طے شدہ رقم لگانا ہے۔ یہ وقت کے ساتھ اوسط لاگت کو ہموار کرتا ہے اور اتار چڑھاؤ کے اثرات کو کم کرتا ہے۔</div>
+        <div class="example">مثال: You invest $100 into BTC every week, averaging your entry across both peaks and valleys.</div>
+    </div>
 
-<div class="term">
-<h3>۱۹. ہاؤس ایج (House Edge)</h3>
-<div class="en">English: House Edge</div>
-<p>بروکر کا فائدہ — اسپریڈ، کمیشن، سلیپیج — یہ سب بروکر کی کمائی ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> 1 pip spread = ہر ٹریڈ پر بروکر کو $10 (1 Standard Lot)۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🏔️</span><span class="name">HODL</span></div>
+        <div class="en">English: Hold On for Dear Life</div>
+        <div class="def-en">HODL is a slang term for holding an asset through market swings over the long term. It reflects a buy-and-hold strategy that ignores short-term price fluctuations.</div>
+        <div class="def-ur">اردو تعریف: ہوڈل ایک بول چال کا لفظ ہے جس کا مطلب ہے مارکیٹ کے اتار چڑھاؤ کے باوجود اثاثے کو طویل مدت تک رکھنا۔ یہ ایک خرید و رکھنے کی حکمتِ عملی کو ظاہر کرتا ہے جو قلیل مدتی قیمت کے جھٹکوں کو نظرانداز کرتی ہے۔</div>
+        <div class="example">مثال: You bought BTC years ago and keep holding through every crash, believing in the long-term potential.</div>
+    </div>
 
-<div class="term">
-<h3>۲۰. ایج (Edge)</h3>
-<div class="en">English: Trading Edge</div>
-<p>آپ کا فائدہ دوسرے ٹریڈرز سے — آپ کی سٹریٹجی جو آپ کو منافہ دوادے۔</p>
-<div class="example">
-<strong>مثال:</strong> میرا edge = S/R + RSI + Volume — 3 چیزوں کی تصدیق سے entry — 65% win rate۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🧠</span><span class="name">Smart Money</span></div>
+        <div class="en">English: Smart Money</div>
+        <div class="def-en">Smart money refers to large institutional traders and professional funds whose big moves drive the market. Retail traders study their footprints to anticipate where price may go next.</div>
+        <div class="def-ur">اردو تعریف: سمارٹ منی سے مراد بڑے ادارہ جاتی ٹریڈرز اور پیشہ ور فنڈز ہیں جن کی بڑی حرکتیں مارکیٹ کو چلاتی ہیں۔ ریٹیل ٹریڈرز ان کے نشانات کا مطالعہ کر کے اندازہ لگاتے ہیں کہ قیمت اگلے مرحلے میں کہاں جائے گی۔</div>
+        <div class="example">مثال: A large institution quietly accumulates a stock, and smart-money traders follow the footprint.</div>
+    </div>
 
-<div class="keypoints">
-<h3>🔑 اہم نکات</h3>
-<p>ٹریڈنگ پلان لکھیں — بغیر پلان کے ٹریڈنگ = قمار ہے۔</p>
-<p>1-2% رسک رول ہمیشہ مانیں — ایک ٹریڈ آپ کو برباد نہیں کر سکتا۔</p>
-<p>1:2 RR رکھیں — win rate 50% ہو تو بھی منافہ ہوگا۔</p>
-<p>جنل لکھیں — بغیر جرنل کے ٹریڈنگ = اندھیرے میں چلنا۔</p>
-<p>بیک ٹیسٹنگ ضروری ہے — سٹریٹجی کبھی بھی ڈیمو پر 3 مہینے چلائیں۔</p>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🎣</span><span class="name">Stop Hunt</span></div>
+        <div class="en">English: Stop Hunt</div>
+        <div class="def-en">A stop hunt is a deliberate move to trigger stop-loss orders clustered at obvious levels. Institutions push price there to gather liquidity before moving in the intended direction.</div>
+        <div class="def-ur">اردو تعریف: اسٹاپ ہنٹ وہ جان بوجھ کر کی گئی حرکت ہے جو واضح سطحوں پر جمع اسٹاپ لاس آرڈرز کو ٹرگر کرتی ہے۔ ادارے قیمت کو وہاں دھکیل کر لیکویڈیٹی جمع کرتے ہیں اور پھر اپنے مطلوبہ رخ میں حرکت کرتے ہیں۔</div>
+        <div class="example">مثال: Buy stops sit above the obvious high, and price briefly spikes up to trigger them before falling hard.</div>
+    </div>
 
-<div class="notice">
-<strong>⚠️ یاد رکھیں:</strong> ہر ٹریڈر کا ایج الگ ہے — آپ کی سٹریٹجی آپ کے لیے بنائی گئی ہے۔ دوسرے کی کاپی نہ کریں۔
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📀</span><span class="name">Dollar Index (DXY)</span></div>
+        <div class="en">English: Dollar Index</div>
+        <div class="def-en">The Dollar Index measures the US dollar against a basket of major currencies. Its movements often have an inverse relationship with commodities, gold, and many risk assets.</div>
+        <div class="def-ur">اردو تعریف: ڈالر انڈیکس امریکی ڈالر کی بڑی کرنسیوں کی ٹوکری کے مقابلے میں پیمائش کرتا ہے۔ اس کی حرکات اکثر اجناس، سونے اور بہت سے رسک اثاثوں کے ساتھ الٹا تعلق رکھتی ہیں۔</div>
+        <div class="example">مثال: When DXY rises sharply, gold and emerging-market currencies often fall against it.</div>
+    </div>
 
-<div class="nav">
-    <a href="chapter3.html">⬅ باب ۳</a>
-    <span>باب ۴</span>
-    <a href="index.html">فہرست</a>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📰</span><span class="name">Non-Farm Payrolls (NFP)</span></div>
+        <div class="en">English: Non-Farm Payrolls</div>
+        <div class="def-en">Non-farm payrolls is a US monthly report showing the number of jobs added, excluding the farming sector. It is a major economic indicator that can cause large forex and stock market volatility.</div>
+        <div class="def-ur">اردو تعریف: نان فارم پے رولز امریکہ کی ماہانہ رپورٹ ہے جو زراعت کے شعبے کے علاوہ ملازمتوں میں اضافے کی تعداد بتاتی ہے۔ یہ ایک اہم اقتصادی اشارہ ہے جو فاریکس اور اسٹاک مارکیٹ میں بڑا اتار چڑھاؤ پیدا کر سکتا ہے۔</div>
+        <div class="example">مثال: Strong NFP data beats expectations, and the dollar climbs as traders expect higher rates.</div>
+    </div>
 
-<div class="footer">
-    © ٹریڈنگ گلوسری — تمام حقوق محفوظ
-</div>
-
+    <div class="divider" style="border:none;border-top:2px solid #333;margin:30px 0;"></div>
+    <div class="nav"><a href="index.html">🏠 فہرست</a><a href="chapter3.html">← پچھلا</a></div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل ٹریڈنگ گلوسری</div>
 </body>
 </html>

@@ -1,288 +1,241 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>باب ۲: ٹیکنیکل اینالسس — Technical Analysis Terms</title>
-        <style>
-        body { font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif; font-size: 26px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #1a1a2e; color: #eee; }
+    <title>صفحہ ۲ — تکنیکی تجزیہ</title>
+    <style>
+        body { font-family: "Jameel Noori Nastaleeq","Noto Nastaliq Urdu",serif; font-size: 25px; line-height: 2; max-width: 950px; margin: 0 auto; padding: 40px 30px; background-color: #0a1628; color: #eee; }
         * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-        h1 { font-size: 42px; color: #b8860b; text-align: center; margin-bottom: 30px; }
-        h2 { font-size: 34px; color: #e94560; margin-top: 40px; line-height: 1.7; }
-        h3 { font-size: 30px; color: #b8860b; margin-top: 30px; line-height: 1.7; }
-        p { margin: 0 0 20px 0; text-align: justify; }
-        .term { background: #16213e; border-right: 5px solid #b8860b; padding: 20px; border-radius: 10px; margin: 20px 0; }
-        .term h3 { margin-top: 0; color: #b8860b; font-size: 28px; }
-        .term .en { color: #00b4d8; font-size: 24px; margin-bottom: 10px; }
-        .term .example { background: #0f3460; padding: 15px; border-radius: 8px; margin-top: 10px; }
-        .term .example strong { color: #e94560; }
-        .diagram { text-align: center; background: #16213e; border-radius: 15px; padding: 30px; margin: 30px 0; overflow: hidden; }
-        .diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-        .notice { background: #2d1b1b; border: 2px solid #e94560; border-radius: 12px; padding: 15px 20px; margin: 30px 0; font-size: 22px; color: #f0a0a0; }
-        .nav { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 30px; }
-        .nav a, .nav span { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #1b263b; border-radius: 10px; font-size: 24px; }
+        h1 { font-size: 40px; color: #00b4d8; text-align: center; }
+        .nav { display: flex; justify-content: space-between; margin-bottom: 30px; }
+        .nav a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
         .nav a:hover { background: #e94560; color: #fff; }
-        .nav span { color: #666; opacity: 0.45; }
+        .term { background: #122540; border-radius: 12px; padding: 18px 22px; margin-bottom: 16px; border-right: 4px solid #00b4d8; }
+        .term .head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .term .icon { font-size: 30px; }
+        .term .name { font-size: 26px; font-weight: bold; color: #00b4d8; }
+        .term .en { font-size: 16px; color: #7dd3fc; }
+        .term .def-en { font-size: 19px; color: #cbd5e1; margin-bottom: 4px; }
+        .term .def-ur { font-size: 22px; color: #e2e8f0; border-top: 1px dashed #2c3e5f; padding-top: 6px; margin-top: 6px; }
+        .term .example { font-size: 17px; color: #94a3b8; font-style: italic; margin-top: 6px; background: #0f2038; padding: 8px 12px; border-radius: 8px; }
         .footer { text-align: center; color: #666; margin-top: 40px; font-size: 20px; }
-        svg text { direction: rtl; }
-        .keypoints { background: #16213e; border-right: 5px solid #b8860b; border-radius: 10px; padding: 18px 24px; margin: 25px 0; }
-        .keypoints h3 { margin-top: 0; color: #b8860b; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #16213e; border-radius: 10px; overflow: hidden; }
-        th { background: #b8860b; color: #1a1a2e; padding: 12px 15px; text-align: right; font-weight: bold; }
-        td { padding: 10px 15px; border-bottom: 1px solid #0f3460; text-align: right; }
-        tr:nth-child(even) { background: #0f3460; }
+        .back { text-align: center; margin-top: 20px; }
+        .back a { color: #00b4d8; text-decoration: none; padding: 10px 20px; background: #122540; border-radius: 10px; font-size: 24px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
     <div class="nav">
-        <a href="chapter1.html">⬅ باب ۱</a>
-        <span>باب ۲</span>
-        <a href="chapter3.html">باب ۳ ➡</a>
+        <a href="chapter1.html">← پچھلا صفحہ</a>
+        <a href="index.html">🏠 فہرست</a>
     </div>
-    <h1>باب ۲: ٹیکنیکل اینالسس</h1>
-    <p style="text-align:center; color:#aaa; font-size:24px;">Technical Analysis Terms — چارٹ اور انڈیکیٹرز کی اصطلاحات</p>
 
-<div class="diagram">
-<h3>📊 ٹیکنیکل اینالسس کا فلو</h3>
-<svg width="700" height="400" viewBox="0 0 700 400">
-  <rect width="700" height="400" fill="#0d1b2a" rx="15"/>
-  <text x="350" y="35" text-anchor="middle" fill="#b8860b" font-size="20" font-weight="bold">چارٹ سے فیصلہ تک</text>
-  
-  <rect x="250" y="55" width="200" height="45" rx="8" fill="#16213e" stroke="#00b4d8" stroke-width="2"/>
-  <text x="350" y="82" text-anchor="middle" fill="#eee" font-size="15">چارٹ دیکھیں</text>
-  
-  <line x1="350" y1="100" x2="350" y2="120" stroke="#00b4d8" stroke-width="2" marker-end="url(#arr)"/>
-  
-  <rect x="100" y="125" width="160" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
-  <text x="180" y="152" text-anchor="middle" fill="#eee" font-size="14">ٹرینڈ پہچانیں</text>
-  
-  <rect x="280" y="125" width="160" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
-  <text x="360" y="152" text-anchor="middle" fill="#eee" font-size="14">لیولز بنائیں</text>
-  
-  <rect x="460" y="125" width="160" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
-  <text x="540" y="152" text-anchor="middle" fill="#eee" font-size="14">انڈیکیٹرز چیک</text>
-  
-  <line x1="180" y1="170" x2="180" y2="195" stroke="#b8860b" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="360" y1="170" x2="360" y2="195" stroke="#b8860b" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="540" y1="170" x2="540" y2="195" stroke="#b8860b" stroke-width="2" marker-end="url(#arr)"/>
-  
-  <rect x="80" y="200" width="200" height="45" rx="8" fill="#16213e" stroke="#26a69a" stroke-width="2"/>
-  <text x="180" y="227" text-anchor="middle" fill="#eee" font-size="14">⬆ اپ ٹرینڈ</text>
-  
-  <rect x="280" y="200" width="160" height="45" rx="8" fill="#16213e" stroke="#e94560" stroke-width="2"/>
-  <text x="360" y="227" text-anchor="middle" fill="#eee" font-size="14">➡ سائیڈ ویز</text>
-  
-  <rect x="460" y="200" width="180" height="45" rx="8" fill="#16213e" stroke="#e94560" stroke-width="2"/>
-  <text x="550" y="227" text-anchor="middle" fill="#eee" font-size="14">⬇ ڈاؤن ٹرینڈ</text>
-  
-  <line x1="180" y1="245" x2="350" y2="270" stroke="#26a69a" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="360" y1="245" x2="350" y2="270" stroke="#b8860b" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="550" y1="245" x2="350" y2="270" stroke="#e94560" stroke-width="2" marker-end="url(#arr)"/>
-  
-  <rect x="250" y="275" width="200" height="45" rx="8" fill="#16213e" stroke="#b8860b" stroke-width="2"/>
-  <text x="350" y="302" text-anchor="middle" fill="#eee" font-size="14">انٹری/ایگزٹ پلان</text>
-  
-  <line x1="350" y1="320" x2="350" y2="345" stroke="#b8860b" stroke-width="2" marker-end="url(#arr)"/>
-  
-  <rect x="225" y="350" width="250" height="35" rx="8" fill="#b8860b"/>
-  <text x="350" y="373" text-anchor="middle" fill="#1a1a2e" font-size="14" font-weight="bold">ٹریڈ کریں!</text>
-  
-  <defs>
-    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#b8860b"/>
-    </marker>
-  </defs>
-</svg>
-</div>
+    <h1>📗 تکنیکی تجزیہ</h1>
 
-<h2>📊 چارٹ اور گرافس</h2>
+    <div class="term">
+        <div class="head"><span class="icon">🕯️</span><span class="name">Candlestick</span></div>
+        <div class="en">English: Candlestick</div>
+        <div class="def-en">A chart symbol that shows the open, high, low, and close price of an asset for a specific period. The body shows the open and close, while the wicks show the high and low.</div>
+        <div class="def-ur">اردو تعریف: کینڈل اسٹک چارٹ کی وہ علامت ہے جو کسی اثاثے کی ایک مخصوص مدت کی اوپن، ہائی، لو اور کلوز قیمت دکھاتی ہے۔ جسم (body) اوپن اور کلوز کو ظاہر کرتا ہے جبکہ وکس زیادہ اور کم قیمت کو بتاتی ہیں۔</div>
+        <div class="example">مثال: ایک سبز کینڈل اسٹک کا مطلب ہے کہ کلوزنگ قیمت اوپن سے زیادہ تھی۔</div>
+    </div>
 
-<div class="term">
-<h3>۱. کینڈل سٹک چارٹ (Candlestick Chart)</h3>
-<div class="en">English: Candlestick Chart</div>
-<p>قیمت کی حرکت کو موم بتیوں (candles) کی شکل میں دکھانے والا چارٹ۔ ہر کینڈل میں اوپن، کلوز، ہائی اور لو قیمت ہوتی ہے۔</p>
-<div class="example">
-<strong>انگریزی کینڈل:</strong> سبز — قیمت بڑھی (اوپن کلوز سے نیچے)<br>
-<strong>سُرخ کینڈل:</strong> قیمت گری (اوپن کلوز سے اوپر)
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🛡️</span><span class="name">Support</span></div>
+        <div class="en">English: Support</div>
+        <div class="def-en">A price level where buying interest is strong enough to stop the price from falling further. It acts as a floor beneath the price.</div>
+        <div class="def-ur">اردو تعریف: سپورٹ وہ قیمت کی سطح ہے جہاں خریداری کی مضبوط دلچسپی قیمت کو مزید گرنے سے روکتی ہے۔ یہ قیمت کے نیچے ایک فرش کی طرح کام کرتی ہے۔</div>
+        <div class="example">مثال: جب قیمت 100 ڈالر پر بار بار اچھلتی ہے تو وہ سپورٹ لیول کہلاتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۲. سپورٹ اینڈ ریزسٹنس (Support & Resistance)</h3>
-<div class="en">English: Support & Resistance (S/R)</div>
-<p><strong>سپورٹ:</strong> وہ قیمت جہاں خریداروں کی طاقت بڑھتی ہے — قیمت نیچے نہیں گرتی۔<br>
-<strong>ریزسٹنس:</strong> وہ قیمت جہاں فروخت کنندگان زیادہ ہوتے ہیں — قیمت اوپر نہیں چڑھتی۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC $28,000 سپورٹ — بار بار یہاں سے واپس اٹھا۔ $32,000 ریزسٹنس — یہاں سے گرتا رہا۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🧱</span><span class="name">Resistance</span></div>
+        <div class="en">English: Resistance</div>
+        <div class="def-en">A price level where selling pressure is strong enough to stop the price from rising further. It acts as a ceiling above the price.</div>
+        <div class="def-ur">اردو تعریف: ریزسٹنس وہ قیمت کی سطح ہے جہاں فروخت کا دباؤ قیمت کو مزید بڑھنے سے روکتا ہے۔ یہ قیمت کے اوپر ایک چھت کی طرح کام کرتی ہے۔</div>
+        <div class="example">مثال: اگر قیمت 150 ڈالر پر بار بار رد ہو جائے تو وہ ریزسٹنس لیول کہلاتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۳. ٹرینڈ لائن (Trendline)</h3>
-<div class="en">English: Trendline</div>
-<p>چارٹ پر لگائی گئی لکیر جو ٹریڈنگ کی سمت دکھاتی ہے۔ اوپر کو جانے والی لکیر = اپ ٹرینڈ، نیچے کو = ڈاؤن ٹرینڈ۔</p>
-<div class="example">
-<strong>مثال:</strong> اگر آپ لو پوائنٹس کو جوڑیں اور لکیر اوپر جائے = اپ ٹرینڈ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📊</span><span class="name">Trend</span></div>
+        <div class="en">English: Trend</div>
+        <div class="def-en">The general direction in which the price of an asset is moving over a period of time. Trends can be upward, downward, or sideways.</div>
+        <div class="def-ur">اردو تعریف: ٹرینڈ وہ عمومی سمت ہے جس میں کسی اثاثے کی قیمت ایک مدت کے دوران حرکت کرتی ہے۔ ٹرینڈ اوپر کی طرف، نیچے کی طرف یا اک طرفہ ہو سکتی ہے۔</div>
+        <div class="example">مثال: ایک طویل مدت تک مسلسل بڑھتی ہوئی قیمت اوپر کی طرف کا رجحان ظاہر کرتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۴. موومنگ ایوریج (Moving Average)</h3>
-<div class="en">English: Moving Average (MA)</div>
-<p>قیمت کی اوسط — مخصوص دنوں کی قیمت کا اوسط۔ SMA (Simple) اور EMA (Exponential)۔</p>
-<div class="example">
-<strong>SMA 50:</strong> پچھلے 50 دنوں کی اوسط قیمت — ٹریڈ کی سمت دکھاتا ہے۔<br>
-<strong>EMA 20:</strong> حالیہ قیمتوں کو زیادہ اہمیت۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📈</span><span class="name">Uptrend</span></div>
+        <div class="en">English: Uptrend</div>
+        <div class="def-en">A market condition where the price makes higher highs and higher lows over time. It signals that buyers are in control.</div>
+        <div class="def-ur">اردو تعریف: اپ ٹرینڈ وہ مارکیٹ کی حالت ہے جس میں قیمت وقت کے ساتھ اونچی چوٹیاں اور اونچی نیچی سطحیں بناتی ہے۔ یہ بتاتا ہے کہ خریداروں کا کنٹرول ہے۔</div>
+        <div class="example">مثال: مناسب اپ ٹرینڈ میں ٹریڈرز عام طور پر خریداری کے مواقع تلاش کرتے ہیں۔</div>
+    </div>
 
-<div class="term">
-<h3>۵. RSI — ریلیٹیو سٹرینتھ انڈیکس</h3>
-<div class="en">English: Relative Strength Index (RSI)</div>
-<p>0-100 کے درمیان مالی طاقت کی پیمائش۔ 70 سے اوپر = اوور بائٹ (قیمت زیادہ بڑھ گئی)، 30 سے نیچے = اوور سولڈ (قیمت بہت گر گئی)۔</p>
-<div class="example">
-<strong>مثال:</strong> RSI = 75 — یعنی مارکیٹ اوور بائٹ ہے، قیمت گر سکتی ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📉</span><span class="name">Downtrend</span></div>
+        <div class="en">English: Downtrend</div>
+        <div class="def-en">A market condition where the price makes lower highs and lower lows over time. It signals that sellers are in control.</div>
+        <div class="def-ur">اردو تعریف: ڈاؤن ٹرینڈ وہ مارکیٹ کی حالت ہے جس میں قیمت وقت کے ساتھ نیچی چوٹیاں اور نیچی نیچی سطحیں بناتی ہے۔ یہ بتاتا ہے کہ فروخت کنندگان کا کنٹرول ہے۔</div>
+        <div class="example">مثال: ڈاؤن ٹرینڈ میں ٹریڈرز اکثر فروخت یا شارٹ پوزیشن پر توجہ دیتے ہیں۔</div>
+    </div>
 
-<div class="term">
-<h3>۶. MACD</h3>
-<div class="en">English: Moving Average Convergence Divergence</div>
-<p>دو ٹرینڈز کی نشاندہی — MACD لائن اور سگنل لائن کا ملنا/جھٹکنا خرید/فروخت کا سگنل دیتا ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> MACD لائن سگنل لائن کو اوپر کو کراس کرے = خرید سگنل۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">↔️</span><span class="name">Sideways</span></div>
+        <div class="en">English: Sideways (Range)</div>
+        <div class="def-en">A market condition where the price moves within a horizontal range without a clear direction. It often indicates a period of consolidation.</div>
+        <div class="def-ur">اردو تعریف: سائیڈ ویز وہ مارکیٹ کی حالت ہے جس میں قیمت بغیر کسی واضح سمت کے ایک افقی دائرے میں حرکت کرتی ہے۔ یہ اکثر سلجھاؤ (consolidation) کی مدت کی نشاندہی کرتی ہے۔</div>
+        <div class="example">مثال: جب قیمت بار بار سپورٹ اور ریزسٹنس کے درمیان پھنسی رہتی ہے تو مارکیٹ سائیڈ ویز ہوتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۷. بولنجر بینڈز (Bollinger Bands)</h3>
-<div class="en">English: Bollinger Bands</div>
-<p>تین لکیریں جو قیمت کی خیز و خرام دکھاتی ہیں۔ درمیانی لکیر = SMA، اوپر/نیچے = 2 اسٹینڈرڈ ڈیوییشن۔</p>
-<div class="example">
-<strong>مثال:</strong> جب بینڈز بند ہوں (سکڑیں) = بڑی حرکت آنے والی ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📏</span><span class="name">Trendline</span></div>
+        <div class="en">English: Trendline</div>
+        <div class="def-en">A straight line drawn on a chart that connects at least two significant price points to show the direction of the trend. It helps traders identify support and resistance areas.</div>
+        <div class="def-ur">اردو تعریف: ٹرینڈ لائن چارٹ پر بنائی گئی ایک سیدھی لکیر ہے جو کم از کم دو اہم قیمت پوائنٹس کو جوڑ کر رجحان کی سمت ظاہر کرتی ہے۔ یہ ٹریڈرز کو سپورٹ اور ریزسٹنس کے علاقے پہچاننے میں مدد کرتی ہے۔</div>
+        <div class="example">مثال: ایک اوپر والی ٹرینڈ لائن نیچے کی چوٹیوں کو جوڑ کر اپ ٹرینڈ کو نمایاں کرتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۸. فیبوناچی ریٹریسمنٹ (Fibonacci Retracement)</h3>
-<div class="en">English: Fibonacci Retracement</div>
-<p>قیمت کے واپس آنے کے اہم لیولز — 23.6%، 38.2%، 50%، 61.8%۔ یہ سپورٹ/ریزسٹنس کے طور پر کام کرتے ہیں۔</p>
-<div class="example">
-<strong>مثال:</strong> قیمت $100 سے $150 گئی — واپس $125 آئی (50% ریٹریسمنٹ) = خرید کا موقع۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">ω</span><span class="name">RSI (Relative Strength Index)</span></div>
+        <div class="en">English: Relative Strength Index</div>
+        <div class="def-en">A momentum indicator that measures the speed and change of price movements on a scale from 0 to 100. Readings above 70 suggest overbought conditions, while readings below 30 suggest oversold conditions.</div>
+        <div class="def-ur">اردو تعریف: آر ایس آئی ایک موومنٹم اشارہ ہے جو قیمت کی حرکت کی تیزی اور تبدیلی کو 0 سے 100 کے پیمانے پر ناپتا ہے۔ 70 سے اوپر کی قرائت (reading) زیادہ خریداری (overbought) جبکہ 30 سے نیچے کی قرائت زیادہ فروخت (oversold) کی نشاندہی کرتی ہے۔</div>
+        <div class="example">مثال: جب RSI 72 ہو جائے تو یہ زیادہ خریداری کا اشارہ دیتا ہے جو قیمت میں کمی کا باعث ہو سکتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۹. وolumn (حجم)</h3>
-<div class="en">English: Volume</div>
-<p>ایک مخصوص وقت میں کتنی ٹریڈنگ ہوئی۔ زیادہ وolumn = زیادہ دلچسپی، کم وolumn = کم دلچسپی۔</p>
-<div class="example">
-<strong>مثال:</strong> قیمت بڑھی اور وolumn بھی بڑھا = ٹریڈنگ مزید بڑھے گی۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📉</span><span class="name">MACD</span></div>
+        <div class="en">English: MACD (Moving Average Convergence Divergence)</div>
+        <div class="def-en">A momentum indicator that shows the relationship between two moving averages of a price. It helps identify potential buy and sell signals through the crossing of its lines.</div>
+        <div class="def-ur">اردو تعریف: ایم اے سی ڈی ایک موومنٹم اشارہ ہے جو قیمت کی دو موونگ ایوریجز کے درمیان تعلق کو ظاہر کرتا ہے۔ یہ اپنی لکیروں کے آپس میں ملنے سے ممکنہ خرید اور فروخت کے اشارے پہچاننے میں مدد کرتا ہے۔</div>
+        <div class="example">مثال: جب MACD لائن سگنل لائن کو اوپر سے کراس کرتی ہے تو اکثر خرید کا اشارہ سمجھا جاتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۰. چارٹ پیٹرنز (Chart Patterns)</h3>
-<div class="en">English: Chart Patterns</div>
-<p>چارٹ پر بننے والی خاص شکلیں جو قیمت کی آنے والی حرکت بتاتی ہیں — ہیڈ اینڈ شولڈرز، ڈبل ٹاپ، ٹرینگل وغیرہ۔</p>
-<div class="example">
-<strong>مثال:</strong> "ڈبل ٹاپ" بنے = قیمت گر سکتی ہے۔ "ہیڈ اینڈ شولڈرز" = تبدیلی کا سگنل۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📶</span><span class="name">Moving Average</span></div>
+        <div class="en">English: Moving Average (MA)</div>
+        <div class="def-en">An indicator that smooths out price data by averaging the price over a set number of periods. It helps traders identify the direction of a trend and filter out noise.</div>
+        <div class="def-ur">اردو تعریف: موونگ ایوریج ایک ایسا اشارہ ہے جو طے شدہ ادوار کی کاروں کی قیمت کا اوسط لے کر قیمت کے ڈیٹا کو ہموار کرتا ہے۔ یہ ٹریڈرز کو رجحان کی سمت پہچاننے اور شور کو ختم کرنے میں مدد کرتا ہے۔</div>
+        <div class="example">مثال: 50 دن کا موونگ ایوریج پچھلے 50 دنوں کی اوسط قیمت ظاہر کرتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۱. بریکاؤٹ (Breakout)</h3>
-<div class="en">English: Breakout</div>
-<p>قیمت کا کسی اہم لیول (سپورٹ/ریزسٹنس) کو توڑ کر آگے بڑھنا۔ بریکاؤٹ کے بعد بڑی حرکت آ سکتی ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC $32,000 ریزسٹنس توڑ کر $33,000 پر بند ہوا = بریکاؤٹ — اب اور بڑھ سکتا ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">➖</span><span class="name">SMA (Simple Moving Average)</span></div>
+        <div class="en">English: Simple Moving Average</div>
+        <div class="def-en">A moving average that calculates the arithmetic average of prices over a specific number of periods. It treats each price point equally, which makes it simple but slower to react to recent changes.</div>
+        <div class="def-ur">اردو تعریف: سمپل موونگ ایوریج وہ ہوتا ہے جو ایک خاص تعداد کے ادوار کی قیمتوں کا حسابی اوسط معلوم کرتا ہے۔ یہ ہر قیمت پوائنٹ کو برابر اہمیت دیتا ہے، اس لیے یہ سادہ ہوتا ہے مگر حالیہ تبدیلیوں پر آہستہ ردّعمل ظاہر کرتا ہے۔</div>
+        <div class="example">مثال: 20 ادوار کا سمپل موونگ ایوریج آخری 20 قیمتوں کا سادہ اوسط ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۲. ڈائیورجنس (Divergence)</h3>
-<div class="en">English: Divergence</div>
-<p>جب قیمت اور انڈیکیٹر (RSI/MACD) الگ الگ سمت میں جائیں۔ یہ تبدیلی کا سگنل ہوتا ہے۔</p>
-<div class="example">
-<strong> Bullish Divergence:</strong> قیمت نیچے جا رہی ہے مگر RSI اوپر آ رہا ہے = قیمت بڑھے گی۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">⚡</span><span class="name">EMA (Exponential Moving Average)</span></div>
+        <div class="en">English: Exponential Moving Average</div>
+        <div class="def-en">A moving average that gives more weight to recent prices, making it more responsive to new information. It reacts faster than the simple moving average.</div>
+        <div class="def-ur">اردو تعریف: ایکسپونینشل موونگ ایوریج وہ ہوتا ہے جو حالیہ قیمتوں کو زیادہ اہمیت دیتا ہے، جس سے یہ نئی معلومات کے لیے زیادہ تیز ردّعمل دکھاتا ہے۔ یہ سمپل موونگ ایوریج سے تیز حرکت کرتا ہے۔</div>
+        <div class="example">مثال: 20 ادوار کا ای ایم اے صرف حالیہ قیمتوں پر زیادہ زور دیتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۳. اسیلیٹیٹر (Oscillator)</h3>
-<div class="en">English: Oscillator</div>
-<p>وہ انڈیکیٹرز جو مخصوص رینج (0-100 یا -100 سے +100) میں حرکت کرتے ہیں — RSI، MACD، Stochastic۔</p>
-<div class="example">
-<strong>مثال:</strong> Stochastic 80 سے اوپر = اوور بائٹ، 20 سے نیچے = اوور سولڈ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🎗️</span><span class="name">Bollinger Bands</span></div>
+        <div class="en">English: Bollinger Bands</div>
+        <div class="def-en">A technical indicator that plots a middle band (moving average) with upper and lower bands based on volatility. It helps traders gauge overbought and oversold conditions and identify volatility.</div>
+        <div class="def-ur">اردو تعریف: بولنگر بینڈز ایک تکنیکی اشارہ ہے جو درمیانی بینڈ (موونگ ایوریج) کے ساتھ اوپر اور نیچے بینڈ ظاہر کرتا ہے جو اُتار چڑھاؤ (volatility) پر مبنی ہیں۔ یہ ٹریڈرز کو زیادہ خریداری اور زیادہ فروخت کی حالت سمجھنے میں مدد کرتا ہے۔</div>
+        <div class="example">مثال: جب قیمت اوپر والے بینڈ کو چھوتی ہے تو اکثر زیادہ خریداری کا اشارہ سمجھا جاتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۴. ایچیکیل (Ichimoku Cloud)</h3>
-<div class="en">English: Ichimoku Cloud</div>
-<p>جعبان یاپانی انڈیکیٹر — ایک میں ٹریڈ، سپورٹ، ریزسٹنس اور مومنٹم سب دکھاتا ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> قیمت کلاؤڈ کے اوپر = بولش، نیچے = بیئرش۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🌀</span><span class="name">Fibonacci Retracement</span></div>
+        <div class="en">English: Fibonacci Retracement</div>
+        <div class="def-en">A tool that uses horizontal lines to indicate possible support and resistance levels based on Fibonacci ratios. Common levels include 23.6%, 38.2%, 50%, 61.8%, and 78.6%.</div>
+        <div class="def-ur">اردو تعریف: فبوناچی ری ٹریسمنٹ ایک ایسا ٹول ہے جو افقی لکیروں کے ذریعے فبوناچی تناسب کی بنیاد پر ممکنہ سپورٹ اور ریزسٹنس لیولز ظاہر کرتا ہے۔ عام لیولز میں 23.6%، 38.2%، 50%، 61.8% اور 78.6% شامل ہیں۔</div>
+        <div class="example">مثال: ایک مضبوط اپ ٹرینڈ کے بعد قیمت 61.8% لیول پر واپس آ کر اچھل سکتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۵. ایٹریبیوٹھ (ATR — Average True Range)</h3>
-<div class="en">English: Average True Range</div>
-<p>مارکیٹ کی خیز و خرام (volatility) کی پیمائش — قیمت کتنی تیزی سے حرکت کر رہی ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> ATR زیادہ = مارکیٹ میں بڑی حرکتیں ہو رہی ہیں، SL چھوٹا نہ رکھیں۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">✨</span><span class="name">Golden Ratio 61.8%</span></div>
+        <div class="en">English: Golden Ratio (61.8%)</div>
+        <div class="def-en">A specific Fibonacci ratio derived from the golden ratio, widely used as a key retracement level. Many traders consider the 61.8% level a strong potential support or reversal point.</div>
+        <div class="def-ur">اردو تعریف: گولڈن ریشو ایک خاص فبوناچی تناسب ہے جو سنہری نسبت سے اخذ ہوتا ہے اور ایک اہم ری ٹریسمنٹ لیول کے طور پر استعمال ہوتا ہے۔ بہت سے ٹریڈرز 61.8% کی سطح کو مضبوط ممکنہ سپورٹ یا پلٹنے کا نقطہ سمجھتے ہیں۔</div>
+        <div class="example">مثال: پلٹنے کے بعد قیمت 61.8% لیول پر ٹھہر کر واپس اوپر جا سکتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۶. پائیوٹ پوائنٹز (Pivot Points)</h3>
-<div class="en">English: Pivot Points</div>
-<p>پچھلے دن کی اوپن/ہائی/لو/کلوز سے بننے والے لیولز — آج کے سپورٹ/ریزسٹنس۔</p>
-<div class="example">
-<strong>مثال:</strong> PP = (H+L+C)/3 — اس لیول سے اوپر/نیچے ہونے پر ٹریڈ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">📍</span><span class="name">Support &amp; Resistance Zone</span></div>
+        <div class="en">English: Support &amp; Resistance Zone</div>
+        <div class="def-en">An area on the chart rather than a single line where price is likely to react. Zones are more realistic than exact lines because markets are not perfectly precise.</div>
+        <div class="def-ur">اردو تعریف: سپورٹ اور ریزسٹنس زون چارٹ پر ایک وہ علاقہ ہے نہ کہ صرف ایک لکیر، جہاں قیمت کے ردّعمل کا امکان ہوتا ہے۔ زون ایک ہی لکیر سے زیادہ حقیقی ہوتے ہیں کیونکہ مارکیٹ مکمل طور پر درست نہیں ہوتی۔</div>
+        <div class="example">مثال: قیمت سپورٹ کے قریبی زون میں آ کر واپس اوپر جا سکتی ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۷. مینے سپورٹ/ریزسٹنس (Key Levels)</h3>
-<div class="en">English: Key Support / Resistance Levels</div>
-<p>وہ اہم قیمتیں جہاں مارکیٹ بار بار رکتی ہے — round numbers، پچھلے ہائی/لو، فبوناچی لیولز۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC $30,000 ایک round number ہے — ہمیشہ اہم لیول بنتا ہے۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">💥</span><span class="name">Breakout</span></div>
+        <div class="en">English: Breakout</div>
+        <div class="def-en">A price move that passes through a support or resistance level, suggesting the start of a new trend. Traders often trade breakouts hoping to catch a large move.</div>
+        <div class="def-ur">اردو تعریف: بریک آؤٹ وہ قیمت کی حرکت ہے جو سپورٹ یا ریزسٹنس کی سطح کو عبور کر جاتی ہے، جو نئی ٹرینڈ کے آغاز کی نشاندہی کرتی ہے۔ ٹریڈرز اکثر بڑی حرکت حاصل کرنے کی امید میں بریک آؤٹ پوائنٹ پر تجارت کرتے ہیں۔</div>
+        <div class="example">مثال: جب قیمت ریزسٹنس کے اوپر ٹوٹ جاتی ہے تو بریک آؤٹ ہوتا ہے۔</div>
+    </div>
 
-<div class="term">
-<h3>۱۸. فیل (Fail) / فیک آؤٹ (Fakeout)</h3>
-<div class="en">English: Failed Breakout / Fakeout</div>
-<p>جب قیمت کسی لیول کو توڑتی ہوئے لگتی ہے مگر واپس آ جاتی ہے — یہ "فیک آؤٹ" ہے، ٹریپ ہے۔</p>
-<div class="example">
-<strong>مثال:</strong> BTC نے $32,000 توڑا مگر فوراً $31,000 واپس آ گیا = فیک آؤٹ۔
-</div>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🎭</span><span class="name">Fakeout / False Break</span></div>
+        <div class="en">English: Fakeout / False Breakout</div>
+        <div class="def-en">A price move that temporarily breaks a support or resistance level but quickly reverses. It can trap traders who enter based on the failed breakout.</div>
+        <div class="def-ur">اردو تعریف: فیک آؤٹ وہ قیمت کی حرکت ہے جو عارضی طور پر سپورٹ یا ریزسٹنس لیول کو عبور کرتی ہے لیکن فوراً واپس پلٹ جاتی ہے۔ یہ ان ٹریڈرز کو پھنساتا ہے جو ناکام بریک آؤٹ کی بنیاد پر تجارت میں داخل ہوتے ہیں۔</div>
+        <div class="example">مثال: ایک جھوٹا بریک آؤٹ کرنے والے ٹریڈر کو نقصان اٹھانا پڑتا ہے جب قیمت پلٹتی ہے۔</div>
+    </div>
 
-<div class="keypoints">
-<h3>🔑 اہم نکات</h3>
-<p>ٹیکنیکل اینالسس صرف چارٹ نہیں — یہ مارکیٹ کے رویے کا علم ہے۔</p>
-<p>کوئی بھی انڈیکیٹر 100% درست نہیں — ہمیشہ دوسرے اوزاروں کے ساتھ تصدیق کریں۔</p>
-<p>S/R لیولز سب سے اہم ہیں — انہیں سمجھنا ضروری ہے۔</p>
-<p>volatility سمجھیں — ATR سے پتا چلتا ہے کہ SL کتنا رکھنا چاہیے۔</p>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🕯️</span><span class="name">Candlestick Wicks</span></div>
+        <div class="en">English: Candlestick Wicks (Shadows)</div>
+        <div class="def-en">The thin lines extending above and below a candlestick's body that show the highest and lowest prices reached. Long wicks often indicate rejection of a price level.</div>
+        <div class="def-ur">اردو تعریف: کینڈل اسٹک وکس وہ پتلی لکیریں ہیں جو کینڈل اسٹک کے جسم کے اوپر اور نیچے پھیلی ہوتی ہیں اور حاصل شدہ زیادہ اور کم قیمت کو دکھاتی ہیں۔ لمبی وکس اکثر کسی قیمت لیول کو رد کرنے کی نشاندہی کرتی ہیں۔</div>
+        <div class="example">مثال: ایک لمبی نیچے والی وِک بہت زیادہ فروخت کے دباؤ کے باوجود واپس اچھلنے کی علامت ہے۔</div>
+    </div>
 
-<div class="notice">
-<strong>⚠️ یاد رکھیں:</strong> ٹیکنیکل اینالسس علم ہے، قمار نہیں۔ ہر ٹریڈ پر رسک مینجمنٹ ضروری ہے۔
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🟢</span><span class="name">Bullish Engulfing</span></div>
+        <div class="en">English: Bullish Engulfing</div>
+        <div class="def-en">A two-candlestick pattern where a small bearish candle is followed by a larger bullish candle that completely engulfs the previous body. It signals a potential reversal to the upside.</div>
+        <div class="def-ur">اردو تعریف: بلش انگلفنگ ایک دو کینڈل اسٹک والا نمونہ ہے جس میں ایک چھوٹی سرخ (bearish) کینڈل کے بعد ایک بڑی سبز (bullish) کینڈل آتی ہے جو پچھلے جسم کو مکمل طور پر ڈھانپ لیتی ہے۔ یہ اوپر کی طرف ممکنہ پلٹاؤ کی نشاندہی کرتا ہے۔</div>
+        <div class="example">مثال: نیچے کے رجحان کے بعد بلش انگلفنگ کے بننے سے ممکنہ اوپر کی واپسی ہوتی ہے۔</div>
+    </div>
 
-<div class="nav">
-    <a href="chapter1.html">⬅ باب ۱</a>
-    <span>باب ۲</span>
-    <a href="chapter3.html">باب ۳ ➡</a>
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔴</span><span class="name">Bearish Engulfing</span></div>
+        <div class="en">English: Bearish Engulfing</div>
+        <div class="def-en">A two-candlestick pattern where a small bullish candle is followed by a larger bearish candle that fully engulfs the previous body. It signals a potential reversal to the downside.</div>
+        <div class="def-ur">اردو تعریف: بیئرش انگلفنگ ایک دو کینڈل اسٹک والا نمونہ ہے جس میں ایک چھوٹی سبز (bullish) کینڈل کے بعد ایک بڑی سرخ (bearish) کینڈل آتی ہے جو پچھلے جسم کو مکمل طور پر ڈھانپ لیتی ہے۔ یہ نیچے کی طرف ممکنہ پلٹاؤ کی نشاندہی کرتا ہے۔</div>
+        <div class="example">مثال: اوپر کے رجحان کے بعد بیئرش انگلفنگ کے بننے سے ممکنہ نیچے کی واپسی ہوتی ہے۔</div>
+    </div>
 
-<div class="footer">
-    © ٹریڈنگ گلوسری — تمام حقوق محفوظ
-</div>
+    <div class="term">
+        <div class="head"><span class="icon">🔨</span><span class="name">Hammer</span></div>
+        <div class="en">English: Hammer</div>
+        <div class="def-en">A single bullish candlestick with a small body at the top and a long lower wick, appearing after a downtrend. It suggests that buyers stepped in and may cause a reversal upward.</div>
+        <div class="def-ur">اردو تعریف: ہتھوڑا ایک سبز کینڈل اسٹک ہے جس کا جسم اوپر اور ایک لمبی نیچے والی وک ہوتی ہے، جو نیچے کے رجحان کے بعد نظر آتی ہے۔ یہ بتاتا ہے کہ خریداروں نے قدم رکھا اور اوپر کی طرف ممکنہ پلٹاؤ ہو سکتا ہے۔</div>
+        <div class="example">مثال: نیچے کے رجحان کے آخر میں ہتھوڑا بنتا ہے تو یہ خریداری کا موقع ہو سکتا ہے۔</div>
+    </div>
 
+    <div class="term">
+        <div class="head"><span class="icon">🌠</span><span class="name">Shooting Star</span></div>
+        <div class="en">English: Shooting Star</div>
+        <div class="def-en">A single bearish candlestick with a small body at the bottom and a long upper wick, appearing after an uptrend. It suggests that sellers stepped in and may cause a reversal downward.</div>
+        <div class="def-ur">اردو تعریف: شوٹنگ اسٹار ایک سرخ کینڈل اسٹک ہے جس کا جسم نیچے اور ایک لمبی اوپر والی وک ہوتی ہے، جو اوپر کے رجحان کے بعد نظر آتی ہے۔ یہ بتاتا ہے کہ فروخت کنندگان نے قدم رکھا اور نیچے کی طرف ممکنہ پلٹاؤ ہو سکتا ہے۔</div>
+        <div class="example">مثال: اوپر کے رجحان کے آخر میں شوٹنگ اسٹار بنتا ہے تو یہ فروخت کا موقع ہو سکتا ہے۔</div>
+    </div>
+
+    <div class="term">
+        <div class="head"><span class="icon">⚡</span><span class="name">Divergence</span></div>
+        <div class="en">English: Divergence</div>
+        <div class="def-en">A situation where the price of an asset moves in one direction while an indicator moves in the opposite direction. It often warns of a weakening trend and a potential reversal.</div>
+        <div class="def-ur">اردو تعریف: ڈائیورجنس وہ صورت حال ہے جس میں کسی اثاثے کی قیمت ایک سمت چلتی ہے جبکہ ایک اشارہ مخالف سمت حرکت کرتا ہے۔ یہ اکثر کمزور ہوتے ہوئے رجحان اور ممکنہ پلٹاؤ کی انتباہ دیتا ہے۔</div>
+        <div class="example">مثال: جب قیمت نئے ہائی تک پہنچتی ہے مگر RSI نیچی رہتی ہے تو یہ بیئرش ڈائیورجنس کہلاتا ہے۔</div>
+    </div>
+
+    <div class="divider" style="border:none;border-top:2px solid #333;margin:30px 0;"></div>
+    <div class="nav"><a href="chapter1.html">← پچھلا صفحہ</a><a href="index.html">🏠 فہرست</a></div>
+    <div class="back"><a href="../index.html">⬅ TradeEd پر واپس جائیں</a></div>
+    <div class="footer">© مکمل ٹریڈنگ گلوسری</div>
 </body>
 </html>
