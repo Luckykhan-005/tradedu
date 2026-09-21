@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import {
   BookOpen,
   CandlestickChart,
@@ -51,11 +51,11 @@ const books: BookItem[] = [
   {
     id: 'binance-complete',
     title: 'Binance Complete Training (Urdu)',
-    titleUrdu: 'بائننس مکمل ٹریننگ اردو',
+    titleUrdu: 'Ø¨Ø§Ø¦Ù†Ù†Ø³ Ù…Ú©Ù…Ù„ Ù¹Ø±ÛŒÙ†Ù†Ú¯ Ø§Ø±Ø¯Ùˆ',
     description:
-      'Complete Urdu guide to Binance — 9 parts and 60 chapters covering account setup, KYC, security (2FA, SAFU), the full interface, spot/margin/futures trading, wallets, deposits, P2P, Earn, Web3, Pay, Card, API and the whole ecosystem, with real Binance screenshots.',
+      'Complete Urdu guide to Binance â€” 9 parts and 60 chapters covering account setup, KYC, security (2FA, SAFU), the full interface, spot/margin/futures trading, wallets, deposits, P2P, Earn, Web3, Pay, Card, API and the whole ecosystem, with real Binance screenshots.',
     chapters: 60,
-    pages: '60 chapters · 9 parts',
+    pages: '60 chapters Â· 9 parts',
     icon: BookMarked,
     color: 'text-amber-600',
     bgColor: 'bg-amber-50',
@@ -66,11 +66,11 @@ const books: BookItem[] = [
   {
     id: 'forex-complete',
     title: 'Forex Trading Course (Urdu)',
-    titleUrdu: 'فارکس ٹریڈنگ کورس',
+    titleUrdu: 'ÙØ§Ø±Ú©Ø³ Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ú©ÙˆØ±Ø³',
     description:
-      'Complete Urdu forex course from zero to expert — 9 parts and 57 chapters covering currency pairs, pips and lots, market structure, price action, indicators, chart patterns, fundamentals, risk management, psychology, brokers and advanced trading systems.',
+      'Complete Urdu forex course from zero to expert â€” 9 parts and 57 chapters covering currency pairs, pips and lots, market structure, price action, indicators, chart patterns, fundamentals, risk management, psychology, brokers and advanced trading systems.',
     chapters: 57,
-    pages: '57 chapters · 9 parts',
+    pages: '57 chapters Â· 9 parts',
     icon: TrendingUp,
     color: 'text-cyan-600',
     bgColor: 'bg-cyan-50',
@@ -81,11 +81,11 @@ const books: BookItem[] = [
   {
     id: 'forex-book',
     title: 'Forex Trading Course Part 1 (Urdu)',
-    titleUrdu: 'فاریکس ٹریڈنگ کورس پارٹ 1',
+    titleUrdu: 'ÙØ§Ø±ÛŒÚ©Ø³ Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ú©ÙˆØ±Ø³ Ù¾Ø§Ø±Ù¹ 1',
     description:
-      'Forex trading ka complete course — currency pairs, pips, lots, market structure, price action, indicators, chart patterns, fundamentals, risk management aur psychology. 24 chapters.',
+      'Forex trading ka complete course â€” currency pairs, pips, lots, market structure, price action, indicators, chart patterns, fundamentals, risk management aur psychology. 24 chapters.',
     chapters: 24,
-    pages: '24 chapters · Part 1',
+    pages: '24 chapters Â· Part 1',
     icon: TrendingUp,
     color: 'text-cyan-600',
     bgColor: 'bg-cyan-50',
@@ -95,8 +95,8 @@ const books: BookItem[] = [
   },
   {
     id: 'crypto-beginner',
-    title: 'Crypto Trading — Phase 1 (Beginner)',
-    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۱ (بیگنر)',
+    title: 'Crypto Trading â€” Phase 1 (Beginner)',
+    titleUrdu: 'Ú©Ø±ÛŒÙ¾Ù¹Ùˆ Ù¹Ø±ÛŒÚˆÙ†Ú¯ â€” ÙÛŒØ² Û± (Ø¨ÛŒÚ¯Ù†Ø±)',
     description:
       'Start your crypto journey from zero. Learn what crypto is, blockchain, wallets, exchanges, and how to stay safe from scams.',
     chapters: 10,
@@ -110,10 +110,10 @@ const books: BookItem[] = [
   },
   {
     id: 'crypto-intermediate',
-    title: 'Crypto Trading — Phase 2 (Intermediate)',
-    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۲ (انٹرمیڈیٹ)',
+    title: 'Crypto Trading â€” Phase 2 (Intermediate)',
+    titleUrdu: 'Ú©Ø±ÛŒÙ¾Ù¹Ùˆ Ù¹Ø±ÛŒÚˆÙ†Ú¯ â€” ÙÛŒØ² Û² (Ø§Ù†Ù¹Ø±Ù…ÛŒÚˆÛŒÙ¹)',
     description:
-      'Master technical analysis — support/resistance, indicators (RSI, MACD, Bollinger), chart patterns, volume, and building a trading plan.',
+      'Master technical analysis â€” support/resistance, indicators (RSI, MACD, Bollinger), chart patterns, volume, and building a trading plan.',
     chapters: 12,
     pages: '12 lessons',
     icon: LineChart,
@@ -125,10 +125,10 @@ const books: BookItem[] = [
   },
   {
     id: 'crypto-advanced',
-    title: 'Crypto Trading — Phase 3 (Advanced)',
-    titleUrdu: 'کریپٹو ٹریڈنگ — فیز ۳ (ایڈوانسڈ)',
+    title: 'Crypto Trading â€” Phase 3 (Advanced)',
+    titleUrdu: 'Ú©Ø±ÛŒÙ¾Ù¹Ùˆ Ù¹Ø±ÛŒÚˆÙ†Ú¯ â€” ÙÛŒØ² Û³ (Ø§ÛŒÚˆÙˆØ§Ù†Ø³Úˆ)',
     description:
-      'Professional trading — risk management, psychology, futures, leverage, smart money concepts, and advanced strategies.',
+      'Professional trading â€” risk management, psychology, futures, leverage, smart money concepts, and advanced strategies.',
     chapters: 15,
     pages: '15 lessons',
     icon: ShieldCheck,
@@ -141,7 +141,7 @@ const books: BookItem[] = [
   {
     id: 'candlestick',
     title: 'Candlestick Patterns Book',
-    titleUrdu: 'کینڈل سٹک پیٹرنز کی کتاب',
+    titleUrdu: 'Ú©ÛŒÙ†ÚˆÙ„ Ø³Ù¹Ú© Ù¾ÛŒÙ¹Ø±Ù†Ø² Ú©ÛŒ Ú©ØªØ§Ø¨',
     description:
       'Complete guide to candlestick patterns in Urdu. Learn single, double, and triple candle patterns with detailed diagrams and trading rules.',
     chapters: 6,
@@ -156,7 +156,7 @@ const books: BookItem[] = [
   {
     id: 'smc',
     title: 'Smart Money Concepts Book',
-    titleUrdu: 'سمارٹ منی کانسپٹس کی کتاب',
+    titleUrdu: 'Ø³Ù…Ø§Ø±Ù¹ Ù…Ù†ÛŒ Ú©Ø§Ù†Ø³Ù¾Ù¹Ø³ Ú©ÛŒ Ú©ØªØ§Ø¨',
     description:
       'Advanced price action concepts in Urdu. Learn Market Structure, Order Blocks, FVG, Liquidity, and professional SMC trading strategies.',
     chapters: 5,
@@ -171,11 +171,11 @@ const books: BookItem[] = [
   {
     id: 'fundednext',
     title: 'FundedNext Prop Trading Book (Urdu)',
-    titleUrdu: 'فانڈڈ نیکسٹ پراپ ٹریڈنگ کتاب',
+    titleUrdu: 'ÙØ§Ù†ÚˆÚˆ Ù†ÛŒÚ©Ø³Ù¹ Ù¾Ø±Ø§Ù¾ Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ú©ØªØ§Ø¨',
     description:
-      'Complete Urdu guide to prop trading with FundedNext — 10 chapters covering prop firms, challenge types, rules, trading strategy, technical & fundamental analysis, psychology, withdrawal process, and common mistakes.',
+      'Complete Urdu guide to prop trading with FundedNext â€” 10 chapters covering prop firms, challenge types, rules, trading strategy, technical & fundamental analysis, psychology, withdrawal process, and common mistakes.',
     chapters: 10,
-    pages: '10 chapters · 8 parts',
+    pages: '10 chapters Â· 8 parts',
     icon: Rocket,
     color: 'text-yellow-600',
     bgColor: 'bg-yellow-50',
@@ -186,11 +186,11 @@ const books: BookItem[] = [
   {
     id: 'glossary',
     title: 'Trading Glossary Book (Urdu)',
-    titleUrdu: 'ٹریڈنگ گلوسری کی کتاب',
+    titleUrdu: 'Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ú¯Ù„ÙˆØ³Ø±ÛŒ Ú©ÛŒ Ú©ØªØ§Ø¨',
     description:
       'Complete reference of 200+ trading terms in Urdu and English. Basic, technical, fundamental, and advanced terms with examples and diagrams.',
     chapters: 4,
-    pages: '200+ terms · 4 chapters',
+    pages: '200+ terms Â· 4 chapters',
     icon: BookMarked,
     color: 'text-amber-600',
     bgColor: 'bg-amber-50',
@@ -201,11 +201,11 @@ const books: BookItem[] = [
   {
     id: 'technical-analysis',
     title: 'Technical Analysis Course (Urdu)',
-    titleUrdu: 'ٹیکنیکل اینالسس کورس',
+    titleUrdu: 'Ù¹ÛŒÚ©Ù†ÛŒÚ©Ù„ Ø§ÛŒÙ†Ø§Ù„Ø³Ø³ Ú©ÙˆØ±Ø³',
     description:
-      'Complete technical analysis course — candlestick patterns, support/resistance, trendlines, moving averages, RSI, MACD, Bollinger Bands, Fibonacci, chart patterns, and a complete TA system.',
+      'Complete technical analysis course â€” candlestick patterns, support/resistance, trendlines, moving averages, RSI, MACD, Bollinger Bands, Fibonacci, chart patterns, and a complete TA system.',
     chapters: 12,
-    pages: '12 chapters · Complete Course',
+    pages: '12 chapters Â· Complete Course',
     icon: LineChart,
     color: 'text-cyan-600',
     bgColor: 'bg-cyan-50',
@@ -216,11 +216,11 @@ const books: BookItem[] = [
   {
     id: 'price-action',
     title: 'Price Action & Market Structure (Urdu)',
-    titleUrdu: 'پرائس ایکشن اور مارکیٹ اسٹرکچر',
+    titleUrdu: 'Ù¾Ø±Ø§Ø¦Ø³ Ø§ÛŒÚ©Ø´Ù† Ø§ÙˆØ± Ù…Ø§Ø±Ú©ÛŒÙ¹ Ø§Ø³Ù¹Ø±Ú©Ú†Ø±',
     description:
-      'Professional chart reading without indicators — Market Structure, BOS/CHOCH, Order Blocks, Liquidity, FVG, and a complete price action strategy.',
+      'Professional chart reading without indicators â€” Market Structure, BOS/CHOCH, Order Blocks, Liquidity, FVG, and a complete price action strategy.',
     chapters: 10,
-    pages: '10 chapters · Professional Level',
+    pages: '10 chapters Â· Professional Level',
     icon: CandlestickChart,
     color: 'text-yellow-600',
     bgColor: 'bg-yellow-50',
@@ -231,11 +231,11 @@ const books: BookItem[] = [
   {
     id: 'trading-strategies',
     title: 'Trading Strategies & Setups (Urdu)',
-    titleUrdu: 'ٹریڈنگ سٹریٹجیز اور سیٹ اپس',
+    titleUrdu: 'Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ø³Ù¹Ø±ÛŒÙ¹Ø¬ÛŒØ² Ø§ÙˆØ± Ø³ÛŒÙ¹ Ø§Ù¾Ø³',
     description:
-      '12 professional trading strategies — Scalping, Day Trading, Swing, Position, Breakout, Reversal, News Trading, ICT/SMC, Grid, and complete backtesting guide.',
+      '12 professional trading strategies â€” Scalping, Day Trading, Swing, Position, Breakout, Reversal, News Trading, ICT/SMC, Grid, and complete backtesting guide.',
     chapters: 12,
-    pages: '12 chapters · Complete Strategies',
+    pages: '12 chapters Â· Complete Strategies',
     icon: Target,
     color: 'text-emerald-600',
     bgColor: 'bg-emerald-50',
@@ -246,11 +246,11 @@ const books: BookItem[] = [
   {
     id: 'risk-management',
     title: 'Risk Management Course (Urdu)',
-    titleUrdu: 'رسک مینجمنٹ کورس',
+    titleUrdu: 'Ø±Ø³Ú© Ù…ÛŒÙ†Ø¬Ù…Ù†Ù¹ Ú©ÙˆØ±Ø³',
     description:
-      'Complete risk management course — Position Sizing, Stop Loss, Risk-Reward, Drawdown, Leverage, Portfolio Management, and professional risk rules.',
+      'Complete risk management course â€” Position Sizing, Stop Loss, Risk-Reward, Drawdown, Leverage, Portfolio Management, and professional risk rules.',
     chapters: 10,
-    pages: '10 chapters · Complete Course',
+    pages: '10 chapters Â· Complete Course',
     icon: ShieldCheck,
     color: 'text-red-600',
     bgColor: 'bg-red-50',
@@ -261,11 +261,11 @@ const books: BookItem[] = [
   {
     id: 'trading-psychology',
     title: 'Trading Psychology Course (Urdu)',
-    titleUrdu: 'ٹریڈنگ سائیکولوجی کورس',
+    titleUrdu: 'Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ø³Ø§Ø¦ÛŒÚ©ÙˆÙ„ÙˆØ¬ÛŒ Ú©ÙˆØ±Ø³',
     description:
-      'Master your emotions — Fear, Greed, Revenge Trading, FOMO, Overconfidence, Discipline, Routine, Mindset, and Journaling for consistent profits.',
+      'Master your emotions â€” Fear, Greed, Revenge Trading, FOMO, Overconfidence, Discipline, Routine, Mindset, and Journaling for consistent profits.',
     chapters: 10,
-    pages: '10 chapters · Complete Psychology',
+    pages: '10 chapters Â· Complete Psychology',
     icon: Brain,
     color: 'text-purple-600',
     bgColor: 'bg-purple-50',
@@ -276,11 +276,11 @@ const books: BookItem[] = [
   {
     id: 'professional-system',
     title: 'Professional Trading System (Urdu)',
-    titleUrdu: 'پیشہ ورانہ ٹریڈنگ سسٹم',
+    titleUrdu: 'Ù¾ÛŒØ´Û ÙˆØ±Ø§Ù†Û Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ø³Ø³Ù¹Ù…',
     description:
-      'Complete roadmap from zero to professional — Market basics, Chart Reading, Technical & Fundamental Analysis, Risk Management, Psychology, Platform setup, and scaling guide.',
+      'Complete roadmap from zero to professional â€” Market basics, Chart Reading, Technical & Fundamental Analysis, Risk Management, Psychology, Platform setup, and scaling guide.',
     chapters: 14,
-    pages: '14 chapters · Complete Roadmap',
+    pages: '14 chapters Â· Complete Roadmap',
     icon: Trophy,
     color: 'text-cyan-600',
     bgColor: 'bg-cyan-50',
@@ -290,12 +290,12 @@ const books: BookItem[] = [
   },
   {
     id: 'crypto-calculations',
-    title: 'Crypto Calculations — Spot & Futures',
-    titleUrdu: 'کریپٹو کیلکولیشنز — اسپاٹ اور فیوچرز',
+    title: 'Crypto Calculations â€” Spot & Futures',
+    titleUrdu: 'Ú©Ø±ÛŒÙ¾Ù¹Ùˆ Ú©ÛŒÙ„Ú©ÙˆÙ„ÛŒØ´Ù†Ø² â€” Ø§Ø³Ù¾Ø§Ù¹ Ø§ÙˆØ± ÙÛŒÙˆÚ†Ø±Ø²',
     description:
-      'Complete calculation guide for crypto trading — Spot P&L, Futures leverage, liquidation price, position sizing, funding rate, compounding, and 50+ practice questions.',
+      'Complete calculation guide for crypto trading â€” Spot P&L, Futures leverage, liquidation price, position sizing, funding rate, compounding, and 50+ practice questions.',
     chapters: 10,
-    pages: '10 chapters · 50+ Practice Questions',
+    pages: '10 chapters Â· 50+ Practice Questions',
     icon: Target,
     color: 'text-yellow-600',
     bgColor: 'bg-yellow-50',
@@ -306,11 +306,11 @@ const books: BookItem[] = [
   {
     id: 'day-trading-guide',
     title: 'Day Trading Complete Guide (Urdu)',
-    titleUrdu: 'ڈے ٹریڈنگ مکمل گائیڈ',
+    titleUrdu: 'ÚˆÛ’ Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ù…Ú©Ù…Ù„ Ú¯Ø§Ø¦ÛŒÚˆ',
     description:
-      'Complete day trading course — Scalping, Trend Following, Reversal Trading, Risk Management, Psychology, and a complete trading plan. 12 chapters with 30+ practice questions.',
+      'Complete day trading course â€” Scalping, Trend Following, Reversal Trading, Risk Management, Psychology, and a complete trading plan. 12 chapters with 30+ practice questions.',
     chapters: 12,
-    pages: '12 chapters · 30+ Practice Questions',
+    pages: '12 chapters Â· 30+ Practice Questions',
     icon: Target,
     color: 'text-blue-600',
     bgColor: 'bg-blue-50',
@@ -321,11 +321,11 @@ const books: BookItem[] = [
   {
     id: 'fundamental-analysis',
     title: 'Fundamental Analysis for Crypto (Urdu)',
-    titleUrdu: 'کرپٹو فنڈامنٹل انالیسس',
+    titleUrdu: 'Ú©Ø±Ù¾Ù¹Ùˆ ÙÙ†ÚˆØ§Ù…Ù†Ù¹Ù„ Ø§Ù†Ø§Ù„ÛŒØ³Ø³',
     description:
-      'Crypto projects ki asli value samjho — Tokenomics, Team, On-Chain Metrics, Whitepaper, Red Flags, Due Diligence aur Case Studies. 12 chapters with 24+ practice questions.',
+      'Crypto projects ki asli value samjho â€” Tokenomics, Team, On-Chain Metrics, Whitepaper, Red Flags, Due Diligence aur Case Studies. 12 chapters with 24+ practice questions.',
     chapters: 12,
-    pages: '12 chapters · 24+ Practice Questions',
+    pages: '12 chapters Â· 24+ Practice Questions',
     icon: TrendingUp,
     color: 'text-purple-600',
     bgColor: 'bg-purple-50',
@@ -336,11 +336,11 @@ const books: BookItem[] = [
   {
     id: 'advanced-chart-patterns',
     title: 'Advanced Chart Patterns (Urdu)',
-    titleUrdu: 'ایڈوانس چارٹ پیٹرنز',
+    titleUrdu: 'Ø§ÛŒÚˆÙˆØ§Ù†Ø³ Ú†Ø§Ø±Ù¹ Ù¾ÛŒÙ¹Ø±Ù†Ø²',
     description:
-      'Advanced chart patterns seekho — Head & Shoulders, Triangles, Wedges, Flags, Cup & Handle, Breakout Strategy aur Fakeout se bachna. 12 chapters with 24+ practice questions.',
+      'Advanced chart patterns seekho â€” Head & Shoulders, Triangles, Wedges, Flags, Cup & Handle, Breakout Strategy aur Fakeout se bachna. 12 chapters with 24+ practice questions.',
     chapters: 12,
-    pages: '12 chapters · 24+ Practice Questions',
+    pages: '12 chapters Â· 24+ Practice Questions',
     icon: BarChart3,
     color: 'text-red-600',
     bgColor: 'bg-red-50',
@@ -351,11 +351,11 @@ const books: BookItem[] = [
   {
     id: 'market-cycles',
     title: 'Market Cycles & Bitcoin Halving (Urdu)',
-    titleUrdu: 'مارکیٹ سائیکلز اور بٹ کوائن ہالونگ',
+    titleUrdu: 'Ù…Ø§Ø±Ú©ÛŒÙ¹ Ø³Ø§Ø¦ÛŒÚ©Ù„Ø² Ø§ÙˆØ± Ø¨Ù¹ Ú©ÙˆØ§Ø¦Ù† ÛØ§Ù„ÙˆÙ†Ú¯',
     description:
-      'Market cycles samjho, Bitcoin Halving ka impact jaano, aur har phase mein profit banao. Accumulation, Bull, Distribution, Bear — sab kuch Roman Urdu mein.',
+      'Market cycles samjho, Bitcoin Halving ka impact jaano, aur har phase mein profit banao. Accumulation, Bull, Distribution, Bear â€” sab kuch Roman Urdu mein.',
     chapters: 12,
-    pages: '12 chapters · 24+ Practice Questions',
+    pages: '12 chapters Â· 24+ Practice Questions',
     icon: Clock,
     color: 'text-green-600',
     bgColor: 'bg-green-50',
@@ -366,11 +366,11 @@ const books: BookItem[] = [
   {
     id: 'swing-trading',
     title: 'Swing Trading Mastery (Urdu)',
-    titleUrdu: 'سوئنگ ٹریڈنگ ماسٹری',
+    titleUrdu: 'Ø³ÙˆØ¦Ù†Ú¯ Ù¹Ø±ÛŒÚˆÙ†Ú¯ Ù…Ø§Ø³Ù¹Ø±ÛŒ',
     description:
-      'Swing trading seekho — 2-30 din mein profit kamao. Trend following, counter-trend, multi-timeframe analysis, indicators, patterns, psychology aur complete trading system. 12 chapters with 24+ practice questions.',
+      'Swing trading seekho â€” 2-30 din mein profit kamao. Trend following, counter-trend, multi-timeframe analysis, indicators, patterns, psychology aur complete trading system. 12 chapters with 24+ practice questions.',
     chapters: 12,
-    pages: '12 chapters · 24+ Practice Questions',
+    pages: '12 chapters Â· 24+ Practice Questions',
     icon: TrendingUp,
     color: 'text-indigo-600',
     bgColor: 'bg-indigo-50',
@@ -381,11 +381,11 @@ const books: BookItem[] = [
   {
     id: 'portfolio-management',
     title: 'Crypto Portfolio Management (Urdu)',
-    titleUrdu: 'کرپٹو پورٹ فولیو منیجمنٹ',
+    titleUrdu: 'Ú©Ø±Ù¾Ù¹Ùˆ Ù¾ÙˆØ±Ù¹ ÙÙˆÙ„ÛŒÙˆ Ù…Ù†ÛŒØ¬Ù…Ù†Ù¹',
     description:
-      'Crypto portfolio manage karo — allocation, diversification, rebalancing, risk-adjusted returns, hedging aur complete strategy. 12 chapters with 24+ practice questions.',
+      'Crypto portfolio manage karo â€” allocation, diversification, rebalancing, risk-adjusted returns, hedging aur complete strategy. 12 chapters with 24+ practice questions.',
     chapters: 12,
-    pages: '12 chapters · 24+ Practice Questions',
+    pages: '12 chapters Â· 24+ Practice Questions',
     icon: PieChart,
     color: 'text-teal-600',
     bgColor: 'bg-teal-50',
@@ -431,9 +431,8 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
           className="min-h-[calc(100vh-57px)] w-full flex-1 border-0"
         />
       </div>
-    )
-  }
-
+  )
+}
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
@@ -445,7 +444,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
             <div>
               <h1 className="text-3xl font-bold tracking-tight">Trading Books</h1>
               <p className="text-muted-foreground">
-                Detailed trading guides in Urdu — with visual diagrams for every concept
+                Detailed trading guides in Urdu â€” with visual diagrams for every concept
               </p>
             </div>
           </div>
@@ -542,5 +541,3 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
     </div>
   )
 }
-/ /   r e b u i l d   0 9 / 2 1 / 2 0 2 6   1 4 : 5 2 : 4 8  
- 
