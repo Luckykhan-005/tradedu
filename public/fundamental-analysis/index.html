@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="ur-PK" dir="ltr" data-theme="binance-yellow" data-mode="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fundamental Analysis Complete Guide — Roman Urdu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#0a0a0a;
+    --paper-deep:#111111;
+    --card:#111111;
+    --ink:#e5e5e5;
+    --ink-soft:#a3a3a3;
+    --ink-faint:#666666;
+    --gold:#f0b90b;
+    --gold-deep:#f0b90b;
+    --profit:#00b300;
+    --profit-bg:#0a1a00;
+    --loss:#ff4444;
+    --loss-bg:#1a0505;
+    --line:#262626;
+    --line-strong:#333333;
+    --shadow:0 1px 2px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.6);
+    --radius:2px;
+    --sidebar-w:280px;
+    font-size:17px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px));}
+  html,body{height:auto;background:var(--paper);color:var(--ink);}
+  body{margin:0;font-family:'Inter','Newsreader',Georgia,serif;line-height:1.7;-webkit-user-select:none;user-select:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  ::selection{background:transparent;}
+  img,svg{max-width:100%;-webkit-user-drag:none;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;color:var(--ink);font-weight:600;line-height:1.25;margin:0 0 0.5em 0;}
+  a{color:var(--gold-deep);}
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;background:var(--paper);border-bottom:1px solid var(--line);}
+  .topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.2px;}
+  .topbar .brand span{color:var(--gold-deep);font-style:italic;font-weight:500;}
+  .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+  .menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1.5px;background:var(--ink);position:relative;}
+  .menu-btn::before{position:absolute;transform:translateY(-6px);}
+  .menu-btn::after{position:absolute;transform:translateY(6px);}
+  .progress-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--gold);transition:width .15s linear;}
+  .layout{display:flex;max-width:1180px;margin:0 auto;}
+  .sidebar{width:var(--sidebar-w);flex-shrink:0;padding:32px 20px 60px 24px;border-right:1px solid var(--line);position:sticky;top:69px;height:calc(100vh - 69px);overflow-y:auto;}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:14px;}
+  .toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:0.92rem;padding:7px 0;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--gold-deep);}
+  .toc .toc-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;margin-right:8px;}
+  main{flex:1;min-width:0;padding:40px 32px 120px;max-width:760px;}
+  .cover{padding:30px 0 46px;border-bottom:2px solid var(--ink);margin-bottom:46px;}
+  .cover .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.78rem;letter-spacing:0.04em;margin-bottom:18px;}
+  .cover h1{font-size:2.6rem;max-width:18ch;}
+  .cover .subtitle{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-top:14px;max-width:50ch;}
+  .cover .meta{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--ink-faint);}
+  section.chapter{margin-bottom:64px;scroll-margin-top:90px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .chapter-num{font-family:'JetBrains Mono',monospace;color:var(--gold-deep);font-size:0.95rem;}
+  .chapter h2{font-size:1.7rem;margin-bottom:0;}
+  .chapter-intro{color:var(--ink-soft);font-size:1.02rem;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .chapter h3{font-size:1.2rem;margin-top:34px;padding-top:2px;}
+  p{margin:0 0 16px;}
+  ul,ol{margin:0 0 18px;padding-left:1.3em;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:600;}
+  .formula-box{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--gold);border-radius:var(--radius);padding:16px 20px;margin:22px 0;}
+  .formula-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:8px;}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:0.98rem;color:var(--ink);line-height:1.6;overflow-x:auto;}
+  .formula .note{display:block;font-family:'Newsreader',serif;font-size:0.86rem;color:var(--ink-soft);margin-top:8px;}
+  .example-box{background:var(--paper-deep);border-radius:var(--radius);padding:18px 20px;margin:22px 0;}
+  .example-label{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:10px;}
+  .example-box table{width:100%;border-collapse:collapse;font-size:0.92rem;margin-top:6px;}
+  .example-box td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .example-box td:first-child{color:var(--ink-soft);width:52%;}
+  .example-box td:last-child{font-family:'JetBrains Mono',monospace;text-align:right;}
+  .callout{display:flex;gap:12px;background:var(--profit-bg);border-radius:var(--radius);padding:14px 18px;margin:22px 0;font-size:0.92rem;}
+  .callout.warn{background:var(--loss-bg);}
+  .callout .dot{flex-shrink:0;font-family:'JetBrains Mono',monospace;color:var(--ink-faint);}
+  figure{margin:28px 0;text-align:center;}
+  figure svg{width:100%;height:auto;}
+  figcaption{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--ink-faint);margin-top:10px;letter-spacing:0.02em;}
+  .quiz-block{margin-top:40px;padding-top:30px;border-top:2px dashed var(--line-strong);}
+  .quiz-block>.quiz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;color:var(--gold-deep);margin-bottom:18px;}
+  .quiz-q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;margin-bottom:16px;}
+  .quiz-prompt{font-family:'Newsreader',serif;font-weight:500;font-size:1.02rem;margin-bottom:14px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-option{text-align:left;font-family:'Newsreader',serif;font-size:0.94rem;padding:10px 14px;background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;color:var(--ink);transition:border-color .15s ease,background .15s ease;}
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{background:var(--profit-bg);border-color:var(--profit);color:var(--profit);font-weight:600;}
+  .quiz-option.incorrect{background:var(--loss-bg);border-color:var(--loss);color:var(--loss);}
+  .quiz-explain{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:0.88rem;color:var(--ink-soft);}
+  .quiz-explain.show{display:block;}
+  .checklist{list-style:none;padding-left:0;margin:18px 0;}
+  .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"☐";position:absolute;left:0;color:var(--gold-deep);font-size:1.1rem;}
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0;}
+  .pros-cons .pros,.pros-cons .cons{background:var(--card);border-radius:var(--radius);padding:16px 18px;}
+  .pros-cons .pros{border-left:3px solid var(--profit);}
+  .pros-cons .cons{border-left:3px solid var(--loss);}
+  .pros-cons h4{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.05em;margin-bottom:12px;}
+  .pros-cons .pros h4{color:var(--profit);}
+  .pros-cons .cons h4{color:var(--loss);}
+  .pros-cons ul{margin:0;padding-left:1.2em;}
+  .pros-cons li{font-size:0.92rem;margin-bottom:5px;}
+  .disclaimer{background:var(--loss-bg);border:1px solid var(--loss);border-radius:var(--radius);padding:18px 22px;margin:40px 0 30px;font-size:0.92rem;color:#f0a0a0;line-height:1.6;}
+  .toc-toggle-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:35;}
+  @media(max-width:880px){
+    .menu-btn{display:flex;}
+    .sidebar{position:fixed;left:0;top:0;bottom:0;z-index:45;background:var(--paper);height:100vh;transform:translateX(-100%);transition:transform .25s ease;box-shadow:var(--shadow);padding-top:calc(24px + env(safe-area-inset-top,0px));}
+    .sidebar.open{transform:translateX(0);}
+    .toc-toggle-overlay.open{display:block;}
+    main{padding:28px 20px 100px;max-width:100%;}
+    .cover h1{font-size:1.9rem;}
+    .pros-cons{grid-template-columns:1fr;}
+    :root{font-size:16px;}
+  }
+  @media print{
+    body::before{content:"Ye content sirf online reading k liye hai.";display:block;padding:40px;text-align:center;font-size:20px;}
+    .layout{display:none;}
+  }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="Chapters menu"></button>
+  <div class="brand">Fundamental Analysis Guide<span> — Roman Urdu</span></div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+<div class="toc-toggle-overlay" id="overlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-label">CONTENTS</div>
+  <nav class="toc">
+    <a href="#cover"><span class="toc-num">00</span>Muqadma</a>
+    <a href="#ch1"><span class="toc-num">01</span>Fundamental Analysis Kya Hai?</a>
+    <a href="#ch2"><span class="toc-num">02</span>Whitepaper Kaise Padhein</a>
+    <a href="#ch3"><span class="toc-num">03</span>Team &amp; Founders Ki Jaanch</a>
+    <a href="#ch4"><span class="toc-num">04</span>Tokenomics Samjhein</a>
+    <a href="#ch5"><span class="toc-num">05</span>Market Cap &amp; Valuation</a>
+    <a href="#ch6"><span class="toc-num">06</span>On-Chain Metrics</a>
+    <a href="#ch7"><span class="toc-num">07</span>Red Flags &amp; Scam Detection</a>
+    <a href="#ch8"><span class="toc-num">08</span>Research Process Step-by-Step</a>
+    <a href="#ch9"><span class="toc-num">09</span>Due Diligence Checklist</a>
+    <a href="#ch10"><span class="toc-num">10</span>Portfolio Building se FA</a>
+    <a href="#ch11"><span class="toc-num">11</span>Case Studies</a>
+    <a href="#ch12"><span class="toc-num">12</span>Complete FA Research Plan</a>
+  </nav>
+</aside>
+
+<main id="cover">
+
+<div class="cover">
+  <div class="eyebrow">FUNDAMENTAL ANALYSIS — COMPLETE GUIDE</div>
+  <h1>Fundamental Analysis Complete Guide, Zero Se Expert Tak</h1>
+  <p class="subtitle">Crypto fundamental analysis seekhein Roman Urdu mein — bunyadiyon se le kar advanced research, scam detection, aur portfolio building tak.</p>
+  <div class="meta">
+    <span>12 CHAPTERS</span>
+    <span>24 PRACTICE QUESTIONS</span>
+    <span>ROMAN URDU</span>
+  </div>
+</div>
+
+<p>Ye book un logon ke liye hai jo crypto mein asli value samajhna chahte hain. Agar aap ne kabhi socha hai k koi project kyun fail hota hai aur koi success, toh fundamental analysis (FA) woh tool hai jo aap ko yeh samjhata hai.</p>
+<p>Is guide mein hum FA ki dunya ko step-by-step samjhenge. Pehle samjhenge k FA hota kya hai, phir whitepaper kaise padhte hain, team kaise verify karte hain, tokenomics kaise samajhte hain, aur sab se zaroori baat — kaise scams se bach sakein. Har chapter mein diagrams, real examples, aur practice questions diye gaye hain.</p>
+<div class="callout">
+  <span class="dot">&rsaquo;</span>
+  <span><strong>Sab se pehli salah:</strong> Fundamental analysis sirf ek din mein nahi seekha ja sakta. Har chapter ko dhyan se padhein, examples samjhein, aur apni research mein apply karein. Practice se hi aap expert banenge.</span>
+</div>
+
+<!-- CH01 -->
+<section class="chapter" id="ch1">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2>Fundamental Analysis Kya Hai?</h2>
+  </div>
+  <p class="chapter-intro">Fundamental analysis ka matlab hai kisi bhi crypto project ki asli value ko samajhna — sirf price chart nahi, balki uski bunyad dekhna.</p>
+  <h3>Technical vs Fundamental Analysis</h3>
+  <p>Zyada log crypto mein sirf chart dekhte hain (technical analysis). Lekin asli paisa un logon ne kamaya jo pehle project ki value samjhe. FA aap ko dikhata hai k project mein asli kuch hai ya sirf hype hai.</p>
+  <div class="example-box">
+    <div class="example-label">COMPARISON</div>
+    <table>
+      <tr><td><strong>Technical Analysis</strong></td><td>Charts, patterns, indicators</td></tr>
+      <tr><td><strong>Fundamental Analysis</strong></td><td>Team, tech, tokenomics, market</td></tr>
+      <tr><td><strong>TA Time Horizon</strong></td><td>Short to medium term</td></tr>
+      <tr><td><strong>FA Time Horizon</strong></td><td>Medium to long term</td></tr>
+      <tr><td><strong>TA Best For</strong></td><td>Entry/exit timing</td></tr>
+      <tr><td><strong>FA Best For</strong></td><td>Project selection</td></tr>
+    </table>
+  </div>
+  <h3>FA ke 5 Bunyadi Pillars</h3>
+  <ul>
+    <li><strong>Team:</strong> Kaun log bana rahe hain? Unka track record kya hai?</li>
+    <li><strong>Technology:</strong> Kya project kuch naya solve kar raha hai?</li>
+    <li><strong>Tokenomics:</strong> Token ka supply aur demand kaisa hai?</li>
+    <li><strong>Market:</strong> Kitna bada market hai aur project ka kitna hissa hai?</li>
+    <li><strong>Risk:</strong> Kitne khatraat hain aur kaise manage ho sakte hain?</li>
+  </ul>
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FA Five Pillars">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="35" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">FUNDAMENTAL ANALYSIS — 5 PILLARS</text>
+      <rect x="30" y="60" width="120" height="100" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="90" y="100" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">TEAM</text>
+      <text x="90" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Founders, Developers</text>
+      <text x="90" y="135" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Track Record</text>
+      <rect x="170" y="60" width="120" height="100" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="230" y="100" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">TECHNOLOGY</text>
+      <text x="230" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Innovation, Use Case</text>
+      <text x="230" y="135" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Code Quality</text>
+      <rect x="290" y="60" width="120" height="100" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="350" y="100" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">TOKENOMICS</text>
+      <text x="350" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Supply, Distribution</text>
+      <text x="350" y="135" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Inflation/Deflation</text>
+      <rect x="410" y="60" width="120" height="100" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="470" y="100" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">MARKET</text>
+      <text x="470" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Market Size, Competition</text>
+      <text x="470" y="135" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Adoption Rate</text>
+      <rect x="550" y="60" width="120" height="100" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="610" y="100" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">RISK</text>
+      <text x="610" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Regulatory, Tech Risk</text>
+      <text x="610" y="135" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Mitigation Plans</text>
+      <line x1="90" y1="160" x2="350" y2="220" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="230" y1="160" x2="350" y2="220" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="350" y1="160" x2="350" y2="220" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="470" y1="160" x2="350" y2="220" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+      <line x1="610" y1="160" x2="350" y2="220" stroke="#333333" stroke-width="1" stroke-dasharray="4,4"/>
+      <rect x="250" y="220" width="200" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="350" y="248" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">INVESTMENT DECISION</text>
+      <text x="350" y="268" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Buy / Hold / Sell</text>
+      <text x="350" y="320" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 1.1 — FA ke paanch bunyadi pillars jo har investment decision mein madad karte hain</text>
+    </svg>
+    <figcaption>Figure 1.1 — FA ke paanch bunyadi pillars</figcaption>
+  </figure>
+  <h3>FA Kyun Zaroori Hai?</h3>
+  <p>Crypto market mein 90% se zyada projects 2 saal ke andar fail ho jaate hain. FA aap ko un projects mein invest karne se rokta hai jo sirf hype pe chal rahe hain aur asli value nahi rakhte.</p>
+  <div class="callout warn">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Warning:</strong> FA sirf ek tool hai, guarantee nahi. Har investment mein risk hota hai. FA se risk kam hota hai, khatam nahi hota.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Fundamental analysis ka primary focus kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Price charts patterns</button>
+        <button class="quiz-option" data-correct="true">B) Project ki asli value aur bunyad</button>
+        <button class="quiz-option" data-correct="false">C) Trading volume ka trend</button>
+        <button class="quiz-option" data-correct="false">D) Short term price movements</button>
+      </div>
+      <div class="quiz-explain">FA ka focus project ki asli value par hota hai — team, technology, tokenomics, market, aur risk factors par.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Crypto market mein kitne projects 2 saal ke andar fail hote hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 50%</button>
+        <button class="quiz-option" data-correct="false">B) 70%</button>
+        <button class="quiz-option" data-correct="true">C) 90% se zyada</button>
+        <button class="quiz-option" data-correct="false">D) Sirf 10%</button>
+      </div>
+      <div class="quiz-explain">Crypto market mein 90% se zyada projects 2 saal ke andar fail ho jaate hain, is liye FA karna bahut zaroori hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH02 -->
+<section class="chapter" id="ch2">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2>Whitepaper Kaise Padhein</h2>
+  </div>
+  <p class="chapter-intro">Whitepaper kisi bhi crypto project ki sab se ahem kitaab hai — ye batata hai k project kya hai, kyun hai, aur kaise kaam karega.</p>
+  <h3>Whitepaper Ka Structure</h3>
+  <p>Achha whitepaper mein ye sections hote hain:</p>
+  <ol>
+    <li><strong>Problem Statement:</strong> Ye batata hai k kya masla solve ho raha hai</li>
+    <li><strong>Solution:</strong> Project kaise masla solve karega</li>
+    <li><strong>Technology:</strong> Technical details aur architecture</li>
+    <li><strong>Tokenomics:</strong> Token ka design aur economics</li>
+    <li><strong>Roadmap:</strong> Aane wale plans aur milestones</li>
+    <li><strong>Team:</strong> Kaun log kaam kar rahe hain</li>
+    <li><strong>Risks:</strong> Potential risks aur challenges</li>
+  </ol>
+  <h3>Whitepaper Padhte Waqt Red Flags</h3>
+  <ul>
+    <li>Agar whitepaper bahut zyada marketing language mein likha hai</li>
+    <li>Technical details missing hain ya bahut vague hain</li>
+    <li>Team ke baare mein koi information nahi hai</li>
+    <li>"Guaranteed returns" ya "100x profit" jaisi baatein hain</li>
+    <li>Roadmap realistic nahi lagta</li>
+  </ul>
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Whitepaper Evaluation">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="35" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">WHITEPAPER EVALUATION CHECKLIST</text>
+      <rect x="40" y="55" width="300" height="230" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="190" y="80" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">GOOD SIGNS</text>
+      <text x="60" y="105" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Clear problem statement</text>
+      <text x="60" y="125" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Technical architecture explained</text>
+      <text x="60" y="145" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Team with verifiable history</text>
+      <text x="60" y="165" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Realistic roadmap with dates</text>
+      <text x="60" y="185" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Transparent tokenomics</text>
+      <text x="60" y="205" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Risk factors acknowledged</text>
+      <text x="60" y="225" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Use of funds clearly stated</text>
+      <text x="60" y="245" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Competitor analysis included</text>
+      <text x="60" y="265" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Citations and references</text>
+      <rect x="360" y="55" width="300" height="230" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="510" y="80" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">BAD SIGNS</text>
+      <text x="380" y="105" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Marketing-heavy language</text>
+      <text x="380" y="125" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">No technical details</text>
+      <text x="380" y="145" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Anonymous team</text>
+      <text x="380" y="165" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Unrealistic promises</text>
+      <text x="380" y="185" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Guaranteed returns claims</text>
+      <text x="380" y="205" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">No roadmap or vague timeline</text>
+      <text x="380" y="225" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Copied from other projects</text>
+      <text x="380" y="245" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">No risk disclosure</text>
+      <text x="380" y="265" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="10">Grammar/spelling errors</text>
+      <text x="350" y="295" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 2.1 — Whitepaper ko achhi tarah evaluate karein</text>
+    </svg>
+    <figcaption>Figure 2.1 — Whitepaper evaluation ke liye achhe aur bure signs</figcaption>
+  </figure>
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Agar whitepaper samajh nahi aa raha, toh project mein invest mat karein. Achha project apna whitepaper simple aur clear rakhta hai.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Whitepaper mein sab se pehle kya hona chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Marketing pitch</button>
+        <button class="quiz-option" data-correct="true">B) Clear problem statement</button>
+        <button class="quiz-option" data-correct="false">C) Token sale details</button>
+        <button class="quiz-option" data-correct="false">D) Celebrity endorsements</button>
+      </div>
+      <div class="quiz-explain">Achhe whitepaper mein sab se pehle problem statement honi chahiye — kya masla solve ho raha hai ye clear hona chahiye.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Whitepaper mein "Guaranteed returns" ka matlab kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Project guaranteed hai</button>
+        <button class="quiz-option" data-correct="true">B) Ye red flag hai — koi guarantee nahi hoti</button>
+        <button class="quiz-option" data-correct="false">C) Project profitable hai</button>
+        <button class="quiz-option" data-correct="false">D) Investment safe hai</button>
+      </div>
+      <div class="quiz-explain">"Guaranteed returns" ek bada red flag hai. Crypto market mein koi bhi guarantee nahi de sakta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH03 -->
+<section class="chapter" id="ch3">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2>Team &amp; Founders Ki Jaanch</h2>
+  </div>
+  <p class="chapter-intro">Kisi bhi project mein invest karne se pehle ye jaanna zaroori hai k kaun log bana rahe hain aur unka background kya hai.</p>
+  <h3>Team Verify Kaise Karein</h3>
+  <ol>
+    <li><strong>LinkedIn Check:</strong> Team members ki LinkedIn profiles dekhein — real hain ya fake</li>
+    <li><strong>Past Projects:</strong> Pehle kya kiya hai? Successful projects hain ya failures</li>
+    <li><strong>GitHub Activity:</strong> Developers ka GitHub kitna active hai</li>
+    <li><strong>Public Presence:</strong> Twitter, podcasts, conferences mein dikhte hain ya nahi</li>
+    <li><strong>Advisors:</strong> Advisors kaun hain aur unka reputation kya hai</li>
+  </ol>
+  <h3>Team Size Aur Composition</h3>
+  <p>Ek achhe project mein ye log hone chahiye:</p>
+  <ul>
+    <li><strong>Technical Lead:</strong> Jo architecture design kare</li>
+    <li><strong>Blockchain Developers:</strong> Jo smart contracts likhein</li>
+    <li><strong>Business Development:</strong> Jo partnerships banaye</li>
+    <li><strong>Marketing:</strong> Jo community grow kare</li>
+    <li><strong>Legal/Compliance:</strong> Jo regulatory matters handle kare</li>
+  </ul>
+  <figure>
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Team Verification Process">
+      <rect width="700" height="280" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">TEAM VERIFICATION WORKFLOW</text>
+      <rect x="30" y="55" width="140" height="50" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="100" y="85" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">LinkedIn Search</text>
+      <line x1="170" y1="80" x2="200" y2="80" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="196,76 204,80 196,84" fill="#f0b90b"/>
+      <rect x="200" y="55" width="140" height="50" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="270" y="85" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">GitHub Activity</text>
+      <line x1="340" y1="80" x2="370" y2="80" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="366,76 374,80 366,84" fill="#f0b90b"/>
+      <rect x="370" y="55" width="140" height="50" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="440" y="85" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">Past Projects</text>
+      <line x1="510" y1="80" x2="540" y2="80" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="536,76 544,80 536,84" fill="#f0b90b"/>
+      <rect x="540" y="55" width="130" height="50" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="605" y="85" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">Reputation</text>
+      <rect x="100" y="140" width="500" height="80" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="350" y="165" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10" font-weight="600">SCORING SYSTEM</text>
+      <text x="140" y="190" fill="#00b300" font-family="Inter,sans-serif" font-size="9">7-10: Strong Team</text>
+      <text x="300" y="190" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">4-6: Average Team</text>
+      <text x="480" y="190" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">0-3: Avoid</text>
+      <text x="350" y="270" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 3.1 — Team verification ka step-by-step process</text>
+    </svg>
+    <figcaption>Figure 3.1 — Team verification ka complete workflow</figcaption>
+  </figure>
+  <div class="callout warn">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Warning:</strong> Agar team completely anonymous hai aur koi verifiable track record nahi hai, toh bahut careful rahein. Anonymous teams mein scams ka risk bahut zyada hota hai.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Team verify karne ka sab se important step kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Website dekhna</button>
+        <button class="quiz-option" data-correct="true">B) LinkedIn profiles verify karna</button>
+        <button class="quiz-option" data-correct="false">C) Twitter followers count karna</button>
+        <button class="quiz-option" data-correct="false">D) YouTube videos dekhna</button>
+      </div>
+      <div class="quiz-explain">LinkedIn profiles verify karna sab se important hai kyun ke ye batata hai k team members real hain aur unka professional background kya hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Agar team completely anonymous hai toh kya karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Turant invest karein</button>
+        <button class="quiz-option" data-correct="true">B) Bahut careful rahein aur avoid karein</button>
+        <button class="quiz-option" data-correct="false">C) Zyada paisa lagayein</button>
+        <button class="quiz-option" data-correct="false">D) Dusron se bhi invest karwayein</button>
+      </div>
+      <div class="quiz-explain">Anonymous teams mein scams ka risk bahut zyada hota hai. Bina verifiable team ke project mein invest karna bahut khatarnak hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH04 -->
+<section class="chapter" id="ch4">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2>Tokenomics Samjhein</h2>
+  </div>
+  <p class="chapter-intro">Tokenomics ka matlab hai token ki economics — kitna supply hai, kaise distribute hoga, aur demand kaisi hogi.</p>
+  <h3>Tokenomics ke Key Factors</h3>
+  <div class="formula-box">
+    <div class="formula-label">TOKENOMICS FRAMEWORK</div>
+    <div class="formula">
+      Total Supply + Distribution + Utility + Vesting = Tokenomics<br>
+      <span class="note">Ye charo cheezein mil kar token ki asli value determine karti hain.</span>
+    </div>
+  </div>
+  <ul>
+    <li><strong>Total Supply:</strong> Kitne tokens total banenge — fixed ya inflationary</li>
+    <li><strong>Circulating Supply:</strong> Abhi kitne tokens market mein hain</li>
+    <li><strong>Distribution:</strong> Team, investors, community — sab ko kitna mila</li>
+    <li><strong>Vesting Schedule:</strong> Team ke tokens kab unlock honge</li>
+    <li><strong>Utility:</strong> Token ka kya kaam hai — governance, payment, staking</li>
+    <li><strong>Burn Mechanism:</strong> Kya tokens destroy hote hain ya nahi</li>
+  </ul>
+  <h3>Good vs Bad Tokenomics</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>GOOD TOKENOMICS</h4>
+      <ul>
+        <li>Team ka token lock hai (vesting)</li>
+        <li>Community ko adequate share mila hai</li>
+        <li>Token ka real utility hai</li>
+        <li>Supply limited hai</li>
+        <li>Burn mechanism hai</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>BAD TOKENOMICS</h4>
+      <ul>
+        <li>Team ke paas bahut zyada tokens hain</li>
+        <li>No vesting schedule</li>
+        <li>Token ka koi use nahi</li>
+        <li>Inflation bahut zyada hai</li>
+        <li>Pre-mine bahut bada hai</li>
+      </ul>
+    </div>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Token Distribution Example">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">TOKEN DISTRIBUTION — IDEAL vs AVOID</text>
+      <text x="175" y="55" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="10" font-weight="600">IDEAL DISTRIBUTION</text>
+      <rect x="50" y="70" width="250" height="180" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <rect x="70" y="90" width="100" height="20" rx="2" fill="#f0b90b"/>
+      <text x="120" y="105" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Community 40%</text>
+      <rect x="70" y="120" width="60" height="20" rx="2" fill="#00b300"/>
+      <text x="100" y="135" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Team 15%</text>
+      <rect x="70" y="150" width="50" height="20" rx="2" fill="#3388ff"/>
+      <text x="95" y="165" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Dev 12%</text>
+      <rect x="70" y="180" width="40" height="20" rx="2" fill="#a3a3a3"/>
+      <text x="90" y="195" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Advisors 8%</text>
+      <rect x="70" y="210" width="70" height="20" rx="2" fill="#ff8800"/>
+      <text x="105" y="225" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Ecosystem 25%</text>
+      <text x="525" y="55" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="10" font-weight="600">AVOID DISTRIBUTION</text>
+      <rect x="400" y="70" width="250" height="180" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <rect x="420" y="90" width="130" height="20" rx="2" fill="#ff4444"/>
+      <text x="485" y="105" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Team 50%</text>
+      <rect x="420" y="120" width="60" height="20" rx="2" fill="#ff8800"/>
+      <text x="450" y="135" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Pre-sale 20%</text>
+      <rect x="420" y="150" width="40" height="20" rx="2" fill="#a3a3a3"/>
+      <text x="440" y="165" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Advisors 15%</text>
+      <rect x="420" y="180" width="30" height="20" rx="2" fill="#3388ff"/>
+      <text x="435" y="195" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Dev 5%</text>
+      <rect x="420" y="210" width="30" height="20" rx="2" fill="#f0b90b"/>
+      <text x="435" y="225" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="600">Community 10%</text>
+      <text x="350" y="290" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 4.1 — Ideal vs Bad token distribution</text>
+    </svg>
+    <figcaption>Figure 4.1 — Token distribution ka comparison</figcaption>
+  </figure>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Tokenomics mein "vesting" ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Token ka price badhna</button>
+        <button class="quiz-option" data-correct="true">B) Team ke tokens ka time-locked unlock hona</button>
+        <button class="quiz-option" data-correct="false">C) Token ka burn hona</button>
+        <button class="quiz-option" data-correct="false">D) Token ka trading hona</button>
+      </div>
+      <div class="quiz-explain">Vesting ka matlab hai k team ke tokens ek certain time ke baad unlock hote hain — ye ensure karta hai k team long-term committed rahe.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Ideal token distribution mein community ko kitna share milna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 10%</button>
+        <button class="quiz-option" data-correct="false">B) 20%</button>
+        <button class="quiz-option" data-correct="true">C) 30-40%</button>
+        <button class="quiz-option" data-correct="false">D) Sirf 5%</button>
+      </div>
+      <div class="quiz-explain">Ideal distribution mein community ko 30-40% share milna chahiye. Agar community ko bahut kam mil raha hai toh ye red flag hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH05 -->
+<section class="chapter" id="ch5">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2>Market Cap &amp; Valuation</h2>
+  </div>
+  <p class="chapter-intro">Market cap samajhna zaroori hai kyun ke ye batata hai k project kitna bada hai aur uski growth kitni ho sakti hai.</p>
+  <h3>Market Cap Kya Hai?</h3>
+  <div class="formula-box">
+    <div class="formula-label">MARKET CAP FORMULA</div>
+    <div class="formula">
+      Market Cap = Current Price x Circulating Supply<br>
+      <span class="note">Ye formula har cryptocurrency ke liye kaam karta hai.</span>
+    </div>
+  </div>
+  <h3>Market Cap Categories</h3>
+  <ul>
+    <li><strong>Large Cap ($10B+):</strong> Bitcoin, Ethereum — zyada stable, kam risk</li>
+    <li><strong>Mid Cap ($1B-$10B):</strong> Established projects — moderate risk, moderate growth</li>
+    <li><strong>Small Cap ($100M-$1B):</strong> Growing projects — zyada risk, zyada growth potential</li>
+    <li><strong>Micro Cap (&lt;$100M):</strong> Very early stage — bahut zyada risk</li>
+  </ul>
+  <h3>Valuation Metrics</h3>
+  <div class="example-box">
+    <div class="example-label">KEY METRICS</div>
+    <table>
+      <tr><td><strong>Market Cap / TVL Ratio</strong></td><td>Kitna valuation hai vs total value locked</td></tr>
+      <tr><td><strong>Fully Diluted Valuation</strong></td><td>Total supply ke saath valuation</td></tr>
+      <tr><td><strong>Market Cap Dominance</strong></td><td>Total market mein kitna hissa hai</td></tr>
+    </table>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Market Cap Tiers">
+      <rect width="700" height="260" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">MARKET CAP TIERS</text>
+      <rect x="30" y="55" width="155" height="160" rx="4" fill="#111111" stroke="#00b300" stroke-width="1.5"/>
+      <text x="107" y="80" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="11" font-weight="600">LARGE CAP</text>
+      <text x="107" y="100" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">$10B+</text>
+      <text x="107" y="125" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Bitcoin, Ethereum</text>
+      <text x="107" y="145" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Low Risk</text>
+      <text x="107" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Low Growth</text>
+      <text x="107" y="185" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="9">STABLE</text>
+      <rect x="205" y="55" width="155" height="160" rx="4" fill="#111111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="282" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">MID CAP</text>
+      <text x="282" y="100" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">$1B - $10B</text>
+      <text x="282" y="125" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">SOL, AVAX, MATIC</text>
+      <text x="282" y="145" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Moderate Risk</text>
+      <text x="282" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Moderate Growth</text>
+      <text x="282" y="185" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">BALANCED</text>
+      <rect x="380" y="55" width="155" height="160" rx="4" fill="#111111" stroke="#ff8800" stroke-width="1.5"/>
+      <text x="457" y="80" text-anchor="middle" fill="#ff8800" font-family="Inter,sans-serif" font-size="11" font-weight="600">SMALL CAP</text>
+      <text x="457" y="100" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">$100M - $1B</text>
+      <text x="457" y="125" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">New Projects</text>
+      <text x="457" y="145" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">High Risk</text>
+      <text x="457" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">High Growth</text>
+      <text x="457" y="185" text-anchor="middle" fill="#ff8800" font-family="Inter,sans-serif" font-size="9">GROWTH</text>
+      <rect x="555" y="55" width="115" height="160" rx="4" fill="#111111" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="612" y="80" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="11" font-weight="600">MICRO</text>
+      <text x="612" y="100" text-anchor="middle" fill="#a3a3a3" font-family="JetBrains Mono,monospace" font-size="9">&lt;$100M</text>
+      <text x="612" y="125" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Very Early</text>
+      <text x="612" y="145" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Very High Risk</text>
+      <text x="612" y="165" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Highest Growth</text>
+      <text x="612" y="185" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">SPECULATIVE</text>
+      <text x="350" y="250" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 5.1 — Market cap categories aur unke risk-reward profiles</text>
+    </svg>
+    <figcaption>Figure 5.1 — Market cap categories</figcaption>
+  </figure>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Market cap calculate kaise hota hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Price x Total Supply</button>
+        <button class="quiz-option" data-correct="true">B) Price x Circulating Supply</button>
+        <button class="quiz-option" data-correct="false">C) Price x Burned Supply</button>
+        <button class="quiz-option" data-correct="false">D) Price x Max Supply</button>
+      </div>
+      <div class="quiz-explain">Market cap = Current Price x Circulating Supply. Ye formula batata hai k abhi market mein kitni value hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: $15B market cap wala project kis category mein aata hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="true">A) Large Cap</button>
+        <button class="quiz-option" data-correct="false">B) Mid Cap</button>
+        <button class="quiz-option" data-correct="false">C) Small Cap</button>
+        <button class="quiz-option" data-correct="false">D) Micro Cap</button>
+      </div>
+      <div class="quiz-explain">$10B se zyada market cap wale projects Large Cap category mein aate hain. Ye zyada stable hote hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH06 -->
+<section class="chapter" id="ch6">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2>On-Chain Metrics</h2>
+  </div>
+  <p class="chapter-intro">On-chain metrics woh data hai jo blockchain par publicly available hota hai aur project ki health batata hai.</p>
+  <h3>Important On-Chain Metrics</h3>
+  <ul>
+    <li><strong>Active Addresses:</strong> Kitne unique addresses daily active hain</li>
+    <li><strong>Transaction Volume:</strong> Kitna value daily transfer ho raha hai</li>
+    <li><strong>TVL (Total Value Locked):</strong> DeFi mein kitna paisa locked hai</li>
+    <li><strong>Exchange Inflow/Outflow:</strong> Log exchange par bhej rahe hain ya nikaal rahe hain</li>
+    <li><strong>Whale Activity:</strong> Bade holders kya kar rahe hain</li>
+    <li><strong>Staking Ratio:</strong> Kitne log token stake kar rahe hain</li>
+  </ul>
+  <h3>On-Chain Data Kaise Padhein</h3>
+  <div class="example-box">
+    <div class="example-label">TOOLS</div>
+    <table>
+      <tr><td><strong>Glassnode</strong></td><td>Bitcoin aur Ethereum ke advanced metrics</td></tr>
+      <tr><td><strong>DefiLlama</strong></td><td>DeFi TVL aur protocol data</td></tr>
+      <tr><td><strong>Dune Analytics</strong></td><td>Custom dashboards aur community queries</td></tr>
+      <tr><td><strong>Etherscan</strong></td><td>Ethereum transactions aur token transfers</td></tr>
+      <tr><td><strong>Santiment</strong></td><td>Social metrics aur on-chain data</td></tr>
+    </table>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-Chain Metrics Dashboard">
+      <rect width="700" height="300" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">ON-CHAIN METRICS DASHBOARD</text>
+      <rect x="30" y="50" width="150" height="80" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="105" y="75" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">Active Addresses</text>
+      <text x="105" y="100" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="14">850K+</text>
+      <text x="105" y="118" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Daily Active</text>
+      <rect x="200" y="50" width="150" height="80" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="275" y="75" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">Transaction Vol</text>
+      <text x="275" y="100" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="14">$12.5B</text>
+      <text x="275" y="118" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">24h Volume</text>
+      <rect x="370" y="50" width="150" height="80" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="445" y="75" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">TVL</text>
+      <text x="445" y="100" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="14">$48.2B</text>
+      <text x="445" y="118" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Total Locked</text>
+      <rect x="540" y="50" width="130" height="80" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="605" y="75" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">Staking %</text>
+      <text x="605" y="100" text-anchor="middle" fill="#00b300" font-family="JetBrains Mono,monospace" font-size="14">62%</text>
+      <text x="605" y="118" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Network Security</text>
+      <rect x="30" y="150" width="640" height="120" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="350" y="175" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10" font-weight="600">WHALE ACTIVITY TRACKER</text>
+      <text x="120" y="205" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Exchange Inflow</text>
+      <rect x="60" y="215" width="120" height="15" rx="2" fill="#ff4444"/>
+      <text x="120" y="226" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="8" font-weight="600">$2.1B OUT</text>
+      <text x="350" y="205" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Exchange Outflow</text>
+      <rect x="290" y="215" width="120" height="15" rx="2" fill="#00b300"/>
+      <text x="350" y="226" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="8" font-weight="600">$3.5B IN</text>
+      <text x="580" y="205" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Whale Sentiment</text>
+      <rect x="520" y="215" width="120" height="15" rx="2" fill="#00b300"/>
+      <text x="580" y="226" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="8" font-weight="600">BULLISH</text>
+      <text x="350" y="290" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 6.1 — On-chain metrics dashboard se project ki health check karein</text>
+    </svg>
+    <figcaption>Figure 6.1 — On-chain metrics ka dashboard overview</figcaption>
+  </figure>
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> On-chain data sirf numbers nahi — ye batata hai k real users project use kar rahe hain ya sirf speculation ho rahi hai.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: TVL (Total Value Locked) kya batata hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Kitne log stake kar rahe hain</button>
+        <button class="quiz-option" data-correct="true">B) DeFi mein kitna paisa locked hai</button>
+        <button class="quiz-option" data-correct="false">C) Kitne transactions ho rahe hain</button>
+        <button class="quiz-option" data-correct="false">D) Kitne active addresses hain</button>
+      </div>
+      <div class="quiz-explain">TVL batata hai k DeFi protocols mein kitna total value locked hai — ye project ki adoption aur trust ka indicator hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Exchange outflow zyada hone ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Log sell kar rahe hain</button>
+        <button class="quiz-option" data-correct="true">B) Log tokens nikaal rahe hain (bullish signal)</button>
+        <button class="quiz-option" data-correct="false">C) Network congested hai</button>
+        <button class="quiz-option" data-correct="false">D) Gas fees zyada hain</button>
+      </div>
+      <div class="quiz-explain">Zyada exchange outflow ka matlab hai log tokens exchange se nikaal rahe hain — ye typically bullish hai kyun ke log hold karna chahte hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH07 -->
+<section class="chapter" id="ch7">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2>Red Flags and Scam Detection</h2>
+  </div>
+  <p class="chapter-intro">Crypto mein scams bahut aam hain. Inhein pehchanna aur se bachna aap ki sab se badi protection hai.</p>
+  <h3>Rug Pull Ke Signs</h3>
+  <p>Rug pull tab hota hai jab developers apna project chhod kar investors ka paisa le kar bhag jaate hain.</p>
+  <ul>
+    <li>Liquidity unlocked hai ya bahut kam time ke liye locked hai</li>
+    <li>Team ke paas bahut zyada tokens hain bina vesting ke</li>
+    <li>Contract mein mint function hai jo unlimited supply create kar sakta hai</li>
+    <li>Ownership nahi renounce ki gayi</li>
+    <li>Website aur social media suddenly gayab ho jaate hain</li>
+  </ul>
+  <h3>Honeypot Detection</h3>
+  <p>Honeypot woh token hai jise aap khareed sakte hain lekin bech nahi sakte.</p>
+  <ul>
+    <li>Buy tax 0% hai lekin sell tax 99% hai</li>
+    <li>Transfer function mein restrictions hain</li>
+    <li>Kuch wallets ko special permissions hain</li>
+    <li>Approval mechanism suspicious hai</li>
+  </ul>
+  <h3>Locked Liquidity Check</h3>
+  <p>Liquidity locked hona bahut zaroori hai. Agar liquidity locked nahi hai toh developers paisa nikal sakte hain. Minimum 6 mahine ka lock hona chahiye.</p>
+  <h3>Contract Audit Importance</h3>
+  <p>Hamesha check karein k project ka contract audit hua hai ya nahi. Trusted auditors:</p>
+  <ul>
+    <li>Certik</li>
+    <li>OpenZeppelin</li>
+    <li>SlowMist</li>
+    <li>TechRate</li>
+    <li>Hacken</li>
+  </ul>
+  <h3>Common Scam Patterns</h3>
+  <div class="example-box">
+    <div class="example-label">SCAM PATTERNS</div>
+    <table>
+      <tr><td><strong>Pump and Dump</strong></td><td>Price artificially badha kar bech dena</td></tr>
+      <tr><td><strong>Rug Pull</strong></td><td>Liquidity nikal kar bhag jaana</td></tr>
+      <tr><td><strong>Honeypot</strong></td><td>Khareed sakte ho, bech nahi sakte</td></tr>
+      <tr><td><strong>Phishing</strong></td><td>Fake website se private key churana</td></tr>
+      <tr><td><strong>Impersonation</strong></td><td>Famous logon ka naam le kar fraud</td></tr>
+      <tr><td><strong>Drainer</strong></td><td>Wallet connect karke paisa nikal lena</td></tr>
+    </table>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Red Flags Checklist">
+      <rect width="700" height="380" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#ff4444" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">RED FLAGS CHECKLIST</text>
+      <rect x="40" y="50" width="310" height="310" rx="4" fill="#111111" stroke="#ff4444" stroke-width="1"/>
+      <text x="195" y="75" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="10" font-weight="600">SCAM INDICATORS</text>
+      <text x="60" y="100" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Unlimited token minting</text>
+      <text x="60" y="120" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">No liquidity lock</text>
+      <text x="60" y="140" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Anonymous team</text>
+      <text x="60" y="160" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Guaranteed returns promise</text>
+      <text x="60" y="180" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">High buy/low sell tax</text>
+      <text x="60" y="200" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Ownership not renounced</text>
+      <text x="60" y="220" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">No audit report</text>
+      <text x="60" y="240" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">FOMO marketing only</text>
+      <text x="60" y="260" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Pinned comments disabled</text>
+      <text x="60" y="280" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Copy-paste whitepaper</text>
+      <text x="60" y="300" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Pressure to buy fast</text>
+      <text x="60" y="320" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">No GitHub activity</text>
+      <text x="60" y="340" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">Fake partnerships claimed</text>
+      <rect x="370" y="50" width="290" height="310" rx="4" fill="#111111" stroke="#00b300" stroke-width="1"/>
+      <text x="515" y="75" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="10" font-weight="600">SAFETY CHECKS</text>
+      <text x="390" y="100" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Contract audited</text>
+      <text x="390" y="120" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Liquidity locked (6+ months)</text>
+      <text x="390" y="140" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Team verified</text>
+      <text x="390" y="160" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Ownership renounced</text>
+      <text x="390" y="180" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Reasonable taxes</text>
+      <text x="390" y="200" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Real utility exists</text>
+      <text x="390" y="220" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Active GitHub</text>
+      <text x="390" y="240" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Transparent tokenomics</text>
+      <text x="390" y="260" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Community driven</text>
+      <text x="390" y="280" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Realistic roadmap</text>
+      <text x="390" y="300" fill="#00b300" font-family="Inter,sans-serif" font-size="9">No pressure tactics</text>
+      <text x="390" y="320" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Doxxed founders</text>
+      <text x="390" y="340" fill="#00b300" font-family="Inter,sans-serif" font-size="9">Multi-sig wallet</text>
+      <text x="350" y="375" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 7.1 - Red flags aur safety checks ka visual checklist</text>
+    </svg>
+    <figcaption>Figure 7.1 - Scam detection ke liye red flags aur safety checks</figcaption>
+  </figure>
+  <div class="callout warn">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Warning:</strong> Agar koi project bahut acha lag raha hai toh zyada careful rahein. Too good to be true hamesha hota hai. Apni research khud karein.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Honeypot token ka kya matlab hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Token ka price bahut high hai</button>
+        <button class="quiz-option" data-correct="true">B) Token khareed sakte ho lekin bech nahi sakte</button>
+        <button class="quiz-option" data-correct="false">C) Token bahut popular hai</button>
+        <button class="quiz-option" data-correct="false">D) Token ka audit hua hai</button>
+      </div>
+      <div class="quiz-explain">Honeypot ek scam hai jismein aap token khareed sakte ho lekin bech nahi sakte. Sell function mein restrictions hoti hain.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Rug pull se bachne ka sab se achha tareeqa kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Jaldi se jaldi bech dena</button>
+        <button class="quiz-option" data-correct="true">B) Liquidity locked hai ya nahi check karna</button>
+        <button class="quiz-option" data-correct="false">C) Sirf trending coins mein invest karna</button>
+        <button class="quiz-option" data-correct="false">D) Telegram group join karna</button>
+      </div>
+      <div class="quiz-explain">Rug pull se bachne ka sab se achha tareeqa hai liquidity lock check karna. Agar liquidity locked hai toh developers paisa nahi nikaal sakte.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH08 -->
+<section class="chapter" id="ch8">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2>Research Process Step-by-Step</h2>
+  </div>
+  <p class="chapter-intro">Systematic research process follow karna aap ko better decisions lene mein madad karega.</p>
+  <h3>Step 1: Initial Screening</h3>
+  <p>Pehle CoinMarketCap ya CoinGecko par jaayein aur trending/new projects dekhein. Filter lagayein:</p>
+  <ul>
+    <li>Market cap ke hisaab se filter karein</li>
+    <li>Volume check karein</li>
+    <li>Price change dekhein (7d, 30d)</li>
+    <li>Listing exchanges dekhein</li>
+  </ul>
+  <h3>Step 2: Deep Dive into Whitepaper</h3>
+  <p>Whitepaper padhein aur samjhein:</p>
+  <ul>
+    <li>Kya problem solve ho rahi hai?</li>
+    <li>Technology kaisi hai?</li>
+    <li>Competitors se kaise alag hai?</li>
+    <li>Tokenomics kaisa hai?</li>
+  </ul>
+  <h3>Step 3: Team Verification</h3>
+  <p>Team ke baare mein poori jaanch karein - LinkedIn, GitHub, past projects, public presence.</p>
+  <h3>Step 4: On-Chain Analysis</h3>
+  <p>On-chain data dekhein - active addresses, transaction volume, TVL, whale activity.</p>
+  <h3>Step 5: Community Check</h3>
+  <p>Community kitni active hai? Real engagement hai ya bots? Telegram, Discord, Twitter par dekhein.</p>
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Research Workflow">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">RESEARCH WORKFLOW</text>
+      <rect x="30" y="55" width="120" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="90" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">DISCOVERY</text>
+      <text x="90" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">CoinMarketCap</text>
+      <line x1="150" y1="85" x2="180" y2="85" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="176,81 184,85 176,89" fill="#f0b90b"/>
+      <rect x="180" y="55" width="120" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="240" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">WHITEPAPER</text>
+      <text x="240" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Deep Read</text>
+      <line x1="300" y1="85" x2="330" y2="85" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="326,81 334,85 326,89" fill="#f0b90b"/>
+      <rect x="330" y="55" width="120" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="390" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">TEAM CHECK</text>
+      <text x="390" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Verify Identity</text>
+      <line x1="450" y1="85" x2="480" y2="85" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="476,81 484,85 476,89" fill="#f0b90b"/>
+      <rect x="480" y="55" width="120" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="540" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">ON-CHAIN</text>
+      <text x="540" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Data Analysis</text>
+      <line x1="600" y1="85" x2="630" y2="85" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="626,81 634,85 626,89" fill="#f0b90b"/>
+      <rect x="630" y="55" width="40" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="650" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">5</text>
+      <text x="650" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="7">Comm.</text>
+      <rect x="100" y="160" width="500" height="60" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="350" y="185" text-anchor="middle" fill="#e5e5e5" font-family="Inter,sans-serif" font-size="10" font-weight="600">ANALYSIS AND SCORING</text>
+      <text x="350" y="205" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Team (25%) + Tech (25%) + Tokenomics (20%) + Market (15%) + Risk (15%)</text>
+      <line x1="350" y1="220" x2="350" y2="240" stroke="#f0b90b" stroke-width="1.5"/>
+      <polygon points="346,236 354,236 350,244" fill="#f0b90b"/>
+      <rect x="200" y="245" width="300" height="60" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="270" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">INVESTMENT DECISION</text>
+      <text x="350" y="290" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Buy / Hold / Watch / Avoid</text>
+      <text x="350" y="330" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 8.1 - Complete research workflow from discovery to decision</text>
+    </svg>
+    <figcaption>Figure 8.1 - Research ka complete workflow</figcaption>
+  </figure>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Research process mein sab se pehla step kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Whitepaper padhna</button>
+        <button class="quiz-option" data-correct="true">B) Initial screening (CoinMarketCap/CoinGecko)</button>
+        <button class="quiz-option" data-correct="false">C) Team verify karna</button>
+        <button class="quiz-option" data-correct="false">D) On-chain analysis karna</button>
+      </div>
+      <div class="quiz-explain">Sab se pehla step hai initial screening - CoinMarketCap ya CoinGecko par ja kar projects ko filter karna aur shortlist karna.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Research process mein kitne steps hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 3 steps</button>
+        <button class="quiz-option" data-correct="true">B) 5 steps</button>
+        <button class="quiz-option" data-correct="false">C) 7 steps</button>
+        <button class="quiz-option" data-correct="false">D) 10 steps</button>
+      </div>
+      <div class="quiz-explain">Research process mein 5 main steps hain: Initial Screening, Whitepaper, Team Verification, On-Chain Analysis, aur Community Check.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH09 -->
+<section class="chapter" id="ch9">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2>Due Diligence Checklist</h2>
+  </div>
+  <p class="chapter-intro">Ye 20-point checklist har crypto project mein apply karein before investing. Har point ko 1-10 score dein.</p>
+  <h3>Team Category (5 Points)</h3>
+  <ul class="checklist">
+    <li>Founders ke identity verified hain (LinkedIn, public profile)</li>
+    <li>Past projects successful rahe hain</li>
+    <li>Team mein technical expertise hai</li>
+    <li>Advisors credible hain</li>
+    <li>Team size project ke liye sufficient hai</li>
+  </ul>
+  <h3>Technology Category (5 Points)</h3>
+  <ul class="checklist">
+    <li>Whitepaper clear aur detailed hai</li>
+    <li>Technology innovative hai ya existing solution se better hai</li>
+    <li>GitHub active hai with regular commits</li>
+    <li>Smart contract audited hai</li>
+    <li>Scalability plan hai</li>
+  </ul>
+  <h3>Tokenomics Category (4 Points)</h3>
+  <ul class="checklist">
+    <li>Supply cap fixed hai</li>
+    <li>Distribution fair hai (team less than 20%)</li>
+    <li>Vesting schedule hai</li>
+    <li>Token ka real utility hai</li>
+  </ul>
+  <h3>Market Category (3 Points)</h3>
+  <ul class="checklist">
+    <li>Market size bada hai</li>
+    <li>Competition se better hai</li>
+    <li>Adoption grow ho raha hai</li>
+  </ul>
+  <h3>Risk Category (3 Points)</h3>
+  <ul class="checklist">
+    <li>Regulatory risk manageable hai</li>
+    <li>Technical risk identified hai</li>
+    <li>Mitigation plans hain</li>
+  </ul>
+  <figure>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Due Diligence Scorecard">
+      <rect width="700" height="320" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">DUE DILIGENCE SCORECARD</text>
+      <rect x="30" y="50" width="640" height="35" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="45" y="73" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">TEAM (5 pts)</text>
+      <rect x="160" y="57" width="300" height="20" rx="2" fill="#262626"/>
+      <rect x="160" y="57" width="210" height="20" rx="2" fill="#f0b90b"/>
+      <text x="315" y="72" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">3.5 / 5</text>
+      <rect x="490" y="57" width="170" height="20" rx="2" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="575" y="72" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">70% Score</text>
+      <rect x="30" y="95" width="640" height="35" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="45" y="118" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">TECH (5 pts)</text>
+      <rect x="160" y="102" width="300" height="20" rx="2" fill="#262626"/>
+      <rect x="160" y="102" width="240" height="20" rx="2" fill="#00b300"/>
+      <text x="280" y="117" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">4.0 / 5</text>
+      <rect x="490" y="102" width="170" height="20" rx="2" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="575" y="117" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="9">80% Score</text>
+      <rect x="30" y="140" width="640" height="35" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="45" y="163" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">TOKENOMICS (4 pts)</text>
+      <rect x="200" y="147" width="260" height="20" rx="2" fill="#262626"/>
+      <rect x="200" y="147" width="182" height="20" rx="2" fill="#f0b90b"/>
+      <text x="330" y="162" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">2.8 / 4</text>
+      <rect x="490" y="147" width="170" height="20" rx="2" fill="#1a1a00" stroke="#f0b90b" stroke-width="1"/>
+      <text x="575" y="162" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">70% Score</text>
+      <rect x="30" y="185" width="640" height="35" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="45" y="208" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">MARKET (3 pts)</text>
+      <rect x="180" y="192" width="280" height="20" rx="2" fill="#262626"/>
+      <rect x="180" y="192" width="210" height="20" rx="2" fill="#00b300"/>
+      <text x="320" y="207" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">2.3 / 3</text>
+      <rect x="490" y="192" width="170" height="20" rx="2" fill="#0a1a00" stroke="#00b300" stroke-width="1"/>
+      <text x="575" y="207" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="9">77% Score</text>
+      <rect x="30" y="230" width="640" height="35" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="45" y="253" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">RISK (3 pts)</text>
+      <rect x="180" y="237" width="280" height="20" rx="2" fill="#262626"/>
+      <rect x="180" y="237" width="168" height="20" rx="2" fill="#ff8800"/>
+      <text x="320" y="252" text-anchor="middle" fill="#0a0a0a" font-family="JetBrains Mono,monospace" font-size="9" font-weight="600">1.8 / 3</text>
+      <rect x="490" y="237" width="170" height="20" rx="2" fill="#1a0a00" stroke="#ff8800" stroke-width="1"/>
+      <text x="575" y="252" text-anchor="middle" fill="#ff8800" font-family="Inter,sans-serif" font-size="9">60% Score</text>
+      <rect x="30" y="278" width="640" height="30" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="45" y="298" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">TOTAL: 14.4 / 20 = 72% - MODERATE BUY</text>
+      <text x="350" y="315" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 9.1 - Due diligence scorecard scoring system</text>
+    </svg>
+    <figcaption>Figure 9.1 - Due diligence scorecard se project ko score karein</figcaption>
+  </figure>
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Scoring Guide:</strong> 80%+ = Strong Buy | 60-79% = Moderate Buy | 40-59% = Watch | Below 40% = Avoid</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Due diligence checklist mein kitne points hain?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 10 points</button>
+        <button class="quiz-option" data-correct="false">B) 15 points</button>
+        <button class="quiz-option" data-correct="true">C) 20 points</button>
+        <button class="quiz-option" data-correct="false">D) 25 points</button>
+      </div>
+      <div class="quiz-explain">Due diligence checklist mein 20 points hain jo Team, Tech, Tokenomics, Market, aur Risk categories mein divided hain.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: 72% score aane par kya decision lena chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Avoid</button>
+        <button class="quiz-option" data-correct="false">B) Watch</button>
+        <button class="quiz-option" data-correct="true">C) Moderate Buy</button>
+        <button class="quiz-option" data-correct="false">D) Strong Buy</button>
+      </div>
+      <div class="quiz-explain">72% score = Moderate Buy category mein aata hai (60-79%). Ye achha hai lekin full conviction ke liye 80%+ score chahiye.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH10 -->
+<section class="chapter" id="ch10">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2>Fundamental Analysis and Portfolio Building</h2>
+  </div>
+  <p class="chapter-intro">FA sirf project select karne ke liye nahi - portfolio build aur manage karne ke liye bhi zaroori hai.</p>
+  <h3>FA Se Portfolio Allocation</h3>
+  <p>Fundamental analysis se aap decide kar sakte hain k kitna paisa kahan lagana hai:</p>
+  <ul>
+    <li><strong>Large Cap (50%):</strong> Bitcoin, Ethereum - stability ke liye</li>
+    <li><strong>Mid Cap (30%):</strong> Established altcoins - growth ke liye</li>
+    <li><strong>Small Cap (20%):</strong> New projects - high risk, high reward</li>
+  </ul>
+  <h3>Diversification Based on Fundamentals</h3>
+  <p>Sirf ek project mein sab mat lagayein. Diversification karein lekin wisely - har category mein achhe projects choose karein.</p>
+  <h3>Rebalancing Based on Changing Fundamentals</h3>
+  <p>Agar kisi project ki fundamentals change ho jaayein (team chhod de, technology outdated ho, market share ghata), toh portfolio rebalance karein.</p>
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portfolio Allocation Pie Chart">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">PORTFOLIO ALLOCATION - RECOMMENDED</text>
+      <circle cx="200" cy="180" r="120" fill="none" stroke="#333333" stroke-width="1"/>
+      <path d="M200,180 L200,60 A120,120 0 0,1 313,240 Z" fill="#f0b90b"/>
+      <path d="M200,180 L313,240 A120,120 0 0,1 100,260 Z" fill="#3388ff"/>
+      <path d="M200,180 L100,260 A120,120 0 0,1 200,60 Z" fill="#ff8800"/>
+      <text x="250" y="140" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="12" font-weight="700">50%</text>
+      <text x="250" y="155" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9">Large Cap</text>
+      <text x="140" y="240" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="12" font-weight="700">30%</text>
+      <text x="140" y="255" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9">Mid Cap</text>
+      <text x="170" y="110" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="12" font-weight="700">20%</text>
+      <text x="170" y="125" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9">Small Cap</text>
+      <rect x="380" y="80" width="280" height="200" rx="4" fill="#111111" stroke="#333333" stroke-width="1"/>
+      <text x="400" y="105" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">LARGE CAP (50%)</text>
+      <text x="400" y="125" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">BTC, ETH - Stable, Low Risk</text>
+      <text x="400" y="155" fill="#3388ff" font-family="Inter,sans-serif" font-size="10" font-weight="600">MID CAP (30%)</text>
+      <text x="400" y="175" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">SOL, AVAX - Growth, Moderate Risk</text>
+      <text x="400" y="205" fill="#ff8800" font-family="Inter,sans-serif" font-size="10" font-weight="600">SMALL CAP (20%)</text>
+      <text x="400" y="225" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">New Projects - High Risk, High Reward</text>
+      <text x="400" y="255" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">* Rebalance every 3 months</text>
+      <text x="350" y="325" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 10.1 - Recommended portfolio allocation based on fundamentals</text>
+    </svg>
+    <figcaption>Figure 10.1 - Fundamental analysis ke basis par recommended portfolio allocation</figcaption>
+  </figure>
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Pro Tip:</strong> Portfolio rebalancing every 3 mahine mein karein. Agar kisi project ki fundamentals change ho jaayein toh uska allocation kam karein ya nikal jaayein.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Recommended portfolio mein large cap kitna hona chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 30%</button>
+        <button class="quiz-option" data-correct="true">B) 50%</button>
+        <button class="quiz-option" data-correct="false">C) 70%</button>
+        <button class="quiz-option" data-correct="false">D) 20%</button>
+      </div>
+      <div class="quiz-explain">Recommended allocation mein large cap 50% hona chahiye - ye stability deta hai aur risk kam karta hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Portfolio rebalancing kitni der mein karni chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Har roz</button>
+        <button class="quiz-option" data-correct="false">B) Har hafte</button>
+        <button class="quiz-option" data-correct="true">C) Har 3 mahine mein</button>
+        <button class="quiz-option" data-correct="false">D) Saal mein ek baar</button>
+      </div>
+      <div class="quiz-explain">Portfolio rebalancing every 3 mahine mein karni chahiye. Is se aap ka portfolio fundamentals ke saath updated rahta hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH11 -->
+<section class="chapter" id="ch11">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2>Case Studies</h2>
+  </div>
+  <p class="chapter-intro">Real projects ki FA analysis dekhte hain - kaise successful hue aur kaise fail hue.</p>
+  <h3>Case Study 1: Bitcoin FA Analysis</h3>
+  <div class="example-box">
+    <div class="example-label">BITCOIN - STORE OF VALUE</div>
+    <table>
+      <tr><td><strong>Market Cap</strong></td><td>$1.2 Trillion+</td></tr>
+      <tr><td><strong>Supply</strong></td><td>Fixed 21 Million</td></tr>
+      <tr><td><strong>Narrative</strong></td><td>Digital Gold, Store of Value</td></tr>
+      <tr><td><strong>Network Security</strong></td><td>World's strongest hash rate</td></tr>
+      <tr><td><strong>Institutional Adoption</strong></td><td>ETFs approved, major companies holding</td></tr>
+      <tr><td><strong>Halving Cycle</strong></td><td>Supply squeeze every 4 years</td></tr>
+    </table>
+  </div>
+  <p>Bitcoin ka strongest fundamental hai k ye limited supply hai aur demand barh rahi hai. Institutional adoption aur ETF approval ne is ko aur mazboot kiya hai.</p>
+  <h3>Case Study 2: Ethereum FA Analysis</h3>
+  <div class="example-box">
+    <div class="example-label">ETHEREUM - SMART CONTRACT PLATFORM</div>
+    <table>
+      <tr><td><strong>Market Cap</strong></td><td>$400B+</td></tr>
+      <tr><td><strong>TVL Dominance</strong></td><td>60%+ of DeFi</td></tr>
+      <tr><td><strong>Narrative</strong></td><td>World Computer, DeFi Hub</td></tr>
+      <tr><td><strong>EIP-1559</strong></td><td>Fee burning mechanism</td></tr>
+      <tr><td><strong>Staking</strong></td><td>PoS with 60%+ staked</td></tr>
+      <tr><td><strong>Ecosystem</strong></td><td>Largest developer ecosystem</td></tr>
+    </table>
+  </div>
+  <p>Ethereum ka fundamental strong hai kyun ke ye sab se bada smart contract platform hai. EIP-1559 se ETH burn hota hai, aur staking se supply kam hoti hai.</p>
+  <h3>Case Study 3: Failed Project Analysis</h3>
+  <div class="example-box">
+    <div class="example-label">WHAT WENT WRONG - COMMON PATTERNS</div>
+    <table>
+      <tr><td><strong>Team Left</strong></td><td>Core team members suddenly resigned</td></tr>
+      <tr><td><strong>Token Dump</strong></td><td>Team sold all tokens at peak</td></tr>
+      <tr><td><strong>No Adoption</strong></td><td>Product launched but nobody used it</td></tr>
+      <tr><td><strong>Competition</strong></td><td>Better projects emerged</td></tr>
+      <tr><td><strong>Rug Pull</strong></td><td>Liquidity drained, project abandoned</td></tr>
+    </table>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Case Study Comparison">
+      <rect width="700" height="260" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">CASE STUDY COMPARISON</text>
+      <rect x="30" y="50" width="200" height="180" rx="4" fill="#111111" stroke="#00b300" stroke-width="1.5"/>
+      <text x="130" y="75" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="11" font-weight="600">BITCOIN</text>
+      <text x="130" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Store of Value</text>
+      <text x="130" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Fixed Supply</text>
+      <text x="130" y="140" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Institutional Trust</text>
+      <text x="130" y="160" text-anchor="middle" fill="#00b300" font-family="Inter,sans-serif" font-size="9">STRONG FUNDAMENTALS</text>
+      <text x="130" y="180" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Score: 9.5/10</text>
+      <rect x="250" y="50" width="200" height="180" rx="4" fill="#111111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="75" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">ETHEREUM</text>
+      <text x="350" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Smart Contract Platform</text>
+      <text x="350" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Fee Burn + Staking</text>
+      <text x="350" y="140" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Largest Ecosystem</text>
+      <text x="350" y="160" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="9">STRONG FUNDAMENTALS</text>
+      <text x="350" y="180" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Score: 8.5/10</text>
+      <rect x="470" y="50" width="200" height="180" rx="4" fill="#111111" stroke="#ff4444" stroke-width="1.5"/>
+      <text x="570" y="75" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="11" font-weight="600">FAILED PROJECT</text>
+      <text x="570" y="100" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Anonymous Team</text>
+      <text x="570" y="120" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">No Real Utility</text>
+      <text x="570" y="140" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Rug Pull Happened</text>
+      <text x="570" y="160" text-anchor="middle" fill="#ff4444" font-family="Inter,sans-serif" font-size="9">WEAK FUNDAMENTALS</text>
+      <text x="570" y="180" text-anchor="middle" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="8">Score: 1.2/10</text>
+      <text x="350" y="250" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 11.1 - Comparison of successful vs failed projects based on fundamentals</text>
+    </svg>
+    <figcaption>Figure 11.1 - Successful aur failed projects ka comparison</figcaption>
+  </figure>
+  <h3>Lessons Learned</h3>
+  <ul>
+    <li>Strong fundamentals long-term success ka key hain</li>
+    <li>Anonymous teams mein extra caution zaroori hai</li>
+    <li>Adoption aur real use case sab se zaroori hai</li>
+    <li>Market hype se zyada fundamentals important hain</li>
+    <li>Diversification se risk kam hota hai</li>
+  </ul>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Bitcoin ka sab se strong fundamental kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Fast transactions</button>
+        <button class="quiz-option" data-correct="true">B) Fixed supply of 21 million</button>
+        <button class="quiz-option" data-correct="false">C) Smart contracts</button>
+        <button class="quiz-option" data-correct="false">D) Low fees</button>
+      </div>
+      <div class="quiz-explain">Bitcoin ka sab se strong fundamental hai k is ki supply fixed hai - sirf 21 million coins kabhi nahi banenge. Ye scarcity value deta hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Failed projects mein sab se common pattern kya hai?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Price bahut high tha</button>
+        <button class="quiz-option" data-correct="true">B) Team left ya rug pull</button>
+        <button class="quiz-option" data-correct="false">C) Network bahut slow tha</button>
+        <button class="quiz-option" data-correct="false">D) Fees bahut zyada the</button>
+      </div>
+      <div class="quiz-explain">Failed projects mein sab se common pattern hai team ka chhod dena ya rug pull. Is liye team verification bahut zaroori hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CH12 -->
+<section class="chapter" id="ch12">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2>Complete FA Research Plan</h2>
+  </div>
+  <p class="chapter-intro">Ye ek complete research plan hai jo aap daily, weekly, aur monthly follow kar sakte hain.</p>
+  <h3>Daily Routine</h3>
+  <ul>
+    <li>Crypto news check karein (CoinDesk, CoinTelegraph)</li>
+    <li>On-chain metrics ka quick review karein</li>
+    <li>Portfolio positions ka snapshot lein</li>
+    <li>Market sentiment check karein (Fear and Greed Index)</li>
+  </ul>
+  <h3>Weekly Deep Dive</h3>
+  <ul>
+    <li>Ek naye project ki detailed research karein</li>
+    <li>Whitepaper padhein</li>
+    <li>Team verify karein</li>
+    <li>On-chain data analyze karein</li>
+    <li>Due diligence scorecard bharein</li>
+  </ul>
+  <h3>Monthly Portfolio Review</h3>
+  <ul>
+    <li>Har position ka FA review karein</li>
+    <li>Rebalancing karein agar zaroorat ho</li>
+    <li>Naye opportunities dekhein</li>
+    <li>Purane investments ka performance check karein</li>
+  </ul>
+  <h3>Decision Framework: Buy/Hold/Sell</h3>
+  <div class="example-box">
+    <div class="example-label">DECISION RULES</div>
+    <table>
+      <tr><td><strong>BUY</strong></td><td>Score 80%+, strong fundamentals, attractive price</td></tr>
+      <tr><td><strong>HOLD</strong></td><td>Score 60-79%, fundamentals stable, no major changes</td></tr>
+      <tr><td><strong>SELL</strong></td><td>Score below 60%, fundamentals deteriorated, red flags</td></tr>
+      <tr><td><strong>WATCH</strong></td><td>Score 40-59%, wait for more clarity</td></tr>
+    </table>
+  </div>
+  <figure>
+    <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FA Research Calendar">
+      <rect width="700" height="340" fill="#0a0a0a"/>
+      <text x="350" y="30" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="0.3">FA RESEARCH CALENDAR AND WORKFLOW</text>
+      <rect x="30" y="55" width="200" height="120" rx="4" fill="#111111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="130" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">DAILY (15 min)</text>
+      <text x="50" y="100" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">News check</text>
+      <text x="50" y="118" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">On-chain quick review</text>
+      <text x="50" y="136" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Portfolio snapshot</text>
+      <text x="50" y="154" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Sentiment check</text>
+      <rect x="250" y="55" width="200" height="120" rx="4" fill="#111111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">WEEKLY (2-3 hrs)</text>
+      <text x="270" y="100" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">New project research</text>
+      <text x="270" y="118" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Whitepaper deep dive</text>
+      <text x="270" y="136" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Team verification</text>
+      <text x="270" y="154" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Scorecard completion</text>
+      <rect x="470" y="55" width="200" height="120" rx="4" fill="#111111" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="570" y="80" text-anchor="middle" fill="#f0b90b" font-family="Inter,sans-serif" font-size="11" font-weight="600">MONTHLY (1 day)</text>
+      <text x="490" y="100" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Full portfolio review</text>
+      <text x="490" y="118" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Rebalancing decisions</text>
+      <text x="490" y="136" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">New opportunity scan</text>
+      <text x="490" y="154" fill="#a3a3a3" font-family="Inter,sans-serif" font-size="9">Performance tracking</text>
+      <rect x="100" y="200" width="500" height="110" rx="4" fill="#1a1a00" stroke="#f0b90b" stroke-width="1.5"/>
+      <text x="350" y="225" text-anchor="middle" fill="#f0b90b" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600">DECISION FRAMEWORK</text>
+      <text x="140" y="255" fill="#00b300" font-family="Inter,sans-serif" font-size="10" font-weight="600">BUY: 80%+ score</text>
+      <text x="310" y="255" fill="#f0b90b" font-family="Inter,sans-serif" font-size="10" font-weight="600">HOLD: 60-79%</text>
+      <text x="480" y="255" fill="#ff8800" font-family="Inter,sans-serif" font-size="10" font-weight="600">WATCH: 40-59%</text>
+      <text x="220" y="280" fill="#ff4444" font-family="Inter,sans-serif" font-size="10" font-weight="600">SELL: Below 60%</text>
+      <text x="450" y="280" fill="#ff4444" font-family="Inter,sans-serif" font-size="10" font-weight="600">AVOID: Red flags</text>
+      <text x="350" y="335" text-anchor="middle" fill="#666666" font-family="Inter,sans-serif" font-size="8">Figure 12.1 - Complete FA research calendar aur decision workflow</text>
+    </svg>
+    <figcaption>Figure 12.1 - FA research ka complete calendar aur decision framework</figcaption>
+  </figure>
+  <h3>Complete Checklist (15 Items)</h3>
+  <ul class="checklist">
+    <li>Whitepaper padha aur samjha hai</li>
+    <li>Team verify kiya hai (LinkedIn, GitHub)</li>
+    <li>Tokenomics analyze kiya hai</li>
+    <li>Market cap category identify kiya hai</li>
+    <li>On-chain metrics check kiye hain</li>
+    <li>Contract audit report dekha hai</li>
+    <li>Liquidity lock status verify kiya hai</li>
+    <li>Competition analysis kiya hai</li>
+    <li>Risk factors identify kiye hain</li>
+    <li>Due diligence scorecard bhara hai</li>
+    <li>Portfolio allocation decide kiya hai</li>
+    <li>Entry/exit strategy banayi hai</li>
+    <li>Position size calculate kiya hai</li>
+    <li>Stop loss level set kiya hai</li>
+    <li>Rebalancing schedule banaya hai</li>
+  </ul>
+  <div class="callout">
+    <span class="dot">&rsaquo;</span>
+    <span><strong>Final Advice:</strong> Ye plan sirf ek baar parh kar chhod dein. Ise print karein ya screen par rakhein aur har din follow karein. Discipline hi success ka raaz hai.</span>
+  </div>
+  <div class="quiz-block">
+    <div class="quiz-title">PRACTICE QUESTIONS</div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q1: Daily FA routine mein sab se pehle kya karna chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) Trade kholna</button>
+        <button class="quiz-option" data-correct="true">B) Crypto news check karna</button>
+        <button class="quiz-option" data-correct="false">C) Twitter par trending dekhna</button>
+        <button class="quiz-option" data-correct="false">D) Dusron ke trades copy karna</button>
+      </div>
+      <div class="quiz-explain">Daily routine mein sab se pehle crypto news check karna chahiye taake aap ko pata chale k market mein kya ho raha hai.</div>
+    </div>
+    <div class="quiz-q">
+      <p class="quiz-prompt">Q2: Buy decision ke liye minimum kitna score chahiye?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A) 50%</button>
+        <button class="quiz-option" data-correct="false">B) 60%</button>
+        <button class="quiz-option" data-correct="true">C) 80%</button>
+        <button class="quiz-option" data-correct="false">D) 95%</button>
+      </div>
+      <div class="quiz-explain">Buy decision ke liye minimum 80% score chahiye. Is se kam score par Hold ya Watch karna behtar hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Ye book sirf educational purposes k liye hai - koi financial advice nahi hai. Crypto investing mein financial nuksaan ka khatra hota hai. Koi bhi investment karne se pehle apni khud ki research karein.
+</div>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var sidebar = document.getElementById('sidebar');
+  var menuBtn = document.getElementById('menuBtn');
+  var overlay = document.getElementById('overlay');
+  function closeMenu(){ sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', function(){
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click', function(){ closeMenu(); });
+  });
+  var fill = document.getElementById('progressFill');
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrollTop = h.scrollTop || document.body.scrollTop;
+    var scrollHeight = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+    var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    fill.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+  document.querySelectorAll('.quiz-q').forEach(function(q){
+    var options = q.querySelectorAll('.quiz-option');
+    var explain = q.querySelector('.quiz-explain');
+    options.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        options.forEach(function(o){ o.disabled = true; });
+        if(opt.getAttribute('data-correct') === 'true'){
+          opt.classList.add('correct');
+        } else {
+          opt.classList.add('incorrect');
+          options.forEach(function(o){ if(o.getAttribute('data-correct') === 'true') o.classList.add('correct'); });
+        }
+        if(explain){ explain.classList.add('show'); }
+      });
+    });
+  });
+  document.addEventListener('copy', function(e){ e.preventDefault(); });
+  document.addEventListener('cut', function(e){ e.preventDefault(); });
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  document.addEventListener('keydown', function(e){
+    var k = e.key ? e.key.toLowerCase() : '';
+    var blockedCombo = (e.ctrlKey || e.metaKey) && ['c','x','s','p','u'].indexOf(k) !== -1;
+    if (blockedCombo || k === 'f12') { e.preventDefault(); }
+  });
+})();
+</script>
+
+</body>
+</html>
+

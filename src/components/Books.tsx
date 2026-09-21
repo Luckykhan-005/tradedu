@@ -299,6 +299,21 @@ const books: BookItem[] = [
     tags: ['Urdu', 'Day Trading', 'Complete Guide'],
     cover: '/covers/Day-Trading-Guide.jpg',
   },
+  {
+    id: 'fundamental-analysis',
+    title: 'Fundamental Analysis for Crypto (Urdu)',
+    titleUrdu: 'کرپٹو فنڈامنٹل انالیسس',
+    description:
+      'Crypto projects ki asli value samjho — Tokenomics, Team, On-Chain Metrics, Whitepaper, Red Flags, Due Diligence aur Case Studies. 12 chapters with 24+ practice questions.',
+    chapters: 12,
+    pages: '12 chapters · 24+ Practice Questions',
+    icon: TrendingUp,
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    href: '/fundamental-analysis/index.html',
+    tags: ['Urdu', 'Fundamental Analysis', 'Crypto'],
+    cover: '/covers/Fundamental-Analysis.jpg',
+  },
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
