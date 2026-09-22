@@ -20,6 +20,7 @@ import {
   BarChart3,
   Clock,
   PieChart,
+  Globe,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -392,6 +393,20 @@ const books: BookItem[] = [
     href: '/portfolio-management/index.html',
     tags: ['Urdu', 'Portfolio', 'Management'],
     cover: '/covers/Crypto-Portfolio-Management.png',
+  },
+  {
+    id: 'web3-book',
+    title: 'Web 3.0 Guide',
+    titleUrdu: 'ویب 3.0 گائیڈ',
+    description: 'Complete Web 3.0 guide in Roman Urdu — from basics to advanced concepts, decentralized apps, smart contracts, DAOs, NFTs, DeFi, and the future of the internet.',
+    chapters: 23,
+    pages: '500+',
+    icon: Globe,
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50',
+    href: '/web3-book/index.html',
+    tags: ['Roman Urdu', 'Web3', 'Blockchain', 'DeFi', 'NFTs'],
+    cover: '/covers/Web3-Book.png',
   },
 ]
 
