@@ -1537,55 +1537,363 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
       <div class="chapter-head"><span class="chapter-num">07</span><h2>Risk &amp; Position Sizing</h2></div>
       <p class="chapter-intro">Ye chapter shayad is poori book ka sab se important chapter hai — kyunke sahi calculation janne k bawajood, galat position size hi zyada tar traders ko nuksaan pohanchati hai.</p>
 
-      <h3>7.1 — 1-2% Risk Rule</h3>
-      <p>Zyada tar experienced traders apne total account balance ka sirf <strong>1% se 2%</strong> kisi ek trade par risk karte hain — chahe leverage kitni bhi ho.</p>
+      <h3>7.1 — Risk kya hota hai?</h3>
+      <p>Trading mein Risk se murad woh maximum amount hai jo aap ek trade mein Stop Loss hit hone par lose karne ke liye accept kar rahe hain.</p>
+
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
-        <div class="formula">Risk Amount ($) = Account Balance × Risk %</div>
+        <div class="formula">Risk Amount = Account Balance × Risk %</div>
       </div>
+
       <div class="example-box">
-        <div class="example-label">MISAAL</div>
+        <div class="example-label">EXAMPLE</div>
         <table>
-          <tr><td>Account Balance</td><td>$1,000</td></tr>
-          <tr><td>Risk %</td><td>2%</td></tr>
-          <tr class="result-row"><td>Risk Amount</td><td>1,000 × 0.02 = $20</td></tr>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Risk</td><td>1%</td></tr>
         </table>
       </div>
 
-      <h3>7.2 — Position Size Nikalna (Stop Loss K Hisaab Se)</h3>
+      <div class="formula-box">
+        <div class="formula">$1,000 × 1% = $10</div>
+      </div>
+      <p>Yani is trade mein aapka planned risk $10 hai.</p>
+
+      <h3>7.2 — Risk % kitna rakhna chahiye?</h3>
+      <p><strong>Common framework:</strong></p>
+      <div class="example-box">
+        <div class="example-label">RISK FRAMEWORK</div>
+        <table>
+          <tr><td>Risk per Trade</td><td>$1,000 Account</td><td>$10,000 Account</td></tr>
+          <tr><td>0.25%</td><td>$2.50</td><td>$25</td></tr>
+          <tr><td>0.5%</td><td>$5</td><td>$50</td></tr>
+          <tr><td>1%</td><td>$10</td><td>$100</td></tr>
+          <tr><td>2%</td><td>$20</td><td>$200</td></tr>
+          <tr class="result-row"><td>5%</td><td>$50</td><td>$500</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Learning/testing phase mein 0.5%–1% risk ka framework relatively conservative hota hai.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span><strong>Important point:</strong> Risk % position size nahi hai. 1% ka matlab yeh nahi ke aap sirf account ka 1% trade mein lagayenge. Iska matlab hai: Stop Loss hit hone par approximately 1% account risk karna.</span>
+      </div>
+
+      <h3>7.3 — Position Sizing kya hoti hai?</h3>
+      <p>Position sizing ka matlab hai:</p>
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Aapke risk amount aur Stop Loss distance ke basis par kitni quantity trade karni hai.</span>
+      </div>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
-        <div class="formula">Stop Loss Distance % = |Entry − Stop Loss| ÷ Entry × 100
-
-Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
+        <div class="formula">Position Size = Risk Amount ÷ Stop Loss Distance</div>
       </div>
+      <p>Crypto mein quantity calculate karne ke liye yeh bohat useful hai.</p>
+
+      <h3>7.4 — BTC ka complete example</h3>
       <div class="example-box">
-        <div class="example-label">MISAAL</div>
+        <div class="example-label">INPUT</div>
         <table>
-          <tr><td>Risk Amount</td><td>$20</td></tr>
-          <tr><td>Entry Price</td><td>$50,000</td></tr>
-          <tr><td>Stop Loss Price</td><td>$49,000</td></tr>
-          <tr><td>Stop Loss Distance %</td><td>1,000 ÷ 50,000 × 100 = 2%</td></tr>
-          <tr class="result-row"><td>Position Size</td><td>20 ÷ 0.02 = $1,000</td></tr>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Risk</td><td>1%</td></tr>
+          <tr><td>BTC Entry</td><td>$60,000</td></tr>
+          <tr><td>Stop Loss</td><td>$59,500</td></tr>
         </table>
       </div>
-      <p>Is se apko pata chal jata hai k is trade mein "kitna bara" position lena chahiye taake stop loss lagne par sirf $20 (apka fix kiya hua risk) ka hi nuksaan ho — na is se zyada, na kam.</p>
 
-      <h3>7.3 — Risk:Reward Ratio</h3>
+      <p><strong>Step 1: Risk amount</strong></p>
       <div class="formula-box">
-        <div class="formula-label">FORMULA (LONG K LIYE)</div>
-        <div class="formula">Risk:Reward = (Target − Entry) ÷ (Entry − Stop Loss)</div>
+        <div class="formula">$1,000 × 1% = $10</div>
       </div>
+      <p>Aap maximum approximately $10 risk karna chahte hain.</p>
+
+      <p><strong>Step 2: SL distance</strong></p>
+      <div class="formula-box">
+        <div class="formula">$60,000 − $59,500 = $500</div>
+      </div>
+      <p>BTC mein aapka SL distance $500 per BTC hai.</p>
+
+      <p><strong>Step 3: Quantity</strong></p>
+      <div class="formula-box">
+        <div class="formula">$10 ÷ $500 = 0.02 BTC</div>
+      </div>
+
+      <p><strong>Step 4: Notional Value</strong></p>
+      <div class="formula-box">
+        <div class="formula">$60,000 × 0.02 = $1,200</div>
+      </div>
+      <p>Agar leverage 10x hai:</p>
+      <div class="formula-box">
+        <div class="formula">$1,200 ÷ 10 = $120 margin</div>
+      </div>
+
       <div class="example-box">
-        <div class="example-label">MISAAL</div>
+        <div class="example-label">FINAL RESULT</div>
         <table>
-          <tr><td>Entry</td><td>$50,000</td></tr>
-          <tr><td>Stop Loss</td><td>$49,000 (Risk = $1,000)</td></tr>
-          <tr><td>Target</td><td>$53,000 (Reward = $3,000)</td></tr>
-          <tr class="result-row profit"><td>Risk:Reward</td><td>3,000 ÷ 1,000 = 1:3</td></tr>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Risk</td><td>1%</td></tr>
+          <tr><td>Risk Amount</td><td>$10</td></tr>
+          <tr><td>Entry</td><td>$60,000</td></tr>
+          <tr><td>SL</td><td>$59,500</td></tr>
+          <tr><td>SL Distance</td><td>$500</td></tr>
+          <tr><td>Quantity</td><td>0.02 BTC</td></tr>
+          <tr><td>Notional</td><td>$1,200</td></tr>
+          <tr class="result-row"><td>10x Margin</td><td>~$120</td></tr>
         </table>
       </div>
-      <p>1:3 ratio ka matlab hai — agar ap 3 trades mein se sirf 1 bhi jeeten (aur 2 haar bhi jayein), phir bhi overall profitable rahenge.</p>
+      <p>Agar SL hit hota hai, gross loss approximately $10 hoga, fees/slippage ko ignore karte hue.</p>
+
+      <h3>7.5 — Stop Loss door ho to position choti hogi</h3>
+      <p>Suppose same account: $1,000, Risk: $10, BTC Entry: $60,000</p>
+      <p>Lekin SL: $58,000 → SL distance: $2,000</p>
+      <div class="formula-box">
+        <div class="formula">$10 ÷ $2,000 = 0.005 BTC</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula">Notional: $60,000 × 0.005 = $300</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">COMPARISON</div>
+        <table>
+          <tr><td>Tight SL</td><td>$500 distance → 0.02 BTC</td></tr>
+          <tr class="result-row"><td>Wide SL</td><td>$2,000 distance → 0.005 BTC</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yani: SL jitna wide, position size utni choti. Aur: SL jitna tight, position size utni bari.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Lekin tight SL sirf position ko bara karne ke liye nahi lagana chahiye. SL ko market structure ke mutabiq hona chahiye.</span>
+      </div>
+
+      <h3>7.6 — Same risk, different position sizes</h3>
+      <p>Yeh concept bohat important hai.</p>
+      <p>Suppose account: $10,000, Risk: 1% = $100</p>
+
+      <div class="example-box">
+        <div class="example-label">3 DIFFERENT TRADES</div>
+        <table>
+          <tr><td>Trade</td><td>Entry</td><td>SL</td><td>SL Distance</td><td>Quantity</td></tr>
+          <tr><td>BTC</td><td>$60,000</td><td>$59,500</td><td>$500</td><td>0.20 BTC</td></tr>
+          <tr><td>ETH</td><td>$2,500</td><td>$2,400</td><td>$100</td><td>1 ETH</td></tr>
+          <tr class="result-row"><td>XAUUSD</td><td>$2,600</td><td>$2,590</td><td>$10</td><td>10 oz*</td></tr>
+        </table>
+      </div>
+      <p>Har trade ka planned risk approximately $100 ho sakta hai.</p>
+      <p><em>*Gold/forex contracts mein broker ka contract size alag ho sakta hai, isliye XAUUSD mein actual lot calculation broker specification ke according karni hoti hai.</em></p>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yani: Different markets ≠ same quantity. Risk ko normalize karne ke liye quantity calculate hoti hai.</span>
+      </div>
+
+      <h3>7.7 — Position Size aur Leverage ko confuse mat karein</h3>
+      <p>Suppose: Account = $1,000, Aapki position: $2,000 Notional</p>
+
+      <div class="example-box">
+        <div class="example-label">LEVERAGE COMPARISON</div>
+        <table>
+          <tr><td>Leverage</td><td>Margin</td></tr>
+          <tr><td>2x</td><td>$1,000</td></tr>
+          <tr><td>10x</td><td>$200</td></tr>
+          <tr class="result-row"><td>20x</td><td>$100</td></tr>
+        </table>
+      </div>
+      <p>Lekin agar Notional Value $2,000 hi hai, to price movement se dollar P&L approximately same rahega.</p>
+      <p>Leverage mainly required margin change kar raha hai.</p>
+
+      <h3>7.8 — Leverage barhane se risk automatically calculate nahi hota</h3>
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>BTC position</td><td>$5,000</td></tr>
+        </table>
+      </div>
+      <p>BTC 2% against you chala gaya.</p>
+      <div class="formula-box">
+        <div class="formula">Approx loss: $5,000 × 2% = $100</div>
+      </div>
+      <p>Chahe position 5x ho, 10x ho, ya 20x ho — Notional $5,000 rehne ki wajah se approximate price-loss $100 hi hai, fees/funding/slippage ko ignore karte hue.</p>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Lekin high leverage liquidation price ko closer la sakti hai aur available margin ko kam kar sakti hai. Isliye leverage ko sirf "kitna profit milega" wali machine samajhna dangerous hai.</span>
+      </div>
+
+      <h3>7.9 — Risk-to-Reward bhi isi system ka part hai</h3>
+      <div class="example-box">
+        <div class="example-label">INPUT</div>
+        <table>
+          <tr><td>BTC Entry</td><td>$60,000</td></tr>
+          <tr><td>SL</td><td>$59,500</td></tr>
+          <tr><td>Risk distance</td><td>$500</td></tr>
+          <tr><td>Target</td><td>$61,000</td></tr>
+          <tr><td>Reward distance</td><td>$1,000</td></tr>
+        </table>
+      </div>
+
+      <p>Therefore: Risk = $500, Reward = $1,000, Ratio: <strong>1 : 2</strong></p>
+
+      <p>Agar quantity 0.02 BTC hai:</p>
+      <div class="example-box">
+        <div class="example-label">RESULT</div>
+        <table>
+          <tr><td>SL loss</td><td>0.02 × $500 = $10</td></tr>
+          <tr><td>Target profit</td><td>0.02 × $1,000 = $20</td></tr>
+          <tr><td>Risk</td><td>$10</td></tr>
+          <tr class="result-row profit"><td>Potential Reward</td><td>$20</td></tr>
+        </table>
+      </div>
+
+      <h3>7.10 — Win rate aur Risk/Reward ka connection</h3>
+      <p>Suppose aapka system: Risk = $10, Reward = $20 (Yani 1:2 R:R)</p>
+      <p>Aap 10 trades karte hain: 4 winners, 6 losers</p>
+
+      <div class="example-box">
+        <div class="example-label">CALCULATION</div>
+        <table>
+          <tr><td>Winners</td><td>4 × $20 = +$80</td></tr>
+          <tr><td>Losers</td><td>6 × $10 = -$60</td></tr>
+          <tr class="result-row profit"><td>Net</td><td>+$20</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yani 40% winning trades ke bawajood example mein system positive ho sakta hai.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Isliye sirf "Meri strategy 80% win rate deti hai" dekhna enough nahi. Aapko average win, average loss, fees, slippage, drawdown aur sample size bhi dekhna hota hai.</span>
+      </div>
+
+      <h3>7.11 — Consecutive losses ka impact</h3>
+      <p>Suppose account = $1,000, Risk per trade = 1%</p>
+
+      <div class="example-box">
+        <div class="example-label">5 CONSECUTIVE LOSSES (1% RISK)</div>
+        <table>
+          <tr><td>Start</td><td>$1,000</td></tr>
+          <tr><td>Loss 1</td><td>$990</td></tr>
+          <tr><td>Loss 2</td><td>$980.10</td></tr>
+          <tr><td>Loss 3</td><td>$970.30</td></tr>
+          <tr><td>Loss 4</td><td>$960.60</td></tr>
+          <tr class="result-row loss"><td>Loss 5</td><td>~$950.99</td></tr>
+        </table>
+      </div>
+      <p>Approx drawdown: <strong>4.9%</strong></p>
+
+      <p>Ab agar risk 5% hota:</p>
+      <div class="example-box">
+        <div class="example-label">5 CONSECUTIVE LOSSES (5% RISK)</div>
+        <table>
+          <tr><td>Start</td><td>$1,000</td></tr>
+          <tr><td>Loss 1</td><td>$950</td></tr>
+          <tr><td>Loss 2</td><td>$902.50</td></tr>
+          <tr><td>Loss 3</td><td>$857.38</td></tr>
+          <tr><td>Loss 4</td><td>$814.51</td></tr>
+          <tr class="result-row loss"><td>Loss 5</td><td>$773.78</td></tr>
+        </table>
+      </div>
+      <p>Yani approximately: <strong>22.6% drawdown</strong></p>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Isi liye "sirf 5% risk hai" sunne mein chhota lagta hai. Compounding losses ko spreadsheet bohat jaldi reality bana deti hai.</span>
+      </div>
+
+      <h3>7.12 — Daily Loss Limit bhi rakhein</h3>
+      <p>Professional risk framework mein sirf per-trade risk nahi hota.</p>
+      <div class="example-box">
+        <div class="example-label">DAILY LIMIT</div>
+        <table>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Per trade risk</td><td>1% = $10</td></tr>
+          <tr><td>Daily maximum loss</td><td>3% = $30</td></tr>
+        </table>
+      </div>
+      <p>Agar 3 trades continuously SL hit:</p>
+      <div class="formula-box">
+        <div class="formula">Trade 1 = -$10 | Trade 2 = -$10 | Trade 3 = -$10 | Total: -$30</div>
+      </div>
+      <p>Uske baad trading stop.</p>
+      <p>Iska purpose revenge trading ko prevent karna hai.</p>
+
+      <h3>7.13 — Total Open Risk</h3>
+      <p>Suppose aapke paas 3 trades simultaneously open hain:</p>
+      <div class="example-box">
+        <div class="example-label">OPEN POSITIONS</div>
+        <table>
+          <tr><td>Trade</td><td>Risk</td></tr>
+          <tr><td>BTC</td><td>$10</td></tr>
+          <tr><td>ETH</td><td>$10</td></tr>
+          <tr><td>XAUUSD</td><td>$10</td></tr>
+          <tr class="result-row"><td>Total</td><td>$30</td></tr>
+        </table>
+      </div>
+      <p>Account = $1,000 → Total open risk: <strong>3%</strong></p>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Yeh important hai kyun ke har trade individually 1% lag sakta hai, lekin combined exposure 3% hai. Aur agar BTC aur ETH strongly correlated move kar rahe hain, to diversification ka label laga dene se physics change nahi hoti.</span>
+      </div>
+
+      <h3>7.14 — Ek professional Position Sizing workflow</h3>
+      <p>Har futures trade se pehle:</p>
+
+      <div class="example-box">
+        <div class="example-label">10-STEP WORKFLOW</div>
+        <table>
+          <tr><td>Step 1</td><td>Account balance check karein</td></tr>
+          <tr><td>Step 2</td><td>Risk % decide karein (Example: 1%)</td></tr>
+          <tr><td>Step 3</td><td>Risk amount calculate karein: Balance × Risk %</td></tr>
+          <tr><td>Step 4</td><td>Technical analysis se valid Stop Loss determine karein</td></tr>
+          <tr><td>Step 5</td><td>SL distance calculate karein</td></tr>
+          <tr><td>Step 6</td><td>Quantity calculate karein: Risk Amount ÷ SL Distance</td></tr>
+          <tr><td>Step 7</td><td>Notional Value calculate karein: Entry × Quantity</td></tr>
+          <tr><td>Step 8</td><td>Required margin calculate karein: Notional ÷ Leverage</td></tr>
+          <tr><td>Step 9</td><td>R:R check karein</td></tr>
+          <tr class="result-row"><td>Step 10</td><td>Trade execute karein</td></tr>
+        </table>
+      </div>
+
+      <h3>7.15 — Golden formula</h3>
+      <p>Aap isko yaad rakh sakte hain:</p>
+      <div class="formula-box">
+        <div class="formula">Account Size → Risk % → Risk Amount → Stop Loss → Position Size → Notional Value → Margin → Trade</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span><strong>Sabse important distinction:</strong> Risk ≠ Margin | Margin ≠ Position Size | Position Size ≠ Leverage</span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">DIFFERENT CONCEPTS</div>
+        <table>
+          <tr><td>Risk</td><td>$10</td></tr>
+          <tr><td>Margin</td><td>$100</td></tr>
+          <tr><td>Position</td><td>$1,000</td></tr>
+          <tr class="result-row"><td>Leverage</td><td>10x</td></tr>
+        </table>
+      </div>
+      <p>Yeh chaaron different concepts hain.</p>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Ek line mein: Position sizing ka goal maximum profit chase karna nahi, balki har trade mein controlled aur predefined loss rakhna hai.</span>
+      </div>
 
       <div class="quiz-block">
         <div class="quiz-title">CHAPTER 07 · PRACTICE</div>
@@ -1606,6 +1914,15 @@ Position Size ($) = Risk Amount ÷ Stop Loss Distance %</div>
             <button class="quiz-option" data-i="2">Leverage 3x honi chahiye</button>
           </div>
           <p class="quiz-explain">1:3 ka matlab risk ka 3 guna reward target rakha gaya hai.</p>
+        </div>
+        <div class="quiz-q" data-correct="0">
+          <p class="quiz-prompt">Q3. SL jitna wide hota hai, position size...</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-i="0">Utni choti hoti hai</button>
+            <button class="quiz-option" data-i="1">Utni bari hoti hai</button>
+            <button class="quiz-option" data-i="2">Same rehti hai</button>
+          </div>
+          <p class="quiz-explain">Wide SL = choti position, Tight SL = bari position.</p>
         </div>
       </div>
     </section>
