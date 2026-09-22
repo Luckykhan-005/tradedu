@@ -406,7 +406,7 @@ const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/web3-book/index.html',
     tags: ['Roman Urdu', 'Web3', 'Blockchain', 'DeFi', 'NFTs'],
-    cover: '/covers/Web3-Book.png',
+    cover: '/covers/Web3-Book.jpg',
   },
 ]
 
