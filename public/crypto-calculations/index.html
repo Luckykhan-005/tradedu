@@ -886,19 +886,410 @@ Profit/Loss % = (Net Profit ÷ Total Investment) × 100</div>
       <p class="chapter-intro">Leverage futures trading ka sab se powerful — aur sab se khatarnak — tool hai. Is chapter mein ye samjhenge k leverage kaam kaise karti hai aur profit/loss par iska exact asar kya parta hai.</p>
 
       <h3>4.1 — Position Size (Notional Value)</h3>
+      <p class="chapter-intro">Position Size / Notional Value kya hoti hai?</p>
+
+      <p><strong>Notional Value</strong> ka matlab hai:</p>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Aapki futures position ki total market value, chahe aapne us position ko open karne ke liye kitna margin use kiya ho.</span>
+      </div>
+
+      <h3>Basic Formula</h3>
       <div class="formula-box">
         <div class="formula-label">FORMULA</div>
-        <div class="formula">Position Size = Margin × Leverage</div>
+        <div class="formula">Position Size (Notional Value) = Entry Price × Quantity</div>
       </div>
+
       <div class="example-box">
-        <div class="example-label">MISAAL</div>
+        <div class="example-label">EXAMPLE</div>
         <table>
-          <tr><td>Margin (apka apna paisa)</td><td>$100</td></tr>
-          <tr><td>Leverage</td><td>10x</td></tr>
-          <tr class="result-row"><td>Position Size</td><td>100 × 10 = $1,000</td></tr>
+          <tr><td>BTC Entry</td><td>$60,000</td></tr>
+          <tr><td>Quantity</td><td>0.10 BTC</td></tr>
         </table>
       </div>
-      <p>Yani $100 lagakar ap market mein $1,000 jitna bara trade control kar rahe hain — jaise koi apko $900 "udhar" de raha ho.</p>
+
+      <p><strong>Calculation:</strong></p>
+      <div class="formula-box">
+        <div class="formula">$60,000 × 0.10 = $6,000</div>
+      </div>
+      <p>Yani aapki position ki Notional Value = <strong>$6,000</strong>.</p>
+
+      <h3>2. Leverage ka role</h3>
+      <p>Leverage directly notional value calculate nahi karti.</p>
+      <p>Leverage mainly yeh batati hai ke kitna margin required hoga.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Required Margin = Notional Value ÷ Leverage</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Position</td><td>$6,000</td></tr>
+          <tr><td>Leverage</td><td>10x</td></tr>
+        </table>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">$6,000 ÷ 10 = $600</div>
+      </div>
+      <p>Yani approximately <strong>$600 margin chahiye</strong>.</p>
+
+      <div class="example-box">
+        <div class="example-label">SUMMARY TABLE</div>
+        <table>
+          <tr><td>BTC Price</td><td>$60,000</td></tr>
+          <tr><td>Quantity</td><td>0.10 BTC</td></tr>
+          <tr><td>Notional Value</td><td>$6,000</td></tr>
+          <tr><td>Leverage</td><td>10x</td></tr>
+          <tr class="result-row"><td>Required Margin</td><td>$600</td></tr>
+        </table>
+      </div>
+
+      <h3>3. Agar margin pata ho aur position size nikalni ho</h3>
+      <p>Yeh bohat useful formula hai.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Notional Value = Margin × Leverage</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Margin</td><td>$100</td></tr>
+          <tr><td>Leverage</td><td>20x</td></tr>
+        </table>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">$100 × 20 = $2,000</div>
+      </div>
+      <p>Aapki maximum theoretical position:</p>
+      <p><strong>$2,000 Notional Value</strong></p>
+
+      <p>Agar BTC price $60,000 hai:</p>
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Quantity = Notional Value ÷ BTC Price</div>
+      </div>
+      <div class="formula-box">
+        <div class="formula">$2,000 ÷ $60,000 = 0.03333 BTC</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">RESULT</div>
+        <table>
+          <tr><td>Margin</td><td>$100</td></tr>
+          <tr><td>Leverage</td><td>20x</td></tr>
+          <tr><td>Position</td><td>$2,000</td></tr>
+          <tr class="result-row"><td>Quantity</td><td>≈ 0.0333 BTC</td></tr>
+        </table>
+      </div>
+
+      <h3>4. Long example</h3>
+      <p>Suppose:</p>
+      <div class="example-box">
+        <div class="example-label">INPUT</div>
+        <table>
+          <tr><td>BTC Entry</td><td>$60,000</td></tr>
+          <tr><td>Quantity</td><td>0.05 BTC</td></tr>
+          <tr><td>Leverage</td><td>10x</td></tr>
+        </table>
+      </div>
+
+      <p><strong>Step 1: Notional Value</strong></p>
+      <div class="formula-box">
+        <div class="formula">60,000 × 0.05 = $3,000</div>
+      </div>
+
+      <p><strong>Step 2: Margin</strong></p>
+      <div class="formula-box">
+        <div class="formula">3,000 ÷ 10 = $300</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">RESULT</div>
+        <table>
+          <tr><td>Position Size</td><td>$3,000</td></tr>
+          <tr class="result-row"><td>Margin</td><td>$300</td></tr>
+        </table>
+      </div>
+
+      <p>Aap $300 margin use karke approximately $3,000 ki BTC futures position control kar rahe hain.</p>
+
+      <h3>5. Price move se P&L ka relation</h3>
+      <p>Ab important part.</p>
+      <p>Suppose:</p>
+      <div class="example-box">
+        <div class="example-label">INPUT</div>
+        <table>
+          <tr><td>Position</td><td>$3,000</td></tr>
+          <tr><td>BTC price</td><td>$60,000</td></tr>
+          <tr><td>Position type</td><td>Long</td></tr>
+        </table>
+      </div>
+
+      <p><strong>BTC rises 1%</strong></p>
+      <div class="formula-box">
+        <div class="formula">$3,000 × 1% = $30</div>
+      </div>
+
+      <p><strong>Agar BTC 2% rise kare:</strong></p>
+      <div class="formula-box">
+        <div class="formula">$3,000 × 2% = $60</div>
+      </div>
+
+      <p><strong>Agar BTC 5% rise kare:</strong></p>
+      <div class="formula-box">
+        <div class="formula">$3,000 × 5% = $150</div>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yahan leverage ne P&L ko directly magically multiply nahi kiya. Position ka notional size P&L generate kar raha hai.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Leverage ne mainly required margin ko kam kiya.</span>
+      </div>
+
+      <h3>6. Same position, different leverage</h3>
+      <p>Maan lein aapki position hai:</p>
+      <p><strong>$10,000 BTC</strong></p>
+      <p>Ab leverage change karte hain:</p>
+
+      <div class="example-box">
+        <div class="example-label">LEVERAGE vs MARGIN</div>
+        <table>
+          <tr><td>Leverage</td><td>Approx Margin</td></tr>
+          <tr><td>1x</td><td>$10,000</td></tr>
+          <tr><td>5x</td><td>$2,000</td></tr>
+          <tr><td>10x</td><td>$1,000</td></tr>
+          <tr><td>20x</td><td>$500</td></tr>
+          <tr><td>50x</td><td>$200</td></tr>
+          <tr class="result-row"><td>100x</td><td>$100</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Notice karein: Notional Value same = $10,000. Sirf required margin change ho raha hai.</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Isi liye: 100x leverage ka matlab yeh nahi ke har trade automatically 100x profit deta hai. Aapka actual exposure position/notional value se determine hota hai.</span>
+      </div>
+
+      <h3>7. Quantity se Position Size</h3>
+      <p>Agar quantity already given ho:</p>
+
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Notional Value = Price × Quantity</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">EXAMPLE ETH</div>
+        <table>
+          <tr><td>ETH</td><td>$2,500</td></tr>
+          <tr><td>Quantity</td><td>2 ETH</td></tr>
+        </table>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">$2,500 × 2 = $5,000</div>
+      </div>
+      <p><strong>Position Size = $5,000</strong></p>
+
+      <h3>8. Notional Value se Quantity</h3>
+      <p>Agar aapko desired position size pata ho:</p>
+
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Quantity = Notional Value ÷ Entry Price</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Desired Position</td><td>$5,000 BTC</td></tr>
+          <tr><td>BTC Price</td><td>$100,000</td></tr>
+        </table>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula">5,000 ÷ 100,000 = 0.05 BTC</div>
+      </div>
+      <p><strong>Quantity = 0.05 BTC</strong></p>
+
+      <h3>9. Risk-based Position Size aur Notional Value mein difference</h3>
+      <p>Yeh sabse important distinction hai.</p>
+      <p>Aapko do cheezen alag rakhni hain:</p>
+
+      <p><strong>Position Size</strong> — Kitni total position open karni hai. Notional = Entry × Quantity</p>
+      <p><strong>Risk</strong> — Stop Loss hit hone par maximum kitna lose karna hai.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Risk = Quantity × |Entry Price − Stop Loss Price|</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>BTC Entry</td><td>$60,000</td></tr>
+          <tr><td>SL</td><td>$59,000</td></tr>
+          <tr><td>Difference</td><td>$1,000</td></tr>
+          <tr><td>Max Risk</td><td>$100</td></tr>
+        </table>
+      </div>
+
+      <p><strong>Quantity:</strong></p>
+      <div class="formula-box">
+        <div class="formula">$100 ÷ $1,000 = 0.10 BTC</div>
+      </div>
+
+      <p><strong>Ab Notional:</strong></p>
+      <div class="formula-box">
+        <div class="formula">0.10 × $60,000 = $6,000</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">RESULT</div>
+        <table>
+          <tr><td>Risk</td><td>$100</td></tr>
+          <tr><td>Quantity</td><td>0.10 BTC</td></tr>
+          <tr><td>Notional Value</td><td>$6,000</td></tr>
+          <tr><td>Leverage</td><td>10x</td></tr>
+          <tr class="result-row"><td>Margin</td><td>≈ $600</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yahan ek important lesson hai: Position size leverage se nahi, primarily aapke risk aur Stop Loss distance se determine karna zyada sensible hota hai.</span>
+      </div>
+
+      <h3>10. Complete formula chain</h3>
+      <p>Futures mein is chain ko yaad rakhein:</p>
+
+      <p><strong>Step 1: Risk Amount</strong></p>
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Account Balance × Risk % = Maximum Risk</div>
+      </div>
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Risk %</td><td>1%</td></tr>
+          <tr class="result-row"><td>Maximum Risk</td><td>$10</td></tr>
+        </table>
+      </div>
+
+      <p><strong>Step 2: Quantity</strong></p>
+      <div class="formula-box">
+        <div class="formula-label">FORMULA</div>
+        <div class="formula">Quantity = Risk Amount ÷ SL Distance</div>
+      </div>
+      <div class="example-box">
+        <div class="example-label">EXAMPLE</div>
+        <table>
+          <tr><td>Entry</td><td>$60,000</td></tr>
+          <tr><td>SL</td><td>$59,500</td></tr>
+          <tr><td>SL distance</td><td>$500</td></tr>
+        </table>
+      </div>
+      <div class="formula-box">
+        <div class="formula">$10 ÷ $500 = 0.02 BTC</div>
+      </div>
+
+      <p><strong>Step 3: Notional Value</strong></p>
+      <div class="formula-box">
+        <div class="formula">$60,000 × 0.02 = $1,200</div>
+      </div>
+
+      <p><strong>Step 4: Margin</strong></p>
+      <div class="formula-box">
+        <div class="formula">Agar 10x leverage: $1,200 ÷ 10 = $120</div>
+      </div>
+
+      <div class="example-box">
+        <div class="example-label">FINAL RESULT</div>
+        <table>
+          <tr><td>Account</td><td>$1,000</td></tr>
+          <tr><td>Risk</td><td>1% = $10</td></tr>
+          <tr><td>Entry</td><td>$60,000</td></tr>
+          <tr><td>SL</td><td>$59,500</td></tr>
+          <tr><td>Quantity</td><td>0.02 BTC</td></tr>
+          <tr><td>Notional</td><td>$1,200</td></tr>
+          <tr><td>Leverage</td><td>10x</td></tr>
+          <tr class="result-row"><td>Approx Margin</td><td>$120</td></tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span>Yahi professional position-sizing ka basic framework hai.</span>
+      </div>
+
+      <h3>11. Ek golden formula sheet</h3>
+      <p>Isko save kar sakte hain:</p>
+
+      <p><strong>Notional Value:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Price × Quantity</div>
+      </div>
+
+      <p><strong>Quantity:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Notional Value ÷ Price</div>
+      </div>
+
+      <p><strong>Margin:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Notional Value ÷ Leverage</div>
+      </div>
+
+      <p><strong>Notional from Margin:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Margin × Leverage</div>
+      </div>
+
+      <p><strong>Approx Long P&L:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Quantity × (Exit Price − Entry Price)</div>
+      </div>
+
+      <p><strong>Approx Short P&L:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Quantity × (Entry Price − Exit Price)</div>
+      </div>
+
+      <p><strong>Risk from SL:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Quantity × |Entry − SL|</div>
+      </div>
+
+      <p><strong>Risk-based Quantity:</strong></p>
+      <div class="formula-box">
+        <div class="formula">Risk Amount ÷ |Entry − SL|</div>
+      </div>
+
+      <div class="callout">
+        <span class="dot">→</span>
+        <span><strong>Sabse important relationship:</strong> Risk → Quantity → Notional Value → Margin</span>
+      </div>
+
+      <div class="callout warn">
+        <span class="dot">⚠</span>
+        <span>Leverage ko sabse pehle decide karke position banana ulta approach ho sakta hai. Pehle kitna lose karna acceptable hai, phir SL distance ke according quantity nikalo, phir notional aur required margin calculate karo. Liquidation ko risk-management ka substitute banana phir wahi purani human tradition hai: problem ko tab solve karna jab problem already account mein aa chuki ho.</span>
+      </div>
 
       <h3>4.2 — Leverage Profit/Loss Ko Kaise Amplify Karti Hai</h3>
       <div class="formula-box">
