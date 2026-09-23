@@ -21,6 +21,7 @@ import {
   Clock,
   PieChart,
   Globe,
+  MessageSquare,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -407,6 +408,20 @@ const books: BookItem[] = [
     href: '/web3-book/index.html',
     tags: ['Roman Urdu', 'Web3', 'Blockchain', 'DeFi', 'NFTs'],
     cover: '/covers/Web3-Book.jpg',
+  },
+  {
+    id: 'discord-book',
+    title: 'Discord Complete Guide',
+    titleUrdu: 'ڈسکارڈ کی مکمل گائیڈ',
+    description: 'Discord ki mukammal guide — account banana se lekar server creation, moderation, bots, AutoMod, safety aur troubleshooting tak. Students, moderators aur server owners ke liye.',
+    chapters: 92,
+    pages: '900+',
+    icon: MessageSquare,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-50',
+    href: '/discord-book/index.html',
+    tags: ['Urdu', 'Discord', 'Community', 'Moderation', 'Guide'],
+    cover: '/covers/Discord-Book.jpg',
   },
 ]
 
