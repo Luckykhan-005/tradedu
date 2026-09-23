@@ -17,11 +17,16 @@ import {
   NotebookPen,
   Trophy,
   Sparkles,
+  Sun,
+  Moon,
+  Info,
+  Mail,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
+import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms'
 
 interface NavigationProps {
   currentPage: Page
@@ -47,6 +52,7 @@ const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?:
 
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   const navItems = allNavItems.filter((item) => {
     if (item.adminOnly && user?.role !== 'admin') return false
@@ -85,6 +91,14 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
         </div>
 
         <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            aria-label="Toggle theme"
+            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
+            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
           {user ? (
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 rounded-full bg-secondary px-3 py-1.5">
@@ -133,6 +147,15 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
               {item.label}
             </button>
           ))}
+          <div className="border-t border-border pt-2 mt-2">
+            <button
+              onClick={toggleTheme}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium hover:bg-secondary"
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            </button>
+          </div>
           <div className="border-t border-border pt-2 mt-2">
             {user ? (
               <div className="flex items-center justify-between px-4">

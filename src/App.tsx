@@ -17,6 +17,11 @@ import { Certificates } from './components/Certificates'
 import { Pricing } from './components/Pricing'
 import { PlanGate } from './components/PlanGate'
 import { Subscribe } from './components/Subscribe'
+import { Footer } from './components/Footer'
+import { About } from './components/About'
+import { Contact } from './components/Contact'
+import { Privacy } from './components/Privacy'
+import { Terms } from './components/Terms'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -229,6 +234,7 @@ export default function App() {
       {currentPage === 'landing' && (
         <Landing
           onNavigateToCourses={() => navigate('courses')}
+          onNavigateToBooks={() => navigate('books')}
           onSignIn={() => setShowAuth(true)}
         />
       )}
@@ -345,6 +351,24 @@ export default function App() {
       {currentPage === 'admin' && (
         <AdminPanel onBack={() => navigate('landing')} user={user} onSessionExpired={handleSessionExpired} />
       )}
+
+      {currentPage === 'about' && (
+        <About onNavigate={(p) => navigate(p as Page)} />
+      )}
+
+      {currentPage === 'contact' && (
+        <Contact />
+      )}
+
+      {currentPage === 'privacy' && (
+        <Privacy />
+      )}
+
+      {currentPage === 'terms' && (
+        <Terms />
+      )}
+
+      <Footer onNavigate={navigate} />
     </div>
   )
 }

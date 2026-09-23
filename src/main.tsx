@@ -3,6 +3,7 @@
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import { ShogoErrorBoundary } from './ShogoErrorBoundary'
+import { ThemeProvider } from './lib/theme'
 import './index.css'
 
 // Render the user's React app. Everything else — the update toast, the
@@ -21,7 +22,9 @@ const root = document.getElementById('root')
 if (root) {
   createRoot(root).render(
     <ShogoErrorBoundary>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </ShogoErrorBoundary>,
   )
 }

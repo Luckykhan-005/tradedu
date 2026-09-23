@@ -10,6 +10,9 @@ import {
   Zap,
   Star,
   ChevronRight,
+  Library,
+  Calculator,
+  Youtube,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -17,160 +20,158 @@ import { Badge } from '@/components/ui/badge'
 
 interface LandingProps {
   onNavigateToCourses: () => void
+  onNavigateToBooks: () => void
   onSignIn: () => void
 }
 
+const stats = [
+  { label: 'Urdu Books', value: '25+' },
+  { label: 'Total Chapters', value: '500+' },
+  { label: 'Daily Videos', value: 'YouTube' },
+  { label: 'Language', value: 'Urdu' },
+]
+
 const features = [
   {
-    icon: BarChart3,
+    icon: BookOpen,
     title: 'Expert-Led Courses',
-    description: 'Learn from professional traders with decades of real market experience.',
+    description: 'Professional traders se seekhein — structured courses, beginner se advanced tak.',
+  },
+  {
+    icon: Library,
+    title: '25+ Urdu Books',
+    description: 'Trading ki har topic par detail books — spot, futures, risk management, psychology.',
   },
   {
     icon: Play,
-    title: 'Video Lessons',
-    description: 'High-quality video content you can pause, rewind, and revisit anytime.',
+    title: 'Daily YouTube Videos',
+    description: 'Rozana trading videos Urdu mein — market analysis, tutorials, live sessions.',
   },
   {
     icon: Shield,
     title: 'Risk Management',
-    description: 'Master the art of protecting your capital — the #1 skill of profitable traders.',
+    description: 'Capital protection ki skills — profitable trading ki foundation.',
+  },
+  {
+    icon: Calculator,
+    title: 'Free Trading Tools',
+    description: 'Risk calculator, position size calculator — sab kuch free.',
   },
   {
     icon: Zap,
-    title: 'Live Trading Sessions',
-    description: 'Watch real trades happen in real-time with our experienced instructors.',
+    title: 'AI-Powered Learning',
+    description: 'AI tools se personalized learning experience.',
   },
 ]
 
-const stats = [
-  { label: 'Active Students', value: '12,500+' },
-  { label: 'Video Lessons', value: '350+' },
-  { label: 'Expert Instructors', value: '15' },
-  { label: 'Success Rate', value: '94%' },
+const bookCategories = [
+  { name: 'Crypto Trading', count: '8 books', icon: TrendingUp },
+  { name: 'Forex Trading', count: '5 books', icon: BarChart3 },
+  { name: 'Risk Management', count: '3 books', icon: Shield },
+  { name: 'Trading Psychology', count: '3 books', icon: Award },
+  { name: 'Technical Analysis', count: '4 books', icon: BarChart3 },
+  { name: 'Platform Guides', count: '3 books', icon: BookOpen },
 ]
 
-const testimonials = [
-  {
-    name: 'Sarah Chen',
-    role: 'Day Trader',
-    text: 'TradeEd completely transformed my approach to the markets. I went from losing money consistently to becoming profitable within 3 months.',
-    rating: 5,
-  },
-  {
-    name: 'Marcus Johnson',
-    role: 'Swing Trader',
-    text: 'The risk management module alone saved me thousands. This is the education every trader needs before risking real capital.',
-    rating: 5,
-  },
-  {
-    name: 'Ayesha Khan',
-    role: 'Options Trader',
-    text: 'The live sessions are incredible. Seeing a pro trade in real-time and explaining their thought process is worth 10x the price.',
-    rating: 5,
-  },
-]
-
-const levels = [
-  {
-    level: 'Beginner',
-    title: 'Trading Foundations',
-    description: 'Start from zero. Learn market basics, chart reading, and your first trading strategy.',
-    icon: BookOpen,
-    courses: 8,
-    color: 'bg-emerald-100 text-emerald-700',
-  },
-  {
-    level: 'Intermediate',
-    title: 'Strategy Development',
-    description: 'Build systematic strategies, master technical indicators, and develop your edge.',
-    icon: BarChart3,
-    courses: 12,
-    color: 'bg-blue-100 text-blue-700',
-  },
-  {
-    level: 'Advanced',
-    title: 'Professional Trading',
-    description: 'Advanced options, algorithmic concepts, portfolio management, and psychology.',
-    icon: TrendingUp,
-    courses: 10,
-    color: 'bg-purple-100 text-purple-700',
-  },
-]
-
-export function Landing({ onNavigateToCourses, onSignIn }: LandingProps) {
+export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: LandingProps) {
   return (
     <div className="min-h-screen">
-      {/* Hero Section — Banner Image */}
-      <section className="relative overflow-hidden bg-black">
-        <img
-          src="/hero-banner.jpg"
-          alt="TradeEd — Crypto & Forex Trading Education"
-          className="w-full h-auto object-cover max-h-[600px] md:max-h-[700px]"
-          loading="eager"
-        />
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 md:p-12">
-          <div className="mx-auto max-w-7xl flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={onNavigateToCourses}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 gap-2 shadow-lg"
-            >
-              Browse Courses
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              onClick={onSignIn}
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-8 backdrop-blur-sm"
-            >
-              Start Free Trial
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="border-b border-border bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-background to-card">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-32">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="space-y-6 text-center md:text-left">
+              <Badge variant="secondary" className="gap-1.5">
+                <Star className="h-3 w-3 fill-primary text-primary" />
+                Trading Education in Urdu
+              </Badge>
+              <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+                Trading seekhein{' '}
+                <span className="text-primary">Urdu mein</span>,{' '}
+                zero se professional tak
+              </h1>
+              <p className="text-lg text-muted-foreground md:text-xl">
+                25+ books, structured courses, daily YouTube videos aur free trading tools —
+                sab kuch Urdu mein. Pakistani traders ke liye, Pakistani traders dwara.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+                <Button size="lg" onClick={onNavigateToCourses} className="gap-2 px-8">
+                  Browse Courses
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+                <Button size="lg" variant="outline" onClick={onNavigateToBooks} className="gap-2 px-8">
+                  <Library className="h-5 w-5" />
+                  View Books
+                </Button>
               </div>
-            ))}
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <Star className="h-4 w-4 fill-primary text-primary" />
+                  Free to start
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Star className="h-4 w-4 fill-primary text-primary" />
+                  No credit card
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Star className="h-4 w-4 fill-primary text-primary" />
+                  Urdu content
+                </span>
+              </div>
+            </div>
+
+            {/* Hero stats card */}
+            <div className="relative">
+              <Card className="overflow-hidden border-primary/20 shadow-2xl">
+                <div className="bg-gradient-to-br from-primary/10 via-card to-card p-8">
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                      <TrendingUp className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg">TradeEd Platform</h3>
+                      <p className="text-xs text-muted-foreground">Everything in one place</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {stats.map((stat) => (
+                      <div key={stat.label} className="rounded-lg border border-border bg-card/50 p-4">
+                        <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                        <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Learning Paths */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Books Showcase */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Learning Path</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">25+ Urdu Books</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Whether you're just starting out or looking to refine advanced strategies,
-              we have a path designed for you.
+              Trading ki har topic par mukammal books — diagrams, examples aur quizzes ke saath.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {levels.map((level) => (
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {bookCategories.map((cat) => (
               <Card
-                key={level.level}
-                className="group cursor-pointer border-2 hover:border-primary/20 hover:shadow-lg transition-all"
-                onClick={onNavigateToCourses}
+                key={cat.name}
+                className="group cursor-pointer transition-all hover:border-primary/40 hover:shadow-lg"
+                onClick={onNavigateToBooks}
               >
-                <CardContent className="p-6">
-                  <div className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-4 ${level.color}`}>
-                    <level.icon className="h-3.5 w-3.5" />
-                    {level.level}
+                <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                    <cat.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{level.title}</h3>
-                  <p className="text-muted-foreground mb-4">{level.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">{level.courses} courses</span>
-                    <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <div>
+                    <h3 className="font-semibold text-sm">{cat.name}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">{cat.count}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -180,17 +181,17 @@ export function Landing({ onNavigateToCourses, onSignIn }: LandingProps) {
       </section>
 
       {/* Features */}
-      <section className="py-16 md:py-24 bg-secondary/50">
+      <section className="py-16 md:py-24 bg-card/50 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything You Need to Succeed</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything You Need</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Our platform combines world-class content with practical tools to accelerate your trading journey.
+              Learning se le kar practice tak — sab tools ek hi jagah.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
-              <Card key={feature.title} className="bg-white border-0 shadow-sm hover:shadow-md transition-shadow">
+              <Card key={feature.title} className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 mb-4">
                     <feature.icon className="h-6 w-6 text-primary" />
@@ -204,81 +205,92 @@ export function Landing({ onNavigateToCourses, onSignIn }: LandingProps) {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* YouTube CTA */}
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by Thousands of Traders</h2>
-            <p className="text-muted-foreground text-lg">
-              Hear from students who transformed their trading with TradeEd.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <Card key={t.name} className="border-0 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+          <Card className="overflow-hidden border-primary/30">
+            <div className="grid md:grid-cols-2 md:items-center">
+              <div className="p-8 md:p-12 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/10">
+                    <Youtube className="h-6 w-6 text-red-500" />
                   </div>
-                  <p className="text-muted-foreground mb-4 italic">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <Users className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-sm">{t.name}</div>
-                      <div className="text-xs text-muted-foreground">{t.role}</div>
-                    </div>
+                  <div>
+                    <h3 className="font-bold text-lg">TradeEd YouTube</h3>
+                    <p className="text-xs text-muted-foreground">Daily trading videos</p>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  Rozana market analysis aur tutorials
+                </h2>
+                <p className="text-muted-foreground">
+                  YouTube par daily videos — market updates, trading tutorials, live sessions
+                  aur Q&amp;A. Subscribe karein aur notifications on karein.
+                </p>
+                <Button
+                  size="lg"
+                  className="gap-2 bg-red-500 hover:bg-red-600 text-white"
+                  onClick={() => window.open('https://youtube.com/@TradeEd', '_blank')}
+                >
+                  <Youtube className="h-5 w-5" />
+                  Subscribe on YouTube
+                </Button>
+              </div>
+              <div className="bg-gradient-to-br from-red-500/10 via-card to-card p-8 md:p-12">
+                <div className="space-y-4">
+                  {[
+                    'Daily market analysis (Urdu)',
+                    'Step-by-step trading tutorials',
+                    'Live trading sessions',
+                    'Q&A sessions with students',
+                    'Book reviews aur summaries',
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-500/10">
+                        <Play className="h-3 w-3 text-red-500" />
+                      </div>
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-primary/90 to-primary text-primary-foreground">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
-          <Award className="h-12 w-12 mx-auto mb-6 text-emerald-300" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Trading Journey?</h2>
-          <p className="text-white/80 text-lg mb-8">
-            Join 12,500+ students already learning with TradeEd. Start with our free beginner course — no credit card required.
+          <Award className="h-12 w-12 mx-auto mb-6 opacity-90" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Start Your Trading Journey?
+          </h2>
+          <p className="text-primary-foreground/80 text-lg mb-8">
+            Free se shuru karein — koi credit card nahi chahiye. Urdu mein seekhein,
+            apni speed par.
           </p>
-          <Button
-            size="lg"
-            onClick={onSignIn}
-            className="bg-white text-primary hover:bg-white/90 font-semibold px-10 gap-2"
-          >
-            Get Started Free
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-white py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2 font-bold text-lg text-primary">
-              <TrendingUp className="h-5 w-5" />
-              TradeEd
-            </div>
-            <div className="flex gap-6 text-sm text-muted-foreground">
-              <span>About</span>
-              <span>Courses</span>
-              <span>Blog</span>
-              <span>Contact</span>
-              <span>Privacy</span>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              © 2026 TradeEd. All rights reserved.
-            </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Button
+              size="lg"
+              onClick={onSignIn}
+              className="bg-background text-foreground hover:bg-background/90 font-semibold px-10 gap-2"
+            >
+              Get Started Free
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={onNavigateToCourses}
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-10 gap-2"
+            >
+              <BookOpen className="h-5 w-5" />
+              Explore Courses
+            </Button>
           </div>
         </div>
-      </footer>
+      </section>
     </div>
   )
 }
