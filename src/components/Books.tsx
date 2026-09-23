@@ -22,6 +22,7 @@ import {
   PieChart,
   Globe,
   MessageSquare,
+  Crosshair,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -422,6 +423,20 @@ const books: BookItem[] = [
     href: '/discord-book/index.html',
     tags: ['Urdu', 'Discord', 'Community', 'Moderation', 'Guide'],
     cover: '/covers/Discord-Book.jpg',
+  },
+  {
+    id: 'trade-execution',
+    title: 'The Art of Trade Execution',
+    titleUrdu: 'ٹریڈ ایگزیکیوشن کا فن',
+    description: 'Entry timing, order types, slippage, spread, liquidity, volatility, scaling, stop loss aur take profit — mukammal trade execution guide Urdu mein.',
+    chapters: 18,
+    pages: '100+',
+    icon: Crosshair,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: '/trade-execution/index.html',
+    tags: ['Urdu', 'Execution', 'Trading', 'Risk Management'],
+    cover: '/covers/Trade-Execution.jpg',
   },
 ]
 
