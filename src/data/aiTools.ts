@@ -22,7 +22,7 @@ export const aiToolPages: AiToolPage[] = [
     url: 'https://ai-crypto-trading-as-b49c.bolt.host/',
     category: 'Intelligence',
     // Jab banner image mil jaye: /banners/alphatrade.png (public/banners/ me rakh kar yahan set karein)
-    bannerImage: undefined,
+    bannerImage: '/banners/alphatrade.jpg',
     bannerGradient: 'from-blue-600 via-blue-700 to-indigo-800',
     description:
       'AlphaTrade AI ek complete crypto trading dashboard hai jisme AI-powered signals, sentiment analysis, news feed, portfolio tracking, risk management aur AI assistant sab kuch ek jagah milta hai. Ye tool har aspect cover karta hai — coin scanner se lekar full trade analysis tak.',

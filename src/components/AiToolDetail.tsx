@@ -49,6 +49,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
               src={tool.bannerImage}
               alt={tool.name}
               className="w-full h-48 sm:h-64 object-cover"
+              loading="eager"
             />
           ) : (
             <div className="h-48 sm:h-64 flex flex-col items-center justify-center text-center px-6">
