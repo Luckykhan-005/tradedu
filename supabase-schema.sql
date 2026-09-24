@@ -1,0 +1,170 @@
+-- ============================================================
+-- TradeEd — Supabase Schema
+-- Run this in Supabase SQL Editor (Dashboard > SQL > New query)
+-- ============================================================
+
+-- 1) PROFILES TABLE (extends auth.users)
+create table if not exists public.profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  email text not null default '',
+  name text default '',
+  role text not null default 'student' check (role in ('student', 'admin')),
+  plan text not null default 'FREE' check (plan in ('FREE', 'STARTER', 'PREMIUM')),
+  phone text,
+  city text,
+  experience text,
+  avatar_url text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- Auto-create profile row when a new auth user signs up
+create or replace function public.handle_new_user()
+returns trigger
+language plpgsql
+security definer set search_path = public
+as $$
+begin
+  insert into public.profiles (id, email, name, role, plan, phone, city, experience)
+  values (
+    new.id,
+    coalesce(new.email, ''),
+    coalesce(new.raw_user_meta_data->>'name', split_part(coalesce(new.email, 'student'), '@', 1)),
+    coalesce(new.raw_user_meta_data->>'role', 'student'),
+    coalesce(new.raw_user_meta_data->>'plan', 'FREE'),
+    new.raw_user_meta_data->>'phone',
+    new.raw_user_meta_data->>'city',
+    new.raw_user_meta_data->>'experience'
+  )
+  on conflict (id) do nothing;
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute function public.handle_new_user();
+
+-- Auto-update updated_at
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists profiles_set_updated_at on public.profiles;
+create trigger profiles_set_updated_at
+  before update on public.profiles
+  for each row execute function public.set_updated_at();
+
+-- 2) SUBSCRIPTION REQUESTS TABLE
+create table if not exists public.subscription_requests (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete set null,
+  name text not null,
+  email text not null,
+  phone text not null,
+  city text,
+  plan text not null default 'STARTER' check (plan in ('STARTER', 'PREMIUM')),
+  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
+  receipt_url text,
+  admin_note text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+drop trigger if exists subscription_requests_set_updated_at on public.subscription_requests;
+create trigger subscription_requests_set_updated_at
+  before update on public.subscription_requests
+  for each row execute function public.set_updated_at();
+
+-- 3) ROW LEVEL SECURITY
+alter table public.profiles enable row level security;
+alter table public.subscription_requests enable row level security;
+
+-- PROFILES: users can read/update their own row
+drop policy if exists "Profiles are viewable by owner" on public.profiles;
+create policy "Profiles are viewable by owner"
+  on public.profiles for select
+  using (auth.uid() = id);
+
+drop policy if exists "Users can update own profile" on public.profiles;
+create policy "Users can update own profile"
+  on public.profiles for update
+  using (auth.uid() = id);
+
+-- Admins can read all profiles
+drop policy if exists "Admins can read all profiles" on public.profiles;
+create policy "Admins can read all profiles"
+  on public.profiles for select
+  using (
+    exists (
+      select 1 from public.profiles p
+      where p.id = auth.uid() and p.role = 'admin'
+    )
+  );
+
+-- Admins can update any profile (change plan, role)
+drop policy if exists "Admins can update any profile" on public.profiles;
+create policy "Admins can update any profile"
+  on public.profiles for update
+  using (
+    exists (
+      select 1 from public.profiles p
+      where p.id = auth.uid() and p.role = 'admin'
+    )
+  );
+
+-- SUBSCRIPTION REQUESTS: anyone (even anon) can submit a request
+drop policy if exists "Anyone can submit subscription request" on public.subscription_requests;
+create policy "Anyone can submit subscription request"
+  on public.subscription_requests for insert
+  with check (true);
+
+-- Users can view their own requests
+drop policy if exists "Users can view own requests" on public.subscription_requests;
+create policy "Users can view own requests"
+  on public.subscription_requests for select
+  using (auth.uid() = user_id or user_id is null and email = coalesce(auth.email(), ''));
+
+-- Admins can view/update all requests
+drop policy if exists "Admins can view all requests" on public.subscription_requests;
+create policy "Admins can view all requests"
+  on public.subscription_requests for select
+  using (
+    exists (
+      select 1 from public.profiles p
+      where p.id = auth.uid() and p.role = 'admin'
+    )
+  );
+
+drop policy if exists "Admins can update requests" on public.subscription_requests;
+create policy "Admins can update requests"
+  on public.subscription_requests for update
+  using (
+    exists (
+      select 1 from public.profiles p
+      where p.id = auth.uid() and p.role = 'admin'
+    )
+  );
+
+-- 4) MAKE FIRST SIGNED-UP USER AN ADMIN (optional)
+-- Run this manually after your first signup to gain admin access:
+-- update public.profiles set role = 'admin' where email = 'YOUR_EMAIL@example.com';
+
+-- 5) HELPER: is_admin() function
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer set search_path = public
+as $$
+  select exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role = 'admin'
+  );
+$$;
