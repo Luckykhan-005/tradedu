@@ -30,6 +30,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { AdminStudents } from '@/components/AdminStudents'
 import { cn } from '@/lib/cn'
 
 // ====== Types ======
@@ -848,6 +849,7 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="mb-6">
             <TabsTrigger value="overview" className="gap-1.5"><LayoutDashboard className="h-4 w-4" /> Overview</TabsTrigger>
+            <TabsTrigger value="students" className="gap-1.5"><Users className="h-4 w-4" /> Students</TabsTrigger>
             <TabsTrigger value="courses" className="gap-1.5"><BookOpen className="h-4 w-4" /> Courses</TabsTrigger>
             <TabsTrigger value="sessions" className="gap-1.5"><Video className="h-4 w-4" /> Live Sessions</TabsTrigger>
           </TabsList>
@@ -902,6 +904,11 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* ====== Students Tab ====== */}
+          <TabsContent value="students" className="space-y-4">
+            <AdminStudents />
           </TabsContent>
 
           {/* ====== Courses Tab ====== */}

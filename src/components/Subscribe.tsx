@@ -9,6 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator'
 import { Badge } from '@/components/ui/badge'
 import { api } from '@/lib/api'
+import { submitSubscriptionRequest, type AppPlan } from '@/lib/supabase'
+
+const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
 interface SubscribeProps {
   user: { email: string; name?: string; plan?: string } | null
@@ -61,16 +64,32 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
     setSubmitting(true)
     setError('')
     try {
-      const res = await fetch(api('/api/subscriptions/request'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (!res.ok) {
-        setError(data.error || 'Failed to submit')
-        setSubmitting(false)
-        return
+      if (hasSupabase) {
+        const { error: errMsg } = await submitSubscriptionRequest({
+          email: form.email,
+          name: form.name,
+          phone: form.phone,
+          city: form.city,
+          plan: form.plan as AppPlan,
+          receiptUrl: form.receiptUrl,
+        })
+        if (errMsg) {
+          setError(errMsg)
+          setSubmitting(false)
+          return
+        }
+      } else {
+        const res = await fetch(api('/api/subscriptions/request'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form),
+        })
+        const data = await res.json()
+        if (!res.ok) {
+          setError(data.error || 'Failed to submit')
+          setSubmitting(false)
+          return
+        }
       }
       setDone(true)
       setSubmitting(false)
