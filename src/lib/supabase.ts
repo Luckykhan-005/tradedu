@@ -85,7 +85,10 @@ export async function signInStudent(input: {
   })
   if (error) return { error: error.message }
   if (!data.user) return { error: 'No user returned' }
-  return { user: toAppUser(data.user) }
+  // Fetch the authoritative role/plan from profiles, not signup metadata.
+  // This ensures an admin who changed their role in the DB is recognized.
+  const meta = await fetchProfile(data.user.id)
+  return { user: toAppUser(data.user, meta) }
 }
 
 export async function signOut(): Promise<void> {

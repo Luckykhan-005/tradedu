@@ -154,7 +154,14 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
       if (errMsg) {
         setError(errMsg)
       } else if (user) {
-        onAuth(user)
+        // An admin must not sign in through the Student tab.
+        if (user.role === 'admin') {
+          await supabase.auth.signOut()
+          setError('Ye account admin access rakhta hai. Administrator tab se login karein.')
+          setLoginAs('admin')
+        } else {
+          onAuth(user)
+        }
       }
     } else {
       // Legacy fallback (Shogo)
