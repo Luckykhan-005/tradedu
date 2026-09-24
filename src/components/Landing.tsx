@@ -274,16 +274,15 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
             <Button
               size="lg"
               onClick={onSignIn}
-              className="bg-background text-foreground hover:bg-background/90 font-semibold px-10 gap-2"
+              className="border-2 border-transparent bg-background text-foreground hover:bg-background/90 active:bg-background/80 font-semibold px-10 gap-2"
             >
               Get Started Free
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
               size="lg"
-              variant="outline"
               onClick={onNavigateToCourses}
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-10 gap-2"
+              className="border-2 border-primary-foreground/70 bg-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground hover:text-primary active:bg-primary-foreground/80 font-semibold px-10 gap-2"
             >
               <BookOpen className="h-5 w-5" />
               Explore Courses
