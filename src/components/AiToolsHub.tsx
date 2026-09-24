@@ -21,6 +21,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/cn'
+import { getAiToolPage } from '@/data/aiTools'
 
 interface AiTool {
   id: string
@@ -283,9 +284,10 @@ const bannerStyles: Record<string, string> = {
 interface AiToolsHubProps {
   user: { name?: string; email: string; role?: 'student' | 'admin' } | null
   onSignIn: () => void
+  onSelectTool?: (toolId: string) => void
 }
 
-export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
+export function AiToolsHub({ user, onSignIn, onSelectTool }: AiToolsHubProps) {
   const [expandedTool, setExpandedTool] = useState<string | null>(null)
   const [activeApp, setActiveApp] = useState<AiTool | null>(null)
   const [filter, setFilter] = useState<string>('all')
@@ -497,16 +499,21 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                         size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
-                          toggleExpand(tool.id)
+                          if (getAiToolPage(tool.id) && onSelectTool) {
+                            onSelectTool(tool.id)
+                          } else {
+                            toggleExpand(tool.id)
+                          }
                         }}
                         className="gap-1"
                       >
-                        Details
-                        {isExpanded ? (
-                          <ChevronUp className="h-3.5 w-3.5" />
-                        ) : (
-                          <ChevronDown className="h-3.5 w-3.5" />
-                        )}
+                        {getAiToolPage(tool.id) ? 'View Details' : 'Details'}
+                        {!getAiToolPage(tool.id) &&
+                          (isExpanded ? (
+                            <ChevronUp className="h-3.5 w-3.5" />
+                          ) : (
+                            <ChevronDown className="h-3.5 w-3.5" />
+                          ))}
                       </Button>
                     </div>
 

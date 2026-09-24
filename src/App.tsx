@@ -9,6 +9,8 @@ import { LiveSessions } from './components/LiveSessions'
 import { Auth } from './components/Auth'
 import { AdminPanel } from './components/AdminPanel'
 import { AiToolsHub } from './components/AiToolsHub'
+import { AiToolDetail } from './components/AiToolDetail'
+import { getAiToolPage, type AiToolPage } from './data/aiTools'
 import { Books } from './components/Books'
 import { RiskCalculator } from './components/RiskCalculator'
 import { Glossary } from './components/Glossary'
@@ -58,6 +60,7 @@ export default function App() {
   const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
+  const [selectedAiTool, setSelectedAiTool] = useState<AiToolPage | null>(null)
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<Set<string>>(new Set())
   const [lessonProgress, setLessonProgress] = useState<Record<string, Record<string, boolean>>>({})
   const [sessions, setSessions] = useState<SessionData[]>([])
@@ -130,6 +133,14 @@ export default function App() {
       setCurrentPage('course-detail')
     } catch (err) {
       console.error('Failed to load course:', err)
+    }
+  }
+
+  const handleSelectAiTool = (toolId: string) => {
+    const tool = getAiToolPage(toolId)
+    if (tool) {
+      setSelectedAiTool(tool)
+      setCurrentPage('ai-tool-detail')
     }
   }
 
@@ -320,7 +331,7 @@ export default function App() {
 
       {currentPage === 'ai-tools' && (
         user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
-          <AiToolsHub user={user} onSignIn={openAuth} />
+          <AiToolsHub user={user} onSignIn={openAuth} onSelectTool={handleSelectAiTool} />
         ) : (
           <PlanGate
             requiredPlan="PREMIUM"
@@ -329,6 +340,13 @@ export default function App() {
             onSignIn={openAuth}
           />
         )
+      )}
+
+      {currentPage === 'ai-tool-detail' && selectedAiTool && (
+        <AiToolDetail
+          tool={selectedAiTool}
+          onBack={() => navigate('ai-tools')}
+        />
       )}
 
       {currentPage === 'books' && (
