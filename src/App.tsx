@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { api } from '@/lib/api'
+import { getCurrentSession, signOut as supaSignOut, type TradeEdUser } from '@/lib/supabase'
 import { Navigation, Page } from './components/Navigation'
 import { Landing } from './components/Landing'
 import { CourseCatalog, type CourseData } from './components/CourseCatalog'
@@ -55,7 +56,7 @@ interface SessionData {
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing')
-  const [user, setUser] = useState<{ name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string } | null>(null)
+  const [user, setUser] = useState<(TradeEdUser & { adminToken?: string }) | null>(null)
   const [showAuth, setShowAuth] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
@@ -205,7 +206,7 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
 
-  const handleAuth = (userData: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => {
+  const handleAuth = (userData: TradeEdUser & { adminToken?: string }) => {
     setUser(userData)
     setShowAuth(false)
     // Persist session so refresh keeps the user signed in (30-day expiry)
@@ -235,17 +236,9 @@ export default function App() {
   }, [openAuth])
 
   const handleSignOut = async () => {
-    // Invalidate admin session on server if admin. The token is sent via every
-    // channel the backend accepts (header, Bearer, and ?token= query param)
-    // because the production proxy strips non-standard headers.
-    if (user?.adminToken) {
-      try {
-        const logoutsUrl = api('/api/admin/logout')
-        await fetch(`${logoutsUrl}?token=${encodeURIComponent(user.adminToken)}`, {
-          method: 'POST',
-          headers: { 'x-admin-token': user.adminToken, Authorization: `Bearer ${user.adminToken}` },
-        })
-      } catch { /* ignore */ }
+    // Sign out from Supabase too (if configured) — clears its stored session.
+    if (user?.id?.startsWith('supa-') || user?.email) {
+      try { await supaSignOut() } catch { /* ignore */ }
     }
     setUser(null)
     localStorage.removeItem('tradeed-session')

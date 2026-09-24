@@ -26,13 +26,25 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { api } from '@/lib/api'
+import {
+  supabase,
+  signUpStudent,
+  signInStudent,
+  resetPasswordEmail,
+  updatePassword,
+  type TradeEdUser,
+} from '@/lib/supabase'
 
 interface AuthProps {
-  onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => void
+  onAuth: (user: TradeEdUser) => void
   onCancel: () => void
 }
 
-type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset'
+type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset' | 'forgot-done'
+
+// Shogo backend is unreliable — Supabase is the primary auth provider.
+// signInStudent/updatePassword fall back to the old API when Supabase is unconfigured.
+const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
 const experienceLevels = [
   { value: 'beginner', label: 'Beginner', desc: 'New to trading', color: 'bg-emerald-100 text-emerald-700 border-emerald-300' },
@@ -87,6 +99,8 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
     setError('')
 
     if (loginAs === 'admin') {
+      // Admin still uses the old token-based endpoint (Supabase roles handle it too,
+      // but admin tokens are tied to the courses API for now).
       try {
         const res = await fetch(api('/api/admin/auth'), {
           method: 'POST',
@@ -99,11 +113,26 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
           setLoading(false)
           return
         }
-        onAuth({ name: email.split('@')[0], email, role: 'admin', adminToken: data.token })
+        onAuth({
+          id: `admin-${email}`,
+          name: email.split('@')[0],
+          email,
+          role: 'admin',
+          plan: 'PREMIUM',
+          adminToken: data.token,
+        } as TradeEdUser & { adminToken?: string })
       } catch {
         setError('Could not connect to server')
       }
+    } else if (hasSupabase) {
+      const { user, error: errMsg } = await signInStudent({ email, password })
+      if (errMsg) {
+        setError(errMsg)
+      } else if (user) {
+        onAuth(user)
+      }
     } else {
+      // Legacy fallback (Shogo)
       try {
         const res = await fetch(api('/api/auth/login'), {
           method: 'POST',
@@ -112,7 +141,13 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
         })
         const data = await res.json()
         if (res.ok && data.user) {
-          onAuth({ name: data.user.name || email.split('@')[0], email, role: data.user.role || 'student', plan: data.user.plan })
+          onAuth({
+            id: `legacy-${email}`,
+            name: data.user.name || email.split('@')[0],
+            email,
+            role: data.user.role || 'student',
+            plan: data.user.plan || 'FREE',
+          })
         } else {
           setError(data.error || 'Invalid email or password')
         }
@@ -140,6 +175,27 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
   const handleSignUpComplete = async () => {
     setLoading(true)
     setError('')
+
+    if (hasSupabase) {
+      const { user, error: errMsg } = await signUpStudent({
+        name: signupData.name,
+        email: signupData.email,
+        password: signupData.password,
+        experience: signupData.experience,
+        phone: signupData.phone,
+        city: signupData.city,
+      })
+      if (errMsg) {
+        setError(errMsg)
+        setLoading(false)
+        return
+      }
+      if (user) onAuth(user)
+      setLoading(false)
+      return
+    }
+
+    // Legacy fallback (Shogo)
     try {
       const res = await fetch(api('/api/auth/signup'), {
         method: 'POST',
@@ -161,7 +217,13 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
         setLoading(false)
         return
       }
-      onAuth({ name: signupData.name, email: signupData.email, role: 'student' })
+      onAuth({
+        id: `legacy-${signupData.email}`,
+        name: signupData.name,
+        email: signupData.email,
+        role: 'student',
+        plan: 'FREE',
+      })
     } catch {
       setError('Could not connect to server')
     }
@@ -172,6 +234,20 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
     e.preventDefault()
     setLoading(true)
     setError('')
+
+    if (hasSupabase) {
+      const { error: errMsg } = await resetPasswordEmail(email)
+      if (errMsg) {
+        setError(errMsg)
+        setLoading(false)
+        return
+      }
+      setView('forgot-done')
+      setSuccess('Password reset link sent! Check your email and click the link to set a new password.')
+      setLoading(false)
+      return
+    }
+
     try {
       const res = await fetch(api('/api/auth/forgot-password'), {
         method: 'POST',
@@ -197,6 +273,20 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
     e.preventDefault()
     setLoading(true)
     setError('')
+
+    if (hasSupabase) {
+      const { error: errMsg } = await updatePassword(newPassword)
+      if (errMsg) {
+        setError(errMsg)
+        setLoading(false)
+        return
+      }
+      setSuccess('Password reset successful! You can now sign in.')
+      setTimeout(() => { resetForm(); setView('signin') }, 2500)
+      setLoading(false)
+      return
+    }
+
     const token = tokenInput || resetToken
     if (!token) {
       setError('Please enter the reset token')
@@ -519,6 +609,29 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
 
   const renderView = () => {
     switch (view) {
+      case 'forgot-done':
+        return (
+          <>
+            <div className="text-center mb-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 mx-auto mb-3">
+                <CheckCircle className="h-6 w-6 text-green-600" />
+              </div>
+              <h2 className="text-lg font-bold">Check Your Email</h2>
+              <p className="text-sm text-muted-foreground mt-1">
+                We sent a password reset link to <span className="font-semibold text-foreground">{email}</span>.
+                Click the link in the email to set a new password.
+              </p>
+            </div>
+            {success && (
+              <div className="rounded-lg bg-green-500/10 border border-green-500/20 px-4 py-3 text-sm text-green-700 mb-4">
+                {success}
+              </div>
+            )}
+            <div className="mt-4 text-center text-sm">
+              <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
+            </div>
+          </>
+        )
       case 'forgot-email':
         return (
           <>
