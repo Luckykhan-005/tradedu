@@ -42,7 +42,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-card border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <h1 className="text-3xl font-bold mb-2">Live Sessions</h1>
           <p className="text-muted-foreground">

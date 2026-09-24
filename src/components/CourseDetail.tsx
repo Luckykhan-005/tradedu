@@ -93,7 +93,7 @@ export function CourseDetail({
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Course Header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-card border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
           <button
             onClick={onBack}
@@ -183,7 +183,7 @@ export function CourseDetail({
                 const modCompleted = mod.lessons.filter((l) => progress[l.id]).length
 
                 return (
-                  <div key={mod.id} className="border border-border rounded-lg bg-white overflow-hidden">
+                  <div key={mod.id} className="border border-border rounded-lg bg-card overflow-hidden">
                     <button
                       onClick={() => toggleModule(mod.id)}
                       className="flex items-center gap-3 w-full p-3 text-left hover:bg-secondary/50 transition-colors"

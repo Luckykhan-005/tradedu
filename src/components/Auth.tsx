@@ -322,7 +322,7 @@ export function Auth({ onAuth }: AuthProps) {
                     className={`rounded-lg border-2 p-3 text-left transition-all ${
                       signupData.experience === level.value
                         ? `${level.color} border-current shadow-sm`
-                        : 'border-border hover:border-primary/30 bg-white'
+                        : 'border-border hover:border-primary/30 bg-background'
                     }`}
                   >
                     <div className="text-sm font-semibold">{level.label}</div>
@@ -638,7 +638,7 @@ export function Auth({ onAuth }: AuthProps) {
               <button
                 onClick={() => { setView('signin'); resetForm(); }}
                 className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
-                  view === 'signin' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  view === 'signin' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Sign In
@@ -646,7 +646,7 @@ export function Auth({ onAuth }: AuthProps) {
               <button
                 onClick={() => { setView('signup'); resetForm(); }}
                 className={`flex-1 rounded-md py-2 text-sm font-medium transition-all ${
-                  view === 'signup' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  view === 'signup' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Sign Up
@@ -665,7 +665,7 @@ export function Auth({ onAuth }: AuthProps) {
                   type="button"
                   onClick={() => setLoginAs('student')}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${
-                    loginAs === 'student' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
+                    loginAs === 'student' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   <User className="h-3.5 w-3.5" />
@@ -675,7 +675,7 @@ export function Auth({ onAuth }: AuthProps) {
                   type="button"
                   onClick={() => setLoginAs('admin')}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 text-sm font-medium transition-all ${
-                    loginAs === 'admin' ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
+                    loginAs === 'admin' ? 'bg-background shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   <Shield className="h-3.5 w-3.5" />

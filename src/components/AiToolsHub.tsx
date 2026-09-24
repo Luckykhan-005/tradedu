@@ -301,7 +301,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
   if (activeApp) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="bg-white border-b border-border sticky top-16 z-40">
+        <div className="bg-background border-b border-border sticky top-16 z-40">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="sm" onClick={() => setActiveApp(null)} className="gap-2">
@@ -349,7 +349,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
@@ -385,7 +385,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
               'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
               filter === 'all'
                 ? 'bg-primary text-primary-foreground shadow-sm'
-                : 'bg-white text-muted-foreground hover:text-foreground border border-border'
+                : 'bg-card text-muted-foreground hover:text-foreground border border-border'
             )}
           >
             All Tools ({aiTools.length})
@@ -401,7 +401,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                   'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
                   filter === key
                     ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'bg-white text-muted-foreground hover:text-foreground border border-border'
+                    : 'bg-card text-muted-foreground hover:text-foreground border border-border'
                 )}
               >
                 {info.label} ({count})
@@ -444,7 +444,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                       <div className="flex items-center gap-3">
                         <div
                           className={cn(
-                            'flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm',
+                            'flex h-12 w-12 items-center justify-center rounded-xl bg-background shadow-sm',
                             tool.color
                           )}
                         >
@@ -461,7 +461,7 @@ export function AiToolsHub({ user, onSignIn }: AiToolsHubProps) {
                       <Badge className={cn('text-xs', categoryInfo[tool.category]?.color)}>
                         {categoryInfo[tool.category]?.label}
                       </Badge>
-                      <Badge variant="outline" className="text-xs bg-white/80">
+                      <Badge variant="outline" className="text-xs bg-background/80">
                         <Clock className="h-3 w-3 mr-1" />
                         {tool.signalFormat.timeframe}
                       </Badge>

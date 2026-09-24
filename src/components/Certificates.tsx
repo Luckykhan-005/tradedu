@@ -173,8 +173,8 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
         {/* Certificate modal */}
         {selected && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 no-print">
-            <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6">
-              <div className="certificate-print rounded-lg border-4 border-amber-500 bg-white p-8 text-center text-gray-900">
+            <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-card p-6">
+              <div className="certificate-print rounded-lg border-4 border-amber-500 bg-white p-8 text-center text-foreground">
                 <div className="mb-2 text-5xl">🏆</div>
                 <div className="mb-1 text-sm font-medium uppercase tracking-widest text-amber-600">
                   Certificate of Completion

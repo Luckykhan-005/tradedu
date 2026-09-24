@@ -68,7 +68,7 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <h1 className="text-3xl font-bold mb-2">Course Catalog</h1>
           <p className="text-muted-foreground">
@@ -110,7 +110,7 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-            className="rounded-lg border border-input bg-white px-3 py-2 text-sm"
+            className="rounded-lg border border-input bg-background px-3 py-2 text-sm"
           >
             <option value="popular">Most Popular</option>
             <option value="rating">Highest Rated</option>

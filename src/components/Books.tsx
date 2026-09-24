@@ -446,7 +446,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
   if (openBook) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
-        <div className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
+        <div className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
@@ -521,7 +521,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                   </button>
                 ) : (
                   <div className={`flex items-start gap-4 p-6 ${book.bgColor}`}>
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-card shadow-sm">
                       <book.icon className={`h-7 w-7 ${book.color}`} />
                     </div>
                     <div className="min-w-0">

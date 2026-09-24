@@ -127,7 +127,7 @@ function CourseForm({
           </div>
           <div className="space-y-2">
             <Label>Level</Label>
-            <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full rounded-lg border border-input bg-white px-3 py-2 text-sm">
+            <select value={level} onChange={(e) => setLevel(e.target.value)} className="w-full rounded-lg border border-input bg-background text-sm">
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
               <option value="advanced">Advanced</option>
@@ -150,7 +150,7 @@ function CourseForm({
               )}
             >
               <span className={cn(
-                'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
+                'inline-block h-4 w-4 transform rounded-full bg-background transition-transform',
                 isPublished ? 'translate-x-6' : 'translate-x-1'
               )} />
             </button>
@@ -204,7 +204,7 @@ function LessonForm({
           </div>
           <div className="space-y-1.5">
             <Label className="text-xs">Type</Label>
-            <select value={type} onChange={(e) => setType(e.target.value)} className="w-full rounded-lg border border-input bg-white px-3 py-2 text-sm">
+            <select value={type} onChange={(e) => setType(e.target.value)} className="w-full rounded-lg border border-input bg-background text-sm">
               <option value="video">Video</option>
               <option value="text">Text Article</option>
               <option value="quiz">Quiz</option>
@@ -298,7 +298,7 @@ function SessionForm({
           </div>
           <div className="space-y-2">
             <Label>Related Course (optional)</Label>
-            <select value={courseId} onChange={(e) => setCourseId(e.target.value)} className="w-full rounded-lg border border-input bg-white px-3 py-2 text-sm">
+            <select value={courseId} onChange={(e) => setCourseId(e.target.value)} className="w-full rounded-lg border border-input bg-background text-sm">
               <option value="">None</option>
               {courses.map((c) => (
                 <option key={c.id} value={c.id}>{c.title}</option>
@@ -632,7 +632,7 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
   if (selectedCourse) {
     return (
       <div className="min-h-screen bg-secondary/30">
-        <div className="bg-white border-b border-border">
+        <div className="bg-background border-b border-border">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 py-4">
             <button
               onClick={() => setSelectedCourseId(null)}
@@ -825,7 +825,7 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
-      <div className="bg-white border-b border-border">
+      <div className="bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">

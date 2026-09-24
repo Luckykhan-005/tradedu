@@ -60,7 +60,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
   })
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <button
           onClick={() => onNavigate('landing')}
@@ -128,7 +128,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-white px-4 py-3 space-y-1">
+        <div className="md:hidden border-t border-border bg-background px-4 py-3 space-y-1">
           {navItems.map((item) => (
             <button
               key={item.id}
