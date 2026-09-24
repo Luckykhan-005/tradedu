@@ -120,23 +120,42 @@ export default function App() {
   }, [fetchData])
 
   // Restore session on page load — user stays signed in after refresh.
-  // Session expires after 30 days for security.
+  // Always re-read the role from Supabase so DB changes (e.g. admin upgrade)
+  // are reflected immediately instead of trusting a stale cached session.
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem('tradeed-session')
-      if (!raw) return
-      const session = JSON.parse(raw)
-      // Expire stale sessions (30 days)
-      if (session.expiresAt && Date.now() > session.expiresAt) {
+    let done = false
+    const restore = async () => {
+      // Prefer Supabase session — it fetches the authoritative role from profiles.
+      try {
+        const sbUser = await getCurrentSession()
+        if (sbUser && !done) {
+          done = true
+          setUser(sbUser)
+          localStorage.setItem(
+            'tradeed-session',
+            JSON.stringify({ user: sbUser, expiresAt: Date.now() + 30 * 24 * 60 * 60 * 1000 })
+          )
+          return
+        }
+      } catch { /* Supabase may be unconfigured — fall back below */ }
+
+      // Legacy fallback: stored session (30-day expiry)
+      try {
+        const raw = localStorage.getItem('tradeed-session')
+        if (!raw) return
+        const session = JSON.parse(raw)
+        if (session.expiresAt && Date.now() > session.expiresAt) {
+          localStorage.removeItem('tradeed-session')
+          return
+        }
+        if (session.user?.email && !done) {
+          setUser(session.user)
+        }
+      } catch {
         localStorage.removeItem('tradeed-session')
-        return
       }
-      if (session.user?.email) {
-        setUser(session.user)
-      }
-    } catch {
-      localStorage.removeItem('tradeed-session')
     }
+    restore()
   }, [])
 
   const navigate = (page: Page) => {
