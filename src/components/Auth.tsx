@@ -18,6 +18,7 @@ import {
   Users,
   MessageCircle,
   Star,
+  X,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -28,6 +29,7 @@ import { api } from '@/lib/api'
 
 interface AuthProps {
   onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => void
+  onCancel: () => void
 }
 
 type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset'
@@ -39,7 +41,7 @@ const experienceLevels = [
   { value: 'professional', label: 'Professional', desc: '3+ years, consistent profits', color: 'bg-amber-100 text-amber-700 border-amber-300' },
 ]
 
-export function Auth({ onAuth }: AuthProps) {
+export function Auth({ onAuth, onCancel }: AuthProps) {
   const [view, setView] = useState<AuthView>('signin')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -731,6 +733,13 @@ export function Auth({ onAuth }: AuthProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5 flex items-center justify-center p-4">
+      <button
+        onClick={onCancel}
+        aria-label="Close"
+        className="fixed top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-muted-foreground shadow-sm backdrop-blur transition-colors hover:border-highlight hover:text-highlight"
+      >
+        <X className="h-5 w-5" />
+      </button>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground mx-auto mb-4">
@@ -748,6 +757,16 @@ export function Auth({ onAuth }: AuthProps) {
             {renderView()}
           </CardContent>
         </Card>
+
+        <div className="mt-6 text-center">
+          <button
+            onClick={onCancel}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-highlight"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </button>
+        </div>
       </div>
     </div>
   )

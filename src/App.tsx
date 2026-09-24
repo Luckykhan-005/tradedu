@@ -150,9 +150,37 @@ export default function App() {
     })
   }
 
+  // Auth screen open/close helpers. The auth screen replaces the whole app, so
+  // we push a history entry when opening it — browser back then closes it, and
+  // the close/back button pops that entry so history stays clean.
+  const openAuth = useCallback(() => {
+    setShowAuth(true)
+    if (!(window.history.state as { tradeedAuth?: boolean } | null)?.tradeedAuth) {
+      window.history.pushState({ ...(window.history.state || {}), tradeedAuth: true }, '')
+    }
+  }, [])
+
+  const closeAuth = useCallback(() => {
+    setShowAuth(false)
+    if ((window.history.state as { tradeedAuth?: boolean } | null)?.tradeedAuth) {
+      window.history.back()
+    }
+  }, [])
+
+  // Browser back button closes the auth screen (no URL change, pure state routing)
+  useEffect(() => {
+    const onPopState = () => setShowAuth(false)
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
   const handleAuth = (userData: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => {
     setUser(userData)
     setShowAuth(false)
+    // Consume the auth history entry so browser back doesn't reopen the screen
+    if ((window.history.state as { tradeedAuth?: boolean } | null)?.tradeedAuth) {
+      window.history.back()
+    }
     // If a student just signed in, don't redirect to admin
     if (currentPage === 'admin' && userData.role !== 'admin') {
       setCurrentPage('dashboard')
@@ -165,8 +193,8 @@ export default function App() {
   // Wrapped in useCallback so AdminPanel's fetchData dependency stays stable.
   const handleSessionExpired = useCallback(() => {
     setUser(null)
-    setShowAuth(true)
-  }, [])
+    openAuth()
+  }, [openAuth])
 
   const handleSignOut = async () => {
     // Invalidate admin session on server if admin. The token is sent via every
@@ -189,7 +217,7 @@ export default function App() {
 
   // Auth screen
   if (showAuth) {
-    return <Auth onAuth={handleAuth} />
+    return <Auth onAuth={handleAuth} onCancel={closeAuth} />
   }
 
   // Build enrolled courses for dashboard
@@ -227,7 +255,7 @@ export default function App() {
         currentPage={currentPage}
         onNavigate={navigate}
         user={user}
-        onSignIn={() => setShowAuth(true)}
+        onSignIn={openAuth}
         onSignOut={handleSignOut}
       />
 
@@ -235,7 +263,7 @@ export default function App() {
         <Landing
           onNavigateToCourses={() => navigate('courses')}
           onNavigateToBooks={() => navigate('books')}
-          onSignIn={() => setShowAuth(true)}
+          onSignIn={openAuth}
         />
       )}
 
@@ -256,7 +284,7 @@ export default function App() {
           onBack={() => navigate('courses')}
           onEnroll={() => {
             if (!user) {
-              setShowAuth(true)
+              openAuth()
             } else {
               handleEnroll(selectedCourse.id)
             }
@@ -285,20 +313,20 @@ export default function App() {
             requiredPlan="PREMIUM"
             currentPlan={user?.plan || 'FREE'}
             onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
+            onSignIn={openAuth}
           />
         )
       )}
 
       {currentPage === 'ai-tools' && (
         user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
-          <AiToolsHub user={user} onSignIn={() => setShowAuth(true)} />
+          <AiToolsHub user={user} onSignIn={openAuth} />
         ) : (
           <PlanGate
             requiredPlan="PREMIUM"
             currentPlan={user?.plan || 'FREE'}
             onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
+            onSignIn={openAuth}
           />
         )
       )}
@@ -316,7 +344,7 @@ export default function App() {
       )}
 
       {currentPage === 'journal' && (
-        <Journal user={user} onSignIn={() => setShowAuth(true)} />
+        <Journal user={user} onSignIn={openAuth} />
       )}
 
       {currentPage === 'certificates' && (
@@ -327,7 +355,7 @@ export default function App() {
             requiredPlan="STARTER"
             currentPlan={user?.plan || 'FREE'}
             onUpgrade={() => navigate('pricing')}
-            onSignIn={() => setShowAuth(true)}
+            onSignIn={openAuth}
           />
         )
       )}
