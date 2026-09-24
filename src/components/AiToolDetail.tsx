@@ -31,7 +31,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 py-3">
           <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 -ml-2">
             <ArrowLeft className="h-4 w-4" />
-            Back to AI Tools
+            Wapas AI Tools par
           </Button>
         </div>
       </div>
@@ -81,7 +81,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
               <div className="flex items-center gap-2 mb-1">
                 <Sparkles className="h-4 w-4 text-white/80" />
                 <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">
-                  AI Powered Tool
+                  AI Trading Tool
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-white">{tool.name}</h1>
@@ -100,7 +100,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
             <div>
               <h3 className="font-semibold text-amber-900 dark:text-amber-200 flex items-center gap-2 mb-1.5">
                 <Shield className="h-4 w-4" />
-                Disclaimer
+                Disclaimer / Zaroori Raay
               </h3>
               <p className="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
                 {tool.disclaimer}
@@ -115,7 +115,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
             <CardHeader className="pb-3">
               <CardTitle className="text-lg flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                Tool&apos;s Features
+                Tool ki Features
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
@@ -135,7 +135,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
             <CardHeader className="pb-3">
               <CardTitle className="text-lg flex items-center gap-2">
                 <ListOrdered className="h-5 w-5 text-blue-600" />
-                How It Works
+                Ye Kaise Kaam Karta Hai
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
@@ -162,7 +162,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
               <h3 className="font-semibold mb-1.5 flex items-center gap-2">
                 Special Note
                 <Badge className="bg-highlight/20 text-highlight-foreground text-[10px] font-medium">
-                  From Author
+                  M. Aslam Khan
                 </Badge>
               </h3>
               <p className="text-sm text-foreground/90 leading-relaxed">{tool.specialNote}</p>
@@ -187,7 +187,7 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
             className="h-14 text-base gap-2"
           >
             <ArrowLeft className="h-5 w-5" />
-            Back to All Tools
+            Wapas Tools List par
           </Button>
         </div>
       </div>
