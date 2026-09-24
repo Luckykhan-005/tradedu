@@ -28,7 +28,7 @@ import { Badge } from '@/components/ui/badge'
 import { api } from '@/lib/api'
 
 interface AuthProps {
-  onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => void
+  onAuth: (user: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => void
   onCancel: () => void
 }
 
@@ -112,7 +112,7 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
         })
         const data = await res.json()
         if (res.ok && data.user) {
-          onAuth({ name: data.user.name || email.split('@')[0], email, role: data.user.role || 'student' })
+          onAuth({ name: data.user.name || email.split('@')[0], email, role: data.user.role || 'student', plan: data.user.plan })
         } else {
           setError(data.error || 'Invalid email or password')
         }

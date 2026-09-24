@@ -118,6 +118,26 @@ export default function App() {
     fetchData()
   }, [fetchData])
 
+  // Restore session on page load — user stays signed in after refresh.
+  // Session expires after 30 days for security.
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('tradeed-session')
+      if (!raw) return
+      const session = JSON.parse(raw)
+      // Expire stale sessions (30 days)
+      if (session.expiresAt && Date.now() > session.expiresAt) {
+        localStorage.removeItem('tradeed-session')
+        return
+      }
+      if (session.user?.email) {
+        setUser(session.user)
+      }
+    } catch {
+      localStorage.removeItem('tradeed-session')
+    }
+  }, [])
+
   const navigate = (page: Page) => {
     setCurrentPage(page)
     if (page === 'courses') {
@@ -185,9 +205,16 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
 
-  const handleAuth = (userData: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string }) => {
+  const handleAuth = (userData: { name: string; email: string; role: 'student' | 'admin'; adminToken?: string; plan?: string }) => {
     setUser(userData)
     setShowAuth(false)
+    // Persist session so refresh keeps the user signed in (30-day expiry)
+    try {
+      localStorage.setItem(
+        'tradeed-session',
+        JSON.stringify({ user: userData, expiresAt: Date.now() + 30 * 24 * 60 * 60 * 1000 })
+      )
+    } catch { /* storage may be blocked — session just won't persist */ }
     // Consume the auth history entry so browser back doesn't reopen the screen
     if ((window.history.state as { tradeedAuth?: boolean } | null)?.tradeedAuth) {
       window.history.back()
@@ -221,6 +248,7 @@ export default function App() {
       } catch { /* ignore */ }
     }
     setUser(null)
+    localStorage.removeItem('tradeed-session')
     setCurrentPage('landing')
     setEnrolledCourseIds(new Set())
     setLessonProgress({})
