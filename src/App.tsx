@@ -334,6 +334,8 @@ export default function App() {
           stats={stats}
           onSelectCourse={handleSelectCourse}
           onBrowseCourses={() => navigate('courses')}
+          user={user}
+          onUpgrade={() => navigate('pricing')}
         />
       )}
 

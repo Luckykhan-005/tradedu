@@ -8,6 +8,7 @@ import {
   BarChart3,
   Calendar,
   Play,
+  Crown,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -45,6 +46,8 @@ interface DashboardProps {
   }
   onSelectCourse: (courseId: string) => void
   onBrowseCourses: () => void
+  user?: { name?: string; email?: string; plan?: string } | null
+  onUpgrade?: () => void
 }
 
 const statCards = [
@@ -66,14 +69,39 @@ export function Dashboard({
   stats,
   onSelectCourse,
   onBrowseCourses,
+  user,
+  onUpgrade,
 }: DashboardProps) {
+  const plan = user?.plan || 'FREE'
+  const planLabels: Record<string, { label: string; className: string }> = {
+    FREE: { label: 'Free Plan', className: 'bg-slate-100 text-slate-700' },
+    STARTER: { label: 'Starter Plan', className: 'bg-blue-100 text-blue-700' },
+    PREMIUM: { label: 'Premium Plan', className: 'bg-amber-100 text-amber-700' },
+  }
+  const currentPlan = planLabels[plan] || planLabels.FREE
+
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Header */}
       <div className="bg-card border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-          <h1 className="text-3xl font-bold mb-2">Your Dashboard</h1>
-          <p className="text-muted-foreground">Track your learning progress and upcoming sessions</p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <h1 className="text-3xl font-bold">
+                  {user?.name ? `Assalamu Alaikum, ${user.name.split(' ')[0]}` : 'Your Dashboard'}
+                </h1>
+                <Badge className={cn('text-xs', currentPlan.className)}>{currentPlan.label}</Badge>
+              </div>
+              <p className="text-muted-foreground">Track your learning progress and upcoming sessions</p>
+            </div>
+            {plan === 'FREE' && onUpgrade && (
+              <Button onClick={onUpgrade} className="gap-2 shrink-0">
+                <Crown className="h-4 w-4" />
+                Upgrade Plan
+              </Button>
+            )}
+          </div>
         </div>
       </div>
 
