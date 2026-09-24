@@ -57,7 +57,7 @@ export const aiToolPages: AiToolPage[] = [
     url: 'https://crypto-alpha-hunter-rbjv.bolt.host/',
     category: 'Scanner',
     // Banner image jab aa jaye: public/banners/alphahunter.jpg
-    bannerImage: undefined,
+    bannerImage: '/banners/alphahunter.jpg',
     bannerGradient: 'from-purple-600 via-violet-700 to-indigo-800',
     description:
       'AI Alpha Hunter aapka Opportunity Radar hai — ye market se pehle hidden gems, smart money moves aur breakout patterns detect karta hai. 24/7 high-priority alerts confidence aur risk assessment ke saath milte hain, taake aap move banane se pehle tayyar hon.',
