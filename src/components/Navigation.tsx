@@ -66,7 +66,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
           onClick={() => onNavigate('landing')}
           className="flex items-center gap-2 font-bold text-xl text-white"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-highlight text-highlight-foreground">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <TrendingUp className="h-5 w-5" />
           </div>
           <span className="hidden sm:inline">TradeEd</span>
@@ -80,8 +80,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
               className={cn(
                 'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all',
                 currentPage === item.id
-                  ? 'bg-highlight text-highlight-foreground'
-                  : 'text-white/90 hover:bg-primary hover:text-primary-foreground'
+                  ? 'bg-black text-white'
+                  : 'text-white/90 hover:bg-white hover:text-black'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -102,8 +102,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
           {user ? (
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-white">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-highlight/40">
-                  <User className="h-3.5 w-3.5 text-highlight-foreground" />
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/30">
+                  <User className="h-3.5 w-3.5 text-white" />
                 </div>
                 <span className="text-sm font-medium">{user.name || user.email}</span>
               </div>
@@ -139,8 +139,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
               className={cn(
                 'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
                 currentPage === item.id
-                  ? 'bg-highlight text-highlight-foreground'
-                  : 'text-white/90 hover:bg-primary hover:text-primary-foreground'
+                  ? 'bg-black text-white'
+                  : 'text-white/90 hover:bg-white hover:text-black'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -150,7 +150,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
           <div className="border-t border-white/15 pt-2 mt-2">
             <button
               onClick={toggleTheme}
-              className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-white hover:bg-primary hover:text-primary-foreground"
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-black"
             >
               {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               {theme === 'dark' ? 'Light mode' : 'Dark mode'}
