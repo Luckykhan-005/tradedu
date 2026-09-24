@@ -81,7 +81,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
                 'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all',
                 currentPage === item.id
                   ? 'bg-black text-white'
-                  : 'text-black/80 hover:bg-white hover:text-black'
+                  : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -93,7 +93,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-white/50"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
             aria-label="Toggle theme"
             title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
           >
@@ -107,12 +107,12 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
                 </div>
                 <span className="text-sm font-medium">{user.name || user.email}</span>
               </div>
-              <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-white/50 hover:text-black">
+                <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
                 <LogOut className="h-4 w-4" />
               </Button>
             </div>
           ) : (
-            <Button onClick={onSignIn} className="gap-2 bg-black text-white hover:bg-black/80">
+            <Button onClick={onSignIn} className="gap-2">
               <LogIn className="h-4 w-4" />
               Sign In
             </Button>
@@ -120,7 +120,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
         </div>
 
         <button
-          className="md:hidden p-2 rounded-lg text-black hover:bg-white/50"
+          className="md:hidden p-2 rounded-lg text-black hover:bg-primary hover:text-primary-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -140,7 +140,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
                 'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
                 currentPage === item.id
                   ? 'bg-black text-white'
-                  : 'text-black/80 hover:bg-white hover:text-black'
+                  : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -150,7 +150,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
           <div className="border-t border-black/10 pt-2 mt-2">
             <button
               onClick={toggleTheme}
-              className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-black hover:bg-white hover:text-black"
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-black hover:bg-primary hover:text-primary-foreground"
             >
               {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               {theme === 'dark' ? 'Light mode' : 'Dark mode'}
@@ -160,12 +160,12 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
             {user ? (
               <div className="flex items-center justify-between px-4 text-black">
                 <span className="text-sm">{user.name || user.email}</span>
-                <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-white/50 hover:text-black">
+              <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
                   <LogOut className="h-4 w-4" />
                 </Button>
               </div>
             ) : (
-              <Button onClick={() => { onSignIn(); setMobileOpen(false) }} className="w-full gap-2 bg-black text-white hover:bg-black/80">
+              <Button onClick={() => { onSignIn(); setMobileOpen(false) }} className="w-full gap-2">
                 <LogIn className="h-4 w-4" />
                 Sign In
               </Button>
