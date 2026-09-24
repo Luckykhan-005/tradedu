@@ -322,7 +322,7 @@ export function Auth({ onAuth }: AuthProps) {
                     className={`rounded-lg border-2 p-3 text-left transition-all ${
                       signupData.experience === level.value
                         ? `${level.color} border-current shadow-sm`
-                        : 'border-border hover:border-primary/30 bg-background'
+                        : 'border-border hover:border-highlight/60 bg-background'
                     }`}
                   >
                     <div className="text-sm font-semibold">{level.label}</div>
@@ -413,7 +413,7 @@ export function Auth({ onAuth }: AuthProps) {
                       className={`flex-1 flex items-center justify-center gap-1.5 rounded-lg border-2 py-2 text-sm font-medium transition-all ${
                         signupData.gender === g.toLowerCase()
                           ? 'border-primary bg-primary/5 text-primary'
-                          : 'border-border text-muted-foreground hover:border-primary/30'
+                          : 'border-border text-muted-foreground hover:border-highlight/60'
                       }`}
                     >
                       <Users className="h-3.5 w-3.5" />
@@ -547,7 +547,7 @@ export function Auth({ onAuth }: AuthProps) {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm">
-              <button onClick={() => { resetForm(); setView('signin') }} className="text-primary hover:underline font-medium">Back to Sign In</button>
+              <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
             </div>
           </>
         )
@@ -578,7 +578,7 @@ export function Auth({ onAuth }: AuthProps) {
               </div>
             )}
             <div className="mt-4 text-center text-sm">
-              <button onClick={() => { resetForm(); setView('forgot-email') }} className="text-primary hover:underline font-medium">Use a different email</button>
+              <button onClick={() => { resetForm(); setView('forgot-email') }} className="text-highlight hover:underline font-medium">Use a different email</button>
             </div>
           </>
         )
@@ -624,7 +624,7 @@ export function Auth({ onAuth }: AuthProps) {
               </Button>
             </form>
             <div className="mt-4 text-center text-sm">
-              <button onClick={() => { resetForm(); setView('signin') }} className="text-primary hover:underline font-medium">Back to Sign In</button>
+              <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
             </div>
           </>
         )
@@ -703,7 +703,7 @@ export function Auth({ onAuth }: AuthProps) {
               </div>
 
               <div className="text-right">
-                <button type="button" onClick={() => { resetForm(); setView('forgot-email'); }} className="text-sm text-primary hover:underline">
+                <button type="button" onClick={() => { resetForm(); setView('forgot-email'); }} className="text-sm text-highlight hover:underline">
                   Forgot password?
                 </button>
               </div>
@@ -722,7 +722,7 @@ export function Auth({ onAuth }: AuthProps) {
 
             <div className="mt-4 text-center text-sm">
               <span className="text-muted-foreground">Don't have an account?{' '}</span>
-              <button onClick={() => { resetForm(); setView('signup'); }} className="text-primary hover:underline font-medium">Sign up free</button>
+              <button onClick={() => { resetForm(); setView('signup'); }} className="text-highlight hover:underline font-medium">Sign up free</button>
             </div>
           </>
         )

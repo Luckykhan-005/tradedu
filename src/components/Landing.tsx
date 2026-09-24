@@ -88,7 +88,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
               </Badge>
               <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
                 Trading seekhein{' '}
-                <span className="text-primary">Urdu mein</span>,{' '}
+                <span className="text-highlight">Urdu mein</span>,{' '}
                 zero se professional tak
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
@@ -162,12 +162,12 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
             {bookCategories.map((cat) => (
               <Card
                 key={cat.name}
-                className="group cursor-pointer transition-all hover:border-primary/40 hover:shadow-lg"
+                className="group cursor-pointer transition-all hover:border-highlight/60 hover:shadow-lg"
                 onClick={onNavigateToBooks}
               >
                 <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                    <cat.icon className="h-6 w-6 text-primary" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-highlight/20">
+                    <cat.icon className="h-6 w-6 text-primary transition-colors group-hover:text-highlight" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-sm">{cat.name}</h3>

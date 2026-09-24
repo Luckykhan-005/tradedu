@@ -76,7 +76,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
               {upcoming.map((session) => {
                 const { day, date, time } = formatDate(session.date)
                 return (
-                  <Card key={session.id} className="hover:shadow-md transition-shadow border hover:border-primary/20">
+                  <Card key={session.id} className="hover:shadow-md transition-shadow border hover:border-highlight/50">
                     <CardContent className="p-5">
                       <div className="flex items-start gap-4">
                         <div className="flex flex-col items-center shrink-0 bg-primary/10 rounded-lg px-3 py-2 text-center">

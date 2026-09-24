@@ -26,6 +26,7 @@
   --input: oklch(0.93 0.005 60);
   --ring: oklch(0.55 0.13 80);
   --radius: 0.5rem;
+  --highlight: #4f7a1f;                    /* dark lime for light bg contrast (base: #BAFF29) */
   --chart-profit: oklch(0.72 0.17 155);
   --chart-loss: oklch(0.62 0.21 25);
   --chart-neutral: oklch(0.55 0.01 60);
@@ -51,6 +52,7 @@
   --border: oklch(0.26 0.003 260);           /* #2b3139 */
   --input: oklch(0.22 0.003 260);
   --ring: oklch(0.82 0.16 85);
+  --highlight: #baff29;                    /* 3rd brand color — lime */
 }
 
 @theme inline {
@@ -79,6 +81,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: #0b0e11;
 }
 
 @layer base {

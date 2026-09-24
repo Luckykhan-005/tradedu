@@ -80,8 +80,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
               className={cn(
                 'flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all',
                 currentPage === item.id
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                  ? 'bg-highlight/15 text-highlight'
+                  : 'text-muted-foreground hover:bg-secondary hover:text-highlight'
               )}
             >
               <item.icon className="h-4 w-4" />
@@ -139,8 +139,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut 
               className={cn(
                 'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
                 currentPage === item.id
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-muted-foreground hover:bg-secondary'
+                  ? 'bg-highlight/15 text-highlight'
+                  : 'text-muted-foreground hover:bg-secondary hover:text-highlight'
               )}
             >
               <item.icon className="h-4 w-4" />

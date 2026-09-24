@@ -30,10 +30,10 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="mb-3 text-sm font-semibold">Quick Links</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><button onClick={() => onNavigate('courses')} className="hover:text-primary">Courses</button></li>
-              <li><button onClick={() => onNavigate('books')} className="hover:text-primary">Books</button></li>
-              <li><button onClick={() => onNavigate('pricing')} className="hover:text-primary">Plans</button></li>
-              <li><button onClick={() => onNavigate('calculator')} className="hover:text-primary">Risk Calculator</button></li>
+              <li><button onClick={() => onNavigate('courses')} className="hover:text-highlight">Courses</button></li>
+              <li><button onClick={() => onNavigate('books')} className="hover:text-highlight">Books</button></li>
+              <li><button onClick={() => onNavigate('pricing')} className="hover:text-highlight">Plans</button></li>
+              <li><button onClick={() => onNavigate('calculator')} className="hover:text-highlight">Risk Calculator</button></li>
             </ul>
           </div>
 
@@ -41,10 +41,10 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="mb-3 text-sm font-semibold">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><button onClick={() => onNavigate('about')} className="flex items-center gap-1.5 hover:text-primary"><Info className="h-3.5 w-3.5" /> About Us</button></li>
-              <li><button onClick={() => onNavigate('contact')} className="flex items-center gap-1.5 hover:text-primary"><Mail className="h-3.5 w-3.5" /> Contact</button></li>
-              <li><button onClick={() => onNavigate('privacy')} className="flex items-center gap-1.5 hover:text-primary"><Shield className="h-3.5 w-3.5" /> Privacy Policy</button></li>
-              <li><button onClick={() => onNavigate('terms')} className="flex items-center gap-1.5 hover:text-primary"><FileText className="h-3.5 w-3.5" /> Terms</button></li>
+              <li><button onClick={() => onNavigate('about')} className="flex items-center gap-1.5 hover:text-highlight"><Info className="h-3.5 w-3.5" /> About Us</button></li>
+              <li><button onClick={() => onNavigate('contact')} className="flex items-center gap-1.5 hover:text-highlight"><Mail className="h-3.5 w-3.5" /> Contact</button></li>
+              <li><button onClick={() => onNavigate('privacy')} className="flex items-center gap-1.5 hover:text-highlight"><Shield className="h-3.5 w-3.5" /> Privacy Policy</button></li>
+              <li><button onClick={() => onNavigate('terms')} className="flex items-center gap-1.5 hover:text-highlight"><FileText className="h-3.5 w-3.5" /> Terms</button></li>
             </ul>
           </div>
 
@@ -56,7 +56,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 href="https://youtube.com/@TradeEd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-highlight hover:text-highlight"
                 aria-label="YouTube"
               >
                 <Youtube className="h-4 w-4" />
@@ -65,7 +65,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 href="https://t.me/tradeed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-highlight hover:text-highlight"
                 aria-label="Telegram"
               >
                 <Send className="h-4 w-4" />
@@ -74,7 +74,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 href="https://discord.gg/tradeed"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-highlight hover:text-highlight"
                 aria-label="Discord"
               >
                 <MessageSquare className="h-4 w-4" />

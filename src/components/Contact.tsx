@@ -61,7 +61,7 @@ export function Contact() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mb-16">
         {contactMethods.map((m) => (
           <a key={m.title} href={m.href} target="_blank" rel="noopener noreferrer">
-            <Card className="h-full transition-all hover:border-primary/50">
+            <Card className="h-full transition-all hover:border-highlight/60">
               <CardContent className="flex items-start gap-4 p-6">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <m.icon className="h-5 w-5 text-primary" />

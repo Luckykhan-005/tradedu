@@ -140,7 +140,7 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
                 return (
                   <Card
                     key={course.id}
-                    className="group overflow-hidden cursor-pointer border hover:shadow-lg transition-all hover:border-primary/20"
+                    className="group overflow-hidden cursor-pointer border hover:shadow-lg transition-all hover:border-highlight/50"
                     onClick={() => onSelectCourse(course.id)}
                   >
                     <div className="relative h-44 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
@@ -160,7 +160,7 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
                       )}
                     </div>
                     <CardContent className="p-5">
-                      <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors line-clamp-1">
+                      <h3 className="font-bold text-lg mb-1 group-hover:text-highlight transition-colors line-clamp-1">
                         {course.title}
                       </h3>
                       <p className="text-sm text-muted-foreground mb-3 line-clamp-2">

@@ -164,7 +164,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
                       className={`flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-center transition-all ${
                         form.plan === plan
                           ? 'border-primary bg-primary/5'
-                          : 'border-border hover:border-primary/50'
+                          : 'border-border hover:border-highlight/60'
                       }`}
                     >
                       <Sparkles className={`h-6 w-6 ${form.plan === plan ? 'text-primary' : 'text-muted-foreground'}`} />
@@ -180,7 +180,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
               <div className="space-y-2">
                 <Label>Payment Screenshot / Receipt</Label>
                 <div className="flex flex-col gap-3">
-                  <label className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-dashed border-border bg-secondary/30 p-5 text-center transition-all hover:border-primary/50">
+                  <label className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-dashed border-border bg-secondary/30 p-5 text-center transition-all hover:border-highlight/60">
                     <input
                       type="file"
                       accept="image/*"

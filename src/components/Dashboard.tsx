@@ -115,7 +115,7 @@ export function Dashboard({
                   return (
                     <Card
                       key={course.id}
-                      className="cursor-pointer hover:shadow-md transition-all hover:border-primary/20"
+                      className="cursor-pointer hover:shadow-md transition-all hover:border-highlight/50"
                       onClick={() => onSelectCourse(course.courseId)}
                     >
                       <CardContent className="p-4">
