@@ -32,6 +32,7 @@ import {
   signInStudent,
   resetPasswordEmail,
   updatePassword,
+  fetchProfile,
   type TradeEdUser,
 } from '@/lib/supabase'
 
@@ -99,30 +100,54 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
     setError('')
 
     if (loginAs === 'admin') {
-      // Admin still uses the old token-based endpoint (Supabase roles handle it too,
-      // but admin tokens are tied to the courses API for now).
-      try {
-        const res = await fetch(api('/api/admin/auth'), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password }),
-        })
-        const data = await res.json()
-        if (!res.ok) {
-          setError(data.error || 'Invalid credentials')
+      // Admin login goes through Supabase too — profile.role must be 'admin'.
+      if (hasSupabase) {
+        const { user, error: errMsg } = await signInStudent({ email, password })
+        if (errMsg) {
+          setError(errMsg)
           setLoading(false)
           return
         }
-        onAuth({
-          id: `admin-${email}`,
-          name: email.split('@')[0],
-          email,
-          role: 'admin',
-          plan: 'PREMIUM',
-          adminToken: data.token,
-        } as TradeEdUser & { adminToken?: string })
-      } catch {
-        setError('Could not connect to server')
+        if (!user) {
+          setError('Login failed')
+          setLoading(false)
+          return
+        }
+        // Verify this account actually has admin role
+        const profile = await fetchProfile(user.id)
+        const role = profile?.role || user.role
+        if (role !== 'admin') {
+          await supabase.auth.signOut()
+          setError('This account does not have admin access.')
+          setLoading(false)
+          return
+        }
+        onAuth({ ...user, role: 'admin' })
+      } else {
+        // Legacy fallback (Shogo) — only when Supabase is unconfigured
+        try {
+          const res = await fetch(api('/api/admin/auth'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+          })
+          const data = await res.json()
+          if (!res.ok) {
+            setError(data.error || 'Invalid credentials')
+            setLoading(false)
+            return
+          }
+          onAuth({
+            id: `admin-${email}`,
+            name: email.split('@')[0],
+            email,
+            role: 'admin',
+            plan: 'PREMIUM',
+            adminToken: data.token,
+          } as TradeEdUser & { adminToken?: string })
+        } catch {
+          setError('Could not connect to server')
+        }
       }
     } else if (hasSupabase) {
       const { user, error: errMsg } = await signInStudent({ email, password })
