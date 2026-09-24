@@ -7,6 +7,7 @@ import {
   StickyNote,
   Sparkles,
   Shield,
+  Sparkle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -25,128 +26,152 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
   }
 
   return (
-    <div className="min-h-screen bg-secondary/30">
-      {/* Back bar */}
-      <div className="bg-background border-b border-border sticky top-16 z-40">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-3">
-          <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 -ml-2">
+    <div className="min-h-screen bg-background">
+      {/* Sticky back bar */}
+      <div className="bg-background/95 backdrop-blur border-b border-border sticky top-16 z-40">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+          <Button variant="ghost" size="sm" onClick={onBack} className="gap-2 -ml-2 shrink-0">
             <ArrowLeft className="h-4 w-4" />
-            Wapas AI Tools par
+            <span className="hidden sm:inline">Wapas AI Tools par</span>
+            <span className="sm:hidden">Wapas</span>
+          </Button>
+          <div className="flex items-center gap-2 min-w-0">
+            <Sparkles className="h-4 w-4 text-primary shrink-0" />
+            <span className="font-semibold text-sm truncate">{tool.name}</span>
+            <Badge variant="secondary" className="hidden sm:inline-flex shrink-0">
+              {tool.category}
+            </Badge>
+          </div>
+          <Button size="sm" onClick={openTool} className="gap-1.5 shrink-0">
+            <ExternalLink className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Open Tool</span>
           </Button>
         </div>
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8 space-y-6">
-        {/* ===== Professional Banner ===== */}
-        <div
-          className={cn(
-            'relative overflow-hidden rounded-2xl',
-            tool.bannerImage ? '' : `bg-gradient-to-r ${tool.bannerGradient}`
-          )}
-        >
-          {tool.bannerImage ? (
-            <img
-              src={tool.bannerImage}
-              alt={tool.name}
-              className="w-full h-48 sm:h-64 object-cover"
-              loading="eager"
-            />
-          ) : (
-            <div className="h-48 sm:h-64 flex flex-col items-center justify-center text-center px-6">
-              <div className="absolute inset-0 opacity-10 pointer-events-none">
-                <div className="absolute top-4 left-6 h-20 w-20 border border-white/30 rounded-full" />
-                <div className="absolute bottom-4 right-8 h-14 w-14 border border-white/30 rounded-full" />
-                <div className="absolute top-8 right-16 h-6 w-28 bg-white/20 rounded" />
-                <div className="absolute bottom-10 left-12 h-4 w-20 bg-white/20 rounded" />
-              </div>
-              <div className="relative z-10">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <Sparkles className="h-5 w-5 text-white/80" />
-                  <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">
-                    AI Powered Tool
-                  </span>
-                </div>
-                <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">{tool.name}</h1>
-                <p className="text-white/85 text-sm sm:text-base max-w-xl mx-auto">{tool.tagline}</p>
-                <div className="mt-4">
-                  <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                    {tool.category}
-                  </Badge>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* Overlay heading if banner image is used */}
-          {tool.bannerImage && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6">
-              <div className="flex items-center gap-2 mb-1">
-                <Sparkles className="h-4 w-4 text-white/80" />
-                <span className="text-white/80 text-xs font-semibold tracking-widest uppercase">
-                  AI Trading Tool
+      {/* ===== Full-width hero banner — complete image, no cut ===== */}
+      <section className="w-full bg-black">
+        {tool.bannerImage ? (
+          <img
+            src={tool.bannerImage}
+            alt={tool.name}
+            className="w-full h-auto block"
+            loading="eager"
+          />
+        ) : (
+          <div
+            className={cn(
+              'w-full min-h-[240px] sm:min-h-[360px] lg:min-h-[440px] flex flex-col items-center justify-center text-center px-6',
+              `bg-gradient-to-r ${tool.bannerGradient}`
+            )}
+          >
+            <span className="text-white/75 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              AI Trading Tool
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3">
+              {tool.name}
+            </h1>
+            <p className="text-white/85 text-base sm:text-lg max-w-2xl">{tool.tagline}</p>
+          </div>
+        )}
+      </section>
+
+      {/* Title band under banner */}
+      <section className="border-b border-border bg-card">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 text-primary px-3 py-1 text-xs font-semibold tracking-wide uppercase">
+                  <Sparkle className="h-3.5 w-3.5" />
+                  AI Powered
                 </span>
+                <Badge variant="outline">{tool.category}</Badge>
               </div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white">{tool.name}</h1>
-              <p className="text-white/85 text-sm sm:text-base">{tool.tagline}</p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3">
+                {tool.name}
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-3xl">{tool.tagline}</p>
             </div>
-          )}
+            <div className="flex flex-col sm:flex-row gap-3 lg:shrink-0">
+              <Button size="lg" onClick={openTool} className="h-14 text-base font-semibold gap-2.5 px-8">
+                <ExternalLink className="h-5 w-5" />
+                Open {tool.name}
+              </Button>
+              <Button size="lg" variant="outline" onClick={onBack} className="h-14 text-base gap-2">
+                <ArrowLeft className="h-5 w-5" />
+                Wapas Tools
+              </Button>
+            </div>
+          </div>
+          <p className="mt-6 text-muted-foreground leading-relaxed max-w-4xl">
+            {tool.description}
+          </p>
         </div>
+      </section>
 
-        {/* Description */}
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto">{tool.description}</p>
-
-        {/* ===== Disclaimer Box ===== */}
-        <Card className="border-amber-300 bg-amber-50 dark:bg-amber-950/40 dark:border-amber-800">
-          <CardContent className="p-5 flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
-            <div>
-              <h3 className="font-semibold text-amber-900 dark:text-amber-200 flex items-center gap-2 mb-1.5">
+      {/* ===== Content — full width ===== */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-8">
+        {/* Disclaimer */}
+        <Card className="border-amber-400/70 bg-amber-50/80 dark:bg-amber-950/50 dark:border-amber-700 shadow-sm">
+          <CardContent className="p-5 sm:p-6 flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/60">
+              <AlertTriangle className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-bold text-base sm:text-lg text-amber-900 dark:text-amber-100 flex items-center gap-2 mb-2">
                 <Shield className="h-4 w-4" />
                 Disclaimer / Zaroori Raay
               </h3>
-              <p className="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
+              <p className="text-sm sm:text-[15px] text-amber-800 dark:text-amber-200/90 leading-relaxed">
                 {tool.disclaimer}
               </p>
             </div>
           </CardContent>
         </Card>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* ===== Features Box ===== */}
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+        {/* Features + How it works — full width side by side */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          <Card className="shadow-sm">
+            <CardHeader className="pb-4 border-b border-border">
+              <CardTitle className="text-xl flex items-center gap-2.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/50">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                </span>
                 Tool ki Features
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-0">
-              <ul className="space-y-2.5">
+            <CardContent className="pt-5">
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-3">
                 {tool.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                    <span className="text-foreground">{feature}</span>
+                  <li key={i} className="flex items-start gap-2.5 text-[15px]">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-1 shrink-0" />
+                    <span className="text-foreground leading-snug">{feature}</span>
                   </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
 
-          {/* ===== How It Works Box ===== */}
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <ListOrdered className="h-5 w-5 text-blue-600" />
+          <Card className="shadow-sm">
+            <CardHeader className="pb-4 border-b border-border">
+              <CardTitle className="text-xl flex items-center gap-2.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50">
+                  <ListOrdered className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                </span>
                 Ye Kaise Kaam Karta Hai
               </CardTitle>
             </CardHeader>
-            <CardContent className="pt-0">
-              <ol className="space-y-3">
+            <CardContent className="pt-5">
+              <ol className="space-y-4">
                 {tool.howItWorks.map((step, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary text-xs font-bold">
+                  <li key={i} className="flex items-start gap-3.5">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
                       {i + 1}
                     </span>
-                    <span className="text-foreground leading-relaxed pt-0.5">{step}</span>
+                    <span className="text-[15px] text-foreground leading-relaxed pt-0.5">
+                      {step}
+                    </span>
                   </li>
                 ))}
               </ol>
@@ -154,42 +179,48 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
           </Card>
         </div>
 
-        {/* ===== Special Note Box ===== */}
-        <Card className="border-highlight/50 bg-highlight/10 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-1 h-full bg-highlight" />
-          <CardContent className="p-5 flex items-start gap-3">
-            <StickyNote className="h-5 w-5 text-highlight mt-0.5 shrink-0" />
-            <div>
-              <h3 className="font-semibold mb-1.5 flex items-center gap-2">
-                Special Note
-                <Badge className="bg-highlight/20 text-highlight-foreground text-[10px] font-medium">
-                  M. Aslam Khan
-                </Badge>
-              </h3>
-              <p className="text-sm text-foreground/90 leading-relaxed">{tool.specialNote}</p>
+        {/* Special Note — full width */}
+        <Card className="relative overflow-hidden border-primary/40 bg-gradient-to-r from-primary/[0.07] to-highlight/[0.12] shadow-sm">
+          <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-primary via-highlight to-primary" />
+          <CardContent className="p-5 sm:p-7 pl-6 sm:pl-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-highlight/25">
+                <StickyNote className="h-5 w-5 text-highlight-foreground dark:text-highlight" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-bold text-lg mb-2 flex flex-wrap items-center gap-2.5">
+                  Special Note
+                  <Badge className="bg-primary text-primary-foreground text-[11px] font-semibold px-2.5 py-0.5">
+                    M. Aslam Khan
+                  </Badge>
+                </h3>
+                <p className="text-[15px] sm:text-base text-foreground/90 leading-relaxed">
+                  {tool.specialNote}
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* ===== Open Tool Button ===== */}
-        <div className="flex flex-col sm:flex-row gap-3 pt-2 pb-8">
-          <Button
-            size="lg"
-            onClick={openTool}
-            className="flex-1 h-14 text-base font-semibold gap-2.5"
-          >
-            <ExternalLink className="h-5 w-5" />
-            Open {tool.name}
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={onBack}
-            className="h-14 text-base gap-2"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            Wapas Tools List par
-          </Button>
+        {/* Bottom CTA — full width */}
+        <div className="rounded-2xl border border-border bg-gradient-to-r from-card via-secondary/40 to-card p-6 sm:p-10 text-center shadow-sm">
+          <Sparkles className="h-10 w-10 text-primary mx-auto mb-4" />
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+            Ready? {tool.name} use karein
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+            Tool naye tab me khulega — poori screen par signals, analysis aur dashboard dekh sakein.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <Button size="lg" onClick={openTool} className="h-14 text-base font-semibold gap-2.5 px-10">
+              <ExternalLink className="h-5 w-5" />
+              Open {tool.name}
+            </Button>
+            <Button size="lg" variant="outline" onClick={onBack} className="h-14 text-base gap-2">
+              <ArrowLeft className="h-5 w-5" />
+              Wapas AI Tools Hub
+            </Button>
+          </div>
         </div>
       </div>
     </div>
