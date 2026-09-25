@@ -104,6 +104,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Risk', 'Position Sizing', 'Stop Loss', 'Discipline'],
     date: '2026-09-22',
     readingTime: '7 min read',
+    hero: '/blog/risk-management-1-percent.jpg',
+    heroAlt: 'Trading Risk Management — 1% rule jo account ko zinda rakhti hai',
     sections: [
       {
         paragraphs: [
@@ -172,6 +174,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Psychology', 'FOMO', 'Discipline', 'Emotions'],
     date: '2026-09-20',
     readingTime: '6 min read',
+    hero: '/blog/fomo-revenge-trading.jpg',
+    heroAlt: 'FOMO aur Revenge Trading — trading psychology ke do sabse bade dushman',
     sections: [
       {
         paragraphs: [
@@ -240,6 +244,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Binance', 'P2P', 'Beginners', 'Pakistan'],
     date: '2026-09-18',
     readingTime: '9 min read',
+    hero: '/blog/binance-p2p-guide.jpg',
+    heroAlt: 'Binance P2P se crypto kharidna aur bechna — complete Roman Urdu guide',
     sections: [
       {
         paragraphs: [
@@ -311,6 +317,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Candlesticks', 'Technical Analysis', 'Charts'],
     date: '2026-09-16',
     readingTime: '7 min read',
+    hero: '/blog/candlestick-patterns.jpg',
+    heroAlt: '5 candlestick patterns jo har trader ko aane chahiye',
     sections: [
       {
         paragraphs: [
@@ -373,6 +381,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Journal', 'Discipline', 'Improvement'],
     date: '2026-09-14',
     readingTime: '6 min read',
+    hero: '/blog/trading-journal.jpg',
+    heroAlt: 'Trading journal kyun zaroori hai — apni galtiyon se seekhne ka tareeqa',
     sections: [
       {
         paragraphs: [

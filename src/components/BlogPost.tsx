@@ -119,7 +119,7 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
             <img
               src={post.hero}
               alt={post.heroAlt || post.title}
-              className="aspect-[16/9] w-full object-cover"
+              className="w-full"
               loading="eager"
             />
           </figure>

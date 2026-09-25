@@ -60,7 +60,7 @@ export function Blog({ onSelectPost }: BlogProps) {
                   <img
                     src={post.hero}
                     alt={post.heroAlt || post.title}
-                    className="aspect-[16/9] w-full border-b border-border object-cover"
+                    className="w-full border-b border-border object-cover"
                     loading="lazy"
                   />
                 )}
