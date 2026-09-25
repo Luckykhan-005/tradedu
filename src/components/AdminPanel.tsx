@@ -372,6 +372,8 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
   // Editing states
   const [showCourseForm, setShowCourseForm] = useState(false)
   const [editingCourse, setEditingCourse] = useState<AdminCourse | null>(null)
+  const [pendingDeleteCourse, setPendingDeleteCourse] = useState<AdminCourse | null>(null)
+  const [deletingCourse, setDeletingCourse] = useState(false)
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null)
   const [expandedModules, setExpandedModules] = useState<Set<string>>(new Set())
   const [showLessonForm, setShowLessonForm] = useState<string | null>(null) // moduleId
@@ -453,11 +455,22 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
     }
   }
 
-  const handleDeleteCourse = async (id: string) => {
-    if (!confirm('Delete this course and all its modules/lessons?')) return
-    await adminDeleteCourse(id)
-    if (selectedCourseId === id) setSelectedCourseId(null)
-    fetchData()
+  const handleDeleteCourse = async (course: AdminCourse) => {
+    setDeletingCourse(true)
+    try {
+      const { error } = await adminDeleteCourse(course.id)
+      if (error) {
+        alert(`Course delete failed:\n${error}`)
+        return
+      }
+      if (selectedCourseId === course.id) setSelectedCourseId(null)
+      setPendingDeleteCourse(null)
+      await fetchData()
+    } catch (err: any) {
+      alert(`Network error while deleting: ${err?.message || 'Unknown error'}`)
+    } finally {
+      setDeletingCourse(false)
+    }
   }
 
   const handleTogglePublish = async (course: AdminCourse) => {
@@ -952,7 +965,7 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => handleDeleteCourse(course.id)}
+                            onClick={() => setPendingDeleteCourse(course)}
                             className="text-destructive hover:text-destructive"
                           >
                             <Trash2 className="h-4 w-4" />
@@ -1048,6 +1061,43 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Delete course confirmation */}
+      {pendingDeleteCourse && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-md rounded-xl bg-card p-6 shadow-lg">
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-destructive/10">
+                <Trash2 className="h-5 w-5 text-destructive" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-semibold">Delete this course?</h3>
+                <p className="truncate text-sm text-muted-foreground">{pendingDeleteCourse.title}</p>
+              </div>
+            </div>
+            <p className="mb-5 text-sm text-muted-foreground">
+              Is course ke saare modules, lessons aur student progress bhi delete ho jayenge. Ye
+              action wapas nahi ho sakta.
+            </p>
+            <div className="flex justify-end gap-3">
+              <Button
+                variant="outline"
+                onClick={() => setPendingDeleteCourse(null)}
+                disabled={deletingCourse}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="destructive"
+                onClick={() => handleDeleteCourse(pendingDeleteCourse)}
+                disabled={deletingCourse}
+              >
+                {deletingCourse ? 'Deleting...' : 'Delete Course'}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

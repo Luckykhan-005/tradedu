@@ -173,8 +173,11 @@ export async function adminSaveCourse(input: {
 }
 
 export async function adminDeleteCourse(id: string): Promise<{ error?: string }> {
-  const { error } = await supabase.from('courses').delete().eq('id', id)
-  return { error: error?.message }
+  const { data, error } = await supabase.from('courses').delete().eq('id', id).select('id')
+  if (error) return { error: error.message }
+  if (!data || data.length === 0)
+    return { error: 'Course delete nahi hua — admin permission (RLS) se block ho raha hai' }
+  return {}
 }
 
 /* ---------------- Admin: modules ---------------- */
