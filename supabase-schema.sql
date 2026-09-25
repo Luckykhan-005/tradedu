@@ -84,6 +84,19 @@ create trigger subscription_requests_set_updated_at
   for each row execute function public.set_updated_at();
 
 -- 3) ROW LEVEL SECURITY
+-- is_admin() helper — SECURITY DEFINER so it bypasses RLS (no recursion).
+-- MUST be created BEFORE the admin policies that reference it.
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer set search_path = public
+as $$
+  select exists (
+    select 1 from public.profiles p
+    where p.id = auth.uid() and p.role = 'admin'
+  );
+$$;
+
 alter table public.profiles enable row level security;
 alter table public.subscription_requests enable row level security;
 
@@ -99,26 +112,18 @@ create policy "Users can update own profile"
   using (auth.uid() = id);
 
 -- Admins can read all profiles
+-- NOTE: must use is_admin() (SECURITY DEFINER), NOT a subquery on profiles —
+-- a self-referencing subquery makes PostgREST recurse and return 500 for everyone.
 drop policy if exists "Admins can read all profiles" on public.profiles;
 create policy "Admins can read all profiles"
   on public.profiles for select
-  using (
-    exists (
-      select 1 from public.profiles p
-      where p.id = auth.uid() and p.role = 'admin'
-    )
-  );
+  using (public.is_admin());
 
 -- Admins can update any profile (change plan, role)
 drop policy if exists "Admins can update any profile" on public.profiles;
 create policy "Admins can update any profile"
   on public.profiles for update
-  using (
-    exists (
-      select 1 from public.profiles p
-      where p.id = auth.uid() and p.role = 'admin'
-    )
-  );
+  using (public.is_admin());
 
 -- SUBSCRIPTION REQUESTS: anyone (even anon) can submit a request
 drop policy if exists "Anyone can submit subscription request" on public.subscription_requests;
@@ -132,39 +137,17 @@ create policy "Users can view own requests"
   on public.subscription_requests for select
   using (auth.uid() = user_id or user_id is null and email = coalesce(auth.email(), ''));
 
--- Admins can view/update all requests
+-- Admins can view/update all requests (uses is_admin() to avoid recursion)
 drop policy if exists "Admins can view all requests" on public.subscription_requests;
 create policy "Admins can view all requests"
   on public.subscription_requests for select
-  using (
-    exists (
-      select 1 from public.profiles p
-      where p.id = auth.uid() and p.role = 'admin'
-    )
-  );
+  using (public.is_admin());
 
 drop policy if exists "Admins can update requests" on public.subscription_requests;
 create policy "Admins can update requests"
   on public.subscription_requests for update
-  using (
-    exists (
-      select 1 from public.profiles p
-      where p.id = auth.uid() and p.role = 'admin'
-    )
-  );
+  using (public.is_admin());
 
 -- 4) MAKE FIRST SIGNED-UP USER AN ADMIN (optional)
 -- Run this manually after your first signup to gain admin access:
 -- update public.profiles set role = 'admin' where email = 'YOUR_EMAIL@example.com';
-
--- 5) HELPER: is_admin() function
-create or replace function public.is_admin()
-returns boolean
-language sql
-security definer set search_path = public
-as $$
-  select exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role = 'admin'
-  );
-$$;
