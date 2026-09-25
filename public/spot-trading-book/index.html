@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ur-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spot Trading - Complete Professional Guide</title>
+<style>
+:root{
+  --bg:#0f1115; --bg2:#161a22; --card:#1b2029; --text:#e8ebf0; --muted:#9aa4b2;
+  --accent:#2dd4a7; --accent2:#f0b23c; --danger:#ef5a5a; --border:#2a3140;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){ --bg:#f7f8fa; --bg2:#ffffff; --card:#ffffff; --text:#1a1f29; --muted:#5a6472; --border:#e2e6ec; }
+}
+:root[data-theme="light"]{ --bg:#f7f8fa; --bg2:#ffffff; --card:#ffffff; --text:#1a1f29; --muted:#5a6472; --border:#e2e6ec; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.75;}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 80px;}
+header.hero{background:linear-gradient(135deg,var(--bg2),var(--card));border:1px solid var(--border);border-radius:16px;padding:36px 24px;margin-bottom:28px;text-align:center;}
+header.hero h1{font-size:1.9em;margin:0 0 8px;color:var(--accent);}
+header.hero p{color:var(--muted);margin:0;}
+nav.toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:30px;}
+nav.toc h2{margin-top:0;font-size:1.1em;color:var(--accent2);}
+nav.toc ol{margin:0;padding-inline-start:20px;color:var(--muted);}
+nav.toc a{color:var(--text);text-decoration:none;}
+nav.toc a:hover{color:var(--accent);}
+section{margin-bottom:36px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+h2{color:var(--accent);font-size:1.35em;display:flex;align-items:center;gap:10px;}
+h2 .num{background:var(--accent);color:#08130f;width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7em;flex:none;}
+h3{color:var(--accent2);font-size:1.05em;margin-bottom:6px;}
+h4{color:var(--text);font-size:0.98em;margin:14px 0 4px;}
+p{margin:8px 0;}
+ul,ol{padding-inline-start:22px;}
+li{margin:6px 0;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:14px 0;}
+.warn{border-left:4px solid var(--danger);}
+.tip{border-left:4px solid var(--accent);}
+.info{border-left:4px solid var(--accent2);}
+.svgbox{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin:16px 0;overflow-x:auto;}
+.svgbox svg{width:100%;height:auto;display:block;}
+.svgbox .cap{color:var(--muted);font-size:0.85em;text-align:center;margin-top:6px;}
+table{width:100%;border-collapse:collapse;margin:14px 0;overflow-x:auto;display:block;}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:right;font-size:0.92em;}
+th{background:var(--bg2);color:var(--accent2);}
+.booklist{display:grid;gap:10px;}
+.booklist .card{margin:0;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:560px){.grid2{grid-template-columns:1fr;}}
+footer{text-align:center;color:var(--muted);font-size:0.85em;margin-top:40px;}
+code{background:var(--bg2);padding:2px 6px;border-radius:6px;}
+.example{background:var(--bg2);border:1px dashed var(--border);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:0.94em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+<h1>📈 Spot Trading — Mukammal Professional Guide</h1>
+<p>Sifar se professional level tak — deep explanation, diagrams aur workflow k sath (Roman Urdu)</p>
+</header>
+
+<nav class="toc">
+<h2>Fehrist (Table of Contents)</h2>
+<ol>
+<li><a href="#s1">Spot Trading Kya Hai?</a></li>
+<li><a href="#s2">Exchange Aur Wallet Ka Intekhab</a></li>
+<li><a href="#s3">Order Types Samajhna</a></li>
+<li><a href="#s4">Chart Reading Aur Candlesticks</a></li>
+<li><a href="#s5">Support, Resistance Aur Trend</a></li>
+<li><a href="#s6">Technical Indicators</a></li>
+<li><a href="#s7">Chart Patterns</a></li>
+<li><a href="#s8">Trading Strategy Banana</a></li>
+<li><a href="#s9">Risk Management Aur Position Sizing</a></li>
+<li><a href="#s10">Trade Execution Workflow</a></li>
+<li><a href="#s11">Trading Psychology</a></li>
+<li><a href="#s12">Aam Ghaltiyan (Common Mistakes)</a></li>
+<li><a href="#s13">Trading Journal Aur Improvement</a></li>
+<li><a href="#s14">30-Din Ka Practice Plan</a></li>
+<li><a href="#s15">Behtareen Kitabain (Recommended Books)</a></li>
+</ol>
+</nav>
+
+<section id="s1">
+<h2><span class="num">1</span>Spot Trading Kya Hai?</h2>
+<p>Spot trading ka matlab hai kisi asset (jaise crypto, stock ya commodity) ko <b>current market price</b> par foran khareedna ya bechna, jahan ownership turant transfer ho jati hai — futures ya margin trading ki tarah koi contract ya udhaar (leverage) nahi hota.</p>
+<h4>Spot Market Ka Kaam Kaise Chalta Hai</h4>
+<p>Jab aap spot market me order dete hain, exchange apka order <b>order book</b> me daal deta hai jahan buyers aur sellers ki bids/asks match hoti hain. Jaise hi koi buyer ka price kisi seller ke price se match hota hai, trade turant "settle" ho jata hai — yani asset seller se buyer ko turant transfer hota hai.</p>
+<div class="card tip">
+<h3>Spot vs Futures vs Margin</h3>
+<table>
+<tr><th>Feature</th><th>Spot</th><th>Futures</th><th>Margin</th></tr>
+<tr><td>Ownership</td><td>Haan (real asset)</td><td>Nahi (contract)</td><td>Karza liya hua asset</td></tr>
+<tr><td>Leverage</td><td>Nahi</td><td>Haan (5x-125x)</td><td>Haan (2x-10x)</td></tr>
+<tr><td>Liquidation Risk</td><td>Nahi</td><td>Haan</td><td>Haan</td></tr>
+<tr><td>Risk Level</td><td>Kam</td><td>Bohat Zyada</td><td>Zyada</td></tr>
+</table>
+</div>
+<p>Beginners ke liye spot trading is liye behtar hai kyunke maximum loss sirf utna hi ho sakta hai jitni capital lagayi gayi ho — koi liquidation ka khatra nahi hota.</p>
+</section>
+
+<section id="s2">
+<h2><span class="num">2</span>Exchange Aur Wallet Ka Intekhab</h2>
+<p>Exchange ka intekhab apki trading journey ki bunyad hai. Ghalat exchange chunne se fees, security aur liquidity teeno masle ban sakte hain.</p>
+<div class="grid2">
+<div class="card">
+<h4>Exchange Check List</h4>
+<ul>
+<li>Regulation/licensing status</li>
+<li>24h trading volume aur liquidity</li>
+<li>Maker/taker fee structure</li>
+<li>Deposit/withdrawal speed</li>
+<li>Customer support quality</li>
+<li>Past security breach history</li>
+</ul>
+</div>
+<div class="card">
+<h4>Wallet Types</h4>
+<ul>
+<li><b>Exchange Wallet:</b> Trading ke liye, active funds</li>
+<li><b>Hot Wallet:</b> Internet se connected, medium security</li>
+<li><b>Cold Wallet:</b> Offline, bara amount store karne ke liye best</li>
+</ul>
+</div>
+</div>
+<div class="card warn">
+<h3>Zaroori Ehtiyat</h3>
+<p>Bara amount kabhi bhi sirf exchange wallet me na rakhein. 2FA (Google Authenticator) zaroor on karein, withdrawal whitelist use karein, aur seed phrase kabhi kisi se share na karein — na hi kisi customer support ko.</p>
+</div>
+</section>
+
+<section id="s3">
+<h2><span class="num">3</span>Order Types Samajhna</h2>
+<table>
+<tr><th>Order Type</th><th>Kaam</th><th>Kab Use Karein</th></tr>
+<tr><td>Market Order</td><td>Foran current price par execute</td><td>Jab foran entry/exit zaroori ho</td></tr>
+<tr><td>Limit Order</td><td>Apki di hui price par ya usse behtar par execute</td><td>Jab specific price par entry chahiye</td></tr>
+<tr><td>Stop-Loss Order</td><td>Nuksan mehdood karne ke liye automatic sell</td><td>Har trade me hamesha</td></tr>
+<tr><td>Take-Profit Order</td><td>Target price par automatic profit book</td><td>Pehle se target set karne ke liye</td></tr>
+<tr><td>Stop-Limit Order</td><td>Stop price hit hone par limit order trigger</td><td>Slippage control karne ke liye</td></tr>
+<tr><td>Trailing Stop</td><td>Price ke sath sath stop-loss move hota hai</td><td>Profit lock karte hue trend follow karna</td></tr>
+</table>
+<div class="example"><b>Misal:</b> Aapne Bitcoin $60,000 par khareeda. Aapne stop-loss $58,000 par aur take-profit $65,000 par set kiya. Agar price girey, $58,000 par automatic sell ho jayega — agar barhe, $65,000 par profit book ho jayega. Is tarah aapko har waqt screen dekhne ki zaroorat nahi.</div>
+</section>
+
+<section id="s4">
+<h2><span class="num">4</span>Chart Reading Aur Candlesticks</h2>
+<p>Har candlestick ek time-period ka Open, High, Low, Close (OHLC) dikhati hai. Green/white candle price ka upar jana, red/black candle neeche jana dikhati hai.</p>
+<div class="svgbox">
+<svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+<line x1="40" y1="20" x2="40" y2="200" stroke="#5a6472" stroke-width="1"/>
+<line x1="40" y1="200" x2="480" y2="200" stroke="#5a6472" stroke-width="1"/>
+<line x1="100" y1="40" x2="100" y2="150" stroke="#2dd4a7" stroke-width="2"/>
+<rect x="88" y="70" width="24" height="60" fill="#2dd4a7"/>
+<line x1="180" y1="60" x2="180" y2="170" stroke="#ef5a5a" stroke-width="2"/>
+<rect x="168" y="80" width="24" height="50" fill="#ef5a5a"/>
+<line x1="260" y1="30" x2="260" y2="120" stroke="#2dd4a7" stroke-width="2"/>
+<rect x="248" y="45" width="24" height="45" fill="#2dd4a7"/>
+<line x1="340" y1="70" x2="340" y2="190" stroke="#ef5a5a" stroke-width="2"/>
+<rect x="328" y="90" width="24" height="70" fill="#ef5a5a"/>
+<line x1="420" y1="50" x2="420" y2="140" stroke="#2dd4a7" stroke-width="2"/>
+<rect x="408" y="60" width="24" height="55" fill="#2dd4a7"/>
+<text x="10" y="15" fill="#9aa4b2" font-size="11">Price</text>
+<text x="440" y="215" fill="#9aa4b2" font-size="11">Time →</text>
+</svg>
+<p class="cap">Har candle ki body Open/Close, wick High/Low dikhati hai</p>
+</div>
+<h4>Ahem Candlestick Patterns</h4>
+<div class="grid2">
+<div class="card"><h3>Bullish Patterns</h3><ul><li><b>Hammer:</b> Chhoti body, lambi neechi wick — reversal upward</li><li><b>Bullish Engulfing:</b> Bari green candle jo pichli red candle ko poori tarah cover kare</li><li><b>Morning Star:</b> 3-candle reversal pattern</li></ul></div>
+<div class="card"><h3>Bearish Patterns</h3><ul><li><b>Shooting Star:</b> Chhoti body, lambi upar wick — reversal downward</li><li><b>Bearish Engulfing:</b> Bari red candle jo green candle ko cover kare</li><li><b>Evening Star:</b> 3-candle downward reversal</li></ul></div>
+</div>
+<h4>Timeframes Ka Intekhab</h4>
+<p>Scalping ke liye 1m-5m, day trading ke liye 15m-1h, swing trading ke liye 4h-1D, aur long-term investing ke liye weekly/monthly charts use hote hain. Hamesha bara timeframe (jaise Daily) dekh kar overall trend samjhein, phir chhote timeframe par entry dhoondein.</p>
+</section>
+
+<section id="s5">
+<h2><span class="num">5</span>Support, Resistance Aur Trend</h2>
+<p><b>Support</b> woh price level hai jahan buying pressure price ko girne se rokti hai — jahan demand supply se zyada ho jati hai. <b>Resistance</b> woh level hai jahan selling pressure price ko upar jane se rokti hai.</p>
+<div class="svgbox">
+<svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<line x1="30" y1="20" x2="30" y2="180" stroke="#5a6472" stroke-width="1"/>
+<line x1="30" y1="180" x2="470" y2="180" stroke="#5a6472" stroke-width="1"/>
+<polyline points="50,150 100,60 150,155 200,58 250,150 300,60 350,152 400,62 450,150" fill="none" stroke="#e8ebf0" stroke-width="2"/>
+<line x1="40" y1="60" x2="460" y2="60" stroke="#ef5a5a" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="380" y="52" fill="#ef5a5a" font-size="11">Resistance</text>
+<line x1="40" y1="152" x2="460" y2="152" stroke="#2dd4a7" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="380" y="168" fill="#2dd4a7" font-size="11">Support</text>
+</svg>
+<p class="cap">Price support aur resistance ke darmiyan bounce karti hai jab tak breakout na ho</p>
+</div>
+<h4>Trend Ki Teen Kisamein</h4>
+<ul>
+<li><b>Uptrend:</b> Higher highs aur higher lows banata hai</li>
+<li><b>Downtrend:</b> Lower highs aur lower lows banata hai</li>
+<li><b>Sideways/Range:</b> Price ek fixed range me ghumti rehti hai</li>
+</ul>
+<p><b>Trendline</b> banane ke liye kam az kam do swing highs ya do swing lows ko ek line se jorein — jitni baar price us line se touch ho kar bounce kare, utni hi trendline mazboot samjhi jati hai.</p>
+</section>
+
+<section id="s6">
+<h2><span class="num">6</span>Technical Indicators</h2>
+<h4>Moving Averages (MA/EMA)</h4>
+<p>Moving Average price ka average nikal kar smooth line banata hai jo trend direction dikhati hai. EMA (Exponential) recent prices ko zyada weight deta hai is liye fast signal deta hai. Common combination: 50-EMA aur 200-EMA — jab 50 EMA 200 EMA ko upar cross kare (Golden Cross) to bullish signal, neeche cross kare (Death Cross) to bearish signal.</p>
+<h4>RSI (Relative Strength Index)</h4>
+<div class="svgbox">
+<svg viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg">
+<line x1="30" y1="10" x2="30" y2="120" stroke="#5a6472" stroke-width="1"/>
+<line x1="30" y1="120" x2="470" y2="120" stroke="#5a6472" stroke-width="1"/>
+<line x1="30" y1="30" x2="470" y2="30" stroke="#ef5a5a" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="440" y="26" fill="#ef5a5a" font-size="10">70 Overbought</text>
+<line x1="30" y1="100" x2="470" y2="100" stroke="#2dd4a7" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="440" y="114" fill="#2dd4a7" font-size="10">30 Oversold</text>
+<polyline points="40,80 90,50 140,25 190,60 240,95 290,105 340,70 390,35 440,55" fill="none" stroke="#f0b23c" stroke-width="2"/>
+</svg>
+<p class="cap">RSI 70 ke upar overbought, 30 ke neeche oversold zone dikhata hai</p>
+</div>
+<p>RSI 0-100 ke darmiyan move karta hai. 70 se upar jane par asset "overbought" (price girne ka imkan) aur 30 se neeche "oversold" (price barhne ka imkan) samjha jata hai.</p>
+<h4>MACD (Moving Average Convergence Divergence)</h4>
+<p>MACD line aur Signal line ke crossover se momentum aur trend reversal ka signal milta hai. Jab MACD line signal line ko upar cross kare, bullish momentum; neeche cross kare, bearish momentum.</p>
+<h4>Volume</h4>
+<p>Volume price move ki "taqat" batata hai. Agar price barh rahi ho lekin volume kam ho, to yeh move kamzor samjha jata hai aur reverse ho sakta hai. Breakout ke waqt zyada volume us breakout ko confirm karta hai.</p>
+<h4>Bollinger Bands</h4>
+<p>Yeh ek moving average ke upar aur neeche do bands banata hai jo volatility dikhati hain. Bands tang hon to low volatility (bara move aane wala ho sakta hai), bands phail jayein to high volatility.</p>
+</section>
+
+<section id="s7">
+<h2><span class="num">7</span>Chart Patterns</h2>
+<div class="grid2">
+<div class="card"><h3>Reversal Patterns</h3><ul><li><b>Head &amp; Shoulders:</b> Uptrend ke khatam hone ka signal</li><li><b>Double Top/Bottom:</b> Do baar same level test ho kar reverse</li></ul></div>
+<div class="card"><h3>Continuation Patterns</h3><ul><li><b>Flags &amp; Pennants:</b> Strong move ke baad thodi consolidation</li><li><b>Triangles:</b> Ascending, descending ya symmetrical — breakout ka intezar</li></ul></div>
+</div>
+<p>Pattern trading me sabr zaroori hai — pattern complete hone aur volume ke sath confirm hone ka intezar karein, jaldi entry na karein.</p>
+</section>
+
+<section id="s8">
+<h2><span class="num">8</span>Trading Strategy Banana</h2>
+<p>Har professional trader ka apna likha hua <b>trading plan</b> hota hai. Bina plan ke trading gambling ban jati hai.</p>
+<h4>Plan Ke Zaroori Hisse</h4>
+<ol>
+<li><b>Market Selection:</b> Kis asset/pair par focus karna hai</li>
+<li><b>Entry Criteria:</b> Kis condition (indicator + pattern) par khareedna hai</li>
+<li><b>Exit Criteria:</b> Profit aur loss dono ke liye pehle se rules</li>
+<li><b>Position Size:</b> Har trade me kitni capital lagani hai</li>
+<li><b>Timeframe:</b> Scalping, day trading, swing ya position trading</li>
+<li><b>Review Schedule:</b> Har hafte plan ka performance check karna</li>
+</ol>
+<h4>Common Strategy Styles</h4>
+<table>
+<tr><th>Style</th><th>Time Horizon</th><th>Trades/Week</th></tr>
+<tr><td>Scalping</td><td>Seconds-Minutes</td><td>10-50+</td></tr>
+<tr><td>Day Trading</td><td>Din ke andar</td><td>1-10</td></tr>
+<tr><td>Swing Trading</td><td>Din-Hafte</td><td>1-5</td></tr>
+<tr><td>Position Trading</td><td>Mahine-Saal</td><td>1-2</td></tr>
+</table>
+</section>
+
+<section id="s9">
+<h2><span class="num">9</span>Risk Management Aur Position Sizing</h2>
+<div class="card warn">
+<h3>Golden Rule</h3>
+<p>Kabhi bhi ek trade me apne total capital ka <b>1-2% se zyada risk</b> na lein.</p>
+</div>
+<p>Formula: <code>Position Size = (Account Risk %) ÷ (Entry - Stop Loss %)</code></p>
+<div class="example"><b>Misal:</b> $10,000 account, 1% risk = $100. Agar stop-loss entry se 5% door hai, to position size = $100 ÷ 5% = $2,000. Yani sirf $2,000 ka asset khareedein, poori capital nahi.</div>
+<h4>Risk-Reward Ratio</h4>
+<p>Har trade lene se pehle risk-reward ratio calculate karein — kam az kam <b>1:2</b> hona chahiye, matlab agar risk $100 hai to potential profit $200 ya zyada ho.</p>
+<h4>Diversification</h4>
+<p>Poori capital ek hi asset me na lagayein. Portfolio ko multiple assets me divide karein taake ek asset ke crash hone se poora account na doob jaye.</p>
+</section>
+
+<section id="s10">
+<h2><span class="num">10</span>Trade Execution Workflow</h2>
+<div class="svgbox">
+<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+<g font-size="12" fill="#e8ebf0" text-anchor="middle">
+<rect x="10" y="50" width="110" height="55" rx="10" fill="#1b2029" stroke="#2dd4a7"/>
+<text x="65" y="73">Market</text><text x="65" y="90">Analysis</text>
+<rect x="160" y="50" width="110" height="55" rx="10" fill="#1b2029" stroke="#2dd4a7"/>
+<text x="215" y="73">Entry</text><text x="215" y="90">Plan</text>
+<rect x="310" y="50" width="110" height="55" rx="10" fill="#1b2029" stroke="#f0b23c"/>
+<text x="365" y="73">Order</text><text x="365" y="90">Place</text>
+<rect x="460" y="50" width="110" height="55" rx="10" fill="#1b2029" stroke="#f0b23c"/>
+<text x="515" y="73">Monitor</text><text x="515" y="90">SL/TP</text>
+<rect x="610" y="50" width="80" height="55" rx="10" fill="#1b2029" stroke="#ef5a5a"/>
+<text x="650" y="73">Journal</text><text x="650" y="90">Log</text>
+</g>
+<g stroke="#5a6472" stroke-width="2" marker-end="url(#arrow)">
+<line x1="120" y1="77" x2="158" y2="77"/>
+<line x1="270" y1="77" x2="308" y2="77"/>
+<line x1="420" y1="77" x2="458" y2="77"/>
+<line x1="570" y1="77" x2="608" y2="77"/>
+</g>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5a6472"/></marker></defs>
+</svg>
+<p class="cap">Chart/news check → Entry+SL+TP plan → Order place → Monitor → Journal me record</p>
+</div>
+<ol>
+<li>Market conditions, news aur overall trend check karein.</li>
+<li>Apni strategy ke rules ke mutabiq entry point identify karein.</li>
+<li>Stop-loss aur take-profit pehle se set karein — emotions se decision na lein.</li>
+<li>Order place karein (limit order preferable, taake price control ho).</li>
+<li>Trade ko monitor karein, magar overtrade/overthink na karein.</li>
+<li>Trade close hone ke baad turant journal me note karein.</li>
+</ol>
+</section>
+
+<section id="s11">
+<h2><span class="num">11</span>Trading Psychology</h2>
+<ul>
+<li><b>Fear aur Greed</b> dono trading ke sab se bare dushman hain — fear se time se pehle exit, greed se late exit hoti hai.</li>
+<li>Plan bana kar us par amal karein — har trade ke baad plan tabdeel na karein.</li>
+<li>Losses trading ka normal hissa hain; unhe personally na lein, sirf statistics samjhein.</li>
+<li>FOMO (Fear of Missing Out) se bachein — har move me shamil hona zaroori nahi.</li>
+<li><b>Revenge trading</b> se bachein — loss ke foran baad bara trade lena aksar aur nuksan deta hai.</li>
+<li>Overconfidence se bachein — lagataar wins ke baad bhi risk rules follow karte rahein.</li>
+</ul>
+</section>
+
+<section id="s12">
+<h2><span class="num">12</span>Aam Ghaltiyan (Common Mistakes)</h2>
+<div class="card warn">
+<ul style="margin:0;">
+<li>Bagair stop-loss ke trade karna</li>
+<li>Overtrading — bohat zyada trades karna</li>
+<li>Bina plan revenge trading</li>
+<li>Poori capital ek hi trade me lagana</li>
+<li>Sirf emotions ya "tips" par trade karna</li>
+<li>Bagair backtesting ke naya strategy live pe try karna</li>
+<li>Averaging down bila soch samjhe (losing trade me aur paisa dalna)</li>
+</ul>
+</div>
+</section>
+
+<section id="s13">
+<h2><span class="num">13</span>Trading Journal Aur Improvement</h2>
+<p>Har trade ka record rakhein: Date, Asset, Entry, Exit, Stop-Loss, Reason, Result, Emotion. Har hafte apne journal ka review karein taake pattern samajh aayen aur strategy behtar banayi ja sake.</p>
+<table>
+<tr><th>Field</th><th>Kya Likhna Hai</th></tr>
+<tr><td>Entry Reason</td><td>Kaunsa signal/pattern tha</td></tr>
+<tr><td>Result</td><td>Profit/Loss aur %</td></tr>
+<tr><td>Emotion</td><td>Confident, Nervous, Impulsive etc.</td></tr>
+<tr><td>Lesson</td><td>Agli baar kya improve karna hai</td></tr>
+</table>
+</section>
+
+<section id="s14">
+<h2><span class="num">14</span>30-Din Ka Practice Plan</h2>
+<ol>
+<li><b>Week 1:</b> Demo/paper trading — order types aur platform samjhein</li>
+<li><b>Week 2:</b> Chart reading aur ek indicator (RSI ya MA) master karein</li>
+<li><b>Week 3:</b> Apni simple strategy likhein, demo par 10+ trades lein</li>
+<li><b>Week 4:</b> Journal review karein, strategy refine karein, phir chhoti real capital se shuru karein</li>
+</ol>
+</section>
+
+<section id="s15">
+<h2><span class="num">15</span>Behtareen Kitabain (Recommended Books)</h2>
+<div class="booklist">
+<div class="card"><h3>Technical Analysis of the Financial Markets</h3><p>John J. Murphy — Charts, indicators aur trend analysis ki bunyad, beginners ke liye behtareen shuruaat.</p></div>
+<div class="card"><h3>Japanese Candlestick Charting Techniques</h3><p>Steve Nison — Candlestick patterns ki asal aur mustanad kitab.</p></div>
+<div class="card"><h3>Trading in the Zone</h3><p>Mark Douglas — Trading psychology aur discipline par behtareen kitab.</p></div>
+<div class="card"><h3>The Disciplined Trader</h3><p>Mark Douglas — Emotional control aur mindset develop karne ke liye.</p></div>
+<div class="card"><h3>Market Wizards</h3><p>Jack Schwager — Top traders ke interviews aur unki real strategies.</p></div>
+<div class="card"><h3>The New Trading for a Living</h3><p>Alexander Elder — Strategy, psychology aur risk management teeno ka combination.</p></div>
+</div>
+</div>
+
+<footer>Yeh guide sirf ta'leemi maqsad ke liye hai, financial advice nahi. Har investment se pehle apni research karein.</footer>
+
+</section>
+</div>
+</body>
+</html>

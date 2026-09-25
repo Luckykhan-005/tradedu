@@ -52,6 +52,36 @@ interface BooksProps {
 
 const books: BookItem[] = [
   {
+    id: 'crypto-futures',
+    title: 'Crypto Futures Trading (Urdu)',
+    titleUrdu: 'کرپٹو فیوچرز ٹریڈنگ',
+    description:
+      'Zero se professional tak crypto futures trading — 31 chapters, 8 parts: spot vs futures, perpetual contracts, leverage, margin, liquidation formula, funding rate, risk management, technical analysis, SMC, strategies, psychology aur practical case studies. Roman Urdu mein.',
+    chapters: 31,
+    pages: '31 chapters · 8 parts',
+    icon: LineChart,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-50',
+    href: '/crypto-futures-book/index.html',
+    tags: ['Roman Urdu', 'Futures', 'Leverage', '31 Chapters'],
+    cover: '/covers/crypto-futures-book.svg',
+  },
+  {
+    id: 'spot-trading',
+    title: 'Spot Trading — Complete Guide (Urdu)',
+    titleUrdu: 'اسپاٹ ٹریڈنگ — مکمل گائیڈ',
+    description:
+      'Spot trading ka complete professional guide — 15 sections: order types, chart reading, candlesticks, support/resistance, indicators, strategies, risk management, execution workflow, psychology, trading journal aur 30-din ka practice plan. Roman Urdu mein.',
+    chapters: 15,
+    pages: '15 sections · Complete Guide',
+    icon: TrendingUp,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50',
+    href: '/spot-trading-book/index.html',
+    tags: ['Roman Urdu', 'Spot', 'Complete Guide'],
+    cover: '/covers/spot-trading-book.svg',
+  },
+  {
     id: 'binance-complete',
     title: 'Binance Complete Training (Urdu)',
     titleUrdu: 'بائیننس مکمل ٹریننگ اردو',
