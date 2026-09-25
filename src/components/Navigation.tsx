@@ -28,7 +28,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page
@@ -43,6 +43,7 @@ const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?:
   { id: 'courses', label: 'Courses', icon: BookOpen },
   { id: 'books', label: 'Books', icon: Library },
   { id: 'blog', label: 'Blog', icon: Newspaper },
+  { id: 'mentor', label: 'Mentor', icon: Bot },
   { id: 'ai-tools', label: 'AI Tools', icon: Bot, studentOnly: true },
   { id: 'journal', label: 'Journal', icon: NotebookPen },
   { id: 'calculator', label: 'Calculator', icon: Calculator },

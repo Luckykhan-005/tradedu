@@ -37,6 +37,7 @@ const pageResults: SearchResult[] = [
   { id: 'p-courses', title: 'Courses', subtitle: 'Urdu trading courses catalog', category: 'Page', icon: GraduationCap, action: { page: 'courses' } },
   { id: 'p-books', title: 'Books', subtitle: '28+ free trading books in Urdu', category: 'Page', icon: BookOpen, action: { page: 'books' } },
   { id: 'p-blog', title: 'Blog', subtitle: 'Trading articles & guides in Roman Urdu', category: 'Page', icon: Newspaper, action: { page: 'blog' } },
+  { id: 'p-mentor', title: 'AI Trading Mentor', subtitle: 'Sawal poochein — instant jawab', category: 'Page', icon: BookMarked, action: { page: 'mentor' } },
   { id: 'p-glossary', title: 'Trading Glossary', subtitle: '100+ trading terms (English + Urdu)', category: 'Page', icon: BookMarked, action: { page: 'glossary' } },
   { id: 'p-calc', title: 'Risk Calculator', subtitle: 'Position size & risk calculation', category: 'Page', icon: Calculator, action: { page: 'calculator' } },
   { id: 'p-journal', title: 'Trading Journal', subtitle: 'Track your trades', category: 'Page', icon: FileText, action: { page: 'journal' } },

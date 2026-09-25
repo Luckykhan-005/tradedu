@@ -29,6 +29,7 @@ import { Disclaimer } from './components/Disclaimer'
 import { NotFound } from './components/NotFound'
 import { Blog } from './components/Blog'
 import { BlogPost } from './components/BlogPost'
+import { Mentor } from './components/Mentor'
 import { SearchOverlay } from './components/SearchOverlay'
 import { CryptoTicker } from './components/CryptoTicker'
 import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
@@ -83,6 +84,7 @@ const pageToPath: Partial<Record<Page, string>> = {
   terms: '/terms',
   disclaimer: '/disclaimer',
   blog: '/blog',
+  mentor: '/mentor',
 }
 
 const pathToPage: Record<string, Page> = Object.fromEntries(
@@ -499,6 +501,10 @@ export default function App() {
 
       {currentPage === 'blog' && (
         <Blog onSelectPost={openBlogPost} />
+      )}
+
+      {currentPage === 'mentor' && (
+        <Mentor />
       )}
 
       {currentPage === 'blog-post' && selectedBlogPost && (
