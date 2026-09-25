@@ -22,6 +22,7 @@ export interface TradeEdUser {
   email: string
   role: AppRole
   plan: AppPlan
+  planExpiresAt?: string | null
   phone?: string
   city?: string
   experience?: string
@@ -29,15 +30,41 @@ export interface TradeEdUser {
   createdAt?: string
 }
 
+function isExpired(expiresAt?: string | null): boolean {
+  return !!expiresAt && new Date(expiresAt).getTime() < Date.now()
+}
+
+// Paid plans are valid for 30 days; after that the student falls back to FREE.
+export function effectivePlan(plan: AppPlan, expiresAt?: string | null): AppPlan {
+  if (plan !== 'FREE' && isExpired(expiresAt)) return 'FREE'
+  return plan
+}
+
+// When a paid plan expires, convert the row to FREE so admin sees it too.
+async function autoDowngradeIfExpired(userId: string, meta: Record<string, any> | null): Promise<void> {
+  try {
+    const plan = (meta?.plan as AppPlan) || 'FREE'
+    const expires = meta?.plan_expires_at as string | null | undefined
+    if (plan !== 'FREE' && isExpired(expires)) {
+      await supabase.from('profiles').update({ plan: 'FREE', plan_expires_at: null }).eq('id', userId)
+    }
+  } catch {
+    /* non-blocking — session already uses the effective FREE plan */
+  }
+}
+
 function toAppUser(supa: SupaUser, meta?: Record<string, any>): TradeEdUser {
   const role: AppRole = (meta?.role as AppRole) || (supa.user_metadata?.role as AppRole) || 'student'
-  const plan: AppPlan = (meta?.plan as AppPlan) || (supa.user_metadata?.plan as AppPlan) || 'FREE'
+  const rawPlan: AppPlan = (meta?.plan as AppPlan) || (supa.user_metadata?.plan as AppPlan) || 'FREE'
+  const planExpiresAt = (meta?.plan_expires_at as string | null) ?? null
+  const plan = effectivePlan(rawPlan, planExpiresAt)
   return {
     id: supa.id,
     name: (meta?.name as string) || supa.user_metadata?.name || supa.email?.split('@')[0] || 'Student',
     email: supa.email || '',
     role,
     plan,
+    planExpiresAt,
     phone: meta?.phone || supa.user_metadata?.phone,
     city: meta?.city || supa.user_metadata?.city,
     experience: meta?.experience || supa.user_metadata?.experience,
@@ -88,6 +115,7 @@ export async function signInStudent(input: {
   // Fetch the authoritative role/plan from profiles, not signup metadata.
   // This ensures an admin who changed their role in the DB is recognized.
   const meta = await fetchProfile(data.user.id)
+  void autoDowngradeIfExpired(data.user.id, meta)
   return { user: toAppUser(data.user, meta) }
 }
 
@@ -113,6 +141,7 @@ export async function getCurrentSession(): Promise<TradeEdUser | null> {
   const { data } = await supabase.auth.getSession()
   if (!data.session?.user) return null
   const meta = await fetchProfile(data.session.user.id)
+  void autoDowngradeIfExpired(data.session.user.id, meta)
   return toAppUser(data.session.user, meta)
 }
 
@@ -123,6 +152,7 @@ export function onAuthChange(cb: (user: TradeEdUser | null) => void) {
       return
     }
     const meta = await fetchProfile(session.user.id)
+    void autoDowngradeIfExpired(session.user.id, meta)
     cb(toAppUser(session.user, meta))
   })
   return () => data.subscription.unsubscribe()
@@ -133,7 +163,7 @@ export function onAuthChange(cb: (user: TradeEdUser | null) => void) {
 export async function fetchProfile(userId: string): Promise<Record<string, any> | null> {
   const { data, error } = await supabase
     .from('profiles')
-    .select('role, plan, name, phone, city, experience, avatar_url')
+    .select('role, plan, plan_expires_at, name, phone, city, experience, avatar_url')
     .eq('id', userId)
     .single()
   if (error) return null
@@ -142,7 +172,7 @@ export async function fetchProfile(userId: string): Promise<Record<string, any> 
 
 export async function updateProfile(
   userId: string,
-  fields: Partial<Pick<TradeEdUser, 'name' | 'phone' | 'city' | 'experience' | 'avatarUrl' | 'plan' | 'role'>>
+  fields: Partial<Pick<TradeEdUser, 'name' | 'phone' | 'city' | 'experience' | 'avatarUrl' | 'plan' | 'role' | 'planExpiresAt'>>
 ): Promise<{ error?: string }> {
   const update: Record<string, any> = {}
   if (fields.name !== undefined) update.name = fields.name
@@ -152,6 +182,7 @@ export async function updateProfile(
   if (fields.avatarUrl !== undefined) update.avatar_url = fields.avatarUrl
   if (fields.plan !== undefined) update.plan = fields.plan
   if (fields.role !== undefined) update.role = fields.role
+  if (fields.planExpiresAt !== undefined) update.plan_expires_at = fields.planExpiresAt
   if (Object.keys(update).length === 0) return {}
 
   const { error } = await supabase.from('profiles').update(update).eq('id', userId)
@@ -224,6 +255,7 @@ function toAppUserProfileRow(p: any): TradeEdUser {
     email: p.email || '',
     role: p.role || 'student',
     plan: p.plan || 'FREE',
+    planExpiresAt: p.plan_expires_at || null,
     phone: p.phone,
     city: p.city,
     experience: p.experience,

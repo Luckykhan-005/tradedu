@@ -14,6 +14,9 @@ create table if not exists public.profiles (
   city text,
   experience text,
   avatar_url text,
+  -- Subscription expiry: paid plans are valid until this timestamp.
+  -- After it passes the student automatically falls back to FREE.
+  plan_expires_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -30,8 +33,9 @@ begin
     new.id,
     coalesce(new.email, ''),
     coalesce(new.raw_user_meta_data->>'name', split_part(coalesce(new.email, 'student'), '@', 1)),
-    coalesce(new.raw_user_meta_data->>'role', 'student'),
-    coalesce(new.raw_user_meta_data->>'plan', 'FREE'),
+    -- Never trust signup metadata for role/plan — always start as a free student.
+    'student',
+    'FREE',
     new.raw_user_meta_data->>'phone',
     new.raw_user_meta_data->>'city',
     new.raw_user_meta_data->>'experience'
@@ -148,6 +152,42 @@ create policy "Admins can update requests"
   on public.subscription_requests for update
   using (public.is_admin());
 
--- 4) MAKE FIRST SIGNED-UP USER AN ADMIN (optional)
+-- 4) SUBSCRIPTION EXPIRY PROTECTION
+-- Paid plans are valid for 30 days. Only admins may change plan/role/expiry;
+-- a student may only move themselves back to FREE (the auto-downgrade path).
+-- auth.uid() IS NULL means a trusted context (SQL editor / service role) — allowed.
+create or replace function public.protect_plan_role()
+returns trigger
+language plpgsql
+security definer set search_path = public
+as $$
+begin
+  if auth.uid() is not null and not public.is_admin() then
+    if new.role is distinct from old.role then
+      raise exception 'Only admins can change role';
+    end if;
+    if new.plan is distinct from old.plan and new.plan <> 'FREE' then
+      raise exception 'Only admins can change plan';
+    end if;
+    if new.plan_expires_at is distinct from old.plan_expires_at
+       and not (new.plan = 'FREE' and new.plan is distinct from old.plan) then
+      raise exception 'Only admins can change subscription expiry';
+    end if;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists profiles_protect_plan on public.profiles;
+create trigger profiles_protect_plan
+  before update on public.profiles
+  for each row execute function public.protect_plan_role();
+
+-- Backfill: existing paid users get 30 days from now
+update public.profiles
+set plan_expires_at = now() + interval '30 days'
+where plan in ('STARTER', 'PREMIUM') and plan_expires_at is null;
+
+-- 5) MAKE FIRST SIGNED-UP USER AN ADMIN (optional)
 -- Run this manually after your first signup to gain admin access:
 -- update public.profiles set role = 'admin' where email = 'YOUR_EMAIL@example.com';

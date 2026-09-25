@@ -70,19 +70,29 @@ export function AdminStudents() {
       s.phone?.includes(search)
   )
 
+  const isPaid = (s: TradeEdUser) => s.plan !== 'FREE'
+  const isExpired = (s: TradeEdUser) =>
+    s.plan !== 'FREE' && !!s.planExpiresAt && new Date(s.planExpiresAt).getTime() < Date.now()
+  const fmtDate = (d: string) =>
+    new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+
   const stats = {
     total: students.length,
-    free: students.filter((s) => s.plan === 'FREE').length,
-    starter: students.filter((s) => s.plan === 'STARTER').length,
-    premium: students.filter((s) => s.plan === 'PREMIUM').length,
+    free: students.filter((s) => s.plan === 'FREE' || isExpired(s)).length,
+    starter: students.filter((s) => s.plan === 'STARTER' && !isExpired(s)).length,
+    premium: students.filter((s) => s.plan === 'PREMIUM' && !isExpired(s)).length,
     pending: requests.filter((r) => r.status === 'pending').length,
   }
 
   const changePlan = async (studentId: string, plan: AppPlan) => {
     setUpdating(studentId)
-    const { error } = await updateProfile(studentId, { plan })
+    // Paid plans get 30 days of validity; FREE (Stop) clears the expiry.
+    const planExpiresAt = plan === 'FREE' ? null : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+    const { error } = await updateProfile(studentId, { plan, planExpiresAt })
     if (!error) {
-      setStudents((prev) => prev.map((s) => (s.id === studentId ? { ...s, plan } : s)))
+      setStudents((prev) =>
+        prev.map((s) => (s.id === studentId ? { ...s, plan, planExpiresAt } : s))
+      )
     }
     setUpdating(null)
   }
@@ -95,13 +105,16 @@ export function AdminStudents() {
       .update({ status: approve ? 'approved' : 'rejected' })
       .eq('id', request.id)
 
-    // If approving and a matching student exists, upgrade their plan
+    // If approving and a matching student exists, upgrade their plan (30 days)
     if (approve) {
       const matchingStudent = students.find((s) => s.email === request.email)
       if (matchingStudent) {
-        await updateProfile(matchingStudent.id, { plan: request.plan })
+        const planExpiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+        await updateProfile(matchingStudent.id, { plan: request.plan, planExpiresAt })
         setStudents((prev) =>
-          prev.map((s) => (s.id === matchingStudent.id ? { ...s, plan: request.plan } : s))
+          prev.map((s) =>
+            s.id === matchingStudent.id ? { ...s, plan: request.plan, planExpiresAt } : s
+          )
         )
       }
     }
@@ -317,11 +330,21 @@ export function AdminStudents() {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
                       <Badge className={cn('text-xs gap-1', planConfig[student.plan || 'FREE']?.badge)}>
                         <PlanIcon className="h-3 w-3" />
                         {planConfig[student.plan || 'FREE']?.label}
                       </Badge>
+                      {isPaid(student) && student.planExpiresAt && (
+                        <Badge
+                          className={cn(
+                            'text-xs',
+                            isExpired(student) ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'
+                          )}
+                        >
+                          {isExpired(student) ? 'Expired' : `Till ${fmtDate(student.planExpiresAt)}`}
+                        </Badge>
+                      )}
                       <select
                         value={student.plan || 'FREE'}
                         onChange={(e) => changePlan(student.id, e.target.value as AppPlan)}
@@ -332,6 +355,19 @@ export function AdminStudents() {
                         <option value="STARTER">Starter</option>
                         <option value="PREMIUM">Premium</option>
                       </select>
+                      {isPaid(student) && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => changePlan(student.id, 'FREE')}
+                          disabled={updating === student.id}
+                          className="h-7 px-2.5 text-xs border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700"
+                          title="Subscription band karein — student wapis Free tier pe aa jayega"
+                        >
+                          <XCircle className="h-3 w-3 mr-1" />
+                          Stop
+                        </Button>
+                      )}
                     </div>
                   </div>
                 )
@@ -340,7 +376,8 @@ export function AdminStudents() {
           )}
           <Separator className="my-4" />
           <p className="text-xs text-muted-foreground">
-            Plan change turant effective hota hai — student ko features turant mil jate hain.
+            Paid plans 30 din ki validity ke sath activate hote hain. Ek month complete hone par (ya
+            Stop dabate hi) student automatic Free tier pe wapis aa jata hai.
           </p>
         </CardContent>
       </Card>
