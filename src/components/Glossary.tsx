@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/cn'
 
-interface Term {
+export interface Term {
   term: string
   definition: string
   urdu: string
@@ -19,7 +19,7 @@ const categories: Record<Term['category'], string> = {
   advanced: 'Advanced Concepts',
 }
 
-const terms: Term[] = [
+export const terms: Term[] = [
   // ===== Basic =====
   { term: 'ATH', definition: 'All-Time High — the highest price an asset has ever reached.', urdu: 'آل ٹائم ہائی — کسی اثاثے کی اب تک کی سب سے زیادہ قیمت۔', category: 'basic' },
   { term: 'ATL', definition: 'All-Time Low — the lowest price an asset has ever reached.', urdu: 'آل ٹائم لو — کسی اثاثے کی اب تک کی سب سے کم قیمت۔', category: 'basic' },

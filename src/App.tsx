@@ -27,6 +27,11 @@ import { Privacy } from './components/Privacy'
 import { Terms } from './components/Terms'
 import { Disclaimer } from './components/Disclaimer'
 import { NotFound } from './components/NotFound'
+import { Blog } from './components/Blog'
+import { BlogPost } from './components/BlogPost'
+import { SearchOverlay } from './components/SearchOverlay'
+import { CryptoTicker } from './components/CryptoTicker'
+import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -77,15 +82,23 @@ const pageToPath: Partial<Record<Page, string>> = {
   privacy: '/privacy',
   terms: '/terms',
   disclaimer: '/disclaimer',
+  blog: '/blog',
 }
 
 const pathToPage: Record<string, Page> = Object.fromEntries(
   Object.entries(pageToPath).map(([page, path]) => [path, page as Page])
 ) as Record<string, Page>
 
+const blogSlugFromPath = (path: string): string | null => {
+  const m = path.match(/^\/blog\/([^/]+)$/)
+  return m ? decodeURIComponent(m[1]) : null
+}
+
 const pageFromLocation = (): Page => {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
-  return pathToPage[path] || 'not-found'
+  if (pathToPage[path]) return pathToPage[path]
+  if (blogSlugFromPath(path)) return 'blog-post'
+  return 'not-found'
 }
 
 export default function App() {
@@ -100,6 +113,11 @@ export default function App() {
   const [lessonProgress, setLessonProgress] = useState<Record<string, Record<string, boolean>>>({})
   const [sessions, setSessions] = useState<SessionData[]>([])
   const [loading, setLoading] = useState(true)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [selectedBlogPost, setSelectedBlogPost] = useState<BlogPostData | null>(() => {
+    const slug = blogSlugFromPath(window.location.pathname)
+    return slug ? getBlogPost(slug) || null : null
+  })
 
   // Fetch initial data (courses & sessions live in Supabase)
   const fetchData = useCallback(async () => {
@@ -181,6 +199,28 @@ export default function App() {
       setSelectedCourse(null)
     }
   }
+
+  const openBlogPost = (post: BlogPostData) => {
+    setSelectedBlogPost(post)
+    setCurrentPage('blog-post')
+    const path = `/blog/${post.slug}`
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path)
+    }
+    window.scrollTo(0, 0)
+  }
+
+  // Ctrl/Cmd+K opens the site-wide search from anywhere.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setSearchOpen((v) => !v)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   const handleSelectCourse = async (courseId: string) => {
     try {
@@ -266,7 +306,12 @@ export default function App() {
   useEffect(() => {
     const onPopState = () => {
       setShowAuth(false)
-      setCurrentPage(pageFromLocation())
+      const page = pageFromLocation()
+      setCurrentPage(page)
+      if (page === 'blog-post') {
+        const slug = blogSlugFromPath(window.location.pathname)
+        setSelectedBlogPost(slug ? getBlogPost(slug) || null : null)
+      }
     }
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
@@ -355,6 +400,16 @@ export default function App() {
         user={user}
         onSignIn={openAuth}
         onSignOut={handleSignOut}
+        onOpenSearch={() => setSearchOpen(true)}
+      />
+
+      <CryptoTicker />
+
+      <SearchOverlay
+        open={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        onNavigate={navigate}
+        onOpenBlog={openBlogPost}
       />
 
       {currentPage === 'landing' && (
@@ -440,6 +495,18 @@ export default function App() {
 
       {currentPage === 'books' && (
         <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} />
+      )}
+
+      {currentPage === 'blog' && (
+        <Blog onSelectPost={openBlogPost} />
+      )}
+
+      {currentPage === 'blog-post' && selectedBlogPost && (
+        <BlogPost post={selectedBlogPost} onBack={() => navigate('blog')} />
+      )}
+
+      {currentPage === 'blog-post' && !selectedBlogPost && (
+        <NotFound onNavigate={navigate} />
       )}
 
       {currentPage === 'calculator' && (
