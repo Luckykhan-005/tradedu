@@ -90,12 +90,12 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
           <CardContent className="p-6">
             <div className="mb-3 flex items-center gap-2">
               <Award className="h-5 w-5 text-amber-600" />
-              <h2 className="text-lg font-semibold">Sample Certificate</h2>
+              <h2 className="text-lg font-semibold text-gray-900">Sample Certificate</h2>
               <span className="rounded-full bg-amber-100 px-3 py-0.5 text-xs font-medium text-amber-700">
                 Example
               </span>
             </div>
-            <p className="mb-5 text-sm text-muted-foreground">
+            <p className="mb-5 text-sm text-gray-600">
               This is what your certificate will look like when you complete a course. Your name and
               course details will appear here.
             </p>
@@ -116,7 +116,7 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
           <CardContent className="p-6">
             <div className="mb-3 flex items-center gap-2">
               <GraduationCap className="h-5 w-5 text-emerald-600" />
-              <h2 className="text-lg font-semibold">Certificate Kaise Milega?</h2>
+              <h2 className="text-lg font-semibold text-gray-900">Certificate Kaise Milega?</h2>
               <span className="rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-medium text-emerald-700">
                 4 Steps
               </span>
@@ -145,8 +145,8 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-semibold leading-tight">{step.title}</p>
-                    <p className="text-sm text-muted-foreground">{step.desc}</p>
+                    <p className="font-semibold leading-tight text-gray-900">{step.title}</p>
+                    <p className="text-sm text-gray-600">{step.desc}</p>
                   </div>
                 </li>
               ))}
@@ -248,7 +248,7 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
         {selected && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 no-print">
             <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-card p-6">
-              <div className="certificate-print rounded-lg border-4 border-amber-500 bg-white p-8 text-center text-foreground">
+              <div className="certificate-print rounded-lg border-4 border-amber-500 bg-white p-8 text-center text-gray-900">
                 <div className="mb-2 text-5xl">🏆</div>
                 <div className="mb-1 text-sm font-medium uppercase tracking-widest text-amber-600">
                   Certificate of Completion
