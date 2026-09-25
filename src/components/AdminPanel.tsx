@@ -408,7 +408,13 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
   const [editingSession, setEditingSession] = useState<AdminSession | null>(null)
 
   const fetchData = useCallback(async () => {
-    if (!user?.adminToken) return
+    if (!user?.adminToken) {
+      // Supabase admin (no legacy Shogo token) — open the panel immediately.
+      // Courses/Sessions data comes from the legacy backend which is offline;
+      // the Students tab loads from Supabase separately.
+      setLoading(false)
+      return
+    }
     setLoading(true)
     try {
       const [coursesRes, sessionsRes, statsRes] = await Promise.all([
