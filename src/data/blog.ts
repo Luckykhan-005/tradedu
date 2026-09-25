@@ -29,6 +29,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Futures', 'Spot', 'Leverage', 'Beginners'],
     date: '2026-09-24',
     readingTime: '8 min read',
+    hero: '/blog/crypto-futures-vs-spot.jpg',
+    heroAlt: 'Crypto Futures vs Spot Trading — naye traders ke liye konsa behtar hai',
     sections: [
       {
         paragraphs: [
