@@ -101,7 +101,7 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
             <div className="rounded-xl border-4 border-amber-300 bg-gradient-to-br from-amber-100 via-white to-amber-100 p-3 shadow-inner">
               <div className="overflow-hidden rounded-lg border border-amber-200 shadow-sm">
                 <img
-                  src={`${import.meta.env.BASE_URL}demo-certificate.png`}
+                  src={`${import.meta.env.BASE_URL}demo-certificate.jpg`}
                   alt="Sample certificate"
                   className="h-auto w-full"
                 />
