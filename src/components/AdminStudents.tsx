@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Fragment } from 'react'
 import {
   Users,
   Search,
@@ -12,6 +12,8 @@ import {
   Zap,
   Star,
   RefreshCw,
+  BarChart3,
+  Circle,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -28,6 +30,12 @@ import {
   type AppPlan,
   type SubscriptionRequest,
 } from '@/lib/supabase'
+import {
+  adminListProgress,
+  listAdminCourses,
+  type AdminProgressRow,
+  type CourseDetail,
+} from '@/lib/courses'
 
 const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
@@ -40,6 +48,9 @@ const planConfig: Record<AppPlan, { label: string; icon: typeof Star; color: str
 export function AdminStudents() {
   const [students, setStudents] = useState<TradeEdUser[]>([])
   const [requests, setRequests] = useState<SubscriptionRequest[]>([])
+  const [progressRows, setProgressRows] = useState<AdminProgressRow[]>([])
+  const [courseTrees, setCourseTrees] = useState<CourseDetail[]>([])
+  const [openProgress, setOpenProgress] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [updating, setUpdating] = useState<string | null>(null)
@@ -50,12 +61,16 @@ export function AdminStudents() {
       return
     }
     setLoading(true)
-    const [studentsRes, requestsRes] = await Promise.all([
+    const [studentsRes, requestsRes, progressRes, coursesRes] = await Promise.all([
       adminListStudents(),
       adminListSubscriptionRequests(),
+      adminListProgress(),
+      listAdminCourses(),
     ])
     if (studentsRes.students) setStudents(studentsRes.students)
     if (requestsRes.requests) setRequests(requestsRes.requests)
+    if (progressRes.rows) setProgressRows(progressRes.rows)
+    if (coursesRes.courses) setCourseTrees(coursesRes.courses)
     setLoading(false)
   }, [])
 
@@ -307,9 +322,12 @@ export function AdminStudents() {
             <div className="space-y-2">
               {filteredStudents.map((student) => {
                 const PlanIcon = planConfig[student.plan || 'FREE']?.icon || Star
+                const completedIds = new Set(
+                  progressRows.filter((r) => r.userId === student.id).map((r) => r.lessonId)
+                )
                 return (
+                  <Fragment key={student.id}>
                   <div
-                    key={student.id}
                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-lg border border-border hover:bg-secondary/30 transition-colors"
                   >
                     <div className="flex items-center gap-3 min-w-0">
@@ -368,8 +386,22 @@ export function AdminStudents() {
                           Stop
                         </Button>
                       )}
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => setOpenProgress(openProgress === student.id ? null : student.id)}
+                        className="h-7 px-2.5 text-xs gap-1"
+                        title="Dekhein ye student kis course/module par hai"
+                      >
+                        <BarChart3 className="h-3 w-3" />
+                        Progress
+                      </Button>
                     </div>
                   </div>
+                  {openProgress === student.id && (
+                    <StudentProgressPanel completedIds={completedIds} courses={courseTrees} />
+                  )}
+                  </Fragment>
                 )
               })}
             </div>
@@ -381,6 +413,85 @@ export function AdminStudents() {
           </p>
         </CardContent>
       </Card>
+    </div>
+  )
+}
+
+// Per-student progress breakdown: every course → module → lesson with ✓/○ marks.
+function StudentProgressPanel({
+  completedIds,
+  courses,
+}: {
+  completedIds: Set<string>
+  courses: CourseDetail[]
+}) {
+  const started = courses.filter((c) =>
+    c.modules.some((m) => m.lessons.some((l) => completedIds.has(l.id)))
+  )
+
+  return (
+    <div className="mb-2 p-4 rounded-lg border border-primary/20 bg-primary/5 space-y-5">
+      <div className="flex items-center gap-2 text-sm font-semibold">
+        <BarChart3 className="h-4 w-4 text-primary" />
+        Course Progress
+      </div>
+
+      {started.length === 0 ? (
+        <p className="text-sm text-muted-foreground">
+          Abhi tak ye student ne koi lesson complete nahi kiya.
+        </p>
+      ) : (
+        started.map((course) => {
+          const allLessons = course.modules.flatMap((m) => m.lessons)
+          const done = allLessons.filter((l) => completedIds.has(l.id)).length
+          const pct = Math.round((done / Math.max(1, allLessons.length)) * 100)
+          return (
+            <div key={course.id} className="space-y-2">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-sm font-medium">{course.title}</span>
+                <span className="text-xs text-muted-foreground shrink-0">
+                  {done}/{allLessons.length} lessons · {pct}%
+                </span>
+              </div>
+              <div className="h-2 rounded-full bg-muted overflow-hidden">
+                <div className="h-full bg-primary transition-all" style={{ width: `${pct}%` }} />
+              </div>
+              <div className="pl-3 space-y-2">
+                {course.modules.map((mod) => {
+                  const modDone = mod.lessons.filter((l) => completedIds.has(l.id)).length
+                  return (
+                    <div key={mod.id}>
+                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                        {mod.title}{' '}
+                        <span className="normal-case tracking-normal">
+                          — {modDone}/{mod.lessons.length}
+                        </span>
+                      </div>
+                      <ul className="mt-1 space-y-0.5">
+                        {mod.lessons.map((lesson) => {
+                          const ok = completedIds.has(lesson.id)
+                          return (
+                            <li key={lesson.id} className="flex items-center gap-1.5 text-xs">
+                              {ok ? (
+                                <CheckCircle className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                              ) : (
+                                <Circle className="h-3.5 w-3.5 text-muted-foreground/50 shrink-0" />
+                              )}
+                              <span className={ok ? 'text-foreground' : 'text-muted-foreground'}>
+                                {lesson.title}
+                              </span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { api } from '@/lib/api'
 import { getCurrentSession, signOut as supaSignOut, type TradeEdUser } from '@/lib/supabase'
+import { listCatalogCourses, listSessions, getCourseDetail, fetchLessonProgress, fetchEnrollments, addEnrollment, setLessonProgress as saveLessonProgress } from '@/lib/courses'
 import { Navigation, Page } from './components/Navigation'
 import { Landing } from './components/Landing'
 import { CourseCatalog, type CourseData } from './components/CourseCatalog'
@@ -67,47 +67,26 @@ export default function App() {
   const [sessions, setSessions] = useState<SessionData[]>([])
   const [loading, setLoading] = useState(true)
 
-  // Fetch initial data
+  // Fetch initial data (courses & sessions live in Supabase)
   const fetchData = useCallback(async () => {
     setLoading(true)
     try {
-      // Try to seed data silently (may fail, that's okay)
-      try { await fetch(api('/api/seed'), { method: 'POST' }) } catch { }
-
-      // Fetch published courses only — drafts created in the admin panel must
-      // not leak into the public catalog.
-      const coursesRes = await fetch(api('/api/courses?isPublished=true'))
-      const coursesData = await coursesRes.json()
-      const items = coursesData.items || []
-
-      const coursesList = items.map((c: any) => ({
-        id: c.id,
-        title: c.title,
-        description: c.description,
-        level: c.level,
-        thumbnail: c.thumbnail,
-        price: c.price,
-        rating: c.rating,
-        studentCount: c.studentCount,
-        duration: c.duration,
-        moduleCount: c.modules?.length || 0,
-      }))
-      setCourses(coursesList)
-
-      // Dashboard data (sessions + stats)
-      const dashboardRes = await fetch(api('/api/dashboard'))
-      const dashboardData = await dashboardRes.json()
-
-      const sessionsList = (dashboardData.sessions || []).map((s: any) => ({
-        id: s.id,
-        title: s.title,
-        description: s.description,
-        date: s.date,
-        duration: s.duration,
-        meetLink: s.meetLink,
-        instructorName: s.instructor?.name || 'Instructor',
-      }))
-      setSessions(sessionsList)
+      const [{ courses: courseList }, { sessions: sessionRows }] = await Promise.all([
+        listCatalogCourses(),
+        listSessions(),
+      ])
+      setCourses(courseList || [])
+      setSessions(
+        (sessionRows || []).map((s) => ({
+          id: s.id,
+          title: s.title,
+          description: s.description || undefined,
+          date: s.date || '',
+          duration: s.duration || undefined,
+          meetLink: s.meetLink || undefined,
+          instructorName: s.instructor || 'Instructor',
+        }))
+      )
     } catch (err) {
       console.error('Failed to fetch data:', err)
     } finally {
@@ -167,9 +146,12 @@ export default function App() {
 
   const handleSelectCourse = async (courseId: string) => {
     try {
-      const res = await fetch(api(`/api/courses/${courseId}/detail`))
-      const data = await res.json()
-      setSelectedCourse(data)
+      const detail = await getCourseDetail(courseId)
+      if (!detail) {
+        console.error('Course not found:', courseId)
+        return
+      }
+      setSelectedCourse(detail as CourseDetailData)
       setCurrentPage('course-detail')
     } catch (err) {
       console.error('Failed to load course:', err)
@@ -186,20 +168,40 @@ export default function App() {
 
   const handleEnroll = (courseId: string) => {
     setEnrolledCourseIds((prev) => new Set([...prev, courseId]))
+    if (user) void addEnrollment(user.id, courseId)
   }
 
   const handleToggleLesson = (courseId: string, lessonId: string) => {
-    setLessonProgress((prev) => {
-      const courseProgress = prev[courseId] || {}
-      return {
-        ...prev,
-        [courseId]: {
-          ...courseProgress,
-          [lessonId]: !courseProgress[lessonId],
-        },
-      }
-    })
+    const next = !(lessonProgress[courseId]?.[lessonId])
+    setLessonProgress((prev) => ({
+      ...prev,
+      [courseId]: { ...(prev[courseId] || {}), [lessonId]: next },
+    }))
+    // Persist to Supabase so the admin panel can see progress
+    if (user) void saveLessonProgress(user.id, lessonId, next)
   }
+
+  // Load this student's persisted progress + enrollments whenever they sign in.
+  useEffect(() => {
+    if (!user) {
+      setEnrolledCourseIds(new Set())
+      setLessonProgress({})
+      return
+    }
+    let cancelled = false
+    ;(async () => {
+      const [progress, enrollments] = await Promise.all([
+        fetchLessonProgress(user.id),
+        fetchEnrollments(user.id),
+      ])
+      if (cancelled) return
+      setLessonProgress(progress)
+      setEnrolledCourseIds(new Set(enrollments.courseIds || []))
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [user?.id])
 
   // Auth screen open/close helpers. The auth screen replaces the whole app, so
   // we push a history entry when opening it — browser back then closes it, and
