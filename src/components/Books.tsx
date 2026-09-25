@@ -64,7 +64,7 @@ const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/crypto-futures-book/index.html',
     tags: ['Roman Urdu', 'Futures', 'Leverage', '31 Chapters'],
-    cover: '/covers/crypto-futures-book.svg',
+    cover: '/covers/crypto-futures-book.jpg',
   },
   {
     id: 'spot-trading',
@@ -79,7 +79,7 @@ const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: '/spot-trading-book/index.html',
     tags: ['Roman Urdu', 'Spot', 'Complete Guide'],
-    cover: '/covers/spot-trading-book.svg',
+    cover: '/covers/spot-trading-book.jpg',
   },
   {
     id: 'binance-complete',
