@@ -55,23 +55,33 @@ export function Blog({ onSelectPost }: BlogProps) {
               className="group h-full cursor-pointer transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
               onClick={() => onSelectPost(post)}
             >
-              <CardContent className="flex h-full flex-col p-6">
-                <div className="mb-3 flex items-center justify-between gap-2">
-                  <Badge variant="secondary">{post.category}</Badge>
-                  <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Clock className="h-3.5 w-3.5" />
-                    {post.readingTime}
-                  </span>
-                </div>
-                <h2 className="mb-2 text-lg font-bold leading-snug group-hover:text-primary">
-                  {post.title}
-                </h2>
-                <p className="mb-4 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
-                <div className="flex items-center justify-between border-t border-border pt-4">
-                  <span className="text-xs text-muted-foreground">{post.date}</span>
-                  <span className="flex items-center gap-1 text-sm font-medium text-primary">
-                    Parhein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+              <CardContent className="flex h-full flex-col p-0">
+                {post.hero && (
+                  <img
+                    src={post.hero}
+                    alt={post.heroAlt || post.title}
+                    className="aspect-[16/9] w-full border-b border-border object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <Badge variant="secondary">{post.category}</Badge>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Clock className="h-3.5 w-3.5" />
+                      {post.readingTime}
+                    </span>
+                  </div>
+                  <h2 className="mb-2 text-lg font-bold leading-snug group-hover:text-primary">
+                    {post.title}
+                  </h2>
+                  <p className="mb-4 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
+                  <div className="flex items-center justify-between border-t border-border pt-4">
+                    <span className="text-xs text-muted-foreground">{post.date}</span>
+                    <span className="flex items-center gap-1 text-sm font-medium text-primary">
+                      Parhein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>

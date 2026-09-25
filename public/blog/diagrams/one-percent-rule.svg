@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="500" fill="#0b0e11"/>
+  <text x="450" y="46" text-anchor="middle" font-size="26" font-weight="700" fill="#eaecef">The 1% Risk Rule</text>
+  <text x="450" y="74" text-anchor="middle" font-size="15" fill="#848e9c">Har trade par sirf account ka 1% risk</text>
+
+  <!-- Account breakdown -->
+  <rect x="60" y="105" width="360" height="170" rx="14" fill="#161a1e" stroke="#2b3139" stroke-width="2"/>
+  <text x="240" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#eaecef">Example: Account $1,000</text>
+
+  <rect x="90" y="160" width="300" height="34" rx="8" fill="#2b3139"/>
+  <rect x="90" y="160" width="3" height="34" fill="#0ecb81"/>
+  <text x="106" y="182" font-size="14" fill="#eaecef">Capital (100%)</text>
+  <text x="374" y="182" text-anchor="end" font-size="14" font-weight="700" fill="#0ecb81">$1,000</text>
+
+  <rect x="90" y="204" width="300" height="34" rx="8" fill="#f6465d" fill-opacity="0.15"/>
+  <rect x="90" y="204" width="3" height="34" fill="#f6465d"/>
+  <text x="106" y="226" font-size="14" fill="#eaecef">Max risk per trade (1%)</text>
+  <text x="374" y="226" text-anchor="end" font-size="14" font-weight="700" fill="#f6465d">$10</text>
+
+  <!-- Formula box -->
+  <rect x="460" y="105" width="380" height="170" rx="14" fill="#161a1e" stroke="#f0b90b" stroke-width="2"/>
+  <text x="650" y="138" text-anchor="middle" font-size="17" font-weight="700" fill="#f0b90b">Position Size Formula</text>
+  <text x="650" y="172" text-anchor="middle" font-size="15" fill="#eaecef">Risk Amount ÷ (Entry − Stop)</text>
+  <text x="650" y="204" text-anchor="middle" font-size="14" fill="#848e9c">$10 ÷ $2 = 2.5 units</text>
+  <rect x="490" y="222" width="320" height="36" rx="8" fill="#0ecb81" fill-opacity="0.12"/>
+  <text x="650" y="246" text-anchor="middle" font-size="14" font-weight="600" fill="#0ecb81">10 losses = sirf 10% account gaya</text>
+
+  <!-- Risk : Reward bars -->
+  <text x="450" y="318" text-anchor="middle" font-size="18" font-weight="700" fill="#eaecef">Risk : Reward = 1 : 2 (minimum)</text>
+
+  <rect x="120" y="340" width="150" height="44" rx="8" fill="#f6465d"/>
+  <text x="195" y="368" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Risk $10</text>
+
+  <rect x="290" y="340" width="300" height="44" rx="8" fill="#0ecb81"/>
+  <text x="440" y="368" text-anchor="middle" font-size="15" font-weight="700" fill="#0b0e11">Target $20</text>
+
+  <text x="450" y="420" text-anchor="middle" font-size="15" fill="#eaecef">40% trades jeeto → tab bhi profitable rahein (math)</text>
+
+  <rect x="180" y="440" width="540" height="36" rx="10" fill="#f0b90b" fill-opacity="0.12"/>
+  <text x="450" y="464" text-anchor="middle" font-size="14" font-weight="700" fill="#f0b90b">Stop loss bina trade lena = lottery khelna</text>
+</svg>

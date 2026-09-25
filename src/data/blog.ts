@@ -2,6 +2,8 @@ export interface BlogSection {
   heading?: string
   paragraphs: string[]
   list?: string[]
+  diagram?: string
+  diagramAlt?: string
 }
 
 export interface BlogPost {
@@ -12,6 +14,8 @@ export interface BlogPost {
   tags: string[]
   date: string
   readingTime: string
+  hero?: string
+  heroAlt?: string
   sections: BlogSection[]
 }
 
@@ -64,6 +68,8 @@ export const blogPosts: BlogPost[] = [
           'Spot: risk kam, control zyada. Aap apni marzi se hold kar sakte hain, market gir kar wapas aaye to aap wapas aa jate hain. Futures: risk zyada, speed zyada — lekin galti ho to position zabardasti band ho sakti hai.',
           'Professional traders futures ko isliye pasand karte hain kyunki unhe hedging aur shorting chahiye. Naye trader ke liye futures mein seedha real paisa lagana sab se aam ghalti hai — pehle seekhein, phir amal karein.',
         ],
+        diagram: '/blog/diagrams/spot-vs-futures.svg',
+        diagramAlt: 'Spot vs Futures trading ka comparison diagram — spot safe hai, futures mein liquidation ka khatra hai',
       },
       {
         heading: 'Naye Trader Ke Liye Salah',
@@ -123,6 +129,8 @@ export const blogPosts: BlogPost[] = [
           'Step 3: Risk amount ÷ farq = position size',
           'Step 4: Leverage utna rakhein jitna position size maangta hai',
         ],
+        diagram: '/blog/diagrams/one-percent-rule.svg',
+        diagramAlt: '1% risk rule ka diagram — $1000 account par $10 risk, position size formula aur 1:2 risk-reward ratio',
       },
       {
         heading: 'Stop Loss Bina Trade Mat Lein',
@@ -209,6 +217,8 @@ export const blogPosts: BlogPost[] = [
           'Journal mein har trade ka reason likhein',
           'Sidhi neend, khana, walk — trading ke bahar life zaroori hai',
         ],
+        diagram: '/blog/diagrams/fomo-revenge-cycle.svg',
+        diagramAlt: 'FOMO aur revenge trading ka cycle diagram — loss ke baad revenge trade aur uske 4 torne wale rules',
       },
       {
         heading: 'Aakhri Lafz',
@@ -256,6 +266,8 @@ export const blogPosts: BlogPost[] = [
           'Seller ko payment karein → "Payment ka proof" upload karein',
           'Seller confirm kare → crypto aapke wallet mein',
         ],
+        diagram: '/blog/diagrams/p2p-flow.svg',
+        diagramAlt: 'Binance P2P order ka 5-step flow diagram — order, crypto hold, payment, confirm aur safety rules',
       },
       {
         heading: 'Scam Se Bachein — Zaroori Rules',
@@ -345,6 +357,8 @@ export const blogPosts: BlogPost[] = [
           'Yeh paanch patterns aapko chart par pehchanna shuru ho jayenge. Lekin yaad rakhein: koi bhi pattern akela trade ka reason nahi — hamesha trend, support/resistance aur risk management ke sath use karein.',
           'TradeEd ki Candlestick book mein 40+ patterns detail se covered hain — woh parh kar inhen practice karein.',
         ],
+        diagram: '/blog/diagrams/candlestick-patterns.svg',
+        diagramAlt: 'Paanch candlestick patterns ka diagram — Doji, Bullish Engulfing, Hammer, Shooting Star aur Morning Star',
       },
     ],
   },
@@ -400,6 +414,8 @@ export const blogPosts: BlogPost[] = [
           'Sirf numbers nahi — emotions bhi likhein',
           'Journal ke baghar trade mat lein',
         ],
+        diagram: '/blog/diagrams/journal-template.svg',
+        diagramAlt: 'Trading journal ka template diagram — date, pair, setup, risk-reward, result aur emotion columns',
       },
       {
         heading: 'Aakhri Lafz',

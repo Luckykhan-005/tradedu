@@ -36,6 +36,10 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
     setMeta('meta[property="og:description"]', 'content', post.excerpt)
     setMeta('meta[property="og:type"]', 'content', 'article')
     setMeta('meta[property="og:url"]', 'content', `https://tradeed.online/blog/${post.slug}`)
+    if (post.hero) {
+      setMeta('meta[property="og:image"]', 'content', `https://tradeed.online${post.hero}`)
+      setMeta('meta[name="twitter:image"]', 'content', `https://tradeed.online${post.hero}`)
+    }
 
     let canonical = document.head.querySelector('link[rel="canonical"]')
     let createdCanonical = false
@@ -110,6 +114,16 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
       </header>
 
       <div className="space-y-8">
+        {post.hero && (
+          <figure className="overflow-hidden rounded-xl border border-border">
+            <img
+              src={post.hero}
+              alt={post.heroAlt || post.title}
+              className="aspect-[16/9] w-full object-cover"
+              loading="eager"
+            />
+          </figure>
+        )}
         {post.sections.map((section, i) => (
           <section key={i}>
             {section.heading && (
@@ -129,6 +143,16 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
                   </li>
                 ))}
               </ul>
+            )}
+            {section.diagram && (
+              <figure className="my-6 overflow-hidden rounded-xl border border-border bg-card">
+                <img
+                  src={section.diagram}
+                  alt={section.diagramAlt || ''}
+                  className="w-full"
+                  loading="lazy"
+                />
+              </figure>
             )}
           </section>
         ))}

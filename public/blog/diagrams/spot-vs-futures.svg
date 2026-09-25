@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="500" fill="#0b0e11"/>
+  <text x="450" y="48" text-anchor="middle" font-size="26" font-weight="700" fill="#eaecef">Spot vs Futures Trading</text>
+  <text x="450" y="76" text-anchor="middle" font-size="15" fill="#848e9c">TradeEd — Roman Urdu Guide</text>
+
+  <!-- Spot column -->
+  <rect x="50" y="105" width="380" height="330" rx="14" fill="#161a1e" stroke="#0ecb81" stroke-width="2"/>
+  <rect x="50" y="105" width="380" height="54" rx="14" fill="#0ecb81"/>
+  <rect x="50" y="145" width="380" height="14" fill="#0ecb81"/>
+  <text x="240" y="140" text-anchor="middle" font-size="22" font-weight="700" fill="#0b0e11">SPOT TRADING</text>
+
+  <circle cx="80" cy="195" r="4" fill="#0ecb81"/>
+  <text x="96" y="201" font-size="15" fill="#eaecef">Coin aapka real hota hai (wallet mein)</text>
+  <circle cx="80" cy="235" r="4" fill="#0ecb81"/>
+  <text x="96" y="241" font-size="15" fill="#eaecef">Koi leverage nahi</text>
+  <circle cx="80" cy="275" r="4" fill="#0ecb81"/>
+  <text x="96" y="281" font-size="15" fill="#eaecef">Liquidation kabhi nahi hoti</text>
+  <circle cx="80" cy="315" r="4" fill="#0ecb81"/>
+  <text x="96" y="321" font-size="15" fill="#eaecef">Gir kar wapas aane ka intezar kar sakte hain</text>
+
+  <rect x="75" y="350" width="330" height="60" rx="10" fill="#0ecb81" fill-opacity="0.12"/>
+  <text x="240" y="376" text-anchor="middle" font-size="15" font-weight="700" fill="#0ecb81">Naye traders ke liye SAFE</text>
+  <text x="240" y="398" text-anchor="middle" font-size="13" fill="#848e9c">3-6 mahine yahin practice karein</text>
+
+  <!-- Futures column -->
+  <rect x="470" y="105" width="380" height="330" rx="14" fill="#161a1e" stroke="#f6465d" stroke-width="2"/>
+  <rect x="470" y="105" width="380" height="54" rx="14" fill="#f6465d"/>
+  <rect x="470" y="145" width="380" height="14" fill="#f6465d"/>
+  <text x="660" y="140" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">FUTURES TRADING</text>
+
+  <circle cx="500" cy="195" r="4" fill="#f6465d"/>
+  <text x="516" y="201" font-size="15" fill="#eaecef">Sirf price ka contract — coin nahi</text>
+  <circle cx="500" cy="235" r="4" fill="#f6465d"/>
+  <text x="516" y="241" font-size="15" fill="#eaecef">Leverage 3x–20x tak</text>
+  <circle cx="500" cy="275" r="4" fill="#f6465d"/>
+  <text x="516" y="281" font-size="15" fill="#eaecef">Liquidation ka hamesha khatra</text>
+  <circle cx="500" cy="315" r="4" fill="#f6465d"/>
+  <text x="516" y="321" font-size="15" fill="#eaecef">Long + Short dono side par trade</text>
+
+  <rect x="495" y="350" width="330" height="60" rx="10" fill="#f6465d" fill-opacity="0.12"/>
+  <text x="660" y="376" text-anchor="middle" font-size="15" font-weight="700" fill="#f6465d">Experienced ke liye POWERFUL</text>
+  <text x="660" y="398" text-anchor="middle" font-size="13" fill="#848e9c">Leverage max 3x + 1% risk rule</text>
+
+  <text x="450" y="470" text-anchor="middle" font-size="14" fill="#f0b90b">Rising: Pehle Spot seekhein → phir Futures ka demo practice karein</text>
+</svg>
