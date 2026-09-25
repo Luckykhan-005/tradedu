@@ -47,7 +47,9 @@ export default async function handler(req: any, res: any) {
     })
   }
 
-  const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
+  const models: string[] = process.env.GEMINI_MODEL
+    ? [process.env.GEMINI_MODEL]
+    : ['gemini-3.5-flash-lite', 'gemini-flash-lite-latest', 'gemini-3.8-flash']
 
   const history: ChatTurn[] = Array.isArray(body?.history)
     ? body.history
@@ -61,55 +63,91 @@ export default async function handler(req: any, res: any) {
     { role: 'user', parts: [{ text: question }] },
   ]
 
-  try {
-    const r = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents,
-          generationConfig: { temperature: 0.6, maxOutputTokens: 700, topP: 0.9 },
-        }),
+  let lastError = ''
+
+  const attempts = models
+  const deadline = Date.now() + 16000
+
+  for (const model of attempts) {
+    if (Date.now() > deadline) {
+      lastError = `${model}: time budget done`
+      break
+    }
+    try {
+      const r = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+          signal: AbortSignal.timeout(5000),
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents,
+            generationConfig: { temperature: 0.6, maxOutputTokens: 320, topP: 0.9 },
+          }),
+        }
+      )
+
+      if (r.status === 404 || r.status === 503 || r.status === 500) {
+        lastError = `${model}: HTTP ${r.status}`
+        console.error('Gemini try failed:', lastError)
+        if (r.status === 503 && Date.now() < deadline - 2500) {
+          await new Promise((s) => setTimeout(s, 400))
+        }
+        continue
       }
-    )
 
-    if (r.status === 429) {
-      return json(res, 429, {
-        error: 'AI_RATE_LIMIT',
-        message: 'AI abhi busy hai (free tier limit). Thori der baad dobara koshish karein.',
-      })
+      if (r.status === 401 || r.status === 403) {
+        const detail = (await r.text()).slice(0, 300)
+        console.error('Gemini auth error:', r.status, detail)
+        return json(res, 502, {
+          error: 'AI_AUTH',
+          message: 'AI key kaam nahi kar rahi — dashboard mein key check karein.',
+        })
+      }
+
+      if (r.status === 429) {
+        const detail = (await r.text()).slice(0, 500)
+        console.error('Gemini rate limited:', model, detail)
+        return json(res, 429, {
+          error: 'AI_RATE_LIMIT',
+          message: 'AI abhi busy hai (free tier limit). Thori der baad dobara koshish karein.',
+        })
+      }
+
+      if (!r.ok) {
+        const detail = (await r.text()).slice(0, 300)
+        console.error('Gemini error:', r.status, detail)
+        lastError = `${model}: HTTP ${r.status}`
+        continue
+      }
+
+      const data = await r.json()
+      const text: string =
+        data?.candidates?.[0]?.content?.parts
+          ?.map((p: any) => p?.text || '')
+          .join('') || ''
+
+      if (!text.trim()) {
+        lastError = `${model}: empty answer`
+        continue
+      }
+
+      return json(res, 200, { answer: text.trim(), model })
+    } catch (err: any) {
+      lastError = `${model}: ${err?.name === 'TimeoutError' ? 'timeout 5s' : err?.message || 'fetch failed'}`
+      console.error('Gemini try failed:', lastError)
     }
-
-    if (!r.ok) {
-      const detail = (await r.text()).slice(0, 300)
-      console.error('Gemini error:', r.status, detail)
-      return json(res, 502, {
-        error: 'AI_ERROR',
-        message: 'AI jawab nahi de paya (temporary masla). Dobara koshish karein.',
-      })
-    }
-
-    const data = await r.json()
-    const text: string =
-      data?.candidates?.[0]?.content?.parts
-        ?.map((p: any) => p?.text || '')
-        .join('') || ''
-
-    if (!text.trim()) {
-      return json(res, 502, {
-        error: 'AI_EMPTY',
-        message: 'AI ne khali jawab wapas bheja. Dobara koshish karein.',
-      })
-    }
-
-    return json(res, 200, { answer: text.trim(), model })
-  } catch (err) {
-    console.error('Gemini fetch failed:', err)
-    return json(res, 502, {
-      error: 'AI_UNREACHABLE',
-      message: 'AI tak rasai nahi ho sakin. Dobara koshish karein.',
-    })
   }
+
+  console.error('All models failed:', lastError)
+  const rateLimited = lastError.includes('429')
+  return json(res, 502, {
+    error: rateLimited ? 'AI_RATE_LIMIT' : 'AI_ERROR',
+    message: rateLimited
+      ? 'AI abhi busy hai (limit). Thori der baad dobara koshish karein.'
+      : 'AI jawab nahi de paya (temporary masla). Dobara koshish karein.',
+  })
 }
+
+export const config = { maxDuration: 30 }

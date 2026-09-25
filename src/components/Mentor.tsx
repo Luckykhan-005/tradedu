@@ -52,6 +52,28 @@ export function Mentor() {
     return 'AI jawab nahi de paya. Dobara koshish karein.'
   }
 
+  const postMentor = async (
+    q: string,
+    history: { role: 'user' | 'model'; text: string }[],
+    isRetry = false
+  ): Promise<{ ok: boolean; data: any; status: number }> => {
+    const r = await fetch('/api/mentor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q, history }),
+    })
+    const data = await r.json().catch(() => ({}))
+    if (r.ok && data.answer) return { ok: true, data, status: r.status }
+    const transient =
+      r.status === 502 || r.status === 504 || r.status === 429 ||
+      data.error === 'AI_ERROR' || data.error === 'AI_RATE_LIMIT'
+    if (transient && !isRetry) {
+      await new Promise((s) => setTimeout(s, 8000))
+      return postMentor(q, history, true)
+    }
+    return { ok: false, data, status: r.status }
+  }
+
   const ask = (question: string) => {
     const q = question.trim()
     if (!q || loading) return
@@ -92,14 +114,9 @@ export function Mentor() {
       setLoading(false)
     }
 
-    fetch('/api/mentor', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: q, history }),
-    })
-      .then(async (r) => {
-        const data = await r.json().catch(() => ({}))
-        if (r.ok && data.answer) {
+    postMentor(q, history)
+      .then(({ ok, data }) => {
+        if (ok && data.answer) {
           settle({ id: aiId, role: 'mentor', text: String(data.answer), source: 'ai' })
         } else {
           settle({
