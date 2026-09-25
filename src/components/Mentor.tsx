@@ -7,6 +7,7 @@ import {
   MessageSquare,
   BookOpen,
   Link2,
+  Loader2,
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import {
@@ -24,6 +25,8 @@ interface ChatMessage {
   text?: string
   entry?: MentorEntry
   related?: MentorEntry[]
+  source?: 'kb' | 'ai' | 'error'
+  pending?: boolean
 }
 
 const GREETING: ChatMessage = {
@@ -37,48 +40,86 @@ let nextId = 1
 export function Mentor() {
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING])
   const [input, setInput] = useState('')
+  const [loading, setLoading] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages])
 
+  const aiErrorText = (data: any): string => {
+    if (data?.message) return String(data.message)
+    return 'AI jawab nahi de paya. Dobara koshish karein.'
+  }
+
   const ask = (question: string) => {
     const q = question.trim()
-    if (!q) return
+    if (!q || loading) return
 
     const matches = searchMentor(q)
-    const userMsg: ChatMessage = { id: nextId++, role: 'user', text: q }
+    setMessages((prev) => [...prev, { id: nextId++, role: 'user', text: q }])
+    setInput('')
 
-    let mentorMsg: ChatMessage
+    const history = messages
+      .slice(-6)
+      .map((m) => ({
+        role: m.role === 'user' ? ('user' as const) : ('model' as const),
+        text: (m.text || m.entry?.q || '').slice(0, 400),
+      }))
+      .filter((h) => h.text)
+
     if (matches.length > 0 && matches[0].score >= 4) {
       const best = matches[0].entry
-      mentorMsg = {
-        id: nextId++,
-        role: 'mentor',
-        entry: best,
-        related: relatedEntries(best),
-      }
-    } else if (matches.length > 0) {
-      const best = matches[0].entry
-      mentorMsg = {
-        id: nextId++,
-        role: 'mentor',
-        text: 'Seedha jawab mere paas nahi, lekin yeh sab se qareeb sawal hai — shayad aap yahi pooch rahe hain:',
-        entry: best,
-        related: relatedEntries(best),
-      }
-    } else {
-      mentorMsg = {
-        id: nextId++,
-        role: 'mentor',
-        text: 'Maazrat, is sawal ka jawab abhi mere knowledge base mein nahi hai. Aap Glossary (100+ terms) ya Blog (detailed guides) dekh sakte hain, ya Contact page se sawal bhej sakte hain — main is mein aur jawab add karunga.',
-      }
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: nextId++,
+          role: 'mentor',
+          entry: best,
+          source: 'kb',
+          related: relatedEntries(best),
+        },
+      ])
+      return
     }
 
-    setMessages((prev) => [...prev, userMsg, mentorMsg])
-    setInput('')
+    const aiId = nextId++
+    setLoading(true)
+    setMessages((prev) => [...prev, { id: aiId, role: 'mentor', pending: true }])
+
+    const settle = (msg: ChatMessage) => {
+      setMessages((prev) => prev.map((m) => (m.id === aiId ? msg : m)))
+      setLoading(false)
+    }
+
+    fetch('/api/mentor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q, history }),
+    })
+      .then(async (r) => {
+        const data = await r.json().catch(() => ({}))
+        if (r.ok && data.answer) {
+          settle({ id: aiId, role: 'mentor', text: String(data.answer), source: 'ai' })
+        } else {
+          settle({
+            id: aiId,
+            role: 'mentor',
+            text: aiErrorText(data),
+            source: 'error',
+            related: matches.slice(0, 3).map((m) => m.entry),
+          })
+        }
+      })
+      .catch(() =>
+        settle({
+          id: aiId,
+          role: 'mentor',
+          text: 'Network/AI masla — jawab nahi mil saka. Dobara koshish karein.',
+          source: 'error',
+          related: matches.slice(0, 3).map((m) => m.entry),
+        })
+      )
   }
 
   const onSubmit = (e: React.FormEvent) => {
@@ -97,7 +138,7 @@ export function Mentor() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">AI Trading Mentor</h1>
             <p className="text-muted-foreground">
-              Kuch bhi poochein — Roman Urdu mein instant jawab
+              Pehle Knowledge Base (instant), warna Gemini AI · Roman Urdu jawab
             </p>
           </div>
         </div>
@@ -133,13 +174,44 @@ export function Mentor() {
                     </div>
                   )}
 
-                  {msg.role === 'mentor' && !msg.entry && (
-                    <div className="inline-block rounded-2xl rounded-tl-sm bg-secondary px-4 py-2.5 text-left text-sm text-foreground">
-                      {msg.text}
+                  {msg.role === 'mentor' && msg.pending && (
+                    <div className="inline-flex items-center gap-2 rounded-2xl rounded-tl-sm bg-secondary px-4 py-2.5 text-sm text-muted-foreground">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span className="flex gap-1">
+                        <span className="animate-bounce">.</span>
+                        <span className="animate-bounce [animation-delay:150ms]">.</span>
+                        <span className="animate-bounce [animation-delay:300ms]">.</span>
+                      </span>
+                      <span className="text-xs">AI soch raha hai</span>
                     </div>
                   )}
 
-                  {msg.role === 'mentor' && msg.entry && (
+                  {msg.role === 'mentor' && !msg.entry && !msg.pending && (
+                    <div className="space-y-1.5 text-left">
+                      {msg.source === 'ai' && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
+                          <Sparkles className="h-3 w-3" /> Gemini AI
+                        </span>
+                      )}
+                      {msg.source === 'error' && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-destructive/40 bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                          AI unavailable
+                        </span>
+                      )}
+                      <div
+                        className={cn(
+                          'inline-block whitespace-pre-line rounded-2xl rounded-tl-sm px-4 py-2.5 text-left text-sm',
+                          msg.source === 'error'
+                            ? 'border border-dashed border-border bg-secondary text-muted-foreground'
+                            : 'bg-secondary text-foreground'
+                        )}
+                      >
+                        {msg.text}
+                      </div>
+                    </div>
+                  )}
+
+                  {msg.role === 'mentor' && msg.entry && !msg.pending && (
                     <div className="space-y-2 text-left">
                       {msg.text && (
                         <div className="inline-block rounded-2xl rounded-tl-sm bg-secondary px-4 py-2.5 text-sm text-foreground">
@@ -152,6 +224,9 @@ export function Mentor() {
                             <Sparkles className="h-3.5 w-3.5" />
                             {categoryLabels[msg.entry.category]}
                           </span>
+                          <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                            Knowledge Base
+                          </span>
                         </div>
                         <p className="mb-2 text-sm font-semibold text-foreground">
                           {msg.entry.q}
@@ -163,7 +238,7 @@ export function Mentor() {
                     </div>
                   )}
 
-                  {msg.role === 'mentor' && msg.related && msg.related.length > 0 && (
+                  {msg.role === 'mentor' && msg.related && msg.related.length > 0 && !msg.pending && (
                     <div className="space-y-1.5 pt-1 text-left">
                       <p className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Link2 className="h-3 w-3" /> Related sawal:
@@ -186,7 +261,7 @@ export function Mentor() {
             ))}
           </div>
 
-          {/* Suggested questions — sirf chat ki shuruaat mein ya kam messages par */}
+          {/* Suggested questions — sirf chat ki shuruaat mein */}
           {messages.length <= 1 && (
             <div className="border-t border-border px-4 pt-3 sm:px-5">
               <p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
@@ -209,7 +284,6 @@ export function Mentor() {
           {/* Input */}
           <form onSubmit={onSubmit} className="flex items-center gap-2 border-t border-border p-3">
             <input
-              ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Apna sawal likhein... (jaise: leverage kya hota hai)"
@@ -218,11 +292,15 @@ export function Mentor() {
             />
             <button
               type="submit"
-              disabled={!input.trim()}
+              disabled={!input.trim() || loading}
               className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-opacity disabled:opacity-40"
               aria-label="Send"
             >
-              <Send className="h-4 w-4" />
+              {loading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="h-4 w-4" />
+              )}
             </button>
           </form>
         </div>
@@ -230,9 +308,10 @@ export function Mentor() {
         {/* Stats + disclaimer */}
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
-            <BookOpen className="h-3.5 w-3.5" /> {mentorEntries.length} sawal-jawab knowledge base mein
+            <BookOpen className="h-3.5 w-3.5" /> {mentorEntries.length} sawal-jawab Knowledge Base
+            mein · baki sawal Gemini AI se
           </span>
-          <span>Instant jawab · Zero API cost</span>
+          <span>KB instant · AI fallback</span>
         </div>
 
         <p className="mt-3 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-xs leading-relaxed text-muted-foreground">
