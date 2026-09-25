@@ -1,4 +1,4 @@
-import { TrendingUp, Youtube, Send, MessageSquare, Mail, Info, FileText, Shield } from 'lucide-react'
+import { TrendingUp, Youtube, Send, MessageSquare, Mail, Info, FileText, Shield, AlertTriangle } from 'lucide-react'
 import type { Page } from './Navigation'
 
 interface FooterProps {
@@ -45,6 +45,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li><button onClick={() => onNavigate('contact')} className="flex items-center gap-1.5 hover:text-highlight"><Mail className="h-3.5 w-3.5" /> Contact</button></li>
               <li><button onClick={() => onNavigate('privacy')} className="flex items-center gap-1.5 hover:text-highlight"><Shield className="h-3.5 w-3.5" /> Privacy Policy</button></li>
               <li><button onClick={() => onNavigate('terms')} className="flex items-center gap-1.5 hover:text-highlight"><FileText className="h-3.5 w-3.5" /> Terms</button></li>
+              <li><button onClick={() => onNavigate('disclaimer')} className="flex items-center gap-1.5 hover:text-highlight"><AlertTriangle className="h-3.5 w-3.5" /> Risk Disclaimer</button></li>
             </ul>
           </div>
 

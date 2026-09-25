@@ -25,6 +25,8 @@ import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { Privacy } from './components/Privacy'
 import { Terms } from './components/Terms'
+import { Disclaimer } from './components/Disclaimer'
+import { NotFound } from './components/NotFound'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -54,8 +56,40 @@ interface SessionData {
   instructorName: string
 }
 
+// Page <-> URL mapping so every page has a real, shareable URL (deep links,
+// browser back/forward, and Google crawlability).
+const pageToPath: Partial<Record<Page, string>> = {
+  landing: '/',
+  courses: '/courses',
+  dashboard: '/dashboard',
+  'live-sessions': '/live-sessions',
+  'ai-tools': '/ai-tools',
+  admin: '/admin',
+  books: '/books',
+  calculator: '/calculator',
+  glossary: '/glossary',
+  journal: '/journal',
+  certificates: '/certificates',
+  pricing: '/pricing',
+  subscribe: '/subscribe',
+  about: '/about',
+  contact: '/contact',
+  privacy: '/privacy',
+  terms: '/terms',
+  disclaimer: '/disclaimer',
+}
+
+const pathToPage: Record<string, Page> = Object.fromEntries(
+  Object.entries(pageToPath).map(([page, path]) => [path, page as Page])
+) as Record<string, Page>
+
+const pageFromLocation = (): Page => {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  return pathToPage[path] || 'not-found'
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('landing')
+  const [currentPage, setCurrentPage] = useState<Page>(() => pageFromLocation())
   const [user, setUser] = useState<(TradeEdUser & { adminToken?: string }) | null>(null)
   const [showAuth, setShowAuth] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
@@ -139,6 +173,10 @@ export default function App() {
 
   const navigate = (page: Page) => {
     setCurrentPage(page)
+    const path = pageToPath[page]
+    if (path && window.location.pathname !== path) {
+      window.history.pushState({}, '', path)
+    }
     if (page === 'courses') {
       setSelectedCourse(null)
     }
@@ -153,6 +191,8 @@ export default function App() {
       }
       setSelectedCourse(detail as CourseDetailData)
       setCurrentPage('course-detail')
+      // Push a history entry so browser back returns to the course list
+      window.history.pushState({}, '', window.location.pathname)
     } catch (err) {
       console.error('Failed to load course:', err)
     }
@@ -163,6 +203,8 @@ export default function App() {
     if (tool) {
       setSelectedAiTool(tool)
       setCurrentPage('ai-tool-detail')
+      // Push a history entry so browser back returns to the tools list
+      window.history.pushState({}, '', window.location.pathname)
     }
   }
 
@@ -220,9 +262,12 @@ export default function App() {
     }
   }, [])
 
-  // Browser back button closes the auth screen (no URL change, pure state routing)
+  // Browser back button closes the auth screen and switches pages (URL routing)
   useEffect(() => {
-    const onPopState = () => setShowAuth(false)
+    const onPopState = () => {
+      setShowAuth(false)
+      setCurrentPage(pageFromLocation())
+    }
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
@@ -456,6 +501,14 @@ export default function App() {
 
       {currentPage === 'terms' && (
         <Terms />
+      )}
+
+      {currentPage === 'disclaimer' && (
+        <Disclaimer />
+      )}
+
+      {currentPage === 'not-found' && (
+        <NotFound onNavigate={navigate} />
       )}
 
       <Footer onNavigate={navigate} />
