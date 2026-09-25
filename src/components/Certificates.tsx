@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Lock,
   Download,
+  GraduationCap,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -107,6 +108,53 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
                 />
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* How to get certificate */}
+        <Card className="mb-8 border-emerald-200/70 bg-gradient-to-br from-emerald-50 via-white to-emerald-50">
+          <CardContent className="p-6">
+            <div className="mb-3 flex items-center gap-2">
+              <GraduationCap className="h-5 w-5 text-emerald-600" />
+              <h2 className="text-lg font-semibold">Certificate Kaise Milega?</h2>
+              <span className="rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-medium text-emerald-700">
+                4 Steps
+              </span>
+            </div>
+            <ol className="mb-4 space-y-3">
+              {[
+                {
+                  title: 'Course Enroll Karein',
+                  desc: 'Courses page se apna pasandeeda course kholein aur usme enroll ho jayen.',
+                },
+                {
+                  title: 'Saare Lessons Complete Karein',
+                  desc: 'Course ke har video/text lesson ek-ek karke complete karein. Aapki progress Dashboard me nazar aati rahegi.',
+                },
+                {
+                  title: '100% Par Certificate Unlock',
+                  desc: 'Jab course ke saare lessons mukammal ho jayein, certificate khud-ba-khud "Earned" section me aa jayega.',
+                },
+                {
+                  title: 'View / Print Karen',
+                  desc: 'Certificate par "View / Print" button dabayein — print karke ya PDF save karke apne paas rakh lein.',
+                },
+              ].map((step, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-semibold leading-tight">{step.title}</p>
+                    <p className="text-sm text-muted-foreground">{step.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="rounded-lg bg-emerald-100/70 px-4 py-2 text-xs font-medium text-emerald-800">
+              Note: Certificates Starter aur Premium members ke liye hain — aur har course ka alag
+              certificate milega.
+            </p>
           </CardContent>
         </Card>
 
