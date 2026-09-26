@@ -126,13 +126,13 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           <span className="hidden sm:inline">TradeEd</span>
         </button>
 
-        <div className="hidden md:flex min-w-0 flex-1 items-center gap-1 overflow-x-auto no-scrollbar pl-4">
+        <div className="hidden md:flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto no-scrollbar pl-2 [-webkit-mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)] [mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)]">
           {primaryItems.map((item) => (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
               className={cn(
-                'flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
                 currentPage === item.id
                   ? 'bg-black text-white'
                   : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
@@ -149,7 +149,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
-                  'flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
                   menuItems.some((item) => item.id === currentPage)
                     ? 'bg-black text-white'
                     : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
@@ -182,7 +182,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           </div>
         )}
 
-        <div className="hidden md:flex shrink-0 items-center gap-3 pl-4">
+        <div className="hidden md:flex shrink-0 items-center gap-2 pl-2">
           <button
             onClick={onOpenSearch}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
