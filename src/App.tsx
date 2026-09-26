@@ -109,7 +109,7 @@ export default function App() {
   const [showAuth, setShowAuth] = useState(false)
   const [authInitialView, setAuthInitialView] = useState<AuthView | undefined>(undefined)
   const [sessionChecked, setSessionChecked] = useState(false)
-  const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
+  const [selectedPlan, setSelectedPlan] = useState<string>('PREMIUM')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
   const [selectedAiTool, setSelectedAiTool] = useState<AiToolPage | null>(null)
@@ -484,7 +484,9 @@ export default function App() {
           modules={selectedCourse.modules}
           progress={lessonProgress[selectedCourse.id] || {}}
           enrolled={enrolledCourseIds.has(selectedCourse.id)}
+          hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
           onBack={() => navigate('courses')}
+          onUpgrade={() => navigate('pricing')}
           onEnroll={() => {
             if (!user) {
               openAuth()
@@ -511,16 +513,13 @@ export default function App() {
       )}
 
       {currentPage === 'live-sessions' && (
-        user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
-          <LiveSessions sessions={sessions} loading={loading} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
-            onUpgrade={() => navigate('pricing')}
-            onSignIn={openAuth}
-          />
-        )
+        <LiveSessions
+          sessions={sessions}
+          loading={loading}
+          hasAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
+          onUpgrade={() => navigate('pricing')}
+          onSignIn={openAuth}
+        />
       )}
 
       {currentPage === 'ai-tools' && (
@@ -552,7 +551,7 @@ export default function App() {
       )}
 
       {currentPage === 'mentor' && (
-        <Mentor />
+        <Mentor user={user} onUpgrade={() => navigate('pricing')} />
       )}
 
       {currentPage === 'blog-post' && selectedBlogPost && (
@@ -572,7 +571,16 @@ export default function App() {
       )}
 
       {currentPage === 'journal' && (
-        <Journal user={user} onSignIn={openAuth} />
+        user && (user.role === 'admin' || user.plan !== 'FREE') ? (
+          <Journal user={user} onSignIn={openAuth} />
+        ) : (
+          <PlanGate
+            requiredPlan="PREMIUM"
+            currentPlan={user?.plan || 'FREE'}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={openAuth}
+          />
+        )
       )}
 
       {currentPage === 'certificates' && (
@@ -580,7 +588,7 @@ export default function App() {
           <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
         ) : (
           <PlanGate
-            requiredPlan="STARTER"
+            requiredPlan="PREMIUM"
             currentPlan={user?.plan || 'FREE'}
             onUpgrade={() => navigate('pricing')}
             onSignIn={openAuth}

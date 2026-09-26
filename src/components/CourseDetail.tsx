@@ -45,8 +45,10 @@ interface CourseDetailProps {
   modules: ModuleData[]
   progress: Record<string, boolean>
   enrolled: boolean
+  hasFullAccess?: boolean
   onBack: () => void
   onEnroll: () => void
+  onUpgrade?: () => void
   onToggleLesson: (lessonId: string) => void
 }
 
@@ -61,8 +63,10 @@ export function CourseDetail({
   modules,
   progress,
   enrolled,
+  hasFullAccess = false,
   onBack,
   onEnroll,
+  onUpgrade,
   onToggleLesson,
 }: CourseDetailProps) {
   const [expandedModules, setExpandedModules] = useState<Set<string>>(() => {
@@ -202,6 +206,9 @@ export function CourseDetail({
                           {modCompleted}/{modLessons} lessons
                         </div>
                       </div>
+                      {!hasFullAccess && modIdx > 0 && (
+                        <Lock className="h-3.5 w-3.5 shrink-0 text-amber-500" />
+                      )}
                     </button>
 
                     {isExpanded && (
@@ -210,12 +217,15 @@ export function CourseDetail({
                           const LessonIcon = typeIcons[lesson.type] || FileText
                           const isCompleted = progress[lesson.id]
                           const isActive = activeLesson?.id === lesson.id
+                          const lessonLocked = !hasFullAccess && modIdx > 0
 
                           return (
                             <button
                               key={lesson.id}
                               onClick={() => {
-                                if (enrolled) {
+                                if (lessonLocked) {
+                                  onUpgrade?.()
+                                } else if (enrolled) {
                                   setActiveLesson(lesson)
                                 }
                               }}
@@ -228,6 +238,8 @@ export function CourseDetail({
                             >
                               {isCompleted ? (
                                 <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500" />
+                              ) : lessonLocked ? (
+                                <Lock className="h-4 w-4 shrink-0 text-amber-500" />
                               ) : enrolled ? (
                                 <Circle className="h-4 w-4 shrink-0 text-muted-foreground" />
                               ) : (
@@ -240,6 +252,11 @@ export function CourseDetail({
                                   <div className="text-xs text-muted-foreground">{lesson.duration}</div>
                                 )}
                               </div>
+                              {lessonLocked && (
+                                <Badge variant="secondary" className="text-[10px] shrink-0">
+                                  Premium
+                                </Badge>
+                              )}
                             </button>
                           )
                         })}

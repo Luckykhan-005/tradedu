@@ -8,6 +8,7 @@ import {
   BookOpen,
   Link2,
   Loader2,
+  Crown,
 } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import {
@@ -25,8 +26,9 @@ interface ChatMessage {
   text?: string
   entry?: MentorEntry
   related?: MentorEntry[]
-  source?: 'kb' | 'ai' | 'error'
+  source?: 'kb' | 'ai' | 'error' | 'quota'
   pending?: boolean
+  upgrade?: boolean
 }
 
 const GREETING: ChatMessage = {
@@ -37,7 +39,40 @@ const GREETING: ChatMessage = {
 
 let nextId = 1
 
-export function Mentor() {
+const QUOTA_KEY = 'tradeed-ai-quota'
+const FREE_AI_LIMIT = 5
+
+const todayStr = () => new Date().toISOString().slice(0, 10)
+
+function aiQuotaLeft(): number {
+  try {
+    const raw = localStorage.getItem(QUOTA_KEY)
+    const q = raw ? JSON.parse(raw) : null
+    if (!q || q.d !== todayStr()) return FREE_AI_LIMIT
+    return Math.max(0, FREE_AI_LIMIT - (q.n || 0))
+  } catch {
+    return FREE_AI_LIMIT
+  }
+}
+
+function consumeAiQuota() {
+  try {
+    const raw = localStorage.getItem(QUOTA_KEY)
+    const q = raw ? JSON.parse(raw) : null
+    const n = q && q.d === todayStr() ? (q.n || 0) + 1 : 1
+    localStorage.setItem(QUOTA_KEY, JSON.stringify({ d: todayStr(), n }))
+  } catch {
+    /* ignore */
+  }
+}
+
+interface MentorProps {
+  user?: { email: string; name?: string; plan?: string; role?: string } | null
+  onUpgrade?: () => void
+}
+
+export function Mentor({ user, onUpgrade }: MentorProps) {
+  const isPremium = !!user && (user.role === 'admin' || (user.plan && user.plan !== 'FREE'))
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -105,6 +140,23 @@ export function Mentor() {
       return
     }
 
+    if (!isPremium) {
+      if (aiQuotaLeft() <= 0) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: nextId++,
+            role: 'mentor',
+            text: `Free plan par AI mentor ke sirf ${FREE_AI_LIMIT} jawab per din hain — aaj ke saare jawab istemal ho gaye. Kal dobara milenge, ya Premium lein aur AI mentor unlimited istemal karein (KB ke sawal hamesha free hain).`,
+            source: 'quota',
+            upgrade: true,
+          },
+        ])
+        return
+      }
+      consumeAiQuota()
+    }
+
     const aiId = nextId++
     setLoading(true)
     setMessages((prev) => [...prev, { id: aiId, role: 'mentor', pending: true }])
@@ -155,7 +207,9 @@ export function Mentor() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">AI Trading Mentor</h1>
             <p className="text-muted-foreground">
-              Pehle Knowledge Base (instant), warna Gemini AI · Roman Urdu jawab
+              {isPremium
+                ? 'Premium · AI unlimited — KB (instant) + Gemini · Roman Urdu jawab'
+                : `Free plan · AI ke ${aiQuotaLeft()}/${FREE_AI_LIMIT} jawab bache aaj · KB hamesha free`}
             </p>
           </div>
         </div>
@@ -215,6 +269,11 @@ export function Mentor() {
                           AI unavailable
                         </span>
                       )}
+                      {msg.source === 'quota' && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-400">
+                          Free plan limit
+                        </span>
+                      )}
                       <div
                         className={cn(
                           'inline-block whitespace-pre-line rounded-2xl rounded-tl-sm px-4 py-2.5 text-left text-sm',
@@ -225,6 +284,15 @@ export function Mentor() {
                       >
                         {msg.text}
                       </div>
+                      {msg.upgrade && onUpgrade && (
+                        <button
+                          onClick={onUpgrade}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                        >
+                          <Crown className="h-3.5 w-3.5" />
+                          Premium lein — AI unlimited
+                        </button>
+                      )}
                     </div>
                   )}
 
@@ -326,7 +394,7 @@ export function Mentor() {
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <BookOpen className="h-3.5 w-3.5" /> {mentorEntries.length} sawal-jawab Knowledge Base
-            mein · baki sawal Gemini AI se
+            mein {isPremium ? '· AI unlimited (Premium)' : `· AI: ${aiQuotaLeft()}/${FREE_AI_LIMIT} bache aaj`}
           </span>
           <span>KB instant · AI fallback</span>
         </div>

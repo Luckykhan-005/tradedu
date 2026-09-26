@@ -13,13 +13,20 @@ import { submitSubscriptionRequest, type AppPlan } from '@/lib/supabase'
 
 const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
+// Payment accounts — JazzCash / Easypaisa (in numbers ko owner se update karein)
+export const PAYMENT_ACCOUNTS = {
+  jazzcash: '03XX-XXXXXXX',
+  easypaisa: '03XX-XXXXXXX',
+  whatsapp: '0313-4457964',
+}
+
 interface SubscribeProps {
   user: { email: string; name?: string; plan?: string } | null
   onBack: () => void
   selectedPlan?: string
 }
 
-export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeProps) {
+export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeProps) {
   const [form, setForm] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -110,10 +117,12 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
               Your plan request has been received. Please complete payment via WhatsApp and send the receipt.
               Admin will verify and activate your subscription within 24 hours.
             </p>
-            <div className="mb-6 rounded-lg bg-secondary/50 p-4 text-sm">
-              <p className="font-semibold">💬 WhatsApp Payment:</p>
-              <p className="text-muted-foreground">Send payment to +92 313 445 7964</p>
-              <p className="text-muted-foreground">Include your email: <strong>{form.email}</strong></p>
+            <div className="mb-6 rounded-lg bg-secondary/50 p-4 text-sm text-left">
+              <p className="font-semibold mb-1">💳 Payment — PKR 1,499 (Premium):</p>
+              <p className="text-muted-foreground">JazzCash: <strong>{PAYMENT_ACCOUNTS.jazzcash}</strong></p>
+              <p className="text-muted-foreground">Easypaisa: <strong>{PAYMENT_ACCOUNTS.easypaisa}</strong></p>
+              <p className="text-muted-foreground mt-1">WhatsApp (receipt bhejein): <strong>{PAYMENT_ACCOUNTS.whatsapp}</strong></p>
+              <p className="text-muted-foreground mt-1">Include your email: <strong>{form.email}</strong></p>
             </div>
             <Button onClick={onBack} className="gap-2">
               Back to Dashboard <ArrowRight className="h-4 w-4" />
@@ -174,21 +183,21 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
 
               <div className="space-y-2">
                 <Label>Desired Plan</Label>
-                <div className="grid grid-cols-2 gap-3">
-                  {['STARTER', 'PREMIUM'].map((plan) => (
+                <div className="grid grid-cols-1 gap-3">
+                  {['PREMIUM'].map((plan) => (
                     <button
                       key={plan}
                       type="button"
                       onClick={() => setForm((prev) => ({ ...prev, plan }))}
-                      className={`flex flex-col items-center gap-2 rounded-xl border-2 p-4 text-center transition-all ${
+                      className={`flex items-center justify-center gap-3 rounded-xl border-2 p-4 text-center transition-all ${
                         form.plan === plan
                           ? 'border-primary bg-primary/5'
                           : 'border-border hover:border-highlight/60'
                       }`}
                     >
                       <Sparkles className={`h-6 w-6 ${form.plan === plan ? 'text-primary' : 'text-muted-foreground'}`} />
-                      <span className="font-semibold">{plan === 'STARTER' ? 'Starter' : 'Premium'}</span>
-                      <span className="text-sm text-muted-foreground">{plan === 'STARTER' ? '$10/mo' : '$50/mo'}</span>
+                      <span className="font-semibold">Premium</span>
+                      <span className="text-sm text-muted-foreground">PKR 1,499/month</span>
                     </button>
                   ))}
                 </div>
@@ -239,7 +248,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  After sending payment via WhatsApp, upload the screenshot/receipt here.
+                  JazzCash/Easypaisa se PKR 1,499 bhejein aur payment ka screenshot yahan upload karein.
                 </p>
               </div>
 
@@ -258,11 +267,14 @@ export function Subscribe({ user, onBack, selectedPlan = 'STARTER' }: SubscribeP
         </Card>
 
         <Card className="mt-6">
-          <CardContent className="p-5 text-sm">
-            <h3 className="mb-2 font-semibold">💬 Payment via WhatsApp</h3>
+          <CardContent className="p-5 text-sm space-y-2">
+            <h3 className="font-semibold">💳 Payment Methods</h3>
             <p className="text-muted-foreground">
-              After submitting, send the payment to our WhatsApp number. Include your email in the message.
-              Admin will verify and activate your subscription manually.
+              <strong>JazzCash:</strong> {PAYMENT_ACCOUNTS.jazzcash} &nbsp;•&nbsp; <strong>Easypaisa:</strong> {PAYMENT_ACCOUNTS.easypaisa}
+            </p>
+            <p className="text-muted-foreground">
+              Payment ke baad screenshot upload karein (upar). Admin verify karke 24 ghante mein
+              Premium activate kar dega. WhatsApp: {PAYMENT_ACCOUNTS.whatsapp}
             </p>
           </CardContent>
         </Card>

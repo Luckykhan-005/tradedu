@@ -130,7 +130,6 @@ export function AdminStudents() {
   const stats = {
     total: students.length,
     free: students.filter((s) => s.plan === 'FREE' || isExpired(s)).length,
-    starter: students.filter((s) => s.plan === 'STARTER' && !isExpired(s)).length,
     premium: students.filter((s) => s.plan === 'PREMIUM' && !isExpired(s)).length,
     pending: requests.filter((r) => r.status === 'pending').length,
   }
@@ -223,11 +222,10 @@ export function AdminStudents() {
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { label: 'Total Students', value: stats.total, icon: Users, color: 'bg-blue-500/15 text-blue-600 dark:text-blue-400' },
           { label: 'Free', value: stats.free, icon: Star, color: 'bg-slate-500/15 text-slate-600 dark:text-slate-300' },
-          { label: 'Starter', value: stats.starter, icon: Zap, color: 'bg-sky-500/15 text-sky-600 dark:text-sky-400' },
           { label: 'Premium', value: stats.premium, icon: Crown, color: 'bg-amber-500/15 text-amber-600 dark:text-amber-400' },
           { label: 'Pending Requests', value: stats.pending, icon: Clock, color: 'bg-orange-500/15 text-orange-600 dark:text-orange-400' },
         ].map((stat) => (
@@ -427,7 +425,6 @@ export function AdminStudents() {
                         className="text-xs rounded-md border border-border bg-background px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:opacity-50"
                       >
                         <option value="FREE">Free</option>
-                        <option value="STARTER">Starter</option>
                         <option value="PREMIUM">Premium</option>
                       </select>
                       {isPaid(student) && (

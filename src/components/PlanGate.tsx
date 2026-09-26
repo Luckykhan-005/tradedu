@@ -3,15 +3,14 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
 interface PlanGateProps {
-  requiredPlan: 'STARTER' | 'PREMIUM'
+  requiredPlan: 'PREMIUM'
   currentPlan?: string
   onUpgrade?: () => void
   onSignIn?: () => void
 }
 
 const planMeta: Record<string, { name: string; price: string }> = {
-  STARTER: { name: 'Starter', price: '$10/month' },
-  PREMIUM: { name: 'Premium', price: '$50/month' },
+  PREMIUM: { name: 'Premium', price: 'PKR 1,499/month' },
 }
 
 export function PlanGate({ requiredPlan, currentPlan, onUpgrade, onSignIn }: PlanGateProps) {

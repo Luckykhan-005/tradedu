@@ -622,7 +622,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                 </div>
                 <Badge className="bg-emerald-600 text-white">Selected</Badge>
               </div>
-              <p className="text-sm text-emerald-700">Access beginner courses, glossary, risk calculator, and AI tools.</p>
+              <p className="text-sm text-emerald-700">25+ free books, glossary, risk calculator, har course ka pehla module, aur limited AI mentor.</p>
               <p className="text-xs text-emerald-600 mt-2 font-semibold">No credit card required</p>
             </button>
 
@@ -632,7 +632,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                   <TrendingUp className="h-5 w-5 text-primary" />
                   <span className="font-bold">Premium</span>
                 </div>
-                <Badge variant="outline">$29/month</Badge>
+                <Badge variant="outline">PKR 1,499/month</Badge>
               </div>
               <p className="text-sm text-muted-foreground">Full access to all courses, live sessions, certificates, and priority support.</p>
             </div>

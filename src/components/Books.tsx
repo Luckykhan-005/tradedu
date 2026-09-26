@@ -23,6 +23,8 @@ import {
   Globe,
   MessageSquare,
   Crosshair,
+  Lock,
+  Crown,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -42,6 +44,7 @@ export interface BookItem {
   href: string
   tags: string[]
   cover?: string
+  premium?: boolean
 }
 
 interface BooksProps {
@@ -95,6 +98,7 @@ export const books: BookItem[] = [
     href: '/binance-complete/index.html',
     tags: ['Urdu', 'Binance', '60 Chapters'],
     cover: '/covers/binance-complete.jpg',
+    premium: true,
   },
   {
     id: 'forex-complete',
@@ -110,6 +114,7 @@ export const books: BookItem[] = [
     href: '/forex-complete/index.html',
     tags: ['Urdu', 'Forex', '57 Chapters'],
     cover: '/covers/forex-complete.jpg',
+    premium: true,
   },
   {
     id: 'forex-book',
@@ -471,9 +476,17 @@ export const books: BookItem[] = [
 ]
 
 export function Books({ onBack, user, onUpgrade }: BooksProps) {
-  const [openBook, setOpenBook] = useState<BookItem | null>(null)
+  const [reader, setReader] = useState<{ book: BookItem; mode: 'full' | 'preview' | 'locked' } | null>(null)
+  const hasAccess = !!user && (user.role === 'admin' || user.plan !== 'FREE')
 
-  if (openBook) {
+  const openFull = (book: BookItem) => {
+    if (book.premium && !hasAccess) setReader({ book, mode: 'locked' })
+    else setReader({ book, mode: 'full' })
+  }
+
+  if (reader) {
+    const { book, mode } = reader
+    const previewHref = book.href.replace(/index\.html$/, 'chapter-1.html')
     return (
       <div className="flex min-h-screen flex-col bg-background">
         <div className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
@@ -483,16 +496,19 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                 <LayoutDashboard className="h-4 w-4" />
                 Dashboard
               </Button>
-              <Button variant="ghost" size="sm" onClick={() => setOpenBook(null)} className="gap-2">
+              <Button variant="ghost" size="sm" onClick={() => setReader(null)} className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 All Books
               </Button>
             </div>
             <div className="flex items-center gap-2">
-              <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${openBook.bgColor}`}>
-                <openBook.icon className={`h-4 w-4 ${openBook.color}`} />
+              <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${book.bgColor}`}>
+                <book.icon className={`h-4 w-4 ${book.color}`} />
               </div>
-              <span className="hidden font-semibold sm:inline">{openBook.title}</span>
+              <span className="hidden font-semibold sm:inline">{book.title}</span>
+              {mode === 'preview' && (
+                <Badge variant="secondary" className="text-xs">Free Preview · Chapter 1</Badge>
+              )}
             </div>
             <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
               <X className="h-4 w-4" />
@@ -500,14 +516,48 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
             </Button>
           </div>
         </div>
-        <iframe
-          src={openBook.href}
-          title={openBook.title}
-          className="min-h-[calc(100vh-57px)] w-full flex-1 border-0"
-        />
+
+        {mode === 'locked' ? (
+          <div className="flex flex-1 items-center justify-center px-4 py-16">
+            <Card className="max-w-md w-full">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/15">
+                  <Lock className="h-8 w-8 text-amber-500" />
+                </div>
+                <Badge className="gap-1 bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/40">
+                  <Crown className="h-3 w-3" /> Premium Book
+                </Badge>
+                <h2 className="text-xl font-bold">{book.title}</h2>
+                <p className="text-sm text-muted-foreground">
+                  Yeh book Premium members ke liye hai — Chapter 1 bilkul free padhein ya Premium lein
+                  (PKR 1,499/month) aur poori book + sab kuch unlock karein.
+                </p>
+                <div className="space-y-2 pt-2">
+                  <Button className="w-full gap-2" onClick={() => setReader({ book, mode: 'preview' })}>
+                    <BookOpen className="h-4 w-4" />
+                    Free Chapter 1 padhein
+                  </Button>
+                  <Button variant="outline" className="w-full gap-2" onClick={onUpgrade}>
+                    <Crown className="h-4 w-4" />
+                    Premium lein — PKR 1,499/month
+                  </Button>
+                  <Button variant="ghost" className="w-full" onClick={() => setReader(null)}>
+                    Wapas Books par
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ) : (
+          <iframe
+            src={mode === 'preview' ? previewHref : book.href}
+            title={book.title}
+            className="min-h-[calc(100vh-57px)] w-full flex-1 border-0"
+          />
+        )}
       </div>
-  )
-}
+    )
+  }
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
@@ -532,7 +582,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                 {book.cover ? (
                   <button
                     className="relative block w-full cursor-pointer"
-                    onClick={() => setOpenBook(book)}
+                    onClick={() => openFull(book)}
                     aria-label={`Open ${book.title}`}
                   >
                     <img
@@ -542,6 +592,11 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    {book.premium && (
+                      <span className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-amber-500 px-2.5 py-1 text-xs font-bold text-black shadow">
+                        <Crown className="h-3 w-3" /> PREMIUM
+                      </span>
+                    )}
                     <div className="absolute bottom-4 left-4 right-4 text-left">
                       <h2 className="text-xl font-bold text-white drop-shadow">{book.title}</h2>
                       <p className="text-lg text-white/90" dir="rtl">
@@ -586,10 +641,27 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
 
                   <Separator className="my-4" />
 
-                  <Button className="w-full gap-2" onClick={() => setOpenBook(book)}>
-                    <GraduationCap className="h-4 w-4" />
-                    Open Book
-                  </Button>
+                  {book.premium && !hasAccess ? (
+                    <div className="space-y-2">
+                      <Button className="w-full gap-2" onClick={() => openFull(book)}>
+                        <Lock className="h-4 w-4" />
+                        🔒 Premium — Unlock
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="w-full gap-2"
+                        onClick={() => setReader({ book, mode: 'preview' })}
+                      >
+                        <BookOpen className="h-4 w-4" />
+                        Free Chapter 1 padhein
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button className="w-full gap-2" onClick={() => openFull(book)}>
+                      <GraduationCap className="h-4 w-4" />
+                      Open Book
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

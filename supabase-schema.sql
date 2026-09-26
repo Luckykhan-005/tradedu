@@ -9,7 +9,7 @@ create table if not exists public.profiles (
   email text not null default '',
   name text default '',
   role text not null default 'student' check (role in ('student', 'admin')),
-  plan text not null default 'FREE' check (plan in ('FREE', 'STARTER', 'PREMIUM')),
+  plan text not null default 'FREE' check (plan in ('FREE', 'PREMIUM')),
   phone text,
   city text,
   experience text,
@@ -74,7 +74,7 @@ create table if not exists public.subscription_requests (
   email text not null,
   phone text not null,
   city text,
-  plan text not null default 'STARTER' check (plan in ('STARTER', 'PREMIUM')),
+  plan text not null default 'PREMIUM' check (plan in ('PREMIUM')),
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   receipt_url text,
   admin_note text,
@@ -186,7 +186,7 @@ create trigger profiles_protect_plan
 -- Backfill: existing paid users get 30 days from now
 update public.profiles
 set plan_expires_at = now() + interval '30 days'
-where plan in ('STARTER', 'PREMIUM') and plan_expires_at is null;
+where plan = 'PREMIUM' and plan_expires_at is null;
 
 -- 5) MAKE FIRST SIGNED-UP USER AN ADMIN (optional)
 -- Run this manually after your first signup to gain admin access:

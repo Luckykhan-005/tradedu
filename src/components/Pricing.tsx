@@ -32,60 +32,40 @@ const plans: Plan[] = [
     icon: Star,
     iconColor: 'text-slate-500',
     features: [
-      { label: 'Free video lectures only', included: true },
-      { label: 'Free books', included: true },
+      { label: '25+ free trading books', included: true },
+      { label: 'Blog & Trading Glossary', included: true },
       { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
-      { label: 'Trading Journal (limited)', included: true },
-      { label: 'All video lectures', included: false },
+      { label: 'Har course ka pehla module', included: true },
+      { label: 'AI Mentor (limited — 5 sawal/roj)', included: true },
+      { label: 'Live session schedule', included: true },
+      { label: 'Saare courses (full)', included: false },
       { label: 'Course certificates', included: false },
       { label: 'AI Trading Tools', included: false },
-      { label: 'Live Sessions', included: false },
-      { label: 'Premium books', included: false },
-    ],
-  },
-  {
-    id: 'STARTER',
-    name: 'Starter',
-    price: 10,
-    period: 'month',
-    color: 'text-blue-600',
-    bgGradient: 'from-blue-50 to-blue-100',
-    borderColor: 'border-blue-300',
-    icon: Zap,
-    iconColor: 'text-blue-500',
-    popular: true,
-    features: [
-      { label: 'All video lectures', included: true },
-      { label: 'All books', included: true },
-      { label: 'Course certificates', included: true },
-      { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
-      { label: 'Trading Journal', included: true },
-      { label: 'Free video lectures only', included: false },
-      { label: 'AI Trading Tools', included: false },
-      { label: 'Live Sessions', included: false },
+      { label: 'Trading Journal', included: false },
+      { label: 'Premium books (2)', included: false },
+      { label: 'Live join + recordings', included: false },
     ],
   },
   {
     id: 'PREMIUM',
     name: 'Premium',
-    price: 50,
+    price: 1499,
     period: 'month',
     color: 'text-amber-600',
     bgGradient: 'from-amber-50 to-amber-100',
     borderColor: 'border-amber-300',
     icon: Crown,
     iconColor: 'text-amber-500',
+    popular: true,
     features: [
-      { label: 'All video lectures', included: true },
-      { label: 'All books', included: true },
+      { label: 'Saare courses full access', included: true },
       { label: 'Course certificates', included: true },
+      { label: 'AI Mentor unlimited', included: true },
       { label: 'AI Trading Tools', included: true },
-      { label: 'Live Sessions', included: true },
-      { label: 'Risk Calculator', included: true },
-      { label: 'Trading Glossary', included: true },
       { label: 'Trading Journal', included: true },
+      { label: '2 Premium books (Binance + Forex)', included: true },
+      { label: 'Live sessions + recordings', included: true },
+      { label: '25+ free books (sab included)', included: true },
       { label: 'Priority support', included: true },
     ],
   },
@@ -110,7 +90,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             <h1 className="text-3xl font-bold tracking-tight">Choose Your Plan</h1>
           </div>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Unlock the full potential of TradeEd. Pick the plan that fits your trading journey.
+            Free mein shuru karein, jab tayyar ho jayein to Premium lein — sirf PKR 1,499/month.
             {user && (
               <span className="ml-2 font-medium text-foreground">
                 Current plan: <span className="text-primary">{planNames[currentPlan] || 'Free'}</span>
@@ -119,7 +99,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {plans.map((plan) => {
             const isCurrent = plan.id === currentPlan
             const Icon = plan.icon
@@ -155,10 +135,13 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
                     </div>
                     <h2 className="text-xl font-bold">{plan.name}</h2>
                     <div className="mt-2">
-                      <span className="text-4xl font-bold">${plan.price}</span>
-                      <span className="text-muted-foreground">/{plan.period}</span>
+                      <span className="text-4xl font-bold">
+                        {plan.price === 0 ? 'Free' : `PKR ${plan.price.toLocaleString()}`}
+                      </span>
+                      {plan.price > 0 && <span className="text-muted-foreground">/{plan.period}</span>}
                     </div>
-                    {plan.price === 0 && <span className="text-sm text-muted-foreground">No credit card needed</span>}
+                    {plan.price === 0 && <span className="text-sm text-muted-foreground">Hamesha ke liye free</span>}
+                    {plan.price > 0 && <span className="text-sm text-muted-foreground">Kabhi bhi cancel — 30 din validity</span>}
                   </div>
 
                   <Separator className="mb-4" />

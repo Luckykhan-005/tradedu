@@ -5,6 +5,8 @@ import {
   ExternalLink,
   Users,
   TrendingUp,
+  Lock,
+  Crown,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -23,9 +25,12 @@ interface LiveSessionData {
 interface LiveSessionsProps {
   sessions: LiveSessionData[]
   loading?: boolean
+  hasAccess?: boolean
+  onUpgrade?: () => void
+  onSignIn?: () => void
 }
 
-export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
+export function LiveSessions({ sessions, loading, hasAccess = false, onUpgrade, onSignIn }: LiveSessionsProps) {
   const now = new Date()
   const upcoming = sessions.filter((s) => new Date(s.date) > now)
   const past = sessions.filter((s) => new Date(s.date) <= now)
@@ -46,7 +51,9 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <h1 className="text-3xl font-bold mb-2">Live Sessions</h1>
           <p className="text-muted-foreground">
-            Join real-time trading sessions with expert instructors
+            {hasAccess
+              ? 'Join real-time trading sessions with expert instructors'
+              : 'Session schedule sab ke liye free — join aur recordings Premium ke liye'}
           </p>
         </div>
       </div>
@@ -106,15 +113,26 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
                           </div>
                         </div>
                       </div>
-                      {session.meetLink && (
-                        <a href={session.meetLink} target="_blank" rel="noopener noreferrer" className="block mt-4">
-                          <Button size="sm" className="w-full gap-2">
-                            <Video className="h-4 w-4" />
-                            Join Session
-                            <ExternalLink className="h-3 w-3" />
+                      {session.meetLink &&
+                        (hasAccess ? (
+                          <a href={session.meetLink} target="_blank" rel="noopener noreferrer" className="block mt-4">
+                            <Button size="sm" className="w-full gap-2">
+                              <Video className="h-4 w-4" />
+                              Join Session
+                              <ExternalLink className="h-3 w-3" />
+                            </Button>
+                          </a>
+                        ) : (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="mt-4 w-full gap-2"
+                            onClick={onUpgrade || onSignIn}
+                          >
+                            <Lock className="h-4 w-4" />
+                            Premium — Join ke liye
                           </Button>
-                        </a>
-                      )}
+                        ))}
                     </CardContent>
                   </Card>
                 )
@@ -139,7 +157,29 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Users className="h-5 w-5 text-muted-foreground" />
               Past Recordings
+              {!hasAccess && (
+                <Badge variant="outline" className="ml-1 gap-1 text-xs">
+                  <Lock className="h-3 w-3" /> Premium
+                </Badge>
+              )}
             </h2>
+            {!hasAccess ? (
+              <Card className="border-dashed">
+                <CardContent className="p-8 text-center space-y-3">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/15">
+                    <Lock className="h-6 w-6 text-amber-500" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Poori recordings dekhne ke liye Premium lein — saare live sessions + recordings,
+                    sirf PKR 1,499/month.
+                  </p>
+                  <Button size="sm" className="gap-2" onClick={onUpgrade || onSignIn}>
+                    <Crown className="h-4 w-4" />
+                    Premium lein
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {past.map((session) => {
                 const { day, date, time } = formatDate(session.date)
@@ -168,6 +208,7 @@ export function LiveSessions({ sessions, loading }: LiveSessionsProps) {
                 )
               })}
             </div>
+            )}
           </div>
         )}
       </div>

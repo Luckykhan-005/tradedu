@@ -152,7 +152,7 @@ export function Certificates({ enrolledCourses, userName }: CertificatesProps) {
               ))}
             </ol>
             <p className="rounded-lg bg-emerald-100/70 px-4 py-2 text-xs font-medium text-emerald-800">
-              Note: Certificates Starter aur Premium members ke liye hain — aur har course ka alag
+              Note: Certificates sirf Premium members ke liye hain — aur har course ka alag
               certificate milega.
             </p>
           </CardContent>
