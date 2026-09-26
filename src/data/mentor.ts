@@ -649,9 +649,9 @@ export const mentorEntries: MentorEntry[] = [
   {
     id: 'te-4',
     category: 'TradeEd',
-    q: 'Plans (Starter/Premium) mein kya farq hai?',
-    keywords: ['plan', 'pricing', 'starter', 'premium', 'subscription', 'kitne ka'],
-    a: 'Starter: courses + certificates + core features. Premium: sab kuch Starter ka + live sessions + AI tools + advanced mentorship. Free plan par books, glossary, calculator aur blog available hain. Pricing page par current rates dekhein — payment JazzCash/EasyPaisa/bank se hoti hai.',
+    q: 'Plans (Free/Premium) mein kya farq hai?',
+    keywords: ['plan', 'pricing', 'free', 'premium', 'starter', 'subscription', 'kitne ka'],
+    a: 'Free plan: 25+ books, blog, glossary, risk calculator, har course ka pehla module, AI mentor limited (5 sawal/roj) aur live session schedule. Premium (PKR 1,499/month): saare courses full + certificates, AI mentor unlimited, AI trading tools, trading journal, 2 premium books, live join + recordings. Pricing page par details dekhein — payment JazzCash se hoti hai.',
   },
   {
     id: 'te-5',
@@ -892,7 +892,7 @@ export const mentorEntries: MentorEntry[] = [
     category: 'TradeEd',
     q: 'Payment methods kya hain?',
     keywords: ['payment', 'paisa kaise du', 'jazzcash', 'easypaisa', 'card'],
-    a: 'Subscribe page par available methods dikhte hain — aam tor par JazzCash, EasyPaisa, bank transfer (Pakistan) aur international cards. Payment ke baad plan turant activate hota hai (ya maximum 24 ghante). Kisi bhi masle mein receipt ke sath contact karein.',
+    a: 'Premium plan (PKR 1,499/month) ki payment JazzCash par hoti hai — number Subscribe page par milta hai. Payment ke baad screenshot upload karein, admin verify kar ke 24 ghante mein activate kar deta hai. Kisi bhi masle mein receipt ke sath WhatsApp par contact karein.',
   },
   {
     id: 'te-15',

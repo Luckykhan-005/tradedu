@@ -13,10 +13,10 @@ import { submitSubscriptionRequest, type AppPlan } from '@/lib/supabase'
 
 const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
-// Payment accounts — JazzCash / Easypaisa (in numbers ko owner se update karein)
+// Payment account — JazzCash (Easypaisa baad me add hogi)
 export const PAYMENT_ACCOUNTS = {
-  jazzcash: '03XX-XXXXXXX',
-  easypaisa: '03XX-XXXXXXX',
+  jazzcash: '03208427368',
+  jazzcashName: 'Muhammad Aslam Khan',
   whatsapp: '0313-4457964',
 }
 
@@ -119,8 +119,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
             </p>
             <div className="mb-6 rounded-lg bg-secondary/50 p-4 text-sm text-left">
               <p className="font-semibold mb-1">💳 Payment — PKR 1,499 (Premium):</p>
-              <p className="text-muted-foreground">JazzCash: <strong>{PAYMENT_ACCOUNTS.jazzcash}</strong></p>
-              <p className="text-muted-foreground">Easypaisa: <strong>{PAYMENT_ACCOUNTS.easypaisa}</strong></p>
+              <p className="text-muted-foreground">JazzCash: <strong>{PAYMENT_ACCOUNTS.jazzcash}</strong> ({PAYMENT_ACCOUNTS.jazzcashName})</p>
               <p className="text-muted-foreground mt-1">WhatsApp (receipt bhejein): <strong>{PAYMENT_ACCOUNTS.whatsapp}</strong></p>
               <p className="text-muted-foreground mt-1">Include your email: <strong>{form.email}</strong></p>
             </div>
@@ -248,7 +247,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  JazzCash/Easypaisa se PKR 1,499 bhejein aur payment ka screenshot yahan upload karein.
+                  JazzCash par PKR 1,499 bhejein aur payment ka screenshot yahan upload karein.
                 </p>
               </div>
 
@@ -270,7 +269,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
           <CardContent className="p-5 text-sm space-y-2">
             <h3 className="font-semibold">💳 Payment Methods</h3>
             <p className="text-muted-foreground">
-              <strong>JazzCash:</strong> {PAYMENT_ACCOUNTS.jazzcash} &nbsp;•&nbsp; <strong>Easypaisa:</strong> {PAYMENT_ACCOUNTS.easypaisa}
+              <strong>JazzCash:</strong> {PAYMENT_ACCOUNTS.jazzcash} ({PAYMENT_ACCOUNTS.jazzcashName})
             </p>
             <p className="text-muted-foreground">
               Payment ke baad screenshot upload karein (upar). Admin verify karke 24 ghante mein
