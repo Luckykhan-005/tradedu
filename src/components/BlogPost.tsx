@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -9,76 +8,9 @@ interface BlogPostPageProps {
   onBack: () => void
 }
 
+// SEO (title, description, canonical, Article schema) central hota hai
+// src/lib/seo.ts me — wahan har route par apply hota hai.
 export function BlogPost({ post, onBack }: BlogPostPageProps) {
-  // Per-post SEO: dynamic title/description/canonical + Article JSON-LD.
-  // Restores homepage values when leaving the post.
-  useEffect(() => {
-    const prevTitle = document.title
-    const prevDesc = document.querySelector('meta[name="description"]')?.getAttribute('content')
-
-    document.title = `${post.title} | TradeEd`
-
-    const setMeta = (selector: string, attr: string, value: string) => {
-      let el = document.head.querySelector(selector)
-      if (!el) {
-        el = document.createElement('meta')
-        const name = selector.match(/name="([^"]+)"/)?.[1]
-        const prop = selector.match(/property="([^"]+)"/)?.[1]
-        if (name) el.setAttribute('name', name)
-        if (prop) el.setAttribute('property', prop)
-        document.head.appendChild(el)
-      }
-      el.setAttribute(attr, value)
-    }
-
-    setMeta('meta[name="description"]', 'content', post.excerpt)
-    setMeta('meta[property="og:title"]', 'content', post.title)
-    setMeta('meta[property="og:description"]', 'content', post.excerpt)
-    setMeta('meta[property="og:type"]', 'content', 'article')
-    setMeta('meta[property="og:url"]', 'content', `https://tradeed.online/blog/${post.slug}`)
-    if (post.hero) {
-      setMeta('meta[property="og:image"]', 'content', `https://tradeed.online${post.hero}`)
-      setMeta('meta[name="twitter:image"]', 'content', `https://tradeed.online${post.hero}`)
-    }
-
-    let canonical = document.head.querySelector('link[rel="canonical"]')
-    let createdCanonical = false
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-      createdCanonical = true
-    }
-    const prevCanonicalHref = canonical.getAttribute('href')
-    canonical.setAttribute('href', `https://tradeed.online/blog/${post.slug}`)
-
-    const schema = document.createElement('script')
-    schema.type = 'application/ld+json'
-    schema.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.excerpt,
-      datePublished: post.date,
-      author: { '@type': 'Person', name: 'M. Aslam Khan' },
-      publisher: { '@type': 'Organization', name: 'TradeEd' },
-      mainEntityOfPage: `https://tradeed.online/blog/${post.slug}`,
-      keywords: post.tags.join(', '),
-      inLanguage: 'ur-PK',
-    })
-    document.head.appendChild(schema)
-
-    window.scrollTo(0, 0)
-
-    return () => {
-      document.title = prevTitle
-      if (prevDesc) setMeta('meta[name="description"]', 'content', prevDesc)
-      if (prevCanonicalHref) canonical?.setAttribute('href', prevCanonicalHref)
-      else if (createdCanonical) canonical?.remove()
-      schema.remove()
-    }
-  }, [post])
-
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <Button variant="ghost" size="sm" onClick={onBack} className="mb-6 -ml-2 gap-2">
@@ -129,11 +61,37 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
             {section.heading && (
               <h2 className="mb-3 text-2xl font-bold tracking-tight">{section.heading}</h2>
             )}
-            {section.paragraphs.map((p, j) => (
+            {(section.paragraphs || []).map((p, j) => (
               <p key={j} className="mb-4 leading-relaxed text-foreground/90">
                 {p}
               </p>
             ))}
+            {section.table && (
+              <div className="my-4 overflow-x-auto rounded-lg border border-border">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-secondary">
+                      {section.table.headers.map((h, j) => (
+                        <th key={j} className="border-b border-border px-3 py-2 text-left font-semibold">
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.table.rows.map((r, i) => (
+                      <tr key={i}>
+                        {r.map((c, j) => (
+                          <td key={j} className="border-b border-border px-3 py-2 text-foreground/90">
+                            {c}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             {section.list && (
               <ul className="my-4 space-y-2">
                 {section.list.map((item, j) => (

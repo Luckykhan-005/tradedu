@@ -264,7 +264,13 @@ export function applyPageSeo({ page, path, post, course, tool }: SeoInput) {
   upsertMeta('property', 'og:title', document.title)
   if (description) upsertMeta('property', 'og:description', description)
   upsertMeta('property', 'og:url', `${SITE}${path}`)
+  upsertMeta('property', 'og:type', page === 'blog-post' ? 'article' : 'website')
+  const ogImage =
+    page === 'blog-post' && post?.hero ? `${SITE}${post.hero}` : `${SITE}/hero-banner.jpg`
+  upsertMeta('property', 'og:image', ogImage)
   upsertMeta('name', 'twitter:title', document.title)
   if (description) upsertMeta('name', 'twitter:description', description)
+  upsertMeta('name', 'twitter:image', ogImage)
+  if (post?.tags?.length) upsertMeta('name', 'keywords', post.tags.join(', '))
   setJsonLd(jsonLd)
 }
