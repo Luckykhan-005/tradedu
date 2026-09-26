@@ -70,7 +70,7 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
       {/* Header */}
       <div className="bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-          <h1 className="text-3xl font-bold mb-2">Course Catalog</h1>
+          <h1 className="text-3xl font-bold mb-2">Trading Courses in Urdu — Zero se Professional</h1>
           <p className="text-muted-foreground">
             Explore our comprehensive trading education library
           </p>

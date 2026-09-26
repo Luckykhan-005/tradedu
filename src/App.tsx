@@ -33,6 +33,7 @@ import { Mentor } from './components/Mentor'
 import { SearchOverlay } from './components/SearchOverlay'
 import { CryptoTicker } from './components/CryptoTicker'
 import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
+import { applyPageSeo } from './lib/seo'
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -356,6 +357,20 @@ export default function App() {
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
+
+  // SEO: har page par unique title/description, canonical URL aur JSON-LD schema
+  // (Google ke liye duplicate titles band + rich results ke liye structured data).
+  useEffect(() => {
+    const rawPath = pageToPath[currentPage] ?? window.location.pathname
+    const path = rawPath === '/' ? '/' : rawPath.replace(/\/+$/, '')
+    applyPageSeo({
+      page: currentPage,
+      path,
+      post: selectedBlogPost,
+      course: selectedCourse,
+      tool: selectedAiTool,
+    })
+  }, [currentPage, selectedBlogPost, selectedCourse, selectedAiTool])
 
   const handleAuth = (userData: TradeEdUser & { adminToken?: string }) => {
     setUser(userData)

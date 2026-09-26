@@ -24,7 +24,7 @@ export function Blog({ onSelectPost }: BlogProps) {
               <Newspaper className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Trading Blog</h1>
+              <h1 className="text-3xl font-bold tracking-tight">Trading Blog in Urdu — Risk, Psychology, Crypto &amp; Forex</h1>
               <p className="text-muted-foreground">
                 Roman Urdu mein trading guides, psychology aur market analysis — {blogPosts.length} articles
               </p>
