@@ -40,9 +40,24 @@ import {
 const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY)
 
 const planConfig: Record<AppPlan, { label: string; icon: typeof Star; color: string; badge: string }> = {
-  FREE: { label: 'Free', icon: Star, color: 'text-slate-600', badge: 'bg-slate-100 text-slate-700' },
-  STARTER: { label: 'Starter', icon: Zap, color: 'text-blue-600', badge: 'bg-blue-100 text-blue-700' },
-  PREMIUM: { label: 'Premium', icon: Crown, color: 'text-amber-600', badge: 'bg-amber-100 text-amber-700' },
+  FREE: {
+    label: 'Free',
+    icon: Star,
+    color: 'text-slate-600 dark:text-slate-300',
+    badge: 'bg-slate-500/15 text-slate-600 dark:text-slate-300',
+  },
+  STARTER: {
+    label: 'Starter',
+    icon: Zap,
+    color: 'text-blue-600 dark:text-blue-300',
+    badge: 'bg-blue-500/15 text-blue-600 dark:text-blue-300',
+  },
+  PREMIUM: {
+    label: 'Premium',
+    icon: Crown,
+    color: 'text-amber-600 dark:text-amber-300',
+    badge: 'bg-amber-500/15 text-amber-600 dark:text-amber-300',
+  },
 }
 
 export function AdminStudents() {
@@ -170,11 +185,11 @@ export function AdminStudents() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {[
-          { label: 'Total Students', value: stats.total, icon: Users, color: 'bg-blue-100 text-blue-600' },
-          { label: 'Free', value: stats.free, icon: Star, color: 'bg-slate-100 text-slate-600' },
-          { label: 'Starter', value: stats.starter, icon: Zap, color: 'bg-blue-100 text-blue-600' },
-          { label: 'Premium', value: stats.premium, icon: Crown, color: 'bg-amber-100 text-amber-600' },
-          { label: 'Pending Requests', value: stats.pending, icon: Clock, color: 'bg-orange-100 text-orange-600' },
+          { label: 'Total Students', value: stats.total, icon: Users, color: 'bg-blue-500/15 text-blue-600 dark:text-blue-400' },
+          { label: 'Free', value: stats.free, icon: Star, color: 'bg-slate-500/15 text-slate-600 dark:text-slate-300' },
+          { label: 'Starter', value: stats.starter, icon: Zap, color: 'bg-sky-500/15 text-sky-600 dark:text-sky-400' },
+          { label: 'Premium', value: stats.premium, icon: Crown, color: 'bg-amber-500/15 text-amber-600 dark:text-amber-400' },
+          { label: 'Pending Requests', value: stats.pending, icon: Clock, color: 'bg-orange-500/15 text-orange-600 dark:text-orange-400' },
         ].map((stat) => (
           <Card key={stat.label}>
             <CardContent className="p-4 flex items-center gap-3">
@@ -216,10 +231,10 @@ export function AdminStudents() {
                   className={cn(
                     'flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-lg border',
                     req.status === 'pending'
-                      ? 'border-orange-200 bg-orange-50/50'
+                      ? 'border-amber-400/40 bg-amber-500/10'
                       : req.status === 'approved'
-                        ? 'border-emerald-200 bg-emerald-50/50'
-                        : 'border-red-200 bg-red-50/50'
+                        ? 'border-emerald-400/40 bg-emerald-500/10'
+                        : 'border-red-400/40 bg-red-500/10'
                   )}
                 >
                   <div className="flex items-center gap-3 min-w-0">
@@ -230,13 +245,13 @@ export function AdminStudents() {
                           {planConfig[req.plan]?.label || req.plan}
                         </Badge>
                         {req.status === 'pending' && (
-                          <Badge className="bg-orange-100 text-orange-700 text-xs">Pending</Badge>
+                          <Badge className="bg-orange-500/15 text-orange-600 dark:text-orange-400 text-xs">Pending</Badge>
                         )}
                         {req.status === 'approved' && (
-                          <Badge className="bg-emerald-100 text-emerald-700 text-xs">Approved</Badge>
+                          <Badge className="bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs">Approved</Badge>
                         )}
                         {req.status === 'rejected' && (
-                          <Badge className="bg-red-100 text-red-700 text-xs">Rejected</Badge>
+                          <Badge className="bg-red-500/15 text-red-600 dark:text-red-400 text-xs">Rejected</Badge>
                         )}
                       </div>
                       <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1">
@@ -273,7 +288,7 @@ export function AdminStudents() {
                         variant="outline"
                         onClick={() => approveRequest(req, false)}
                         disabled={updating === req.id}
-                        className="gap-1.5 border-red-300 text-red-600 hover:bg-red-50"
+                        className="gap-1.5 border-red-400/50 text-red-600 dark:text-red-400 hover:bg-red-500/10"
                       >
                         <XCircle className="h-3.5 w-3.5" />
                         Reject
@@ -357,7 +372,9 @@ export function AdminStudents() {
                         <Badge
                           className={cn(
                             'text-xs',
-                            isExpired(student) ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'
+                            isExpired(student)
+                              ? 'bg-red-500/15 text-red-600 dark:text-red-400'
+                              : 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400'
                           )}
                         >
                           {isExpired(student) ? 'Expired' : `Till ${fmtDate(student.planExpiresAt)}`}
@@ -379,7 +396,7 @@ export function AdminStudents() {
                           variant="outline"
                           onClick={() => changePlan(student.id, 'FREE')}
                           disabled={updating === student.id}
-                          className="h-7 px-2.5 text-xs border-red-300 text-red-600 hover:bg-red-50 hover:text-red-700"
+                          className="h-7 px-2.5 text-xs border-red-400/50 text-red-600 dark:text-red-400 hover:bg-red-500/10"
                           title="Subscription band karein — student wapis Free tier pe aa jayega"
                         >
                           <XCircle className="h-3 w-3 mr-1" />
