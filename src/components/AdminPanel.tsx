@@ -339,8 +339,8 @@ function SessionForm({
 // ====== Main Admin Panel ======
 
 export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) {
-  // Access control — only admins can view this panel
-  if (user && user.role !== 'admin') {
+  // Access control — only admins can view this panel (guests included)
+  if (!user || user.role !== 'admin') {
     return (
       <div className="min-h-screen bg-secondary/30 flex items-center justify-center p-4">
         <Card className="max-w-md w-full">

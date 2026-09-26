@@ -108,6 +108,7 @@ export default function App() {
   const [user, setUser] = useState<(TradeEdUser & { adminToken?: string }) | null>(null)
   const [showAuth, setShowAuth] = useState(false)
   const [authInitialView, setAuthInitialView] = useState<AuthView | undefined>(undefined)
+  const [sessionChecked, setSessionChecked] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
@@ -211,8 +212,22 @@ export default function App() {
         localStorage.removeItem('tradeed-session')
       }
     }
-    restore()
+    restore().finally(() => setSessionChecked(true))
   }, [])
+
+  // /admin sirf admin ke liye: session restore hone ke baad guest ko landing
+  // page pe wapis bhej dein, student ko dashboard pe — admin panel kabhi
+  // non-admin ko render na ho.
+  useEffect(() => {
+    if (currentPage !== 'admin' || !sessionChecked) return
+    if (!user) {
+      setCurrentPage('landing')
+      window.history.replaceState({}, '', pageToPath['landing'] ?? '/')
+    } else if (user.role !== 'admin') {
+      setCurrentPage('dashboard')
+      window.history.replaceState({}, '', pageToPath['dashboard'] ?? '/')
+    }
+  }, [currentPage, sessionChecked, user])
 
   const navigate = (page: Page) => {
     setCurrentPage(page)
@@ -386,6 +401,16 @@ export default function App() {
   // Auth screen
   if (showAuth) {
     return <Auth onAuth={handleAuth} onCancel={closeAuth} initialView={authInitialView} />
+  }
+
+  // /admin par session check mukammal hone tak spinner — warna admin ke liye
+  // Access Denied ka flash dikhta hai aur guest ke liye panel ka shell.
+  if (currentPage === 'admin' && !sessionChecked) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="h-8 w-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+      </div>
+    )
   }
 
   // Build enrolled courses for dashboard
