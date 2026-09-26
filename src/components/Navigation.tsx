@@ -115,7 +115,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
 
   return (
     <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6">
         <button
           onClick={() => onNavigate('landing')}
           className="flex shrink-0 items-center gap-2 font-bold text-xl text-black"
