@@ -69,7 +69,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <button
           onClick={() => onNavigate('landing')}
-          className="flex items-center gap-2 font-bold text-xl text-black"
+          className="flex shrink-0 items-center gap-2 font-bold text-xl text-black"
         >
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <TrendingUp className="h-5 w-5" />
@@ -77,13 +77,13 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           <span className="hidden sm:inline">TradeEd</span>
         </button>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex min-w-0 flex-1 items-center gap-1 overflow-x-auto no-scrollbar pl-4">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
               className={cn(
-                'flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                'flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all',
                 currentPage === item.id
                   ? 'bg-black text-white'
                   : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
@@ -95,7 +95,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex shrink-0 items-center gap-3 pl-4">
           <button
             onClick={onOpenSearch}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -118,7 +118,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/25">
                   <User className="h-3.5 w-3.5 text-white" />
                 </div>
-                <span className="text-sm font-medium">{user.name || user.email}</span>
+                <span className="text-sm font-medium max-w-[160px] truncate">{user.name || user.email}</span>
               </div>
                 <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
                 <LogOut className="h-4 w-4" />
