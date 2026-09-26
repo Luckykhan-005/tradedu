@@ -17,7 +17,7 @@ const hasSupabase = !!(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE
 export const PAYMENT_ACCOUNTS = {
   jazzcash: '03208427368',
   jazzcashName: 'Muhammad Aslam Khan',
-  whatsapp: '0313-4457964',
+  whatsapp: '03208427368',
 }
 
 interface SubscribeProps {
