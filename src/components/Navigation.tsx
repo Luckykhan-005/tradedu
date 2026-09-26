@@ -142,7 +142,10 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               {item.label}
             </button>
           ))}
-          {menuItems.length > 0 && (
+        </div>
+
+        {menuItems.length > 0 && (
+          <div className="hidden md:flex shrink-0 items-center pl-1">
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
@@ -176,8 +179,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="hidden md:flex shrink-0 items-center gap-3 pl-4">
           <button
