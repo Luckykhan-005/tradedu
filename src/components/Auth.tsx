@@ -575,7 +575,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
             <div className="flex items-center gap-2 p-3 rounded-lg bg-emerald-50 border border-emerald-200">
               <MessageCircle className="h-4 w-4 text-emerald-600 shrink-0" />
               <span className="text-xs text-emerald-700">
-                Need help? WhatsApp us at <a href="https://wa.me/923134457964" target="_blank" rel="noreferrer" className="font-bold underline">0313-4457964</a>
+                Need help? WhatsApp us at <a href="https://wa.me/923208427368" target="_blank" rel="noreferrer" className="font-bold underline">03208427368</a>
               </span>
             </div>
 
@@ -934,7 +934,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
             <div className="mt-4 flex items-center gap-2 p-3 rounded-lg bg-emerald-50 border border-emerald-200">
               <MessageCircle className="h-4 w-4 text-emerald-600 shrink-0" />
               <span className="text-xs text-emerald-700">
-                Need help? WhatsApp: <a href="https://wa.me/923134457964" target="_blank" rel="noreferrer" className="font-bold underline">0313-4457964</a>
+                Need help? WhatsApp: <a href="https://wa.me/923208427368" target="_blank" rel="noreferrer" className="font-bold underline">03208427368</a>
               </span>
             </div>
 
