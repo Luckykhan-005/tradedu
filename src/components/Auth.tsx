@@ -33,15 +33,17 @@ import {
   resetPasswordEmail,
   updatePassword,
   fetchProfile,
+  getCurrentSession,
   type TradeEdUser,
 } from '@/lib/supabase'
+
+export type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset' | 'forgot-done'
 
 interface AuthProps {
   onAuth: (user: TradeEdUser) => void
   onCancel: () => void
+  initialView?: AuthView
 }
-
-type AuthView = 'signin' | 'signup' | 'forgot-email' | 'forgot-token' | 'forgot-reset' | 'forgot-done'
 
 // Shogo backend is unreliable — Supabase is the primary auth provider.
 // signInStudent/updatePassword fall back to the old API when Supabase is unconfigured.
@@ -54,8 +56,8 @@ const experienceLevels = [
   { value: 'professional', label: 'Professional', desc: '3+ years, consistent profits', color: 'bg-amber-100 text-amber-700 border-amber-300' },
 ]
 
-export function Auth({ onAuth, onCancel }: AuthProps) {
-  const [view, setView] = useState<AuthView>('signin')
+export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
+  const [view, setView] = useState<AuthView>(initialView || 'signin')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -313,6 +315,15 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
         setLoading(false)
         return
       }
+      // Password badal chuka hai — ab session bhi login ka hi hai, seedha app mein bhej dein.
+      try {
+        const sessionUser = await getCurrentSession()
+        if (sessionUser) {
+          setLoading(false)
+          onAuth(sessionUser)
+          return
+        }
+      } catch { /* fall through to sign-in view */ }
       setSuccess('Password reset successful! You can now sign in.')
       setTimeout(() => { resetForm(); setView('signin') }, 2500)
       setLoading(false)
@@ -654,12 +665,33 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
                 Click the link in the email to set a new password.
               </p>
             </div>
+            {error && (
+              <div className="rounded-lg bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive mb-4">
+                {error}
+              </div>
+            )}
             {success && (
               <div className="rounded-lg bg-green-500/10 border border-green-500/20 px-4 py-3 text-sm text-green-700 mb-4">
                 {success}
               </div>
             )}
-            <div className="mt-4 text-center text-sm">
+            <div className="rounded-lg bg-secondary/60 border border-border px-4 py-3 text-xs text-muted-foreground mb-4 leading-relaxed">
+              Email nahi mili? <strong className="text-foreground">Spam / Junk folder</strong> check karein
+              (search karein: <em>supabase</em>). 5 minute wait karein — free plan par delivery thori
+              slow ho sakti hai.
+            </div>
+            <div className="flex flex-col gap-2 text-sm">
+              <button
+                onClick={async () => {
+                  setError('')
+                  const { error: resendErr } = await resetPasswordEmail(email)
+                  if (resendErr) setError(resendErr)
+                  else setSuccess('Link dobara bhej diya gaya! Email box check karein.')
+                }}
+                className="text-highlight hover:underline font-medium"
+              >
+                Resend link
+              </button>
               <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
             </div>
           </>
@@ -737,12 +769,16 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
                 <Lock className="h-6 w-6 text-primary" />
               </div>
               <h2 className="text-lg font-bold">Set New Password</h2>
-              <p className="text-sm text-muted-foreground mt-1">Enter your reset token and choose a new password.</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {hasSupabase
+                  ? 'Apna naya password choose karein.'
+                  : 'Enter your reset token and choose a new password.'}
+              </p>
             </div>
             {error && <div className="rounded-lg bg-destructive/10 border border-destructive/20 px-4 py-3 text-sm text-destructive mb-4">{error}</div>}
             {success && <div className="rounded-lg bg-green-500/10 border border-green-500/20 px-4 py-3 text-sm text-green-700 mb-4">{success}</div>}
             <form onSubmit={handleResetPassword} className="space-y-4">
-              {!resetToken && (
+              {!resetToken && !hasSupabase && (
                 <div className="space-y-2">
                   <Label htmlFor="reset-token">Reset Token</Label>
                   <div className="relative">
@@ -773,6 +809,12 @@ export function Auth({ onAuth, onCancel }: AuthProps) {
             <div className="mt-4 text-center text-sm">
               <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
             </div>
+            {hasSupabase && (
+              <p className="mt-2 text-center text-xs text-muted-foreground">
+                Link kaam nahi kar raha (expire)?{' '}
+                <button onClick={() => { resetForm(); setView('forgot-email') }} className="text-highlight hover:underline">Naya link maangein</button>
+              </p>
+            )}
           </>
         )
       default:

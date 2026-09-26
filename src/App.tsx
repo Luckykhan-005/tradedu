@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getCurrentSession, signOut as supaSignOut, type TradeEdUser } from '@/lib/supabase'
+import { getCurrentSession, signOut as supaSignOut, supabase, type TradeEdUser } from '@/lib/supabase'
 import { listCatalogCourses, listSessions, getCourseDetail, fetchLessonProgress, fetchEnrollments, addEnrollment, setLessonProgress as saveLessonProgress } from '@/lib/courses'
 import { Navigation, Page } from './components/Navigation'
 import { Landing } from './components/Landing'
@@ -7,7 +7,7 @@ import { CourseCatalog, type CourseData } from './components/CourseCatalog'
 import { CourseDetail } from './components/CourseDetail'
 import { Dashboard } from './components/Dashboard'
 import { LiveSessions } from './components/LiveSessions'
-import { Auth } from './components/Auth'
+import { Auth, type AuthView } from './components/Auth'
 import { AdminPanel } from './components/AdminPanel'
 import { AiToolsHub } from './components/AiToolsHub'
 import { AiToolDetail } from './components/AiToolDetail'
@@ -107,6 +107,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>(() => pageFromLocation())
   const [user, setUser] = useState<(TradeEdUser & { adminToken?: string }) | null>(null)
   const [showAuth, setShowAuth] = useState(false)
+  const [authInitialView, setAuthInitialView] = useState<AuthView | undefined>(undefined)
   const [selectedPlan, setSelectedPlan] = useState<string>('STARTER')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
@@ -151,6 +152,28 @@ export default function App() {
   useEffect(() => {
     fetchData()
   }, [fetchData])
+
+  // Password-recovery flow: email link click ya PASSWORD_RECOVERY event par
+  // seedha "Set New Password" form khol dein — warna user landing page par
+  // pahunch kar phir se confused hota hai.
+  useEffect(() => {
+    const isRecoveryUrl = () => {
+      const h = window.location.hash
+      const q = window.location.search
+      return h.includes('type=recovery') || h.includes('access_token') || q.includes('type=recovery')
+    }
+    if (isRecoveryUrl()) {
+      setShowAuth(true)
+      setAuthInitialView('forgot-reset')
+    }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setShowAuth(true)
+        setAuthInitialView('forgot-reset')
+      }
+    })
+    return () => subscription.unsubscribe()
+  }, [])
 
   // Restore session on page load — user stays signed in after refresh.
   // Always re-read the role from Supabase so DB changes (e.g. admin upgrade)
@@ -362,7 +385,7 @@ export default function App() {
 
   // Auth screen
   if (showAuth) {
-    return <Auth onAuth={handleAuth} onCancel={closeAuth} />
+    return <Auth onAuth={handleAuth} onCancel={closeAuth} initialView={authInitialView} />
   }
 
   // Build enrolled courses for dashboard
