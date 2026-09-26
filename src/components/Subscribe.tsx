@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CreditCard, Sparkles, Upload, CheckCircle, ArrowRight } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -26,15 +26,32 @@ interface SubscribeProps {
   selectedPlan?: string
 }
 
+// Form draft — agar user galti se back/swipe kar le to bhi bhara hua form wapas mile.
+const DRAFT_KEY = 'tradeed-subscribe-draft'
+type Draft = { name?: string; email?: string; phone?: string; city?: string; tradeExperience?: string }
+
+function readDraft(userEmail?: string): Draft {
+  try {
+    const d: Draft = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || '{}')
+    if (userEmail && d.email && d.email !== userEmail) return {}
+    return d
+  } catch {
+    return {}
+  }
+}
+
 export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeProps) {
-  const [form, setForm] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
-    phone: '',
-    city: '',
-    tradeExperience: '',
-    plan: selectedPlan,
-    receiptUrl: '',
+  const [form, setForm] = useState(() => {
+    const d = readDraft(user?.email)
+    return {
+      name: d.name || user?.name || '',
+      email: d.email || user?.email || '',
+      phone: d.phone || '',
+      city: d.city || '',
+      tradeExperience: d.tradeExperience || '',
+      plan: selectedPlan,
+      receiptUrl: '',
+    }
   })
   const [receiptName, setReceiptName] = useState('')
   const [uploadError, setUploadError] = useState('')
@@ -61,9 +78,28 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [error, setError] = useState('')
+  // Sirf "Submit Request" button click par submit hon — input me Enter /
+  // mobile keyboard ki "Go" key se form achanak submit nahi hona chahiye.
+  const submitIntent = useRef(false)
+
+  // Har change session me draft save — back/refresh par wapas aa jaye.
+  useEffect(() => {
+    try {
+      const { name, email, phone, city, tradeExperience } = form
+      sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ name, email, phone, city, tradeExperience }))
+    } catch { /* storage may be blocked */ }
+  }, [form])
+
+  useEffect(() => {
+    if (done) {
+      try { sessionStorage.removeItem(DRAFT_KEY) } catch { /* ignore */ }
+    }
+  }, [done])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!submitIntent.current) return
+    submitIntent.current = false
     if (!form.name || !form.email || !form.phone) {
       setError('Name, email, and phone are required')
       return
@@ -257,7 +293,12 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
                 </div>
               )}
 
-              <Button type="submit" className="w-full gap-2" disabled={submitting}>
+              <Button
+                type="submit"
+                className="w-full gap-2"
+                disabled={submitting}
+                onClick={() => { submitIntent.current = true }}
+              >
                 {submitting ? 'Submitting...' : 'Submit Request'}
                 <ArrowRight className="h-4 w-4" />
               </Button>
