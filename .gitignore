@@ -69,3 +69,6 @@ package-lock.json
 *.db-wal
 .vercel
 .env*
+
+# Local account map (contains emails - never commit)
+ACCOUNTS.md
