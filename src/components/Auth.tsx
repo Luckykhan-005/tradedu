@@ -62,6 +62,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [loginAs, setLoginAs] = useState<'student' | 'admin'>('student')
@@ -87,6 +88,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
     setEmail('')
     setPassword('')
     setNewPassword('')
+    setConfirmPassword('')
     setTokenInput('')
     setResetToken('')
     setError('')
@@ -307,6 +309,17 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
     e.preventDefault()
     setLoading(true)
     setError('')
+
+    if (newPassword.length < 6) {
+      setError('Naya password kam se kam 6 characters ka hona chahiye')
+      setLoading(false)
+      return
+    }
+    if (newPassword !== confirmPassword) {
+      setError('Passwords match nahi kar rahe — dono boxes mein same password likhein')
+      setLoading(false)
+      return
+    }
 
     if (hasSupabase) {
       const { error: errMsg } = await updatePassword(newPassword)
@@ -797,10 +810,26 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input id="new-password" type={showPassword ? 'text' : 'password'} placeholder="At least 6 characters" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} className="pl-9 pr-9" required minLength={6} />
-                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground" aria-label={showPassword ? 'Hide password' : 'Show password'}>
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="confirm-password">Confirm Password</Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input id="confirm-password" type={showPassword ? 'text' : 'password'} placeholder="Repeat your new password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="pl-9 pr-9" required />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground" aria-label={showPassword ? 'Hide password' : 'Show password'}>
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+                {confirmPassword && newPassword !== confirmPassword && (
+                  <p className="text-xs text-destructive">Passwords match nahi kar rahe</p>
+                )}
+                {confirmPassword && newPassword === confirmPassword && (
+                  <p className="text-xs text-green-600">Passwords match hain</p>
+                )}
               </div>
               <Button type="submit" className="w-full gap-2" disabled={loading}>
                 {loading ? <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <>Reset Password <ArrowRight className="h-4 w-4" /></>}
