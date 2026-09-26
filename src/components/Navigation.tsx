@@ -23,8 +23,16 @@ import {
   Mail,
   Search,
   Newspaper,
+  ChevronDown,
+  LayoutGrid,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
@@ -39,7 +47,15 @@ interface NavigationProps {
   onOpenSearch: () => void
 }
 
-const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?: boolean; studentOnly?: boolean }[] = [
+const allNavItems: {
+  id: Page
+  label: string
+  icon: typeof BookOpen
+  adminOnly?: boolean
+  studentOnly?: boolean
+  menu?: boolean
+  desc?: string
+}[] = [
   { id: 'courses', label: 'Courses', icon: BookOpen },
   { id: 'books', label: 'Books', icon: Library },
   { id: 'blog', label: 'Blog', icon: Newspaper },
@@ -48,11 +64,42 @@ const allNavItems: { id: Page; label: string; icon: typeof BookOpen; adminOnly?:
   { id: 'journal', label: 'Journal', icon: NotebookPen },
   { id: 'calculator', label: 'Calculator', icon: Calculator },
   { id: 'glossary', label: 'Glossary', icon: BookMarked },
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { id: 'certificates', label: 'Certificates', icon: Trophy },
-  { id: 'live-sessions', label: 'Live Sessions', icon: Calendar },
-  { id: 'pricing', label: 'Plans', icon: Sparkles },
-  { id: 'admin', label: 'Admin', icon: Shield, adminOnly: true },
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+    menu: true,
+    desc: 'Progress aur courses jari rakhein',
+  },
+  {
+    id: 'certificates',
+    label: 'Certificates',
+    icon: Trophy,
+    menu: true,
+    desc: 'Course mukammal karke certificates hasil karein',
+  },
+  {
+    id: 'live-sessions',
+    label: 'Live Sessions',
+    icon: Calendar,
+    menu: true,
+    desc: 'Upcoming live webinars aur schedule dekhein',
+  },
+  {
+    id: 'pricing',
+    label: 'Plans',
+    icon: Sparkles,
+    menu: true,
+    desc: 'Free aur paid plans compare karein',
+  },
+  {
+    id: 'admin',
+    label: 'Admin',
+    icon: Shield,
+    adminOnly: true,
+    menu: true,
+    desc: 'Students, requests aur content manage karein',
+  },
 ]
 
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut, onOpenSearch }: NavigationProps) {
@@ -63,6 +110,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
     if (item.adminOnly && user?.role !== 'admin') return false
     return true
   })
+  const primaryItems = navItems.filter((item) => !item.menu)
+  const menuItems = navItems.filter((item) => item.menu)
 
   return (
     <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg">
@@ -78,7 +127,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         </button>
 
         <div className="hidden md:flex min-w-0 flex-1 items-center gap-1 overflow-x-auto no-scrollbar pl-4">
-          {navItems.map((item) => (
+          {primaryItems.map((item) => (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
@@ -93,6 +142,41 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               {item.label}
             </button>
           ))}
+          {menuItems.length > 0 && (
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className={cn(
+                  'flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all',
+                  menuItems.some((item) => item.id === currentPage)
+                    ? 'bg-black text-white'
+                    : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+                )}
+              >
+                <LayoutGrid className="h-4 w-4" />
+                Menu
+                <ChevronDown className="h-3.5 w-3.5" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[330px] rounded-xl border-border/60 p-2 shadow-xl">
+                {menuItems.map((item) => (
+                  <DropdownMenuItem
+                    key={item.id}
+                    onClick={() => onNavigate(item.id)}
+                    className="items-start gap-3 rounded-lg p-2.5 hover:bg-secondary"
+                  >
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+                      <item.icon className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className={cn('block text-sm font-medium', currentPage === item.id && 'text-primary')}>
+                        {item.label}
+                      </span>
+                      <span className="block text-xs text-muted-foreground">{item.desc}</span>
+                    </span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
 
         <div className="hidden md:flex shrink-0 items-center gap-3 pl-4">
