@@ -14,6 +14,7 @@ import {
   RefreshCw,
   BarChart3,
   Circle,
+  AlertTriangle,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -67,6 +68,7 @@ export function AdminStudents() {
   const [courseTrees, setCourseTrees] = useState<CourseDetail[]>([])
   const [openProgress, setOpenProgress] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [updating, setUpdating] = useState<string | null>(null)
 
@@ -76,17 +78,36 @@ export function AdminStudents() {
       return
     }
     setLoading(true)
-    const [studentsRes, requestsRes, progressRes, coursesRes] = await Promise.all([
-      adminListStudents(),
-      adminListSubscriptionRequests(),
-      adminListProgress(),
-      listAdminCourses(),
-    ])
-    if (studentsRes.students) setStudents(studentsRes.students)
-    if (requestsRes.requests) setRequests(requestsRes.requests)
-    if (progressRes.rows) setProgressRows(progressRes.rows)
-    if (coursesRes.courses) setCourseTrees(coursesRes.courses)
-    setLoading(false)
+    setLoadError(null)
+    try {
+      const [studentsRes, requestsRes, progressRes, coursesRes] = await Promise.all([
+        adminListStudents(),
+        adminListSubscriptionRequests(),
+        adminListProgress(),
+        listAdminCourses(),
+      ])
+      const errs = [studentsRes.error, requestsRes.error, progressRes.error, coursesRes.error].filter(
+        Boolean
+      ) as string[]
+      if (errs.length) {
+        setLoadError(errs.join(' | '))
+        console.error('AdminStudents load errors:', {
+          students: studentsRes.error,
+          requests: requestsRes.error,
+          progress: progressRes.error,
+          courses: coursesRes.error,
+        })
+      }
+      if (studentsRes.students) setStudents(studentsRes.students)
+      if (requestsRes.requests) setRequests(requestsRes.requests)
+      if (progressRes.rows) setProgressRows(progressRes.rows)
+      if (coursesRes.courses) setCourseTrees(coursesRes.courses)
+    } catch (err) {
+      setLoadError(err instanceof Error ? err.message : String(err))
+      console.error('AdminStudents load failed:', err)
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -182,6 +203,25 @@ export function AdminStudents() {
 
   return (
     <div className="space-y-6">
+      {/* Load error — pehle ye silently "No students yet" ban kar chhup jata tha */}
+      {loadError && (
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 rounded-lg border border-red-400/40 bg-red-500/10 p-4">
+          <div className="flex items-start gap-2.5 flex-1 min-w-0">
+            <AlertTriangle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-red-600 dark:text-red-400">
+                Data load nahi ho saka — Supabase error
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5 break-words">{loadError}</p>
+            </div>
+          </div>
+          <Button size="sm" variant="outline" onClick={loadData} className="gap-1.5 shrink-0">
+            <RefreshCw className="h-3.5 w-3.5" />
+            Retry
+          </Button>
+        </div>
+      )}
+
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {[
