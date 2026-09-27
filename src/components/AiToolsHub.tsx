@@ -249,7 +249,6 @@ const bannerStyles: Record<string, string> = {
   tradesetup: 'bg-gradient-to-r from-emerald-600 to-emerald-800',
   cryptopilot: 'bg-gradient-to-r from-cyan-600 to-cyan-800',
   coiniq: 'bg-gradient-to-r from-orange-500 to-orange-700',
-  '6thapp': 'bg-gradient-to-r from-red-500 to-red-700',
   forexscanner: 'bg-gradient-to-r from-teal-500 to-teal-700',
 }
 
