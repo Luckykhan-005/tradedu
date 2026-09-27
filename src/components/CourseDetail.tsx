@@ -94,6 +94,25 @@ export function CourseDetail({
     advanced: 'bg-purple-100 text-purple-700',
   }
 
+  // Modules ko level sections me group karo: Beginner (mod 0-2), Intermediate (3-4), Advanced (5+)
+  const levelSections = (() => {
+    const defs = [
+      { label: 'Beginner', from: 0, to: 3 },
+      { label: 'Intermediate', from: 3, to: 5 },
+      { label: 'Advanced', from: 5, to: Number.MAX_SAFE_INTEGER },
+    ]
+    let cum = 0
+    return defs
+      .map((d) => {
+        const mods = modules.filter((_, i) => i >= d.from && i < d.to)
+        const count = mods.reduce((a, m) => a + m.lessons.length, 0)
+        const start = cum + 1
+        cum += count
+        return { ...d, mods, start, end: cum, count }
+      })
+      .filter((s) => s.mods.length > 0)
+  })()
+
   return (
     <div className="min-h-screen bg-secondary/30">
       {/* Course Header */}
@@ -109,9 +128,18 @@ export function CourseDetail({
 
           <div className="flex flex-col lg:flex-row lg:items-start gap-6">
             <div className="flex-1">
-              <Badge className={cn('mb-3', levelColors[course.level])}>{course.level}</Badge>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {levelSections.map((s) => (
+                  <Badge
+                    key={s.label}
+                    className={cn(levelColors[s.label.toLowerCase()] || levelColors.beginner)}
+                  >
+                    {s.label}
+                  </Badge>
+                ))}
+              </div>
               <h1 className="text-2xl md:text-3xl font-bold mb-2">{course.title}</h1>
-              <p className="text-muted-foreground mb-4 max-w-2xl">{course.description}</p>
+              <p className="text-muted-foreground mb-4 max-w-2xl whitespace-pre-line">{course.description}</p>
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                 {course.duration && (
                   <div className="flex items-center gap-1">
@@ -180,8 +208,28 @@ export function CourseDetail({
           {/* Sidebar: Modules */}
           <div className="lg:w-80 shrink-0">
             <h3 className="font-semibold mb-3">Course Content</h3>
-            <div className="space-y-2">
-              {modules.map((mod, modIdx) => {
+            <div className="space-y-4">
+              {levelSections.map((sec) => (
+                <div key={sec.label}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span
+                      className={cn(
+                        'text-[11px] font-bold uppercase tracking-wider',
+                        sec.label === 'Beginner' && 'text-emerald-600',
+                        sec.label === 'Intermediate' && 'text-blue-600',
+                        sec.label === 'Advanced' && 'text-purple-600'
+                      )}
+                    >
+                      {sec.label}
+                    </span>
+                    <span className="text-[11px] text-muted-foreground">
+                      Lesson {sec.start}-{sec.end}
+                    </span>
+                    <Separator className="flex-1" />
+                  </div>
+                  <div className="space-y-2">
+                    {sec.mods.map((mod) => {
+                      const modIdx = modules.indexOf(mod)
                 const isExpanded = expandedModules.has(mod.id)
                 const modLessons = mod.lessons.length
                 const modCompleted = mod.lessons.filter((l) => progress[l.id]).length
@@ -264,7 +312,10 @@ export function CourseDetail({
                     )}
                   </div>
                 )
-              })}
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
