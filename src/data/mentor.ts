@@ -651,7 +651,7 @@ export const mentorEntries: MentorEntry[] = [
     category: 'TradeEd',
     q: 'Plans (Free/Premium) mein kya farq hai?',
     keywords: ['plan', 'pricing', 'free', 'premium', 'starter', 'subscription', 'kitne ka'],
-    a: 'Free plan: 25+ books, blog, glossary, risk calculator, har course ka pehla module, AI mentor limited (5 sawal/roj) aur live session schedule. Premium (PKR 1,499/month): saare courses full + certificates, AI mentor unlimited, AI trading tools, trading journal, 2 premium books, live join + recordings. Pricing page par details dekhein — payment JazzCash se hoti hai.',
+    a: 'Free plan: 25+ books, blog, glossary, risk calculator, beginner course ka pehla module, AI mentor limited (5 sawal/roj) aur live session schedule. Premium (PKR 1,499/month): saare courses full + certificates, AI mentor unlimited, AI trading tools, trading journal, 2 premium books, live join + recordings. Pricing page par details dekhein — payment JazzCash se hoti hai.',
   },
   {
     id: 'te-5',

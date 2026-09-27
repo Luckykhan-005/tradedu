@@ -35,7 +35,7 @@ const plans: Plan[] = [
       { label: '25+ free trading books', included: true },
       { label: 'Blog & Trading Glossary', included: true },
       { label: 'Risk Calculator', included: true },
-      { label: 'Har course ka pehla module', included: true },
+      { label: 'Beginner course ka pehla module', included: true },
       { label: 'AI Mentor (limited — 5 sawal/roj)', included: true },
       { label: 'Live session schedule', included: true },
       { label: 'Saare courses (full)', included: false },

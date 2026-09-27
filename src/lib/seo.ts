@@ -20,7 +20,7 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
   courses: {
     title: 'Trading Courses in Urdu — Zero se Professional | TradeEd',
     description:
-      'Binance, forex, crypto futures, price action aur risk management ke practical Urdu courses — har course ka pehla module bilkul free.',
+      'Binance, forex, crypto futures, price action aur risk management ke practical Urdu courses — beginner course ka pehla module bilkul free.',
   },
   books: {
     title: '25+ Free Trading Books in Urdu | TradeEd',
@@ -35,7 +35,7 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
   pricing: {
     title: 'Plans & Pricing — Free aur Premium PKR 1,499 | TradeEd',
     description:
-      'TradeEd Free aur Premium plan: 25+ free books aur courses ka pehla module free; Premium PKR 1,499/month — saare courses, certificates, AI tools.',
+      'TradeEd Free aur Premium plan: 25+ free books aur beginner course ka pehla module free; Premium PKR 1,499/month — saare courses, certificates, AI tools.',
   },
   glossary: {
     title: 'Trading Glossary in Urdu — Trading Terms Samjhein | TradeEd',
