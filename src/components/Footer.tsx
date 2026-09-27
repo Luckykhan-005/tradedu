@@ -83,6 +83,13 @@ export function Footer({ onNavigate }: FooterProps) {
                 <MessageSquare className="h-4 w-4" />
               </a>
             </div>
+            <a
+              href="mailto:info@tradeed.online"
+              className="mt-3 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-highlight"
+            >
+              <Mail className="h-4 w-4" />
+              info@tradeed.online
+            </a>
           </div>
         </div>
 

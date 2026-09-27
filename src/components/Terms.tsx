@@ -92,7 +92,7 @@ export function Terms() {
         <section>
           <h2>10. Contact</h2>
           <p>
-            Kisi bhi sawal ke liye: tradeed.official@gmail.com
+            Kisi bhi sawal ke liye: <a href="mailto:info@tradeed.online" className="text-primary hover:underline">info@tradeed.online</a>
           </p>
         </section>
       </div>

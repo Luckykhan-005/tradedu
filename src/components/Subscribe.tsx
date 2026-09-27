@@ -316,6 +316,9 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
               Payment ke baad screenshot upload karein (upar). Admin verify karke 24 ghante mein
               Premium activate kar dega. WhatsApp: {PAYMENT_ACCOUNTS.whatsapp}
             </p>
+            <p className="text-muted-foreground">
+              Koi aur masla: <a href="mailto:info@tradeed.online" className="text-primary hover:underline">info@tradeed.online</a>
+            </p>
           </CardContent>
         </Card>
       </div>

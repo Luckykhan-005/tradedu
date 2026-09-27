@@ -686,7 +686,7 @@ export const mentorEntries: MentorEntry[] = [
     category: 'TradeEd',
     q: 'Mujhe sawal poochna hai — kahan poochun?',
     keywords: ['sawal', 'contact', 'help', 'support', 'masla'],
-    a: 'Isi AI Mentor se pehle koshish karein — sawalon ka jawab foran milega. Agar jawab na mile to Contact page se email karein (tradeed.official@gmail.com), ya community (Telegram/Discord) join karein. Live sessions mein bhi direct pooch sakte hain.',
+    a: 'Isi AI Mentor se pehle koshish karein — sawalon ka jawab foran milega. Agar jawab na mile to Contact page se email karein (info@tradeed.online), ya community (Telegram/Discord) join karein. Live sessions mein bhi direct pooch sakte hain.',
   },
   {
     id: 'te-10',

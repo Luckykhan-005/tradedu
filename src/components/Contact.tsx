@@ -20,13 +20,13 @@ export function Contact() {
     try {
       const { error: errMsg } = await contactSend(form)
       if (errMsg) {
-        setError('Message nahi bheja ja saka. Please email karein: tradeed.official@gmail.com')
+        setError('Message nahi bheja ja saka. Please email karein: info@tradeed.online')
         setSubmitting(false)
         return
       }
       setSubmitted(true)
     } catch {
-      setError('Connection error. Please email karein: tradeed.official@gmail.com')
+      setError('Connection error. Please email karein: info@tradeed.online')
     }
     setSubmitting(false)
   }
@@ -35,8 +35,8 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'tradeed.official@gmail.com',
-      href: 'mailto:tradeed.official@gmail.com',
+      value: 'info@tradeed.online',
+      href: 'mailto:info@tradeed.online',
       description: 'Course enquiries, support, partnerships',
     },
     {

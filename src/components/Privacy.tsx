@@ -90,7 +90,7 @@ export function Privacy() {
         <section>
           <h2>9. Contact</h2>
           <p>
-            Kisi bhi privacy sawal ke liye: tradeed.official@gmail.com
+            Kisi bhi privacy sawal ke liye: <a href="mailto:info@tradeed.online" className="text-primary hover:underline">info@tradeed.online</a>
           </p>
         </section>
       </div>

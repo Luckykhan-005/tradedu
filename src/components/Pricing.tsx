@@ -186,7 +186,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             <p className="mb-4 text-muted-foreground">
               Contact us for team discounts, institutional access, or custom plans.
             </p>
-            <a href="mailto:jamalkhanlashari005@gmail.com">
+            <a href="mailto:info@tradeed.online">
               <Button variant="outline">Contact Sales</Button>
             </a>
           </CardContent>

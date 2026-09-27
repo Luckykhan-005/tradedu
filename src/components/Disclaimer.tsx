@@ -85,7 +85,7 @@ export function Disclaimer() {
 
         <section>
           <h2>7. Contact</h2>
-          <p>Kisi bhi sawal ke liye: tradeed.official@gmail.com</p>
+          <p>Kisi bhi sawal ke liye: <a href="mailto:info@tradeed.online" className="text-primary hover:underline">info@tradeed.online</a></p>
         </section>
       </div>
     </div>
