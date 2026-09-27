@@ -1,6 +1,7 @@
 import { TrendingUp, BookOpen, Users, Award, Target, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 interface AboutProps {
   onNavigate: (page: 'landing' | 'courses' | 'contact') => void
@@ -103,20 +104,38 @@ export function About({ onNavigate }: AboutProps) {
       {/* Author */}
       <Card className="mb-16">
         <CardContent className="p-8">
-          <h2 className="text-2xl font-bold mb-4">About the Author</h2>
+          <h2 className="text-2xl font-bold mb-4">About the Author & Mentor</h2>
           <div className="flex items-start gap-4">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xl font-bold">
-              AK
+              MA
             </div>
-            <div>
+            <div className="flex-1">
               <h3 className="font-semibold text-lg">M. Aslam Khan</h3>
-              <p className="text-sm text-muted-foreground mb-3">Trading Educator & Author</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                M. Aslam Khan ek professional trader aur educator hain. Unka focus trading
-                education ko Urdu mein accessible banana hai. Unhon ne trading ke har aspect par
-                detail se likha hai — basics se le kar advanced strategies, risk management,
-                trading psychology aur platform guides (Binance, Discord) tak.
+              <p className="text-sm text-muted-foreground mb-3">Trading Educator, Mentor & Author</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="outline">Mentor</Badge>
+                <Badge variant="outline">Author</Badge>
+                <Badge variant="outline">Content Creator</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                M. Aslam Khan 2020 se trading sikha rahe hain aur content creation aur authoring
+                mein unka 10 saal ka tajurba hai. Unhon ne 25+ books likhi hain (500+ chapters),
+                daily YouTube videos banate hain aur TradeEd ke zariye Pakistani traders ko
+                professional-level education Urdu mein dete hain. Unka focus: basics se le kar
+                advanced strategies, risk management, trading psychology aur platform guides
+                (Binance, Discord) tak — sab kuch practical aur Urdu mein.
               </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">2020</strong> se teaching
+                </span>
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">10+ saal</strong> ka experience
+                </span>
+                <span className="text-muted-foreground">
+                  <strong className="text-foreground">25+ books</strong> &amp; daily videos
+                </span>
+              </div>
             </div>
           </div>
         </CardContent>

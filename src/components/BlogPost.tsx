@@ -129,7 +129,7 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
           <div>
             <p className="font-semibold">M. Aslam Khan</p>
             <p className="text-xs text-muted-foreground">
-              Trading author & educator — TradeEd founder
+              Mentor, Author &amp; Content Creator — TradeEd founder
             </p>
           </div>
         </div>

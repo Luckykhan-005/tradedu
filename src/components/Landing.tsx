@@ -205,6 +205,75 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
         </div>
       </section>
 
+      {/* Meet Your Mentor */}
+      <section className="py-16 md:py-24 bg-card/50 border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Your Mentor</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Ek mentor, author aur content creator jo 2020 se Urdu mein trading sikha raha hai.
+            </p>
+          </div>
+          <Card>
+            <CardContent className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row md:items-start gap-8">
+                <div className="flex flex-col items-center md:items-start shrink-0">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary text-primary-foreground text-3xl font-bold">
+                    MA
+                  </div>
+                  <h3 className="mt-4 text-xl font-bold text-center md:text-left">M. Aslam Khan</h3>
+                  <p className="text-sm text-muted-foreground text-center md:text-left">
+                    Trading Educator, Mentor &amp; Author
+                  </p>
+                  <div className="mt-3 flex flex-wrap justify-center gap-2">
+                    <Badge variant="outline">Mentor</Badge>
+                    <Badge variant="outline">Author</Badge>
+                    <Badge variant="outline">Content Creator</Badge>
+                  </div>
+                </div>
+                <div className="flex-1 space-y-5">
+                  <p className="text-muted-foreground leading-relaxed">
+                    M. Aslam Khan 2020 se trading sikha rahe hain — unka content creation aur
+                    authoring mein 10 saal ka tajurba hai. Unhon ne 25+ Urdu books likhi hain
+                    (500+ chapters), daily YouTube videos banate hain, aur live sessions mein
+                    students ke sawalon ka jawab dete hain. TradeEd ka mission: har Pakistani
+                    trader ko practical, professional-level education Urdu mein — bina language
+                    barrier ke.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                    {[
+                      { value: '2020', label: 'Se teaching' },
+                      { value: '10+', label: 'Saal experience' },
+                      { value: '25+', label: 'Books likhi' },
+                      { value: 'Daily', label: 'YouTube videos' },
+                    ].map((s) => (
+                      <div key={s.label} className="rounded-lg border border-border bg-background p-3 text-center">
+                        <div className="text-lg font-bold text-primary">{s.value}</div>
+                        <div className="text-xs text-muted-foreground">{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="outline" className="gap-2" onClick={onNavigateToCourses}>
+                      <BookOpen className="h-4 w-4" />
+                      Uske Courses Dekhein
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="gap-2"
+                      onClick={() => window.open('https://www.youtube.com/@tradeed-1', '_blank')}
+                    >
+                      <Youtube className="h-4 w-4" />
+                      YouTube Par Follow Karein
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* YouTube CTA */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">

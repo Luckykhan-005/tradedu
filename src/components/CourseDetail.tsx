@@ -134,6 +134,19 @@ export function CourseDetail({
                   <Users className="h-4 w-4" /> {course.studentCount} students
                 </div>
               </div>
+
+              {/* Instructor */}
+              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                  MA
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">M. Aslam Khan</p>
+                  <p className="text-xs text-muted-foreground">
+                    Mentor, Author &amp; Content Creator — TradeEd founder
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="lg:w-72 shrink-0">
