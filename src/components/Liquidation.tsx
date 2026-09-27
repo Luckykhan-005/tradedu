@@ -61,6 +61,7 @@ export function Liquidation() {
 
   const wrapRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouseRef = useRef<{ x: number; y: number } | null>(null)
 
   const load = useCallback(async (sym: string) => {
     try {
@@ -201,12 +202,136 @@ export function Liquidation() {
         const d = new Date(data.times[c])
         ctx.fillText(d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), x, h - BOTTOM + 8)
       }
+
+      // Hover crosshair + tooltip (interactive figures)
+      const pos = mouseRef.current
+      if (pos && pos.x >= 0 && pos.x <= plotW && pos.y >= TOP && pos.y <= TOP + plotH) {
+        const col = Math.max(
+          0,
+          Math.min(data.columns - 1, Math.floor((pos.x / plotW) * data.columns))
+        )
+        const bin = Math.max(
+          0,
+          Math.min(data.bins - 1, Math.floor(((1 - (pos.y - TOP) / plotH) * data.bins)))
+        )
+        const value = data.matrix[col][bin]
+        const price =
+          data.priceLow + ((bin + 0.5) / data.bins) * (data.priceHigh - data.priceLow)
+        const xLine = ((col + 0.5) / data.columns) * plotW
+        const yLine = TOP + plotH * (1 - (bin + 0.5) / data.bins)
+
+        // Crosshair lines
+        ctx.save()
+        ctx.strokeStyle = 'rgba(255,255,255,0.7)'
+        ctx.setLineDash([3, 4])
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(xLine, TOP)
+        ctx.lineTo(xLine, TOP + plotH)
+        ctx.moveTo(0, yLine)
+        ctx.lineTo(plotW, yLine)
+        ctx.stroke()
+        ctx.setLineDash([])
+        // Dot at cell
+        ctx.fillStyle = '#ffffff'
+        ctx.beginPath()
+        ctx.arc(xLine, yLine, 3, 0, Math.PI * 2)
+        ctx.fill()
+        // Highlight hovered price on axis
+        ctx.fillStyle = '#ffffff'
+        const pl = fmtPrice(price)
+        const pw = ctx.measureText(pl).width + 10
+        ctx.fillRect(plotW + 2, Math.max(2, Math.min(h - 18, yLine - 9)), pw, 18)
+        ctx.fillStyle = '#0a0e1f'
+        ctx.textAlign = 'left'
+        ctx.textBaseline = 'middle'
+        ctx.fillText(pl, plotW + 7, Math.max(11, Math.min(h - 9, yLine)))
+        ctx.restore()
+
+        // Tooltip box
+        const timeStr = new Date(data.times[col]).toLocaleString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+        const dist = ((price - data.stats.markPrice) / data.stats.markPrice) * 100
+        const intensityPct = Math.round(value * 100)
+        const lines = [
+          timeStr,
+          `$${fmtPrice(price)}`,
+          `Liquidation: ${intensityPct}%`,
+          `Mark se ${dist >= 0 ? '+' : ''}${dist.toFixed(2)}%`,
+        ]
+        const boxW = 186
+        const boxH = 84
+        let bx = pos.x + 16
+        let by = pos.y + 16
+        if (bx + boxW > plotW) bx = pos.x - boxW - 16
+        if (by + boxH > TOP + plotH) by = pos.y - boxH - 16
+        bx = Math.max(4, bx)
+        by = Math.max(TOP + 4, by)
+
+        ctx.save()
+        ctx.fillStyle = 'rgba(10,14,31,0.95)'
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)'
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        const r = 8
+        ctx.moveTo(bx + r, by)
+        ctx.arcTo(bx + boxW, by, bx + boxW, by + boxH, r)
+        ctx.arcTo(bx + boxW, by + boxH, bx, by + boxH, r)
+        ctx.arcTo(bx, by + boxH, bx, by, r)
+        ctx.arcTo(bx, by, bx + boxW, by, r)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+        ctx.textAlign = 'left'
+        ctx.textBaseline = 'top'
+        ctx.font = '11px system-ui, sans-serif'
+        lines.forEach((line, i) => {
+          if (i === 1) ctx.font = 'bold 13px system-ui, sans-serif'
+          else if (i === 2) ctx.font = '600 12px system-ui, sans-serif'
+          else ctx.font = '11px system-ui, sans-serif'
+          ctx.fillStyle =
+            i === 2
+              ? intensityPct >= 66
+                ? '#ffb020'
+                : intensityPct >= 33
+                  ? '#f97316'
+                  : '#8b93a7'
+              : i === 3
+                ? dist >= 0
+                  ? '#34d399'
+                  : '#f87171'
+                : '#e5e9f0'
+          ctx.fillText(line, bx + 12, by + 10 + i * 18)
+        })
+        ctx.restore()
+      }
     }
 
     draw()
+
+    const onMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
+      draw()
+    }
+    const onLeave = () => {
+      mouseRef.current = null
+      draw()
+    }
+    canvas.addEventListener('mousemove', onMove)
+    canvas.addEventListener('mouseleave', onLeave)
+
     const ro = new ResizeObserver(draw)
     ro.observe(wrap)
-    return () => ro.disconnect()
+    return () => {
+      canvas.removeEventListener('mousemove', onMove)
+      canvas.removeEventListener('mouseleave', onLeave)
+      ro.disconnect()
+    }
   }, [data])
 
   const s = data?.stats
@@ -306,7 +431,7 @@ export function Liquidation() {
               </div>
             ) : data ? (
               <div ref={wrapRef} className="relative w-full">
-                <canvas ref={canvasRef} className="block w-full" />
+                <canvas ref={canvasRef} className="block w-full cursor-crosshair" />
                 {loading && (
                   <div className="absolute right-3 top-3 rounded-md bg-background/80 px-2 py-1 text-xs text-muted-foreground">
                     Updating…
