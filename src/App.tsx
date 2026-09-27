@@ -541,7 +541,7 @@ export default function App() {
 
       {currentPage === 'ai-tools' && (
         user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
-          <AiToolsHub user={user} onSignIn={openAuth} onSelectTool={handleSelectAiTool} />
+          <AiToolsHub user={user} onSignIn={openAuth} onSelectTool={handleSelectAiTool} onHome={() => navigate('landing')} />
         ) : (
           <PlanGate
             requiredPlan="PREMIUM"
@@ -556,6 +556,7 @@ export default function App() {
         <AiToolDetail
           tool={selectedAiTool}
           onBack={() => navigate('ai-tools')}
+          onHome={() => navigate('landing')}
         />
       )}
 

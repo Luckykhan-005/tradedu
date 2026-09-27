@@ -15,6 +15,8 @@ import {
   AlertTriangle,
   Eye,
   Activity,
+  ArrowLeft,
+  Home,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -256,9 +258,10 @@ interface AiToolsHubProps {
   user: { name?: string; email: string; role?: 'student' | 'admin' } | null
   onSignIn: () => void
   onSelectTool?: (toolId: string) => void
+  onHome?: () => void
 }
 
-export function AiToolsHub({ user, onSignIn, onSelectTool }: AiToolsHubProps) {
+export function AiToolsHub({ user, onSignIn, onSelectTool, onHome }: AiToolsHubProps) {
   const [expandedTool, setExpandedTool] = useState<string | null>(null)
   const [activeApp, setActiveApp] = useState<AiTool | null>(null)
   const [filter, setFilter] = useState<string>('all')
@@ -278,8 +281,16 @@ export function AiToolsHub({ user, onSignIn, onSelectTool }: AiToolsHubProps) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="sm" onClick={() => setActiveApp(null)} className="gap-2">
-                ← Back to AI Tools
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Back to AI Tools</span>
+                <span className="sm:hidden">Back</span>
               </Button>
+              {onHome && (
+                <Button variant="ghost" size="sm" onClick={onHome} className="gap-2">
+                  <Home className="h-4 w-4" />
+                  <span className="hidden sm:inline">Home</span>
+                </Button>
+              )}
               <Separator orientation="vertical" className="h-6" />
               <div className="flex items-center gap-2">
                 <activeApp.icon className={cn('h-5 w-5', activeApp.color)} />
@@ -324,6 +335,14 @@ export function AiToolsHub({ user, onSignIn, onSelectTool }: AiToolsHubProps) {
       {/* Header */}
       <div className="bg-background border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+          {onHome && (
+            <button
+              onClick={onHome}
+              className="mb-4 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" /> Home
+            </button>
+          )}
           <div className="flex items-center gap-3 mb-2">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-white">
               <Bot className="h-6 w-6" />

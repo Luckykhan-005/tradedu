@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   ArrowLeft,
   ExternalLink,
@@ -8,21 +9,69 @@ import {
   Sparkles,
   Shield,
   Sparkle,
+  Home,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/cn'
 import type { AiToolPage } from '@/data/aiTools'
 
 interface AiToolDetailProps {
   tool: AiToolPage
   onBack: () => void
+  onHome?: () => void
 }
 
-export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
+export function AiToolDetail({ tool, onBack, onHome }: AiToolDetailProps) {
+  const [launched, setLaunched] = useState(false)
+
   const openTool = () => {
+    setLaunched(true)
+  }
+
+  const openExternal = () => {
     window.open(tool.url, '_blank', 'noopener,noreferrer')
+  }
+
+  if (launched) {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="bg-background border-b border-border sticky top-16 z-40">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <Button variant="ghost" size="sm" onClick={() => setLaunched(false)} className="gap-2 shrink-0">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Wapas</span>
+              </Button>
+              {onHome && (
+                <Button variant="ghost" size="sm" onClick={onHome} className="gap-2 shrink-0">
+                  <Home className="h-4 w-4" />
+                  <span className="hidden sm:inline">Home</span>
+                </Button>
+              )}
+              <Separator orientation="vertical" className="h-6 hidden sm:block" />
+              <span className="font-semibold text-sm truncate">{tool.name}</span>
+            </div>
+            <Button size="sm" variant="outline" onClick={openExternal} className="gap-1.5 shrink-0">
+              <ExternalLink className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">New Tab</span>
+            </Button>
+          </div>
+        </div>
+
+        <div className="w-full" style={{ height: 'calc(100vh - 120px)' }}>
+          <iframe
+            src={tool.url}
+            title={tool.name}
+            className="w-full h-full border-0"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -35,6 +84,12 @@ export function AiToolDetail({ tool, onBack }: AiToolDetailProps) {
             <span className="hidden sm:inline">Wapas AI Tools par</span>
             <span className="sm:hidden">Wapas</span>
           </Button>
+          {onHome && (
+            <Button variant="ghost" size="sm" onClick={onHome} className="gap-2 shrink-0">
+              <Home className="h-4 w-4" />
+              <span className="hidden sm:inline">Home</span>
+            </Button>
+          )}
           <div className="flex items-center gap-2 min-w-0">
             <Sparkles className="h-4 w-4 text-primary shrink-0" />
             <span className="font-semibold text-sm truncate">{tool.name}</span>
