@@ -25,6 +25,7 @@ import {
   Newspaper,
   ChevronDown,
   LayoutGrid,
+  Flame,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -36,7 +37,7 @@ import {
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'liquidation' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page
@@ -62,6 +63,7 @@ const allNavItems: {
   { id: 'mentor', label: 'Mentor', icon: Bot },
   { id: 'ai-tools', label: 'AI Tools', icon: Bot, studentOnly: true },
   { id: 'journal', label: 'Journal', icon: NotebookPen },
+  { id: 'liquidation', label: 'Heatmap', icon: Flame },
   { id: 'calculator', label: 'Calculator', icon: Calculator },
   { id: 'glossary', label: 'Glossary', icon: BookMarked },
   {

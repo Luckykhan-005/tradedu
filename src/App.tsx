@@ -16,6 +16,7 @@ import { Books } from './components/Books'
 import { RiskCalculator } from './components/RiskCalculator'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
+import { Liquidation } from './components/Liquidation'
 import { Certificates } from './components/Certificates'
 import { Pricing } from './components/Pricing'
 import { PlanGate } from './components/PlanGate'
@@ -76,6 +77,7 @@ const pageToPath: Partial<Record<Page, string>> = {
   calculator: '/calculator',
   glossary: '/glossary',
   journal: '/journal',
+  liquidation: '/liquidation',
   certificates: '/certificates',
   pricing: '/pricing',
   subscribe: '/subscribe',
@@ -596,6 +598,10 @@ export default function App() {
             onSignIn={openAuth}
           />
         )
+      )}
+
+      {currentPage === 'liquidation' && (
+        <Liquidation />
       )}
 
       {currentPage === 'certificates' && (

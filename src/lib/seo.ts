@@ -67,6 +67,11 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
     description:
       'Trading journal banayein aur apne trades record karein — mistakes identify karke apni trading improve karein.',
   },
+  liquidation: {
+    title: 'Crypto Liquidation Heatmap — Live Liquidation Zones | TradeEd',
+    description:
+      'Free liquidation heatmap: BTC, ETH, SOL ka estimated liquidation zones live — long/short clusters, funding aur open interest ke sath Roman Urdu guide.',
+  },
   certificates: {
     title: 'Course Certificates | TradeEd',
     description:
