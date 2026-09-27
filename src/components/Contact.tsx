@@ -4,16 +4,31 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { contactSend } from '@/lib/supabase'
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In production: send to backend / email service
-    console.log('Contact form:', form)
-    setSubmitted(true)
+    if (submitting) return
+    setSubmitting(true)
+    setError('')
+    try {
+      const { error: errMsg } = await contactSend(form)
+      if (errMsg) {
+        setError('Message nahi bheja ja saka. Please email karein: tradeed.official@gmail.com')
+        setSubmitting(false)
+        return
+      }
+      setSubmitted(true)
+    } catch {
+      setError('Connection error. Please email karein: tradeed.official@gmail.com')
+    }
+    setSubmitting(false)
   }
 
   const contactMethods = [
@@ -41,8 +56,8 @@ export function Contact() {
     {
       icon: Youtube,
       title: 'YouTube',
-      value: '@TradeEd',
-      href: 'https://youtube.com/@TradeEd',
+      value: '@tradeed-1',
+      href: 'https://www.youtube.com/@tradeed-1',
       description: 'Daily trading videos in Urdu',
     },
   ]
@@ -152,9 +167,14 @@ export function Contact() {
                     placeholder="Aapka message..."
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                {error && (
+                  <p className="rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                    {error}
+                  </p>
+                )}
+                <Button type="submit" className="w-full" disabled={submitting}>
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             )}

@@ -263,3 +263,18 @@ function toAppUserProfileRow(p: any): TradeEdUser {
     createdAt: p.created_at,
   }
 }
+
+export async function contactSend(input: {
+  name: string
+  email: string
+  subject: string
+  message: string
+}): Promise<{ error?: string }> {
+  const { error } = await supabase.from('contact_messages').insert({
+    name: input.name,
+    email: input.email,
+    subject: input.subject || '',
+    message: input.message,
+  })
+  return { error: error?.message }
+}

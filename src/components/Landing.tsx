@@ -230,7 +230,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
                 <Button
                   size="lg"
                   className="gap-2 bg-red-500 hover:bg-red-600 text-white"
-                  onClick={() => window.open('https://youtube.com/@TradeEd', '_blank')}
+                  onClick={() => window.open('https://www.youtube.com/@tradeed-1', '_blank')}
                 >
                   <Youtube className="h-5 w-5" />
                   Subscribe on YouTube

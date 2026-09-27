@@ -11,7 +11,7 @@ import {
   Search,
   BarChart3,
 } from 'lucide-react'
-import { api } from '@/lib/api'
+import { journalList, journalCreate, journalUpdate, journalDelete } from '@/lib/journal'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -66,13 +66,8 @@ export function Journal({ user, onSignIn }: JournalProps) {
     if (!user) return
     setLoading(true)
     try {
-      // Send the email as a query param as well as a header: the Vercel
-      // `/api/*` rewrite strips custom headers, but query strings survive.
-      const res = await fetch(api(`/api/journal?email=${encodeURIComponent(user.email)}`), {
-        headers: { 'x-user-email': user.email },
-      })
-      const data = await res.json()
-      setEntries(data.entries || [])
+      const { entries: list, error } = await journalList()
+      setEntries(error ? [] : list || [])
     } catch {
       setEntries([])
     } finally {
@@ -132,10 +127,7 @@ export function Journal({ user, onSignIn }: JournalProps) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!user) return
-    const baseUrl = editingId ? api(`/api/journal/${editingId}`) : api('/api/journal')
-    const url = `${baseUrl}?email=${encodeURIComponent(user.email)}`
-    const method = editingId ? 'PATCH' : 'POST'
-    const body = {
+    const input = {
       pair: form.pair,
       direction: form.direction,
       entry: form.entry,
@@ -145,14 +137,19 @@ export function Journal({ user, onSignIn }: JournalProps) {
       size: form.size,
       setup: form.setup,
       notes: form.notes,
-      pnl: form.exit ? String((parseFloat(form.exit) - parseFloat(form.entry)) * (form.direction === 'long' ? 1 : -1)) : '',
+      pnl: form.exit
+        ? String(
+            (parseFloat(form.exit) - parseFloat(form.entry)) *
+              (form.direction === 'long' ? 1 : -1)
+          )
+        : '',
     }
     try {
-      await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json', 'x-user-email': user.email },
-        body: JSON.stringify(body),
-      })
+      const { error } = editingId ? await journalUpdate(editingId, input) : await journalCreate(input)
+      if (error) {
+        console.error(error)
+        return
+      }
       setShowForm(false)
       fetchEntries()
     } catch (err) {
@@ -163,10 +160,7 @@ export function Journal({ user, onSignIn }: JournalProps) {
   const remove = async (id: string) => {
     if (!user) return
     try {
-      await fetch(api(`/api/journal/${id}?email=${encodeURIComponent(user.email)}`), {
-        method: 'DELETE',
-        headers: { 'x-user-email': user.email },
-      })
+      await journalDelete(id)
       fetchEntries()
     } catch (err) {
       console.error(err)

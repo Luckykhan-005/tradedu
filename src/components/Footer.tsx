@@ -56,7 +56,7 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="mb-3 text-sm font-semibold">Follow Us</h3>
             <div className="flex gap-3">
               <a
-                href="https://youtube.com/@TradeEd"
+                href="https://www.youtube.com/@tradeed-1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-highlight hover:text-highlight"

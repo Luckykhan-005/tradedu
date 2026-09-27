@@ -4,11 +4,39 @@
       "maxDuration": 30
     }
   },
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/api/:path*",
-      "destination": "https://f433563c-b214-4c91-81ec-8db56a59a1b4.preview.shogo.ai/p/f433563c-b214-4c91-81ec-8db56a59a1b4/api/:path*"
-    },
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.tradeed.online"
+        }
+      ],
+      "destination": "https://tradeed.online/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
     {
       "source": "/((?!api/).*)",
       "destination": "/"
