@@ -56,6 +56,21 @@ interface BooksProps {
 
 export const books: BookItem[] = [
   {
+    id: 'alami-maliyati-nizam',
+    title: 'Global Financial System (Urdu)',
+    titleUrdu: 'عالمی مالیاتی نظام',
+    description:
+      'Crypto aur forex traders ke liye duniya ka maaliyati nizam ka mukammal rehnuma — central banks, forex markets, crypto, capital flows, macro/microeconomics, liquidity, market institutions, risk management aur trading psychology. 12 chapters, Urdu mein.',
+    chapters: 12,
+    pages: '12 Chapters · Complete Guide',
+    icon: Globe,
+    color: 'text-sky-600',
+    bgColor: 'bg-sky-50',
+    href: '/alami-maliyati-nizam/index.html',
+    tags: ['Urdu', 'Finance', '12 Chapters'],
+    cover: '/covers/Alami_Maliyati_Nizam_Kitab.jpg',
+  },
+  {
     id: 'crypto-futures',
     title: 'Crypto Futures Trading (Urdu)',
     titleUrdu: 'کرپٹو فیوچرز ٹریڈنگ',
