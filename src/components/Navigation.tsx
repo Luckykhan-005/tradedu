@@ -161,7 +161,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           <span className="hidden sm:inline">TradeEd</span>
         </button>
 
-        <div className="hidden md:flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto no-scrollbar pl-2 [-webkit-mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)] [mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)]">
+        <div className="hidden md:flex min-w-0 flex-1 items-center gap-0.5 pl-2">
           {navGroups.map((group) => (
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
@@ -177,6 +177,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
                 <ChevronDown className="h-3.5 w-3.5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
+                align="start"
                 className="w-[310px] rounded-xl border-border/60 p-2 shadow-xl"
               >
                 {group.items.map((item) => (

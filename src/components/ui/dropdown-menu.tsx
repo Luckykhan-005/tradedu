@@ -24,7 +24,7 @@ export function DropdownMenuTrigger({ className, children, ...props }: HTMLAttri
   )
 }
 
-export function DropdownMenuContent({ className, children, ...props }: HTMLAttributes<HTMLDivElement>) {
+export function DropdownMenuContent({ className, children, align = 'end', ...props }: HTMLAttributes<HTMLDivElement> & { align?: 'start' | 'end' }) {
   const { open, setOpen } = useContext(MenuContext)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -43,7 +43,8 @@ export function DropdownMenuContent({ className, children, ...props }: HTMLAttri
     <div
       ref={ref}
       className={cn(
-        'absolute right-0 z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
+        'absolute z-50 mt-1 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md',
+        align === 'start' ? 'left-0' : 'right-0',
         className,
       )}
       {...props}
