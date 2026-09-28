@@ -23,6 +23,7 @@ import { PlanGate } from './components/PlanGate'
 import { Subscribe } from './components/Subscribe'
 import { Footer } from './components/Footer'
 import { About } from './components/About'
+import { Roadmap } from './components/Roadmap'
 import { Contact } from './components/Contact'
 import { Privacy } from './components/Privacy'
 import { Terms } from './components/Terms'
@@ -88,6 +89,7 @@ const pageToPath: Partial<Record<Page, string>> = {
   disclaimer: '/disclaimer',
   blog: '/blog',
   mentor: '/mentor',
+  roadmap: '/roadmap',
 }
 
 const pathToPage: Record<string, Page> = Object.fromEntries(
@@ -483,6 +485,7 @@ export default function App() {
         <Landing
           onNavigateToCourses={() => navigate('courses')}
           onNavigateToBooks={() => navigate('books')}
+          onNavigate={navigate}
           onSignIn={openAuth}
         />
       )}
@@ -640,6 +643,10 @@ export default function App() {
 
       {currentPage === 'about' && (
         <About onNavigate={(p) => navigate(p as Page)} />
+      )}
+
+      {currentPage === 'roadmap' && (
+        <Roadmap onNavigate={navigate} />
       )}
 
       {currentPage === 'contact' && (

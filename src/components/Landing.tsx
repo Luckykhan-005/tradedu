@@ -13,14 +13,19 @@ import {
   Library,
   Calculator,
   Youtube,
+  Sprout,
+  Bitcoin,
+  Bot,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import type { Page } from './Navigation'
 
 interface LandingProps {
   onNavigateToCourses: () => void
   onNavigateToBooks: () => void
+  onNavigate: (page: Page) => void
   onSignIn: () => void
 }
 
@@ -73,7 +78,45 @@ const bookCategories = [
   { name: 'Platform Guides', count: '3 books', icon: BookOpen },
 ]
 
-export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: LandingProps) {
+const journeyPaths = [
+  {
+    icon: Sprout,
+    title: 'Beginner Hoon',
+    desc: 'Zero se shuru — step by step Trading Roadmap',
+    page: 'roadmap' as Page,
+    tint: 'bg-emerald-500/10 text-emerald-600',
+  },
+  {
+    icon: Bitcoin,
+    title: 'Crypto Seekhna Hai',
+    desc: 'Beginner course aur 8 crypto books',
+    page: 'courses' as Page,
+    tint: 'bg-amber-500/10 text-amber-600',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Forex Seekhna Hai',
+    desc: 'Complete forex course books (Urdu)',
+    page: 'books' as Page,
+    tint: 'bg-cyan-500/10 text-cyan-600',
+  },
+  {
+    icon: BarChart3,
+    title: 'Technical Analysis',
+    desc: 'Charts, patterns aur indicators master karein',
+    page: 'books' as Page,
+    tint: 'bg-violet-500/10 text-violet-600',
+  },
+  {
+    icon: Bot,
+    title: 'AI Tools Chahiye',
+    desc: 'AI-powered analysis tools explore karein',
+    page: 'ai-tools' as Page,
+    tint: 'bg-rose-500/10 text-rose-600',
+  },
+]
+
+export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn }: LandingProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -145,6 +188,37 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onSignIn }: La
                 </div>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Start Your Trading Journey */}
+      <section className="border-b border-border bg-card/40 py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">Start Your Trading Journey</h2>
+            <p className="mt-2 text-muted-foreground">
+              Apna rasta chunein — beginner ho ya experienced, sahi jagah se shuru karein
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {journeyPaths.map((p) => (
+              <button
+                key={p.title}
+                onClick={() => onNavigate(p.page)}
+                className="group rounded-xl border border-border bg-card p-5 text-left transition-all hover:border-primary/50 hover:shadow-md"
+              >
+                <div className={`mb-3 flex h-11 w-11 items-center justify-center rounded-lg ${p.tint}`}>
+                  <p.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold transition-colors group-hover:text-primary">{p.title}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary">
+                  Chalein
+                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </section>

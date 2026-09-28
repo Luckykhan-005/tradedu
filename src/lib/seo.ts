@@ -82,6 +82,11 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
     description:
       'TradeEd ki kahani: M. Aslam Khan ki Urdu trading books aur education platform — Pakistani traders ke liye practical Roman Urdu resources.',
   },
+  roadmap: {
+    title: 'Trading Roadmap — Beginner se Pro Tak | TradeEd Urdu Guide',
+    description:
+      'Trading kaise seekhein: 7-step Urdu roadmap — basics, technical analysis, risk management, psychology, backtesting, demo trading aur live trading tak ka poora rasta.',
+  },
   contact: {
     title: 'Contact TradeEd | TradeEd',
     description:
@@ -240,6 +245,26 @@ export function applyPageSeo({ page, path, post, course, tool }: SeoInput) {
         datePublished: p.date,
         url: `${SITE}/blog/${p.slug}`,
       })),
+    }
+  } else if (page === 'roadmap' && !jsonLd) {
+    jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: 'Trading Kaise Seekhein — 7-Step Urdu Roadmap',
+      description:
+        'Beginner se professional trading tak ka 7-step roadmap: basics, technical analysis, risk management, psychology, backtesting, demo trading aur live trading.',
+      inLanguage: 'ur-Latn',
+      totalTime: 'P6M',
+      estimatedCost: { '@type': 'MonetaryAmount', price: '0', priceCurrency: 'PKR' },
+      step: [
+        { '@type': 'HowToStep', name: 'Trading Basics & Market Samajh', text: 'Market basics, orders, candlesticks aur exchange setup seekhein (2-3 hafte).' },
+        { '@type': 'HowToStep', name: 'Technical Analysis', text: 'Support/resistance, chart patterns aur indicators seekhein (3-4 hafte).' },
+        { '@type': 'HowToStep', name: 'Risk Management', text: 'Position sizing, stop loss aur 1% risk rule seekhein (2 hafte).' },
+        { '@type': 'HowToStep', name: 'Trading Psychology', text: 'FOMO, revenge trading aur discipline par kaam karein (1-2 hafte).' },
+        { '@type': 'HowToStep', name: 'Strategy & Backtesting', text: 'Apni strategy likhein aur historical data par test karein (3-4 hafte).' },
+        { '@type': 'HowToStep', name: 'Demo Trading', text: '1-2 mahine demo account par practice karein aur trades journal mein log karein.' },
+        { '@type': 'HowToStep', name: 'Live Trading', text: 'Chhote capital se 1% risk rule ke saath live trading shuru karein.' },
+      ],
     }
   } else if (page === 'landing') {
     jsonLd = null // index.html ki WebSite/Organization schema hi chalegi

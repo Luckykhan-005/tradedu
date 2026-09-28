@@ -30,8 +30,9 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="mb-3 text-sm font-semibold">Quick Links</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><button onClick={() => onNavigate('courses')} className="hover:text-highlight">Courses</button></li>
-              <li><button onClick={() => onNavigate('books')} className="hover:text-highlight">Books</button></li>
+          <li><button onClick={() => onNavigate('courses')} className="hover:text-highlight">Academy</button></li>
+          <li><button onClick={() => onNavigate('roadmap')} className="hover:text-highlight">Trading Roadmap</button></li>
+          <li><button onClick={() => onNavigate('books')} className="hover:text-highlight">Books</button></li>
               <li><button onClick={() => onNavigate('blog')} className="flex items-center gap-1.5 hover:text-highlight"><Newspaper className="h-3.5 w-3.5" /> Blog</button></li>
               <li><button onClick={() => onNavigate('pricing')} className="hover:text-highlight">Plans</button></li>
               <li><button onClick={() => onNavigate('calculator')} className="hover:text-highlight">Risk Calculator</button></li>

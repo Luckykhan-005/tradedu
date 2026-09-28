@@ -26,6 +26,8 @@ import {
   ChevronDown,
   LayoutGrid,
   Flame,
+  GraduationCap,
+  Map,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -37,7 +39,7 @@ import {
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'liquidation' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'liquidation' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page
@@ -48,50 +50,80 @@ interface NavigationProps {
   onOpenSearch: () => void
 }
 
-const allNavItems: {
+type NavItem = {
+  id: Page
+  label: string
+  icon: typeof BookOpen
+  desc?: string
+}
+
+const navGroups: {
+  label: string
+  icon: typeof BookOpen
+  items: NavItem[]
+  activePages?: Page[]
+}[] = [
+  {
+    label: 'Learn',
+    icon: BookOpen,
+    activePages: ['course-detail', 'blog-post'],
+    items: [
+      { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
+      { id: 'books', label: 'Books', icon: Library, desc: '25+ free trading books with diagrams' },
+      { id: 'blog', label: 'Blog', icon: Newspaper, desc: 'Guides, strategies aur market explainers' },
+      { id: 'roadmap', label: 'Trading Roadmap', icon: Map, desc: 'Beginner se pro tak ka poora rasta' },
+    ],
+  },
+  {
+    label: 'Tools',
+    icon: Calculator,
+    items: [
+      { id: 'calculator', label: 'Calculator', icon: Calculator, desc: 'Risk, position size aur P&L' },
+      { id: 'journal', label: 'Journal', icon: NotebookPen, desc: 'Apne trades log aur analyze karein' },
+      { id: 'glossary', label: 'Glossary', icon: BookMarked, desc: 'Trading terms English + Urdu' },
+      { id: 'liquidation', label: 'Heatmap', icon: Flame, desc: 'Live liquidation heatmap (Binance)' },
+    ],
+  },
+  {
+    label: 'AI',
+    icon: Bot,
+    activePages: ['ai-tool-detail'],
+    items: [
+      { id: 'ai-tools', label: 'AI Tools', icon: Bot, desc: 'AI-powered analysis tools' },
+      { id: 'mentor', label: 'AI Mentor', icon: Sparkles, desc: 'Sawaal poochein — foran jawab' },
+    ],
+  },
+]
+
+const menuItems: {
   id: Page
   label: string
   icon: typeof BookOpen
   adminOnly?: boolean
-  studentOnly?: boolean
-  menu?: boolean
-  desc?: string
+  desc: string
 }[] = [
-  { id: 'courses', label: 'Courses', icon: BookOpen },
-  { id: 'books', label: 'Books', icon: Library },
-  { id: 'blog', label: 'Blog', icon: Newspaper },
-  { id: 'mentor', label: 'Mentor', icon: Bot },
-  { id: 'ai-tools', label: 'AI Tools', icon: Bot, studentOnly: true },
-  { id: 'journal', label: 'Journal', icon: NotebookPen },
-  { id: 'liquidation', label: 'Heatmap', icon: Flame },
-  { id: 'calculator', label: 'Calculator', icon: Calculator },
-  { id: 'glossary', label: 'Glossary', icon: BookMarked },
   {
     id: 'dashboard',
     label: 'Dashboard',
     icon: LayoutDashboard,
-    menu: true,
     desc: 'Progress aur courses jari rakhein',
   },
   {
     id: 'certificates',
     label: 'Certificates',
     icon: Trophy,
-    menu: true,
     desc: 'Course mukammal karke certificates hasil karein',
   },
   {
     id: 'live-sessions',
     label: 'Live Sessions',
     icon: Calendar,
-    menu: true,
     desc: 'Upcoming live webinars aur schedule dekhein',
   },
   {
     id: 'pricing',
     label: 'Plans',
     icon: Sparkles,
-    menu: true,
     desc: 'Free aur paid plans compare karein',
   },
   {
@@ -99,7 +131,6 @@ const allNavItems: {
     label: 'Admin',
     icon: Shield,
     adminOnly: true,
-    menu: true,
     desc: 'Students, requests aur content manage karein',
   },
 ]
@@ -108,12 +139,14 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
   const [mobileOpen, setMobileOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
-  const navItems = allNavItems.filter((item) => {
+  const filteredMenu = menuItems.filter((item) => {
     if (item.adminOnly && user?.role !== 'admin') return false
     return true
   })
-  const primaryItems = navItems.filter((item) => !item.menu)
-  const menuItems = navItems.filter((item) => item.menu)
+
+  const groupIsActive = (group: (typeof navGroups)[number]) =>
+    group.items.some((i) => i.id === currentPage) ||
+    (group.activePages?.includes(currentPage) ?? false)
 
   return (
     <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg">
@@ -129,20 +162,44 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         </button>
 
         <div className="hidden md:flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto no-scrollbar pl-2 [-webkit-mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)] [mask-image:linear-gradient(to_right,black,black_calc(100%_-_24px),transparent)]">
-          {primaryItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => onNavigate(item.id)}
-              className={cn(
-                'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
-                currentPage === item.id
-                  ? 'bg-black text-white'
-                  : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
-              )}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.label}
-            </button>
+          {navGroups.map((group) => (
+            <DropdownMenu key={group.label}>
+              <DropdownMenuTrigger
+                className={cn(
+                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
+                  groupIsActive(group)
+                    ? 'bg-black text-white'
+                    : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+                )}
+              >
+                <group.icon className="h-4 w-4" />
+                {group.label}
+                <ChevronDown className="h-3.5 w-3.5" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                className="w-[310px] rounded-xl border-border/60 p-2 shadow-xl"
+              >
+                {group.items.map((item) => (
+                  <DropdownMenuItem
+                    key={item.id}
+                    onClick={() => onNavigate(item.id)}
+                    className="items-start gap-3 rounded-lg p-2.5 hover:bg-secondary"
+                  >
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+                      <item.icon className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className={cn('block text-sm font-medium', currentPage === item.id && 'text-primary')}>
+                        {item.label}
+                      </span>
+                      {item.desc && (
+                        <span className="block text-xs text-muted-foreground">{item.desc}</span>
+                      )}
+                    </span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           ))}
         </div>
 
@@ -152,7 +209,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               <DropdownMenuTrigger
                 className={cn(
                   'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
-                  menuItems.some((item) => item.id === currentPage)
+                  filteredMenu.some((item) => item.id === currentPage)
                     ? 'bg-black text-white'
                     : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
                 )}
@@ -162,7 +219,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
                 <ChevronDown className="h-3.5 w-3.5" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[330px] rounded-xl border-border/60 p-2 shadow-xl">
-                {menuItems.map((item) => (
+                {filteredMenu.map((item) => (
                   <DropdownMenuItem
                     key={item.id}
                     onClick={() => onNavigate(item.id)}
@@ -241,24 +298,54 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             <Search className="h-4 w-4" />
             Search
           </button>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                onNavigate(item.id)
-                setMobileOpen(false)
-              }}
-              className={cn(
-                'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
-                currentPage === item.id
-                  ? 'bg-black text-white'
-                  : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
-              )}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.label}
-            </button>
+          {navGroups.map((group) => (
+            <div key={group.label} className="pt-1">
+              <div className="px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-black/50">
+                {group.label}
+              </div>
+              {group.items.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    onNavigate(item.id)
+                    setMobileOpen(false)
+                  }}
+                  className={cn(
+                    'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
+                    currentPage === item.id
+                      ? 'bg-black text-white'
+                      : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+                  )}
+                >
+                  <item.icon className="h-4 w-4" />
+                  {item.label}
+                </button>
+              ))}
+            </div>
           ))}
+          <div className="pt-1">
+            <div className="px-4 pb-1 text-xs font-semibold uppercase tracking-wider text-black/50">
+              Menu
+            </div>
+            {filteredMenu.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  onNavigate(item.id)
+                  setMobileOpen(false)
+                }}
+                className={cn(
+                  'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
+                  currentPage === item.id
+                    ? 'bg-black text-white'
+                    : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+                )}
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </button>
+            ))}
+          </div>
           <div className="border-t border-black/10 pt-2 mt-2">
             <button
               onClick={toggleTheme}

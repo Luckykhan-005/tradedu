@@ -34,7 +34,8 @@ interface SearchResult {
 // client-side so results appear instantly with no network round-trip.
 const pageResults: SearchResult[] = [
   { id: 'p-home', title: 'Home', subtitle: 'TradeEd landing page', category: 'Page', icon: FileText, action: { page: 'landing' } },
-  { id: 'p-courses', title: 'Courses', subtitle: 'Urdu trading courses catalog', category: 'Page', icon: GraduationCap, action: { page: 'courses' } },
+  { id: 'p-courses', title: 'TradeEd Academy', subtitle: 'Urdu trading courses catalog', category: 'Page', icon: GraduationCap, action: { page: 'courses' } },
+  { id: 'p-roadmap', title: 'Trading Roadmap', subtitle: 'Beginner se pro tak ka poora rasta', category: 'Page', icon: FileText, action: { page: 'roadmap' } },
   { id: 'p-books', title: 'Books', subtitle: '28+ free trading books in Urdu', category: 'Page', icon: BookOpen, action: { page: 'books' } },
   { id: 'p-blog', title: 'Blog', subtitle: 'Trading articles & guides in Roman Urdu', category: 'Page', icon: Newspaper, action: { page: 'blog' } },
   { id: 'p-mentor', title: 'AI Trading Mentor', subtitle: 'Sawal poochein — instant jawab', category: 'Page', icon: BookMarked, action: { page: 'mentor' } },
