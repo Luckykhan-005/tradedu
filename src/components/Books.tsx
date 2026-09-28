@@ -129,7 +129,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/forex-book/index.html',
     tags: ['Urdu', 'Forex', 'Part 1'],
-    cover: '/covers/forex-complete.jpg',
+    cover: '/covers/forex-book.jpg',
   },
   {
     id: 'crypto-beginner',
