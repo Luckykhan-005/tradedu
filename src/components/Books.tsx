@@ -487,7 +487,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/trade-execution/index.html',
     tags: ['Urdu', 'Execution', 'Trading', 'Risk Management'],
-    cover: '/covers/The_Art_OF_Trade_Execution.png',
+    cover: '/covers/The_Art_OF_Trade_Execution.jpg',
   },
 ]
 
