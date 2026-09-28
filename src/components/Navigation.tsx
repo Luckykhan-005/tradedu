@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   TrendingUp,
   BookOpen,
@@ -138,7 +138,16 @@ const menuItems: {
 
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut, onOpenSearch }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { theme, toggleTheme } = useTheme()
+
+  // Scroll par header compact ho jata hai (logo chhota + topbar patli)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const filteredMenu = menuItems.filter((item) => {
     if (item.adminOnly && user?.role !== 'admin') return false
@@ -151,18 +160,37 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
 
   return (
     <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg">
-      <div className="mx-auto flex h-16 w-full items-center justify-between px-4 sm:px-6">
-        <button
-          onClick={() => onNavigate('landing')}
-          className="flex shrink-0 items-center gap-2 font-bold text-xl text-black"
-        >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <TrendingUp className="h-5 w-5" />
-          </div>
-          <span className="hidden sm:inline">TradeEd</span>
-        </button>
+      <div
+        className={cn(
+          'mx-auto flex w-full items-center px-4 transition-all duration-300 sm:px-6',
+          scrolled ? 'h-12' : 'h-16'
+        )}
+      >
+        {/* Left — logo (scroll par chhota) */}
+        <div className="flex flex-1 items-center justify-start">
+          <button
+            onClick={() => onNavigate('landing')}
+            className={cn(
+              'flex shrink-0 items-center gap-2 font-bold text-black transition-all duration-300',
+              scrolled ? 'text-lg' : 'text-xl'
+            )}
+          >
+            <div
+              className={cn(
+                'flex items-center justify-center rounded-lg bg-primary text-primary-foreground transition-all duration-300',
+                scrolled ? 'h-7 w-7' : 'h-9 w-9'
+              )}
+            >
+              <TrendingUp
+                className={cn('transition-all duration-300', scrolled ? 'h-4 w-4' : 'h-5 w-5')}
+              />
+            </div>
+            <span className="hidden sm:inline">TradeEd</span>
+          </button>
+        </div>
 
-        <div className="hidden md:flex min-w-0 flex-1 items-center gap-0.5 pl-2">
+        {/* Center — nav menu bilkul center mein */}
+        <div className="hidden items-center gap-1 md:flex">
           {navGroups.map((group) => (
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
@@ -203,10 +231,9 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               </DropdownMenuContent>
             </DropdownMenu>
           ))}
-        </div>
 
-        {menuItems.length > 0 && (
-          <div className="hidden md:flex shrink-0 items-center pl-1">
+          {menuItems.length > 0 && (
+            <div className="flex shrink-0 items-center pl-1">
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
@@ -242,8 +269,11 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             </DropdownMenu>
           </div>
         )}
+        </div>
 
-        <div className="hidden md:flex shrink-0 items-center gap-2 pl-2">
+        {/* Right — actions */}
+        <div className="flex flex-1 items-center justify-end gap-2">
+          <div className="hidden items-center gap-2 md:flex">
           <button
             onClick={onOpenSearch}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -278,14 +308,15 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               Sign In
             </Button>
           )}
-        </div>
+          </div>
 
-        <button
-          className="md:hidden p-2 rounded-lg text-black hover:bg-primary hover:text-primary-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+          <button
+            className="rounded-lg p-2 text-black hover:bg-primary hover:text-primary-foreground md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
