@@ -99,6 +99,9 @@ export async function signUpStudent(input: {
   })
   if (error) return { error: error.message }
   if (!data.user) return { error: 'No user returned' }
+  // Email confirmations ON hain to session nahi milta — login sirf link
+  // click karne ke baad hoga. Auth ko special code dikhane ke liye.
+  if (!data.session) return { error: 'CONFIRM_EMAIL' }
   return { user: toAppUser(data.user) }
 }
 

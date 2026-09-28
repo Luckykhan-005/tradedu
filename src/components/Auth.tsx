@@ -156,7 +156,11 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
     } else if (hasSupabase) {
       const { user, error: errMsg } = await signInStudent({ email, password })
       if (errMsg) {
-        setError(errMsg)
+        setError(
+          errMsg === 'Email not confirmed'
+            ? 'Email confirm nahi hua. Apne inbox aur Spam folder mein confirmation email check karein (link par click karein). Masle par WhatsApp: 03208427368'
+            : errMsg
+        )
       } else if (user) {
         // An admin must not sign in through the Student tab.
         if (user.role === 'admin') {
@@ -222,7 +226,11 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
         city: signupData.city,
       })
       if (errMsg) {
-        setError(errMsg)
+        setError(
+          errMsg === 'CONFIRM_EMAIL'
+            ? 'Account ban gaya! Confirmation email bheja gaya hai — inbox aur Spam folder mein link par click karein, phir login karein.'
+            : errMsg
+        )
         setLoading(false)
         return
       }
