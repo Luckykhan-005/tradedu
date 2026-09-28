@@ -34,7 +34,6 @@ import { Blog } from './components/Blog'
 import { BlogPost } from './components/BlogPost'
 import { Mentor } from './components/Mentor'
 import { SearchOverlay } from './components/SearchOverlay'
-import { CryptoTicker } from './components/CryptoTicker'
 import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
 import { applyPageSeo } from './lib/seo'
 
@@ -497,8 +496,6 @@ export default function App() {
         onSignOut={handleSignOut}
         onOpenSearch={() => setSearchOpen(true)}
       />
-
-      <CryptoTicker />
 
       <SearchOverlay
         open={searchOpen}

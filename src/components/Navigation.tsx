@@ -30,6 +30,7 @@ import {
   Map,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { CryptoTicker } from '@/components/CryptoTicker'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -166,31 +167,8 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           scrolled ? 'h-12' : 'h-16'
         )}
       >
-        {/* Left — logo (scroll par chhota) */}
-        <div className="flex flex-1 items-center justify-start">
-          <button
-            onClick={() => onNavigate('landing')}
-            className={cn(
-              'flex shrink-0 items-center gap-2 font-bold text-black transition-all duration-300',
-              scrolled ? 'text-lg' : 'text-xl'
-            )}
-          >
-            <div
-              className={cn(
-                'flex items-center justify-center rounded-lg bg-primary text-primary-foreground transition-all duration-300',
-                scrolled ? 'h-7 w-7' : 'h-9 w-9'
-              )}
-            >
-              <TrendingUp
-                className={cn('transition-all duration-300', scrolled ? 'h-4 w-4' : 'h-5 w-5')}
-              />
-            </div>
-            <span className="hidden sm:inline">TradeEd</span>
-          </button>
-        </div>
-
-        {/* Center — nav menu bilkul center mein */}
-        <div className="hidden items-center gap-1 md:flex">
+        {/* Left of logo — nav groups (logo ko page-center rakhte hain) */}
+        <div className="hidden flex-1 items-center justify-end gap-1 md:flex">
           {navGroups.map((group) => (
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
@@ -231,9 +209,33 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               </DropdownMenuContent>
             </DropdownMenu>
           ))}
+        </div>
 
+        {/* Center — logo (page ke bilkul center) */}
+        <button
+          onClick={() => onNavigate('landing')}
+          className={cn(
+            'flex shrink-0 items-center gap-2 font-bold text-black transition-all duration-300',
+            scrolled ? 'text-lg' : 'text-xl'
+          )}
+        >
+          <div
+            className={cn(
+              'flex items-center justify-center rounded-lg bg-primary text-primary-foreground transition-all duration-300',
+              scrolled ? 'h-7 w-7' : 'h-9 w-9'
+            )}
+          >
+            <TrendingUp
+              className={cn('transition-all duration-300', scrolled ? 'h-4 w-4' : 'h-5 w-5')}
+            />
+          </div>
+          <span className="hidden sm:inline">TradeEd</span>
+        </button>
+
+        {/* Right of logo — Menu + actions */}
+        <div className="flex flex-1 items-center justify-start gap-2">
           {menuItems.length > 0 && (
-            <div className="flex shrink-0 items-center pl-1">
+            <div className="hidden shrink-0 items-center md:flex">
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
@@ -269,10 +271,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             </DropdownMenu>
           </div>
         )}
-        </div>
 
-        {/* Right — actions */}
-        <div className="flex flex-1 items-center justify-end gap-2">
           <div className="hidden items-center gap-2 md:flex">
           <button
             onClick={onOpenSearch}
@@ -318,6 +317,9 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           </button>
         </div>
       </div>
+
+      {/* Ticker bar — sticky header ke saath chipki rehti hai */}
+      <CryptoTicker />
 
       {mobileOpen && (
         <div className="md:hidden border-t border-black/10 bg-[#BAFF29] px-4 py-3 space-y-1">
