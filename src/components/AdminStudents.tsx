@@ -71,6 +71,7 @@ export function AdminStudents() {
   const [loadError, setLoadError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [updating, setUpdating] = useState<string | null>(null)
+  const [approveError, setApproveError] = useState<string | null>(null)
 
   const loadData = useCallback(async () => {
     if (!hasSupabase) {
@@ -149,6 +150,7 @@ export function AdminStudents() {
 
   const approveRequest = async (request: SubscriptionRequest, approve: boolean) => {
     setUpdating(request.id)
+    setApproveError(null)
     // Update request status
     await supabase
       .from('subscription_requests')
@@ -157,14 +159,30 @@ export function AdminStudents() {
 
     // If approving and a matching student exists, upgrade their plan (30 days)
     if (approve) {
-      const matchingStudent = students.find((s) => s.email === request.email)
+      const normalizedEmail = (request.email || '').trim().toLowerCase()
+      const matchingStudent = students.find(
+        (s) => (s.email || '').trim().toLowerCase() === normalizedEmail
+      )
       if (matchingStudent) {
         const planExpiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
-        await updateProfile(matchingStudent.id, { plan: request.plan, planExpiresAt })
-        setStudents((prev) =>
-          prev.map((s) =>
-            s.id === matchingStudent.id ? { ...s, plan: request.plan, planExpiresAt } : s
+        const { error } = await updateProfile(matchingStudent.id, {
+          plan: request.plan,
+          planExpiresAt,
+        })
+        if (error) {
+          // Abhi tak ye error chup-chap guzar jata tha — admin "Approved" dekh
+          // leta tha par student ka plan FREE hi reh jata tha.
+          setApproveError(`Plan upgrade FAILED for ${request.email}: ${error}`)
+        } else {
+          setStudents((prev) =>
+            prev.map((s) =>
+              s.id === matchingStudent.id ? { ...s, plan: request.plan, planExpiresAt } : s
+            )
           )
+        }
+      } else {
+        setApproveError(
+          `No student account found for ${request.email} — request approved but plan was NOT upgraded. Student ko pehle signup karwain, phir Students list se plan set karein.`
         )
       }
     }
@@ -218,6 +236,14 @@ export function AdminStudents() {
             <RefreshCw className="h-3.5 w-3.5" />
             Retry
           </Button>
+        </div>
+      )}
+
+      {/* Approve failure — warna admin sirf "Approved" badge dekh kar maan leta tha */}
+      {approveError && (
+        <div className="flex items-start gap-2.5 rounded-lg border border-red-400/40 bg-red-500/10 p-4">
+          <AlertTriangle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
+          <p className="text-sm text-red-600 dark:text-red-400 break-words">{approveError}</p>
         </div>
       )}
 

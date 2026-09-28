@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ArrowLeft,
   ExternalLink,
@@ -42,6 +42,14 @@ export function AiToolDetail({ tool, user, onSignIn, onUpgrade, onBack, onHome }
     }
     setLaunched(true)
   }
+
+  // Approve ke baad plan refresh ho jaye to paywall hata kar tool kholein.
+  useEffect(() => {
+    if (gate === 'plan' && user && (user.role === 'admin' || user.plan === 'PREMIUM')) {
+      setGate(null)
+      setLaunched(true)
+    }
+  }, [gate, user])
 
   if (gate) {
     return (

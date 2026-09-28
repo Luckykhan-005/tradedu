@@ -280,6 +280,15 @@ export function AiToolsHub({ user, onSignIn, onUpgrade, onSelectTool, onHome }: 
     else setGateTool(tool)
   }, [])
 
+  // Approve ke baad plan refresh ho jaye to khula hua paywall hata kar tool
+  // foran kholein — student ko dobara click nahi karna pare.
+  useEffect(() => {
+    if (gateTool && user && (user.role === 'admin' || user.plan === 'PREMIUM')) {
+      setActiveApp(gateTool)
+      setGateTool(null)
+    }
+  }, [gateTool, user])
+
   const toggleExpand = (id: string) => {
     setExpandedTool(expandedTool === id ? null : id)
   }

@@ -229,6 +229,51 @@ export default function App() {
     restore().finally(() => setSessionChecked(true))
   }, [])
 
+  // Admin approve ke baad student ke khule tab mein plan stale reh jata hai
+  // (login snapshot cache mein hai, DB mein naya PREMIUM hai). Focus/visibility
+  // aur AI tools navigation par profile dobara padh kar session fresh rakhein.
+  const refreshStudentPlan = useCallback(async () => {
+    if (!user || user.role !== 'student') return
+    try {
+      const fresh = await getCurrentSession()
+      if (!fresh) return
+      localStorage.setItem(
+        'tradeed-session',
+        JSON.stringify({ user: fresh, expiresAt: Date.now() + 30 * 24 * 60 * 60 * 1000 })
+      )
+      // Sirf tab update karein jab plan/role waqai badla — warna
+      // refresh -> setUser -> naya callback -> dobara refresh loop ban sakta hai.
+      setUser((prev) => {
+        if (!prev) return fresh
+        if (
+          prev.plan === fresh.plan &&
+          prev.planExpiresAt === fresh.planExpiresAt &&
+          prev.role === fresh.role
+        )
+          return prev
+        return fresh
+      })
+    } catch { /* Supabase unavailable — current session rehne dein */ }
+  }, [user])
+
+  // Tab wapas aaye (approve ke baad student wahi tab khole) to plan refresh.
+  useEffect(() => {
+    const refresh = () => {
+      if (!document.hidden) void refreshStudentPlan()
+    }
+    window.addEventListener('focus', refresh)
+    document.addEventListener('visibilitychange', refresh)
+    return () => {
+      window.removeEventListener('focus', refresh)
+      document.removeEventListener('visibilitychange', refresh)
+    }
+  }, [refreshStudentPlan])
+
+  // AI tools page khulte hi fresh plan lein taki gate sahi decide ho.
+  useEffect(() => {
+    if (currentPage === 'ai-tools' || currentPage === 'ai-tool-detail') void refreshStudentPlan()
+  }, [currentPage, refreshStudentPlan])
+
   // /admin sirf admin ke liye: session restore hone ke baad guest ko landing
   // page pe wapis bhej dein, student ko dashboard pe — admin panel kabhi
   // non-admin ko render na ho.
