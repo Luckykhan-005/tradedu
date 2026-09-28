@@ -13,7 +13,8 @@ import { AiToolsHub } from './components/AiToolsHub'
 import { AiToolDetail } from './components/AiToolDetail'
 import { getAiToolPage, type AiToolPage } from './data/aiTools'
 import { Books } from './components/Books'
-import { RiskCalculator } from './components/RiskCalculator'
+import { CalculatorHub } from './components/CalculatorHub'
+import { CalculatorDetail } from './components/CalculatorDetail'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
 import { Liquidation } from './components/Liquidation'
@@ -101,10 +102,16 @@ const blogSlugFromPath = (path: string): string | null => {
   return m ? decodeURIComponent(m[1]) : null
 }
 
+const calcSlugFromPath = (path: string): string | null => {
+  const m = path.match(/^\/calculator\/([a-z0-9-]+)$/)
+  return m ? m[1] : null
+}
+
 const pageFromLocation = (): Page => {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
   if (pathToPage[path]) return pathToPage[path]
   if (blogSlugFromPath(path)) return 'blog-post'
+  if (calcSlugFromPath(path)) return 'calculator-detail'
   return 'not-found'
 }
 
@@ -127,6 +134,9 @@ export default function App() {
     const slug = blogSlugFromPath(window.location.pathname)
     return slug ? getBlogPost(slug) || null : null
   })
+  const [selectedCalc, setSelectedCalc] = useState<string | null>(() =>
+    calcSlugFromPath(window.location.pathname)
+  )
 
   // Fetch initial data (courses & sessions live in Supabase)
   const fetchData = useCallback(async () => {
@@ -255,6 +265,16 @@ export default function App() {
     window.scrollTo(0, 0)
   }
 
+  const openCalculator = (slug: string) => {
+    setSelectedCalc(slug)
+    setCurrentPage('calculator-detail')
+    const path = `/calculator/${slug}`
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path)
+    }
+    window.scrollTo(0, 0)
+  }
+
   // Ctrl/Cmd+K opens the site-wide search from anywhere.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -357,6 +377,11 @@ export default function App() {
         const slug = blogSlugFromPath(window.location.pathname)
         setSelectedBlogPost(slug ? getBlogPost(slug) || null : null)
       }
+      if (page === 'calculator-detail') {
+        setSelectedCalc(calcSlugFromPath(window.location.pathname))
+      } else if (page === 'calculator') {
+        setSelectedCalc(null)
+      }
     }
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
@@ -373,8 +398,9 @@ export default function App() {
       post: selectedBlogPost,
       course: selectedCourse,
       tool: selectedAiTool,
+      calcSlug: selectedCalc,
     })
-  }, [currentPage, selectedBlogPost, selectedCourse, selectedAiTool])
+  }, [currentPage, selectedBlogPost, selectedCourse, selectedAiTool, selectedCalc])
 
   const handleAuth = (userData: TradeEdUser & { adminToken?: string }) => {
     setUser(userData)
@@ -584,7 +610,16 @@ export default function App() {
       )}
 
       {currentPage === 'calculator' && (
-        <RiskCalculator />
+        <CalculatorHub onOpen={openCalculator} onNavigate={navigate} />
+      )}
+
+      {currentPage === 'calculator-detail' && (
+        <CalculatorDetail
+          slug={selectedCalc || ''}
+          onBack={() => navigate('calculator')}
+          onOpen={openCalculator}
+          onNavigate={navigate}
+        />
       )}
 
       {currentPage === 'glossary' && (

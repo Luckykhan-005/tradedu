@@ -39,7 +39,7 @@ import {
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'glossary' | 'journal' | 'liquidation' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' |   'calculator' | 'calculator-detail' | 'glossary' | 'journal' | 'liquidation' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page
@@ -77,8 +77,9 @@ const navGroups: {
   {
     label: 'Tools',
     icon: Calculator,
+    activePages: ['calculator-detail'],
     items: [
-      { id: 'calculator', label: 'Calculator', icon: Calculator, desc: 'Risk, position size aur P&L' },
+      { id: 'calculator', label: 'Calculators', icon: Calculator, desc: 'Position size, risk, P&L aur compounding' },
       { id: 'journal', label: 'Journal', icon: NotebookPen, desc: 'Apne trades log aur analyze karein' },
       { id: 'glossary', label: 'Glossary', icon: BookMarked, desc: 'Trading terms English + Urdu' },
       { id: 'liquidation', label: 'Heatmap', icon: Flame, desc: 'Live liquidation heatmap (Binance)' },

@@ -35,7 +35,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <li><button onClick={() => onNavigate('books')} className="hover:text-highlight">Books</button></li>
               <li><button onClick={() => onNavigate('blog')} className="flex items-center gap-1.5 hover:text-highlight"><Newspaper className="h-3.5 w-3.5" /> Blog</button></li>
               <li><button onClick={() => onNavigate('pricing')} className="hover:text-highlight">Plans</button></li>
-              <li><button onClick={() => onNavigate('calculator')} className="hover:text-highlight">Risk Calculator</button></li>
+              <li><button onClick={() => onNavigate('calculator')} className="hover:text-highlight">Free Calculators</button></li>
               <li><button onClick={() => onNavigate('mentor')} className="flex items-center gap-1.5 hover:text-highlight"><Bot className="h-3.5 w-3.5" /> AI Mentor</button></li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 import type { Page } from '@/components/Navigation'
 import { books } from '@/components/Books'
 import { blogPosts, type BlogPost } from '@/data/blog'
+import { getCalculator } from '@/data/calculators'
 
 const SITE = 'https://tradeed.online'
 
@@ -43,9 +44,9 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
       'Trading ke terms Roman Urdu mein: pips, leverage, liquidation, order types aur bohot kuch — asaan wazahat ke sath trading glossary.',
   },
   calculator: {
-    title: 'Futures & Risk Calculator — Free Trading Tool | TradeEd',
+    title: 'Free Trading Calculators — Position Size, Risk, P&L | TradeEd',
     description:
-      'Position size, risk-reward aur leverage calculate karein — free trading risk calculator Roman Urdu ke sath, galat trade se pehle hisaab lagayein.',
+      'Free trading calculators: position size, risk-reward, leverage, P&L aur compounding — formula aur Roman Urdu example ke sath trade se pehle poora hisaab.',
   },
   mentor: {
     title: 'AI Trading Mentor (Roman Urdu) | TradeEd',
@@ -155,9 +156,10 @@ interface SeoInput {
   post?: BlogPost | null
   course?: { title: string; description?: string } | null
   tool?: { name?: string; description?: string } | null
+  calcSlug?: string | null
 }
 
-export function applyPageSeo({ page, path, post, course, tool }: SeoInput) {
+export function applyPageSeo({ page, path, post, course, tool, calcSlug }: SeoInput) {
   let meta: RouteMeta | undefined
   let title = ''
   let description = ''
@@ -212,7 +214,26 @@ export function applyPageSeo({ page, path, post, course, tool }: SeoInput) {
       title = meta.title
       description = meta.description
       index = meta.index !== false
-    } else {
+  } else if (page === 'calculator-detail') {
+    const calc = calcSlug ? getCalculator(calcSlug) : undefined
+    title = calc?.seoTitle || 'Free Trading Calculator | TradeEd'
+    description =
+      calc?.seoDesc ||
+      'Free trading calculator — position size, risk aur P&L ka hisaab Roman Urdu ke sath.'
+    jsonLd = calc
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'WebApplication',
+          name: calc.title,
+          description: calc.seoDesc,
+          applicationCategory: 'FinanceApplication',
+          operatingSystem: 'Web',
+          inLanguage: 'ur-Latn',
+          url: `${SITE}${path}`,
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'PKR' },
+        }
+      : null
+  } else {
       // ai-tool-detail / unknown — dynamic title jo abhi browser me hai, wahi rehne do
       title = document.title
       description = ''

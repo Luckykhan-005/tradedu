@@ -95,22 +95,7 @@ export function RiskCalculator() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-        {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-              <Gauge className="h-6 w-6 text-primary" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight">Futures Calculator</h1>
-              <p className="text-muted-foreground">
-                Position size, liquidation, P&L, and fees — all in one place
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           {/* Inputs */}
           <div className="lg:col-span-2">
