@@ -71,7 +71,7 @@ export function AdminStudents() {
   const [loadError, setLoadError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [updating, setUpdating] = useState<string | null>(null)
-  const [approveError, setApproveError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
 
   const loadData = useCallback(async () => {
     if (!hasSupabase) {
@@ -137,10 +137,15 @@ export function AdminStudents() {
 
   const changePlan = async (studentId: string, plan: AppPlan) => {
     setUpdating(studentId)
+    setActionError(null)
     // Paid plans get 30 days of validity; FREE (Stop) clears the expiry.
     const planExpiresAt = plan === 'FREE' ? null : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
     const { error } = await updateProfile(studentId, { plan, planExpiresAt })
-    if (!error) {
+    if (error) {
+      // Ye write pehle chup-chap fail ho jati thi — admin dropdown badal leta
+      // tha par DB mein plan FREE hi reh jata tha.
+      setActionError(`Plan update FAILED: ${error}`)
+    } else {
       setStudents((prev) =>
         prev.map((s) => (s.id === studentId ? { ...s, plan, planExpiresAt } : s))
       )
@@ -150,7 +155,7 @@ export function AdminStudents() {
 
   const approveRequest = async (request: SubscriptionRequest, approve: boolean) => {
     setUpdating(request.id)
-    setApproveError(null)
+    setActionError(null)
     // Update request status
     await supabase
       .from('subscription_requests')
@@ -160,9 +165,10 @@ export function AdminStudents() {
     // If approving and a matching student exists, upgrade their plan (30 days)
     if (approve) {
       const normalizedEmail = (request.email || '').trim().toLowerCase()
-      const matchingStudent = students.find(
-        (s) => (s.email || '').trim().toLowerCase() === normalizedEmail
-      )
+      // Pehle email se match karein, warna user_id se (email alag ho to bhi chale)
+      const matchingStudent =
+        students.find((s) => (s.email || '').trim().toLowerCase() === normalizedEmail) ||
+        (request.user_id ? students.find((s) => s.id === request.user_id) : undefined)
       if (matchingStudent) {
         const planExpiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
         const { error } = await updateProfile(matchingStudent.id, {
@@ -172,7 +178,7 @@ export function AdminStudents() {
         if (error) {
           // Abhi tak ye error chup-chap guzar jata tha — admin "Approved" dekh
           // leta tha par student ka plan FREE hi reh jata tha.
-          setApproveError(`Plan upgrade FAILED for ${request.email}: ${error}`)
+          setActionError(`Plan upgrade FAILED for ${request.email}: ${error}`)
         } else {
           setStudents((prev) =>
             prev.map((s) =>
@@ -181,7 +187,7 @@ export function AdminStudents() {
           )
         }
       } else {
-        setApproveError(
+        setActionError(
           `No student account found for ${request.email} — request approved but plan was NOT upgraded. Student ko pehle signup karwain, phir Students list se plan set karein.`
         )
       }
@@ -239,11 +245,11 @@ export function AdminStudents() {
         </div>
       )}
 
-      {/* Approve failure — warna admin sirf "Approved" badge dekh kar maan leta tha */}
-      {approveError && (
+      {/* Action failure — warna admin sirf optimistic badge dekh kar maan leta tha */}
+      {actionError && (
         <div className="flex items-start gap-2.5 rounded-lg border border-red-400/40 bg-red-500/10 p-4">
           <AlertTriangle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
-          <p className="text-sm text-red-600 dark:text-red-400 break-words">{approveError}</p>
+          <p className="text-sm text-red-600 dark:text-red-400 break-words">{actionError}</p>
         </div>
       )}
 

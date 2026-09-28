@@ -224,7 +224,11 @@ export async function submitSubscriptionRequest(input: {
   plan: AppPlan
   receiptUrl?: string
 }): Promise<{ error?: string }> {
+  // Logged-in student ho to user_id bhi bharein — admin approve par email
+  // match na hone par bhi user_id se plan upgrade ho sake.
+  const { data: authData } = await supabase.auth.getUser()
   const { error } = await supabase.from('subscription_requests').insert({
+    user_id: authData.user?.id ?? null,
     email: input.email,
     name: input.name,
     phone: input.phone,
