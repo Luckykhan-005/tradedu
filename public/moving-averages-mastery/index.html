@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Averages Mastery | M. Aslam Khan | TradeEd</title>
+    <meta name="description" content="Moving Averages ki complete mastery guide Roman Urdu mein. SMA, EMA, crossovers, dynamic support/resistance aur practical trading setups. Author: M. Aslam Khan">
+    <meta name="author" content="M. Aslam Khan">
+    <link rel="canonical" href="https://tradeed.online/moving-averages-mastery/">
+    <meta property="og:title" content="Moving Averages Mastery | M. Aslam Khan | TradeEd">
+    <meta property="og:description" content="Moving Averages ki complete mastery guide Roman Urdu mein — SMA, EMA, crossovers aur practical trading setups.">
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://tradeed.online/moving-averages-mastery/">
+    <meta property="og:image" content="https://tradeed.online/covers/moving-averages-mastery.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Moving Averages Mastery",
+      "author": { "@type": "Person", "name": "M. Aslam Khan" },
+      "publisher": { "@type": "Organization", "name": "TradeEd" },
+      "inLanguage": "ur-Latn",
+      "url": "https://tradeed.online/moving-averages-mastery/",
+      "image": "https://tradeed.online/covers/moving-averages-mastery.jpg",
+      "description": "Moving Averages ki complete mastery guide Roman Urdu mein. SMA, EMA, crossovers, dynamic support/resistance aur practical trading setups."
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0369a1;
+            --accent-light: #e0f2fe;
+            --text: #1e293b;
+            --text-light: #475569;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --success: #166534;
+            --success-bg: #dcfce7;
+            --warning: #9a3412;
+            --warning-bg: #ffedd5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header .bismillah {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        header .author {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            margin-top: 12px;
+        }
+
+        .toc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .toc h2 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .toc ol {
+            padding-left: 25px;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .chapter {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 38px 32px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .chapter h2 {
+            font-size: 1.7rem;
+            color: var(--primary);
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .chapter h3 {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin: 28px 0 14px;
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+        }
+
+        .chapter ul, .chapter ol {
+            margin: 12px 0 18px 0;
+            padding-left: 25px;
+        }
+
+        .chapter li {
+            margin-bottom: 7px;
+        }
+
+        .key-points {
+            background: var(--accent-light);
+            border-left: 5px solid var(--accent);
+            padding: 18px 22px;
+            margin: 28px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .key-points h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 5px solid #d97706;
+            padding: 16px 20px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .questions {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        .questions h3 {
+            color: var(--primary);
+            margin-bottom: 18px;
+            font-size: 1.25rem;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+        }
+
+        .question p {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 5px 0;
+        }
+
+        .answer {
+            margin-top: 10px;
+            padding: 7px 12px;
+            background: var(--success-bg);
+            color: var(--success);
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .workflow {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+            font-family: monospace;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .workflow-title {
+            color: #38bdf8;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border);
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            .chapter {
+                padding: 24px 16px;
+            }
+            body {
+                font-size: 1.05rem;
+            }
+        }
+            /* Interactive quiz */
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            font-size: 0.98rem;
+            font-weight: 500;
+            padding: 9px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #1e293b;
+            line-height: 1.55;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .quiz-option:hover:not(:disabled) {
+            border-color: #2563eb;
+            background: #eef2ff;
+        }
+
+        .quiz-option:disabled {
+            cursor: default;
+        }
+
+        .quiz-option.correct {
+            background: #dcfce7;
+            border-color: #16a34a;
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        .quiz-option.incorrect {
+            background: #fee2e2;
+            border-color: #dc2626;
+            color: #b91c1c;
+            font-weight: 600;
+        }
+
+        .quiz-explain {
+            display: none;
+            margin-top: 12px;
+            padding: 7px 12px;
+            background: #dcfce7;
+            color: #15803d;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .quiz-explain.show {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="bismillah">بسم اللہ الرحمن الرحیم</div>
+    <h1>Moving Averages Mastery</h1>
+    <div class="subtitle">EMA 9/21 & EMA 50/200 se Trend, Support/Resistance<br>aur Golden/Death Cross tak</div>
+    <div class="author">Author: <strong>M. Aslam Khan</strong></div>
+</header>
+
+<div class="container">
+
+    <nav class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#ch1">Bab 1: Moving Average Kya Hai?</a></li>
+            <li><a href="#ch2">Bab 2: EMA vs SMA – Farq aur Kab Konsa Use Karein</a></li>
+            <li><a href="#ch3">Bab 3: EMA 9 aur EMA 21 – Short-term Trend</a></li>
+            <li><a href="#ch4">Bab 4: EMA 50 aur EMA 200 – Bara Trend aur Dynamic S/R</a></li>
+            <li><a href="#ch5">Bab 5: Golden Cross aur Death Cross</a></li>
+            <li><a href="#ch6">Bab 6: Multiple EMA Strategy (9/21 + 50/200)</a></li>
+            <li><a href="#ch7">Bab 7: Practical Examples</a></li>
+            <li><a href="#ch8">Bab 8: Aam Ghaltiyan</a></li>
+            <li><a href="#ch9">Bab 9: Risk Management ke Sath EMA</a></li>
+            <li><a href="#ch10">Bab 10: Khulasa + Practical Checklist</a></li>
+        </ol>
+    </nav>
+
+    <!-- BAB 1 -->
+    <section class="chapter" id="ch1">
+        <h2>Bab 1: Moving Average Kya Hai?</h2>
+
+        <p>Moving Average (MA) technical analysis ka sab se basic aur sab se powerful tool hai. Ye price ka average nikalta hai taake market ka noise (chhoti chhoti up-down) kam ho jaye aur asl trend saaf nazar aaye.</p>
+
+        <p>Simple si baat ye hai ke Moving Average price ko smooth kar deti hai. Jab price Moving Average ke upar ho to market generally bullish hoti hai, aur jab neeche ho to bearish.</p>
+
+        <h3>Moving Average kyun itna important hai?</h3>
+        <ul>
+            <li>Trend ki direction batati hai</li>
+            <li>Dynamic Support aur Resistance ka kaam karti hai</li>
+            <li>Entry aur Exit ke clear signals deti hai</li>
+            <li>Crypto jaise volatile market mein noise kam karti hai</li>
+        </ul>
+
+        <p>Agar aap sirf candlestick patterns dekhte hain to bohot noise milta hai. Moving Average us noise ko filter kar ke asl picture dikhati hai.</p>
+
+        <div class="key-points">
+            <h4>Bab 1 ke Aham Points</h4>
+            <ul>
+                <li>Moving Average price ko smooth karti hai.</li>
+                <li>Trend identify karne ka sab se behtareen basic tool hai.</li>
+                <li>Support aur Resistance dono ka kaam karti hai.</li>
+                <li>Crypto trading mein ye almost har professional trader use karta hai.</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 1 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: Moving Average ka asl kaam kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Sirf future price predict karna</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Price ko smooth karke trend clear karna</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf volume dikhana</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Jab price Moving Average ke upar ho to market generally kaisi hoti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Bullish</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Bearish</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sideways</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Moving Average crypto mein kyun useful hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Kyunke ye volatility ka noise kam karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Kyunke ye sirf Bitcoin ke liye kaam karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Kyunke crypto mein volume nahi hota</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Moving Average ko dynamic support/resistance kyun kaha jata hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Kyunke ye fix level hoti hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Kyunke ye price ke sath move karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Kyunke ye sirf daily timeframe pe kaam karti hai</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Kya Moving Average future price 100% predict kar sakti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Nahi, ye sirf probability aur trend batati hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Haan, bilkul</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf Golden Cross ke time</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 2 -->
+    <section class="chapter" id="ch2">
+        <h2>Bab 2: EMA vs SMA – Farq aur Kab Konsa Use Karein</h2>
+
+        <h3>SMA (Simple Moving Average)</h3>
+        <p>SMA mein har candle ka equal weight hota hai. Maslan 20 SMA mein pichhli 20 candles ka simple average nikalta hai.</p>
+
+        <h3>EMA (Exponential Moving Average)</h3>
+        <p>EMA recent price ko zyada weight deti hai. Is liye EMA price ke changes ko jaldi react karti hai.</p>
+
+        <div class="highlight-box">
+            <strong>Important:</strong> Crypto trading mein almost har professional trader EMA prefer karta hai kyunke crypto bohot fast move karti hai aur EMA us speed ko better follow karti hai.
+        </div>
+
+        <h3>Kab SMA use karein aur kab EMA?</h3>
+        <ul>
+            <li><strong>EMA</strong> – Crypto, Forex, intraday aur short-term trading ke liye behtareen</li>
+            <li><strong>SMA</strong> – Long-term investing aur bohot smooth trend dekhne ke liye</li>
+        </ul>
+
+        <p>Is kitab mein hum sirf <strong>EMA</strong> pe focus karenge kyunke ye crypto ke liye zyada powerful hai.</p>
+
+        <div class="key-points">
+            <h4>Bab 2 ke Aham Points</h4>
+            <ul>
+                <li>EMA recent price ko zyada importance deti hai.</li>
+                <li>Crypto mein EMA zyada effective hai.</li>
+                <li>SMA slow hoti hai, EMA fast.</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 2 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: EMA aur SMA mein asl farq kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) EMA recent price ko zyada weight deti hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) SMA recent price ko zyada weight deti hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Koi farq nahi</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Crypto trading ke liye kaunsi Moving Average better hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) SMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) EMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Dono same hain</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: EMA price ke changes ko kaise react karti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Jaldi react karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Bohot slow</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) React nahi karti</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Long-term investing ke liye kaunsi zyada smooth hoti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) SMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Koi farq nahi</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) EMA</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Is kitab mein hum kis Moving Average pe focus kar rahe hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Sirf SMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf EMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Dono barabar</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 3 -->
+    <section class="chapter" id="ch3">
+        <h2>Bab 3: EMA 9 aur EMA 21 – Short-term Trend aur Momentum</h2>
+
+        <p>EMA 9 aur EMA 21 short-term traders ki sab se favorite combination hai. Ye fast moving averages hain jo jaldi signals deti hain.</p>
+
+        <h3>EMA 9 ka Role</h3>
+        <ul>
+            <li>Bohot fast hoti hai</li>
+            <li>Momentum ko jaldi catch karti hai</li>
+            <li>Price iske around rehti hai strong trend mein</li>
+        </ul>
+
+        <h3>EMA 21 ka Role</h3>
+        <ul>
+            <li>Thodi slow hoti hai 9 se</li>
+            <li>Short-term trend ki direction clear karti hai</li>
+            <li>Aksar dynamic support/resistance ka kaam karti hai</li>
+        </ul>
+
+        <h3>EMA 9 aur 21 ka Cross</h3>
+        <p>Jab EMA 9, EMA 21 ko upar ki taraf cross karti hai to short-term bullish signal milta hai. Jab neeche cross karti hai to bearish signal.</p>
+
+        <div class="highlight-box">
+            <strong>Pro Tip:</strong> Sirf 9/21 cross pe trade mat karo. Hamesha higher timeframe ka trend bhi check karo (50/200).
+        </div>
+
+        <div class="key-points">
+            <h4>Bab 3 ke Aham Points</h4>
+            <ul>
+                <li>EMA 9 = Fast momentum</li>
+                <li>EMA 21 = Short-term trend</li>
+                <li>9/21 cross short-term signals deta hai</li>
+                <li>Akele 9/21 pe trade karna risky ho sakta hai</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 3 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: EMA 9 kis cheez ke liye best hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Fast momentum catch karne ke liye</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Long-term trend</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf support ke liye</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: EMA 21 ka main kaam kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Short-term trend ki direction clear karna</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Future price predict karna</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Sirf volume dikhana</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Jab EMA 9, EMA 21 ko upar cross kare to kya signal milta hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Bearish</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Bullish (short-term)</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Koi signal nahi</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Kya sirf EMA 9/21 cross pe trade karna safe hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Nahi, higher timeframe bhi check karna chahiye</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Haan, hamesha</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf Bitcoin mein</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: EMA 9 aur 21 ko mainly kis tarah ke traders use karte hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Short-term aur momentum traders</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf scalpers</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Long-term investors</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 4 -->
+    <section class="chapter" id="ch4">
+        <h2>Bab 4: EMA 50 aur EMA 200 – Bara Trend aur Dynamic Support/Resistance</h2>
+
+        <p>EMA 50 aur EMA 200 institutional traders aur smart money ki favorite hain. Ye long-term trend dikhati hain aur bohot strong dynamic support/resistance ka kaam karti hain.</p>
+
+        <h3>EMA 50</h3>
+        <ul>
+            <li>Medium-term trend dikhati hai</li>
+            <li>Bohot se traders isko “swing trend” maante hain</li>
+            <li>Price aksar isse bounce karti hai</li>
+        </ul>
+
+        <h3>EMA 200</h3>
+        <ul>
+            <li>Sab se important long-term trend indicator</li>
+            <li>Bull market mein price iske upar rehti hai</li>
+            <li>Bear market mein iske neeche</li>
+            <li>Crypto mein 200 EMA pe bohot strong reaction aata hai</li>
+        </ul>
+
+        <h3>Dynamic Support aur Resistance</h3>
+        <p>Jab price EMA 50 ya 200 se bounce karti hai to ye classic dynamic support/resistance hota hai. Ye fixed horizontal line nahi hoti, balki price ke sath move karti hai.</p>
+
+        <div class="highlight-box">
+            <strong>Crypto Tip:</strong> Bitcoin aur major altcoins mein 200 EMA pe bounce ya rejection bohot reliable hota hai, khas taur pe daily aur weekly timeframe pe.
+        </div>
+
+        <div class="key-points">
+            <h4>Bab 4 ke Aham Points</h4>
+            <ul>
+                <li>EMA 50 = Medium-term trend</li>
+                <li>EMA 200 = Long-term trend (sab se powerful)</li>
+                <li>Dono dynamic support/resistance ka kaam karti hain</li>
+                <li>Institutional traders inhe bohot use karte hain</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 4 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: EMA 200 kis tarah ke trend ko represent karti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Short-term</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Long-term</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf 5 minute ka</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Dynamic support/resistance ka matlab kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Jo price ke sath move karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Fixed horizontal line</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf volume pe based</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Bull market mein price generally kahan rehti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) EMA 200 ke upar</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) EMA 200 pe bilkul chipak kar</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) EMA 200 ke neeche</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Kaunsi EMA institutional traders ki sab se favorite hai long-term ke liye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) EMA 9</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) EMA 200</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) EMA 21</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: EMA 50 ko aksar kya kaha jata hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Swing / medium-term trend</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Scalping average</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf resistance</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 5 -->
+    <section class="chapter" id="ch5">
+        <h2>Bab 5: Golden Cross aur Death Cross – Crypto Mein Sab Se Powerful Signals</h2>
+
+        <p>Yeh do signals Moving Averages ke sab se famous aur powerful signals hain, khas taur pe crypto market mein.</p>
+
+        <h3>Golden Cross Kya Hai?</h3>
+        <p>Jab <strong>EMA 50</strong>, <strong>EMA 200</strong> ko <strong>upar</strong> ki taraf cross karti hai, to usse Golden Cross kehte hain.</p>
+        <ul>
+            <li>Ye strong bullish signal hota hai</li>
+            <li>Aksar naye uptrend ki shuruat hoti hai</li>
+            <li>Crypto mein iske baad multi-week ya multi-month rallies dekhi gayi hain</li>
+        </ul>
+
+        <h3>Death Cross Kya Hai?</h3>
+        <p>Jab <strong>EMA 50</strong>, <strong>EMA 200</strong> ko <strong>neeche</strong> ki taraf cross karti hai, to usse Death Cross kehte hain.</p>
+        <ul>
+            <li>Ye strong bearish signal hota hai</li>
+            <li>Aksar lambay downtrend ki shuruat hoti hai</li>
+            <li>Crypto mein iske baad heavy corrections aati hain</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Bohot Zaroori Baat:</strong> Golden Cross aur Death Cross lagging signals hain. Matlab market pehle move karti hai, phir cross hota hai. Is liye inhe confirmation ke taur pe use karo, sirf inke upar trade mat lagao.
+        </div>
+
+        <h3>Crypto Mein Inki Power</h3>
+        <p>Bitcoin ke history mein Golden Cross ke baad bohot bari rallies aayi hain (2016, 2020, 2024). Death Cross ke baad heavy dumps bhi dekhe gaye hain. Lekin har cross perfect nahi hota, is liye volume aur higher timeframe ke sath confirm karo.</p>
+
+        <div class="key-points">
+            <h4>Bab 5 ke Aham Points</h4>
+            <ul>
+                <li>Golden Cross = 50 EMA 200 ke upar cross → Bullish</li>
+                <li>Death Cross = 50 EMA 200 ke neeche cross → Bearish</li>
+                <li>Ye lagging signals hain, confirmation ke sath use karo</li>
+                <li>Crypto mein ye historically bohot powerful rahe hain</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 5 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: Golden Cross kab banta hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Jab 50 EMA, 200 EMA ko upar cross kare</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Jab 9 EMA, 21 EMA ko cross kare</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Jab 50 EMA, 200 EMA ko neeche cross kare</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Death Cross kya indicate karta hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Strong bullish trend</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Strong bearish trend</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sideways market</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Golden Cross aur Death Cross kis tarah ke signals hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Lagging signals</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Leading signals</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Instant signals</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Kya har Golden Cross ke baad market upar hi jati hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Nahi, confirmation zaroori hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf Bitcoin mein</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Haan, hamesha</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Crypto history mein Golden Cross ke baad kya hota raha hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Hamesha dump</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Aksar bari rallies</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Kuch nahi hota</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 6 -->
+    <section class="chapter" id="ch6">
+        <h2>Bab 6: Multiple EMA Strategy (9/21 + 50/200)</h2>
+
+        <p>Sab se powerful tarika ye hai ke aap short-term aur long-term dono EMAs ko ek sath use karo.</p>
+
+        <h3>Best Setup</h3>
+        <ul>
+            <li>EMA 9 (fast)</li>
+            <li>EMA 21 (short-term trend)</li>
+            <li>EMA 50 (medium trend)</li>
+            <li>EMA 200 (major trend)</li>
+        </ul>
+
+        <h3>Bullish Alignment (Sab Se Strong Buy Zone)</h3>
+        <p>Jab price aur saari EMAs is order mein hon:</p>
+        <div class="workflow">
+            <div class="workflow-title">Bullish Order:</div>
+            Price > EMA 9 > EMA 21 > EMA 50 > EMA 200
+        </div>
+        <p>Is alignment mein buying pressure bohot strong hota hai.</p>
+
+        <h3>Bearish Alignment (Sab Se Strong Sell Zone)</h3>
+        <div class="workflow">
+            <div class="workflow-title">Bearish Order:</div>
+            Price < EMA 9 < EMA 21 < EMA 50 < EMA 200
+        </div>
+
+        <h3>Kaise Trade Karein</h3>
+        <ul>
+            <li>Pehle 200 EMA se major trend check karo</li>
+            <li>Phir 50 EMA se medium trend</li>
+            <li>Phir 9/21 se entry timing lo</li>
+        </ul>
+
+        <div class="key-points">
+            <h4>Bab 6 ke Aham Points</h4>
+            <ul>
+                <li>Multiple EMAs ek sath use karna best strategy hai</li>
+                <li>Bullish alignment = Price sab se upar</li>
+                <li>Bearish alignment = Price sab se neeche</li>
+                <li>Hamesha higher timeframe se start karo</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 6 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: Sab se strong bullish alignment kaun si hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Price > 9 > 21 > 50 > 200</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Price < saari EMAs</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf 9 aur 21 cross</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Multiple EMA strategy mein pehle kya check karna chahiye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) 200 EMA se major trend</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf volume</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Sirf EMA 9</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Bearish alignment mein price kahan hoti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Sab EMAs ke upar</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sab EMAs ke neeche</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Beech mein</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Entry timing ke liye kaunsi EMAs zyada useful hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) 9 aur 21</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Sirf 200</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf 50</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Kya sirf ek EMA se trading karna kaafi hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Nahi, multiple EMAs better picture deti hain</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf 200 kaafi hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Haan</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 7 -->
+    <section class="chapter" id="ch7">
+        <h2>Bab 7: Practical Examples (Bullish & Bearish Market)</h2>
+
+        <h3>Example 1: Strong Bullish Market</h3>
+        <p>Jab Bitcoin daily timeframe pe EMA 200 ke upar ho, 50 EMA bhi upar ho, aur 9/21 bhi bullish aligned hon → ye strong uptrend hota hai. Dips pe EMA 21 ya 50 se buy lena high probability setup hota hai.</p>
+
+        <h3>Example 2: Death Cross ke Baad</h3>
+        <p>Jab Death Cross ho jaye aur price 200 EMA ke neeche close ho, to rallies pe sell karna better hota hai. EMA 50 aur 200 resistance ban jati hain.</p>
+
+        <h3>Example 3: Sideways Market</h3>
+        <p>Jab saari EMAs ek dusre ke bohot qareeb hon aur price unke around chop kar rahi ho, to Moving Average strategy weak ho jati hai. Aise time pe trade kam karein.</p>
+
+        <div class="highlight-box">
+            <strong>Yaad Rakhein:</strong> Moving Averages trending market mein best kaam karti hain. Sideways market mein bohot se false signals aate hain.
+        </div>
+
+        <div class="key-points">
+            <h4>Bab 7 ke Aham Points</h4>
+            <ul>
+                <li>Trending market mein EMA strategy bohot strong hai</li>
+                <li>Sideways market mein false signals zyada aate hain</li>
+                <li>Hamesha overall structure dekho</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 7 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: EMA strategy kis tarah ke market mein best kaam karti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Sideways</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Trending market</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf news pe</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Jab saari EMAs qareeb hon to kya karna chahiye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Trade kam karo ya avoid karo</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Zyada trade karo</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf long lo</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Strong uptrend mein dips pe kahan se buy lena better hota hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) EMA 21 ya 50 se</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf support line se</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Random level se</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Death Cross ke baad rallies pe kya strategy better hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Buy the dip</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sell the rallies</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Hold forever</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Kya har market condition mein EMA same tarike se kaam karti hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Nahi, market condition matter karti hai</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Haan</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf crypto mein</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 8 -->
+    <section class="chapter" id="ch8">
+        <h2>Bab 8: Aam Ghaltiyan Jo Traders EMA ke Sath Karte Hain</h2>
+
+        <ol>
+            <li><strong>Sirf ek EMA pe depend karna</strong> – Multiple timeframes aur multiple EMAs use karo.</li>
+            <li><strong>Har cross pe trade laga dena</strong> – Confirmation zaroori hai.</li>
+            <li><strong>Sideways market mein bhi force se trade karna</strong> – EMAs ranging market mein weak hoti hain.</li>
+            <li><strong>Stop loss na lagana</strong> – EMA ke neeche/upar clear stop loss hona chahiye.</li>
+            <li><strong>Higher timeframe ignore karna</strong> – Hamesha badi picture pehle dekho.</li>
+            <li><strong>Over-leveraging</strong> – EMA signals ke sath bhi risk management zaroori hai.</li>
+        </ol>
+
+        <div class="key-points">
+            <h4>Bab 8 ke Aham Points</h4>
+            <ul>
+                <li>Confirmation ke baghair trade mat lo</li>
+                <li>Sideways market identify karna seekho</li>
+                <li>Risk management hamesha pehle</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 8 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: Sab se bari ghalti kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Har cross pe baghair confirmation ke trade laga dena</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Higher timeframe check karna</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Multiple EMAs use karna</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Sideways market mein EMAs kaisi hoti hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Bohot accurate</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Weak aur false signals deti hain</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Perfect</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Stop loss kahan lagana chahiye generally?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Relevant EMA ke neeche/upar</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Random jagah</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Bohot door</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Higher timeframe ignore karne se kya hota hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Badi picture miss ho jati hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Kuch nahi</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Better entries</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Kya EMA signals ke sath bhi risk management zaroori hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Nahi</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Haan, bilkul zaroori hai</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf beginners ke liye</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 9 -->
+    <section class="chapter" id="ch9">
+        <h2>Bab 9: Risk Management ke Sath EMA Strategy</h2>
+
+        <p>Chahe signal kitna bhi strong ho, baghair risk management ke long-term profit nahi ban sakta.</p>
+
+        <h3>Basic Rules</h3>
+        <ul>
+            <li>Har trade pe maximum 1% ya 2% risk lo</li>
+            <li>Stop loss hamesha clear rakho (EMA ke neeche/upar)</li>
+            <li>Risk:Reward minimum 1:2 rakho</li>
+            <li>Over-trading se bacho</li>
+        </ul>
+
+        <h3>EMA ke Sath Stop Loss Kaise Lagayein</h3>
+        <ul>
+            <li>Long trade: EMA 21 ya 50 ke neeche</li>
+            <li>Short trade: EMA 21 ya 50 ke upar</li>
+            <li>Major trend trade: EMA 200 ke around</li>
+        </ul>
+
+        <div class="key-points">
+            <h4>Bab 9 ke Aham Points</h4>
+            <ul>
+                <li>Risk management > Signal quality</li>
+                <li>1-2% risk rule follow karo</li>
+                <li>Stop loss ke baghair trade mat lo</li>
+            </ul>
+        </div>
+
+        <div class="questions">
+            <h3>Bab 9 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: Har trade pe kitna risk lena chahiye ideally?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) 1% se 2%</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) 10%</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) 5%</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Long trade mein stop loss kahan better hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) EMA ke neeche</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Bohot door</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) EMA ke upar</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Kya strong signal hone pe bhi risk management chhod sakte hain?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Haan</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Nahi, kabhi nahi</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf Golden Cross pe</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Minimum Risk:Reward kya hona chahiye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) 1:2 ya us se better</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) 1:1</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) 1:0.5</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Sab se important cheez kya hai long-term success ke liye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Risk management + discipline</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Zyada leverage</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Perfect signals</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 10 -->
+    <section class="chapter" id="ch10">
+        <h2>Bab 10: Khulasa + Practical Checklist</h2>
+
+        <h3>Kitab ka Khulasa</h3>
+        <ul>
+            <li>EMA 9 & 21 → Short-term momentum aur entry timing</li>
+            <li>EMA 50 & 200 → Major trend aur dynamic support/resistance</li>
+            <li>Golden Cross → Strong bullish confirmation</li>
+            <li>Death Cross → Strong bearish confirmation</li>
+            <li>Multiple EMAs ek sath use karo</li>
+            <li>Hamesha risk management ke sath trade karo</li>
+        </ul>
+
+        <h3>Practical Checklist (Har Trade Se Pehle)</h3>
+        <ol>
+            <li>Higher timeframe pe 200 EMA check kiya?</li>
+            <li>50 EMA ki direction clear hai?</li>
+            <li>9/21 alignment trend ke sath hai?</li>
+            <li>Market trending hai ya sideways?</li>
+            <li>Stop loss clear hai?</li>
+            <li>Risk 1-2% se zyada to nahi?</li>
+            <li>Risk:Reward kam az kam 1:2 hai?</li>
+        </ol>
+
+        <div class="highlight-box">
+            <strong>Last Advice:</strong> Moving Averages ek tool hain, magic nahi. Inhe baaki analysis (price action, volume, market structure) ke sath use karo. Patience aur discipline se hi long-term profit banta hai.
+        </div>
+
+        <div class="questions">
+            <h3>Bab 10 ke Sawalat</h3>
+
+            <div class="question">
+                <p>Sawal 1: EMA 9 aur 21 ka main use kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Long-term trend</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Short-term momentum aur entry</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf support</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 2: Har trade se pehle sab se pehle kya check karna chahiye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Higher timeframe aur 200 EMA</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Sirf 9 EMA</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf news</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 3: Moving Averages ko kaise use karna chahiye?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Baaki analysis ke sath</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Sirf Golden Cross pe</button>
+                    <button type="button" class="quiz-option" data-correct="true">c) Akele magic tool ki tarah</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: c</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 4: Long-term success ke liye sab se zaroori kya hai?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="true">a) Har signal pe trade</button>
+                    <button type="button" class="quiz-option" data-correct="false">b) Patience, discipline aur risk management</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Zyada indicators</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: a</div>
+            </div>
+
+            <div class="question">
+                <p>Sawal 5: Is kitab ka asl maqsad kya tha?</p>
+                <div class="quiz-options">
+                    <button type="button" class="quiz-option" data-correct="false">a) Practical tareeqe se EMA mastery sikhana</button>
+                    <button type="button" class="quiz-option" data-correct="true">b) Sirf theory batana</button>
+                    <button type="button" class="quiz-option" data-correct="false">c) Sirf Golden Cross pe focus</button>
+                </div>
+                <div class="quiz-explain">Sahi Jawab: b</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <h2>Ikhtatamiya</h2>
+        <p>Is kitab mein hum ne Moving Averages ko basic se lekar advanced level tak samjha. EMA 9/21 se short-term timing, EMA 50/200 se major trend, aur Golden/Death Cross se strong confirmations.</p>
+        <p>Yaad rakhein: Tool utna hi powerful hai jitna usey use karne wala. Discipline, risk management aur continuous learning se hi asl faida hota hai.</p>
+        <p style="margin-top: 25px; text-align: center; font-size: 1.15rem;">Allah aap ko samajh, sabr aur halal rizq ata farmaye.</p>
+        <p style="text-align: center; margin-top: 12px;"><strong>Wassalam</strong></p>
+        <p style="text-align: center; margin-top: 20px; color: #64748b;">Author: <strong>M. Aslam Khan</strong></p>
+    </section>
+
+</div>
+
+<footer>
+    <p>Moving Averages Mastery — EMA 9/21 & 50/200</p>
+    <p style="margin-top: 6px;">Author: M. Aslam Khan</p>
+</footer>
+
+        <script>
+        document.querySelectorAll('.question').forEach(function (q) {
+            var options = q.querySelectorAll('.quiz-option');
+            if (!options.length) return;
+            var explain = q.querySelector('.quiz-explain');
+            options.forEach(function (opt) {
+                opt.addEventListener('click', function () {
+                    options.forEach(function (o) { o.disabled = true; });
+                    if (opt.getAttribute('data-correct') === 'true') {
+                        opt.classList.add('correct');
+                    } else {
+                        opt.classList.add('incorrect');
+                        options.forEach(function (o) { if (o.getAttribute('data-correct') === 'true') o.classList.add('correct'); });
+                    }
+                    if (explain) { explain.classList.add('show'); }
+                });
+            });
+        });
+        </script>
+    </body>
+</html>

@@ -56,6 +56,51 @@ interface BooksProps {
 
 export const books: BookItem[] = [
   {
+    id: 'rsi-complete-guide',
+    title: 'RSI — Complete Expert Guide',
+    titleUrdu: 'RSI — مکمل ماہر گائیڈ',
+    description:
+      'RSI indicator ki expert-level guide — overbought/oversold levels, crypto 70/30 optimization, divergence, failure swings, practical setups, advanced techniques aur risk management. Roman Urdu mein, har chapter ke baad sawalat ke saath.',
+    chapters: 14,
+    pages: '14 chapters · 42 questions',
+    icon: BarChart3,
+    color: 'text-violet-600',
+    bgColor: 'bg-violet-50',
+    href: '/rsi-complete-guide/index.html',
+    tags: ['Roman Urdu', 'RSI', '14 Chapters'],
+    cover: '/covers/RSI_Complete_Expert_Guide.jpg',
+  },
+  {
+    id: 'moving-averages-mastery',
+    title: 'Moving Averages Mastery',
+    titleUrdu: 'موونگ ایورجز ماسٹری',
+    description:
+      'Moving Averages ki complete mastery — SMA, EMA, crossovers, dynamic support/resistance, trend filtering aur practical trading setups. Roman Urdu mein, har chapter ke baad interactive sawalat ke saath.',
+    chapters: 11,
+    pages: '11 chapters · 50 questions',
+    icon: LineChart,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-50',
+    href: '/moving-averages-mastery/index.html',
+    tags: ['Roman Urdu', 'Indicators', '11 Chapters'],
+    cover: '/covers/moving-averages-mastery.jpg',
+  },
+  {
+    id: 'volume-obv-mastery',
+    title: 'Volume & OBV Mastery',
+    titleUrdu: 'والیم اور OBV ماسٹری',
+    description:
+      'Volume aur OBV (On-Balance Volume) ki complete mastery — volume confirmation, OBV signals, accumulation/distribution, smart money clues aur practical trading setups. Roman Urdu mein, har chapter ke baad interactive sawalat ke saath.',
+    chapters: 11,
+    pages: '11 chapters · 50 questions',
+    icon: BarChart2,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-50',
+    href: '/volume-obv-mastery/index.html',
+    tags: ['Roman Urdu', 'Volume', '11 Chapters'],
+    cover: '/covers/volume-obv-mastery.jpg',
+  },
+  {
     id: 'alami-maliyati-nizam',
     title: 'Global Financial System (Urdu)',
     titleUrdu: 'عالمی مالیاتی نظام',
