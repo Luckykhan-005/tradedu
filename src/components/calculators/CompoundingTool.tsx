@@ -114,14 +114,14 @@ export function CompoundingTool() {
             </Card>
           ) : (
             <div className="space-y-4">
-              <div className="rounded-xl border-2 border-emerald-200 bg-emerald-50 p-6 text-center">
+              <div className="rounded-xl border-2 border-emerald-200 bg-emerald-50 p-6 text-center dark:border-emerald-800 dark:bg-emerald-950/60">
                 <div className="text-sm text-muted-foreground">
                   Final Balance After {yr} {yr === 1 ? 'Year' : 'Years'}
                 </div>
-                <div className="text-4xl font-bold text-emerald-700">
+                <div className="text-4xl font-bold text-emerald-700 dark:text-emerald-300">
                   ${fmt(finalBalance)}
                 </div>
-                <div className="mt-1 text-sm text-emerald-700">
+                <div className="mt-1 text-sm text-emerald-700 dark:text-emerald-300">
                   +${fmt(interest)} compounding profit
                 </div>
               </div>
@@ -139,7 +139,7 @@ export function CompoundingTool() {
                 <Card>
                   <CardContent className="p-5 text-center">
                     <div className="text-sm text-muted-foreground">Interest Earned</div>
-                    <div className="text-3xl font-bold text-emerald-600">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                       ${fmt(interest)}
                     </div>
                     <div className="mt-1 text-xs text-muted-foreground">

@@ -89,9 +89,9 @@ export function LeverageTool() {
             </Card>
           ) : (
             <div className="space-y-4">
-              <div className="rounded-xl border-2 border-sky-200 bg-sky-50 p-5 text-center">
+              <div className="rounded-xl border-2 border-sky-200 bg-sky-50 p-5 text-center dark:border-sky-800 dark:bg-sky-950/60">
                 <div className="text-sm text-muted-foreground">Max Buying Power ({lev}x)</div>
-                <div className="text-3xl font-bold text-sky-700">${fmt(buyingPower)}</div>
+                <div className="text-3xl font-bold text-sky-700 dark:text-sky-300">${fmt(buyingPower)}</div>
                 <div className="mt-1 text-xs text-muted-foreground">
                   ${fmt(cap)} capital × {fmt(lev)}x leverage
                 </div>
@@ -110,7 +110,7 @@ export function LeverageTool() {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-muted-foreground">Margin Locked</span>
-                        <span className="font-bold text-sky-700">
+                        <span className="font-bold text-sky-700 dark:text-sky-300">
                           {pos > 0 ? `$${fmt(margin)}` : '—'}
                         </span>
                       </div>
@@ -138,7 +138,9 @@ export function LeverageTool() {
                     <div
                       className={cn(
                         'mb-3 rounded-xl p-4 text-center',
-                        liqDistance <= 5 ? 'bg-red-50 text-red-700' : 'bg-amber-50 text-amber-700'
+                        liqDistance <= 5
+                          ? 'bg-red-50 text-red-700 dark:bg-red-950/60 dark:text-red-300'
+                          : 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300'
                       )}
                     >
                       <div className="text-2xl font-bold">≈ {fmt(liqDistance)}%</div>
@@ -157,7 +159,7 @@ export function LeverageTool() {
               </div>
 
               {overLimit && (
-                <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/60 dark:text-red-300">
                   <strong>Over-leveraged:</strong> ${fmt(pos)} buying power ({'$'}
                   {fmt(maxPosition)}) se bara hai — exchange yeh position accept nahi karega.
                 </div>

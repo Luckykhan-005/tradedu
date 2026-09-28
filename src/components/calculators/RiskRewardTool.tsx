@@ -81,7 +81,7 @@ export function RiskRewardTool() {
                     />
                   </div>
                   <div>
-                    <Label className="text-emerald-600">Take Profit</Label>
+                    <Label className="text-emerald-600 dark:text-emerald-400">Take Profit</Label>
                     <Input
                       type="number"
                       value={tp}
@@ -115,10 +115,10 @@ export function RiskRewardTool() {
                 className={cn(
                   'rounded-xl border-2 p-6 text-center',
                   rr >= 2
-                    ? 'border-emerald-200 bg-emerald-50'
+                    ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/60'
                     : rr >= 1
-                      ? 'border-amber-200 bg-amber-50'
-                      : 'border-red-200 bg-red-50'
+                      ? 'border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/60'
+                      : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/60'
                 )}
               >
                 <div className="text-sm text-muted-foreground">Risk : Reward</div>
@@ -127,10 +127,10 @@ export function RiskRewardTool() {
                   className={cn(
                     'mt-1 text-sm font-medium',
                     rr >= 2
-                      ? 'text-emerald-600'
+                      ? 'text-emerald-600 dark:text-emerald-400'
                       : rr >= 1
-                        ? 'text-amber-600'
-                        : 'text-red-600'
+                        ? 'text-amber-600 dark:text-amber-400'
+                        : 'text-red-600 dark:text-red-400'
                   )}
                 >
                   {rr >= 2

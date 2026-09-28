@@ -186,7 +186,7 @@ export function RiskCalculator() {
                   {/* TP + SL */}
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <Label className="text-emerald-600">Take Profit</Label>
+                      <Label className="text-emerald-600 dark:text-emerald-400">Take Profit</Label>
                       <Input
                         type="number"
                         value={tp}
@@ -290,7 +290,7 @@ export function RiskCalculator() {
               <>
             {/* Warning */}
             {isDangerous && (
-              <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+              <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/60 dark:text-red-300">
                 <AlertTriangle className="h-5 w-5 shrink-0" />
                 <div>
                   <strong className="font-semibold">Liquidation Risk!</strong>{' '}
@@ -354,8 +354,8 @@ export function RiskCalculator() {
                     className={cn(
                       'mb-3 rounded-xl p-4 text-center',
                       direction === 'long'
-                        ? 'bg-red-50 text-red-700'
-                        : 'bg-emerald-50 text-emerald-700'
+                        ? 'bg-red-50 text-red-700 dark:bg-red-950/60 dark:text-red-300'
+                        : 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'
                     )}
                   >
                     <div className="text-2xl font-bold">{fmt(liqPrice)}</div>
@@ -372,7 +372,7 @@ export function RiskCalculator() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Distance to Liq</span>
-                    <span className={cn('font-bold', isDangerous ? 'text-destructive' : 'text-emerald-600')}>
+                    <span className={cn('font-bold', isDangerous ? 'text-destructive' : 'text-emerald-600 dark:text-emerald-400')}>
                       {direction === 'long'
                         ? fmt(ent - liqPrice)
                         : fmt(liqPrice - ent)}{' '}
@@ -391,10 +391,10 @@ export function RiskCalculator() {
                     {fmt(tpP)})
                   </h3>
                   <div className="mb-2">
-                    <div className="text-2xl font-bold text-emerald-600">
+                    <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                       +${fmt(tpPnl)}
                     </div>
-                    <div className="text-sm text-emerald-600">
+                    <div className="text-sm text-emerald-600 dark:text-emerald-400">
                       +{fmt(tpPnlPct)}% on margin
                     </div>
                   </div>
@@ -410,7 +410,7 @@ export function RiskCalculator() {
                   <Separator className="my-2" />
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold">Net Profit</span>
-                    <span className="text-lg font-bold text-emerald-600">
+                    <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
                       +${fmt(netTpPnl)}
                     </span>
                   </div>
@@ -459,10 +459,10 @@ export function RiskCalculator() {
                 className={cn(
                   'border-2',
                   rr >= 2
-                    ? 'border-emerald-200 bg-emerald-50'
+                    ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/60'
                     : rr >= 1
-                      ? 'border-amber-200 bg-amber-50'
-                      : 'border-red-200 bg-red-50'
+                      ? 'border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/60'
+                      : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/60'
                 )}
               >
                 <CardContent className="p-5 text-center">
@@ -471,13 +471,13 @@ export function RiskCalculator() {
                     1 : {fmt(rr, 2)}
                   </div>
                   {rr >= 2 && (
-                    <div className="mt-1 text-xs text-emerald-600">Excellent</div>
+                    <div className="mt-1 text-xs text-emerald-600 dark:text-emerald-400">Excellent</div>
                   )}
                   {rr >= 1 && rr < 2 && (
-                    <div className="mt-1 text-xs text-amber-600">Fair</div>
+                    <div className="mt-1 text-xs text-amber-600 dark:text-amber-400">Fair</div>
                   )}
                   {rr < 1 && (
-                    <div className="mt-1 text-xs text-red-600">Poor — adjust TP/SL</div>
+                    <div className="mt-1 text-xs text-red-600 dark:text-red-400">Poor — adjust TP/SL</div>
                   )}
                 </CardContent>
               </Card>

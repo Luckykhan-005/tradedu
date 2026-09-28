@@ -101,8 +101,8 @@ export function PositionSizeTool() {
                 className={cn(
                   'rounded-xl border-2 p-5 text-center',
                   risk > 5
-                    ? 'border-red-200 bg-red-50'
-                    : 'border-emerald-200 bg-emerald-50'
+                    ? 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/60'
+                    : 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/60'
                 )}
               >
                 <div className="text-sm text-muted-foreground">Trade Size (Position Value)</div>
@@ -144,7 +144,7 @@ export function PositionSizeTool() {
               </Card>
 
               {risk > 5 && (
-                <div className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                <div className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/60 dark:text-red-300">
                   <TrendingDown className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>
                     <strong>{fmt(risk)}% risk</strong> zyada hai — professional traders 1-2%
@@ -153,7 +153,7 @@ export function PositionSizeTool() {
                 </div>
               )}
               {risk <= 2 && risk > 0 && (
-                <div className="flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700">
+                <div className="flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300">
                   <TrendingUp className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>
                     Disciplined risk — 1% par agar 10 trades loss hon to sirf 10% gaya.

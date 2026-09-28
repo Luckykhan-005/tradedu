@@ -124,8 +124,8 @@ export function ProfitLossTool() {
                 className={cn(
                   'rounded-xl border-2 p-6 text-center',
                   isProfit
-                    ? 'border-emerald-200 bg-emerald-50'
-                    : 'border-red-200 bg-red-50'
+                    ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/60'
+                    : 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/60'
                 )}
               >
                 <div className="text-sm text-muted-foreground">
@@ -134,7 +134,7 @@ export function ProfitLossTool() {
                 <div
                   className={cn(
                     'text-4xl font-bold',
-                    isProfit ? 'text-emerald-600' : 'text-red-600'
+                    isProfit ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'
                   )}
                 >
                   {isProfit ? '+' : '−'}${fmt(Math.abs(pnl))}
@@ -160,7 +160,7 @@ export function ProfitLossTool() {
                     <div
                       className={cn(
                         'text-3xl font-bold',
-                        isProfit ? 'text-emerald-600' : 'text-red-600'
+                        isProfit ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'
                       )}
                     >
                       {cap > 0 ? `${roi >= 0 ? '+' : '−'}${fmt(Math.abs(roi))}%` : '—'}
@@ -189,7 +189,7 @@ export function ProfitLossTool() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Per Unit</span>
-                    <span className={cn('font-bold', isProfit ? 'text-emerald-600' : 'text-red-600')}>
+                    <span className={cn('font-bold', isProfit ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400')}>
                       {isProfit ? '+' : '−'}${fmt(Math.abs(ext - ent))}
                     </span>
                   </div>
