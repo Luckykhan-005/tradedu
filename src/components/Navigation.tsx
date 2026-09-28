@@ -178,7 +178,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
                 className={cn(
-                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
+                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-base font-medium transition-all',
                   groupIsActive(group)
                     ? 'bg-black text-white'
                     : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
@@ -244,7 +244,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
-                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium transition-all',
+                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-base font-medium transition-all',
                   filteredMenu.some((item) => item.id === currentPage)
                     ? 'bg-black text-white'
                     : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
