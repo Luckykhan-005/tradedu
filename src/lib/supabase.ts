@@ -165,9 +165,36 @@ export async function fetchProfile(userId: string): Promise<Record<string, any> 
     .from('profiles')
     .select('role, plan, plan_expires_at, name, phone, city, experience, avatar_url')
     .eq('id', userId)
-    .single()
+    .maybeSingle()
   if (error) return null
-  return data
+  if (data) return data
+
+  // Row hi missing hai (signup trigger ne row nahi banai). Warna user
+  // hamesha FREE metadata-fallback par atak jata hai aur admin approval
+  // bhi 0-row update kar ke chup-chaap no-op hoti hai. Metadata se heal.
+  try {
+    const { data: authData } = await supabase.auth.getUser()
+    const u = authData.user
+    if (!u) return null
+    const meta = (u.user_metadata || {}) as Record<string, any>
+    const { data: inserted } = await supabase
+      .from('profiles')
+      .insert({
+        id: userId,
+        email: u.email || '',
+        name: meta.name || u.email?.split('@')[0] || 'Student',
+        role: meta.role === 'admin' ? 'admin' : 'student',
+        plan: meta.plan === 'PREMIUM' ? 'PREMIUM' : 'FREE',
+        phone: meta.phone || null,
+        city: meta.city || null,
+        experience: meta.experience || null,
+      })
+      .select('role, plan, plan_expires_at, name, phone, city, experience, avatar_url')
+      .maybeSingle()
+    return inserted
+  } catch {
+    return null
+  }
 }
 
 export async function updateProfile(
