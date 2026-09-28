@@ -173,7 +173,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         )}
       >
         {/* Left of logo — nav groups (logo ko page-center rakhte hain) */}
-        <div className="hidden flex-1 items-center justify-end gap-1 md:flex md:gap-2 lg:gap-3">
+        <div className="hidden flex-1 items-center justify-end gap-1 md:flex md:gap-2 md:pr-4 lg:gap-3 lg:pr-6">
           {navGroups.map((group) => (
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
@@ -238,7 +238,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         </button>
 
         {/* Right of logo — Menu + actions */}
-        <div className="flex flex-1 items-center justify-start gap-2 lg:gap-3">
+        <div className="flex flex-1 items-center gap-2 pl-4 lg:gap-3 lg:pl-6">
           {menuItems.length > 0 && (
             <div className="hidden shrink-0 items-center md:flex">
             <DropdownMenu>
@@ -277,7 +277,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           </div>
         )}
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="ml-auto hidden items-center gap-2 md:flex">
           <button
             onClick={onOpenSearch}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -315,7 +315,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           </div>
 
           <button
-            className="rounded-lg p-2 text-black hover:bg-primary hover:text-primary-foreground md:hidden"
+            className="ml-auto rounded-lg p-2 text-black hover:bg-primary hover:text-primary-foreground md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
