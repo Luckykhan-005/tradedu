@@ -540,28 +540,28 @@ export default function App() {
       )}
 
       {currentPage === 'ai-tools' && (
-        user && (user.role === 'admin' || user.plan === 'PREMIUM') ? (
-          <AiToolsHub user={user} onSignIn={openAuth} onSelectTool={handleSelectAiTool} onHome={() => navigate('landing')} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
-            onUpgrade={() => navigate('pricing')}
-            onSignIn={openAuth}
-          />
-        )
+        <AiToolsHub
+          user={user}
+          onSignIn={openAuth}
+          onUpgrade={() => navigate('pricing')}
+          onSelectTool={handleSelectAiTool}
+          onHome={() => navigate('landing')}
+        />
       )}
 
       {currentPage === 'ai-tool-detail' && selectedAiTool && (
         <AiToolDetail
           tool={selectedAiTool}
+          user={user}
+          onSignIn={openAuth}
+          onUpgrade={() => navigate('pricing')}
           onBack={() => navigate('ai-tools')}
           onHome={() => navigate('landing')}
         />
       )}
 
       {currentPage === 'books' && (
-        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} />
+        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} onSignIn={openAuth} />
       )}
 
       {currentPage === 'blog' && (

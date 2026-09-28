@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Bot,
   ExternalLink,
@@ -255,23 +255,90 @@ const bannerStyles: Record<string, string> = {
 }
 
 interface AiToolsHubProps {
-  user: { name?: string; email: string; role?: 'student' | 'admin' } | null
+  user: { name?: string; email: string; plan?: string; role?: 'student' | 'admin' } | null
   onSignIn: () => void
+  onUpgrade?: () => void
   onSelectTool?: (toolId: string) => void
   onHome?: () => void
 }
 
-export function AiToolsHub({ user, onSignIn, onSelectTool, onHome }: AiToolsHubProps) {
+export function AiToolsHub({ user, onSignIn, onUpgrade, onSelectTool, onHome }: AiToolsHubProps) {
   const [expandedTool, setExpandedTool] = useState<string | null>(null)
   const [activeApp, setActiveApp] = useState<AiTool | null>(null)
+  const [gateTool, setGateTool] = useState<AiTool | null>(null)
   const [filter, setFilter] = useState<string>('all')
+
+  // Signup/login ke baad wapas hub par pending tool foran kholein
+  useEffect(() => {
+    const id = sessionStorage.getItem('tradeed-pending-tool')
+    if (!id) return
+    sessionStorage.removeItem('tradeed-pending-tool')
+    if (!user) return
+    const tool = aiTools.find((t) => t.id === id)
+    if (!tool) return
+    if (user.role === 'admin' || user.plan === 'PREMIUM') setActiveApp(tool)
+    else setGateTool(tool)
+  }, [])
 
   const toggleExpand = (id: string) => {
     setExpandedTool(expandedTool === id ? null : id)
   }
 
   const openApp = (tool: AiTool) => {
+    if (!user) {
+      sessionStorage.setItem('tradeed-pending-tool', tool.id)
+      setGateTool(tool)
+      return
+    }
+    if (user.role !== 'admin' && user.plan !== 'PREMIUM') {
+      setGateTool(tool)
+      return
+    }
     setActiveApp(tool)
+  }
+
+  if (gateTool) {
+    const isGuest = !user
+    return (
+      <div className="flex min-h-[70vh] items-center justify-center bg-secondary/30 px-4 py-16">
+        <Card className="w-full max-w-md">
+          <CardContent className="p-8 text-center space-y-4">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <Lock className="h-8 w-8 text-primary" />
+            </div>
+            <h2 className="text-xl font-bold">{gateTool.name}</h2>
+            <p className="text-sm text-muted-foreground">
+              {isGuest
+                ? 'Yeh tool use karne ke liye free account chahiye — sirf 1 minute ka signup. Agar pehle se account hai to login karein.'
+                : 'Yeh tool Premium plan (PKR 1,499/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
+            </p>
+            <div className="space-y-2 pt-2">
+              {isGuest ? (
+                <Button className="w-full gap-2" onClick={() => onSignIn()}>
+                  <Lock className="h-4 w-4" />
+                  Sign Up / Login
+                </Button>
+              ) : (
+                <Button className="w-full gap-2" onClick={() => onUpgrade?.()}>
+                  <Shield className="h-4 w-4" />
+                  Premium Lein — PKR 1,499/month
+                </Button>
+              )}
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => {
+                  sessionStorage.removeItem('tradeed-pending-tool')
+                  setGateTool(null)
+                }}
+              >
+                Wapas Tools par
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   if (activeApp) {

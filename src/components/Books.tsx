@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import {
   BookOpen,
   CandlestickChart,
@@ -51,6 +51,7 @@ interface BooksProps {
   onBack: () => void
   user?: { email: string; name?: string; plan?: string; role?: string } | null
   onUpgrade?: () => void
+  onSignIn?: () => void
 }
 
 export const books: BookItem[] = [
@@ -475,14 +476,40 @@ export const books: BookItem[] = [
   },
 ]
 
-export function Books({ onBack, user, onUpgrade }: BooksProps) {
-  const [reader, setReader] = useState<{ book: BookItem; mode: 'full' | 'preview' | 'locked' } | null>(null)
+export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
+  const [reader, setReader] = useState<{ book: BookItem; mode: 'full' | 'preview' | 'locked' | 'auth' } | null>(null)
   const hasAccess = !!user && (user.role === 'admin' || user.plan !== 'FREE')
 
-  const openFull = (book: BookItem) => {
-    if (book.premium && !hasAccess) setReader({ book, mode: 'locked' })
+  const openWithGate = (book: BookItem, requested: 'full' | 'preview' = 'full') => {
+    if (!user) {
+      sessionStorage.setItem('tradeed-pending-book', JSON.stringify({ id: book.id, mode: requested }))
+      setReader({ book, mode: 'auth' })
+      return
+    }
+    if (requested === 'preview' && book.premium && !hasAccess) setReader({ book, mode: 'preview' })
+    else if (book.premium && !hasAccess) setReader({ book, mode: 'locked' })
     else setReader({ book, mode: 'full' })
   }
+
+  // Signup/login ke baad wapas books page par pending book foran kholein
+  useEffect(() => {
+    const raw = sessionStorage.getItem('tradeed-pending-book')
+    if (!raw) return
+    sessionStorage.removeItem('tradeed-pending-book')
+    if (!user) return
+    try {
+      const p = JSON.parse(raw) as { id: string; mode: 'full' | 'preview' }
+      const book = books.find((b) => b.id === p.id)
+      if (book) {
+        const access = user.role === 'admin' || user.plan !== 'FREE'
+        if (p.mode === 'preview' && book.premium && !access) setReader({ book, mode: 'preview' })
+        else if (book.premium && !access) setReader({ book, mode: 'locked' })
+        else setReader({ book, mode: 'full' })
+      }
+    } catch { /* corrupt pending entry - ignore */ }
+  }, [])
+
+  const openFull = (book: BookItem) => openWithGate(book, 'full')
 
   if (reader) {
     const { book, mode } = reader
@@ -517,7 +544,38 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
           </div>
         </div>
 
-        {mode === 'locked' ? (
+        {mode === 'auth' ? (
+          <div className="flex flex-1 items-center justify-center px-4 py-16">
+            <Card className="max-w-md w-full">
+              <CardContent className="p-8 text-center space-y-4">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <Lock className="h-8 w-8 text-primary" />
+                </div>
+                <h2 className="text-xl font-bold">{book.title}</h2>
+                <p className="text-sm text-muted-foreground">
+                  Yeh book parhne ke liye free account chahiye — sirf 1 minute ka signup.
+                  Agar pehle se account hai to login karein, book foran khul jayegi.
+                </p>
+                <div className="space-y-2 pt-2">
+                  <Button className="w-full gap-2" onClick={() => onSignIn?.()}>
+                    <Lock className="h-4 w-4" />
+                    Sign Up / Login
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full"
+                    onClick={() => {
+                      sessionStorage.removeItem('tradeed-pending-book')
+                      setReader(null)
+                    }}
+                  >
+                    Wapas Books par
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ) : mode === 'locked' ? (
           <div className="flex flex-1 items-center justify-center px-4 py-16">
             <Card className="max-w-md w-full">
               <CardContent className="p-8 text-center space-y-4">
@@ -650,7 +708,7 @@ export function Books({ onBack, user, onUpgrade }: BooksProps) {
                       <Button
                         variant="outline"
                         className="w-full gap-2"
-                        onClick={() => setReader({ book, mode: 'preview' })}
+                        onClick={() => openWithGate(book, 'preview')}
                       >
                         <BookOpen className="h-4 w-4" />
                         Free Chapter 1 padhein

@@ -20,15 +20,63 @@ import type { AiToolPage } from '@/data/aiTools'
 
 interface AiToolDetailProps {
   tool: AiToolPage
+  user?: { email: string; name?: string; plan?: string; role?: string } | null
+  onSignIn?: () => void
+  onUpgrade?: () => void
   onBack: () => void
   onHome?: () => void
 }
 
-export function AiToolDetail({ tool, onBack, onHome }: AiToolDetailProps) {
+export function AiToolDetail({ tool, user, onSignIn, onUpgrade, onBack, onHome }: AiToolDetailProps) {
   const [launched, setLaunched] = useState(false)
+  const [gate, setGate] = useState<'auth' | 'plan' | null>(null)
 
   const openTool = () => {
+    if (!user) {
+      setGate('auth')
+      return
+    }
+    if (user.role !== 'admin' && user.plan !== 'PREMIUM') {
+      setGate('plan')
+      return
+    }
     setLaunched(true)
+  }
+
+  if (gate) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+        <Card className="w-full max-w-md">
+          <CardContent className="p-8 text-center space-y-4">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+              <Shield className="h-8 w-8 text-primary" />
+            </div>
+            <h2 className="text-xl font-bold">{tool.name}</h2>
+            <p className="text-sm text-muted-foreground">
+              {gate === 'auth'
+                ? 'Yeh tool use karne ke liye free account chahiye — sirf 1 minute ka signup. Agar pehle se account hai to login karein.'
+                : 'Yeh tool Premium plan (PKR 1,499/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
+            </p>
+            <div className="space-y-2 pt-2">
+              {gate === 'auth' ? (
+                <Button className="w-full gap-2" onClick={() => onSignIn?.()}>
+                  <Sparkles className="h-4 w-4" />
+                  Sign Up / Login
+                </Button>
+              ) : (
+                <Button className="w-full gap-2" onClick={() => onUpgrade?.()}>
+                  <Sparkles className="h-4 w-4" />
+                  Premium Lein — PKR 1,499/month
+                </Button>
+              )}
+              <Button variant="outline" className="w-full" onClick={() => setGate(null)}>
+                Wapas
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   const openExternal = () => {
