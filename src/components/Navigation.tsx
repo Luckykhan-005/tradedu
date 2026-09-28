@@ -160,15 +160,20 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
     (group.activePages?.includes(currentPage) ?? false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg">
+    <nav
+      className={cn(
+        'sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg transition-shadow duration-300',
+        scrolled && 'shadow-lg'
+      )}
+    >
       <div
         className={cn(
           'mx-auto flex w-full items-center px-4 transition-all duration-300 sm:px-6',
-          scrolled ? 'h-12' : 'h-16'
+          scrolled ? 'h-12' : 'h-18'
         )}
       >
         {/* Left of logo — nav groups (logo ko page-center rakhte hain) */}
-        <div className="hidden flex-1 items-center justify-end gap-1 md:flex">
+        <div className="hidden flex-1 items-center justify-end gap-1 md:flex md:gap-2 lg:gap-3">
           {navGroups.map((group) => (
             <DropdownMenu key={group.label}>
               <DropdownMenuTrigger
@@ -215,25 +220,25 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         <button
           onClick={() => onNavigate('landing')}
           className={cn(
-            'flex shrink-0 items-center gap-2 font-bold text-black transition-all duration-300',
-            scrolled ? 'text-lg' : 'text-xl'
+            'flex shrink-0 items-center gap-2.5 font-bold text-black transition-all duration-300',
+            scrolled ? 'text-lg' : 'text-2xl'
           )}
         >
           <div
             className={cn(
               'flex items-center justify-center rounded-lg bg-primary text-primary-foreground transition-all duration-300',
-              scrolled ? 'h-7 w-7' : 'h-9 w-9'
+              scrolled ? 'h-8 w-8' : 'h-11 w-11'
             )}
           >
             <TrendingUp
-              className={cn('transition-all duration-300', scrolled ? 'h-4 w-4' : 'h-5 w-5')}
+              className={cn('transition-all duration-300', scrolled ? 'h-4 w-4' : 'h-6 w-6')}
             />
           </div>
           <span className="hidden sm:inline">TradeEd</span>
         </button>
 
         {/* Right of logo — Menu + actions */}
-        <div className="flex flex-1 items-center justify-start gap-2">
+        <div className="flex flex-1 items-center justify-start gap-2 lg:gap-3">
           {menuItems.length > 0 && (
             <div className="hidden shrink-0 items-center md:flex">
             <DropdownMenu>

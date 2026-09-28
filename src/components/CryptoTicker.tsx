@@ -78,7 +78,7 @@ export function CryptoTicker() {
   const items = [...coins, ...coins]
 
   return (
-    <div className="border-b border-border bg-card/60 backdrop-blur-sm" aria-label="Live crypto prices">
+    <div className="border-b border-border bg-background" aria-label="Live crypto prices">
       <div className="relative overflow-hidden">
         <div className="flex w-max animate-[ticker_40s_linear_infinite] gap-8 py-2 whitespace-nowrap hover:[animation-play-state:paused]">
           {items.map((coin, i) => (
