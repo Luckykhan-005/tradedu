@@ -273,6 +273,67 @@
             .chapter { padding: 25px 18px; }
             .container { padding: 12px; }
         }
+    
+  .quiz {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-top: 30px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  }
+  .quiz h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  .question {
+    margin-bottom: 26px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .question p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+    font-size: 1.03rem;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    color: var(--text);
+  }
+  .option:hover:not(.answered) {
+    border-color: var(--accent);
+    background: #f5f3ff;
+  }
+  .option.correct {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: #16a34a;
+    color: #15803d;
+    font-weight: 600;
+  }
+  .option.wrong {
+    background: rgba(239, 68, 68, 0.10);
+    border-color: #dc2626;
+    color: #b91c1c;
+    font-weight: 600;
+  }
+  .option.answered { cursor: default; }
+  .feedback {
+    margin-top: 10px;
+    font-size: 0.92rem;
+    display: none;
+    font-weight: 500;
+  }
+  .feedback.show { display: block; }
     </style>
 
 <meta name="description" content="MACD ki expert level guide Roman Urdu mein - formula, histogram, divergence, crossovers, zero line aur practical setups. 16 chapters.">
@@ -353,6 +414,60 @@
                 <li>Signal line crossover high-probability entries deta hai</li>
                 <li>Almost har market (Crypto, Forex, Stocks) mein kaam karta hai</li>
             </ul>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 1</h3>
+
+            <div class="question">
+                <p>1. MACD kis cheez ka indicator hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Trend-following momentum indicator</div>
+                    <div class="option" data-correct="false">Volume pressure indicator</div>
+                    <div class="option" data-correct="false">Market sentiment index</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. MACD do moving averages ke ___ measure karta hai.</p>
+                <div class="options">
+                    <div class="option" data-correct="true">beech ke difference</div>
+                    <div class="option" data-correct="false">total trading volume</div>
+                    <div class="option" data-correct="false">closing price average</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Jab short-term MA long-term MA se upar jati hai to signal hota hai:</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bullish momentum</div>
+                    <div class="option" data-correct="false">Bearish momentum</div>
+                    <div class="option" data-correct="false">Market band ho raha hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. MACD ki sab se bari khasiyat kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Momentum aur trend change dono ek saath dikhata hai</div>
+                    <div class="option" data-correct="false">Sirf future price predict karta hai</div>
+                    <div class="option" data-correct="false">Sirf volume dikhata hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. MACD kin markets mein kaam karta hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Crypto, Forex, Stocks - almost har market</div>
+                    <div class="option" data-correct="false">Sirf crypto mein</div>
+                    <div class="option" data-correct="false">Sirf stock market mein</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 2 -->
@@ -366,6 +481,60 @@
             <div class="tip-box">
                 <strong>Interesting Fact:</strong> Original MACD settings 12, 26, 9 hain jo aaj bhi sabse zyada use hote hain. Yeh settings Appel ne stock market ke daily charts ke liye optimize kiye the, lekin crypto mein bhi yeh bohot effective hain.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 2</h3>
+
+            <div class="question">
+                <p>1. MACD kisne invent kiya?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Gerald Appel</div>
+                    <div class="option" data-correct="false">Thomas Aspray</div>
+                    <div class="option" data-correct="false">John Bollinger</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Histogram kisne aur kab add kiya?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Thomas Aspray ne 1986 mein</div>
+                    <div class="option" data-correct="false">Gerald Appel ne 1970s mein</div>
+                    <div class="option" data-correct="false">Satoshi Nakamoto ne 2009 mein</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Original MACD settings kya hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">12, 26, 9</div>
+                    <div class="option" data-correct="false">5, 34, 5</div>
+                    <div class="option" data-correct="false">10, 20, 30</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Appel ne MACD kyun banaya?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Moving averages ke lag ko kam karke momentum clearly dikhane ke liye</div>
+                    <div class="option" data-correct="false">Volume badhane ke liye</div>
+                    <div class="option" data-correct="false">Fees bachane ke liye</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Original settings kis ke liye optimize kiye gaye the?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Stock market ke daily charts ke liye</div>
+                    <div class="option" data-correct="false">Crypto ke 1-minute charts ke liye</div>
+                    <div class="option" data-correct="false">Forex ke weekly charts ke liye</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 3 -->
@@ -420,6 +589,60 @@
                 Fast settings (scalping): 8, 17, 9 ya 5, 13, 8<br>
                 Slow settings (swing): 19, 39, 9
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 3</h3>
+
+            <div class="question">
+                <p>1. MACD Line ki formula kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">12-period EMA - 26-period EMA</div>
+                    <div class="option" data-correct="false">26-period EMA - 12-period EMA</div>
+                    <div class="option" data-correct="false">9-period EMA - 12-period EMA</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Signal Line kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">MACD Line ki 9-period EMA</div>
+                    <div class="option" data-correct="false">MACD Line ki 26-period EMA</div>
+                    <div class="option" data-correct="false">Price ki simple average</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Histogram kaise calculate hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">MACD Line - Signal Line</div>
+                    <div class="option" data-correct="false">MACD Line + Signal Line</div>
+                    <div class="option" data-correct="false">12 EMA + 26 EMA</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Scalping ke liye fast settings kaun si hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">8, 17, 9 ya 5, 13, 8</div>
+                    <div class="option" data-correct="false">12, 26, 9</div>
+                    <div class="option" data-correct="false">19, 39, 9</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Default (balanced) MACD settings kya hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">12, 26, 9</div>
+                    <div class="option" data-correct="false">5, 13, 8</div>
+                    <div class="option" data-correct="false">19, 39, 9</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 4 -->
@@ -476,6 +699,60 @@
 
             <h3>3. Histogram</h3>
             <p>Yeh MACD Line aur Signal Line ka difference hai. Bars ki height momentum ki strength dikhati hai. Green bars = bullish momentum, Red bars = bearish momentum.</p>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 4</h3>
+
+            <div class="question">
+                <p>1. MACD Line (fast line) kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">12 EMA aur 26 EMA ka difference</div>
+                    <div class="option" data-correct="false">MACD Line ki 9-period EMA</div>
+                    <div class="option" data-correct="false">Histogram aur Signal Line ka difference</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Signal Line kis cheez ki EMA hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">MACD Line ki 9-period</div>
+                    <div class="option" data-correct="false">Price ki 12-period</div>
+                    <div class="option" data-correct="false">Volume ki 26-period</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Histogram ki height kya dikhati hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Momentum ki strength</div>
+                    <div class="option" data-correct="false">Market ka total volume</div>
+                    <div class="option" data-correct="false">Support aur resistance levels</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Green histogram bars ka matlab?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bullish momentum</div>
+                    <div class="option" data-correct="false">Bearish momentum</div>
+                    <div class="option" data-correct="false">Market sideways hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Signal Line ko slow line kyun kaha jata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Kyunki yeh MACD Line ki EMA hai jo thoda lag karti hai</div>
+                    <div class="option" data-correct="false">Kyunki yeh sirf weekly chalti hai</div>
+                    <div class="option" data-correct="false">Kyunki yeh volume calculate karti hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 5 -->
@@ -521,6 +798,60 @@
             <div class="success-box">
                 <strong>Crypto Tip:</strong> Zero line ke neeche se bullish crossover (oversold zone se) sabse powerful hota hai. Zero line ke upar se bearish crossover (overbought zone se) strong sell signal hota hai.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 5</h3>
+
+            <div class="question">
+                <p>1. Bullish crossover kab hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">MACD Line neeche se Signal Line ko upar cross karti hai</div>
+                    <div class="option" data-correct="false">MACD Line upar se Signal Line ko neeche cross karti hai</div>
+                    <div class="option" data-correct="false">Price support ko cross karti hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Bearish crossover kya signal deta hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Sell signal - bearish momentum start</div>
+                    <div class="option" data-correct="false">Buy signal - bullish momentum start</div>
+                    <div class="option" data-correct="false">Market band ho jayega</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Sab se powerful bullish crossover kab hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Zero line ke neeche se (oversold zone)</div>
+                    <div class="option" data-correct="false">Zero line ke upar se</div>
+                    <div class="option" data-correct="false">Bilkul flat market mein</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Zero line ke upar se bearish crossover hota hai to?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Strong sell signal hota hai</div>
+                    <div class="option" data-correct="false">Weak buy signal hota hai</div>
+                    <div class="option" data-correct="false">Koi signal nahi hota</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Signal Line crossover ko MACD ka kya kaha jata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Sab se popular aur reliable signal</div>
+                    <div class="option" data-correct="false">Sab se kamzor signal</div>
+                    <div class="option" data-correct="false">Sirf advanced traders ke liye signal</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 6 -->
@@ -576,6 +907,60 @@
             <div class="tip-box">
                 <strong>Pro Tip:</strong> Histogram ke shrinking bars aksar crossover se pehle signal dete hain. Agar green bars chhoti ho rahi hain to jaldi bearish crossover aa sakta hai.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 6</h3>
+
+            <div class="question">
+                <p>1. Green bars badh rahe hain to matlab:</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bullish momentum strong ho raha hai</div>
+                    <div class="option" data-correct="false">Bullish momentum weak ho raha hai</div>
+                    <div class="option" data-correct="false">Bearish momentum strong ho raha hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Red bars ghat rahe hain to matlab:</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bearish momentum weak ho raha hai</div>
+                    <div class="option" data-correct="false">Bearish momentum strong ho raha hai</div>
+                    <div class="option" data-correct="false">Bullish momentum start ho raha hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Histogram peak (maximum height) ka kya matlab hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Momentum climax hota hai aur jaldi reversal aa sakta hai</div>
+                    <div class="option" data-correct="false">Market bilkul stable hai</div>
+                    <div class="option" data-correct="false">Volume khatam ho raha hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Agar green bars chhoti ho rahi hon to kya ho sakta hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Jaldi bearish crossover aa sakta hai</div>
+                    <div class="option" data-correct="false">Jaldi market band hogi</div>
+                    <div class="option" data-correct="false">Price hamesha upar jayegi</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Histogram ko sab se visual part kyun kaha jata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Kyunki yeh bars ki shakal mein momentum ki strength aur direction dikhata hai</div>
+                    <div class="option" data-correct="false">Kyunki yeh rang badalta hai</div>
+                    <div class="option" data-correct="false">Kyunki yeh sirf crypto mein hota hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 7 -->
@@ -609,6 +994,60 @@
             <div class="highlight">
                 <strong>Best Practice:</strong> Zero line crossover + Signal line crossover dono mil jayein to confirmation bohot strong hoti hai.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 7</h3>
+
+            <div class="question">
+                <p>1. Zero line MACD ka kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Center</div>
+                    <div class="option" data-correct="false">Sab se upar ki line</div>
+                    <div class="option" data-correct="false">Volume line</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. MACD Line zero se upar cross kare to?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bullish trend start hota hai (12 EMA > 26 EMA)</div>
+                    <div class="option" data-correct="false">Bearish trend start hota hai</div>
+                    <div class="option" data-correct="false">Market sideways ho jati hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. MACD Line zero se neeche cross kare to?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bearish trend start hota hai (12 EMA < 26 EMA)</div>
+                    <div class="option" data-correct="false">Bullish trend start hota hai</div>
+                    <div class="option" data-correct="false">Koi trend nahi badalta</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Best practice ke mutabiq strong confirmation kab milti hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Zero line crossover + Signal line crossover dono mil jayein</div>
+                    <div class="option" data-correct="false">Sirf ek crossover mil jaye</div>
+                    <div class="option" data-correct="false">Sirf price support pe ho</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Zero line crossover ki strength ko kya behtar banata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Volume ke saath confirmation</div>
+                    <div class="option" data-correct="false">Spread ke saath confirmation</div>
+                    <div class="option" data-correct="false">News ke saath confirmation</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 8 -->
@@ -670,6 +1109,60 @@
                 </svg>
                 <p class="diagram-caption">Example: Bullish Divergence – Price Lower Low, MACD Higher Low</p>
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 8</h3>
+
+            <div class="question">
+                <p>1. Bullish divergence kya hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Price lower low banata hai, MACD higher low dikhata hai</div>
+                    <div class="option" data-correct="false">Price higher high banata hai, MACD lower high dikhata hai</div>
+                    <div class="option" data-correct="false">Price aur MACD dono ek saath neeche jate hain</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Bearish divergence kya hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Price higher high banata hai, MACD lower high dikhata hai</div>
+                    <div class="option" data-correct="false">Price lower low banata hai, MACD higher low dikhata hai</div>
+                    <div class="option" data-correct="false">Price aur MACD dono upar jate hain</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Hidden bullish divergence ka matlab?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Uptrend continuation ka signal</div>
+                    <div class="option" data-correct="false">Trend reversal down ka signal</div>
+                    <div class="option" data-correct="false">Market band hone ka signal</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. MACD ka divergence RSI se zyada powerful kyun mana jata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Kyunki MACD trend aur momentum dono dekhta hai</div>
+                    <div class="option" data-correct="false">Kyunki RSI purana indicator hai</div>
+                    <div class="option" data-correct="false">Kyunki MACD sirf crypto mein chalta hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Regular divergence ka signal hota hai:</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Potential reversal</div>
+                    <div class="option" data-correct="false">Trend continuation</div>
+                    <div class="option" data-correct="false">Volume badhna</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 9 -->
@@ -692,6 +1185,60 @@
                 • Day Trading: 15min / 1H<br>
                 • Swing Trading: 4H / Daily (classic 12,26,9 perfect)
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 9</h3>
+
+            <div class="question">
+                <p>1. Crypto mein MACD kyun strong hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Multi-week/month ke clear trends perfectly capture karta hai</div>
+                    <div class="option" data-correct="false">Kyunki crypto mein koi volatility nahi</div>
+                    <div class="option" data-correct="false">Kyunki crypto sirf daily chalta hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. 12/26/9 settings crypto mein kis timeframe pe high win-rate deti hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">4H aur Daily charts pe</div>
+                    <div class="option" data-correct="false">1-minute charts pe</div>
+                    <div class="option" data-correct="false">Sirf monthly charts pe</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Scalping ke liye best MACD timeframes?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">5min / 15min (fast settings ke saath)</div>
+                    <div class="option" data-correct="false">Daily / Weekly</div>
+                    <div class="option" data-correct="false">Monthly only</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Swing trading ke liye kaun si settings perfect hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Classic 12, 26, 9 (4H / Daily)</div>
+                    <div class="option" data-correct="false">5, 13, 8 (1min)</div>
+                    <div class="option" data-correct="false">19, 39, 9 (monthly)</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Crypto exchanges ka volume data MACD signals ke liye kis kaam aata hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Signals ko filter karne (volume confirmation)</div>
+                    <div class="option" data-correct="false">Fees kam karne ke liye</div>
+                    <div class="option" data-correct="false">Wallet safe rakhne ke liye</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 10 -->
@@ -748,6 +1295,60 @@
 
             <h3>Setup 3: Histogram Reversal + Divergence (Highest Probability)</h3>
             <p>Jab histogram ki height kam hone lage + divergence ban jaye + signal line crossover aaye → Yeh sabse strong reversal setup hota hai.</p>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 10</h3>
+
+            <div class="question">
+                <p>1. Bullish setup mein crossover kahan hona chahiye?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Zero line ke near ya neeche (stronger signal)</div>
+                    <div class="option" data-correct="false">Zero line ke bohot upar</div>
+                    <div class="option" data-correct="false">Kahin bhi, location matter nahi karti</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Bearish (short) setup mein Stop Loss kahan lagana hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Price ke upar (swing high ke beyond)</div>
+                    <div class="option" data-correct="false">Price ke neeche</div>
+                    <div class="option" data-correct="false">Bilkul zero line pe</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Histogram Reversal + Divergence + Signal Line Crossover mil jayein to?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Yeh sab se strong (highest probability) reversal setup hota hai</div>
+                    <div class="option" data-correct="false">Yeh sab se kamzor setup hota hai</div>
+                    <div class="option" data-correct="false">Is mein trade lena forbidden hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Bullish setup mein histogram ki condition kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Green ho jaye aur bars badh rahe hon</div>
+                    <div class="option" data-correct="false">Red ho jaye aur bars ghat rahe hon</div>
+                    <div class="option" data-correct="false">Histogram bilkul flat ho</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Long entry se pehle price action confirmation kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Price support pe ho + bullish candle confirmation</div>
+                    <div class="option" data-correct="false">Price resistance pe ho</div>
+                    <div class="option" data-correct="false">Koi candle na bane</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 11 -->
@@ -765,6 +1366,60 @@
 
             <h3>4. Histogram Slope Analysis</h3>
             <p>Sirf color nahi, bars ki slope bhi dekho. Steep rising green bars = strong momentum. Flat bars = weakness.</p>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 11</h3>
+
+            <div class="question">
+                <p>1. MACD + RSI combo ka faida kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Double confirmation - false signals bohot kam ho jate hain</div>
+                    <div class="option" data-correct="false">Ek hi indicator kaam karta hai</div>
+                    <div class="option" data-correct="false">Volume double ho jata hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Multi-timeframe approach kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Daily pe MACD bullish ho + lower timeframe pe crossover se entry lo</div>
+                    <div class="option" data-correct="false">Sirf 1-minute chart dekho</div>
+                    <div class="option" data-correct="false">Sirf ek hi timeframe hamesha use karo</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Crossover ke saath volume spike aaye to?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Signal ki reliability double ho jati hai</div>
+                    <div class="option" data-correct="false">Signal invalid ho jata hai</div>
+                    <div class="option" data-correct="false">Trade cancel kar deni chahiye</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Steep rising green bars ka matlab?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Strong momentum</div>
+                    <div class="option" data-correct="false">Weak momentum</div>
+                    <div class="option" data-correct="false">Market band ho raha hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Histogram ki flat bars kya dikhati hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Weakness</div>
+                    <div class="option" data-correct="false">Bohot strong trend</div>
+                    <div class="option" data-correct="false">Guaranteed profit</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 12 -->
@@ -795,6 +1450,60 @@
                 <strong>5. Settings change karte rehna</strong><br>
                 Classic 12,26,9 pe stick raho jab tak aap expert na ban jayein. Continuous optimization confusion badhati hai.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 12</h3>
+
+            <div class="question">
+                <p>1. Sideways market mein MACD kya karta hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Bohot se false crossovers deta hai</div>
+                    <div class="option" data-correct="false">Perfect signals deta hai</div>
+                    <div class="option" data-correct="false">Bilkul kaam karna band kar deta hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Zero line ignore karne ki galti kyun hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Kyunki zero line ke neeche se bullish crossover zyada powerful hota hai</div>
+                    <div class="option" data-correct="false">Kyunki zero line dikhata nahi</div>
+                    <div class="option" data-correct="false">Kyunki zero line sirf forex mein hai</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. MACD kis type ka indicator hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Lagging indicator</div>
+                    <div class="option" data-correct="false">Leading indicator jo 100% sahi hai</div>
+                    <div class="option" data-correct="false">Volume indicator</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Settings baar baar badalne se kya hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Confusion badhti hai - classic 12,26,9 pe stick karo</div>
+                    <div class="option" data-correct="false">Accuracy double ho jati hai</div>
+                    <div class="option" data-correct="false">Fees kam hoti hain</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Shrinking histogram bars kya dete hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Warning (crossover se pehle)</div>
+                    <div class="option" data-correct="false">Guaranteed buy signal</div>
+                    <div class="option" data-correct="false">Market holiday ka signal</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 13 -->
@@ -835,6 +1544,60 @@
                     <div class="step-content"><strong>Trade Journal mein Entry Likh Do</strong></div>
                 </div>
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 13</h3>
+
+            <div class="question">
+                <p>1. Complete workflow ka pehla step kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Higher timeframe pe trend identify karo</div>
+                    <div class="option" data-correct="false">Seedha entry le lo</div>
+                    <div class="option" data-correct="false">Stop loss hata do</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Trend kis timeframe pe identify karni chahiye?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Daily / 4H pe</div>
+                    <div class="option" data-correct="false">Sirf 1-minute pe</div>
+                    <div class="option" data-correct="false">Sirf monthly pe</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Workflow mein minimum Risk:Reward kitni honi chahiye?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">1:2</div>
+                    <div class="option" data-correct="false">1:1</div>
+                    <div class="option" data-correct="false">1:0.5</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Workflow ka aakhri step kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Trade journal mein entry likh do</div>
+                    <div class="option" data-correct="false">Telegram pe post karo</div>
+                    <div class="option" data-correct="false">Settings change karo</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Step 3 mein kya confirm karna hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Histogram - bars ki direction aur height</div>
+                    <div class="option" data-correct="false">Sirf price</div>
+                    <div class="option" data-correct="false">Sirf news</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 14 -->
@@ -852,6 +1615,60 @@
             <div class="success-box">
                 <strong>Golden Rule:</strong> MACD aapko direction aur momentum dikhata hai. Risk Management aapko market mein alive rakhta hai.
             </div>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 14</h3>
+
+            <div class="question">
+                <p>1. Risk per trade kitna hona chahiye?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Account ka maximum 1-2%</div>
+                    <div class="option" data-correct="false">Account ka 20-30%</div>
+                    <div class="option" data-correct="false">Jitna balance ho</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Stop Loss kahan lagana chahiye?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Recent swing high/low ke beyond ya ATR based</div>
+                    <div class="option" data-correct="false">Kahin bhi random jagah</div>
+                    <div class="option" data-correct="false">Bilkul entry ke paas bina calculation</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Histogram peak pe kya kar sakte hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Partial profits book karna</div>
+                    <div class="option" data-correct="false">Poora account double karna</div>
+                    <div class="option" data-correct="false">Stop loss hata dena</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Strong trend mein kya best rehta hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Trailing stop use karna</div>
+                    <div class="option" data-correct="false">Trade band kar dena</div>
+                    <div class="option" data-correct="false">Settings badalna</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. MACD kin markets mein unreliable hota hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Ranging / sideways markets mein</div>
+                    <div class="option" data-correct="false">Trending markets mein</div>
+                    <div class="option" data-correct="false">Crypto markets mein</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 15 -->
@@ -880,6 +1697,60 @@
                 <li>Risk:Reward minimum 1:2 hai?</li>
                 <li>Stop Loss aur Take Profit set kar liye?</li>
             </ul>
+        
+        <div class="quiz">
+            <h3>Sawaal o Jawaab - Chapter 15</h3>
+
+            <div class="question">
+                <p>1. MACD ka sab se reliable entry signal kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Signal Line Crossover</div>
+                    <div class="option" data-correct="false">Zero Line ke neeche ka first bar</div>
+                    <div class="option" data-correct="false">Volume bar ka rang</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>2. Crypto mein kaun si settings bohot effective hain?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Classic 12, 26, 9</div>
+                    <div class="option" data-correct="false">5, 34, 5</div>
+                    <div class="option" data-correct="false">2, 4, 6</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>3. Zero line crossover ki ___ decide karti hai.</p>
+                <div class="options">
+                    <div class="option" data-correct="true">quality</div>
+                    <div class="option" data-correct="false">speed</div>
+                    <div class="option" data-correct="false">qeemat</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>4. Highest probability setup kya hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Divergence + Crossover + Price Action</div>
+                    <div class="option" data-correct="false">Sirf ek crossover</div>
+                    <div class="option" data-correct="false">Sirf ek candlestick pattern</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="question">
+                <p>5. Pre-trade checklist mein minimum Risk:Reward kitni hai?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">1:2</div>
+                    <div class="option" data-correct="false">1:1</div>
+                    <div class="option" data-correct="false">Koi bhi</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </div>
         </section>
 
         <!-- CHAPTER 16 -->
@@ -909,5 +1780,36 @@
         </footer>
 
     </div>
+<script>
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const question = this.closest('.question');
+      if (question.classList.contains('answered')) return;
+
+      const isCorrect = this.getAttribute('data-correct') === 'true';
+      const allOptions = question.querySelectorAll('.option');
+      const feedback = question.querySelector('.feedback');
+
+      allOptions.forEach(opt => {
+        opt.classList.add('answered');
+        if (opt.getAttribute('data-correct') === 'true') {
+          opt.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        this.classList.add('correct');
+        feedback.textContent = '✓ Sahi Jawaab!';
+        feedback.style.color = '#22c55e';
+      } else {
+        this.classList.add('wrong');
+        feedback.textContent = '✗ Galat. Sahi option green mein highlight hai.';
+        feedback.style.color = '#ef4444';
+      }
+      feedback.classList.add('show');
+      question.classList.add('answered');
+    });
+  });
+</script>
 </body>
 </html>

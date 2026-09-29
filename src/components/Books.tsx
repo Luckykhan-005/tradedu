@@ -92,7 +92,7 @@ export const books: BookItem[] = [
     description:
       'MACD ki expert level guide — formula, histogram, divergence, crossovers, zero line aur practical trading setups. Roman Urdu mein, 16 chapters.',
     chapters: 16,
-    pages: '16 chapters',
+    pages: '16 chapters · 75 questions',
     icon: BarChart3,
     color: 'text-purple-600',
     bgColor: 'bg-purple-50',
