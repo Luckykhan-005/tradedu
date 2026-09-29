@@ -73,6 +73,11 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
     description:
       'Free liquidation heatmap: BTC, ETH, SOL ka estimated liquidation zones live — long/short clusters, funding aur open interest ke sath Roman Urdu guide.',
   },
+  market: {
+    title: 'Crypto Market Overview — Live Prices, Dominance & Fear Greed | TradeEd',
+    description:
+      'Live crypto market overview: top 12 coins ki prices, total market cap, BTC/ETH dominance aur fear & greed index — Roman Urdu ke sath, har 60 second update.',
+  },
   certificates: {
     title: 'Course Certificates | TradeEd',
     description:

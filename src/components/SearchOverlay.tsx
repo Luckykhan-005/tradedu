@@ -8,6 +8,7 @@ import {
   Calculator,
   GraduationCap,
   ArrowRight,
+  TrendingUp,
 } from 'lucide-react'
 import type { Page } from './Navigation'
 import { books } from './Books'
@@ -40,6 +41,7 @@ const pageResults: SearchResult[] = [
   { id: 'p-blog', title: 'Blog', subtitle: 'Trading articles & guides in Roman Urdu', category: 'Page', icon: Newspaper, action: { page: 'blog' } },
   { id: 'p-mentor', title: 'AI Trading Mentor', subtitle: 'Sawal poochein — instant jawab', category: 'Page', icon: BookMarked, action: { page: 'mentor' } },
   { id: 'p-glossary', title: 'Trading Glossary', subtitle: '100+ trading terms (English + Urdu)', category: 'Page', icon: BookMarked, action: { page: 'glossary' } },
+  { id: 'p-market', title: 'Market Overview', subtitle: 'Live prices, dominance aur fear & greed index', category: 'Page', icon: TrendingUp, action: { page: 'market' } },
   { id: 'p-calc', title: 'Free Trading Calculators', subtitle: 'Position size, risk, P&L & more', category: 'Page', icon: Calculator, action: { page: 'calculator' } },
   { id: 'p-journal', title: 'Trading Journal', subtitle: 'Track your trades', category: 'Page', icon: FileText, action: { page: 'journal' } },
   { id: 'p-certificates', title: 'Certificates', subtitle: 'Course completion certificates', category: 'Page', icon: GraduationCap, action: { page: 'certificates' } },

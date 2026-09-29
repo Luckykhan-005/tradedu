@@ -18,6 +18,7 @@ import { CalculatorDetail } from './components/CalculatorDetail'
 import { Glossary } from './components/Glossary'
 import { Journal } from './components/Journal'
 import { Liquidation } from './components/Liquidation'
+import { MarketOverview } from './components/MarketOverview'
 import { Certificates } from './components/Certificates'
 import { Pricing } from './components/Pricing'
 import { PlanGate } from './components/PlanGate'
@@ -79,6 +80,7 @@ const pageToPath: Partial<Record<Page, string>> = {
   glossary: '/glossary',
   journal: '/journal',
   liquidation: '/liquidation',
+  market: '/market-overview',
   certificates: '/certificates',
   pricing: '/pricing',
   subscribe: '/subscribe',
@@ -681,9 +683,12 @@ export default function App() {
         )
       )}
 
-      {currentPage === 'liquidation' && (
-        <Liquidation />
-      )}
+  {currentPage === 'liquidation' && (
+  <Liquidation />
+  )}
+  {currentPage === 'market' && (
+    <MarketOverview />
+  )}
 
       {currentPage === 'certificates' && (
         user && (user.role === 'admin' || user.plan !== 'FREE') ? (
