@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import type { Page } from './Navigation'
 import { books } from './Books'
-import { terms } from './Glossary'
+import { terms, termSlug } from './Glossary'
 import { blogPosts, type BlogPost as BlogPostType } from '@/data/blog'
 
 export interface SearchAction {
@@ -69,13 +69,13 @@ const blogResults: SearchResult[] = blogPosts.map((p) => ({
   action: { blogSlug: p.slug },
 }))
 
-const glossaryResults: SearchResult[] = terms.slice(0, 60).map((t) => ({
+const glossaryResults: SearchResult[] = terms.map((t) => ({
   id: `g-${t.term}`,
   title: t.term,
   subtitle: t.definition,
   category: 'Glossary' as const,
   icon: BookMarked,
-  action: { page: 'glossary' },
+  action: { bookHref: `/glossary/${termSlug(t.term)}/` },
 }))
 
 const allResults = [...pageResults, ...bookResults, ...blogResults, ...glossaryResults]

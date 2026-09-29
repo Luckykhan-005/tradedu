@@ -12,6 +12,17 @@ export interface Term {
   category: 'basic' | 'technical' | 'psychology' | 'advanced'
 }
 
+export function termSlug(term: string): string {
+  return term
+    .replace(/\s*\([^)]*\)/g, '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 const categories: Record<Term['category'], string> = {
   basic: 'Basic Terms',
   technical: 'Technical Analysis',
@@ -167,7 +178,11 @@ export function Glossary() {
             <Card key={t.term} className="h-full">
               <CardContent className="p-5">
                 <div className="mb-2 flex items-center justify-between gap-2">
-                  <h3 className="text-lg font-bold text-primary">{t.term}</h3>
+                  <h3 className="text-lg font-bold text-primary">
+                    <a href={`/glossary/${termSlug(t.term)}/`} className="hover:underline">
+                      {t.term}
+                    </a>
+                  </h3>
                   <Badge variant="secondary" className="shrink-0">
                     {categories[t.category]}
                   </Badge>
