@@ -322,7 +322,7 @@ export function applyPageSeo({ page, path, post, course, tool, calcSlug }: SeoIn
   upsertMeta('property', 'og:url', `${SITE}${path}`)
   upsertMeta('property', 'og:type', page === 'blog-post' ? 'article' : 'website')
   const ogImage =
-    page === 'blog-post' && post?.hero ? `${SITE}${post.hero}` : `${SITE}/hero-banner.jpg`
+    page === 'blog-post' && post?.hero ? `${SITE}${post.hero}` : `${SITE}/hero-banner.webp`
   upsertMeta('property', 'og:image', ogImage)
   upsertMeta('name', 'twitter:title', document.title)
   if (description) upsertMeta('name', 'twitter:description', description)

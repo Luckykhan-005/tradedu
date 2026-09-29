@@ -280,7 +280,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: '/crypto-fundnext/index.html',
     tags: ['Urdu', 'Prop Trading', 'FundedNext'],
-    cover: '/crypto-fundnext/assets/images/cover.jpg',
+    cover: '/crypto-fundnext/assets/images/cover.webp',
   },
   {
     id: 'glossary',

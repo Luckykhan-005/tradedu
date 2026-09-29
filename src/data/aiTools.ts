@@ -4,7 +4,7 @@ export interface AiToolPage {
   tagline: string
   url: string
   category: string
-  /** Optional custom banner image path (e.g. /banners/alphatrade.jpg). Falls back to gradient. */
+  /** Optional custom banner image path (e.g. /banners/alphatrade.webp). Falls back to gradient. */
   bannerImage?: string
   bannerGradient: string
   description: string
@@ -21,7 +21,7 @@ export const aiToolPages: AiToolPage[] = [
     tagline: 'Institutional Crypto Intelligence',
     url: 'https://ai-crypto-trading-as-b49c.bolt.host/',
     category: 'Intelligence',
-    bannerImage: '/banners/alphatrade.jpg',
+    bannerImage: '/banners/alphatrade.webp',
     bannerGradient: 'from-blue-600 via-blue-700 to-indigo-800',
     description:
       'AlphaTrade AI ek complete crypto trading dashboard hai jisme AI-powered signals, sentiment analysis, news feed, portfolio tracking, risk management aur AI assistant sab kuch ek jagah milta hai. Ye tool har aspect cover karta hai — coin scanner se lekar full trade analysis tak.',
@@ -56,8 +56,8 @@ export const aiToolPages: AiToolPage[] = [
     tagline: 'Opportunity Radar — Detect Before the Market Does',
     url: 'https://crypto-alpha-hunter-rbjv.bolt.host/',
     category: 'Scanner',
-    // Banner image jab aa jaye: public/banners/alphahunter.jpg
-    bannerImage: '/banners/alphahunter.jpg',
+    // Banner image jab aa jaye: public/banners/alphahunter.webp
+    bannerImage: '/banners/alphahunter.webp',
     bannerGradient: 'from-purple-600 via-violet-700 to-indigo-800',
     description:
       'AI Alpha Hunter aapka Opportunity Radar hai — ye market se pehle hidden gems, smart money moves aur breakout patterns detect karta hai. 24/7 high-priority alerts confidence aur risk assessment ke saath milte hain, taake aap move banane se pehle tayyar hon.',
