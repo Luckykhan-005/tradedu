@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Crypto Edge | TradeEd Book</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --accent: #22d3ee;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #1e293b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 2.4rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  header h2 {
+    font-size: 1.2rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .brand {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--orange);
+  }
+  nav.toc {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+  }
+  nav.toc h3 {
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  nav.toc ol {
+    padding-left: 20px;
+  }
+  nav.toc li {
+    margin: 6px 0;
+  }
+  nav.toc a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav.toc a:hover {
+    color: var(--accent);
+  }
+  .chapter {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #334155;
+  }
+  .chapter h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .chapter h3 {
+    font-size: 1.25rem;
+    color: var(--orange);
+    margin: 28px 0 12px;
+  }
+  .chapter p {
+    margin-bottom: 14px;
+  }
+  .chapter ul, .chapter ol {
+    margin: 12px 0 18px 24px;
+  }
+  .chapter li {
+    margin-bottom: 8px;
+  }
+  .highlight {
+    background: #1e293b;
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .svg-box {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 28px 0;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-box svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .quiz {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 36px;
+  }
+  .quiz h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  .question {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #334155;
+  }
+  .question:last-child {
+    border-bottom: none;
+  }
+  .question p {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .option {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .option:hover:not(.answered) {
+    border-color: var(--accent);
+    background: #1e293b;
+  }
+  .option.correct {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .option.wrong {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .option.answered {
+    cursor: default;
+  }
+  .feedback {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    display: none;
+  }
+  .feedback.show {
+    display: block;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-top: 1px solid #334155;
+    margin-top: 40px;
+  }
+  .takeaway {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+  .takeaway strong {
+    color: var(--accent);
+  }
+</style>
+
+<meta name="description" content="The Crypto Edge - crypto trading ki complete strategy guide: market structure, entries, risk management aur trading psychology. Roman Urdu, 15 chapters.">
+<meta name="author" content="M. Aslam Khan">
+<link rel="canonical" href="https://tradeed.online/the-crypto-edge/">
+<meta property="og:title" content="The Crypto Edge | TradeEd Book">
+<meta property="og:description" content="The Crypto Edge - crypto trading ki complete strategy guide: market structure, entries, risk management aur trading psychology. Roman Urdu, 15 chapters.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://tradeed.online/the-crypto-edge/">
+<meta property="og:image" content="https://tradeed.online/covers/the-crypto-edge.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Crypto Edge",
+  "author": { "@type": "Person", "name": "M. Aslam Khan" },
+  "publisher": { "@type": "Organization", "name": "TradeEd" },
+  "inLanguage": "ur-Latn",
+  "url": "https://tradeed.online/the-crypto-edge/",
+  "image": "https://tradeed.online/covers/the-crypto-edge.webp",
+  "description": "The Crypto Edge - crypto trading ki complete strategy guide: market structure, entries, risk management aur trading psychology. Roman Urdu, 15 chapters."
+}
+</script>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>The Crypto Edge</h1>
+  <h2>Mastering High-Probability Indicators for Consistent Trading</h2>
+  <div class="brand">TradeEd Educational Book</div>
+</header>
+
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ch1">Chapter 1 – Introduction: Kyun Zyadatar Crypto Traders Lose Karte Hain</a></li>
+    <li><a href="#ch2">Chapter 2 – Process-Driven Trader ka Mindset</a></li>
+    <li><a href="#ch3">Chapter 3 – Risk Management: Asli Edge</a></li>
+    <li><a href="#ch4">Chapter 4 – RSI: Momentum ka Badshah</a></li>
+    <li><a href="#ch5">Chapter 5 – Moving Averages: Trend ki Wazahat</a></li>
+    <li><a href="#ch6">Chapter 6 – Volume & OBV: Sachai ka Detector</a></li>
+    <li><a href="#ch7">Chapter 7 – MACD: Momentum Confirmation</a></li>
+    <li><a href="#ch8">Chapter 8 – Bollinger Bands: Volatility & Squeeze Mastery</a></li>
+    <li><a href="#ch9">Chapter 9 – Stochastic RSI & Supporting Tools</a></li>
+    <li><a href="#ch10">Chapter 10 – ATR, Fibonacci & Ichimoku</a></li>
+    <li><a href="#ch11">Chapter 11 – Indicators ko Combine Karna</a></li>
+    <li><a href="#ch12">Chapter 12 – Complete Trading Workflow</a></li>
+    <li><a href="#ch13">Chapter 13 – Timeframes & Crypto Specifics</a></li>
+    <li><a href="#ch14">Chapter 14 – Trade Journaling & Improvement</a></li>
+    <li><a href="#ch15">Chapter 15 – Final Thoughts & Next Steps</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<section class="chapter" id="ch1">
+  <h2>Chapter 1</h2>
+  <h3>Introduction: Kyun Zyadatar Crypto Traders Lose Karte Hain</h3>
+
+  <p>Crypto market 24 ghante, 7 din chalti hai. Volatility bohot zyada hai. Liquidity kabhi kabhi minutes mein ghayab ho jati hai. Is environment mein zyadatar retail traders is liye lose karte hain kyunki unke paas clear aur repeatable process nahi hota.</p>
+
+  <p>Common wajahain:</p>
+  <ul>
+    <li>Sirf ek indicator pe depend karte hain</li>
+    <li>Volatility cycles ko samajhe baghair price ka peecha karte hain</li>
+    <li>Risk management ignore karte hain</li>
+    <li>Wins ya losses ke baad emotionally trade karte hain</li>
+    <li>Koi written workflow ya rules nahi hote</li>
+  </ul>
+
+  <p>Yeh book un traders ke liye hai jo random decisions se nikal kar process-driven trading ki taraf aana chahte hain. Hum high-probability indicators pe focus karenge, khas tor pe Bollinger Bands aur squeeze ke concept pe, aur dikhayenge ke unko doosre tools ke saath kaise combine kiya jaye.</p>
+
+  <div class="highlight">
+    <strong>Is book mein aap seekhenge:</strong><br>
+    • Kaunse indicators crypto mein genuinely useful hain<br>
+    • Unko confidence ke hisaab se kaise rank karein<br>
+    • Bollinger squeeze ko professionally kaise trade karein<br>
+    • Complete step-by-step trading workflow<br>
+    • Apni performance ko continuously kaise improve karein
+  </div>
+
+  <p>Yeh koi get-rich-quick guide nahi hai. Yeh ek educational framework hai jo aapko zyada clarity, discipline aur consistency ke saath trade karne mein madad karega.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Market unpredictable hai. Aapka edge process aur risk management se aata hai, kisi magic indicator se nahi.
+  </div>
+
+  <!-- QUIZ CHAPTER 1 -->
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 1</h3>
+
+    <div class="question" data-qid="1-1">
+      <p>1. Is chapter ke mutabiq retail crypto traders ke lose karne ki sab se common wajah kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Market hamesha rigged hoti hai</div>
+        <div class="option" data-correct="true">Clear aur repeatable process ki kami</div>
+        <div class="option" data-correct="false">Indicators bilkul kaam nahi karte</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="1-2">
+      <p>2. Sirf ek indicator pe depend karna kyun khatarnak hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki indicators mehengay hote hain</div>
+        <div class="option" data-correct="true">Kyunki ek indicator aksar incomplete picture deta hai</div>
+        <div class="option" data-correct="false">Kyunki TradingView pe free nahi milte</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="1-3">
+      <p>3. Is book ka asali maqsad kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Jaldi ameer banna sikhana</div>
+        <div class="option" data-correct="true">Process-driven trading ka educational framework dena</div>
+        <div class="option" data-correct="false">Har trade mein 90% accuracy dena</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="1-4">
+      <p>4. Crypto market ki 24/7 nature process ko kyun aur zaroori bana deti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki market kabhi band nahi hoti aur emotional decisions ka risk badh jata hai</div>
+        <div class="option" data-correct="false">Kyunki weekend pe trading band rehti hai</div>
+        <div class="option" data-correct="false">Kyunki banks open nahi hote</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="1-5">
+      <p>5. “High-probability setup” ka matlab kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">100% guaranteed win</div>
+        <div class="option" data-correct="true">Aisa setup jisme indicators ka confluence ho aur probability behtar ho</div>
+        <div class="option" data-correct="false">Sirf RSI 30 se neeche hona</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 ===================== -->
+<section class="chapter" id="ch2">
+  <h2>Chapter 2</h2>
+  <h3>Process-Driven Trader ka Mindset</h3>
+
+  <p>Indicators tools hain. Mindset decide karta hai ke woh tools sahi use ho rahe hain ya nahi.</p>
+
+  <p>Process-driven trader single trade ke result pe nahi, balki decision ki quality pe focus karta hai. Market uncertain hai. Best setups bhi fail ho sakte hain. Jo cheez aap control kar sakte ho woh hai aapka process.</p>
+
+  <h3>Core Principles</h3>
+  <ul>
+    <li><strong>Process over Outcome</strong> – Trade jeetna ya harna control nahi kar sakte. Rules follow karna control kar sakte ho.</li>
+    <li><strong>Uncertainty Accept Karo</strong> – Indicators probability badhate hain, risk khatam nahi karte.</li>
+    <li><strong>Emotional Neutrality</strong> – Badi win ke baad overconfident mat bano. Loss ke baad revenge trading mat karo.</li>
+    <li><strong>Consistency Compounds</strong> – Chhota sa edge baar baar apply karne se better results aate hain.</li>
+  </ul>
+
+  <div class="highlight">
+    Har trade se pehle yeh 3 sawaal poocho:<br>
+    1. Kya yeh mera written setup hai?<br>
+    2. Kya risk clearly defined aur acceptable hai?<br>
+    3. Kya main abhi emotionally calm hoon?<br><br>
+    Agar kisi ek ka jawab “No” hai to trade skip kar do.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Successful trading pehle dimaag mein hoti hai, chart pe baad mein.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 2</h3>
+
+    <div class="question" data-qid="2-1">
+      <p>1. “Process over Outcome” ka practical matlab kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Har trade jeetni chahiye</div>
+        <div class="option" data-correct="true">Rules follow karna result se zyada important hai</div>
+        <div class="option" data-correct="false">Sirf winning trades record karni chahiye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="2-2">
+      <p>2. Indicators risk ko completely khatam kar dete hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Haan, agar sahi use kiye jayein</div>
+        <div class="option" data-correct="true">Nahi, woh sirf probability badhate hain</div>
+        <div class="option" data-correct="false">Sirf RSI risk khatam karta hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="2-3">
+      <p>3. Badi winning trade ke baad overconfidence kyun khatarnak hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki is se rules todne aur zyada risk lene ka chance badh jata hai</div>
+        <div class="option" data-correct="false">Kyunki market band ho jati hai</div>
+        <div class="option" data-correct="false">Kyunki indicators kaam karna band kar dete hain</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="2-4">
+      <p>4. Trade se pehle kaun se 3 sawaal poochne chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Price kitni hai, volume kitna hai, time kya hai</div>
+        <div class="option" data-correct="true">Kya yeh mera setup hai, risk defined hai, emotionally calm hoon</div>
+        <div class="option" data-correct="false">Kal kya hua, aaj kya hoga, kal kya hoga</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="2-5">
+      <p>5. Consistency kyun important hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki market hamesha same rehti hai</div>
+        <div class="option" data-correct="true">Kyunki chhota edge baar baar apply karne se compounding hota hai</div>
+        <div class="option" data-correct="false">Kyunki sirf consistent log indicators use kar sakte hain</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 3 ===================== -->
+<section class="chapter" id="ch3">
+  <h2>Chapter 3</h2>
+  <h3>Risk Management: Asli Edge</h3>
+
+  <p>Koi bhi indicator us trader ko nahi bacha sakta jo ek trade pe bohot zyada risk leta hai.</p>
+
+  <p>Risk management asli edge is liye hai kyunki yeh aapko market mein itni der alive rakhta hai ke aapka edge kaam kar sake.</p>
+
+  <h3>Is Book ke Basic Rules</h3>
+  <ul>
+    <li>Har trade pe capital ka sirf 0.5% se 1% risk lo</li>
+    <li>Minimum risk-reward 1:1.5 rakho (prefer 1:2)</li>
+    <li>Position size stop-loss ki distance se calculate karo</li>
+    <li>Losing streak ke baad position size kabhi mat badhao</li>
+    <li>ATR use karke realistic stops set karo</li>
+  </ul>
+
+  <div class="highlight">
+    1% risk per trade wala trader lambi losing streak bhi survive kar sakta hai. 5-10% risk wala aksar nahi kar pata.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Risk management optional nahi hai. Yeh har strategy ki foundation hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 3</h3>
+
+    <div class="question" data-qid="3-1">
+      <p>1. Risk management ko “asli edge” kyun kaha gaya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh indicators se better hai</div>
+        <div class="option" data-correct="true">Kyunki yeh trader ko market mein alive rakhta hai</div>
+        <div class="option" data-correct="false">Kyunki is se har trade jeet jati hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="3-2">
+      <p>2. Is book mein recommended risk per trade kitna hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">5% se 10%</div>
+        <div class="option" data-correct="true">0.5% se 1%</div>
+        <div class="option" data-correct="false">2% se 3%</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="3-3">
+      <p>3. Position size kaise calculate karni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Jo dil kare utna</div>
+        <div class="option" data-correct="true">Stop-loss ki distance aur risk percentage se</div>
+        <div class="option" data-correct="false">Hamesha same quantity</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="3-4">
+      <p>4. Losing streak ke baad position size badhana kyun galat hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki is se risk aur badh jata hai aur account jaldi khatam ho sakta hai</div>
+        <div class="option" data-correct="false">Kyunki indicators kharab ho jate hain</div>
+        <div class="option" data-correct="false">Kyunki broker allow nahi karta</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="3-5">
+      <p>5. ATR stop-loss set karne mein kaise madad karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Yeh price predict karta hai</div>
+        <div class="option" data-correct="true">Yeh current volatility ke hisaab se realistic stop distance batata hai</div>
+        <div class="option" data-correct="false">Yeh sirf volume dikhata hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<section class="chapter" id="ch4">
+  <h2>Chapter 4</h2>
+  <h3>RSI: Momentum ka Badshah</h3>
+
+  <p>Relative Strength Index (RSI) recent price changes ki speed aur magnitude measure karta hai. Crypto mein yeh sab se reliable momentum tools mein se ek hai.</p>
+
+  <p><strong>Standard setting:</strong> 14-period</p>
+
+  <p><strong>Key levels:</strong></p>
+  <ul>
+    <li>70 se upar → Overbought zone</li>
+    <li>30 se neeche → Oversold zone</li>
+    <li>50 level → Momentum shift line</li>
+  </ul>
+
+  <h3>Professional Guidelines</h3>
+  <ul>
+    <li>Sirf is liye buy/sell mat karo ke RSI overbought ya oversold hai</li>
+    <li>Divergence dekho: price new high banaye aur RSI lower high → bearish divergence</li>
+    <li>50 level ko filter ki tarah use karo. Higher timeframe pe RSI 50 ke upar ho to long bias better hai</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> RSI ko akela mat use karo. Trend aur volatility tools ke saath combine karo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 4</h3>
+
+    <div class="question" data-qid="4-1">
+      <p>1. RSI kya measure karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf volume</div>
+        <div class="option" data-correct="true">Recent price changes ki speed aur magnitude</div>
+        <div class="option" data-correct="false">Future price</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="4-2">
+      <p>2. Standard overbought level kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">50</div>
+        <div class="option" data-correct="true">70</div>
+        <div class="option" data-correct="false">30</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="4-3">
+      <p>3. RSI ko sirf overbought/oversold dekh kar trade kyun nahi karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki strong trend mein RSI lambay arse tak extreme reh sakta hai</div>
+        <div class="option" data-correct="false">Kyunki RSI hamesha galat hota hai</div>
+        <div class="option" data-correct="false">Kyunki iska setting galat hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="4-4">
+      <p>4. Bullish divergence kab banti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Price aur RSI dono new high banayein</div>
+        <div class="option" data-correct="true">Price lower low banaye aur RSI higher low</div>
+        <div class="option" data-correct="false">RSI 70 se upar ho</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="4-5">
+      <p>5. 50 level ko kaise use karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Ispe enter karna chahiye</div>
+        <div class="option" data-correct="true">Momentum shift filter ki tarah</div>
+        <div class="option" data-correct="false">Isse ignore karna chahiye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<section class="chapter" id="ch5">
+  <h2>Chapter 5</h2>
+  <h3>Moving Averages: Trend ki Wazahat</h3>
+
+  <p>Moving averages price data ko smooth karti hain aur trend ka direction clear karti hain.</p>
+
+  <p><strong>Crypto ke liye recommended combination:</strong></p>
+  <ul>
+    <li>EMA 9 & EMA 21 → Short-term momentum</li>
+    <li>EMA 50 & EMA 200 → Major trend</li>
+  </ul>
+
+  <p>Jab price 200 EMA ke upar ho aur 50 EMA bhi 200 EMA ke upar ho, to higher-timeframe bias bullish hota hai.</p>
+
+  <p><strong>Golden Cross:</strong> 50 EMA, 200 EMA ke upar cross kare → Bullish<br>
+  <strong>Death Cross:</strong> 50 EMA, 200 EMA ke neeche cross kare → Bearish</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Moving averages future predict nahi karti. Woh current trend describe karti hain taake aap uske against trade na karo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 5</h3>
+
+    <div class="question" data-qid="5-1">
+      <p>1. Moving averages ka asali kaam kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Future price batana</div>
+        <div class="option" data-correct="true">Trend ka direction clear karna</div>
+        <div class="option" data-correct="false">Volume measure karna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="5-2">
+      <p>2. Major trend ke liye kaun si EMAs recommend ki gayi hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">EMA 9 aur 21</div>
+        <div class="option" data-correct="true">EMA 50 aur 200</div>
+        <div class="option" data-correct="false">Sirf EMA 20</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="5-3">
+      <p>3. Golden Cross kya hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Price neeche girti hai</div>
+        <div class="option" data-correct="true">50 EMA, 200 EMA ke upar cross karti hai</div>
+        <div class="option" data-correct="false">RSI 70 se upar jata hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="5-4">
+      <p>4. Higher timeframe moving averages ke against trade kyun avoid karni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki probability kam ho jati hai</div>
+        <div class="option" data-correct="false">Kyunki broker allow nahi karta</div>
+        <div class="option" data-correct="false">Kyunki indicators toot jate hain</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="5-5">
+      <p>5. Moving averages future predict karti hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Haan, bilkul</div>
+        <div class="option" data-correct="true">Nahi, woh current trend describe karti hain</div>
+        <div class="option" data-correct="false">Sirf 200 EMA predict karti hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 6 ===================== -->
+<section class="chapter" id="ch6">
+  <h2>Chapter 6</h2>
+  <h3>Volume & OBV: Sachai ka Detector</h3>
+
+  <p>Price jhoot bol sakti hai. Volume bohot mushkil se jhoot bolta hai.</p>
+
+  <ul>
+    <li>Breakout ke saath volume ka clear increase hona chahiye</li>
+    <li>Low volume pe breakout aksar false hota hai</li>
+    <li>OBV (On-Balance Volume) tab rise karta hai jab up days pe volume zyada ho</li>
+    <li>Rising OBV + rising price = accumulation</li>
+    <li>Falling OBV + rising price = distribution</li>
+  </ul>
+
+  <div class="highlight">
+    Is book ke system mein Bollinger Band breakout ko valid maanne ke liye volume confirmation zaroori hai.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Volume ke baghair breakout pe trust mat karo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 6</h3>
+
+    <div class="question" data-qid="6-1">
+      <p>1. Volume ko “sachai ka detector” kyun kaha gaya?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh hamesha sahi hota hai</div>
+        <div class="option" data-correct="true">Kyunki price ke muqable volume ko manipulat karna mushkil hai</div>
+        <div class="option" data-correct="false">Kyunki yeh free milta hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="6-2">
+      <p>2. Low volume pe breakout usually kya indicate karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bohot strong move</div>
+        <div class="option" data-correct="true">False ya weak move</div>
+        <div class="option" data-correct="false">Trend change</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="6-3">
+      <p>3. OBV kaise kaam karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf price dekh kar</div>
+        <div class="option" data-correct="true">Up days pe volume add, down days pe subtract karta hai</div>
+        <div class="option" data-correct="false">Sirf RSI ke saath</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="6-4">
+      <p>4. Rising OBV ke saath rising price kya suggest karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Distribution</div>
+        <div class="option" data-correct="true">Accumulation</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="6-5">
+      <p>5. Is book ke system mein Bollinger breakout ke liye volume confirmation kyun zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki is se false breakouts filter hote hain</div>
+        <div class="option" data-correct="false">Kyunki volume free hai</div>
+        <div class="option" data-correct="false">Kyunki yeh rule nahi hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 7 ===================== -->
+<section class="chapter" id="ch7">
+  <h2>Chapter 7</h2>
+  <h3>MACD: Momentum Confirmation</h3>
+
+  <p>MACD trend direction aur momentum strength dono dikhata hai.</p>
+
+  <p><strong>Components:</strong></p>
+  <ul>
+    <li>MACD Line</li>
+    <li>Signal Line</li>
+    <li>Histogram</li>
+  </ul>
+
+  <p>Histogram zero line ke upar ho to bullish momentum. Crossover zero line ke upar ho to zyada strong maana jata hai.</p>
+
+  <p>MACD ko primary entry signal ki jagah confirmation tool ki tarah use karo. RSI aur Bollinger ke saath combine karne se quality behtar hoti hai.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> MACD confirmation ke liye best hai, akela entry ke liye nahi.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 7</h3>
+
+    <div class="question" data-qid="7-1">
+      <p>1. MACD ke 3 main components kaun se hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">RSI, Volume, ATR</div>
+        <div class="option" data-correct="true">MACD Line, Signal Line, Histogram</div>
+        <div class="option" data-correct="false">Upper, Middle, Lower Band</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="7-2">
+      <p>2. Histogram zero line ke upar hone ka matlab kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bearish momentum</div>
+        <div class="option" data-correct="true">Bullish momentum</div>
+        <div class="option" data-correct="false">Koi momentum nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="7-3">
+      <p>3. MACD crossover kab zyada strong maana jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Zero line ke neeche</div>
+        <div class="option" data-correct="true">Zero line ke upar</div>
+        <div class="option" data-correct="false">Hamesha same</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="7-4">
+      <p>4. Is book mein MACD ko kaise use karne ka mashwara diya gaya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Primary entry signal</div>
+        <div class="option" data-correct="true">Confirmation tool</div>
+        <div class="option" data-correct="false">Sirf divergence ke liye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="7-5">
+      <p>5. MACD ko kis ke saath combine karna behtar hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf khud ke saath</div>
+        <div class="option" data-correct="true">RSI aur Bollinger Bands ke saath</div>
+        <div class="option" data-correct="false">Sirf news ke saath</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 8 (CORE) ===================== -->
+<section class="chapter" id="ch8">
+  <h2>Chapter 8</h2>
+  <h3>Bollinger Bands: Volatility & Squeeze Mastery</h3>
+
+  <p>Bollinger Bands is book ka core volatility tool hain.</p>
+
+  <p><strong>Structure:</strong></p>
+  <ul>
+    <li>Middle Band = 20-period SMA</li>
+    <li>Upper Band = Middle + (2 × Standard Deviation)</li>
+    <li>Lower Band = Middle – (2 × Standard Deviation)</li>
+  </ul>
+
+  <p>Jab bands wide hoti hain to volatility high hoti hai. Jab bands tight ho kar almost chipak jati hain to us condition ko <strong>Squeeze</strong> kehte hain.</p>
+
+  <p>Squeeze ka matlab hai ke energy build ho rahi hai. Iske baad aksar strong directional move aata hai.</p>
+
+  <!-- SVG 1: Normal Bands -->
+  <div class="svg-box">
+    <svg width="560" height="280" viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="280" fill="#0f172a"/>
+      <text x="180" y="28" fill="#94a3b8" font-size="14">Normal / Expanding Bands (High Volatility)</text>
+      <path d="M40,70 Q120,40 200,65 T360,55 T520,80" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M40,140 Q120,135 200,142 T360,138 T520,145" fill="none" stroke="#f8fafc" stroke-width="2"/>
+      <path d="M40,210 Q120,230 200,205 T360,225 T520,215" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M40,160 Q90,120 150,155 T250,110 T350,180 T450,100 T520,150" fill="none" stroke="#f97316" stroke-width="2.5"/>
+      <text x="50" y="60" fill="#22d3ee" font-size="12">Upper Band</text>
+      <text x="50" y="135" fill="#f8fafc" font-size="12">Middle Band</text>
+      <text x="50" y="230" fill="#22d3ee" font-size="12">Lower Band</text>
+      <text x="420" y="95" fill="#f97316" font-size="12">Price</text>
+    </svg>
+  </div>
+
+  <!-- SVG 2: Squeeze -->
+  <div class="svg-box">
+    <svg width="560" height="280" viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="280" fill="#0f172a"/>
+      <text x="190" y="28" fill="#94a3b8" font-size="14">Bollinger Squeeze (Low Volatility)</text>
+      <path d="M40,125 Q140,120 240,128 T440,122 T520,130" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M40,140 Q140,138 240,142 T440,139 T520,143" fill="none" stroke="#f8fafc" stroke-width="2"/>
+      <path d="M40,155 Q140,158 240,152 T440,156 T520,150" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M40,140 Q90,135 150,145 T250,138 T350,148 T450,135 T520,142" fill="none" stroke="#f97316" stroke-width="2.5"/>
+      <rect x="200" y="110" width="160" height="55" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4" rx="4"/>
+      <text x="235" y="100" fill="#ef4444" font-size="13" font-weight="bold">SQUEEZE ZONE</text>
+    </svg>
+  </div>
+
+  <!-- SVG 3: Breakout -->
+  <div class="svg-box">
+    <svg width="560" height="300" viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="300" fill="#0f172a"/>
+      <text x="160" y="28" fill="#94a3b8" font-size="14">Squeeze ke baad Bullish Breakout</text>
+      <path d="M40,160 Q100,155 160,158 T260,156" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40,170 Q100,168 160,171 T260,169" fill="none" stroke="#f8fafc" stroke-width="1.5"/>
+      <path d="M40,180 Q100,182 160,179 T260,181" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M260,156 Q320,120 380,90 T520,60" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M260,169 Q320,150 380,135 T520,120" fill="none" stroke="#f8fafc" stroke-width="1.5"/>
+      <path d="M260,181 Q320,175 380,170 T520,165" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M40,172 Q120,170 200,168 T260,165 L320,115 L400,80 L520,55" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+      <circle cx="270" cy="163" r="5" fill="#22c55e"/>
+      <text x="280" y="155" fill="#22c55e" font-size="12">Breakout</text>
+    </svg>
+  </div>
+
+  <h3>TradeEd Squeeze Breakout Rules</h3>
+
+  <p><strong>Bullish Setup:</strong></p>
+  <ol>
+    <li>Clear Squeeze form ho (bands tight)</li>
+    <li>Price Upper Band se upar strong candle close kare</li>
+    <li>Volume significantly increase ho</li>
+    <li>RSI 50 ke upar ho</li>
+    <li>Higher timeframe trend bullish ho</li>
+  </ol>
+
+  <p><strong>Bearish Setup:</strong> Bilkul opposite conditions.</p>
+
+  <p><strong>Stop Loss:</strong> Opposite band ke thoda bahar ya ATR based.<br>
+  <strong>Targets:</strong> Pehla target opposite band, phir 1.5x–2x risk. Trailing ke liye middle band use karo.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Bollinger Bands volume aur momentum confirmation ke saath sab se powerful hote hain.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 8</h3>
+
+    <div class="question" data-qid="8-1">
+      <p>1. Bollinger Bands ki 3 lines kya represent karti hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">RSI, MACD, Volume</div>
+        <div class="option" data-correct="true">Middle (SMA), Upper (+2 SD), Lower (–2 SD)</div>
+        <div class="option" data-correct="false">Support, Resistance, Trend</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="8-2">
+      <p>2. “Squeeze” ka matlab kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bands bohot wide ho gayi hain</div>
+        <div class="option" data-correct="true">Bands tight ho kar almost chipak gayi hain (low volatility)</div>
+        <div class="option" data-correct="false">Price neeche gir rahi hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="8-3">
+      <p>3. Valid bullish squeeze breakout ke liye kaun si condition zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf RSI 70 se upar</div>
+        <div class="option" data-correct="true">Squeeze + Upper Band close + Volume spike + RSI > 50 + Higher TF bullish</div>
+        <div class="option" data-correct="false">Sirf price Upper Band touch kare</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="8-4">
+      <p>4. Squeeze breakout pe stop-loss kahan lagani chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Entry ke bilkul paas</div>
+        <div class="option" data-correct="true">Opposite band ke thoda bahar ya ATR based</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="8-5">
+      <p>5. Bollinger breakout mein volume confirmation kyun important hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki is se false breakouts filter ho jate hain</div>
+        <div class="option" data-correct="false">Kyunki volume hamesha high hota hai</div>
+        <div class="option" data-correct="false">Kyunki yeh zaroori nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 9 ===================== -->
+<section class="chapter" id="ch9">
+  <h2>Chapter 9</h2>
+  <h3>Stochastic RSI & Supporting Tools</h3>
+
+  <p>Stochastic RSI, RSI values pe Stochastic formula apply karta hai. Is se yeh momentum shifts ke liye zyada sensitive ho jata hai.</p>
+
+  <p>Yeh already identified trend ya squeeze ke baad entry timing ke liye useful hai.</p>
+
+  <ul>
+    <li>Yeh regular RSI se zyada baar overbought/oversold levels touch karta hai</li>
+    <li>Best use: fine-tuning entries</li>
+    <li>Strong trend mein standalone signal ki tarah mat use karo</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Stochastic RSI timing tool hai, direction tool nahi.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 9</h3>
+
+    <div class="question" data-qid="9-1">
+      <p>1. Stochastic RSI regular RSI se kaise different hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Yeh volume measure karta hai</div>
+        <div class="option" data-correct="true">Yeh RSI pe Stochastic formula laga kar zyada sensitive banata hai</div>
+        <div class="option" data-correct="false">Yeh bilkul same hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="9-2">
+      <p>2. Stochastic RSI ka best use kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Overall trend decide karna</div>
+        <div class="option" data-correct="true">Entry timing fine-tune karna</div>
+        <div class="option" data-correct="false">Stop-loss set karna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="9-3">
+      <p>3. Strong trend mein Stochastic RSI ko standalone kyun nahi use karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki yeh bohot baar extreme levels pe reh sakta hai</div>
+        <div class="option" data-correct="false">Kyunki yeh kaam nahi karta</div>
+        <div class="option" data-correct="false">Kyunki yeh free nahi hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="9-4">
+      <p>4. Stochastic RSI kis cheez ke liye zyada useful hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Long-term investment</div>
+        <div class="option" data-correct="true">Short-term entry timing</div>
+        <div class="option" data-correct="false">News trading</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="9-5">
+      <p>5. Is book mein Stochastic RSI ko kis category mein rakha gaya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Primary trend indicator</div>
+        <div class="option" data-correct="true">Supporting / timing tool</div>
+        <div class="option" data-correct="false">Volume indicator</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 10 ===================== -->
+<section class="chapter" id="ch10">
+  <h2>Chapter 10</h2>
+  <h3>ATR, Fibonacci & Ichimoku: Toolkit Complete Karna</h3>
+
+  <p><strong>ATR (Average True Range)</strong> – Volatility measure karta hai. Stop-loss aur position sizing ke liye use hota hai taake risk har market condition mein consistent rahe.</p>
+
+  <p><strong>Fibonacci Retracement</strong> – Trend ke andar potential pullback zones identify karne mein madad karta hai (khas tor pe 0.5 aur 0.618).</p>
+
+  <p><strong>Ichimoku Cloud</strong> – Ek hi view mein trend, support/resistance aur momentum dikhata hai. Higher timeframes (4H / Daily) pe sab se useful.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Yeh teen tools refinement ke liye hain, primary decision makers nahi.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 10</h3>
+
+    <div class="question" data-qid="10-1">
+      <p>1. ATR ka asali practical use kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Entry signal dena</div>
+        <div class="option" data-correct="true">Stop-loss aur position size set karna</div>
+        <div class="option" data-correct="false">Trend predict karna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="10-2">
+      <p>2. Fibonacci ke kaun se levels pullback ke liye highlight kiye gaye hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236 aur 0.382</div>
+        <div class="option" data-correct="true">0.5 aur 0.618</div>
+        <div class="option" data-correct="false">1.0 aur 1.618</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="10-3">
+      <p>3. Ichimoku Cloud kis timeframe pe sab se effective hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">1-minute</div>
+        <div class="option" data-correct="true">4H aur Daily</div>
+        <div class="option" data-correct="false">Tick chart</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="10-4">
+      <p>4. ATR, Fibonacci ya Ichimoku ko primary entry signal ki tarah use karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Haan</div>
+        <div class="option" data-correct="true">Nahi, yeh refinement tools hain</div>
+        <div class="option" data-correct="false">Sirf ATR ko</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="10-5">
+      <p>5. Yeh tools toolkit ko kaise “complete” karte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Core indicators ki jagah le kar</div>
+        <div class="option" data-correct="true">Risk, pullback zones aur higher TF context de kar</div>
+        <div class="option" data-correct="false">Volume hata kar</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 11 ===================== -->
+<section class="chapter" id="ch11">
+  <h2>Chapter 11</h2>
+  <h3>Indicators ko Combine Karna – High-Probability Setups</h3>
+
+  <p>Koi bhi single indicator kaafi nahi. Edge confluence se aati hai.</p>
+
+  <p><strong>Preferred order:</strong></p>
+  <ol>
+    <li>Higher-timeframe trend (Moving Averages + Ichimoku)</li>
+    <li>Volatility condition (Bollinger Squeeze)</li>
+    <li>Breakout confirmation (price close + volume)</li>
+    <li>Momentum confirmation (RSI + MACD)</li>
+    <li>Timing refinement (Stochastic RSI agar zaroorat ho)</li>
+    <li>Risk placement (ATR)</li>
+  </ol>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Jitne zyada filters match karein, utna setup high-probability maana jata hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 11</h3>
+
+    <div class="question" data-qid="11-1">
+      <p>1. Confluence single indicator se kyun better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh complex hai</div>
+        <div class="option" data-correct="true">Kyunki kai tools ka agreement probability badhata hai</div>
+        <div class="option" data-correct="false">Kyunki yeh free hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="11-2">
+      <p>2. Bollinger squeeze dekhne se pehle pehla filter kya hona chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">RSI</div>
+        <div class="option" data-correct="true">Higher-timeframe trend</div>
+        <div class="option" data-correct="false">News</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="11-3">
+      <p>3. Preferred combination order mein volume kis step pe aata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sab se last</div>
+        <div class="option" data-correct="true">Breakout confirmation ke saath</div>
+        <div class="option" data-correct="false">Pehle</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="11-4">
+      <p>4. High-probability setup tab maana jata hai jab…</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf ek indicator match kare</div>
+        <div class="option" data-correct="true">Zyadatar filters match karein</div>
+        <div class="option" data-correct="false">Koi filter na ho</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="11-5">
+      <p>5. Risk placement ke liye kaun sa tool use hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">RSI</div>
+        <div class="option" data-correct="true">ATR</div>
+        <div class="option" data-correct="false">MACD</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 12 ===================== -->
+<section class="chapter" id="ch12">
+  <h2>Chapter 12</h2>
+  <h3>Complete Trading Workflow</h3>
+
+  <p>Step-by-step process:</p>
+  <ol>
+    <li>Higher-timeframe trend bias check karo</li>
+    <li>Trading timeframe pe Bollinger squeezes scan karo</li>
+    <li>Clear breakout candle + volume ka wait karo</li>
+    <li>RSI aur MACD se momentum confirm karo</li>
+    <li>ATR based stop se position size calculate karo</li>
+    <li>Breakout close ya next open pe enter karo</li>
+    <li>Stop-loss aur initial targets set karo</li>
+    <li>Middle band ko trailing reference banao</li>
+    <li>Har trade ko journal mein record karo (result se independent)</li>
+  </ol>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Yeh workflow discretionary decisions kam karta hai aur process pe focus rakhta hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 12</h3>
+
+    <div class="question" data-qid="12-1">
+      <p>1. Complete workflow ka pehla step kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant enter karna</div>
+        <div class="option" data-correct="true">Higher-timeframe trend bias check karna</div>
+        <div class="option" data-correct="false">RSI dekhna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="12-2">
+      <p>2. Volume kis stage pe check hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sab se last</div>
+        <div class="option" data-correct="true">Breakout candle ke saath</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="12-3">
+      <p>3. Position size kaise determine ki jati hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Random</div>
+        <div class="option" data-correct="true">ATR based stop se</div>
+        <div class="option" data-correct="false">Hamesha same</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="12-4">
+      <p>4. Trade management mein trailing reference kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">RSI 50</div>
+        <div class="option" data-correct="true">Middle Band</div>
+        <div class="option" data-correct="false">Previous day high</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="12-5">
+      <p>5. Har trade ko journal mein kyun record karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf winning trades</div>
+        <div class="option" data-correct="true">Result se independent, taake process improve ho sake</div>
+        <div class="option" data-correct="false">Zaroorat nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 13 ===================== -->
+<section class="chapter" id="ch13">
+  <h2>Chapter 13</h2>
+  <h3>Timeframes, Market Conditions & Crypto Specifics</h3>
+
+  <p><strong>Recommended approach:</strong></p>
+  <ul>
+    <li>Higher timeframe (4H ya Daily) → Bias</li>
+    <li>Lower timeframe (15-min se 1H) → Execution</li>
+  </ul>
+
+  <p><strong>Crypto specific notes:</strong></p>
+  <ul>
+    <li>Major pairs (BTC, ETH) technical levels ko better respect karte hain</li>
+    <li>High-impact news se pehle trading avoid karo</li>
+    <li>Weekend pe liquidity kam ho sakti hai – size reduce karo</li>
+    <li>Funding rates aur open interest secondary hain, price aur volume primary</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Same rules ko different market conditions mein adapt karo, lekin process mat chhoro.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 13</h3>
+
+    <div class="question" data-qid="13-1">
+      <p>1. Bias ke liye kaun sa timeframe recommend kiya gaya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">1-minute</div>
+        <div class="option" data-correct="true">4H ya Daily</div>
+        <div class="option" data-correct="false">Tick</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="13-2">
+      <p>2. Major pairs low-liquidity alts se kyun better behave karte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki woh mehengay hote hain</div>
+        <div class="option" data-correct="true">Kyunki unmein better liquidity aur cleaner technicals hote hain</div>
+        <div class="option" data-correct="false">Kyunki woh hamesha upar jate hain</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="13-3">
+      <p>3. High-impact news se pehle kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Zyada size se trade</div>
+        <div class="option" data-correct="true">Trading avoid ya size bohot kam karo</div>
+        <div class="option" data-correct="false">Ignore karo</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="13-4">
+      <p>4. Weekend conditions trading decisions ko kaise affect kar sakti hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kuch nahi</div>
+        <div class="option" data-correct="true">Liquidity kam ho sakti hai, is liye size reduce karo</div>
+        <div class="option" data-correct="false">Market band rehti hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="13-5">
+      <p>5. Funding rates price aur volume analysis ki jagah le sakte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Haan</div>
+        <div class="option" data-correct="true">Nahi, woh secondary hain</div>
+        <div class="option" data-correct="false">Sirf BTC mein</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 14 ===================== -->
+<section class="chapter" id="ch14">
+  <h2>Chapter 14</h2>
+  <h3>Trade Journaling & Continuous Improvement</h3>
+
+  <p>Trading journal woh feedback system hai jo experience ko skill mein badalta hai.</p>
+
+  <p><strong>Har trade pe minimum yeh record karo:</strong></p>
+  <ul>
+    <li>Date aur pair</li>
+    <li>Setup type (e.g. Bollinger squeeze breakout)</li>
+    <li>Direction aur timeframe</li>
+    <li>Entry, stop, targets</li>
+    <li>Risk percentage aur risk-reward</li>
+    <li>Outcome (win/loss/breakeven)</li>
+    <li>Chart ka screenshot</li>
+    <li>Emotional state (pehle aur baad mein)</li>
+    <li>Ek lesson learned</li>
+  </ul>
+
+  <p>Journal ko weekly review karo. Winning aur losing dono trades mein patterns dhoondo. Rules tabhi change karo jab sufficient sample size ho, chand results ke baad nahi.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Bina journal ke improvement almost impossible hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 14</h3>
+
+    <div class="question" data-qid="14-1">
+      <p>1. Trading journal ka primary purpose kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf wins record karna</div>
+        <div class="option" data-correct="true">Experience ko skill mein badalne ke liye feedback system</div>
+        <div class="option" data-correct="false">Taxes ke liye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="14-2">
+      <p>2. Har trade mein kam az kam kitni cheezein record karni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf entry price</div>
+        <div class="option" data-correct="true">Date, setup, direction, entry/stop/targets, risk, outcome, screenshot, emotion, lesson</div>
+        <div class="option" data-correct="false">Sirf result</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="14-3">
+      <p>3. Chart screenshot kyun useful hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Decoration ke liye</div>
+        <div class="option" data-correct="true">Baad mein visual review ke liye</div>
+        <div class="option" data-correct="false">Zaroorat nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="14-4">
+      <p>4. Journal ko kitni der baad review karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Saal mein ek baar</div>
+        <div class="option" data-correct="true">Weekly</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="14-5">
+      <p>5. Trading rules kab change karne chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Har loss ke baad</div>
+        <div class="option" data-correct="true">Sufficient sample size ke baad patterns dekh kar</div>
+        <div class="option" data-correct="false">Roz</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 15 ===================== -->
+<section class="chapter" id="ch15">
+  <h2>Chapter 15</h2>
+  <h3>Final Thoughts & Next Steps with TradeEd</h3>
+
+  <p>Ab aap ke paas complete framework hai:</p>
+  <ul>
+    <li>Clear mindset</li>
+    <li>Strict risk management</li>
+    <li>Ranked indicators</li>
+    <li>Bollinger squeezes ki gehri samajh</li>
+    <li>Step-by-step workflow</li>
+    <li>Journaling system</li>
+  </ul>
+
+  <p>Jo traders improve karte hain aur jo stuck rehte hain, unmein farq consistent application of written process ka hai.</p>
+
+  <p>Setups ko demo ya chhoti size pe practice karte raho jab tak workflow automatic na ho jaye. Journal regular review karo. Patient raho.</p>
+
+  <p>Agar aap structured guidance, accountability aur in concepts ko further develop karna chahte hain, to TradeEd ke mentorship programs explore karein.</p>
+
+  <div class="highlight">
+    Market hamesha rahegi. Aapka kaam prepared hokar aana, process follow karna, aur capital protect karna hai.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Process + Risk Management + Consistency = Long-term edge.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 15</h3>
+
+    <div class="question" data-qid="15-1">
+      <p>1. Is book ke framework ke 6 main elements kaun se hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf indicators</div>
+        <div class="option" data-correct="true">Mindset, Risk Management, Ranked Indicators, Bollinger mastery, Workflow, Journaling</div>
+        <div class="option" data-correct="false">Sirf Bollinger Bands</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="15-2">
+      <p>2. Improve karne wale aur stuck rehne wale traders mein asali farq kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Capital ki amount</div>
+        <div class="option" data-correct="true">Written process ka consistent application</div>
+        <div class="option" data-correct="false">Indicators ki tadaad</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="15-3">
+      <p>3. Workflow ko pehle demo ya small size pe practice kyun karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki maza aata hai</div>
+        <div class="option" data-correct="true">Taake workflow automatic ho jaye bina bade risk ke</div>
+        <div class="option" data-correct="false">Zaroorat nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="15-4">
+      <p>4. Book khatam hone ke baad journal ka kya role hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Khatam</div>
+        <div class="option" data-correct="true">Continuous improvement ka tool</div>
+        <div class="option" data-correct="false">Sirf record rakhne ke liye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-qid="15-5">
+      <p>5. Book ka final advice kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Jaldi se jaldi ameer ban jao</div>
+        <div class="option" data-correct="true">Prepared raho, process follow karo, capital protect karo</div>
+        <div class="option" data-correct="false">Har din trade karo</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>The Crypto Edge</strong> – TradeEd Educational Book</p>
+  <p>Process • Risk Management • Consistency</p>
+  <p style="margin-top:12px; font-size:0.85rem;">© TradeEd | info@tradeed.online</p>
+</footer>
+
+</div>
+
+<script>
+  // Interactive Quiz Logic
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const question = this.closest('.question');
+      if (question.classList.contains('answered')) return;
+
+      const isCorrect = this.getAttribute('data-correct') === 'true';
+      const allOptions = question.querySelectorAll('.option');
+      const feedback = question.querySelector('.feedback');
+
+      allOptions.forEach(opt => {
+        opt.classList.add('answered');
+        if (opt.getAttribute('data-correct') === 'true') {
+          opt.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        this.classList.add('correct');
+        feedback.textContent = '✓ Sahi Jawaab!';
+        feedback.style.color = '#22c55e';
+      } else {
+        this.classList.add('wrong');
+        feedback.textContent = '✗ Galat. Sahi option green mein hai.';
+        feedback.style.color = '#ef4444';
+      }
+      feedback.classList.add('show');
+      question.classList.add('answered');
+    });
+  });
+</script>
+</body>
+</html>

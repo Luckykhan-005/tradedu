@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MACD (Moving Average Convergence Divergence) - Complete Expert Level Guide | M. Aslam Khan</title>
+    <meta name="description" content="MACD ki complete expert level guide Roman Urdu mein. Momentum + Trend Change Signals, Histogram, Signal Line Crossover, Crypto setups. Author: M. Aslam Khan">
+    <meta name="author" content="M. Aslam Khan">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #7c3aed;
+            --accent-light: #8b5cf6;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-light: #475569;
+            --border: #e2e8f0;
+            --success: #059669;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --macd-blue: #2563eb;
+            --macd-red: #ef4444;
+            --macd-green: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        .book-header {
+            background: linear-gradient(135deg, #0f172a 0%, #4c1d95 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.3);
+        }
+
+        .bismillah {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            color: #fbbf24;
+        }
+
+        .book-title { font-size: 34px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+        .book-subtitle { font-size: 20px; opacity: 0.9; margin-bottom: 25px; }
+
+        .author {
+            font-size: 18px;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 50px;
+            margin-top: 10px;
+        }
+
+        .series { font-size: 14px; opacity: 0.8; margin-top: 15px; }
+
+        .toc {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .toc h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .toc ol { padding-left: 25px; }
+        .toc li { margin-bottom: 10px; font-size: 16px; }
+        .toc a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+        .toc a:hover { color: var(--accent); }
+
+        .chapter {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 35px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .chapter h2 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .chapter h3 { font-size: 20px; color: var(--accent); margin: 28px 0 12px 0; }
+        .chapter h4 { font-size: 18px; color: var(--text); margin: 20px 0 10px 0; }
+        .chapter p { margin-bottom: 14px; color: var(--text-light); }
+        .chapter ul, .chapter ol { margin: 12px 0 18px 25px; color: var(--text-light); }
+        .chapter li { margin-bottom: 8px; }
+
+        .highlight {
+            background: #f5f3ff;
+            border-left: 5px solid var(--accent);
+            padding: 18px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 5px solid var(--danger);
+            padding: 18px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: #ecfdf5;
+            border-left: 5px solid var(--success);
+            padding: 18px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box {
+            background: #fffbeb;
+            border-left: 5px solid var(--warning);
+            padding: 18px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .formula {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 18px;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .formula .sub { font-size: 14px; opacity: 0.85; margin-top: 10px; }
+
+        .diagram {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .diagram svg { max-width: 100%; height: auto; }
+        .diagram-caption { font-size: 14px; color: var(--text-light); margin-top: 12px; font-style: italic; }
+
+        .workflow {
+            background: #f8fafc;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            gap: 15px;
+        }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; padding-top: 6px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: #f8fafc; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            border-bottom: 1px dashed var(--border);
+        }
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .book-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 2px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .book-footer .author-final {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        @media print {
+            body { background: white; font-size: 12pt; }
+            .chapter, .toc, .book-header { box-shadow: none; border: 1px solid #ddd; }
+            .book-header {
+                background: #0f172a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .book-title { font-size: 26px; }
+            .chapter { padding: 25px 18px; }
+            .container { padding: 12px; }
+        }
+    </style>
+
+<meta name="description" content="MACD ki expert level guide Roman Urdu mein - formula, histogram, divergence, crossovers, zero line aur practical setups. 16 chapters.">
+<meta name="author" content="M. Aslam Khan">
+<link rel="canonical" href="https://tradeed.online/macd-complete-guide/">
+<meta property="og:title" content="MACD (Moving Average Convergence Divergence) - Complete Expert Level Guide | M. Aslam Khan">
+<meta property="og:description" content="MACD ki expert level guide Roman Urdu mein - formula, histogram, divergence, crossovers, zero line aur practical setups. 16 chapters.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://tradeed.online/macd-complete-guide/">
+<meta property="og:image" content="https://tradeed.online/covers/macd-complete-guide.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "MACD (Moving Average Convergence Divergence) - Complete Expert Level Guide",
+  "author": { "@type": "Person", "name": "M. Aslam Khan" },
+  "publisher": { "@type": "Organization", "name": "TradeEd" },
+  "inLanguage": "ur-Latn",
+  "url": "https://tradeed.online/macd-complete-guide/",
+  "image": "https://tradeed.online/covers/macd-complete-guide.webp",
+  "description": "MACD ki expert level guide Roman Urdu mein - formula, histogram, divergence, crossovers, zero line aur practical setups. 16 chapters."
+}
+</script>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="book-header">
+            <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+            <h1 class="book-title">MACD<br>(Moving Average Convergence Divergence)</h1>
+            <p class="book-subtitle">Complete Expert Level Guide – Momentum + Trend Change Signals</p>
+            <div class="author">Author: M. Aslam Khan</div>
+            <p class="series">TradeEd Mentorship Series</p>
+        </header>
+
+        <!-- TABLE OF CONTENTS -->
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#ch1">Introduction – MACD Kya Hai?</a></li>
+                <li><a href="#ch2">History aur Inventor</a></li>
+                <li><a href="#ch3">MACD ka Formula aur Exact Calculation</a></li>
+                <li><a href="#ch4">MACD ke 3 Main Components</a></li>
+                <li><a href="#ch5">Signal Line Crossover – Sabse Reliable Signal</a></li>
+                <li><a href="#ch6">Histogram – Momentum ka Clear Picture</a></li>
+                <li><a href="#ch7">Zero Line Crossover</a></li>
+                <li><a href="#ch8">MACD Divergence</a></li>
+                <li><a href="#ch9">Crypto mein MACD Kyun Reliable Hai?</a></li>
+                <li><a href="#ch10">Practical Trading Setups (Step-by-Step)</a></li>
+                <li><a href="#ch11">Advanced Techniques</a></li>
+                <li><a href="#ch12">Common Mistakes aur Unse Bachne ke Tareeqe</a></li>
+                <li><a href="#ch13">Complete Trading Workflow</a></li>
+                <li><a href="#ch14">Risk Management with MACD</a></li>
+                <li><a href="#ch15">Key Takeaways & Final Checklist</a></li>
+                <li><a href="#ch16">Final Words</a></li>
+            </ol>
+        </nav>
+
+        <!-- CHAPTER 1 -->
+        <section class="chapter" id="ch1">
+            <h2>Chapter 1: Introduction – MACD Kya Hai?</h2>
+            
+            <p><strong>MACD (Moving Average Convergence Divergence)</strong> ek <strong>trend-following momentum indicator</strong> hai. Yeh do moving averages ke beech ke difference ko measure karta hai aur traders ko batata hai ke momentum strong hai ya weak, aur trend change ho raha hai ya nahi.</p>
+
+            <div class="highlight">
+                <strong>Simple Definition:</strong><br>
+                MACD yeh dikhata hai ke short-term trend long-term trend se kitna tez ya slow move kar raha hai. Jab short-term MA long-term MA se upar jati hai to bullish momentum, neeche jati hai to bearish momentum.
+            </div>
+
+            <p>MACD ka sabse bada strength yeh hai ke yeh <strong>Momentum</strong> aur <strong>Trend Change</strong> dono ko ek saath dikhata hai. Histogram + Signal Line crossover crypto markets mein bohot reliable signals dete hain.</p>
+
+            <h3>MACD kyun important hai?</h3>
+            <ul>
+                <li>Trend direction aur strength dono measure karta hai</li>
+                <li>Early trend change signals deta hai</li>
+                <li>Histogram se momentum clearly dikhta hai</li>
+                <li>Signal line crossover high-probability entries deta hai</li>
+                <li>Almost har market (Crypto, Forex, Stocks) mein kaam karta hai</li>
+            </ul>
+        </section>
+
+        <!-- CHAPTER 2 -->
+        <section class="chapter" id="ch2">
+            <h2>Chapter 2: History aur Inventor</h2>
+            
+            <p>MACD ko <strong>Gerald Appel</strong> ne late 1970s mein invent kiya tha. Unhone is indicator ko stock market ke liye design kiya, lekin aaj yeh crypto traders ka bhi favourite indicator ban chuka hai.</p>
+
+            <p>Appel ne MACD ko is liye banaya taake traders ko ek aisa tool mile jo Moving Averages ke lag ko kam kare aur momentum ko clearly dikhaye. Baad mein <strong>Thomas Aspray</strong> ne 1986 mein <strong>Histogram</strong> add kiya, jisse MACD aur powerful ban gaya.</p>
+
+            <div class="tip-box">
+                <strong>Interesting Fact:</strong> Original MACD settings 12, 26, 9 hain jo aaj bhi sabse zyada use hote hain. Yeh settings Appel ne stock market ke daily charts ke liye optimize kiye the, lekin crypto mein bhi yeh bohot effective hain.
+            </div>
+        </section>
+
+        <!-- CHAPTER 3 -->
+        <section class="chapter" id="ch3">
+            <h2>Chapter 3: MACD ka Formula aur Exact Calculation</h2>
+            
+            <p>MACD teen parts se banta hai. Pehle formula samajh lete hain:</p>
+
+            <div class="formula">
+                MACD Line = 12-period EMA − 26-period EMA
+                <div class="sub">Signal Line = 9-period EMA of MACD Line</div>
+                <div class="sub">Histogram = MACD Line − Signal Line</div>
+            </div>
+
+            <h3>Step-by-Step Calculation</h3>
+            
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>12-period EMA calculate karo</strong> (short-term)
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>26-period EMA calculate karo</strong> (long-term)
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>MACD Line = 12 EMA − 26 EMA</strong>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Signal Line = MACD Line ki 9-period EMA</strong>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Histogram = MACD Line − Signal Line</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Default Settings:</strong> 12, 26, 9 (sabse balanced aur widely used)<br>
+                Fast settings (scalping): 8, 17, 9 ya 5, 13, 8<br>
+                Slow settings (swing): 19, 39, 9
+            </div>
+        </section>
+
+        <!-- CHAPTER 4 -->
+        <section class="chapter" id="ch4">
+            <h2>Chapter 4: MACD ke 3 Main Components</h2>
+            
+            <p>MACD ko samajhne ke liye uske teen parts ko clearly samajhna zaroori hai.</p>
+
+            <!-- SVG: MACD Components -->
+            <div class="diagram">
+                <svg width="480" height="280" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background -->
+                    <rect x="20" y="20" width="440" height="240" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="8"/>
+                    
+                    <!-- Zero line -->
+                    <line x1="40" y1="140" x2="440" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="30" y="144" font-size="11" fill="#64748b" text-anchor="end">0</text>
+                    
+                    <!-- MACD Line (Blue) -->
+                    <polyline points="50,180 100,160 150,100 200,80 250,110 300,70 350,90 400,50 430,60" 
+                              fill="none" stroke="#2563eb" stroke-width="2.5"/>
+                    <text x="50" y="40" font-size="13" fill="#2563eb" font-weight="700">MACD Line (12-26 EMA)</text>
+                    
+                    <!-- Signal Line (Orange/Red) -->
+                    <polyline points="50,190 100,175 150,130 200,110 250,125 300,100 350,115 400,85 430,95" 
+                              fill="none" stroke="#f97316" stroke-width="2.5"/>
+                    <text x="250" y="40" font-size="13" fill="#f97316" font-weight="700">Signal Line (9 EMA)</text>
+                    
+                    <!-- Histogram bars -->
+                    <rect x="55" y="140" width="12" height="40" fill="#ef4444" opacity="0.7"/>
+                    <rect x="85" y="140" width="12" height="25" fill="#ef4444" opacity="0.7"/>
+                    <rect x="115" y="110" width="12" height="30" fill="#22c55e" opacity="0.7"/>
+                    <rect x="145" y="90" width="12" height="50" fill="#22c55e" opacity="0.7"/>
+                    <rect x="175" y="80" width="12" height="60" fill="#22c55e" opacity="0.7"/>
+                    <rect x="205" y="100" width="12" height="40" fill="#22c55e" opacity="0.7"/>
+                    <rect x="235" y="115" width="12" height="25" fill="#22c55e" opacity="0.7"/>
+                    <rect x="265" y="85" width="12" height="55" fill="#22c55e" opacity="0.7"/>
+                    <rect x="295" y="80" width="12" height="60" fill="#22c55e" opacity="0.7"/>
+                    <rect x="325" y="105" width="12" height="35" fill="#22c55e" opacity="0.7"/>
+                    <rect x="355" y="100" width="12" height="40" fill="#22c55e" opacity="0.7"/>
+                    <rect x="385" y="70" width="12" height="70" fill="#22c55e" opacity="0.7"/>
+                    <rect x="415" y="75" width="12" height="65" fill="#22c55e" opacity="0.7"/>
+                    
+                    <text x="50" y="255" font-size="12" fill="#16a34a" font-weight="600">Histogram (Green = Bullish, Red = Bearish)</text>
+                </svg>
+                <p class="diagram-caption">Diagram: MACD Line (Blue), Signal Line (Orange), Histogram (Bars)</p>
+            </div>
+
+            <h3>1. MACD Line (Fast Line)</h3>
+            <p>Yeh 12 EMA aur 26 EMA ka difference hai. Yeh actual momentum ko represent karta hai. Jab yeh upar ja rahi ho to bullish momentum, neeche ja rahi ho to bearish.</p>
+
+            <h3>2. Signal Line (Slow Line)</h3>
+            <p>Yeh MACD Line ki 9-period EMA hai. Yeh lagging line hai jo crossover signals generate karti hai.</p>
+
+            <h3>3. Histogram</h3>
+            <p>Yeh MACD Line aur Signal Line ka difference hai. Bars ki height momentum ki strength dikhati hai. Green bars = bullish momentum, Red bars = bearish momentum.</p>
+        </section>
+
+        <!-- CHAPTER 5 -->
+        <section class="chapter" id="ch5">
+            <h2>Chapter 5: Signal Line Crossover – Sabse Reliable Signal</h2>
+            
+            <p>Signal Line Crossover MACD ka sabse popular aur reliable signal hai, khas kar crypto mein.</p>
+
+            <h3>Bullish Crossover (Buy Signal)</h3>
+            <p>Jab <strong>MACD Line</strong> neeche se <strong>Signal Line</strong> ko upar cross karti hai → Bullish momentum start.</p>
+
+            <h3>Bearish Crossover (Sell Signal)</h3>
+            <p>Jab <strong>MACD Line</strong> upar se <strong>Signal Line</strong> ko neeche cross karti hai → Bearish momentum start.</p>
+
+            <!-- SVG: Crossover -->
+            <div class="diagram">
+                <svg width="460" height="220" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="15" width="420" height="190" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+                    
+                    <!-- Zero line -->
+                    <line x1="40" y1="110" x2="420" y2="110" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+                    
+                    <!-- MACD Line -->
+                    <polyline points="50,160 100,145 150,130 200,100 250,70 300,55 350,60 400,50" 
+                              fill="none" stroke="#2563eb" stroke-width="2.5"/>
+                    
+                    <!-- Signal Line -->
+                    <polyline points="50,150 100,140 150,125 200,115 250,95 300,80 350,75 400,70" 
+                              fill="none" stroke="#f97316" stroke-width="2.5"/>
+                    
+                    <!-- Crossover point -->
+                    <circle cx="175" cy="112" r="7" fill="#16a34a" stroke="white" stroke-width="2"/>
+                    <text x="175" y="140" text-anchor="middle" font-size="12" fill="#16a34a" font-weight="700">Bullish Cross</text>
+                    
+                    <!-- Labels -->
+                    <text x="50" y="35" font-size="13" fill="#2563eb" font-weight="700">MACD Line</text>
+                    <text x="180" y="35" font-size="13" fill="#f97316" font-weight="700">Signal Line</text>
+                    <text x="320" y="35" font-size="12" fill="#16a34a" font-weight="600">↑ Buy Zone</text>
+                </svg>
+                <p class="diagram-caption">Example: Bullish Signal Line Crossover</p>
+            </div>
+
+            <div class="success-box">
+                <strong>Crypto Tip:</strong> Zero line ke neeche se bullish crossover (oversold zone se) sabse powerful hota hai. Zero line ke upar se bearish crossover (overbought zone se) strong sell signal hota hai.
+            </div>
+        </section>
+
+        <!-- CHAPTER 6 -->
+        <section class="chapter" id="ch6">
+            <h2>Chapter 6: Histogram – Momentum ka Clear Picture</h2>
+            
+            <p>Histogram MACD ka sabse visual aur useful part hai. Yeh momentum ki strength aur direction ko bars ki shakal mein dikhata hai.</p>
+
+            <h3>Histogram kaise padhein?</h3>
+            <ul>
+                <li><strong>Green bars badh rahe hain</strong> → Bullish momentum strong ho raha hai</li>
+                <li><strong>Green bars ghat rahe hain</strong> → Bullish momentum weak ho raha hai</li>
+                <li><strong>Red bars badh rahe hain</strong> → Bearish momentum strong ho raha hai</li>
+                <li><strong>Red bars ghat rahe hain</strong> → Bearish momentum weak ho raha hai</li>
+            </ul>
+
+            <h3>Histogram Peak / Trough</h3>
+            <p>Jab histogram ki height maximum hoti hai (peak) to aksar momentum climax hota hai aur jaldi reversal aa sakta hai. Yeh early warning deta hai.</p>
+
+            <!-- SVG: Histogram Momentum -->
+            <div class="diagram">
+                <svg width="460" height="200" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="15" width="420" height="170" fill="#f8fafc" stroke="#cbd5e1" rx="6"/>
+                    <line x1="40" y1="100" x2="420" y2="100" stroke="#94a3b8" stroke-width="1.5"/>
+                    
+                    <!-- Rising green (increasing momentum) -->
+                    <rect x="50" y="100" width="18" height="15" fill="#22c55e" opacity="0.6"/>
+                    <rect x="75" y="90" width="18" height="25" fill="#22c55e" opacity="0.7"/>
+                    <rect x="100" y="75" width="18" height="40" fill="#22c55e" opacity="0.8"/>
+                    <rect x="125" y="55" width="18" height="60" fill="#22c55e" opacity="0.9"/>
+                    <rect x="150" y="40" width="18" height="75" fill="#16a34a"/>
+                    
+                    <!-- Decreasing green (weakening) -->
+                    <rect x="185" y="55" width="18" height="60" fill="#22c55e" opacity="0.8"/>
+                    <rect x="210" y="70" width="18" height="45" fill="#22c55e" opacity="0.7"/>
+                    <rect x="235" y="85" width="18" height="30" fill="#22c55e" opacity="0.6"/>
+                    
+                    <!-- Red bars starting -->
+                    <rect x="270" y="100" width="18" height="20" fill="#ef4444" opacity="0.6"/>
+                    <rect x="295" y="100" width="18" height="35" fill="#ef4444" opacity="0.7"/>
+                    <rect x="320" y="100" width="18" height="50" fill="#ef4444" opacity="0.85"/>
+                    <rect x="345" y="100" width="18" height="65" fill="#dc2626"/>
+                    <rect x="370" y="100" width="18" height="55" fill="#ef4444" opacity="0.85"/>
+                    <rect x="395" y="100" width="18" height="40" fill="#ef4444" opacity="0.7"/>
+                    
+                    <text x="100" y="30" font-size="12" fill="#16a34a" font-weight="600">Rising Momentum</text>
+                    <text x="200" y="30" font-size="12" fill="#ca8a04" font-weight="600">Weakening</text>
+                    <text x="320" y="30" font-size="12" fill="#dc2626" font-weight="600">Bearish Momentum</text>
+                </svg>
+                <p class="diagram-caption">Histogram: Bars ki height momentum ki strength dikhati hai</p>
+            </div>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Histogram ke shrinking bars aksar crossover se pehle signal dete hain. Agar green bars chhoti ho rahi hain to jaldi bearish crossover aa sakta hai.
+            </div>
+        </section>
+
+        <!-- CHAPTER 7 -->
+        <section class="chapter" id="ch7">
+            <h2>Chapter 7: Zero Line Crossover</h2>
+            
+            <p>Zero Line MACD ka center hai. Jab MACD Line zero ko cross karti hai to yeh major trend change ka signal hota hai.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crossover</th>
+                        <th>Matlab</th>
+                        <th>Signal Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>MACD Line Zero se Upar</strong></td>
+                        <td>Bullish trend start (12 EMA > 26 EMA)</td>
+                        <td>Strong (especially with volume)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MACD Line Zero se Neeche</strong></td>
+                        <td>Bearish trend start (12 EMA < 26 EMA)</td>
+                        <td>Strong (especially with volume)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight">
+                <strong>Best Practice:</strong> Zero line crossover + Signal line crossover dono mil jayein to confirmation bohot strong hoti hai.
+            </div>
+        </section>
+
+        <!-- CHAPTER 8 -->
+        <section class="chapter" id="ch8">
+            <h2>Chapter 8: MACD Divergence</h2>
+            
+            <p>MACD pe divergence RSI se bhi zyada powerful ho sakta hai kyunki MACD trend + momentum dono dekhta hai.</p>
+
+            <h3>Regular Divergence (Reversal)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>MACD / Histogram</th>
+                        <th>Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bullish Divergence</strong></td>
+                        <td>Lower Low</td>
+                        <td>Higher Low</td>
+                        <td>Potential Reversal Up</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bearish Divergence</strong></td>
+                        <td>Higher High</td>
+                        <td>Lower High</td>
+                        <td>Potential Reversal Down</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Hidden Divergence (Continuation)</h3>
+            <ul>
+                <li><strong>Bullish Hidden:</strong> Price Higher Low + MACD Lower Low → Uptrend continuation</li>
+                <li><strong>Bearish Hidden:</strong> Price Lower High + MACD Higher High → Downtrend continuation</li>
+            </ul>
+
+            <!-- SVG: Divergence -->
+            <div class="diagram">
+                <svg width="440" height="230" viewBox="0 0 440 230" xmlns="http://www.w3.org/2000/svg">
+                    <text x="20" y="25" font-size="13" fill="#0f172a" font-weight="600">Price</text>
+                    <polyline points="40,50 110,85 180,45 250,105 320,70 390,90" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+                    <circle cx="110" cy="85" r="5" fill="#3b82f6"/>
+                    <circle cx="250" cy="105" r="5" fill="#3b82f6"/>
+                    <text x="90" y="105" font-size="11" fill="#3b82f6">LL</text>
+                    <text x="230" y="125" font-size="11" fill="#3b82f6">LL</text>
+                    
+                    <text x="20" y="155" font-size="13" fill="#0f172a" font-weight="600">MACD</text>
+                    <polyline points="40,190 110,200 180,170 250,180 320,160 390,150" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+                    <circle cx="110" cy="200" r="5" fill="#7c3aed"/>
+                    <circle cx="250" cy="180" r="5" fill="#7c3aed"/>
+                    <text x="90" y="220" font-size="11" fill="#7c3aed">HL</text>
+                    <text x="230" y="200" font-size="11" fill="#7c3aed">HL</text>
+                    
+                    <text x="220" y="140" text-anchor="middle" font-size="14" fill="#059669" font-weight="700">Bullish Divergence</text>
+                </svg>
+                <p class="diagram-caption">Example: Bullish Divergence – Price Lower Low, MACD Higher Low</p>
+            </div>
+        </section>
+
+        <!-- CHAPTER 9 -->
+        <section class="chapter" id="ch9">
+            <h2>Chapter 9: Crypto mein MACD Kyun Reliable Hai?</h2>
+            
+            <p>Crypto markets high volatility aur strong trends ke liye famous hain. MACD in conditions mein bohot effective fixed hota hai.</p>
+
+            <h3>Kyun Crypto mein MACD strong hai?</h3>
+            <ul>
+                <li><strong>Clear Trends:</strong> Crypto mein multi-week/month trends aate hain – MACD inhe perfectly capture karta hai.</li>
+                <li><strong>Histogram Visibility:</strong> Volatility ki wajah se histogram bars clearly dikhte hain.</li>
+                <li><strong>Crossover Reliability:</strong> 12/26/9 settings crypto ke 4H aur Daily charts pe high win-rate dete hain.</li>
+                <li><strong>Volume Confirmation:</strong> Crypto exchanges pe volume data easily available hai, jo MACD signals ko filter karta hai.</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>Best Timeframes for Crypto:</strong><br>
+                • Scalping: 5min / 15min (fast settings recommended)<br>
+                • Day Trading: 15min / 1H<br>
+                • Swing Trading: 4H / Daily (classic 12,26,9 perfect)
+            </div>
+        </section>
+
+        <!-- CHAPTER 10 -->
+        <section class="chapter" id="ch10">
+            <h2>Chapter 10: Practical Trading Setups (Step-by-Step)</h2>
+            
+            <h3>Setup 1: Bullish Signal Line Crossover (Long)</h3>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">MACD Line Signal Line ko neeche se upar cross kare</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">Crossover zero line ke near ya neeche ho (stronger signal)</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">Histogram green ho jaye aur bars badh rahe hon</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">Price support pe ho + bullish candle confirmation</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">Entry + SL neeche + TP next resistance</div>
+                </div>
+            </div>
+
+            <h3>Setup 2: Bearish Signal Line Crossover (Short)</h3>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">MACD Line Signal Line ko upar se neeche cross kare</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">Crossover zero line ke near ya upar ho</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">Histogram red ho jaye aur bars badh rahe hon</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">Price resistance pe ho + bearish candle</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">Entry + SL upar + TP next support</div>
+                </div>
+            </div>
+
+            <h3>Setup 3: Histogram Reversal + Divergence (Highest Probability)</h3>
+            <p>Jab histogram ki height kam hone lage + divergence ban jaye + signal line crossover aaye → Yeh sabse strong reversal setup hota hai.</p>
+        </section>
+
+        <!-- CHAPTER 11 -->
+        <section class="chapter" id="ch11">
+            <h2>Chapter 11: Advanced Techniques</h2>
+            
+            <h3>1. MACD + RSI Combo</h3>
+            <p>RSI oversold/overbought + MACD crossover = double confirmation. Yeh false signals bohot kam karta hai.</p>
+
+            <h3>2. Multi-Timeframe MACD</h3>
+            <p>Higher timeframe (Daily) pe MACD bullish ho, lower timeframe (1H/4H) pe crossover entry lo. Yeh approach accuracy badhati hai.</p>
+
+            <h3>3. MACD with Volume</h3>
+            <p>Crossover ke saath volume spike aaye to signal ki reliability double ho jati hai.</p>
+
+            <h3>4. Histogram Slope Analysis</h3>
+            <p>Sirf color nahi, bars ki slope bhi dekho. Steep rising green bars = strong momentum. Flat bars = weakness.</p>
+        </section>
+
+        <!-- CHAPTER 12 -->
+        <section class="chapter" id="ch12">
+            <h2>Chapter 12: Common Mistakes aur Unse Bachne ke Tareeqe</h2>
+            
+            <div class="warning-box">
+                <strong>1. Har crossover pe trade lena</strong><br>
+                Sideways market mein MACD bohot saare false crossovers deta hai. Trend clear ho tabhi trade lo.
+            </div>
+
+            <div class="warning-box">
+                <strong>2. Zero line ignore karna</strong><br>
+                Zero line ke neeche se bullish crossover zyada powerful hota hai. Location matter karti hai.
+            </div>
+
+            <div class="warning-box">
+                <strong>3. Histogram ko ignore karna</strong><br>
+                Crossover ke saath histogram ki direction aur height check karo. Shrinking bars warning dete hain.
+            </div>
+
+            <div class="warning-box">
+                <strong>4. Lagging nature bhoolna</strong><br>
+                MACD lagging indicator hai. Extreme moves mein late signal de sakta hai. Price action ke saath use karo.
+            </div>
+
+            <div class="warning-box">
+                <strong>5. Settings change karte rehna</strong><br>
+                Classic 12,26,9 pe stick raho jab tak aap expert na ban jayein. Continuous optimization confusion badhati hai.
+            </div>
+        </section>
+
+        <!-- CHAPTER 13 -->
+        <section class="chapter" id="ch13">
+            <h2>Chapter 13: Complete Trading Workflow</h2>
+            
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content"><strong>Higher Timeframe Trend Identify Karo</strong><br>Daily/4H pe MACD zero line ke upar ya neeche?</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content"><strong>Signal Line Crossover Check Karo</strong><br>Bullish ya Bearish cross ho raha hai?</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content"><strong>Histogram Confirm Karo</strong><br>Bars ki direction aur height dekho</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content"><strong>Divergence / Zero Line Location Dekho</strong></div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content"><strong>Price Action Confirmation Lo</strong><br>Support/Resistance + Candle pattern</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content"><strong>Risk:Reward Calculate Karo</strong> (minimum 1:2)</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content"><strong>Position Size + SL + TP Set Karo</strong></div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">8</div>
+                    <div class="step-content"><strong>Trade Journal mein Entry Likh Do</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 14 -->
+        <section class="chapter" id="ch14">
+            <h2>Chapter 14: Risk Management with MACD</h2>
+            
+            <ul>
+                <li><strong>Risk per trade:</strong> Account ka maximum 1-2%</li>
+                <li><strong>Stop Loss:</strong> Recent swing high/low ke beyond ya ATR based</li>
+                <li><strong>Avoid ranging markets:</strong> MACD sideways mein unreliable hota hai</li>
+                <li><strong>Partial profits:</strong> Histogram peak pe partial booking soch sakte ho</li>
+                <li><strong>Trailing Stop:</strong> Strong trend mein MACD ke saath trailing stop use karo</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>Golden Rule:</strong> MACD aapko direction aur momentum dikhata hai. Risk Management aapko market mein alive rakhta hai.
+            </div>
+        </section>
+
+        <!-- CHAPTER 15 -->
+        <section class="chapter" id="ch15">
+            <h2>Chapter 15: Key Takeaways & Final Checklist</h2>
+            
+            <h3>Key Takeaways</h3>
+            <ul class="checklist">
+                <li>MACD momentum + trend change dono dikhata hai</li>
+                <li>Signal Line Crossover sabse reliable entry signal hai</li>
+                <li>Histogram momentum ki strength clearly dikhata hai</li>
+                <li>Crypto mein classic 12,26,9 settings bohot effective hain</li>
+                <li>Zero line location crossover ki quality decide karti hai</li>
+                <li>Divergence + Crossover + Price Action = Highest probability</li>
+                <li>Sideways market mein MACD se door raho</li>
+            </ul>
+
+            <h3>Pre-Trade Checklist</h3>
+            <ul class="checklist">
+                <li>Higher timeframe trend clear hai?</li>
+                <li>Signal Line crossover confirm ho gaya?</li>
+                <li>Histogram direction support kar rahi hai?</li>
+                <li>Zero line location favourable hai?</li>
+                <li>Koi Divergence ban raha hai?</li>
+                <li>Price Action confirmation mil gaya?</li>
+                <li>Risk:Reward minimum 1:2 hai?</li>
+                <li>Stop Loss aur Take Profit set kar liye?</li>
+            </ul>
+        </section>
+
+        <!-- CHAPTER 16 -->
+        <section class="chapter" id="ch16">
+            <h2>Chapter 16: Final Words</h2>
+            
+            <p>MACD ek powerful lekin simple indicator hai. Iski asli taqat tab nazar aati hai jab aap isko Price Action, Support/Resistance aur proper Risk Management ke saath combine karte ho.</p>
+
+            <p>Histogram aur Signal Line crossover ko master kar lo – crypto trading mein yeh aapke liye game changer ban sakte hain. Practice karo, journal rakho, aur process pe focus rakho.</p>
+
+            <div class="highlight">
+                <strong>Yaad rakho:</strong><br>
+                Indicator aapko edge deta hai.<br>
+                Risk Management aapko survive karta hai.<br>
+                Discipline aapko succeed karta hai.
+            </div>
+
+            <p style="margin-top: 30px;">Allah aap sab ko successful aur disciplined traders banaye. Ameen.</p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="book-footer">
+            <div class="author-final">Author: M. Aslam Khan</div>
+            <p>TradeEd Mentorship Series</p>
+            <p style="margin-top: 15px; font-size: 14px;">Yeh book educational purposes ke liye hai. Trading mein risk involved hai. Hamesha apni research karein aur risk management ka khayal rakhein.</p>
+            <p style="margin-top: 10px; font-size: 13px;">© M. Aslam Khan | All Rights Reserved</p>
+        </footer>
+
+    </div>
+</body>
+</html>

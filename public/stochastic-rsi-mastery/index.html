@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stochastic RSI Mastery | TradeEd Book</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --accent: #22d3ee;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #1e293b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.75;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 20px; }
+  header {
+    text-align: center;
+    padding: 48px 20px 36px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 40px;
+  }
+  header h1 { font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; }
+  header h2 { font-size: 1.2rem; color: var(--muted); font-weight: 400; }
+  .brand { margin-top: 14px; font-size: 0.95rem; color: var(--orange); }
+  nav.toc {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 50px;
+  }
+  nav.toc h3 { color: var(--accent); margin-bottom: 18px; font-size: 1.3rem; }
+  nav.toc ol { padding-left: 22px; }
+  nav.toc li { margin: 8px 0; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  .chapter {
+    margin-bottom: 70px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #334155;
+  }
+  .chapter h2 { font-size: 1.85rem; color: var(--accent); margin-bottom: 6px; }
+  .chapter .ch-subtitle { font-size: 1.15rem; color: var(--orange); margin-bottom: 22px; }
+  .chapter h3 { font-size: 1.25rem; color: var(--orange); margin: 30px 0 14px; }
+  .chapter p { margin-bottom: 16px; }
+  .chapter ul, .chapter ol { margin: 14px 0 20px 26px; }
+  .chapter li { margin-bottom: 9px; }
+  .highlight {
+    background: #1e293b;
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 10px 10px 0;
+  }
+  .svg-box {
+    background: #0b1220;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 30px 0;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-box svg { max-width: 100%; height: auto; }
+  .svg-caption { margin-top: 12px; font-size: 0.9rem; color: var(--muted); }
+  .quiz {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 40px;
+  }
+  .quiz h3 { color: var(--accent); margin-bottom: 22px; font-size: 1.35rem; }
+  .question {
+    margin-bottom: 30px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #334155;
+  }
+  .question:last-child { border-bottom: none; }
+  .question p { font-weight: 600; margin-bottom: 14px; color: #f1f5f9; font-size: 1.05rem; }
+  .options { display: flex; flex-direction: column; gap: 11px; }
+  .option {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 10px;
+    padding: 13px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .option:hover:not(.answered) { border-color: var(--accent); background: #1e293b; }
+  .option.correct { background: rgba(34,197,94,0.18); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: rgba(239,68,68,0.18); border-color: var(--red); color: var(--red); }
+  .option.answered { cursor: default; }
+  .feedback { margin-top: 10px; font-size: 0.92rem; display: none; }
+  .feedback.show { display: block; }
+  .takeaway {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 28px 0;
+  }
+  .takeaway strong { color: var(--accent); }
+  .rule-box {
+    background: #0f172a;
+    border: 1px solid #22d3ee44;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .rule-box h4 { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-top: 1px solid #334155;
+    margin-top: 30px;
+  }
+</style>
+
+<meta name="description" content="Stochastic RSI mastery - settings, overbought/oversold levels, divergences aur trading setups. Roman Urdu, 15 chapters, practical examples ke saath.">
+<meta name="author" content="M. Aslam Khan">
+<link rel="canonical" href="https://tradeed.online/stochastic-rsi-mastery/">
+<meta property="og:title" content="Stochastic RSI Mastery | TradeEd Book">
+<meta property="og:description" content="Stochastic RSI mastery - settings, overbought/oversold levels, divergences aur trading setups. Roman Urdu, 15 chapters, practical examples ke saath.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://tradeed.online/stochastic-rsi-mastery/">
+<meta property="og:image" content="https://tradeed.online/covers/stochastic-rsi-mastery.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Stochastic RSI Mastery",
+  "author": { "@type": "Person", "name": "M. Aslam Khan" },
+  "publisher": { "@type": "Organization", "name": "TradeEd" },
+  "inLanguage": "ur-Latn",
+  "url": "https://tradeed.online/stochastic-rsi-mastery/",
+  "image": "https://tradeed.online/covers/stochastic-rsi-mastery.webp",
+  "description": "Stochastic RSI mastery - settings, overbought/oversold levels, divergences aur trading setups. Roman Urdu, 15 chapters, practical examples ke saath."
+}
+</script>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Stochastic RSI Mastery</h1>
+  <h2>Short-term Overbought/Oversold • Timing Tool for Crypto</h2>
+  <div class="brand">TradeEd Educational Book</div>
+</header>
+
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ch1">Chapter 1 – Introduction: Stochastic RSI Kya Hai</a></li>
+    <li><a href="#ch2">Chapter 2 – RSI vs Stochastic RSI – Farq Kya Hai</a></li>
+    <li><a href="#ch3">Chapter 3 – Stochastic RSI ka Formula aur Settings</a></li>
+    <li><a href="#ch4">Chapter 4 – Overbought aur Oversold Levels</a></li>
+    <li><a href="#ch5">Chapter 5 – Bullish aur Bearish Crossovers</a></li>
+    <li><a href="#ch6">Chapter 6 – Divergence ke Saath Stochastic RSI</a></li>
+    <li><a href="#ch7">Chapter 7 – Trend ke Saath Stochastic RSI Use Karna</a></li>
+    <li><a href="#ch8">Chapter 8 – Pullback Timing ke Liye Stochastic RSI</a></li>
+    <li><a href="#ch9">Chapter 9 – Confluence: Stochastic RSI + Price Action</a></li>
+    <li><a href="#ch10">Chapter 10 – Entry, Stop Loss aur Target</a></li>
+    <li><a href="#ch11">Chapter 11 – Common Mistakes</a></li>
+    <li><a href="#ch12">Chapter 12 – Complete Stochastic RSI Workflow</a></li>
+    <li><a href="#ch13">Chapter 13 – Crypto Specific Tips</a></li>
+    <li><a href="#ch14">Chapter 14 – Journaling Stochastic RSI Trades</a></li>
+    <li><a href="#ch15">Chapter 15 – Final Summary & Next Steps</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<section class="chapter" id="ch1">
+  <h2>Chapter 1</h2>
+  <div class="ch-subtitle">Introduction: Stochastic RSI Kya Hai</div>
+
+  <p>Stochastic RSI ek momentum oscillator hai jo RSI se bhi zyada sensitive hota hai. Yeh RSI ke values pe Stochastic formula apply karta hai, is liye yeh short-term overbought aur oversold conditions ko jaldi pakad leta hai.</p>
+
+  <p>Normal RSI aksar slow rehta hai. Stochastic RSI usko refine karke faster signals deta hai. Is liye yeh short-term timing ke liye bohot useful tool hai – khas tor pe jab aap already trend ya support/resistance zone identify kar chuke hon.</p>
+
+  <p>Is book mein aap seekhenge:</p>
+  <ul>
+    <li>Stochastic RSI aur normal RSI mein asali farq</li>
+    <li>Sahi settings aur levels</li>
+    <li>Crossovers aur divergence ka use</li>
+    <li>Trend ke saath timing kaise improve karein</li>
+    <li>Price Action ke saath confluence</li>
+    <li>Complete practical workflow</li>
+  </ul>
+
+  <div class="highlight">
+    Stochastic RSI ek timing tool hai, direction tool nahi. Pehle bias decide karo, phir isse entry ka time refine karo.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Stochastic RSI = Faster, more sensitive version of RSI for short-term timing.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 1</h3>
+    <div class="question">
+      <p>1. Stochastic RSI normal RSI se kaise different hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Yeh bilkul same hai</div>
+        <div class="option" data-correct="true">Yeh RSI pe Stochastic formula laga kar zyada sensitive banata hai</div>
+        <div class="option" data-correct="false">Yeh volume measure karta hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Stochastic RSI ka asali use kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Long-term trend decide karna</div>
+        <div class="option" data-correct="true">Short-term overbought/oversold timing</div>
+        <div class="option" data-correct="false">Sirf volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Stochastic RSI ko direction tool kyun nahi maana gaya?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki yeh pehle se maujood bias ke andar entry timing improve karta hai</div>
+        <div class="option" data-correct="false">Kyunki yeh kaam nahi karta</div>
+        <div class="option" data-correct="false">Kyunki yeh free nahi hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Is tool ko kab use karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Akela primary signal ki tarah</div>
+        <div class="option" data-correct="true">Jab trend ya zone pehle identify ho chuka ho</div>
+        <div class="option" data-correct="false">Sirf news pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Is book ka main focus kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf theory</div>
+        <div class="option" data-correct="true">Stochastic RSI ko practical timing tool ki tarah use karna</div>
+        <div class="option" data-correct="false">Har indicator</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 ===================== -->
+<section class="chapter" id="ch2">
+  <h2>Chapter 2</h2>
+  <div class="ch-subtitle">RSI vs Stochastic RSI – Farq Kya Hai</div>
+
+  <p><strong>Normal RSI:</strong></p>
+  <ul>
+    <li>Price changes ki speed measure karta hai</li>
+    <li>0 se 100 ke scale pe</li>
+    <li>70/30 classic overbought/oversold</li>
+    <li>Relatively smoother aur slow</li>
+  </ul>
+
+  <p><strong>Stochastic RSI:</strong></p>
+  <ul>
+    <li>RSI ke values pe Stochastic formula apply hota hai</li>
+    <li>Yeh bhi 0 se 100 (ya 0 se 1) scale pe hota hai</li>
+    <li>Bohot jaldi extreme levels pe pahunch jata hai</li>
+    <li>Short-term turns pehle dikhata hai</li>
+  </ul>
+
+  <div class="svg-box">
+    <svg width="580" height="280" viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg">
+      <rect width="580" height="280" fill="#0b1220"/>
+      <text x="160" y="28" fill="#94a3b8" font-size="15">RSI vs Stochastic RSI (Conceptual)</text>
+      <!-- RSI smoother -->
+      <path d="M50,140 Q120,100 180,150 T300,120 T420,160 T530,130" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+      <text x="50" y="90" fill="#94a3b8" font-size="13">Normal RSI (Smoother)</text>
+      <!-- Stoch RSI more sensitive -->
+      <path d="M50,160 Q100,60 160,200 T250,50 T350,210 T450,40 T530,150" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <text x="50" y="230" fill="#22d3ee" font-size="13">Stochastic RSI (More Sensitive)</text>
+      <line x1="50" y1="50" x2="530" y2="50" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="540" y="54" fill="#ef4444" font-size="11">80</text>
+      <line x1="50" y1="230" x2="530" y2="230" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="540" y="234" fill="#22c55e" font-size="11">20</text>
+    </svg>
+    <div class="svg-caption">Figure 1: Stochastic RSI normal RSI se zyada aggressively move karta hai</div>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> RSI = Bigger picture momentum. Stochastic RSI = Fine-tuned short-term timing.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 2</h3>
+    <div class="question">
+      <p>1. Normal RSI kya measure karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf volume</div>
+        <div class="option" data-correct="true">Price changes ki speed</div>
+        <div class="option" data-correct="false">Future price</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Stochastic RSI kyun zyada sensitive hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh volume use karta hai</div>
+        <div class="option" data-correct="true">Kyunki yeh RSI values pe Stochastic formula apply karta hai</div>
+        <div class="option" data-correct="false">Kyunki iska period bohot lamba hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Normal RSI ka classic overbought level kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">50</div>
+        <div class="option" data-correct="true">70</div>
+        <div class="option" data-correct="false">90</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Stochastic RSI short-term turns kyun pehle dikhata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki yeh zyada aggressively extreme levels pe pahunch jata hai</div>
+        <div class="option" data-correct="false">Kyunki yeh lagging hai</div>
+        <div class="option" data-correct="false">Kyunki yeh volume based hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Dono mein se short-term timing ke liye kaun sa better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Normal RSI</div>
+        <div class="option" data-correct="true">Stochastic RSI</div>
+        <div class="option" data-correct="false">Dono same</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 3 ===================== -->
+<section class="chapter" id="ch3">
+  <h2>Chapter 3</h2>
+  <div class="ch-subtitle">Stochastic RSI ka Formula aur Settings</div>
+
+  <p>Stochastic RSI basically yeh calculate karta hai ke current RSI value apne recent high-low range mein kahan hai.</p>
+
+  <p><strong>Common Settings (Crypto ke liye):</strong></p>
+  <ul>
+    <li>RSI Length: 14</li>
+    <li>Stochastic Length: 14</li>
+    <li>K Period: 3</li>
+    <li>D Period: 3</li>
+  </ul>
+
+  <p>Yeh settings balanced hain – na itne slow ke late signals aayein, na itne fast ke bohot noise ho.</p>
+
+  <div class="highlight">
+    Settings change karne se pehle default pe practice karo. Bohot se traders 14,14,3,3 se shuru karte hain.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Standard settings se shuru karo. Baad mein apni style ke hisaab se adjust kar sakte ho.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 3</h3>
+    <div class="question">
+      <p>1. Stochastic RSI kya calculate karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf price</div>
+        <div class="option" data-correct="true">Current RSI apne recent range mein kahan hai</div>
+        <div class="option" data-correct="false">Volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Common RSI Length setting kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">5</div>
+        <div class="option" data-correct="true">14</div>
+        <div class="option" data-correct="false">50</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. K aur D periods usually kitne rakhte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">10 aur 10</div>
+        <div class="option" data-correct="true">3 aur 3</div>
+        <div class="option" data-correct="false">1 aur 1</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Settings change karne se pehle kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant custom banao</div>
+        <div class="option" data-correct="true">Default pe practice karo</div>
+        <div class="option" data-correct="false">Ignore karo</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Standard settings ka faida kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Hamesha perfect signals</div>
+        <div class="option" data-correct="true">Balanced – na bohot slow na bohot noisy</div>
+        <div class="option" data-correct="false">Sirf stocks ke liye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<section class="chapter" id="ch4">
+  <h2>Chapter 4</h2>
+  <div class="ch-subtitle">Overbought aur Oversold Levels</div>
+
+  <p>Stochastic RSI mein common levels:</p>
+  <ul>
+    <li><strong>Above 80</strong> → Overbought zone</li>
+    <li><strong>Below 20</strong> → Oversold zone</li>
+  </ul>
+
+  <p>Kuch traders 70/30 bhi use karte hain, lekin 80/20 zyada common hai kyunki Stochastic RSI aggressive hota hai.</p>
+
+  <p><strong>Important:</strong> Overbought ka matlab yeh nahi ke turant short lo. Strong uptrend mein Stochastic RSI lambay arse tak 80 ke upar reh sakta hai. Isi tarah strong downtrend mein 20 ke neeche.</p>
+
+  <div class="highlight">
+    Extreme levels = Attention. Lekin direction ke liye pehle trend dekho.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> 80 = Overbought attention. 20 = Oversold attention. Trend context zaroori hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 4</h3>
+    <div class="question">
+      <p>1. Stochastic RSI mein common overbought level kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">50</div>
+        <div class="option" data-correct="true">80</div>
+        <div class="option" data-correct="false">30</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Oversold level usually kya rakha jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">70</div>
+        <div class="option" data-correct="true">20</div>
+        <div class="option" data-correct="false">50</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Strong uptrend mein Stochastic RSI 80 ke upar reh sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Nahi, turant reverse hota hai</div>
+        <div class="option" data-correct="true">Haan, lambay arse tak reh sakta hai</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Overbought dekhte hi short lena kyun risky hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki strong trend mein extreme levels lambay time tak rehte hain</div>
+        <div class="option" data-correct="false">Kyunki tool galat hai</div>
+        <div class="option" data-correct="false">Kyunki volume nahi aata</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Extreme levels pe pehle kya dekhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf level</div>
+        <div class="option" data-correct="true">Trend context</div>
+        <div class="option" data-correct="false">Sirf volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<section class="chapter" id="ch5">
+  <h2>Chapter 5</h2>
+  <div class="ch-subtitle">Bullish aur Bearish Crossovers</div>
+
+  <p>Stochastic RSI mein do lines hoti hain: %K aur %D.</p>
+
+  <ul>
+    <li><strong>Bullish Crossover:</strong> %K line %D line ke upar cross kare (khas tor pe oversold zone se)</li>
+    <li><strong>Bearish Crossover:</strong> %K line %D line ke neeche cross kare (khas tor pe overbought zone se)</li>
+  </ul>
+
+  <p>Sab se behtar crossovers woh hote hain jo extreme zones (20 ke neeche ya 80 ke upar) se aate hain.</p>
+
+  <div class="rule-box">
+    <h4>High-Quality Bullish Signal</h4>
+    <ul>
+      <li>Stochastic RSI 20 ke neeche tha</li>
+      <li>%K ne %D ko upar cross kiya</li>
+      <li>Price bhi support ya demand zone pe hai</li>
+    </ul>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Extreme zone se crossover + Price Action confirmation = Better signal.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 5</h3>
+    <div class="question">
+      <p>1. Bullish crossover kab hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">%K neeche cross kare</div>
+        <div class="option" data-correct="true">%K line %D ke upar cross kare</div>
+        <div class="option" data-correct="false">Sirf 50 pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Bearish crossover kab hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">%K upar cross kare</div>
+        <div class="option" data-correct="true">%K line %D ke neeche cross kare</div>
+        <div class="option" data-correct="false">Sirf volume se</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Sab se behtar bullish crossover kahan se aata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">50 ke qareeb</div>
+        <div class="option" data-correct="true">20 ke neeche (oversold zone) se</div>
+        <div class="option" data-correct="false">80 ke upar</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Crossover ke saath kya extra dekhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kuch nahi</div>
+        <div class="option" data-correct="true">Price Action (support/resistance / zone)</div>
+        <div class="option" data-correct="false">Sirf time</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Extreme zone se crossover kyun better maana jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki wahan se reversal probability thodi behtar hoti hai</div>
+        <div class="option" data-correct="false">Kyunki tool toot jata hai</div>
+        <div class="option" data-correct="false">Kyunki volume zero hota hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 6 ===================== -->
+<section class="chapter" id="ch6">
+  <h2>Chapter 6</h2>
+  <div class="ch-subtitle">Divergence ke Saath Stochastic RSI</div>
+
+  <p>Divergence tab banti hai jab price ek cheez kare aur Stochastic RSI doosri.</p>
+
+  <ul>
+    <li><strong>Bullish Divergence:</strong> Price lower low banaye, Stochastic RSI higher low</li>
+    <li><strong>Bearish Divergence:</strong> Price higher high banaye, Stochastic RSI lower high</li>
+  </ul>
+
+  <p>Divergence strong reversal signal ho sakti hai, lekin isko bhi trend aur support/resistance ke context mein dekhna chahiye.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Divergence = Warning signal. Confirmation ke baghair blindly trade mat karo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 6</h3>
+    <div class="question">
+      <p>1. Bullish divergence kab banti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Price aur indicator dono higher high</div>
+        <div class="option" data-correct="true">Price lower low, Stochastic RSI higher low</div>
+        <div class="option" data-correct="false">Sirf volume se</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Bearish divergence kya hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Price lower low</div>
+        <div class="option" data-correct="true">Price higher high, Stochastic RSI lower high</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Divergence ko kaise treat karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant full size se trade</div>
+        <div class="option" data-correct="true">Warning signal – confirmation ka wait karo</div>
+        <div class="option" data-correct="false">Ignore</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Divergence ke saath kya extra dekhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf divergence</div>
+        <div class="option" data-correct="true">Trend context aur support/resistance</div>
+        <div class="option" data-correct="false">Sirf time</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Divergence hamesha perfect reversal deti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Haan</div>
+        <div class="option" data-correct="true">Nahi – yeh probability badhati hai, guarantee nahi</div>
+        <div class="option" data-correct="false">Sirf stocks mein</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 7 ===================== -->
+<section class="chapter" id="ch7">
+  <h2>Chapter 7</h2>
+  <div class="ch-subtitle">Trend ke Saath Stochastic RSI Use Karna</div>
+
+  <p>Sab se bari galti yeh hai ke trader Stochastic RSI ko against trend use kare.</p>
+
+  <p><strong>Sahi approach:</strong></p>
+  <ul>
+    <li>Uptrend mein → Oversold crossovers pe long bias</li>
+    <li>Downtrend mein → Overbought crossovers pe short bias</li>
+    <li>Against trend signals ko ignore ya bohot chhoti size</li>
+  </ul>
+
+  <div class="highlight">
+    Stochastic RSI trend ke andar timing improve karta hai. Trend ke against trading risk badha deti hai.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Pehle trend, phir Stochastic RSI se entry timing.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 7</h3>
+    <div class="question">
+      <p>1. Uptrend mein Stochastic RSI ka best use kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Overbought pe short</div>
+        <div class="option" data-correct="true">Oversold crossovers pe long timing</div>
+        <div class="option" data-correct="false">Ignore</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Downtrend mein kya prefer karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Oversold pe long</div>
+        <div class="option" data-correct="true">Overbought crossovers pe short</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Against trend Stochastic RSI signals ka kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Full size se trade</div>
+        <div class="option" data-correct="true">Ignore ya bohot chhoti size</div>
+        <div class="option" data-correct="false">Hamesha lo</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Stochastic RSI ka sahi role kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Trend decide karna</div>
+        <div class="option" data-correct="true">Trend ke andar entry timing improve karna</div>
+        <div class="option" data-correct="false">Volume measure</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Pehle kya aana chahiye – trend ya Stochastic RSI?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Stochastic RSI</div>
+        <div class="option" data-correct="true">Trend / bias</div>
+        <div class="option" data-correct="false">Dono same time</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 8 ===================== -->
+<section class="chapter" id="ch8">
+  <h2>Chapter 8</h2>
+  <div class="ch-subtitle">Pullback Timing ke Liye Stochastic RSI</div>
+
+  <p>Jab price uptrend mein pullback karti hai, to Stochastic RSI aksar oversold zone mein chala jata hai. Wahan se bullish crossover ek timing signal ban sakta hai.</p>
+
+  <p>Isi tarah downtrend pullback mein Stochastic RSI overbought ho kar bearish crossover de sakta hai.</p>
+
+  <p>Yeh especially tab powerful hota hai jab pullback Fibonacci 0.5/0.618, Support/Resistance ya Order Block pe ho.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Pullback zone + Stochastic RSI crossover = Refined entry timing.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 8</h3>
+    <div class="question">
+      <p>1. Uptrend pullback mein Stochastic RSI kahan jata hai aksar?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Overbought</div>
+        <div class="option" data-correct="true">Oversold zone</div>
+        <div class="option" data-correct="false">50 pe stuck</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Pullback timing ke liye best combination kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf Stochastic RSI</div>
+        <div class="option" data-correct="true">Pullback zone (Fib/S/R/OB) + Stochastic RSI crossover</div>
+        <div class="option" data-correct="false">Sirf volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Downtrend pullback mein kya signal useful hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bullish crossover</div>
+        <div class="option" data-correct="true">Overbought se bearish crossover</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Stochastic RSI pullback mein kya improve karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Trend direction</div>
+        <div class="option" data-correct="true">Entry ka timing</div>
+        <div class="option" data-correct="false">Volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Yeh approach kab sab se strong hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Jab price action zone ke saath align ho</div>
+        <div class="option" data-correct="false">Jab akela use ho</div>
+        <div class="option" data-correct="false">Jab news aaye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 9 ===================== -->
+<section class="chapter" id="ch9">
+  <h2>Chapter 9</h2>
+  <div class="ch-subtitle">Confluence: Stochastic RSI + Price Action</div>
+
+  <p>Stochastic RSI akela use karna risky hai. Best results tab aate hain jab yeh Price Action ke saath combine ho.</p>
+
+  <p><strong>Strong Confluence Example (Long):</strong></p>
+  <ul>
+    <li>Higher TF uptrend</li>
+    <li>Price Support / Order Block / Fibonacci 0.618 pe</li>
+    <li>Stochastic RSI oversold se bullish crossover</li>
+    <li>Bullish confirmation candle</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Stochastic RSI confirmation tool hai. Price Action primary hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 9</h3>
+    <div class="question">
+      <p>1. Stochastic RSI ko akela use karna?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Hamesha best</div>
+        <div class="option" data-correct="true">Risky – confluence better hai</div>
+        <div class="option" data-correct="false">Zaroori hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Strong long confluence mein kya-kya hona chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf Stochastic RSI</div>
+        <div class="option" data-correct="true">Trend + Zone + Stochastic crossover + Confirmation candle</div>
+        <div class="option" data-correct="false">Sirf volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Is combination mein primary tool kaun sa hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Stochastic RSI</div>
+        <div class="option" data-correct="true">Price Action (zones)</div>
+        <div class="option" data-correct="false">Time</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Stochastic RSI ka role kya reh jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Primary decision</div>
+        <div class="option" data-correct="true">Timing confirmation</div>
+        <div class="option" data-correct="false">Volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Confluence ka asali faida kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Probability behtar hoti hai aur false signals kam</div>
+        <div class="option" data-correct="false">Har trade jeet jati hai</div>
+        <div class="option" data-correct="false">Indicators ki zaroorat nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 10 ===================== -->
+<section class="chapter" id="ch10">
+  <h2>Chapter 10</h2>
+  <div class="ch-subtitle">Entry, Stop Loss aur Target</div>
+
+  <p><strong>Entry:</strong> Stochastic RSI crossover + Price Action confirmation ke baad.</p>
+  <p><strong>Stop:</strong> Recent swing low/high ke beyond ya zone ke bahar.</p>
+  <p><strong>Target:</strong> Next resistance/support ya previous swing. Partial profits possible.</p>
+
+  <p>Risk 0.5–1% rakho. Agar stop bohot wide hai to position size adjust karo.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Stochastic RSI signal ke baad bhi risk management pehle aata hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 10</h3>
+    <div class="question">
+      <p>1. Entry kab leni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf crossover pe</div>
+        <div class="option" data-correct="true">Crossover + Price Action confirmation ke baad</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Stop loss kahan better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Entry ke bilkul paas</div>
+        <div class="option" data-correct="true">Recent swing ya zone ke beyond</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Risk kitna rakhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">5%+</div>
+        <div class="option" data-correct="true">0.5–1%</div>
+        <div class="option" data-correct="false">Jo dil kare</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Agar stop wide ho to kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Full size</div>
+        <div class="option" data-correct="true">Position size adjust karo</div>
+        <div class="option" data-correct="false">Stop hata do</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Target kahan rakh sakte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf 1%</div>
+        <div class="option" data-correct="true">Next S/R ya previous swing</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 11 ===================== -->
+<section class="chapter" id="ch11">
+  <h2>Chapter 11</h2>
+  <div class="ch-subtitle">Common Mistakes</div>
+
+  <ul>
+    <li>Stochastic RSI ko primary trend tool bana lena</li>
+    <li>Against trend signals lena</li>
+    <li>Overbought/oversold pe turant reverse trade</li>
+    <li>Price Action bilkul ignore karna</li>
+    <li>Har crossover pe trade karna (selectivity nahi)</li>
+    <li>Bohot tight stop lagana</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Stochastic RSI ko uski jagah pe use karo – timing tool, direction tool nahi.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 11</h3>
+    <div class="question">
+      <p>1. Sab se bari galti kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Journal rakhna</div>
+        <div class="option" data-correct="true">Stochastic RSI ko primary trend tool bana lena</div>
+        <div class="option" data-correct="false">Higher TF dekhna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Against trend signals lena kyun risky hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki probability kam hoti hai</div>
+        <div class="option" data-correct="false">Kyunki tool toot jata hai</div>
+        <div class="option" data-correct="false">Kyunki volume nahi aata</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Overbought dekhte hi short lena?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Hamesha theek</div>
+        <div class="option" data-correct="true">Risky – strong trend mein extreme reh sakta hai</div>
+        <div class="option" data-correct="false">Zaroori</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Har crossover pe trade karna?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Best</div>
+        <div class="option" data-correct="true">Selectivity nahi – galti hai</div>
+        <div class="option" data-correct="false">Zaroori</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Stochastic RSI ki sahi jagah kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Primary direction tool</div>
+        <div class="option" data-correct="true">Timing / confirmation tool</div>
+        <div class="option" data-correct="false">Volume tool</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 12 ===================== -->
+<section class="chapter" id="ch12">
+  <h2>Chapter 12</h2>
+  <div class="ch-subtitle">Complete Stochastic RSI Workflow</div>
+
+  <ol>
+    <li>Higher TF pe trend bias decide karo</li>
+    <li>Price Action zones (S/R, OB, Fib) identify karo</li>
+    <li>Price zone pe aaye to Stochastic RSI check karo</li>
+    <li>Extreme se crossover ka wait karo</li>
+    <li>Confirmation candle dekho</li>
+    <li>Stop aur target set karo</li>
+    <li>Risk 0.5–1% ke saath enter</li>
+    <li>Journal mein record karo</li>
+  </ol>
+
+  <div class="rule-box">
+    <h4>Pre-Trade Checklist</h4>
+    <ul>
+      <li>☐ Higher TF bias clear?</li>
+      <li>☐ Price Action zone maujood?</li>
+      <li>☐ Stochastic RSI extreme zone mein?</li>
+      <li>☐ Crossover ho gaya?</li>
+      <li>☐ Confirmation candle?</li>
+      <li>☐ Risk-reward theek?</li>
+    </ul>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Workflow = Consistency.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 12</h3>
+    <div class="question">
+      <p>1. Workflow ka pehla step kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant Stochastic RSI</div>
+        <div class="option" data-correct="true">Higher TF bias</div>
+        <div class="option" data-correct="false">Entry</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Stochastic RSI kab check karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sab se pehle</div>
+        <div class="option" data-correct="true">Jab price zone pe aaye</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Checklist ka faida kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Time waste</div>
+        <div class="option" data-correct="true">Process consistent aur mistakes kam</div>
+        <div class="option" data-correct="false">Sirf beginners</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Risk kitna?</p>
+      <div class="options">
+        <div class="option" data-correct="false">5%+</div>
+        <div class="option" data-correct="true">0.5–1%</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Trade ke baad kya zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bhool jana</div>
+        <div class="option" data-correct="true">Journal record</div>
+        <div class="option" data-correct="false">Sirf wins</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 13 ===================== -->
+<section class="chapter" id="ch13">
+  <h2>Chapter 13</h2>
+  <div class="ch-subtitle">Crypto Specific Tips</div>
+
+  <ul>
+    <li>BTC/ETH pe signals zyada clean milte hain</li>
+    <li>Low liquidity alts mein false crossovers zyada</li>
+    <li>15m–1H pe timing ke liye useful, higher TF pe bias</li>
+    <li>News se pehle extreme readings unreliable ho sakti hain</li>
+    <li>Strong trend mein Stochastic RSI extreme pe atak sakta hai – against trend mat jao</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Crypto mein liquidity aur trend strength Stochastic RSI ki reliability ko affect karti hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 13</h3>
+    <div class="question">
+      <p>1. Stochastic RSI kis pairs pe better kaam karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf meme coins</div>
+        <div class="option" data-correct="true">BTC aur ETH</div>
+        <div class="option" data-correct="false">Koi bhi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Low liquidity alts mein kya problem hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kuch nahi</div>
+        <div class="option" data-correct="true">False crossovers zyada</div>
+        <div class="option" data-correct="false">Hamesha perfect</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Timing ke liye kaun se timeframes useful hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf Daily</div>
+        <div class="option" data-correct="true">15m se 1H</div>
+        <div class="option" data-correct="false">Tick</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Strong trend mein extreme pe atakne ka kya matlab?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant reverse</div>
+        <div class="option" data-correct="true">Against trend trade mat karo</div>
+        <div class="option" data-correct="false">Tool toot gaya</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. News se pehle kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Full size</div>
+        <div class="option" data-correct="true">Extra careful / size kam</div>
+        <div class="option" data-correct="false">Ignore</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 14 ===================== -->
+<section class="chapter" id="ch14">
+  <h2>Chapter 14</h2>
+  <div class="ch-subtitle">Journaling Stochastic RSI Trades</div>
+
+  <p>Har trade pe record karo:</p>
+  <ul>
+    <li>Trend bias</li>
+    <li>Price Action zone</li>
+    <li>Stochastic RSI reading (oversold/overbought + crossover)</li>
+    <li>Confirmation</li>
+    <li>Entry, Stop, Target, Risk</li>
+    <li>Result + R-multiple</li>
+    <li>Screenshot</li>
+    <li>Lesson</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Journal se pata chalta hai ke aapke liye kaun se conditions best kaam karti hain.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 14</h3>
+    <div class="question">
+      <p>1. Journal mein Stochastic RSI ke related kya record karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf result</div>
+        <div class="option" data-correct="true">Reading + crossover + zone context</div>
+        <div class="option" data-correct="false">Sirf entry</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Weekly review ka faida kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf profit</div>
+        <div class="option" data-correct="true">Kaun se conditions better kaam kar rahi hain yeh samajhna</div>
+        <div class="option" data-correct="false">Time waste</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Screenshot kyun zaroori?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Decoration</div>
+        <div class="option" data-correct="true">Visual review ke liye</div>
+        <div class="option" data-correct="false">Broker</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. R-multiple kya batata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Volume</div>
+        <div class="option" data-correct="true">Risk vs reward</div>
+        <div class="option" data-correct="false">RSI value</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Journal ke baghair kya hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Same mistakes repeat</div>
+        <div class="option" data-correct="false">Tool better kaam karta hai</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 15 ===================== -->
+<section class="chapter" id="ch15">
+  <h2>Chapter 15</h2>
+  <div class="ch-subtitle">Final Summary & Next Steps</div>
+
+  <p>Is book mein aap ne seekha:</p>
+  <ul>
+    <li>Stochastic RSI normal RSI se zyada sensitive hai</li>
+    <li>Yeh short-term timing ke liye best hai</li>
+    <li>Extreme zones + crossovers ka sahi use</li>
+    <li>Trend ke saath kaise combine karein</li>
+    <li>Price Action confluence ki ahmiyat</li>
+    <li>Complete workflow aur risk management</li>
+  </ul>
+
+  <p>Ab practice karo. Pehle bias, phir zone, phir Stochastic RSI timing. Journal rakhna mat bhoolna.</p>
+
+  <div class="highlight">
+    Stochastic RSI ek sharp timing tool hai. Isko uski jagah pe use karo – results behtar aayenge.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Sensitive tool + Right context + Process = Better short-term entries.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 15</h3>
+    <div class="question">
+      <p>1. Is book ka core message kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Stochastic RSI akela kaafi hai</div>
+        <div class="option" data-correct="true">Yeh timing tool hai – context ke saath use karo</div>
+        <div class="option" data-correct="false">Sirf theory</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Agla qadam kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Full capital</div>
+        <div class="option" data-correct="true">Practice + Journaling</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Stochastic RSI ko kis tarah treat karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Primary trend tool</div>
+        <div class="option" data-correct="true">Short-term timing / confirmation tool</div>
+        <div class="option" data-correct="false">Volume tool</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Consistency kahan se aati hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Lucky signals</div>
+        <div class="option" data-correct="true">Process follow karne se</div>
+        <div class="option" data-correct="false">Har crossover pe trade</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. TradeEd is journey mein kya help kar sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Guaranteed profits</div>
+        <div class="option" data-correct="true">Structured guidance aur accountability</div>
+        <div class="option" data-correct="false">Sirf signals</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Stochastic RSI Mastery</strong></p>
+  <p>Short-term Timing • Sensitive Momentum • Process Driven</p>
+  <p style="margin-top:14px; font-size:0.9rem;">TradeEd Educational Book | info@tradeed.online</p>
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const question = this.closest('.question');
+      if (question.classList.contains('answered')) return;
+      const isCorrect = this.getAttribute('data-correct') === 'true';
+      const allOptions = question.querySelectorAll('.option');
+      const feedback = question.querySelector('.feedback');
+      allOptions.forEach(opt => {
+        opt.classList.add('answered');
+        if (opt.getAttribute('data-correct') === 'true') opt.classList.add('correct');
+      });
+      if (isCorrect) {
+        this.classList.add('correct');
+        feedback.textContent = '✓ Sahi Jawaab!';
+        feedback.style.color = '#22c55e';
+      } else {
+        this.classList.add('wrong');
+        feedback.textContent = '✗ Galat. Sahi option green mein highlight hai.';
+        feedback.style.color = '#ef4444';
+      }
+      feedback.classList.add('show');
+      question.classList.add('answered');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fibonacci Retracement Mastery | Pullback Entries | TradeEd</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --accent: #22d3ee;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #1e293b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.75;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 20px; }
+  header {
+    text-align: center;
+    padding: 48px 20px 36px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 40px;
+  }
+  header h1 { font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; }
+  header h2 { font-size: 1.2rem; color: var(--muted); font-weight: 400; }
+  .brand { margin-top: 14px; font-size: 0.95rem; color: var(--orange); }
+  nav.toc {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 50px;
+  }
+  nav.toc h3 { color: var(--accent); margin-bottom: 18px; font-size: 1.3rem; }
+  nav.toc ol { padding-left: 22px; }
+  nav.toc li { margin: 8px 0; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  .chapter {
+    margin-bottom: 70px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #334155;
+  }
+  .chapter h2 { font-size: 1.85rem; color: var(--accent); margin-bottom: 6px; }
+  .chapter .ch-subtitle { font-size: 1.15rem; color: var(--orange); margin-bottom: 22px; }
+  .chapter h3 { font-size: 1.25rem; color: var(--orange); margin: 30px 0 14px; }
+  .chapter p { margin-bottom: 16px; }
+  .chapter ul, .chapter ol { margin: 14px 0 20px 26px; }
+  .chapter li { margin-bottom: 9px; }
+  .highlight {
+    background: #1e293b;
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 10px 10px 0;
+  }
+  .svg-box {
+    background: #0b1220;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 30px 0;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-box svg { max-width: 100%; height: auto; }
+  .svg-caption { margin-top: 12px; font-size: 0.9rem; color: var(--muted); }
+  .quiz {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 40px;
+  }
+  .quiz h3 { color: var(--accent); margin-bottom: 22px; font-size: 1.35rem; }
+  .question {
+    margin-bottom: 30px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #334155;
+  }
+  .question:last-child { border-bottom: none; }
+  .question p { font-weight: 600; margin-bottom: 14px; color: #f1f5f9; font-size: 1.05rem; }
+  .options { display: flex; flex-direction: column; gap: 11px; }
+  .option {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 10px;
+    padding: 13px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .option:hover:not(.answered) { border-color: var(--accent); background: #1e293b; }
+  .option.correct { background: rgba(34,197,94,0.18); border-color: var(--green); color: var(--green); }
+  .option.wrong { background: rgba(239,68,68,0.18); border-color: var(--red); color: var(--red); }
+  .option.answered { cursor: default; }
+  .feedback { margin-top: 10px; font-size: 0.92rem; display: none; }
+  .feedback.show { display: block; }
+  .takeaway {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 28px 0;
+  }
+  .takeaway strong { color: var(--accent); }
+  .rule-box {
+    background: #0f172a;
+    border: 1px solid #22d3ee44;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .rule-box h4 { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-top: 1px solid #334155;
+    margin-top: 30px;
+  }
+</style>
+
+<meta name="description" content="Fibonacci retracement se perfect pullback entries - golden zone, 0.5/0.618 levels, confluence aur risk management. Roman Urdu, 15 chapters ke saath.">
+<meta name="author" content="M. Aslam Khan">
+<link rel="canonical" href="https://tradeed.online/fibonacci-retracement-mastery/">
+<meta property="og:title" content="Fibonacci Retracement Mastery | Pullback Entries | TradeEd">
+<meta property="og:description" content="Fibonacci retracement se perfect pullback entries - golden zone, 0.5/0.618 levels, confluence aur risk management. Roman Urdu, 15 chapters ke saath.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://tradeed.online/fibonacci-retracement-mastery/">
+<meta property="og:image" content="https://tradeed.online/covers/fibonacci-retracement-mastery.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Fibonacci Retracement Mastery",
+  "author": { "@type": "Person", "name": "M. Aslam Khan" },
+  "publisher": { "@type": "Organization", "name": "TradeEd" },
+  "inLanguage": "ur-Latn",
+  "url": "https://tradeed.online/fibonacci-retracement-mastery/",
+  "image": "https://tradeed.online/covers/fibonacci-retracement-mastery.webp",
+  "description": "Fibonacci retracement se perfect pullback entries - golden zone, 0.5/0.618 levels, confluence aur risk management. Roman Urdu, 15 chapters ke saath."
+}
+</script>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Fibonacci Retracement Mastery</h1>
+  <h2>Pullback Entries • 0.5 & 0.618 Levels • Crypto Trading</h2>
+  <div class="brand">TradeEd Educational Book</div>
+</header>
+
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ch1">Chapter 1 – Introduction: Fibonacci Retracement Kya Hai</a></li>
+    <li><a href="#ch2">Chapter 2 – Fibonacci Levels ka Matlab</a></li>
+    <li><a href="#ch3">Chapter 3 – 0.5 aur 0.618 Kyun Sab Se Important Hain</a></li>
+    <li><a href="#ch4">Chapter 4 – Fibonacci Tool Ko Sahi Tarike Se Draw Karna</a></li>
+    <li><a href="#ch5">Chapter 5 – Uptrend Mein Pullback Entries</a></li>
+    <li><a href="#ch6">Chapter 6 – Downtrend Mein Pullback Entries</a></li>
+    <li><a href="#ch7">Chapter 7 – Confluence: Fibonacci + Support/Resistance</a></li>
+    <li><a href="#ch8">Chapter 8 – Fibonacci + Order Blocks / FVG</a></li>
+    <li><a href="#ch9">Chapter 9 – Entry, Stop Loss aur Target Planning</a></li>
+    <li><a href="#ch10">Chapter 10 – Higher Timeframe Bias ke Saath Fibonacci</a></li>
+    <li><a href="#ch11">Chapter 11 – Common Mistakes</a></li>
+    <li><a href="#ch12">Chapter 12 – Complete Fibonacci Pullback Workflow</a></li>
+    <li><a href="#ch13">Chapter 13 – Crypto Specific Tips</a></li>
+    <li><a href="#ch14">Chapter 14 – Journaling Fibonacci Trades</a></li>
+    <li><a href="#ch15">Chapter 15 – Final Summary & Next Steps</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<section class="chapter" id="ch1">
+  <h2>Chapter 1</h2>
+  <div class="ch-subtitle">Introduction: Fibonacci Retracement Kya Hai</div>
+
+  <p>Fibonacci Retracement ek tool hai jo strong move ke baad potential pullback zones identify karta hai. Jab price ek clear swing high se swing low (ya ulta) move karti hai, to Fibonacci levels un points ke beech mein possible reaction areas dikhate hain.</p>
+
+  <p>Crypto market mein trends ke baad pullbacks common hote hain. 0.5 aur 0.618 levels in pullbacks mein bohot baar respect kiye jate hain. Is liye yeh levels high-probability entry zones banate hain.</p>
+
+  <p>Is book mein aap seekhenge:</p>
+  <ul>
+    <li>Fibonacci levels ka asali matlab</li>
+    <li>0.5 aur 0.618 kyun sab se useful hain</li>
+    <li>Tool ko sahi tarike se kaise draw karein</li>
+    <li>Uptrend aur downtrend dono mein pullback entries</li>
+    <li>Confluence ke saath high-probability setups</li>
+    <li>Complete workflow aur risk management</li>
+  </ul>
+
+  <div class="highlight">
+    Fibonacci magic nahi hai. Yeh probability zones hain. Jab inko Support/Resistance, Order Blocks ya FVG ke saath combine kiya jaye to yeh bohot powerful ban jate hain.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Fibonacci pullback zones dikhata hai. Confluence un zones ko tradeable banati hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 1</h3>
+    <div class="question">
+      <p>1. Fibonacci Retracement ka asali kaam kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Future price exact batana</div>
+        <div class="option" data-correct="true">Strong move ke baad potential pullback zones identify karna</div>
+        <div class="option" data-correct="false">Sirf volume measure karna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Crypto mein Fibonacci kyun useful hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki market hamesha sideways rehti hai</div>
+        <div class="option" data-correct="true">Kyunki trends ke baad pullbacks common hote hain aur 0.5/0.618 aksar respect hote hain</div>
+        <div class="option" data-correct="false">Kyunki yeh free nahi milta</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Fibonacci ko magic tool kyun nahi kaha gaya?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki yeh probability zones hain, guarantee nahi</div>
+        <div class="option" data-correct="false">Kyunki yeh sirf stocks mein kaam karta hai</div>
+        <div class="option" data-correct="false">Kyunki iska formula galat hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Fibonacci ko aur powerful kaise banaya ja sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Akela use karke</div>
+        <div class="option" data-correct="true">Support/Resistance, Order Blocks ya FVG ke saath confluence se</div>
+        <div class="option" data-correct="false">Sirf 1-minute chart pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Is book ka main focus kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Har Fibonacci level</div>
+        <div class="option" data-correct="true">0.5 aur 0.618 pullback entries aur unka practical use</div>
+        <div class="option" data-correct="false">Sirf theory</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 2 ===================== -->
+<section class="chapter" id="ch2">
+  <h2>Chapter 2</h2>
+  <div class="ch-subtitle">Fibonacci Levels ka Matlab</div>
+
+  <p>Common Fibonacci Retracement levels:</p>
+  <ul>
+    <li><strong>0.236</strong> – Shallow pullback</li>
+    <li><strong>0.382</strong> – Moderate pullback</li>
+    <li><strong>0.5</strong> – Halfway (psychological + mathematical)</li>
+    <li><strong>0.618</strong> – Golden Ratio (sab se famous)</li>
+    <li><strong>0.786</strong> – Deep pullback</li>
+  </ul>
+
+  <p>0 level swing start hota hai, 1 level swing end. Retracement inke beech percentage pullback dikhata hai.</p>
+
+  <div class="svg-box">
+    <svg width="580" height="340" viewBox="0 0 580 340" xmlns="http://www.w3.org/2000/svg">
+      <rect width="580" height="340" fill="#0b1220"/>
+      <text x="150" y="28" fill="#94a3b8" font-size="15">Fibonacci Retracement Levels (Uptrend Example)</text>
+      <!-- Swing low to high -->
+      <path d="M80,280 L200,80" fill="none" stroke="#f97316" stroke-width="2.5"/>
+      <circle cx="80" cy="280" r="6" fill="#22c55e"/>
+      <text x="50" y="300" fill="#22c55e" font-size="12">Swing Low (0)</text>
+      <circle cx="200" cy="80" r="6" fill="#ef4444"/>
+      <text x="210" y="75" fill="#ef4444" font-size="12">Swing High (1)</text>
+      <!-- Levels -->
+      <line x1="80" y1="280" x2="480" y2="280" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="490" y="284" fill="#94a3b8" font-size="12">0</text>
+      <line x1="80" y1="232" x2="480" y2="232" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="490" y="236" fill="#22d3ee" font-size="12">0.236</text>
+      <line x1="80" y1="203" x2="480" y2="203" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="490" y="207" fill="#22d3ee" font-size="12">0.382</text>
+      <line x1="80" y1="180" x2="480" y2="180" stroke="#f97316" stroke-width="2.5"/>
+      <text x="490" y="184" fill="#f97316" font-size="13" font-weight="bold">0.5</text>
+      <line x1="80" y1="156" x2="480" y2="156" stroke="#22c55e" stroke-width="2.5"/>
+      <text x="490" y="160" fill="#22c55e" font-size="13" font-weight="bold">0.618</text>
+      <line x1="80" y1="123" x2="480" y2="123" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="490" y="127" fill="#22d3ee" font-size="12">0.786</text>
+      <line x1="80" y1="80" x2="480" y2="80" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="490" y="84" fill="#94a3b8" font-size="12">1</text>
+    </svg>
+    <div class="svg-caption">Figure 1: Fibonacci levels – 0.5 aur 0.618 highlighted</div>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Har level alag depth ka pullback dikhata hai. 0.5 aur 0.618 sab se zyada respect kiye jate hain.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 2</h3>
+    <div class="question">
+      <p>1. Fibonacci Retracement mein 0 level kya represent karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Pullback ka end</div>
+        <div class="option" data-correct="true">Swing ka starting point</div>
+        <div class="option" data-correct="false">Random level</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. 0.618 level ko aur kis naam se jana jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Shallow level</div>
+        <div class="option" data-correct="true">Golden Ratio</div>
+        <div class="option" data-correct="false">Volume level</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. 0.5 level ka kya khaas hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Yeh deepest level hai</div>
+        <div class="option" data-correct="true">Yeh halfway point hai – psychological + mathematical</div>
+        <div class="option" data-correct="false">Yeh sirf stocks mein kaam karta hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. 0.236 level kaisa pullback dikhata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bohot deep</div>
+        <div class="option" data-correct="true">Shallow pullback</div>
+        <div class="option" data-correct="false">Trend reverse</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Is book mein focus kin levels pe hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf 0.236 aur 0.786</div>
+        <div class="option" data-correct="true">0.5 aur 0.618</div>
+        <div class="option" data-correct="false">Sirf 1.0</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 3 ===================== -->
+<section class="chapter" id="ch3">
+  <h2>Chapter 3</h2>
+  <div class="ch-subtitle">0.5 aur 0.618 Kyun Sab Se Important Hain</div>
+
+  <p><strong>0.5 (50% Retracement)</strong></p>
+  <ul>
+    <li>Psychological halfway point</li>
+    <li>Bohot se traders yahan se reaction expect karte hain</li>
+    <li>Strong trends mein pehla solid pullback zone</li>
+  </ul>
+
+  <p><strong>0.618 (Golden Ratio)</strong></p>
+  <ul>
+    <li>Sab se famous Fibonacci level</li>
+    <li>Institutions aur algorithms bhi is level ko watch karte hain</li>
+    <li>Deep lekin still healthy pullback – trend continue hone ka achha chance</li>
+  </ul>
+
+  <p>Agar price 0.786 se bhi gehra pullback kar le to trend weak ho sakta hai ya reverse ho sakta hai. Is liye 0.5–0.618 zone “sweet zone” maana jata hai.</p>
+
+  <div class="highlight">
+    Crypto mein 0.5 aur 0.618 pe bounce ya rejection dekhna common hai, khas tor pe jab yeh levels kisi Support/Resistance ya Order Block ke saath overlap karein.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> 0.5–0.618 = Sweet zone for pullback entries in trending markets.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 3</h3>
+    <div class="question">
+      <p>1. 0.5 level ko psychological kyun kaha jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh random hai</div>
+        <div class="option" data-correct="true">Kyunki yeh exactly halfway point hai aur traders ispe react karte hain</div>
+        <div class="option" data-correct="false">Kyunki yeh deepest hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. 0.618 ko Golden Ratio kyun kehte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki yeh yellow color ka hai</div>
+        <div class="option" data-correct="true">Kyunki yeh Fibonacci sequence ka famous ratio hai</div>
+        <div class="option" data-correct="false">Kyunki yeh hamesha kaam karta hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Agar price 0.786 se bhi gehra pullback kare to kya ho sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Trend aur strong ho jata hai</div>
+        <div class="option" data-correct="true">Trend weak ho sakta hai ya reverse ho sakta hai</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. “Sweet zone” kis range ko kaha gaya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236–0.382</div>
+        <div class="option" data-correct="true">0.5–0.618</div>
+        <div class="option" data-correct="false">0.786–1.0</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Crypto mein 0.5/0.618 aur powerful kab bante hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Jab akela hon</div>
+        <div class="option" data-correct="true">Jab Support/Resistance ya Order Block ke saath overlap karein</div>
+        <div class="option" data-correct="false">Jab volume zero ho</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<section class="chapter" id="ch4">
+  <h2>Chapter 4</h2>
+  <div class="ch-subtitle">Fibonacci Tool Ko Sahi Tarike Se Draw Karna</div>
+
+  <p><strong>Uptrend (Pullback buy setup):</strong></p>
+  <ul>
+    <li>Recent clear Swing Low se start karo (0)</li>
+    <li>Swing High tak le jao (1)</li>
+    <li>Levels automatically ban jayenge</li>
+  </ul>
+
+  <p><strong>Downtrend (Pullback sell setup):</strong></p>
+  <ul>
+    <li>Recent clear Swing High se start karo (0)</li>
+    <li>Swing Low tak le jao (1)</li>
+  </ul>
+
+  <p><strong>Important tips:</strong></p>
+  <ul>
+    <li>Clear aur significant swings use karo (chhoti noise swings nahi)</li>
+    <li>Higher timeframe pe pehle major swing identify karo</li>
+    <li>Wick ke extreme se body ke qareeb tak flexibility rakh sakte ho, lekin consistent raho</li>
+  </ul>
+
+  <div class="highlight">
+    Galat swing choose karne se poora Fibonacci unreliable ho jata hai. Pehle clear structure dekho, phir tool lagao.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Tool tabhi kaam karta hai jab aap sahi swing points choose karo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 4</h3>
+    <div class="question">
+      <p>1. Uptrend mein Fibonacci kahan se kahan draw karte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Swing High se Swing Low</div>
+        <div class="option" data-correct="true">Swing Low (0) se Swing High (1)</div>
+        <div class="option" data-correct="false">Random points</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Downtrend mein Fibonacci kaise draw hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Low se High</div>
+        <div class="option" data-correct="true">Swing High (0) se Swing Low (1)</div>
+        <div class="option" data-correct="false">Sirf middle se</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Chhoti noise swings pe Fibonacci lagana kyun galat hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki levels unreliable ho jate hain</div>
+        <div class="option" data-correct="false">Kyunki tool toot jata hai</div>
+        <div class="option" data-correct="false">Kyunki volume nahi aata</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Pehle major swing kahan identify karna better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">1-minute pe</div>
+        <div class="option" data-correct="true">Higher timeframe pe</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Fibonacci tool ke liye sab se zaroori cheez kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bohot se levels</div>
+        <div class="option" data-correct="true">Sahi aur clear swing points choose karna</div>
+        <div class="option" data-correct="false">Sirf 0.236</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<section class="chapter" id="ch5">
+  <h2>Chapter 5</h2>
+  <div class="ch-subtitle">Uptrend Mein Pullback Entries</div>
+
+  <div class="rule-box">
+    <h4>Bullish Pullback Setup (TradeEd Rules)</h4>
+    <ol>
+      <li>Clear uptrend identify karo (Higher TF bias bullish)</li>
+      <li>Recent Swing Low se Swing High tak Fibonacci draw karo</li>
+      <li>Price 0.5 ya 0.618 zone mein pullback kare</li>
+      <li>Us zone pe rejection / bullish confirmation candle aaye</li>
+      <li>Volume ya simple momentum support kare</li>
+      <li>Long entry, stop 0.786 ke thoda neeche ya structure ke neeche</li>
+      <li>Target: Previous high ya extension</li>
+    </ol>
+  </div>
+
+  <div class="svg-box">
+    <svg width="580" height="300" viewBox="0 0 580 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="580" height="300" fill="#0b1220"/>
+      <text x="160" y="28" fill="#94a3b8" font-size="15">Uptrend Pullback at 0.618</text>
+      <path d="M60,220 L140,80 L220,140 L300,50" fill="none" stroke="#f97316" stroke-width="2.5"/>
+      <line x1="140" y1="80" x2="400" y2="80" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="410" y="84" fill="#94a3b8" font-size="11">1 (High)</text>
+      <line x1="140" y1="140" x2="400" y2="140" stroke="#22c55e" stroke-width="2"/>
+      <text x="410" y="144" fill="#22c55e" font-size="12">0.618</text>
+      <line x1="60" y1="220" x2="400" y2="220" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="410" y="224" fill="#94a3b8" font-size="11">0 (Low)</text>
+      <circle cx="220" cy="140" r="6" fill="#22c55e"/>
+      <text x="230" y="130" fill="#22c55e" font-size="12">Entry Zone</text>
+      <path d="M220,140 L300,50" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="6,3"/>
+    </svg>
+    <div class="svg-caption">Figure 2: Uptrend mein price 0.618 pe pullback karke bounce</div>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Uptrend mein 0.5/0.618 pe confirmation ke saath long lena high-probability setup hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 5</h3>
+    <div class="question">
+      <p>1. Bullish pullback setup ke liye pehle kya zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Downtrend</div>
+        <div class="option" data-correct="true">Clear uptrend / Higher TF bullish bias</div>
+        <div class="option" data-correct="false">Sirf RSI 30</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Fibonacci kahan se kahan draw karte hain uptrend mein?</p>
+      <div class="options">
+        <div class="option" data-correct="false">High se Low</div>
+        <div class="option" data-correct="true">Swing Low se Swing High</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Entry se pehle kya wait karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf level touch</div>
+        <div class="option" data-correct="true">Rejection / bullish confirmation candle</div>
+        <div class="option" data-correct="false">Volume zero</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Stop loss roughly kahan rakhna better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236 ke upar</div>
+        <div class="option" data-correct="true">0.786 ke thoda neeche ya structure ke neeche</div>
+        <div class="option" data-correct="false">Entry ke bilkul paas</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Target kahan rakh sakte hain?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf 1%</div>
+        <div class="option" data-correct="true">Previous high ya Fibonacci extension</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 6 ===================== -->
+<section class="chapter" id="ch6">
+  <h2>Chapter 6</h2>
+  <div class="ch-subtitle">Downtrend Mein Pullback Entries</div>
+
+  <div class="rule-box">
+    <h4>Bearish Pullback Setup</h4>
+    <ol>
+      <li>Clear downtrend (Higher TF bearish bias)</li>
+      <li>Swing High se Swing Low tak Fibonacci draw karo</li>
+      <li>Price 0.5 ya 0.618 zone mein pullback (up) kare</li>
+      <li>Rejection / bearish confirmation aaye</li>
+      <li>Short entry</li>
+      <li>Stop 0.786 ke thoda upar</li>
+      <li>Target: Previous low</li>
+    </ol>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Downtrend mein bhi same 0.5/0.618 logic kaam karta hai – bas direction ulta hota hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 6</h3>
+    <div class="question">
+      <p>1. Bearish pullback ke liye bias kya hona chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bullish</div>
+        <div class="option" data-correct="true">Higher TF bearish</div>
+        <div class="option" data-correct="false">Neutral</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Downtrend mein Fibonacci kahan se draw hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Low se High</div>
+        <div class="option" data-correct="true">Swing High se Swing Low</div>
+        <div class="option" data-correct="false">Middle se</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Pullback is case mein kis direction mein hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Neeche</div>
+        <div class="option" data-correct="true">Upar (counter-trend bounce)</div>
+        <div class="option" data-correct="false">Sideways</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Short ka stop roughly kahan?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236 ke neeche</div>
+        <div class="option" data-correct="true">0.786 ke thoda upar</div>
+        <div class="option" data-correct="false">Entry pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Downtrend pullback setup mein confirmation kya hona chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bullish candle</div>
+        <div class="option" data-correct="true">Bearish rejection / confirmation candle</div>
+        <div class="option" data-correct="false">Koi confirmation nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 7 ===================== -->
+<section class="chapter" id="ch7">
+  <h2>Chapter 7</h2>
+  <div class="ch-subtitle">Confluence: Fibonacci + Support/Resistance</div>
+
+  <p>Jab Fibonacci 0.5 ya 0.618 level kisi pehle se maujood Support ya Resistance ke saath overlap kare, to setup ki quality bohot badh jati hai.</p>
+
+  <p>Yeh is liye hota hai kyunki do alag tools ek hi zone ko highlight kar rahe hote hain – traders ki attention wahan concentrate hoti hai.</p>
+
+  <div class="highlight">
+    Confluence Rule: Fibonacci level + Horizontal S/R = Higher probability reaction zone.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Akela Fibonacci accha hai. S/R ke saath confluence best hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 7</h3>
+    <div class="question">
+      <p>1. Fibonacci + Support/Resistance confluence se kya hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Setup weak ho jata hai</div>
+        <div class="option" data-correct="true">Setup ki probability badh jati hai</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Confluence kyun powerful hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kyunki indicators free hain</div>
+        <div class="option" data-correct="true">Kyunki do tools ek hi zone ko highlight karte hain</div>
+        <div class="option" data-correct="false">Kyunki volume zero hota hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Best combination kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf Fibonacci</div>
+        <div class="option" data-correct="true">Fibonacci 0.5/0.618 + Horizontal S/R</div>
+        <div class="option" data-correct="false">Sirf random levels</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Confluence ke baghair Fibonacci use karna?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Hamesha best</div>
+        <div class="option" data-correct="true">Possible hai lekin probability kam hoti hai</div>
+        <div class="option" data-correct="false">Bilkul mat use karo</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Traders ki attention confluence zone pe kyun concentrate hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki multiple tools wahan reaction expect karte hain</div>
+        <div class="option" data-correct="false">Kyunki chart colorful hota hai</div>
+        <div class="option" data-correct="false">Kyunki volume nahi hota</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 8 ===================== -->
+<section class="chapter" id="ch8">
+  <h2>Chapter 8</h2>
+  <div class="ch-subtitle">Fibonacci + Order Blocks / FVG</div>
+
+  <p>Jab 0.5 ya 0.618 level kisi Order Block ya Fair Value Gap ke andar ya bilkul uske qareeb aaye, to yeh institutional-style confluence banata hai.</p>
+
+  <p>Is combination mein:</p>
+  <ul>
+    <li>Fibonacci mathematical zone deta hai</li>
+    <li>Order Block / FVG institutional interest zone dikhata hai</li>
+    <li>Dono mil kar strong reaction area bana sakte hain</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Fibonacci + OB/FVG = Ek advanced aur high-quality confluence.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 8</h3>
+    <div class="question">
+      <p>1. Fibonacci + Order Block confluence kya banata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Weak setup</div>
+        <div class="option" data-correct="true">Institutional-style high-quality zone</div>
+        <div class="option" data-correct="false">Sirf volume spike</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Is combination mein Fibonacci kya role play karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Volume deta hai</div>
+        <div class="option" data-correct="true">Mathematical pullback zone</div>
+        <div class="option" data-correct="false">Trend reverse</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Order Block / FVG is combination mein kya add karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf color</div>
+        <div class="option" data-correct="true">Institutional interest / imbalance zone</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Yeh confluence simple S/R se kyun advanced maana jata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki yeh price action + mathematical level dono ko combine karta hai</div>
+        <div class="option" data-correct="false">Kyunki yeh naya hai</div>
+        <div class="option" data-correct="false">Kyunki indicators nahi chahiye</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Best practice kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf Fibonacci</div>
+        <div class="option" data-correct="true">Fibonacci 0.5/0.618 ko OB ya FVG ke saath dekhna</div>
+        <div class="option" data-correct="false">Sirf gut feeling</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 9 ===================== -->
+<section class="chapter" id="ch9">
+  <h2>Chapter 9</h2>
+  <div class="ch-subtitle">Entry, Stop Loss aur Target Planning</div>
+
+  <p><strong>Entry:</strong> 0.5 ya 0.618 zone ke andar confirmation candle ke baad.</p>
+  <p><strong>Stop:</strong> 0.786 ke thoda bahar ya recent structure ke beyond.</p>
+  <p><strong>Targets:</strong></p>
+  <ul>
+    <li>Pehla: Previous swing high/low</li>
+    <li>Doosra: Fibonacci extension (1.272 / 1.618) agar trend strong ho</li>
+    <li>Partial profits pehle target pe</li>
+  </ul>
+
+  <p>Risk-reward kam az kam 1:1.5 prefer karo. Agar stop wide hai aur pehla target qareeb hai to setup skip karna better hai.</p>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Clear invalidation (stop) ke baghair Fibonacci trade mat lo.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 9</h3>
+    <div class="question">
+      <p>1. Entry kab leni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf level touch pe</div>
+        <div class="option" data-correct="true">Confirmation candle ke baad</div>
+        <div class="option" data-correct="false">Random</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Stop loss roughly kahan better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236 pe</div>
+        <div class="option" data-correct="true">0.786 ke thoda bahar ya structure beyond</div>
+        <div class="option" data-correct="false">Entry pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Pehla target kahan rakhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bohot door</div>
+        <div class="option" data-correct="true">Previous swing high/low</div>
+        <div class="option" data-correct="false">Sirf 0.5%</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Agar risk-reward kharab ho to kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Forcefully trade</div>
+        <div class="option" data-correct="true">Setup skip karna</div>
+        <div class="option" data-correct="false">Stop hata dena</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. “Clear invalidation” se kya murad hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Target</div>
+        <div class="option" data-correct="true">Woh point jahan trade idea galat prove ho (stop)</div>
+        <div class="option" data-correct="false">Entry</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 10 ===================== -->
+<section class="chapter" id="ch10">
+  <h2>Chapter 10</h2>
+  <div class="ch-subtitle">Higher Timeframe Bias ke Saath Fibonacci</div>
+
+  <p>Fibonacci tab sab se behtar kaam karta hai jab higher timeframe trend clear ho.</p>
+
+  <ul>
+    <li>4H / Daily pe trend dekho</li>
+    <li>Usi direction mein pullback entries lo</li>
+    <li>Against trend Fibonacci pullbacks ko avoid ya bohot chhoti size se lo</li>
+  </ul>
+
+  <div class="highlight">
+    Higher TF trend = Wind. Fibonacci pullback = Entry opportunity us wind ke direction mein.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Pehle bias, phir Fibonacci pullback.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 10</h3>
+    <div class="question">
+      <p>1. Fibonacci kab sab se behtar kaam karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Ranging market mein</div>
+        <div class="option" data-correct="true">Jab higher timeframe trend clear ho</div>
+        <div class="option" data-correct="false">Sirf 1-minute pe</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Against higher TF trend Fibonacci pullback lena?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Hamesha best</div>
+        <div class="option" data-correct="true">Avoid ya bohot chhoti size</div>
+        <div class="option" data-correct="false">Full size se</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Higher TF bias ka role kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Kuch nahi</div>
+        <div class="option" data-correct="true">Direction filter – usi taraf pullback entries prefer karo</div>
+        <div class="option" data-correct="false">Sirf volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. “Wind” se kya murad hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Actual hawa</div>
+        <div class="option" data-correct="true">Higher timeframe trend</div>
+        <div class="option" data-correct="false">Volume</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Sahi sequence kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Pehle Fibonacci, phir bias</div>
+        <div class="option" data-correct="true">Pehle Higher TF bias, phir Fibonacci pullback</div>
+        <div class="option" data-correct="false">Sirf gut feeling</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 11 ===================== -->
+<section class="chapter" id="ch11">
+  <h2>Chapter 11</h2>
+  <div class="ch-subtitle">Common Mistakes</div>
+
+  <ul>
+    <li>Galat / noise swings pe Fibonacci lagana</li>
+    <li>Confirmation ke baghair level pe enter karna</li>
+    <li>Against higher TF trend trade karna</li>
+    <li>Har Fibonacci level pe trade karna (selectivity nahi)</li>
+    <li>0.786 se bhi gehra pullback ignore karke still long/short lena</li>
+    <li>Confluence bilkul ignore karna</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Sahi swing + Confirmation + Bias + Confluence = Mistakes kam.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 11</h3>
+    <div class="question">
+      <p>1. Sab se common mistake kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Journal rakhna</div>
+        <div class="option" data-correct="true">Galat / noise swings pe Fibonacci lagana</div>
+        <div class="option" data-correct="false">Higher TF dekhna</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Confirmation ke baghair enter karna kyun galat hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki level touch se reaction guarantee nahi</div>
+        <div class="option" data-correct="false">Kyunki tool toot jata hai</div>
+        <div class="option" data-correct="false">Kyunki volume hamesha high hota hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Har Fibonacci level pe trade karna?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Best practice</div>
+        <div class="option" data-correct="true">Selectivity nahi – galti hai</div>
+        <div class="option" data-correct="false">Zaroori hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. 0.786 se gehra pullback ka kya matlab ho sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Trend aur strong</div>
+        <div class="option" data-correct="true">Trend weak ho sakta hai</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Confluence ignore karna kyun nuksaan dehai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki akela Fibonacci ki probability kam hoti hai</div>
+        <div class="option" data-correct="false">Kyunki levels ghayab ho jate hain</div>
+        <div class="option" data-correct="false">Kyunki chart messy ho jata hai</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 12 ===================== -->
+<section class="chapter" id="ch12">
+  <h2>Chapter 12</h2>
+  <div class="ch-subtitle">Complete Fibonacci Pullback Workflow</div>
+
+  <ol>
+    <li>Higher TF pe trend bias decide karo</li>
+    <li>Clear swing identify karo aur Fibonacci draw karo</li>
+    <li>0.5 / 0.618 zone ka wait karo</li>
+    <li>Us zone pe confirmation candle ka wait karo</li>
+    <li>Confluence check karo (S/R, OB, FVG)</li>
+    <li>Stop aur target set karo (risk-reward check)</li>
+    <li>Risk 0.5–1% ke saath enter karo</li>
+    <li>Trade journal mein record karo</li>
+  </ol>
+
+  <div class="rule-box">
+    <h4>Pre-Trade Checklist</h4>
+    <ul>
+      <li>☐ Higher TF bias clear?</li>
+      <li>☐ Sahi swing choose kiya?</li>
+      <li>☐ Price 0.5 ya 0.618 pe hai?</li>
+      <li>☐ Confirmation candle?</li>
+      <li>☐ Koi confluence hai?</li>
+      <li>☐ Risk-reward theek hai?</li>
+    </ul>
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Workflow follow karna consistency laata hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 12</h3>
+    <div class="question">
+      <p>1. Workflow ka pehla step kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant Fibonacci lagana</div>
+        <div class="option" data-correct="true">Higher TF bias decide karna</div>
+        <div class="option" data-correct="false">Sirf entry</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Confirmation kis stage pe aati hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sab se pehle</div>
+        <div class="option" data-correct="true">0.5/0.618 zone pe price aane ke baad</div>
+        <div class="option" data-correct="false">Kabhi nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Checklist ka faida kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Time waste</div>
+        <div class="option" data-correct="true">Emotional decisions kam aur process consistent</div>
+        <div class="option" data-correct="false">Sirf beginners</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Risk kitna rakhna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">5%+</div>
+        <div class="option" data-correct="true">0.5–1%</div>
+        <div class="option" data-correct="false">Jo dil kare</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Trade ke baad kya zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Bhool jana</div>
+        <div class="option" data-correct="true">Journal mein record</div>
+        <div class="option" data-correct="false">Sirf wins</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 13 ===================== -->
+<section class="chapter" id="ch13">
+  <h2>Chapter 13</h2>
+  <div class="ch-subtitle">Crypto Specific Tips</div>
+
+  <ul>
+    <li>BTC aur ETH pe Fibonacci levels zyada clean kaam karte hain</li>
+    <li>High liquidity pairs prefer karo</li>
+    <li>News events se pehle pullback entries avoid karo</li>
+    <li>Weekend pe size kam rakho</li>
+    <li>Strong trend mein 0.5 pe bhi bounce mil sakta hai; weak trend mein 0.618 tak wait karna better</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Crypto mein liquidity aur news awareness Fibonacci success rate ko affect karti hai.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 13</h3>
+    <div class="question">
+      <p>1. Fibonacci kis pairs pe zyada clean kaam karta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf meme coins</div>
+        <div class="option" data-correct="true">BTC aur ETH (high liquidity)</div>
+        <div class="option" data-correct="false">Koi bhi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. News events se pehle kya karna chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Full size se trade</div>
+        <div class="option" data-correct="true">Pullback entries avoid ya size kam</div>
+        <div class="option" data-correct="false">Ignore</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Strong trend mein kaun sa level pehle react kar sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf 0.786</div>
+        <div class="option" data-correct="true">0.5</div>
+        <div class="option" data-correct="false">1.0</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Weak trend mein kya better hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">0.236 pe enter</div>
+        <div class="option" data-correct="true">0.618 tak wait karna</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Weekend pe size kyun kam rakhni chahiye?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Kyunki liquidity kam ho sakti hai</div>
+        <div class="option" data-correct="false">Kyunki market band hoti hai</div>
+        <div class="option" data-correct="false">Kyunki Fibonacci kaam nahi karta</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 14 ===================== -->
+<section class="chapter" id="ch14">
+  <h2>Chapter 14</h2>
+  <div class="ch-subtitle">Journaling Fibonacci Trades</div>
+
+  <p>Har trade pe record karo:</p>
+  <ul>
+    <li>Swing points (kahan se kahan Fibonacci draw kiya)</li>
+    <li>Kaun sa level use hua (0.5 / 0.618)</li>
+    <li>Confluence thi ya nahi</li>
+    <li>Confirmation type</li>
+    <li>Entry, Stop, Target, Risk %</li>
+    <li>Result + R-multiple</li>
+    <li>Screenshot</li>
+    <li>Lesson</li>
+  </ul>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> Journal se pata chalta hai ke aapke liye kaun se confluence combinations best kaam kar rahe hain.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 14</h3>
+    <div class="question">
+      <p>1. Fibonacci journal mein sab se important cheez kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf result</div>
+        <div class="option" data-correct="true">Swing points + level + confluence</div>
+        <div class="option" data-correct="false">Sirf entry price</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Weekly review se kya benefit hota hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf profit dekhna</div>
+        <div class="option" data-correct="true">Kaun se combinations better kaam kar rahe hain yeh pata chalna</div>
+        <div class="option" data-correct="false">Time waste</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Screenshot kyun zaroori hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Decoration</div>
+        <div class="option" data-correct="true">Baad mein visual review</div>
+        <div class="option" data-correct="false">Broker</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. R-multiple kya batata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Volume</div>
+        <div class="option" data-correct="true">Risk ke muqable reward</div>
+        <div class="option" data-correct="false">RSI</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. Journal ke baghair kya problem hoti hai?</p>
+      <div class="options">
+        <div class="option" data-correct="true">Same mistakes repeat hoti rehti hain</div>
+        <div class="option" data-correct="false">Fibonacci toot jata hai</div>
+        <div class="option" data-correct="false">Market band</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 15 ===================== -->
+<section class="chapter" id="ch15">
+  <h2>Chapter 15</h2>
+  <div class="ch-subtitle">Final Summary & Next Steps</div>
+
+  <p>Is book mein aap ne seekha:</p>
+  <ul>
+    <li>Fibonacci Retracement ka concept</li>
+    <li>0.5 aur 0.618 ki ahmiyat</li>
+    <li>Sahi tarike se tool draw karna</li>
+    <li>Uptrend aur downtrend pullback entries</li>
+    <li>Confluence ke saath high-probability setups</li>
+    <li>Complete workflow, risk management aur journaling</li>
+  </ul>
+
+  <p>Ab charts pe deliberate practice karo. Clear swings choose karo, 0.5/0.618 pe confirmation ka wait karo, confluence dhoondo, aur har trade journal mein likho.</p>
+
+  <div class="highlight">
+    Fibonacci zones dikhata hai. Confirmation aur confluence unko tradeable banate hain. Process consistency laata hai.
+  </div>
+
+  <div class="takeaway">
+    <strong>Key Takeaway:</strong> 0.5 aur 0.618 pullback entries crypto mein powerful hain – jab process ke saath use kiye jayein.
+  </div>
+
+  <div class="quiz">
+    <h3>Sawaal o Jawaab – Chapter 15</h3>
+    <div class="question">
+      <p>1. Is book ka core focus kya tha?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Har indicator</div>
+        <div class="option" data-correct="true">Fibonacci 0.5/0.618 pullback entries</div>
+        <div class="option" data-correct="false">Sirf theory</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>2. Agla qadam kya hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Turant full capital</div>
+        <div class="option" data-correct="true">Charts pe practice + journaling</div>
+        <div class="option" data-correct="false">Kuch nahi</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>3. Fibonacci ko tradeable kya banata hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Sirf level</div>
+        <div class="option" data-correct="true">Confirmation + Confluence + Process</div>
+        <div class="option" data-correct="false">Gut feeling</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>4. Consistency kahan se aati hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Lucky trades</div>
+        <div class="option" data-correct="true">Process follow karne se</div>
+        <div class="option" data-correct="false">Har din trade</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question">
+      <p>5. TradeEd is journey mein kya offer kar sakta hai?</p>
+      <div class="options">
+        <div class="option" data-correct="false">Guaranteed profits</div>
+        <div class="option" data-correct="true">Structured guidance aur accountability</div>
+        <div class="option" data-correct="false">Sirf signals</div>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Fibonacci Retracement Mastery</strong></p>
+  <p>Pullback Entries • 0.5 & 0.618 • Process Driven</p>
+  <p style="margin-top:14px; font-size:0.9rem;">TradeEd Educational Book | info@tradeed.online</p>
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', function() {
+      const question = this.closest('.question');
+      if (question.classList.contains('answered')) return;
+      const isCorrect = this.getAttribute('data-correct') === 'true';
+      const allOptions = question.querySelectorAll('.option');
+      const feedback = question.querySelector('.feedback');
+      allOptions.forEach(opt => {
+        opt.classList.add('answered');
+        if (opt.getAttribute('data-correct') === 'true') opt.classList.add('correct');
+      });
+      if (isCorrect) {
+        this.classList.add('correct');
+        feedback.textContent = '✓ Sahi Jawaab!';
+        feedback.style.color = '#22c55e';
+      } else {
+        this.classList.add('wrong');
+        feedback.textContent = '✗ Galat. Sahi option green mein highlight hai.';
+        feedback.style.color = '#ef4444';
+      }
+      feedback.classList.add('show');
+      question.classList.add('answered');
+    });
+  });
+</script>
+</body>
+</html>
