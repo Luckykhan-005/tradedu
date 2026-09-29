@@ -102,6 +102,88 @@ export function Journal({ user, onSignIn }: JournalProps) {
   const winCount = entries.filter((e) => (e.pnl || 0) > 0).length
   const winRate = entries.length > 0 ? Math.round((winCount / entries.length) * 100) : 0
 
+  // ---- Analytics (sirf closed trades par) ----
+  const closed = entries.filter((e) => e.pnl != null)
+  const wins = closed.filter((e) => (e.pnl as number) > 0)
+  const losses = closed.filter((e) => (e.pnl as number) < 0)
+  const winSum = wins.reduce((a, e) => a + (e.pnl as number), 0)
+  const lossSum = losses.reduce((a, e) => a + (e.pnl as number), 0)
+  const avgWin = wins.length ? winSum / wins.length : 0
+  const avgLoss = losses.length ? lossSum / losses.length : 0
+  const profitFactor =
+    closed.length === 0 || (lossSum === 0 && winSum === 0)
+      ? null
+      : lossSum === 0
+        ? Infinity
+        : winSum === 0
+          ? 0
+          : winSum / Math.abs(lossSum)
+  const bestTrade = closed.length ? Math.max(...closed.map((e) => e.pnl as number)) : 0
+  const worstTrade = closed.length ? Math.min(...closed.map((e) => e.pnl as number)) : 0
+
+  const byDate = [...closed].sort((a, b) => (a.date || '').localeCompare(b.date || ''))
+  let streak = 0
+  let streakKind: 'win' | 'loss' | 'flat' | null = null
+  for (let i = byDate.length - 1; i >= 0; i--) {
+    const p = byDate[i].pnl as number
+    const kind = p > 0 ? 'win' : p < 0 ? 'loss' : 'flat'
+    if (streakKind === null) {
+      streakKind = kind
+      streak = 1
+    } else if (kind === streakKind && kind !== 'flat') {
+      streak++
+    } else break
+  }
+
+  // Equity curve: cumulative P&L trade-by-trade
+  const equity: number[] = []
+  byDate.reduce((acc, e) => {
+    const next = acc + (e.pnl as number)
+    equity.push(next)
+    return next
+  }, 0)
+  const eqMin = Math.min(0, ...equity)
+  const eqMax = Math.max(0, ...equity)
+  const eqRange = eqMax - eqMin || 1
+  const EQ_W = 600
+  const EQ_H = 150
+  const eqPoints = equity
+    .map((v, i) => {
+      const x = equity.length > 1 ? (i / (equity.length - 1)) * EQ_W : EQ_W / 2
+      const y = EQ_H - ((v - eqMin) / eqRange) * EQ_H
+      return `${x.toFixed(1)},${y.toFixed(1)}`
+    })
+    .join(' ')
+  const zeroY = (0 - eqMin) / eqRange * EQ_H
+  const finalEquity = equity.length ? equity[equity.length - 1] : 0
+
+  // Direction breakdown
+  const dirs = (['long', 'short'] as const).map((d) => {
+    const list = entries.filter((e) => e.direction === d && e.pnl != null)
+    return {
+      d,
+      count: list.length,
+      pnl: list.reduce((a, e) => a + (e.pnl as number), 0),
+      winRate: list.length ? Math.round((list.filter((e) => (e.pnl as number) > 0).length / list.length) * 100) : null,
+    }
+  })
+
+  // Setup breakdown (top 5 by trade count)
+  const setupMap = new Map<string, { count: number; pnl: number; wins: number }>()
+  for (const e of closed) {
+    const key = (e.setup || '').trim() || 'No setup'
+    const s = setupMap.get(key) ?? { count: 0, pnl: 0, wins: 0 }
+    s.count++
+    s.pnl += e.pnl as number
+    if ((e.pnl as number) > 0) s.wins++
+    setupMap.set(key, s)
+  }
+  const setups = [...setupMap.entries()]
+    .map(([name, s]) => ({ name, ...s, winRate: Math.round((s.wins / s.count) * 100) }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5)
+  const setupMaxPnl = Math.max(1, ...setups.map((s) => Math.abs(s.pnl)))
+
   const openForm = () => {
     setEditingId(null)
     setForm(emptyForm)
@@ -220,6 +302,185 @@ export function Journal({ user, onSignIn }: JournalProps) {
             </CardContent>
           </Card>
         </div>
+
+        {/* Analytics */}
+        {closed.length >= 1 && (
+          <div className="mb-6 space-y-4">
+            <div>
+              <h2 className="text-lg font-semibold">Performance Analytics</h2>
+              <p className="text-sm text-muted-foreground">
+                Closed trades ke basis par — kamai, galtiyan aur konsa setup chala
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Avg Win</p>
+                  <p className="text-lg font-bold text-emerald-600">+${avgWin.toFixed(2)}</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Avg Loss</p>
+                  <p className="text-lg font-bold text-destructive">${avgLoss.toFixed(2)}</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Profit Factor</p>
+                  <p
+                    className={cn(
+                      'text-lg font-bold',
+                      profitFactor === null || profitFactor >= 1 ? 'text-emerald-600' : 'text-destructive'
+                    )}
+                  >
+                    {profitFactor === null ? '—' : profitFactor === Infinity ? '∞' : profitFactor.toFixed(2)}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Best / Worst</p>
+                  <p className="text-lg font-bold">
+                    <span className="text-emerald-600">+${bestTrade.toFixed(0)}</span>
+                    <span className="mx-1 text-muted-foreground">/</span>
+                    <span className="text-destructive">${worstTrade.toFixed(0)}</span>
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Streak</p>
+                  <p
+                    className={cn(
+                      'text-lg font-bold',
+                      streakKind === 'win' ? 'text-emerald-600' : streakKind === 'loss' ? 'text-destructive' : ''
+                    )}
+                  >
+                    {streak > 0 && streakKind !== 'flat' && streakKind !== null
+                      ? `${streak}${streakKind === 'win' ? 'W' : 'L'}`
+                      : '—'}
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="p-4">
+                  <p className="text-xs text-muted-foreground">Closed / Open</p>
+                  <p className="text-lg font-bold">
+                    {closed.length}
+                    <span className="mx-1 text-muted-foreground">/</span>
+                    {entries.length - closed.length}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              {/* Equity curve */}
+              <Card className="lg:col-span-2">
+                <CardContent className="p-5">
+                  <div className="mb-2 flex items-center justify-between">
+                    <h3 className="text-sm font-semibold">Equity Curve — Cumulative P&amp;L</h3>
+                    <span
+                      className={cn('text-sm font-bold', finalEquity >= 0 ? 'text-emerald-600' : 'text-destructive')}
+                    >
+                      {finalEquity >= 0 ? '+' : ''}${finalEquity.toFixed(2)}
+                    </span>
+                  </div>
+                  {equity.length >= 2 ? (
+                    <svg viewBox={`0 0 ${EQ_W} ${EQ_H}`} className="h-40 w-full" preserveAspectRatio="none">
+                      <line
+                        x1="0"
+                        y1={zeroY}
+                        x2={EQ_W}
+                        y2={zeroY}
+                        stroke="currentColor"
+                        className="text-muted-foreground/40"
+                        strokeDasharray="4 4"
+                        strokeWidth="1"
+                      />
+                      <polyline
+                        points={eqPoints}
+                        fill="none"
+                        strokeWidth="2.5"
+                        strokeLinejoin="round"
+                        className={finalEquity >= 0 ? 'stroke-emerald-500' : 'stroke-red-500'}
+                      />
+                    </svg>
+                  ) : (
+                    <p className="flex h-40 items-center justify-center text-sm text-muted-foreground">
+                      Kam se kam 2 closed trades par equity curve banega
+                    </p>
+                  )}
+                  <div className="mt-1 flex justify-between text-xs text-muted-foreground">
+                    <span>First trade</span>
+                    <span>{equity.length} trades</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Direction + setups */}
+              <Card>
+                <CardContent className="p-5">
+                  <h3 className="mb-3 text-sm font-semibold">Long vs Short</h3>
+                  <div className="space-y-3">
+                    {dirs.map((d) => (
+                      <div key={d.d} className="flex items-center justify-between">
+                        <div>
+                          <Badge variant={d.d === 'long' ? 'default' : 'destructive'} className="capitalize">
+                            {d.d}
+                          </Badge>
+                          <span className="ml-2 text-xs text-muted-foreground">
+                            {d.count} trades{d.winRate !== null && ` · ${d.winRate}% win`}
+                          </span>
+                        </div>
+                        <span
+                          className={cn(
+                            'text-sm font-bold',
+                            d.pnl >= 0 ? 'text-emerald-600' : 'text-destructive'
+                          )}
+                        >
+                          {d.pnl >= 0 ? '+' : ''}${d.pnl.toFixed(2)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <Separator className="my-4" />
+                  <h3 className="mb-3 text-sm font-semibold">Setup Performance</h3>
+                  <div className="space-y-3">
+                    {setups.length === 0 && (
+                      <p className="text-sm text-muted-foreground">Setup likh kar trades log karein.</p>
+                    )}
+                    {setups.map((s) => (
+                      <div key={s.name}>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="truncate pr-2">{s.name}</span>
+                          <span
+                            className={cn('shrink-0 font-medium', s.pnl >= 0 ? 'text-emerald-600' : 'text-destructive')}
+                          >
+                            {s.pnl >= 0 ? '+' : ''}${s.pnl.toFixed(2)}
+                          </span>
+                        </div>
+                        <div className="mt-1 flex items-center gap-2">
+                          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+                            <div
+                              className={cn('h-full rounded-full', s.pnl >= 0 ? 'bg-emerald-500' : 'bg-red-500')}
+                              style={{ width: `${Math.max(6, (Math.abs(s.pnl) / setupMaxPnl) * 100)}%` }}
+                            />
+                          </div>
+                          <span className="shrink-0 text-xs text-muted-foreground">
+                            {s.count} · {s.winRate}%
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        )}
 
         {/* Form */}
         {showForm && (
