@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Futures', 'Spot', 'Leverage', 'Beginners'],
     date: '2026-09-26',
     readingTime: '5 min read',
-    hero: '/blog/crypto-futures-vs-spot-trading.jpg',
+    hero: '/blog/crypto-futures-vs-spot-trading.webp',
     heroAlt: 'Crypto Futures vs Spot Trading: Complete Comparison',
     sections: [
       {
@@ -200,7 +200,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Psychology', 'Mindset', 'Biases', 'Advanced'],
     date: '2026-09-25',
     readingTime: '13 min read',
-    hero: '/blog/trading-psychology-mechanism.jpg',
+    hero: '/blog/trading-psychology-mechanism.webp',
     heroAlt: 'Trading Psychology Guide — Apne Zehan Ko Master Karke Consistent Profits',
     sections: [
       {
@@ -484,7 +484,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Forex', 'Crypto', 'Beginners', '2026'],
     date: '2026-09-23',
     readingTime: '7 min read',
-    hero: '/blog/forex-vs-crypto-trading-2026.jpg',
+    hero: '/blog/forex-vs-crypto-trading-2026.webp',
     heroAlt: 'Forex vs Crypto Trading 2026 — Kaunsa Market Aapke Liye Better Hai?',
     sections: [
       {
@@ -693,7 +693,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Risk', 'Position Sizing', 'Stop Loss', 'Discipline'],
     date: '2026-09-22',
     readingTime: '7 min read',
-    hero: '/blog/risk-management-1-percent.jpg',
+    hero: '/blog/risk-management-1-percent.webp',
     heroAlt: 'Trading Risk Management — 1% rule jo account ko zinda rakhti hai',
     sections: [
       {
@@ -762,7 +762,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Gold', 'XAU/USD', 'Strategy', 'Psychology'],
     date: '2026-09-21',
     readingTime: '5 min read',
-    hero: '/blog/gold-xauusd-trading-strategy.jpg',
+    hero: '/blog/gold-xauusd-trading-strategy.webp',
     heroAlt: 'Gold (XAU/USD) Trading Strategy 2026 — Psychology Tips Ke Sath',
     sections: [
       {
@@ -950,7 +950,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Psychology', 'FOMO', 'Discipline', 'Emotions'],
     date: '2026-09-20',
     readingTime: '6 min read',
-    hero: '/blog/fomo-revenge-trading.jpg',
+    hero: '/blog/fomo-revenge-trading.webp',
     heroAlt: 'FOMO aur Revenge Trading — trading psychology ke do sabse bade dushman',
     sections: [
       {
@@ -1020,7 +1020,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Binance', 'P2P', 'Beginners', 'Pakistan'],
     date: '2026-09-18',
     readingTime: '9 min read',
-    hero: '/blog/binance-p2p-guide.jpg',
+    hero: '/blog/binance-p2p-guide.webp',
     heroAlt: 'Binance P2P se crypto kharidna aur bechna — complete Roman Urdu guide',
     sections: [
       {
@@ -1092,7 +1092,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Routine', 'Discipline', 'Beginners', 'Habits'],
     date: '2026-09-17',
     readingTime: '6 min read',
-    hero: '/blog/profitable-trading-routine.jpg',
+    hero: '/blog/profitable-trading-routine.webp',
     heroAlt: 'Profitable Trading Routine Kaise Banayein — Daily & Weekly Plan',
     sections: [
       {
@@ -1265,7 +1265,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Candlesticks', 'Technical Analysis', 'Charts'],
     date: '2026-09-16',
     readingTime: '7 min read',
-    hero: '/blog/candlestick-patterns.jpg',
+    hero: '/blog/candlestick-patterns.webp',
     heroAlt: '5 candlestick patterns jo har trader ko aane chahiye',
     sections: [
       {
@@ -1328,7 +1328,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Prop Firm', 'Challenge', 'Risk Management', 'Mistakes'],
     date: '2026-09-15',
     readingTime: '5 min read',
-    hero: '/blog/prop-firm-challenge-mistakes.jpg',
+    hero: '/blog/prop-firm-challenge-mistakes.webp',
     heroAlt: 'Prop Firm Challenge: 10 Mistakes Jo Traders Fail Karwate Hain',
     sections: [
       {
@@ -1501,7 +1501,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['Journal', 'Discipline', 'Improvement'],
     date: '2026-09-14',
     readingTime: '6 min read',
-    hero: '/blog/trading-journal.jpg',
+    hero: '/blog/trading-journal.webp',
     heroAlt: 'Trading journal kyun zaroori hai — apni galtiyon se seekhne ka tareeqa',
     sections: [
       {
@@ -1566,7 +1566,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['AI trading tools', 'AI forex trading', 'AI crypto trading', 'trading edge AI', 'ChatGPT trading', 'AI trading 2026'],
     date: '2026-09-27',
     readingTime: '5 min read',
-    hero: '/blog/ai-tools-forex-crypto-trading-edge-2026.jpg',
+    hero: '/blog/ai-tools-forex-crypto-trading-edge-2026.webp',
     heroAlt: 'AI Tools se Forex aur Crypto Trading Mein Edge Kaise Banayein (2026 Guide)',
     sections: [
       {
@@ -1677,7 +1677,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['backtesting trading', 'how to backtest strategy', 'trading strategy backtest', 'proper backtesting', 'forward testing'],
     date: '2026-09-27',
     readingTime: '5 min read',
-    hero: '/blog/backtesting-complete-guide.jpg',
+    hero: '/blog/backtesting-complete-guide.webp',
     heroAlt: 'Backtesting Kaise Karein Jo Asal Mein Kaam Kare (Complete Guide) – 2026',
     sections: [
       {
@@ -1775,7 +1775,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['drawdown recovery', 'trading drawdown', 'recover from loss', 'trading psychology recovery', 'account recovery trading'],
     date: '2026-09-27',
     readingTime: '5 min read',
-    hero: '/blog/drawdown-recovery-psychology-account.jpg',
+    hero: '/blog/drawdown-recovery-psychology-account.webp',
     heroAlt: 'Drawdown Se Recovery: Badi Loss Ke Baad Psychology aur Account Kaise Recover Karein – 2026 Guide',
     sections: [
       {
@@ -1892,7 +1892,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['liquidity concepts trading', 'smart money concepts', 'ICT trading', 'liquidity sweep', 'order block', 'fair value gap'],
     date: '2026-09-27',
     readingTime: '5 min read',
-    hero: '/blog/liquidity-concepts-smart-money-trading.jpg',
+    hero: '/blog/liquidity-concepts-smart-money-trading.webp',
     heroAlt: 'Liquidity Concepts in Trading: Smart Money Kaise Move Karta Hai (Forex + Crypto) – 2026 Guide',
     sections: [
       {
@@ -2002,7 +2002,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['trading mentorship', 'mentorship vs self learning', 'trading coach', 'self taught trader', 'trading success path'],
     date: '2026-09-27',
     readingTime: '5 min read',
-    hero: '/blog/mentorship-vs-self-learning.jpg',
+    hero: '/blog/mentorship-vs-self-learning.webp',
     heroAlt: 'Mentorship vs Self-Learning: Trading Mein Success Ke Liye Kya Better Hai? (2026 Guide)',
     sections: [
       {
@@ -2118,7 +2118,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['scalping vs day trading vs swing', 'best trading timeframe', 'forex timeframes', 'crypto trading styles', 'scalping day swing comparison'],
     date: '2026-09-27',
     readingTime: '4 min read',
-    hero: '/blog/scalping-vs-day-vs-swing-trading-timeframes.jpg',
+    hero: '/blog/scalping-vs-day-vs-swing-trading-timeframes.webp',
     heroAlt: 'Best Trading Timeframes: Scalping vs Day Trading vs Swing (Forex & Crypto Comparison) – 2026',
     sections: [
       {

@@ -68,7 +68,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-violet-50',
     href: '/rsi-complete-guide/index.html',
     tags: ['Roman Urdu', 'RSI', '14 Chapters'],
-    cover: '/covers/RSI_Complete_Expert_Guide.jpg',
+    cover: '/covers/RSI_Complete_Expert_Guide.webp',
   },
   {
     id: 'moving-averages-mastery',
@@ -83,7 +83,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-indigo-50',
     href: '/moving-averages-mastery/index.html',
     tags: ['Roman Urdu', 'Indicators', '11 Chapters'],
-    cover: '/covers/moving-averages-mastery.jpg',
+    cover: '/covers/moving-averages-mastery.webp',
   },
   {
     id: 'volume-obv-mastery',
@@ -98,7 +98,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-rose-50',
     href: '/volume-obv-mastery/index.html',
     tags: ['Roman Urdu', 'Volume', '11 Chapters'],
-    cover: '/covers/volume-obv-mastery.jpg',
+    cover: '/covers/volume-obv-mastery.webp',
   },
   {
     id: 'alami-maliyati-nizam',
@@ -113,7 +113,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-sky-50',
     href: '/alami-maliyati-nizam/index.html',
     tags: ['Urdu', 'Finance', '12 Chapters'],
-    cover: '/covers/Alami_Maliyati_Nizam_Kitab.jpg',
+    cover: '/covers/Alami_Maliyati_Nizam_Kitab.webp',
   },
   {
     id: 'crypto-futures',
@@ -128,7 +128,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/crypto-futures-book/index.html',
     tags: ['Roman Urdu', 'Futures', 'Leverage', '31 Chapters'],
-    cover: '/covers/crypto-futures-book.jpg',
+    cover: '/covers/crypto-futures-book.webp',
   },
   {
     id: 'spot-trading',
@@ -143,7 +143,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: '/spot-trading-book/index.html',
     tags: ['Roman Urdu', 'Spot', 'Complete Guide'],
-    cover: '/covers/spot-trading-book.jpg',
+    cover: '/covers/spot-trading-book.webp',
   },
   {
     id: 'binance-complete',
@@ -158,7 +158,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/binance-complete/index.html',
     tags: ['Urdu', 'Binance', '60 Chapters'],
-    cover: '/covers/binance-complete.jpg',
+    cover: '/covers/binance-complete.webp',
     premium: true,
   },
   {
@@ -174,7 +174,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/forex-complete/index.html',
     tags: ['Urdu', 'Forex', '57 Chapters'],
-    cover: '/covers/forex-complete.jpg',
+    cover: '/covers/forex-complete.webp',
     premium: true,
   },
   {
@@ -190,7 +190,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/forex-book/index.html',
     tags: ['Urdu', 'Forex', 'Part 1'],
-    cover: '/covers/forex-book.jpg',
+    cover: '/covers/forex-book.webp',
   },
   {
     id: 'crypto-beginner',
@@ -205,7 +205,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: '/crypto-beginner/index.html',
     tags: ['Urdu', 'Beginner', 'Fundamentals'],
-    cover: '/covers/crypto-beginner.jpg',
+    cover: '/covers/crypto-beginner.webp',
   },
   {
     id: 'crypto-intermediate',
@@ -220,7 +220,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: '/crypto-intermediate/index.html',
     tags: ['Urdu', 'Intermediate', 'Technical Analysis'],
-    cover: '/covers/crypto-trading-intermidiate.jpg',
+    cover: '/covers/crypto-trading-intermidiate.webp',
   },
   {
     id: 'crypto-advanced',
@@ -235,7 +235,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/crypto-advanced/index.html',
     tags: ['Urdu', 'Advanced', 'Professional'],
-    cover: '/covers/crypto-trading-advanced.jpg',
+    cover: '/covers/crypto-trading-advanced.webp',
   },
   {
     id: 'candlestick',
@@ -250,7 +250,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/candlestick-book/index.html',
     tags: ['Urdu', 'Beginner to Advanced', 'SVG Diagrams'],
-    cover: '/covers/Candlestick-Patterns-Book.jpg',
+    cover: '/covers/Candlestick-Patterns-Book.webp',
   },
   {
     id: 'smc',
@@ -265,7 +265,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/smc-book/index.html',
     tags: ['Urdu', 'Advanced', 'SMC/ICT'],
-    cover: '/covers/Smart-Money-Concepts-Book.jpg',
+    cover: '/covers/Smart-Money-Concepts-Book.webp',
   },
   {
     id: 'fundednext',
@@ -295,7 +295,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/glossary-book/index.html',
     tags: ['Urdu', 'Reference', '200+ Terms'],
-    cover: '/covers/Trading-Glossary-Book.jpg',
+    cover: '/covers/Trading-Glossary-Book.webp',
   },
   {
     id: 'technical-analysis',
@@ -310,7 +310,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/technical-analysis/index.html',
     tags: ['Urdu', 'Technical Analysis', 'Complete Course'],
-    cover: '/covers/Technical-Analysis-Course.jpg',
+    cover: '/covers/Technical-Analysis-Course.webp',
   },
   {
     id: 'price-action',
@@ -325,7 +325,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: '/price-action/index.html',
     tags: ['Urdu', 'Price Action', 'No Indicators'],
-    cover: '/covers/Price-Action-Market-Structure.jpg',
+    cover: '/covers/Price-Action-Market-Structure.webp',
   },
   {
     id: 'trading-strategies',
@@ -340,7 +340,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-emerald-50',
     href: '/trading-strategies/index.html',
     tags: ['Urdu', 'Strategies', '12 Setups'],
-    cover: '/covers/Trading-Strategies-Setups.jpg',
+    cover: '/covers/Trading-Strategies-Setups.webp',
   },
   {
     id: 'risk-management',
@@ -355,7 +355,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-red-50',
     href: '/risk-management/index.html',
     tags: ['Urdu', 'Risk Management', 'Complete Course'],
-    cover: '/covers/Risk-Management-Course.jpg',
+    cover: '/covers/Risk-Management-Course.webp',
   },
   {
     id: 'trading-psychology',
@@ -370,7 +370,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/trading-psychology/index.html',
     tags: ['Urdu', 'Psychology', 'Complete Course'],
-    cover: '/covers/Trading-Psychology-Course.jpg',
+    cover: '/covers/Trading-Psychology-Course.webp',
   },
   {
     id: 'professional-system',
@@ -385,7 +385,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-cyan-50',
     href: '/professional-system/index.html',
     tags: ['Urdu', 'Complete System', 'Professional'],
-    cover: '/covers/Professional-Trading-System.jpg',
+    cover: '/covers/Professional-Trading-System.webp',
   },
   {
     id: 'crypto-calculations',
@@ -400,7 +400,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-yellow-50',
     href: '/crypto-calculations/index.html',
     tags: ['Urdu', 'Calculations', 'Spot & Futures'],
-    cover: '/covers/crypto-trading-calculations-book.jpg',
+    cover: '/covers/crypto-trading-calculations-book.webp',
   },
   {
     id: 'day-trading-guide',
@@ -415,7 +415,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-blue-50',
     href: '/day-trading-guide/index.html',
     tags: ['Urdu', 'Day Trading', 'Complete Guide'],
-    cover: '/covers/Day-Trading-Guide.png',
+    cover: '/covers/Day-Trading-Guide.webp',
   },
   {
     id: 'fundamental-analysis',
@@ -430,7 +430,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/fundamental-analysis/index.html',
     tags: ['Urdu', 'Fundamental Analysis', 'Crypto'],
-    cover: '/covers/Fundamental-Analysis.png',
+    cover: '/covers/Fundamental-Analysis.webp',
   },
   {
     id: 'advanced-chart-patterns',
@@ -445,7 +445,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-red-50',
     href: '/advanced-chart-patterns/index.html',
     tags: ['Urdu', 'Chart Patterns', 'Advanced'],
-    cover: '/covers/Advanced-Chart-Patterns.png',
+    cover: '/covers/Advanced-Chart-Patterns.webp',
   },
   {
     id: 'market-cycles',
@@ -460,7 +460,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-green-50',
     href: '/market-cycles/index.html',
     tags: ['Urdu', 'Market Cycles', 'Bitcoin Halving'],
-    cover: '/covers/Market-Cycle.png',
+    cover: '/covers/Market-Cycle.webp',
   },
   {
     id: 'swing-trading',
@@ -475,7 +475,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-indigo-50',
     href: '/swing-trading/index.html',
     tags: ['Urdu', 'Swing Trading', 'Mastery'],
-    cover: '/covers/Sweing-Trading.png',
+    cover: '/covers/Sweing-Trading.webp',
   },
   {
     id: 'portfolio-management',
@@ -490,7 +490,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-teal-50',
     href: '/portfolio-management/index.html',
     tags: ['Urdu', 'Portfolio', 'Management'],
-    cover: '/covers/Crypto-Portfolio-Management.png',
+    cover: '/covers/Crypto-Portfolio-Management.webp',
   },
   {
     id: 'web3-book',
@@ -504,7 +504,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-purple-50',
     href: '/web3-book/index.html',
     tags: ['Roman Urdu', 'Web3', 'Blockchain', 'DeFi', 'NFTs'],
-    cover: '/covers/Web3-Book.jpg',
+    cover: '/covers/Web3-Book.webp',
   },
   {
     id: 'discord-book',
@@ -518,7 +518,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-indigo-50',
     href: '/discord-book/index.html',
     tags: ['Urdu', 'Discord', 'Community', 'Moderation', 'Guide'],
-    cover: '/covers/Discord-Book.jpg',
+    cover: '/covers/Discord-Book.webp',
   },
   {
     id: 'trade-execution',
@@ -532,7 +532,7 @@ export const books: BookItem[] = [
     bgColor: 'bg-amber-50',
     href: '/trade-execution/index.html',
     tags: ['Urdu', 'Execution', 'Trading', 'Risk Management'],
-    cover: '/covers/The_Art_OF_Trade_Execution.jpg',
+    cover: '/covers/The_Art_OF_Trade_Execution.webp',
   },
 ]
 
