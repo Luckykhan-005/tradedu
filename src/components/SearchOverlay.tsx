@@ -25,7 +25,7 @@ interface SearchResult {
   id: string
   title: string
   subtitle: string
-  category: 'Page' | 'Book' | 'Blog' | 'Glossary' | 'Course'
+  category: 'Page' | 'Book' | 'Blog' | 'Glossary' | 'Course' | 'Guide'
   icon: typeof FileText
   action: SearchAction
 }
@@ -78,7 +78,21 @@ const glossaryResults: SearchResult[] = terms.map((t) => ({
   action: { bookHref: `/glossary/${termSlug(t.term)}/` },
 }))
 
-const allResults = [...pageResults, ...bookResults, ...blogResults, ...glossaryResults]
+const kbArticles: SearchResult[] = [
+  { id: 'kb-trading-kya-hai', title: 'Trading Kya Hai?', subtitle: 'Stock, forex aur crypto trading ki bunyad', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/trading-kya-hai/' } },
+  { id: 'kb-trading-shuru', title: 'Trading Kaise Shuru Karein?', subtitle: '7 practical steps — beginner guide', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/trading-shuru-kaise-karein/' } },
+  { id: 'kb-forex', title: 'Forex Trading Kya Hai?', subtitle: 'Pips, lot, leverage aur Pakistan se shuruat', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/forex-trading-kya-hai/' } },
+  { id: 'kb-stock', title: 'Stock Market Kya Hai?', subtitle: 'Shares, brokers aur PSX ki bunyad', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/stock-market-kya-hai/' } },
+  { id: 'kb-crypto', title: 'Cryptocurrency Kya Hai?', subtitle: 'Bitcoin, wallets aur exchanges ki wazahat', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/crypto-kya-hai/' } },
+  { id: 'kb-capital', title: 'Trading Mein Kitna Pesa Lagana Chahiye?', subtitle: 'Start capital aur 1% risk rule', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/trading-mein-paisa-kaise-lagayein/' } },
+  { id: 'kb-chart', title: 'Chart Kaise Padhein?', subtitle: 'Candlesticks, trend aur S/R ki bunyad', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/chart-kaise-padhein/' } },
+  { id: 'kb-day-vs-invest', title: 'Day Trading vs Long Term Investing', subtitle: 'Konsa tarika aap ke liye sahi hai', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/day-trading-vs-investing/' } },
+  { id: 'kb-income', title: 'Trading Se Kitni Kamai Hoti Hai?', subtitle: 'Realistic expectations aur scam wade', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/trading-se-kitni-kamai-hoti-hai/' } },
+  { id: 'kb-scams', title: 'Trading Scams Se Kaise Bachein', subtitle: 'Red flags aur safety checklist', category: 'Guide', icon: FileText, action: { bookHref: '/knowledge-base/trading-scams-se-kaise-bachein/' } },
+  { id: 'kb-hub', title: 'Knowledge Base', subtitle: 'Saare trading guides ek jagah (Roman Urdu)', category: 'Page', icon: BookOpen, action: { bookHref: '/knowledge-base/' } },
+]
+
+const allResults = [...pageResults, ...bookResults, ...blogResults, ...glossaryResults, ...kbArticles]
 
 interface SearchOverlayProps {
   open: boolean

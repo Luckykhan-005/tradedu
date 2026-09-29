@@ -52,7 +52,8 @@ interface NavigationProps {
 }
 
 type NavItem = {
-  id: Page
+  id?: Page
+  href?: string
   label: string
   icon: typeof BookOpen
   desc?: string
@@ -72,6 +73,7 @@ const navGroups: {
       { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
       { id: 'books', label: 'Books', icon: Library, desc: '25+ free trading books with diagrams' },
       { id: 'blog', label: 'Blog', icon: Newspaper, desc: 'Guides, strategies aur market explainers' },
+      { href: '/knowledge-base/', label: 'Knowledge Base', icon: Info, desc: 'Trading guides — bunyad se advanced tak' },
       { id: 'roadmap', label: 'Trading Roadmap', icon: Map, desc: 'Beginner se pro tak ka poora rasta' },
     ],
   },
@@ -194,8 +196,11 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               >
                 {group.items.map((item) => (
                   <DropdownMenuItem
-                    key={item.id}
-                    onClick={() => onNavigate(item.id)}
+                    key={item.href ?? item.id}
+                    onClick={() => {
+                      if (item.href) window.location.href = item.href
+                      else if (item.id) onNavigate(item.id)
+                    }}
                     className="items-start gap-3 rounded-lg p-2.5 hover:bg-secondary"
                   >
                     <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
@@ -345,9 +350,10 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
               </div>
               {group.items.map((item) => (
                 <button
-                  key={item.id}
+                  key={item.href ?? item.id}
                   onClick={() => {
-                    onNavigate(item.id)
+                    if (item.href) window.location.href = item.href
+                    else if (item.id) onNavigate(item.id)
                     setMobileOpen(false)
                   }}
                   className={cn(
