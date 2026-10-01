@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   TrendingUp,
   Mail,
@@ -71,6 +71,15 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
   const [resetToken, setResetToken] = useState('')
   const [tokenInput, setTokenInput] = useState('')
   const [copied, setCopied] = useState(false)
+  const [resendCooldown, setResendCooldown] = useState(0)
+
+  // GoTrue 60 second per-email rate limit rakhta hai — resend par countdown
+  // dikhao warna student baar baar click kar ke limit thok leta hai.
+  useEffect(() => {
+    if (resendCooldown <= 0) return
+    const t = setTimeout(() => setResendCooldown((c) => c - 1), 1000)
+    return () => clearTimeout(t)
+  }, [resendCooldown])
 
   const [signupStep, setSignupStep] = useState(1)
   const [signupData, setSignupData] = useState({
@@ -94,6 +103,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
     setError('')
     setSuccess('')
     setCopied(false)
+    setResendCooldown(0)
     setSignupStep(1)
     setSignupData({ name: '', email: '', password: '', experience: '', phone: '', city: '', age: '', gender: '' })
   }
@@ -288,6 +298,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
       }
       setView('forgot-done')
       setSuccess('Password reset link sent! Check your email and click the link to set a new password.')
+      setResendCooldown(60)
       setLoading(false)
       return
     }
@@ -696,22 +707,36 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                 {success}
               </div>
             )}
-            <div className="rounded-lg bg-secondary/60 border border-border px-4 py-3 text-xs text-muted-foreground mb-4 leading-relaxed">
+            <div className="rounded-lg bg-secondary/60 border border-border px-4 py-3 text-xs text-muted-foreground mb-3 leading-relaxed">
               Email nahi mili? <strong className="text-foreground">Spam / Junk folder</strong> check karein
               (search karein: <em>supabase</em>). 5 minute wait karein — free plan par delivery thori
-              slow ho sakti hai.
+              slow ho sakti hai. Email address bhi check karein ke sahi likha hai.
             </div>
+            <a
+              href="https://wa.me/923208427368?text=Assalamualaikum%2C%20mujhe%20TradeEd%20ka%20password%20reset%20email%20nahi%20mil%20rahi.%20Email%3A%20"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center gap-2 rounded-lg bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 text-sm font-semibold mb-4"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Email nahi aati? WhatsApp par rabta karein
+            </a>
             <div className="flex flex-col gap-2 text-sm">
               <button
                 onClick={async () => {
+                  if (resendCooldown > 0) return
                   setError('')
                   const { error: resendErr } = await resetPasswordEmail(email)
                   if (resendErr) setError(resendErr)
-                  else setSuccess('Link dobara bhej diya gaya! Email box check karein.')
+                  else {
+                    setSuccess('Link dobara bhej diya gaya! Email box check karein.')
+                    setResendCooldown(60)
+                  }
                 }}
-                className="text-highlight hover:underline font-medium"
+                disabled={resendCooldown > 0}
+                className="text-highlight hover:underline font-medium disabled:opacity-50 disabled:no-underline disabled:cursor-not-allowed"
               >
-                Resend link
+                {resendCooldown > 0 ? `Resend link (${resendCooldown}s)` : 'Resend link'}
               </button>
               <button onClick={() => { resetForm(); setView('signin') }} className="text-highlight hover:underline font-medium">Back to Sign In</button>
             </div>
