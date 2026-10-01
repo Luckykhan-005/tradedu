@@ -24,6 +24,7 @@ import {
   Search,
   Newspaper,
   ChevronDown,
+  Code2,
   LayoutGrid,
   Flame,
   GraduationCap,
@@ -130,6 +131,12 @@ const menuItems: {
     label: 'Plans',
     icon: Sparkles,
     desc: 'Free aur paid plans compare karein',
+  },
+  {
+    id: 'hire',
+    label: 'Hire Me',
+    icon: Code2,
+    desc: 'Web developer — website banwane ka project dein',
   },
   {
     id: 'admin',
