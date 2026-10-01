@@ -307,6 +307,14 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           >
             {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
+          <Button
+            onClick={() => onNavigate('hire')}
+            className="hidden h-9 gap-1.5 whitespace-nowrap rounded-lg bg-black px-3 text-white hover:bg-black/80 md:inline-flex"
+            size="sm"
+          >
+            <Code2 className="h-4 w-4" />
+            Hire Me
+          </Button>
           {user ? (
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 rounded-full bg-black/15 px-3 py-1.5 text-black">
@@ -328,7 +336,14 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           </div>
 
           <button
-            className="ml-auto rounded-lg p-2 text-black hover:bg-primary hover:text-primary-foreground md:hidden"
+            onClick={() => onNavigate('hire')}
+            className="ml-auto flex h-9 items-center gap-1.5 whitespace-nowrap rounded-lg bg-black px-3 text-sm font-medium text-white hover:bg-black/80 md:hidden"
+          >
+            <Code2 className="h-4 w-4" />
+            Hire Me
+          </button>
+          <button
+            className="rounded-lg p-2 text-black hover:bg-primary hover:text-primary-foreground md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -410,14 +425,6 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             </button>
           </div>
           <div className="border-t border-black/10 pt-2 mt-2">
-          <Button
-            onClick={() => onNavigate('hire')}
-            className="hidden h-9 gap-1.5 rounded-lg bg-black px-3 text-white hover:bg-black/80 md:inline-flex"
-            size="sm"
-          >
-            <Code2 className="h-4 w-4" />
-            Hire Me
-          </Button>
           {user ? (
               <div className="flex items-center justify-between px-4 text-black">
                 <span className="text-sm">{user.name || user.email}</span>
