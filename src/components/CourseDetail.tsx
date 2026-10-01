@@ -94,10 +94,11 @@ export function CourseDetail({
     advanced: 'bg-purple-100 text-purple-700',
   }
 
-  // Gating: beginner course ka pehla module free, baqi sab (aur saare
-  // intermediate/advanced courses) premium ke liye locked
-  const isModuleLocked = (idx: number) =>
-    !hasFullAccess && (idx > 0 || course.level !== 'beginner')
+  // Gating abhi OFF — sab courses sab ke liye free hain.
+  // Premium wapas karna ho toh neeche wali condition wapas laga dein.
+  // const isModuleLocked = (idx: number) =>
+  //   !hasFullAccess && (idx > 0 || course.level !== 'beginner')
+  const isModuleLocked = (idx: number) => false
 
   return (
     <div className="min-h-screen bg-secondary/30">
