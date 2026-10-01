@@ -56,7 +56,10 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
             />
           </figure>
         )}
-        {post.sections.map((section, i) => (
+        {post.html ? (
+          <div className="blog-html" dangerouslySetInnerHTML={{ __html: post.html }} />
+        ) : (
+          (post.sections || []).map((section, i) => (
           <section key={i}>
             {section.heading && (
               <h2 className="mb-3 text-2xl font-bold tracking-tight">{section.heading}</h2>
@@ -113,7 +116,8 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
               </figure>
             )}
           </section>
-        ))}
+          ))
+        )}
       </div>
 
       <footer className="mt-12 rounded-xl border border-primary/30 bg-primary/5 p-6">

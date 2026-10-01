@@ -17,10 +17,1395 @@ export interface BlogPost {
   readingTime: string
   hero?: string
   heroAlt?: string
-  sections: BlogSection[]
+  sections?: BlogSection[]
+  html?: string
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: 'bitcoin-halving',
+    title: 'Bitcoin Halving ke baad BTC ki price: Tareekh kya batati hai?',
+    excerpt: 'Har chaar saal baad Bitcoin ki dunya mein ek bara waqia hota hai jise Halving kehte hain. Is blog mein hum aasan Roman Urdu mein samjhenge ke halving kya hai, ab tak price ne kya kiya,…',
+    category: 'Crypto Basics',
+    tags: ['Bitcoin', 'Halving', 'BTC Price', 'Crypto Basics'],
+    date: '2026-10-01',
+    readingTime: '8 min read',
+    hero: '/blog/bitcoin-halving.webp',
+    heroAlt: 'Bitcoin Halving ke baad BTC ki price: Tareekh kya batati hai?',
+    html: `<p class="lead">Har chaar saal baad Bitcoin ki dunya mein ek bara waqia hota hai jise <b>Halving</b> kehte hain. Is blog mein hum aasan Roman Urdu mein samjhenge ke halving kya hai, ab tak price ne kya kiya, aur ek trader ko kya dhyan rakhna chahiye.</p>
+
+<h2>Bitcoin Halving kya hoti hai?</h2>
+<p>Bitcoin network mein naye BTC <b>miners</b> ko inaam (block reward) ke tor par milte hain, jab wo transactions ka naya block verify karte hain. Bitcoin ke code mein likha hai ke har <b>210,000 blocks</b> (taqreeban 4 saal) baad ye inaam <b>aadha</b> ho jayega. Isi ko halving kehte hain.</p>
+<p>Iska matlab: naye Bitcoin banne ki raftaar aadhi ho jati hai. Bitcoin ki kul supply sirf <b>21 million</b> hai, aur halving is supply ko dheere dheere kam karti jati hai. Isi liye kaha jata hai ke Bitcoin "digital gold" ki tarah scarce (kamyab) hai.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 300" role="img" aria-label="Halving ke baad block reward ka graph">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<line x1="50" y1="250" x2="620" y2="250" stroke="var(--line)"/>
+<rect x="70" y="50" width="70" height="200" fill="var(--accent)" rx="4"/>
+<rect x="165" y="150" width="70" height="100" fill="var(--accent)" rx="4"/>
+<rect x="260" y="200" width="70" height="50" fill="var(--accent)" rx="4"/>
+<rect x="355" y="225" width="70" height="25" fill="var(--accent)" rx="4"/>
+<rect x="450" y="237.5" width="70" height="12.5" fill="var(--hot)" rx="4"/>
+<text class="t" x="105" y="42" text-anchor="middle">50 BTC</text>
+<text class="t" x="200" y="142" text-anchor="middle">25 BTC</text>
+<text class="t" x="295" y="192" text-anchor="middle">12.5 BTC</text>
+<text class="t" x="390" y="217" text-anchor="middle">6.25 BTC</text>
+<text class="t" x="485" y="229" text-anchor="middle">3.125 BTC</text>
+<text class="s" x="105" y="272" text-anchor="middle">2009</text>
+<text class="s" x="200" y="272" text-anchor="middle">2012</text>
+<text class="s" x="295" y="272" text-anchor="middle">2016</text>
+<text class="s" x="390" y="272" text-anchor="middle">2020</text>
+<text class="s" x="485" y="272" text-anchor="middle">2024</text>
+<text class="s" x="570" y="150" text-anchor="middle">Agli halving</text>
+<text class="s" x="570" y="166" text-anchor="middle">taqreeban 2028</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Har halving ke baad ek block ka inaam aadha reh jata hai.</figcaption>
+</figure>
+
+<h2>Ab tak ki 4 halvings: Tareekh kya kehti hai?</h2>
+<p>Neeche diye gaye numbers taqreeban hain (round figures), taake aap bara picture samajh sakein.</p>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Halving</th><th>Reward</th><th>Halving ke waqt price</th><th>Agla bara peak</th></tr>
+<tr><td>Nov 2012</td><td>50 se 25</td><td>~ $12</td><td>~ $1,100 (Dec 2013)</td></tr>
+<tr><td>Jul 2016</td><td>25 se 12.5</td><td>~ $650</td><td>~ $19,700 (Dec 2017)</td></tr>
+<tr><td>May 2020</td><td>12.5 se 6.25</td><td>~ $8,700</td><td>~ $69,000 (Nov 2021)</td></tr>
+<tr><td>Apr 2024</td><td>6.25 se 3.125</td><td>~ $64,000</td><td>2025 mein naya record high</td></tr>
+</table>
+</div>
+<figcaption>Diagram 2: Pichli halvings aur un ke baad ke peaks. Har baar peak halving ke taqreeban 12 se 18 mahine baad aaya.</figcaption>
+</figure>
+
+<p>Ek pattern nazar aata hai: halving ke baad kuch mahine sust raftaar rehti hai, phir tezi aati hai, phir ek peak, aur uske baad lambi giravat (bear market). Lekin dhyan rahe, <b>har baar pichli baar jaisa hona zaroori nahi.</b> Sirf 4 data points se pakka qanoon nahi banta.</p>
+
+<h2>Halving ke baad price kyun barh sakti hai? (Theory)</h2>
+<p>Economics ka seedha usool hai: agar <b>supply kam</b> ho aur <b>demand wahi rahe ya barhe</b>, to price upar ja sakti hai. Neeche workflow dekhein:</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 210" role="img" aria-label="Halving cycle workflow">
+<style>.blog-html .b {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .h {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="b" x="10" y="20" width="110" height="56" rx="8"/><text class="t" x="65" y="45" text-anchor="middle">1. Halving</text><text class="t" x="65" y="62" text-anchor="middle">reward aadha</text>
+<rect class="b" x="170" y="20" width="110" height="56" rx="8"/><text class="t" x="225" y="45" text-anchor="middle">2. Nayi supply</text><text class="t" x="225" y="62" text-anchor="middle">kam hoti hai</text>
+<rect class="b" x="330" y="20" width="110" height="56" rx="8"/><text class="t" x="385" y="45" text-anchor="middle">3. Demand + hype</text><text class="t" x="385" y="62" text-anchor="middle">barhta hai</text>
+<rect class="b" x="490" y="20" width="130" height="56" rx="8"/><text class="t" x="555" y="45" text-anchor="middle">4. Price upar</text><text class="t" x="555" y="62" text-anchor="middle">(bull run)</text>
+<rect class="h" x="490" y="130" width="130" height="56" rx="8"/><text class="t" x="555" y="155" text-anchor="middle">5. Peak aur</text><text class="t" x="555" y="172" text-anchor="middle">FOMO</text>
+<rect class="h" x="250" y="130" width="130" height="56" rx="8"/><text class="t" x="315" y="155" text-anchor="middle">6. Giravat</text><text class="t" x="315" y="172" text-anchor="middle">(bear market)</text>
+<rect class="h" x="10" y="130" width="130" height="56" rx="8"/><text class="t" x="75" y="155" text-anchor="middle">7. Sust daur</text><text class="t" x="75" y="172" text-anchor="middle">aur accumulation</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="120" y1="48" x2="168" y2="48"/><line x1="280" y1="48" x2="328" y2="48"/><line x1="440" y1="48" x2="488" y2="48"/>
+<line x1="555" y1="76" x2="555" y2="128"/><line x1="488" y1="158" x2="382" y2="158"/><line x1="248" y1="158" x2="142" y2="158"/>
+<path d="M75 128 L75 100 L65 100 L65 78"/>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 3: Halving cycle ka workflow. Ye ek theory aur ab tak ka pattern hai, guarantee nahi.</figcaption>
+</figure>
+
+<h2>Kya sirf halving se price barhti hai? Nahi.</h2>
+<p>Bohat se log sochte hain ke halving khud hi price ko upar le jati hai. Haqeeqat mein dusre factors bhi bare asar daalte hain:</p>
+<ul>
+<li><b>Market sentiment:</b> Log kitne josh ya darr mein hain.</li>
+<li><b>Interest rates aur liquidity:</b> Jab sasta qarz aur zyada paisa market mein hota hai, risk wale assets (crypto, stocks) aksar behtar chalte hain.</li>
+<li><b>Spot ETFs aur institutions:</b> Bare idaron ki khareedari demand ko badal sakti hai.</li>
+<li><b>Regulations:</b> Hukumaton ke qawaneen achi ya buri khabar ban sakte hain.</li>
+<li><b>Halving pehle se price in hoti hai:</b> Kyunke har koi iske baare mein jaanta hai, market kabhi kabhi pehle hi react kar deti hai.</li>
+</ul>
+
+<div class="note"><b>Is baar farq kya hai?</b> Ab Bitcoin ki market bohat bari ho chuki hai, aur isme ETFs jaise naye khiladi aa gaye hain. Isi liye pichli tarah ke 10x ya 100x returns ki ummeed rakhna aqalmandi nahi.</div>
+
+<h2>Ek trader ke liye 5 practical tips</h2>
+<ul>
+<li><b>Hype ke peeche mat bhaagein.</b> "Halving = pakka profit" jaisi baatein sun kar ek hi dafa mein saara paisa mat lagayein.</li>
+<li><b>DCA (Dollar Cost Averaging) apnayein.</b> Har mahine ek tay raqam se thora thora khareedna timing ka risk kam karta hai.</li>
+<li><b>Stop-loss use karein</b> agar trading kar rahe hain, aur leverage se door rahein jab tak experience na ho.</li>
+<li><b>Sirf wohi paisa lagayein</b> jo aap khone ka bojh utha sakein.</li>
+<li><b>Cycle ka khayal rakhein:</b> Tezi ke baad lambi giravat bhi aati rahi hai, is liye profit lene ka plan pehle se banayein.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Agli halving kab hogi?</b>
+Taqreeban 2028 mein, jab block number 1,050,000 ke qareeb pohnchega.
+<b>Kya saare Bitcoin mine ho chuke hain?</b>
+Nahi. Zyada tar BTC mine ho chuke hain, lekin aakhri Bitcoin taqreeban saal 2140 tak mine hoga.
+<b>Kya halving ke baad price pakka barhti hai?</b>
+Nahi. Pichli 4 dafa aisa hua, lekin ye koi guarantee nahi hai.
+</div>
+
+<h2>Natija</h2>
+<p>Bitcoin halving ek dilchasp aur tareekhi event hai jo supply ko kam karta hai. Pichli tareekh mein iske baad tezi dekhi gayi, lekin aap ko sirf is pattern par bharosa nahi karna chahiye. Samajhdar trader wohi hai jo data, risk management aur sabr ke saath faisle karta hai.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto mein bohat zyada risk hota hai aur aap apna poora paisa kho sakte hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein. Price figures taqreeban hain.</p>`,
+  },
+  {
+    slug: 'ethereum-vs-solana',
+    title: 'Ethereum vs Solana: Kaun sa blockchain behtar investment hai?',
+    excerpt: 'ETH aur SOL, dono smart contract blockchains hain, lekin dono ka tareeqa bilkul alag hai. Is blog mein hum dono ko aasan Roman Urdu mein compare karenge, taake aap samajh sakein ke…',
+    category: 'Crypto Analysis',
+    tags: ['Ethereum', 'Solana', 'Blockchain', 'Investing'],
+    date: '2026-10-01',
+    readingTime: '9 min read',
+    hero: '/blog/ethereum-vs-solana.webp',
+    heroAlt: 'Ethereum vs Solana: Kaun sa blockchain behtar investment hai?',
+    html: `<p class="lead">ETH aur SOL, dono smart contract blockchains hain, lekin dono ka tareeqa bilkul alag hai. Is blog mein hum dono ko aasan Roman Urdu mein compare karenge, taake aap samajh sakein ke kaun sa aap ki soch aur risk ke liye munasib hai.</p>
+
+<h2>Smart contract blockchain kya hota hai?</h2>
+<p>Bitcoin sirf paisa bhejne ke liye bana tha. Ethereum aur Solana us se aage jate hain: yahan par <b>smart contracts</b> (khud-ba-khud chalne wale programs) par DeFi, NFTs, games, stablecoins aur payments jaise apps chalte hain. ETH aur SOL dono apne apne network ki "fuel" coins hain, jin se fees ada hoti hai aur staking bhi hoti hai.</p>
+
+<h2>Ethereum: Mazboot aur bhaarosay wala</h2>
+<ul>
+<li><b>Sab se purana aur bara ecosystem:</b> 2015 se chal raha hai, DeFi aur stablecoins ka bara hissa yahin hai.</li>
+<li><b>Proof of Stake:</b> 2022 ki "Merge" ke baad ETH mining chhod kar staking par aa gaya.</li>
+<li><b>Layer 2 (L2) strategy:</b> Asal Ethereum (L1) ko mehfooz aur decentralized rakha gaya hai, aur tez aur sasti transactions L2 networks (jaise Arbitrum, Optimism, Base) par hoti hain.</li>
+<li><b>Kamzori:</b> L1 par fees kabhi kabhi mehngi ho sakti hain, aur L2s ki wajah se liquidity aur user experience thora bikhra hua lagta hai.</li>
+</ul>
+
+<h2>Solana: Tez aur sasta</h2>
+<ul>
+<li><b>Ek hi bari chain par tez raftaar:</b> Blocks bohat jaldi ban jate hain aur fees aam tor par bohat kam (ek cent se bhi kam) hoti hain.</li>
+<li><b>Proof of History + Proof of Stake:</b> Ye design transactions ko tarteeb dene mein madad karta hai.</li>
+<li><b>Kamyabi ke shobe:</b> Memecoins, payments, DEX trading aur consumer apps mein Solana ne bohat tawajjo hasil ki.</li>
+<li><b>Kamzori:</b> Maazi mein network outages (band hona) ho chuke hain, aur validators ki hardware requirements zyada hain. Network behtar hua hai, lekin ye tareekh yaad rakhni chahiye.</li>
+</ul>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 300" role="img" aria-label="Ethereum aur Solana ka architecture">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .e {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .o {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<text class="h" x="150" y="24" text-anchor="middle">Ethereum (modular)</text>
+<rect class="o" x="30" y="44" width="80" height="44" rx="6"/><text class="t" x="70" y="71" text-anchor="middle">L2: Base</text>
+<rect class="o" x="120" y="44" width="80" height="44" rx="6"/><text class="t" x="160" y="71" text-anchor="middle">L2: Arbitrum</text>
+<rect class="o" x="210" y="44" width="80" height="44" rx="6"/><text class="t" x="250" y="71" text-anchor="middle">L2: Optimism</text>
+<g stroke="var(--mute)" stroke-width="1.5" fill="none"><line x1="70" y1="88" x2="70" y2="170"/><line x1="160" y1="88" x2="160" y2="170"/><line x1="250" y1="88" x2="250" y2="170"/></g>
+<rect class="e" x="30" y="170" width="260" height="70" rx="8"/>
+<text class="h" x="160" y="200" text-anchor="middle">Ethereum L1</text>
+<text class="s" x="160" y="222" text-anchor="middle">Security aur final settlement</text>
+<text class="s" x="160" y="264" text-anchor="middle">Kaam L2s mein bantta hai</text>
+<line x1="320" y1="20" x2="320" y2="280" stroke="var(--line)" stroke-dasharray="4 4"/>
+<text class="h" x="480" y="24" text-anchor="middle">Solana (monolithic)</text>
+<rect class="e" x="360" y="44" width="240" height="196" rx="8"/>
+<text class="h" x="480" y="76" text-anchor="middle">Solana L1</text>
+<text class="t" x="480" y="110" text-anchor="middle">DEX, Memecoins</text>
+<text class="t" x="480" y="136" text-anchor="middle">Payments, NFTs</text>
+<text class="t" x="480" y="162" text-anchor="middle">Games, DeFi</text>
+<text class="s" x="480" y="206" text-anchor="middle">Sab kuch ek hi chain par</text>
+<text class="s" x="480" y="264" text-anchor="middle">Raftaar L1 se hi aati hai</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Ethereum kaam L2 networks mein baant deta hai, jabke Solana sab kuch ek hi chain par chalata hai.</figcaption>
+</figure>
+
+<h2>Side-by-side muqabla</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Pehlu</th><th>Ethereum (ETH)</th><th>Solana (SOL)</th></tr>
+<tr><td>Launch</td><td>2015</td><td>2020</td></tr>
+<tr><td>Raftaar</td><td>L1 darmiyani, L2s tez</td><td>L1 par hi bohat tez</td></tr>
+<tr><td>Fees</td><td>L1 par zyada, L2 par kam</td><td>Aam tor par bohat kam</td></tr>
+<tr><td>Ecosystem</td><td>Sab se bara DeFi aur stablecoin base</td><td>Tezi se barhta hua, trading aur consumer apps</td></tr>
+<tr><td>Decentralization</td><td>Zyada validators, mazboot reputation</td><td>Kam validators, hardware mehngi</td></tr>
+<tr><td>Track record</td><td>Lambi aur stable</td><td>Maazi mein outages, ab behtar</td></tr>
+<tr><td>Risk style</td><td>Kam tez, "blue chip" altcoin</td><td>Zyada tez aur volatile</td></tr>
+</table>
+</div>
+<figcaption>Diagram 2: Muqabla table. Live numbers (price, TVL, validators) ke liye CoinGecko ya DefiLlama dekhein.</figcaption>
+</figure>
+
+<h2>Aap ke liye kaun sa theek hai? (Faisla workflow)</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 260" role="img" aria-label="ETH ya SOL chunne ka workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .r {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .l {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="200" y="10" width="240" height="46" rx="8"/><text class="t" x="320" y="38" text-anchor="middle">Aap ka risk kaisa hai?</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<path d="M240 56 L120 100"/><path d="M400 56 L520 100"/>
+<line x1="120" y1="146" x2="120" y2="186"/><line x1="520" y1="146" x2="520" y2="186"/>
+</g>
+<text class="l" x="150" y="76">Kam risk</text><text class="l" x="440" y="76">Zyada risk</text>
+<rect class="q" x="20" y="100" width="200" height="46" rx="8"/><text class="t" x="120" y="128" text-anchor="middle">Lambi muddat, stability?</text>
+<rect class="q" x="420" y="100" width="200" height="46" rx="8"/><text class="t" x="520" y="128" text-anchor="middle">Tez growth, volatility ok?</text>
+<rect class="r" x="20" y="186" width="200" height="50" rx="8"/><text class="t" x="120" y="216" text-anchor="middle">Zyada hissa ETH</text>
+<rect class="r" x="420" y="186" width="200" height="50" rx="8"/><text class="t" x="520" y="216" text-anchor="middle">SOL ka hissa zyada</text>
+<text class="l" x="320" y="216" text-anchor="middle">Ya dono mein taqseem</text>
+</svg>
+</div>
+<figcaption>Diagram 3: Aasan faisla workflow. Ye sirf soch ki rehnumai hai, financial advice nahi.</figcaption>
+</figure>
+
+<div class="note"><b>"Ya ETH ya SOL" zaroori nahi.</b> Bohat se investors dono rakhte hain taake ek par poora bharosa na karna pare. Portfolio mein Bitcoin, ETH, SOL aur stable hissa mila kar risk phail jata hai.</div>
+
+<h2>Investment se pehle 5 sawal khud se poochein</h2>
+<ul>
+<li>Meri <b>investment ki muddat</b> kitni hai: mahine, saal, ya zyada?</li>
+<li>Kya main <b>40 se 60 fisad giravat</b> dekh kar bhi shant reh sakta hoon?</li>
+<li>Mujhe <b>kis ecosystem</b> (DeFi, memecoins, payments, L2s) par bharosa hai aur kyun?</li>
+<li>Kya main sirf <b>wohi paisa</b> laga raha hoon jo kho sakta hoon?</li>
+<li>Kya maine <b>DCA</b> (thora thora khareedna) ka plan banaya hai?</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya Solana Ethereum ko pichhe chhor degi?</b>
+Koi nahi jaanta. Dono ke apne faide hain aur dono ke developers, users aur funding barh rahe hain. Aaj ki lead kal badal sakti hai.
+<b>Kya sasti fees ka matlab behtar investment hai?</b>
+Nahi. Investment ka faisla sirf fees se nahi, balke adoption, security, tokenomics aur competition se hota hai.
+<b>Staking kya hai?</b>
+Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko inaam milta hai. Is mein bhi risk (price giravat, lock-up, platform risk) hota hai.
+</div>
+
+<h2>Natija</h2>
+<p>Ethereum zyada purana, mazboot aur bharosay wala network hai, jabke Solana tez, sasta aur zyada tezi se barhta hua. Dono mein volatility hai. Behtar tareeqa ye hai ke aap apna risk samjhein, research karein, aur kisi ek coin par poora paisa na lagayein.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto mein bohat zyada risk hai aur aap apna poora paisa kho sakte hain. Fees, speed aur network ki halat waqt ke saath badalti rehti hai, is liye faisla karne se pehle taaza maloomat check karein.</p>`,
+  },
+  {
+    slug: 'altcoin-checklist',
+    title: 'Altcoins mein trade karne se pehle 7 cheezein jo har trader ko check karni chahiye',
+    excerpt: 'Bitcoin aur Ethereum ke ilawa jitne bhi coins hain, unhein altcoins kehte hain. Inmein tezi se munafa bhi ho sakta hai aur tezi se nuksan bhi. Is blog mein 7 aisi cheezein hain jo aap…',
+    category: 'Crypto Trading Guide',
+    tags: ['Altcoins', 'Checklist', 'Research', 'Trading'],
+    date: '2026-10-01',
+    readingTime: '9 min read',
+    hero: '/blog/altcoin-checklist.webp',
+    heroAlt: 'Altcoins mein trade karne se pehle 7 cheezein jo har trader ko check karni chahiye',
+    html: `<p class="lead">Bitcoin aur Ethereum ke ilawa jitne bhi coins hain, unhein <b>altcoins</b> kehte hain. Inmein tezi se munafa bhi ho sakta hai aur tezi se nuksan bhi. Is blog mein 7 aisi cheezein hain jo aap ko kisi bhi altcoin mein paisa lagane se pehle zaroor dekhni chahiye.</p>
+
+<h2>Altcoins ka risk kitna hota hai?</h2>
+<p>Altcoins ek jaise nahi hote. Kuch bare aur purane projects hain, aur kuch bilkul naye ya sirf hype par chalne wale. Jitna aap neeche jayenge, utna <b>risk</b> aur <b>volatility</b> barhti jayegi.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 290" role="img" aria-label="Altcoin risk pyramid">
+<style>.blog-html .t {font:600 13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<polygon points="320,15 380,75 260,75" fill="var(--accent)" opacity="1"/>
+<polygon points="260,75 380,75 430,135 210,135" fill="var(--accent)" opacity=".75"/>
+<polygon points="210,135 430,135 480,195 160,195" fill="var(--hot)" opacity=".7"/>
+<polygon points="160,195 480,195 540,255 100,255" fill="var(--hot)"/>
+<text class="t" x="320" y="62" text-anchor="middle" fill="#fff" style="fill:#fff">BTC, ETH</text>
+<text class="t" x="320" y="110" text-anchor="middle" style="fill:#fff">Bare altcoins</text>
+<text class="t" x="320" y="170" text-anchor="middle" style="fill:#fff">Mid-cap projects</text>
+<text class="t" x="320" y="230" text-anchor="middle" style="fill:#fff">Small-cap aur memecoins</text>
+<text class="s" x="500" y="50">Kam risk</text>
+<text class="s" x="500" y="270">Bohat zyada risk</text>
+<path d="M590 60 L590 240" stroke="var(--mute)" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+<figcaption>Diagram 1: Neeche jate hue risk aur volatility barhti hai, lekin proper research ki zaroorat bhi.</figcaption>
+</figure>
+
+<h2>1. Project ka maqsad (Use case)</h2>
+<p>Sab se pehla sawal: <b>ye coin kaunsa masla hal karta hai?</b> Kya iska koi asli istemal hai (payments, DeFi, gaming, infrastructure)? Agar jawab sirf "ye 100x karega" hai, to ye ek khatre ki ghanti hai. Project ki official website aur whitepaper parhein, aur dekhein ke kya wo saaf zubaan mein samjhata hai ke wo kya karta hai.</p>
+
+<h2>2. Team aur transparency</h2>
+<p>Kya team ke members asli aur public hain (LinkedIn, X, GitHub)? Kya unhon ne pehle koi project banaya hai? <b>Anonymous team</b> hamesha scam nahi hoti, lekin us mein risk zyada hota hai. Ye bhi dekhein ke development active hai ya nahi: GitHub par haal ki activity aur updates hona achi nishani hai.</p>
+
+<h2>3. Tokenomics</h2>
+<p>Tokenomics ka matlab hai ke coin ki supply kaise taqseem hui aur aage kaise chalegi. Ye 4 cheezein dekhein:</p>
+<ul>
+<li><b>Total aur circulating supply:</b> Kitne tokens maujood hain aur kitne abhi market mein hain?</li>
+<li><b>Team aur investors ka hissa:</b> Agar team ke paas bohat bara hissa hai aur wo bech de, to price gir sakti hai.</li>
+<li><b>Token unlock schedule:</b> Kab naye tokens khulne wale hain? Bara unlock aksar selling pressure laata hai.</li>
+<li><b>Inflation:</b> Naye tokens kitni raftaar se ban rahe hain?</li>
+</ul>
+
+<h2>4. Market cap aur FDV</h2>
+<p><b>Market cap</b> = abhi ki circulating supply x price. <b>FDV (Fully Diluted Valuation)</b> = poori supply x price. Agar FDV market cap se bohat zyada hai, to iska matlab hai ke aage bohat se tokens aana baaki hain.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 190" role="img" aria-label="Market cap aur FDV ki misaal">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<text class="t" x="20" y="28">Coin A (misaal): kul 1 billion token</text>
+<rect x="20" y="40" width="600" height="30" rx="4" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="20" y="40" width="540" height="30" rx="4" fill="var(--accent)"/>
+<text class="t" x="290" y="60" text-anchor="middle" style="fill:#fff">90% market mein (market cap aur FDV qareeb qareeb)</text>
+<text class="t" x="20" y="108">Coin B (misaal): kul 1 billion token</text>
+<rect x="20" y="120" width="600" height="30" rx="4" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="20" y="120" width="90" height="30" rx="4" fill="var(--hot)"/>
+<text class="t" x="115" y="140">Sirf 15% market mein</text>
+<text class="s" x="340" y="140">85% baad mein unlock honay hain</text>
+<text class="s" x="20" y="178">Coin B mein aage selling pressure ka khatra zyada hai.</text>
+</svg>
+</div>
+<figcaption>Diagram 2: Ek hi jaisi supply, lekin circulating hissa alag ho to risk alag hota hai. (Numbers sirf samjhane ke liye hain.)</figcaption>
+</figure>
+
+<h2>5. Liquidity aur trading volume</h2>
+<p>Liquidity ka matlab hai ke aap jab chahein asaani se khareed ya bech sakein, bina price ko zyada hilaye. Kam liquidity wale coins mein <b>slippage</b> (apni dee hui price se alag price par order fill hona) aur phans jane ka khatra hota hai. Dekhein ke coin kai bari exchanges par listed hai aur roz ka volume theek hai ya nahi. Volume ke saath real activity ko bhi dekhein, kyunke kuch coins mein volume fake (wash trading) bhi hota hai.</p>
+
+<h2>6. Security, audit aur scam ki nishaniyan</h2>
+<p>Altcoin market mein <b>rug pull</b> (team ka paisa le kar bhaag jana), <b>pump and dump</b> aur <b>honeypot</b> (jahan aap khareed sakte hain lekin bech nahi sakte) jaisi scams hoti hain. Ye nishaniyan dekhein:</p>
+<ul>
+<li>"Pakka munafa" ya "guaranteed returns" ke wade.</li>
+<li>Telegram ya social media par paid influencers ka achanak shor.</li>
+<li>Smart contract ka koi audit nahi, ya contract mein owner ke paas zyada ikhtiyar.</li>
+<li>Liquidity unlocked ho ya team ne bohat bara hissa apne paas rakha ho.</li>
+<li>Website, whitepaper ya community mein jaldbazi ya copy-paste ka hona.</li>
+</ul>
+
+<h2>7. Apna risk management</h2>
+<p>Chahe coin kitna hi achha kyun na lage, aap ka plan ahem hai. Position size chhoti rakhein, pehle se stop-loss tay karein, aur leverage se door rahein. Ek hi altcoin mein apne capital ka bara hissa mat lagayein.</p>
+
+<h2>Checklist workflow: Khareedne se pehle</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 330" role="img" aria-label="Altcoin checking workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .l {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="20" y="10" width="170" height="44" rx="8"/><text class="t" x="105" y="37" text-anchor="middle">1. Use case saaf hai?</text>
+<rect class="q" x="235" y="10" width="170" height="44" rx="8"/><text class="t" x="320" y="37" text-anchor="middle">2. Team aur GitHub?</text>
+<rect class="q" x="450" y="10" width="170" height="44" rx="8"/><text class="t" x="535" y="37" text-anchor="middle">3. Tokenomics theek?</text>
+<rect class="q" x="450" y="100" width="170" height="44" rx="8"/><text class="t" x="535" y="127" text-anchor="middle">4. FDV vs market cap</text>
+<rect class="q" x="235" y="100" width="170" height="44" rx="8"/><text class="t" x="320" y="127" text-anchor="middle">5. Liquidity aur volume</text>
+<rect class="q" x="20" y="100" width="170" height="44" rx="8"/><text class="t" x="105" y="127" text-anchor="middle">6. Scam nishaniyan?</text>
+<rect class="q" x="20" y="190" width="170" height="44" rx="8"/><text class="t" x="105" y="217" text-anchor="middle">7. Risk plan tayyar?</text>
+<rect class="x" x="300" y="180" width="140" height="60" rx="8"/><text class="t" x="370" y="206" text-anchor="middle">Sab theek?</text><text class="l" x="370" y="224" text-anchor="middle">haan ya nahi</text>
+<rect class="q" x="480" y="190" width="140" height="44" rx="8"/><text class="t" x="550" y="217" text-anchor="middle">Chhoti position</text>
+<rect class="x" x="300" y="270" width="140" height="44" rx="8"/><text class="t" x="370" y="297" text-anchor="middle">Skip karein</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="190" y1="32" x2="233" y2="32"/><line x1="405" y1="32" x2="448" y2="32"/><line x1="535" y1="54" x2="535" y2="98"/>
+<line x1="450" y1="122" x2="407" y2="122"/><line x1="235" y1="122" x2="192" y2="122"/><line x1="105" y1="144" x2="105" y2="188"/>
+<line x1="190" y1="212" x2="298" y2="212"/><line x1="440" y1="210" x2="478" y2="210"/><line x1="370" y1="240" x2="370" y2="268"/>
+</g>
+<text class="l" x="460" y="203">Haan</text><text class="l" x="378" y="258">Nahi</text>
+</svg>
+</div>
+<figcaption>Diagram 3: Har altcoin ke liye ye 7 qadam dohrayein. Ek bhi jawab mushkil lage to ruk jayein.</figcaption>
+</figure>
+
+<div class="note"><b>Yaad rakhein:</b> Hype aur FOMO (kuch miss na ho jaye ka darr) trading ke sab se bade dushman hain. Jab sab khareed rahe hon, wohi waqt hota hai jab sab se zyada sochne ki zaroorat hoti hai.</div>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Altcoin ki research kahan se karein?</b>
+CoinGecko ya CoinMarketCap (supply aur market cap ke liye), DefiLlama (DeFi data ke liye), GitHub (development ke liye), aur project ki official website aur docs.
+<b>Naye aur sasti price wale coins behtar hote hain?</b>
+Nahi. Sasti price ka matlab sasta coin nahi. Hamesha market cap aur supply dekhein, sirf per-coin price nahi.
+<b>Kitna paisa altcoins mein lagana chahiye?</b>
+Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo aap kho sakte hain, aur kisi ek coin mein bohat bara hissa na rakhein.
+</div>
+
+<h2>Natija</h2>
+<p>Altcoins mein bohat mauqe hain lekin utne hi khatre bhi hain. Agar aap in 7 cheezein (use case, team, tokenomics, FDV, liquidity, scam nishaniyan aur risk plan) check kar lein, to aap bina soche samjhe hone wale nuksan se kaafi had tak bach sakte hain.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Altcoins mein poora paisa khone ka khatra hota hai. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'forex-beginners',
+    title: 'Forex Trading for Beginners: Pips, Lots aur Leverage ko aasan zubaan mein samjhein',
+    excerpt: 'Forex (Foreign Exchange) duniya ki sab se bari financial market hai, jahan ek currency ko dusri currency se badla jata hai. Naye traders ko sab se zyada Pips, Lots aur Leverage confuse…',
+    category: 'Forex Basics',
+    tags: ['Forex', 'Beginners', 'Pips', 'Leverage'],
+    date: '2026-10-01',
+    readingTime: '10 min read',
+    hero: '/blog/forex-beginners.webp',
+    heroAlt: 'Forex Trading for Beginners: Pips, Lots aur Leverage ko aasan zubaan mein samjhein',
+    html: `<p class="lead">Forex (Foreign Exchange) duniya ki sab se bari financial market hai, jahan ek currency ko dusri currency se badla jata hai. Naye traders ko sab se zyada Pips, Lots aur Leverage confuse karte hain. Is blog mein hum in sab ko misaalon ke saath aasan Roman Urdu mein samjhenge.</p>
+
+<h2>Forex market kya hai aur kaise chalti hai?</h2>
+<p>Forex mein aap kisi ek currency ko khareedte hain aur saath hi dusri ko bechte hain. Is liye currencies hamesha <b>jori (pair)</b> ki shakal mein quote hoti hain, jaise EUR/USD. Ye market hafte mein 5 din, taqreeban 24 ghante khuli rehti hai, kyunke alag alag mulkon ke sessions (Sydney, Tokyo, London, New York) ek ke baad ek chalte hain. Sab se zyada activity aam tor par <b>London aur New York ke overlap</b> ke waqt hoti hai.</p>
+
+<h2>Currency pair ko kaise parhein?</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 220" role="img" aria-label="Currency pair anatomy">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .big {font:700 34px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .b {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .o {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<rect class="b" x="40" y="30" width="150" height="60" rx="8"/><text class="big" x="115" y="73" text-anchor="middle">EUR</text>
+<text class="big" x="235" y="73" text-anchor="middle">/</text>
+<rect class="b" x="280" y="30" width="150" height="60" rx="8"/><text class="big" x="355" y="73" text-anchor="middle">USD</text>
+<rect class="o" x="470" y="30" width="140" height="60" rx="8"/><text class="big" x="540" y="73" text-anchor="middle">1.1000</text>
+<text class="t" x="115" y="118" text-anchor="middle">Base currency</text><text class="s" x="115" y="136" text-anchor="middle">jo aap khareed rahe hain</text>
+<text class="t" x="355" y="118" text-anchor="middle">Quote currency</text><text class="s" x="355" y="136" text-anchor="middle">jis mein price batayi jati hai</text>
+<text class="t" x="540" y="118" text-anchor="middle">Price</text><text class="s" x="540" y="136" text-anchor="middle">1 EUR = 1.1000 USD</text>
+<text class="s" x="320" y="190" text-anchor="middle">Agar EUR/USD upar jaye, to euro mazboot aur dollar kamzor hua.</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Currency pair ki banawat. (Price sirf misaal ke liye hai.)</figcaption>
+</figure>
+
+<h2>Pip kya hota hai?</h2>
+<p><b>Pip</b> (Percentage in Point) price ke chhote se chhote standard badlao ko napne ki ikai hai. Zyada tar pairs mein pip price ke <b>4th decimal</b> par hota hai: 0.0001. Yani EUR/USD agar 1.1000 se 1.1001 hua, to ye 1 pip ka farq hai. <b>JPY wale pairs</b> (jaise USD/JPY) mein pip 2nd decimal par hota hai: 0.01.</p>
+
+<h2>Lot kya hota hai aur pip ki value kitni hoti hai?</h2>
+<p><b>Lot</b> aap ki trade ka size hai. Jitna bara lot, utna bara asar har pip par, chahe munafa ho ya nuksan.</p>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Lot ka naam</th><th>Size (currency units)</th><th>EUR/USD par 1 pip ki value (taqreeban)</th></tr>
+<tr><td>Standard lot (1.00)</td><td>100,000</td><td>$10</td></tr>
+<tr><td>Mini lot (0.10)</td><td>10,000</td><td>$1</td></tr>
+<tr><td>Micro lot (0.01)</td><td>1,000</td><td>$0.10</td></tr>
+</table>
+</div>
+<figcaption>Diagram 2: Lot sizes aur pip ki value. Doosre pairs mein value thori alag ho sakti hai, broker ka calculator dekhein.</figcaption>
+</figure>
+
+<h2>Leverage aur Margin: Double-edged talwar</h2>
+<p><b>Leverage</b> broker ki taraf se mili hui "udhaar ki taqat" hai. 1:100 leverage ka matlab hai ke aap apne $1 se $100 ki position control kar sakte hain. Aap ko position kholne ke liye jo raqam apne account mein rakhni parti hai usay <b>margin</b> kehte hain.</p>
+<p>Leverage se munafa bhi barhta hai, lekin <b>nuksan bhi usi tarah barhta hai</b>. Naye traders ka account aksar isi wajah se khatam hota hai. Dekhein ek misaal:</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 250" role="img" aria-label="Leverage ka asar">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<text class="h" x="20" y="24">Account: $1,000. EUR/USD par 50 pip ki ulti chaal (nuksan)</text>
+<text class="t" x="20" y="62">Mini lot (0.10)</text>
+<rect x="140" y="46" width="470" height="24" rx="4" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="140" y="46" width="24" height="24" rx="4" fill="var(--accent)"/>
+<text class="s" x="175" y="63">Nuksan = $50 (5% account)</text>
+<text class="t" x="20" y="112">Standard lot (1.00)</text>
+<rect x="140" y="96" width="470" height="24" rx="4" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="140" y="96" width="235" height="24" rx="4" fill="var(--hot)"/>
+<text class="s" x="385" y="113">Nuksan = $500 (50% account)</text>
+<text class="t" x="20" y="162">2 standard lots</text>
+<rect x="140" y="146" width="470" height="24" rx="4" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="140" y="146" width="470" height="24" rx="4" fill="var(--hot)"/>
+<text class="s" x="150" y="163" style="fill:#fff">Nuksan = $1,000 (account khatam)</text>
+<text class="s" x="20" y="214">Lesson: Bara lot yani bara risk. Naye trader chhote lot (micro ya mini) se shuru karein.</text>
+</svg>
+</div>
+<figcaption>Diagram 3: Ek hi 50 pip ki chaal, lekin lot size badalne se nuksan kitna barh jata hai.</figcaption>
+</figure>
+
+<h2>Spread: Broker ki fees</h2>
+<p>Har pair ki do prices hoti hain: <b>Bid</b> (jis par aap bech sakte hain) aur <b>Ask</b> (jis par aap khareed sakte hain). In dono ke farq ko <b>spread</b> kehte hain, jo trade shuru karte hi aap ko ada karna parta hai. Jis pair mein spread kam ho (jaise EUR/USD), us mein trade karna sasta parta hai.</p>
+
+<h2>Ek trade ki misaal: Qadam ba qadam</h2>
+<p>Farz karein aap EUR/USD ko 1.1000 par <b>Buy</b> karte hain, 1 mini lot (pip = $1) ke saath. Stop-loss 1.0950 par (50 pip neeche) aur take-profit 1.1100 par (100 pip upar).</p>
+<ul>
+<li><b>Agar price 1.1100 tak pohnchi:</b> Munafa = 100 pips x $1 = <b>$100</b>.</li>
+<li><b>Agar price 1.0950 tak giri:</b> Nuksan = 50 pips x $1 = <b>$50</b>.</li>
+<li><b>Risk:Reward</b> = 1:2, yani aap $1 ka risk le kar $2 kamane ki koshish kar rahe hain.</li>
+</ul>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Forex trade workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="140" height="56" rx="8"/><text class="t" x="80" y="45" text-anchor="middle">1. Pair chunein</text><text class="t" x="80" y="62" text-anchor="middle">(EUR/USD)</text>
+<rect class="q" x="180" y="20" width="140" height="56" rx="8"/><text class="t" x="250" y="45" text-anchor="middle">2. Analysis</text><text class="t" x="250" y="62" text-anchor="middle">(chart aur news)</text>
+<rect class="q" x="350" y="20" width="140" height="56" rx="8"/><text class="t" x="420" y="45" text-anchor="middle">3. Entry, SL, TP</text><text class="t" x="420" y="62" text-anchor="middle">tay karein</text>
+<rect class="q" x="500" y="20" width="130" height="56" rx="8"/><text class="t" x="565" y="45" text-anchor="middle">4. Lot size</text><text class="t" x="565" y="62" text-anchor="middle">risk se nikalein</text>
+<rect class="x" x="500" y="150" width="130" height="56" rx="8"/><text class="t" x="565" y="175" text-anchor="middle">5. Trade kholein</text><text class="t" x="565" y="192" text-anchor="middle">aur monitor</text>
+<rect class="x" x="270" y="150" width="170" height="56" rx="8"/><text class="t" x="355" y="175" text-anchor="middle">6. SL ya TP hit</text><text class="t" x="355" y="192" text-anchor="middle">trade band</text>
+<rect class="x" x="40" y="150" width="170" height="56" rx="8"/><text class="t" x="125" y="175" text-anchor="middle">7. Journal mein</text><text class="t" x="125" y="192" text-anchor="middle">likhein, seekhein</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="150" y1="48" x2="178" y2="48"/><line x1="320" y1="48" x2="348" y2="48"/><line x1="490" y1="48" x2="498" y2="48"/>
+<line x1="565" y1="76" x2="565" y2="148"/><line x1="498" y1="178" x2="442" y2="178"/><line x1="268" y1="178" x2="212" y2="178"/>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 4: Ek behtar forex trade ka workflow: planning pehle, entry baad mein.</figcaption>
+</figure>
+
+<div class="note"><b>Demo account se shuru karein.</b> Zyada tar brokers free demo account dete hain jahan nakli paise se practice ki ja sakti hai. Real paisa tabhi lagayein jab aap ki strategy demo mein kuch mahine tak chal chuki ho.</div>
+
+<h2>Beginners ki 5 aam ghaltiyan</h2>
+<ul>
+<li><b>Zyada leverage aur bara lot:</b> Ek ya do trades mein account khatam.</li>
+<li><b>Stop-loss na lagana:</b> "Price wapas aa jayegi" ki umeed mein nuksan barhta jata hai.</li>
+<li><b>Revenge trading:</b> Nuksan ke baad ghusse mein fauran dobara trade karna.</li>
+<li><b>Bina plan ke trade:</b> Dosron ke signals ya telegram groups par andha bharosa.</li>
+<li><b>Ghair-mustanad (unregulated) broker:</b> Kisi bhi broker mein paisa dalne se pehle ye zaroor dekhein ke wo kisi mo'tabar regulator ke tahat registered hai ya nahi, aur apne mulk ke qawaneen bhi check karein.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Forex mein kitne paise se shuru kar sakte hain?</b>
+Bohat se brokers chhoti raqam (jaise $10 se $100) se account kholne dete hain, lekin chhota account zyada risk aur zyada dabao bhi laata hai. Pehle demo se seekhein.
+<b>Kya forex mein pakka munafa hota hai?</b>
+Nahi. Bohat se retail traders nuksan uthate hain. Jo "pakka munafa" ka wada kare, us se door rahein.
+<b>Kaun sa pair beginners ke liye theek hai?</b>
+Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread kam hota hai.
+</div>
+
+<h2>Natija</h2>
+<p>Pip, lot aur leverage forex ki buniyad hain. Agar aap in teeno ko samajh kar chhote lot, stop-loss aur sahi risk management ke saath shuru karein, to aap apne nuksan ko qaabu mein rakh sakte hain. Pehle seekhein, phir kamayen.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Forex aur leveraged trading mein bohat zyada risk hota hai aur aap apna poora capital kho sakte hain. Examples sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'stocks-crypto-forex',
+    title: 'Stocks vs Crypto vs Forex: Aap ke liye kaun sa market munasib hai?',
+    excerpt: 'Naye traders ka sab se bara sawal hota hai: "Main kahan se shuru karoon?" Stocks, crypto aur forex teeno mein kamane ke mauqe hain, lekin teeno ka mizaj, risk aur tareeqa alag hai. Is…',
+    category: 'Trading Basics',
+    tags: ['Stocks', 'Crypto', 'Forex', 'Comparison'],
+    date: '2026-10-01',
+    readingTime: '9 min read',
+    hero: '/blog/stocks-crypto-forex.webp',
+    heroAlt: 'Stocks vs Crypto vs Forex: Aap ke liye kaun sa market munasib hai?',
+    html: `<p class="lead">Naye traders ka sab se bara sawal hota hai: "Main kahan se shuru karoon?" Stocks, crypto aur forex teeno mein kamane ke mauqe hain, lekin teeno ka mizaj, risk aur tareeqa alag hai. Is blog mein hum teeno ko saaf zubaan mein compare karenge taake aap apne liye sahi market chun sakein.</p>
+
+<h2>Teeno markets ek nazar mein</h2>
+<ul>
+<li><b>Stocks (Hissa):</b> Aap kisi company ke hissay (shares) khareedte hain. Company barhti hai to aap ka hissa bhi qeemti hota hai, aur kuch companies dividend bhi deti hain.</li>
+<li><b>Crypto:</b> Digital assets jaise BTC, ETH aur SOL. Ye blockchain par chalte hain aur inki qeemat zyada tar demand, supply aur sentiment se chalti hai.</li>
+<li><b>Forex:</b> Currencies ki jori (pairs) mein trading, jaise EUR/USD. Ye duniya ki sab se bari market hai aur mulkon ki economy aur interest rates se chalti hai.</li>
+</ul>
+
+<h2>Muqabla table</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Pehlu</th><th>Stocks</th><th>Crypto</th><th>Forex</th></tr>
+<tr><td>Trading ke ghantay</td><td>Muqarrar (exchange ke ghantay)</td><td>24 ghante, 7 din</td><td>24 ghante, hafte ke 5 din</td></tr>
+<tr><td>Volatility (utaar chadhao)</td><td>Darmiyani</td><td>Bohat zyada</td><td>Aam tor par kam, magar leverage se barhta hai</td></tr>
+<tr><td>Leverage</td><td>Aam tor par kam ya nahi</td><td>Spot par nahi, futures mein zyada</td><td>Aksar bohat zyada</td></tr>
+<tr><td>Lambi muddat ki investment</td><td>Bohat mazboot rawaj</td><td>Mumkin, magar risk zyada</td><td>Kam, zyada tar short term trading</td></tr>
+<tr><td>Regulation</td><td>Zyada tar mazboot aur wazeh</td><td>Mulk ke hisab se badalti hai</td><td>Broker aur mulk ke hisab se alag</td></tr>
+<tr><td>Kharcha</td><td>Commission aur tax</td><td>Trading fees aur spread</td><td>Spread aur kabhi commission</td></tr>
+<tr><td>Seekhne ka dabaao</td><td>Company aur economy samajhna</td><td>Technology aur sentiment samajhna</td><td>Economy, interest rates aur risk management</td></tr>
+</table>
+</div>
+<figcaption>Diagram 1: Teeno markets ka muqabla. Tafseelat mulk, broker aur platform ke hisab se mukhtalif ho sakti hain.</figcaption>
+</figure>
+
+<h2>Market ke khulne ke ghantay</h2>
+<p>Stocks ek tay waqt par khulte aur band hote hain, forex hafte ke 5 din chalta hai, aur crypto kabhi band nahi hota. Ye farq aap ki zindagi par bhi asar daalta hai: agar aap job karte hain to 24 ghante khuli market mein raat ko nuksan ka khatra aur dabao zyada ho sakta hai.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Market ke ghantay">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<text class="s" x="110" y="20">Peer</text><text class="s" x="170" y="20">Mangal</text><text class="s" x="240" y="20">Budh</text><text class="s" x="300" y="20">Jumeraat</text><text class="s" x="375" y="20">Juma</text><text class="s" x="440" y="20">Hafta</text><text class="s" x="505" y="20">Itwaar</text>
+<text class="t" x="10" y="64">Stocks</text>
+<g fill="var(--accent)"><rect x="100" y="48" width="12" height="24" rx="2"/><rect x="165" y="48" width="12" height="24" rx="2"/><rect x="230" y="48" width="12" height="24" rx="2"/><rect x="295" y="48" width="12" height="24" rx="2"/><rect x="360" y="48" width="12" height="24" rx="2"/></g>
+<text class="s" x="535" y="64">Sirf exchange ke ghantay</text>
+<text class="t" x="10" y="124">Forex</text>
+<rect x="100" y="108" width="330" height="24" rx="3" fill="var(--hot)"/>
+<text class="s" x="440" y="124" style="fill:var(--mute)">Hafte ka end band</text>
+<text class="t" x="10" y="184">Crypto</text>
+<rect x="100" y="168" width="480" height="24" rx="3" fill="var(--accent)" opacity=".75"/>
+<text class="s" x="100" y="216">Crypto kabhi band nahi hota, hatta ke chhutti par bhi. (Diagram sirf tasveeri khaka hai.)</text>
+</svg>
+</div>
+<figcaption>Diagram 2: Teeno markets kab khuli rehti hain (tasveeri khaka).</figcaption>
+</figure>
+
+<h2>Risk aur volatility ka scale</h2>
+<p>Har market ka risk aap ke tareeqe par bhi munhasir hai. Misal ke taur par, forex mein chhoti chaal bhi leverage se bara nuksan ban sakti hai, jabke crypto mein asal qeemat khud bohat tezi se upar neeche hoti hai. Neeche diagram aam andaza dikhata hai (har trader ke liye alag ho sakta hai):</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 170" role="img" aria-label="Risk scale">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--hot)"/></linearGradient></defs>
+<rect x="40" y="60" width="560" height="14" rx="7" fill="url(#g)"/>
+<circle cx="130" cy="67" r="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text class="t" x="130" y="102" text-anchor="middle">Stocks</text><text class="s" x="130" y="120" text-anchor="middle">(bunyadi, lambi muddat)</text>
+<circle cx="340" cy="67" r="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text class="t" x="340" y="102" text-anchor="middle">Forex</text><text class="s" x="340" y="120" text-anchor="middle">(leverage ke saath)</text>
+<circle cx="540" cy="67" r="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/><text class="t" x="540" y="102" text-anchor="middle">Crypto</text><text class="s" x="540" y="120" text-anchor="middle">(altcoins mein sab se zyada)</text>
+<text class="s" x="40" y="42">Kam risk</text><text class="s" x="600" y="42" text-anchor="end">Zyada risk</text>
+</svg>
+</div>
+<figcaption>Diagram 3: Risk ka aam andaza. Leverage aur position size se ye qatar badal sakti hai.</figcaption>
+</figure>
+
+<h2>Har market kis ke liye theek hai?</h2>
+<ul>
+<li><b>Stocks:</b> Agar aap <b>sabr wale</b> hain, lambi muddat ki investment chahte hain, aur pehli baar paisa lagate hain, to stocks (ya index funds) aksar naye logon ke liye zyada samajhne mein aasan hote hain.</li>
+<li><b>Crypto:</b> Agar aap technology mein dilchaspi rakhte hain, tezi se utaar chadhao bardasht kar sakte hain, aur sirf wohi paisa lagate hain jo kho sakte hain.</li>
+<li><b>Forex:</b> Agar aap short term trading, charts aur macro khabron (interest rates, inflation) mein dilchaspi rakhte hain aur strict risk management kar sakte hain.</li>
+</ul>
+
+<h2>Faisla workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 300" role="img" aria-label="Market chunne ka workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .r {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .l {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="210" y="10" width="220" height="44" rx="8"/><text class="t" x="320" y="37" text-anchor="middle">Aap ka maqsad kya hai?</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<path d="M250 54 L110 100"/><line x1="320" y1="54" x2="320" y2="98"/><path d="M390 54 L530 100"/>
+<line x1="110" y1="146" x2="110" y2="190"/><line x1="320" y1="146" x2="320" y2="190"/><line x1="530" y1="146" x2="530" y2="190"/>
+</g>
+<rect class="q" x="20" y="100" width="180" height="46" rx="8"/><text class="t" x="110" y="120" text-anchor="middle">Lambi muddat,</text><text class="t" x="110" y="136" text-anchor="middle">saal ka sabr</text>
+<rect class="q" x="230" y="100" width="180" height="46" rx="8"/><text class="t" x="320" y="120" text-anchor="middle">Tez growth,</text><text class="t" x="320" y="136" text-anchor="middle">zyada risk ok</text>
+<rect class="q" x="440" y="100" width="180" height="46" rx="8"/><text class="t" x="530" y="120" text-anchor="middle">Short term,</text><text class="t" x="530" y="136" text-anchor="middle">roz charts dekhna</text>
+<rect class="r" x="20" y="190" width="180" height="50" rx="8"/><text class="t" x="110" y="220" text-anchor="middle">Stocks</text>
+<rect class="r" x="230" y="190" width="180" height="50" rx="8"/><text class="t" x="320" y="220" text-anchor="middle">Crypto</text>
+<rect class="r" x="440" y="190" width="180" height="50" rx="8"/><text class="t" x="530" y="220" text-anchor="middle">Forex</text>
+<text class="l" x="320" y="276" text-anchor="middle">Pehle demo ya chhoti raqam se shuru karein, phir tajarba barhne par faisla badal sakte hain.</text>
+</svg>
+</div>
+<figcaption>Diagram 4: Maqsad ke hisab se market ka aasan rehnuma. Ye sirf soch ki rehnumai hai.</figcaption>
+</figure>
+
+<div class="note"><b>Aik saath teeno mein na koodein.</b> Naye traders aksar har market mein haath daal dete hain. Behtar ye hai ke pehle ek market chunein, uske qawaneen, charts aur risk samjhein, aur phir dusre mein jayein.</div>
+
+<h2>Teeno markets ke liye 5 mushtarak usool</h2>
+<ul>
+<li><b>Position size chhota rakhein:</b> Ek trade mein apne account ka thora hi hissa (maslan 1 se 2 fisad) risk karein.</li>
+<li><b>Stop-loss aur plan:</b> Entry se pehle exit ka plan tay karein.</li>
+<li><b>Diversify karein:</b> Ek hi asset par poora bharosa na karein.</li>
+<li><b>Fees aur tax samjhein:</b> Har market ke kharche aur apne mulk ke tax qawaneen alag ho sakte hain.</li>
+<li><b>Emotions qaabu mein rakhein:</b> FOMO aur revenge trading teeno markets mein nuksan dete hain.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kaun sa market sab se zyada munafa deta hai?</b>
+Koi bhi market pakka munafa nahi deta. Natija aap ki strategy, risk management aur nazm par munhasir hai.
+<b>Kya main teeno mein trade kar sakta hoon?</b>
+Haan, lekin shuru mein ek market par focus karna behtar hai. Aap baad mein apna portfolio phaila sakte hain.
+<b>Beginners ke liye sab se mehfooz kaun sa hai?</b>
+Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye samajhna aasan hota hai, lekin is mein bhi nuksan ka khatra maujood hai.
+</div>
+
+<h2>Natija</h2>
+<p>Stocks, crypto aur forex mein se koi bhi "sab se behtar" nahi hai. Sahi market wohi hai jo aap ke maqsad, sabr, risk bardasht karne ki salahiyat aur waqt ke mutabiq ho. Pehle seekhein, chhoti raqam se shuru karein, aur apna risk hamesha qaabu mein rakhein.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Har market mein nuksan ka khatra hota hai. Qawaneen, fees aur tax mulk aur broker ke hisab se mukhtalif hain, is liye faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'risk-management-5-rules',
+    title: 'Risk Management ke 5 Golden Rules: Apna capital kaise bachayein',
+    excerpt: 'Zyada tar naye traders is liye nahi haarte ke unki strategy kharab hoti hai, balke is liye haarte hain ke wo apna risk sambhal nahi paate. Risk management ka maqsad munafa barhana…',
+    category: 'Trading Psychology aur Strategy',
+    tags: ['Risk Management', 'Capital', 'Position Sizing', 'Strategy'],
+    date: '2026-10-01',
+    readingTime: '10 min read',
+    hero: '/blog/risk-management-5-rules.webp',
+    heroAlt: 'Risk Management ke 5 Golden Rules: Apna capital kaise bachayein',
+    html: `<p class="lead">Zyada tar naye traders is liye nahi haarte ke unki strategy kharab hoti hai, balke is liye haarte hain ke wo apna risk sambhal nahi paate. Risk management ka maqsad munafa barhana nahi, balke <b>nuksan ko is had tak chhota rakhna hai ke aap market mein tike rahein.</b> Ye usool crypto, forex aur stocks teeno par lagoo hote hain.</p>
+
+<h2>Pehle ye samjhein: Nuksan wapas kamana mushkil hota hai</h2>
+<p>Agar aap ka account 50% gir jaye, to wapas pehle level par aane ke liye aap ko <b>100% munafa</b> chahiye, na ke 50%. Jitna bara nuksan, utna mushkil wapsi.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 270" role="img" aria-label="Nuksan aur wapsi ka graph">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<line x1="40" y1="215" x2="620" y2="215" stroke="var(--line)"/>
+<rect x="70" y="207" width="60" height="8" fill="var(--accent)" rx="2"/>
+<rect x="170" y="197" width="60" height="18" fill="var(--accent)" rx="2"/>
+<rect x="270" y="184" width="60" height="31" fill="var(--accent)" rx="2"/>
+<rect x="370" y="142" width="60" height="73" fill="var(--hot)" rx="2"/>
+<rect x="470" y="45" width="60" height="170" fill="var(--hot)" rx="2"/>
+<text class="t" x="100" y="200" text-anchor="middle">11%</text>
+<text class="t" x="200" y="190" text-anchor="middle">25%</text>
+<text class="t" x="300" y="177" text-anchor="middle">43%</text>
+<text class="t" x="400" y="135" text-anchor="middle">100%</text>
+<text class="t" x="500" y="38" text-anchor="middle">233%</text>
+<text class="s" x="100" y="236" text-anchor="middle">10% nuksan</text>
+<text class="s" x="200" y="236" text-anchor="middle">20% nuksan</text>
+<text class="s" x="300" y="236" text-anchor="middle">30% nuksan</text>
+<text class="s" x="400" y="236" text-anchor="middle">50% nuksan</text>
+<text class="s" x="500" y="236" text-anchor="middle">70% nuksan</text>
+<text class="s" x="320" y="262" text-anchor="middle">Bars: nuksan poora karne ke liye zaroori munafa (taqreeban)</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Nuksan jitna barhta hai, wapsi ke liye munafa usse kahin zyada chahiye hota hai.</figcaption>
+</figure>
+
+<h2>Rule 1: Har trade mein sirf 1 se 2 fisad risk</h2>
+<p>Ek trade mein apne poore account ka sirf <b>1 se 2 fisad</b> risk karein. Is ka matlab ye nahi ke aap sirf 1% ka paisa lagate hain, balke ye ke agar aap ka stop-loss lage to account ka sirf 1% (ya 2%) nuksan hoga. Dekhein ye farq kitna bara hai:</p>
+
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Lagatar 10 haar ke baad</th><th>1% risk per trade</th><th>5% risk per trade</th><th>10% risk per trade</th></tr>
+<tr><td>Account ($1,000) ka baqi hissa</td><td>~ $904</td><td>~ $599</td><td>~ $349</td></tr>
+<tr><td>Kul nuksan</td><td>~ 9.6%</td><td>~ 40%</td><td>~ 65%</td></tr>
+</table>
+</div>
+<figcaption>Diagram 2: Lagatar 10 haar par bhi 1% risk waale ka account zinda rehta hai.</figcaption>
+</figure>
+
+<h2>Rule 2: Hamesha Stop-Loss use karein</h2>
+<p><b>Stop-loss</b> wo pehle se tay shuda price hai jahan aap apni haari hui trade khud band kar dete hain. Ye aap ko "shayad wapas aa jaye" ki umeed se bachata hai. Stop-loss aise point par lagayein jahan aap ka trade idea ghalat sabit ho jaye (jaise support ke neeche), na ke apni pasand ki raqam par.</p>
+<p>Sab se bari ghalti: nuksan mein ja kar stop-loss <b>door karna</b>. Ek baar tay kar diya to usse na hilayein.</p>
+
+<h2>Rule 3: Risk to Reward ratio kam az kam 1:2</h2>
+<p>Agar aap $1 ka risk lete hain, to kam az kam $2 kamane ka target rakhein. Phir aap ko har trade jeetne ki zaroorat nahi hoti.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 210" role="img" aria-label="Risk reward aur break-even win rate">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<text class="h" x="20" y="24">Break-even ke liye kitni trades jeetna zaroori hai?</text>
+<text class="t" x="20" y="64">R:R = 1:1</text><rect x="110" y="48" width="500" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="110" y="48" width="250" height="22" rx="4" fill="var(--hot)"/><text class="s" x="370" y="64">Kam az kam 50% jeetna</text>
+<text class="t" x="20" y="109">R:R = 1:2</text><rect x="110" y="93" width="500" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="110" y="93" width="167" height="22" rx="4" fill="var(--accent)"/><text class="s" x="287" y="109">Kam az kam 33% jeetna</text>
+<text class="t" x="20" y="154">R:R = 1:3</text><rect x="110" y="138" width="500" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="110" y="138" width="125" height="22" rx="4" fill="var(--accent)"/><text class="s" x="245" y="154">Kam az kam 25% jeetna</text>
+<text class="s" x="20" y="192">Ye hisab fees aur spread nikalne se pehle ka hai, asal mein thora zyada chahiye hota hai.</text>
+</svg>
+</div>
+<figcaption>Diagram 3: R:R behtar ho to aap kam trades jeet kar bhi nuksan se bach sakte hain.</figcaption>
+</figure>
+
+<h2>Rule 4: Position size sahi nikalein aur leverage qaabu mein rakhein</h2>
+<p>Position size andaza laga kar nahi, <b>hisab se</b> nikalein. Formula:</p>
+<ul>
+<li><b>Risk raqam</b> = Account x risk fisad (jaise $1,000 x 1% = $10)</li>
+<li><b>Stop distance</b> = Entry price aur stop-loss price ka farq</li>
+<li><b>Position size</b> = Risk raqam / stop distance</li>
+</ul>
+<p><b>Crypto misaal:</b> Account $2,000, risk 1% = $20. Aap ek coin $100 par khareedte hain aur stop-loss $95 par hai (farq $5). Position size = $20 / $5 = <b>4 coins</b> (yani $400 ki position). Agar stop lagta hai to aap ka nuksan sirf $20 hoga.</p>
+<p>Ye bhi yaad rakhein: agar aap ke trades <b>aapas mein juray hue</b> hain (jaise BTC, ETH aur SOL aksar ek saath chalte hain), to teen alag trades asal mein ek hi bara risk ho sakti hain. Zyada leverage is risk ko aur barha deta hai.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 180" role="img" aria-label="Position size workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="50" width="130" height="64" rx="8"/><text class="t" x="75" y="78" text-anchor="middle">1. Account aur</text><text class="t" x="75" y="96" text-anchor="middle">risk % tay karein</text>
+<rect class="q" x="170" y="50" width="130" height="64" rx="8"/><text class="t" x="235" y="78" text-anchor="middle">2. Entry aur</text><text class="t" x="235" y="96" text-anchor="middle">stop-loss dekhein</text>
+<rect class="q" x="330" y="50" width="130" height="64" rx="8"/><text class="t" x="395" y="78" text-anchor="middle">3. Risk raqam /</text><text class="t" x="395" y="96" text-anchor="middle">stop distance</text>
+<rect class="x" x="490" y="50" width="140" height="64" rx="8"/><text class="t" x="560" y="78" text-anchor="middle">4. Position size</text><text class="t" x="560" y="96" text-anchor="middle">mil gayi</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none"><line x1="140" y1="82" x2="168" y2="82"/><line x1="300" y1="82" x2="328" y2="82"/><line x1="460" y1="82" x2="488" y2="82"/></g>
+</svg>
+</div>
+<figcaption>Diagram 4: Position size nikalne ka workflow, har trade se pehle dohrayein.</figcaption>
+</figure>
+
+<h2>Rule 5: Hadd tay karein, journal rakhein, jazbaat qaabu mein rakhein</h2>
+<ul>
+<li><b>Daily aur weekly loss limit:</b> Maslan, agar aap ek din mein account ka 3% ya hafte mein 6% haar jayein, to us waqt trading rok dein.</li>
+<li><b>Trading journal:</b> Har trade ki wajah, entry, exit, natija aur apni jazbati halat likhein. Hafte ke end par patterns dekhein.</li>
+<li><b>Revenge trading se bachein:</b> Haar ke baad bara size laga kar nuksan wapas karne ki koshish aksar aur bara nuksan deti hai.</li>
+<li><b>FOMO se bachein:</b> Tezi se barhte asset ke peeche bhaagna aksar ghalat jagah entry deta hai.</li>
+</ul>
+
+<h2>Ek din ka risk workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Daily risk checklist">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .l {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="150" height="50" rx="8"/><text class="t" x="85" y="50" text-anchor="middle">Plan ke mutabiq setup?</text>
+<rect class="q" x="200" y="20" width="150" height="50" rx="8"/><text class="t" x="275" y="50" text-anchor="middle">Risk 1-2% se kam?</text>
+<rect class="q" x="390" y="20" width="110" height="50" rx="8"/><text class="t" x="445" y="50" text-anchor="middle">SL lagaya?</text>
+<rect class="x" x="530" y="20" width="100" height="50" rx="8"/><text class="t" x="580" y="50" text-anchor="middle">Trade lein</text>
+<rect class="x" x="200" y="140" width="170" height="50" rx="8"/><text class="t" x="285" y="170" text-anchor="middle">Nahi to trade skip</text>
+<rect class="x" x="420" y="140" width="210" height="50" rx="8"/><text class="t" x="525" y="170" text-anchor="middle">Daily limit hit? Aaj band</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#b)" fill="none">
+<line x1="160" y1="45" x2="198" y2="45"/><line x1="350" y1="45" x2="388" y2="45"/><line x1="500" y1="45" x2="528" y2="45"/>
+<path d="M275 70 L285 138"/><line x1="580" y1="70" x2="580" y2="138"/>
+</g>
+<text class="l" x="320" y="215" text-anchor="middle">Ek bhi jawab "nahi" ho to trade na lein.</text>
+</svg>
+</div>
+<figcaption>Diagram 5: Har trade se pehle ke sawal. Nazm hi risk management hai.</figcaption>
+</figure>
+
+<div class="note"><b>Sab se bara usool:</b> Aap ka pehla maqsad paisa kamana nahi, balke <b>capital bachana</b> hai. Jab tak aap market mein hain, kamane ka mauqa hamesha maujood hai.</div>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya 1% risk bohat kam nahi hai?</b>
+Chhote account par ye kam lagta hai, lekin ye aap ko lambi haar ke daur mein bachata hai. Tajarba aur consistent profit ke baad hi risk ko samajhdari se barhayein.
+<b>Stop-loss lagane se baar baar trade band ho jati hai, kya karoon?</b>
+Ho sakta hai aap ka stop bohat qareeb ho. Market ki normal chaal (volatility) se zyada faasle par lagayein aur position size chhota rakhein.
+<b>Kya risk management se nuksan bilkul khatam ho jata hai?</b>
+Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai taake koi ek haar aap ko khatam na kar de.
+</div>
+
+<h2>Natija</h2>
+<p>Paanch usool yaad rakhein: 1 se 2 fisad risk, hamesha stop-loss, behtar risk-reward, sahi position size, aur nazm ke saath daily limit aur journal. Jo trader apne capital ki hifazat karta hai, wohi lambi muddat tak market mein reh kar seekh sakta hai.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Trading mein nuksan ka khatra hamesha rehta hai. Misalon ke numbers sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'technical-analysis-basics',
+    title: 'Technical Analysis Basics: Support, Resistance aur Candlestick patterns ko kaise parhein',
+    excerpt: 'Technical Analysis (TA) ka matlab hai price chart ko dekh kar ye samajhna ke market ka mood kya hai aur agla mumkina rukh kya ho sakta hai. Ye crypto, forex aur stocks teeno mein…',
+    category: 'Technical Analysis',
+    tags: ['Technical Analysis', 'Support', 'Resistance', 'Candlesticks'],
+    date: '2026-10-01',
+    readingTime: '11 min read',
+    hero: '/blog/technical-analysis-basics.webp',
+    heroAlt: 'Technical Analysis Basics: Support, Resistance aur Candlestick patterns ko kaise parhein',
+    html: `<p class="lead">Technical Analysis (TA) ka matlab hai price chart ko dekh kar ye samajhna ke market ka mood kya hai aur agla mumkina rukh kya ho sakta hai. Ye crypto, forex aur stocks teeno mein istemal hota hai. Is blog mein hum 3 buniyadi cheezein seekhenge: candlesticks, support/resistance aur chand aam patterns.</p>
+
+<div class="note"><b>Pehle ek haqeeqat:</b> TA kisi ko pakka nahi batati ke price kahan jayegi. Ye sirf <b>imkanat (probabilities)</b> dikhati hai. Isi liye isay hamesha stop-loss aur risk management ke saath istemal karein.</div>
+
+<h2>Candlestick chart kya hai?</h2>
+<p>Har candle ek tay waqt (jaise 1 ghanta ya 1 din) ki price ki kahani batati hai: <b>Open</b> (shuru ki price), <b>Close</b> (aakhir ki price), <b>High</b> (sab se unchi) aur <b>Low</b> (sab se neechi). Candle ka moti hissa <b>body</b> aur patli lakeerein <b>wick (ya shadow)</b> kehlati hain.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Candlestick ki banawat">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<text class="h" x="150" y="20" text-anchor="middle">Bullish (price upar band hui)</text>
+<line x1="150" y1="40" x2="150" y2="200" stroke="var(--accent)" stroke-width="3"/>
+<rect x="125" y="70" width="50" height="90" fill="var(--accent)" rx="2"/>
+<text class="s" x="190" y="45">High</text><text class="s" x="190" y="76">Close</text><text class="s" x="190" y="164">Open</text><text class="s" x="190" y="205">Low</text>
+<text class="h" x="470" y="20" text-anchor="middle">Bearish (price neeche band hui)</text>
+<line x1="470" y1="40" x2="470" y2="200" stroke="var(--hot)" stroke-width="3"/>
+<rect x="445" y="70" width="50" height="90" fill="var(--hot)" rx="2"/>
+<text class="s" x="510" y="45">High</text><text class="s" x="510" y="76">Open</text><text class="s" x="510" y="164">Close</text><text class="s" x="510" y="205">Low</text>
+<text class="s" x="320" y="120" text-anchor="middle">Body = Open aur</text><text class="s" x="320" y="136" text-anchor="middle">Close ka farq</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Bullish candle mein Close, Open se upar hota hai. Bearish mein Close, Open se neeche. (Rang platform ke hisab se badal sakte hain.)</figcaption>
+</figure>
+
+<ul>
+<li><b>Lambi body:</b> Ek taraf ka zor (khareedar ya bechne wale) mazboot tha.</li>
+<li><b>Lambi wick:</b> Price ne us taraf jaane ki koshish ki lekin wapas dhakel di gayi.</li>
+<li><b>Chhoti body:</b> Dono taraf ka zor lagbhag barabar, yani uljhan ya "indecision".</li>
+</ul>
+
+<h2>Support aur Resistance</h2>
+<p><b>Support</b> wo price ka area hai jahan se price baar baar neeche girne ke baad ruk kar wapas uthi hai (khareedar active hote hain). <b>Resistance</b> wo area hai jahan price baar baar upar ja kar rukti aur wapas girti hai (bechne wale active hote hain). Ye <b>ek line nahi, balke ek zone</b> hota hai.</p>
+<p>Ek dilchasp usool: jab price kisi resistance ko tod kar upar nikal jaye (breakout), to aksar wahi purani resistance ab <b>nayi support</b> ban jati hai. Isay "role reversal" kehte hain.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 240" role="img" aria-label="Support aur resistance ka chart">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<line x1="30" y1="72" x2="610" y2="72" stroke="var(--hot)" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="30" y1="187" x2="500" y2="187" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="6 5"/>
+<polyline points="30,160 90,100 150,190 210,80 270,185 330,70 390,115 440,50 490,72 560,25" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+<text class="t" x="610" y="64" text-anchor="end" style="fill:var(--hot)">Resistance</text>
+<text class="t" x="40" y="206" style="fill:var(--accent)">Support</text>
+<text class="s" x="440" y="40" text-anchor="middle">Breakout</text>
+<text class="s" x="500" y="96" text-anchor="middle">Retest: ab ye support</text>
+<circle cx="440" cy="50" r="5" fill="var(--hot)"/><circle cx="490" cy="72" r="5" fill="var(--accent)"/>
+</svg>
+</div>
+<figcaption>Diagram 2: Price ne resistance toori, wapas aa kar usi level se uchli. Ye level ab support ban gaya. (Tasveeri misaal.)</figcaption>
+</figure>
+
+<h3>Support/Resistance kaise dhoondein?</h3>
+<ul>
+<li>Chart par woh jagahein dekhein jahan price <b>kam az kam 2 se 3 baar</b> ruki ho.</li>
+<li>Bade timeframe (jaise Daily ya 4-Hour) ke levels zyada ahem hote hain.</li>
+<li>Gol numbers (jaise $50,000 ya 1.1000) par bhi aksar logon ke orders hote hain.</li>
+<li>Level jitni baar test hota hai, utna kamzor ho sakta hai.</li>
+</ul>
+
+<h2>4 aam candlestick patterns</h2>
+<p>Patterns tab zyada kaam ke hote hain jab wo <b>kisi support ya resistance ke qareeb</b> banein. Hawa mein bane pattern par bharosa kam karein.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 260" role="img" aria-label="Candlestick patterns">
+<style>.blog-html .t {font:600 13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<g>
+<line x1="80" y1="50" x2="80" y2="170" stroke="var(--accent)" stroke-width="3"/><rect x="62" y="50" width="36" height="22" fill="var(--accent)" rx="2"/>
+<text class="t" x="80" y="200" text-anchor="middle">Hammer</text><text class="s" x="80" y="218" text-anchor="middle">girawat ke baad</text><text class="s" x="80" y="234" text-anchor="middle">bullish ishara</text>
+</g>
+<g>
+<line x1="240" y1="50" x2="240" y2="170" stroke="var(--hot)" stroke-width="3"/><rect x="222" y="148" width="36" height="22" fill="var(--hot)" rx="2"/>
+<text class="t" x="240" y="200" text-anchor="middle">Shooting Star</text><text class="s" x="240" y="218" text-anchor="middle">tezi ke baad</text><text class="s" x="240" y="234" text-anchor="middle">bearish ishara</text>
+</g>
+<g>
+<line x1="372" y1="85" x2="372" y2="140" stroke="var(--hot)" stroke-width="3"/><rect x="360" y="95" width="24" height="35" fill="var(--hot)" rx="2"/>
+<line x1="420" y1="55" x2="420" y2="165" stroke="var(--accent)" stroke-width="3"/><rect x="404" y="70" width="32" height="80" fill="var(--accent)" rx="2"/>
+<text class="t" x="400" y="200" text-anchor="middle">Bullish Engulfing</text><text class="s" x="400" y="218" text-anchor="middle">bari bullish candle ne</text><text class="s" x="400" y="234" text-anchor="middle">pichli ko dhak liya</text>
+</g>
+<g>
+<line x1="560" y1="55" x2="560" y2="165" stroke="var(--ink)" stroke-width="3"/><rect x="544" y="108" width="32" height="4" fill="var(--ink)"/>
+<text class="t" x="560" y="200" text-anchor="middle">Doji</text><text class="s" x="560" y="218" text-anchor="middle">uljhan, dono taraf</text><text class="s" x="560" y="234" text-anchor="middle">barabar zor</text>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 3: Chaar buniyadi patterns. Sirf pattern par trade na lein, tasdeeq (confirmation) bhi dekhein.</figcaption>
+</figure>
+
+<ul>
+<li><b>Hammer:</b> Chhoti body upar aur lambi neechi wick. Matlab bechne walon ne price neeche dhakeli lekin khareedaron ne wapas upar la di.</li>
+<li><b>Shooting Star:</b> Hammer ka ulta: lambi upari wick aur chhoti body neeche. Khareedaron ne koshish ki lekin bechne walon ne wapas dhakel diya.</li>
+<li><b>Bullish Engulfing:</b> Ek bari bullish candle jo pichli chhoti bearish candle ki body ko poori tarah dhak le.</li>
+<li><b>Doji:</b> Open aur Close lagbhag barabar. Ye akeli kuch nahi batati, lekin trend ke aakhir mein mod ka ishara ho sakti hai.</li>
+</ul>
+
+<h2>Trend ko samjhein</h2>
+<ul>
+<li><b>Uptrend:</b> Price ke highs aur lows dono pehle se upar banein (Higher Highs, Higher Lows).</li>
+<li><b>Downtrend:</b> Highs aur lows dono pehle se neeche (Lower Highs, Lower Lows).</li>
+<li><b>Sideways (range):</b> Price ek band ke andar upar neeche hoti rahe.</li>
+</ul>
+<p>Mashhoor kehawat hai: <b>"The trend is your friend."</b> Trend ke saath trade karna aam tor par us ke khilaf trade karne se aasan hota hai. Trend ko jaanchne ka ek aasan tareeqa <b>moving average</b> (jaise 50 ya 200 period) hai, jo price ka aaosat dikha kar chart ko hamwar karti hai.</p>
+
+<h2>Ek simple TA workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 210" role="img" aria-label="TA workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="190" height="50" rx="8"/><text class="t" x="105" y="50" text-anchor="middle">1. Bade timeframe par trend</text>
+<rect class="q" x="225" y="20" width="190" height="50" rx="8"/><text class="t" x="320" y="50" text-anchor="middle">2. Support/Resistance zones</text>
+<rect class="q" x="440" y="20" width="190" height="50" rx="8"/><text class="t" x="535" y="50" text-anchor="middle">3. Level par pattern banay</text>
+<rect class="x" x="440" y="130" width="190" height="50" rx="8"/><text class="t" x="535" y="160" text-anchor="middle">4. Tasdeeq (volume, close)</text>
+<rect class="x" x="225" y="130" width="190" height="50" rx="8"/><text class="t" x="320" y="160" text-anchor="middle">5. Entry, SL, TP tay karein</text>
+<rect class="x" x="10" y="130" width="190" height="50" rx="8"/><text class="t" x="105" y="160" text-anchor="middle">6. Trade, phir journal</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="200" y1="45" x2="223" y2="45"/><line x1="415" y1="45" x2="438" y2="45"/><line x1="535" y1="70" x2="535" y2="128"/>
+<line x1="440" y1="155" x2="417" y2="155"/><line x1="225" y1="155" x2="202" y2="155"/>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 4: Chart parhne ka tarteeb war tareeqa: bade se chhote tak.</figcaption>
+</figure>
+
+<h2>Beginners ki aam ghaltiyan</h2>
+<ul>
+<li><b>Bohat saare indicators lagana:</b> 2 se 3 simple tools kaafi hain, warna chart uljh jata hai.</li>
+<li><b>Sirf pattern par entry:</b> Pattern ke saath level, trend aur volume bhi dekhein.</li>
+<li><b>Sirf chhote timeframe dekhna:</b> Pehle bara picture (Daily ya 4-Hour), phir chhota.</li>
+<li><b>Stop-loss na lagana:</b> Chart par sab theek lage tab bhi risk hamesha hai.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya TA crypto, forex aur stocks teeno mein chalti hai?</b>
+Haan, buniyadi tools (candles, support/resistance, trend) teeno mein istemal hote hain, lekin har market ka mizaj aur volatility alag hoti hai.
+<b>Sab se behtar timeframe kaun sa hai?</b>
+Koi aik "behtareen" nahi. Short term trader 15-minute ya 1-hour dekhte hain, lambi muddat walay Daily ya Weekly. Bade timeframe ke signals aam tor par zyada mazboot samjhe jate hain.
+<b>Kya fundamental analysis ki zaroorat nahi?</b>
+Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jabke fundamental analysis (khabrein, economy, project ki halat) asal wajah batata hai.
+</div>
+
+<h2>Natija</h2>
+<p>Candlesticks market ki kahani batati hain, support aur resistance us kahani ke ahem muqamat dikhate hain, aur patterns mod ke ishare dete hain. In sab ko ek saath, bade timeframe se shuru kar ke, aur risk management ke saath istemal karein. Practice ke liye pehle demo account ya purane charts par mashq karein.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Technical analysis koi guarantee nahi deti aur har trade mein nuksan ka khatra hota hai. Diagrams tasveeri misalein hain, asal market ka chart nahi. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'global-markets-movers',
+    title: 'Global Financial Markets ko kya cheezein move karti hain? Interest rates, inflation aur news ka asar',
+    excerpt: 'Kabhi aap ne dekha ke ek khabar aati hai aur achanak stocks, crypto aur forex teeno hil jate hain? Ye koi ittefaq nahi. Duniya ki markets aapas mein juri hui hain, aur kuch bade…',
+    category: 'Macro Economics',
+    tags: ['Macro', 'Interest Rates', 'Inflation', 'News'],
+    date: '2026-10-01',
+    readingTime: '10 min read',
+    hero: '/blog/global-markets-movers.webp',
+    heroAlt: 'Global Financial Markets ko kya cheezein move karti hain? Interest rates, inflation aur news ka asar',
+    html: `<p class="lead">Kabhi aap ne dekha ke ek khabar aati hai aur achanak stocks, crypto aur forex teeno hil jate hain? Ye koi ittefaq nahi. Duniya ki markets aapas mein juri hui hain, aur kuch bade factors un sab ko ek saath dhakelte hain. Is blog mein hum in factors ko aasan zubaan mein samjhenge.</p>
+
+<h2>Bade factors ek nazar mein</h2>
+<ul>
+<li><b>Interest rates (sood ki sharah):</b> Central bank ka tay kiya hua qarz ka rate.</li>
+<li><b>Inflation (mehngai):</b> Cheezon ki qeematon ka barhna.</li>
+<li><b>Economic data:</b> Naukriyan, GDP, retail sales jaise aankre.</li>
+<li><b>Geopolitics:</b> Jang, pabandiyan, intikhabaat aur siyasi tanaao.</li>
+<li><b>Liquidity aur sentiment:</b> Market mein kitna paisa hai aur log kitne josh ya darr mein hain.</li>
+</ul>
+
+<h2>1. Inflation aur Interest rates: Sab se bara jora</h2>
+<p><b>Inflation</b> ko aam tor par <b>CPI</b> (Consumer Price Index) se napa jata hai. Jab mehngai tezi se barhti hai, to <b>central bank</b> (jaise US Federal Reserve, ECB, Bank of England) aksar interest rates barha kar usay qaabu karne ki koshish karta hai. Qarz mehnga hota hai, log aur company kam kharch karte hain, aur mehngai thami hai. Jab economy sust ho, to rates ghatay ja sakte hain.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 290" role="img" aria-label="Inflation aur interest rates ka silsila">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .h {font:600 13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<text class="h" x="10" y="20">Mehngai zyada ho to:</text>
+<rect class="q" x="10" y="30" width="140" height="56" rx="8"/><text class="t" x="80" y="55" text-anchor="middle">Inflation</text><text class="t" x="80" y="72" text-anchor="middle">barhti hai</text>
+<rect class="q" x="180" y="30" width="140" height="56" rx="8"/><text class="t" x="250" y="55" text-anchor="middle">Central bank</text><text class="t" x="250" y="72" text-anchor="middle">rates barhata hai</text>
+<rect class="q" x="350" y="30" width="130" height="56" rx="8"/><text class="t" x="415" y="55" text-anchor="middle">Qarz mehnga</text><text class="t" x="415" y="72" text-anchor="middle">hota hai</text>
+<rect class="x" x="505" y="30" width="125" height="56" rx="8"/><text class="t" x="567" y="55" text-anchor="middle">Aksar stocks,</text><text class="t" x="567" y="72" text-anchor="middle">crypto par dabao</text>
+<text class="h" x="10" y="150">Economy sust ho to:</text>
+<rect class="q" x="10" y="160" width="140" height="56" rx="8"/><text class="t" x="80" y="185" text-anchor="middle">Growth kamzor</text><text class="t" x="80" y="202" text-anchor="middle">naukriyan kam</text>
+<rect class="q" x="180" y="160" width="140" height="56" rx="8"/><text class="t" x="250" y="185" text-anchor="middle">Central bank</text><text class="t" x="250" y="202" text-anchor="middle">rates ghatata hai</text>
+<rect class="q" x="350" y="160" width="130" height="56" rx="8"/><text class="t" x="415" y="185" text-anchor="middle">Qarz sasta</text><text class="t" x="415" y="202" text-anchor="middle">hota hai</text>
+<rect class="x" x="505" y="160" width="125" height="56" rx="8"/><text class="t" x="567" y="185" text-anchor="middle">Aksar risk assets</text><text class="t" x="567" y="202" text-anchor="middle">ko sahara</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="150" y1="58" x2="178" y2="58"/><line x1="320" y1="58" x2="348" y2="58"/><line x1="480" y1="58" x2="503" y2="58"/>
+<line x1="150" y1="188" x2="178" y2="188"/><line x1="320" y1="188" x2="348" y2="188"/><line x1="480" y1="188" x2="503" y2="188"/>
+</g>
+<text class="t" x="320" y="255" text-anchor="middle" style="fill:var(--mute)">Ye aam rujhan (tendencies) hain, har baar ek jaisa natija zaroori nahi.</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Mehngai aur interest rates ka aam silsila.</figcaption>
+</figure>
+
+<p>Misaal ke taur par, <b>2022</b> mein jab bohat se mulkon ne mehngai rokne ke liye rates tezi se barhaye, to stocks aur crypto dono mein badi giravat dekhi gayi. Is se ye sabaq milta hai ke rates ki chaal ko nazar andaz karna mehnga par sakta hai.</p>
+
+<h2>Rates ka alag alag assets par asar</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Asset</th><th>Rates barhne par aam rujhan</th><th>Rates ghatne par aam rujhan</th></tr>
+<tr><td>Mulk ki currency</td><td>Aksar mazboot (zyada sood ki wajah se)</td><td>Aksar kamzor</td></tr>
+<tr><td>Stocks (khaas tor par growth companies)</td><td>Dabao mein</td><td>Sahara milta hai</td></tr>
+<tr><td>Crypto</td><td>Aksar dabao mein</td><td>Aksar sahara</td></tr>
+<tr><td>Gold</td><td>Aksar dabao (kyunke us par sood nahi milta)</td><td>Aksar sahara</td></tr>
+<tr><td>Bonds</td><td>Qeemat girti hai, yield barhti hai</td><td>Qeemat barhti hai</td></tr>
+</table>
+</div>
+<figcaption>Diagram 2: Ye sirf aam rujhan hain. Khabar pehle se "price in" ho to ulta bhi ho sakta hai.</figcaption>
+</figure>
+
+<h2>2. Economic data aur calendar</h2>
+<p>Har mahine kuch aise aankre aate hain jin par poori market nazar rakhti hai. Aap ko inki tareekhein pehle se <b>economic calendar</b> (jaise Investing.com ya ForexFactory) par mil jati hain.</p>
+<ul>
+<li><b>CPI:</b> Mehngai ka aankra.</li>
+<li><b>NFP (Non-Farm Payrolls):</b> Amrika mein naukriyon ka mahana report.</li>
+<li><b>FOMC / central bank meetings:</b> Interest rates ka faisla aur mustaqbil ka ishara.</li>
+<li><b>GDP:</b> Economy kitni barh rahi hai.</li>
+</ul>
+<p>Market ke liye sirf aankra nahi, balke <b>umeed se farq</b> ahem hota hai. Agar aankra umeed se behtar ya badtar aaye, to price jhatke se hil sakti hai.</p>
+
+<h2>3. Risk-On aur Risk-Off</h2>
+<p>Market ka mood do halaton mein baant sakte hain. Jab log khush aur befikr hon to <b>Risk-On</b> hota hai, aur jab darr ho to <b>Risk-Off</b>.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Risk on aur risk off">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<rect x="20" y="20" width="285" height="150" rx="10" fill="var(--soft)" stroke="var(--accent)" stroke-width="1.5"/>
+<text class="h" x="162" y="48" text-anchor="middle">Risk-On (josh)</text>
+<text class="t" x="162" y="78" text-anchor="middle">Stocks aur crypto aksar upar</text>
+<text class="t" x="162" y="102" text-anchor="middle">Altcoins aur growth companies tez</text>
+<text class="t" x="162" y="126" text-anchor="middle">Safe havens aksar kamzor</text>
+<text class="s" x="162" y="152" text-anchor="middle">Khabar: achi economy, rates ghatne ki umeed</text>
+<rect x="335" y="20" width="285" height="150" rx="10" fill="var(--card)" stroke="var(--hot)" stroke-width="1.5"/>
+<text class="h" x="477" y="48" text-anchor="middle">Risk-Off (darr)</text>
+<text class="t" x="477" y="78" text-anchor="middle">Stocks aur crypto aksar neeche</text>
+<text class="t" x="477" y="102" text-anchor="middle">Gold, USD, bonds, CHF, JPY mein panah</text>
+<text class="t" x="477" y="126" text-anchor="middle">Volatility barhti hai</text>
+<text class="s" x="477" y="152" text-anchor="middle">Khabar: jang, maali bohran, nayi pabandiyan</text>
+<text class="s" x="320" y="205" text-anchor="middle">Mood badalne mein kuch ghante bhi lag sakte hain aur kuch mahine bhi.</text>
+</svg>
+</div>
+<figcaption>Diagram 3: Risk-on aur risk-off ke aam rujhan.</figcaption>
+</figure>
+
+<h2>4. Geopolitics aur achanak khabrein</h2>
+<p>Jang, tijarti pabandiyan, intikhabaat, ya kisi mulk ki policy mein badlao market ko achanak hila sakte hain. Aise waqt <b>volatility</b> barh jati hai aur <b>spread</b> bhi kabhi kabhi chorra ho jata hai. Crypto ke liye regulations (qawaneen) aur bade idaron ki khabrein (jaise ETFs) bhi bara asar daalti hain.</p>
+
+<h2>News ke waqt trading kaise karein? Workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 220" role="img" aria-label="News trading workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="190" height="56" rx="8"/><text class="t" x="105" y="44" text-anchor="middle">1. Pehle se calendar</text><text class="t" x="105" y="62" text-anchor="middle">dekhein</text>
+<rect class="q" x="225" y="20" width="190" height="56" rx="8"/><text class="t" x="320" y="44" text-anchor="middle">2. Khabar se pehle</text><text class="t" x="320" y="62" text-anchor="middle">position kam ya band</text>
+<rect class="x" x="440" y="20" width="190" height="56" rx="8"/><text class="t" x="535" y="44" text-anchor="middle">3. Khabar ke minute</text><text class="t" x="535" y="62" text-anchor="middle">mein jaldbazi na karein</text>
+<rect class="x" x="440" y="130" width="190" height="56" rx="8"/><text class="t" x="535" y="154" text-anchor="middle">4. Spread aur chaal</text><text class="t" x="535" y="172" text-anchor="middle">thamne ka intezar</text>
+<rect class="x" x="225" y="130" width="190" height="56" rx="8"/><text class="t" x="320" y="154" text-anchor="middle">5. Chart par tasdeeq</text><text class="t" x="320" y="172" text-anchor="middle">le kar entry</text>
+<rect class="x" x="10" y="130" width="190" height="56" rx="8"/><text class="t" x="105" y="154" text-anchor="middle">6. Chhota size,</text><text class="t" x="105" y="172" text-anchor="middle">stop-loss ke saath</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#b)" fill="none">
+<line x1="200" y1="48" x2="223" y2="48"/><line x1="415" y1="48" x2="438" y2="48"/><line x1="535" y1="76" x2="535" y2="128"/>
+<line x1="440" y1="158" x2="417" y2="158"/><line x1="225" y1="158" x2="202" y2="158"/>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 4: Bade news events ke aas paas trade karne ka mehfooz tareeqa.</figcaption>
+</figure>
+
+<div class="note"><b>"Buy the rumour, sell the news":</b> Bohat dafa market khabar aane se pehle hi hilti hai, aur jab khabar asal mein aati hai to price ulti chaal bhi chal sakti hai. Isi liye sirf headline dekh kar trade karna khatarnak hai.</div>
+
+<h2>Beginners ke liye 5 practical mashwaray</h2>
+<ul>
+<li><b>Economic calendar rozana dekhein,</b> khaas kar high-impact events (CPI, NFP, rate decisions).</li>
+<li><b>Khabar ke waqt leverage kam rakhein</b> ya trade se bahar rahein.</li>
+<li><b>Sirf headline nahi, umeed aur asal aankre ka farq dekhein.</b></li>
+<li><b>Mo'tabar zarai se khabar lein:</b> social media ki afwahon par fauran trade na karein.</li>
+<li><b>Apna plan pehle se likhein,</b> khabar ke josh mein faisle na badlein.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya crypto bhi Fed ke faislon par chalta hai?</b>
+Aksar haan. Pichle kuch saalon mein BTC aur altcoins ne interest rates aur liquidity ki khabron par bara reaction diya hai, lekin ye har waqt aisa nahi hota.
+<b>Mehngai barhne par gold kyun upar jata hai?</b>
+Bohat se log gold ko mehngai se bachao ka zariya samajhte hain, lekin gold ki qeemat rates, dollar aur sentiment par bhi munhasir hai.
+<b>Kya sirf news par trade karna theek hai?</b>
+Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Chart, risk management aur plan ke saath hi use karein.
+</div>
+
+<h2>Natija</h2>
+<p>Interest rates, inflation, economic data, geopolitics aur market sentiment duniya ki markets ko chalate hain. In ke rishton ko samajhna aap ko achanak jhatkon se bachane aur behtar faisle karne mein madad deta hai. Yaad rakhein, koi bhi rujhan pakka nahi hota, is liye hamesha risk management ke saath chalein.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Market ke rujhan badalte rehte hain aur misalein sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'crypto-trading-mistakes',
+    title: 'Crypto Trading mein sab se aam ghaltiyan (FOMO, over-leverage aur emotional trading) aur unse bachne ke tareeqe',
+    excerpt: 'Crypto market 24 ghante khuli rehti hai, bohat tezi se chalti hai, aur har taraf "100x" ke wade hote hain. Isi mahaul mein naye (aur purane) traders aksar wohi ghaltiyan dohrate hain.…',
+    category: 'Trading Psychology',
+    tags: ['Mistakes', 'FOMO', 'Psychology', 'Risk'],
+    date: '2026-10-01',
+    readingTime: '10 min read',
+    hero: '/blog/crypto-trading-mistakes.webp',
+    heroAlt: 'Crypto Trading mein sab se aam ghaltiyan (FOMO, over-leverage aur emotional trading) aur unse bachne ke tareeqe',
+    html: `<p class="lead">Crypto market 24 ghante khuli rehti hai, bohat tezi se chalti hai, aur har taraf "100x" ke wade hote hain. Isi mahaul mein naye (aur purane) traders aksar wohi ghaltiyan dohrate hain. Is blog mein hum sab se aam ghaltiyon ko pehchanenge aur unka hal bhi dekhenge.</p>
+
+<h2>Pehle samjhein: Market ka jazbati chakkar</h2>
+<p>Zyada tar log tab khareedte hain jab sab khush hon (price upar), aur tab bechte hain jab sab daray hue hon (price neeche). Yani ulta kaam: <b>mehnga khareedna, sasta bechna.</b> Neeche diagram is jazbati chakkar ko dikhata hai.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 270" role="img" aria-label="Market emotion cycle">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<path d="M30,150 C100,130 200,40 300,40 C400,40 450,160 520,205 C550,205 590,175 610,150" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+<circle cx="225" cy="54" r="7" fill="var(--hot)"/>
+<circle cx="421" cy="106" r="7" fill="var(--hot)"/>
+<circle cx="520" cy="205" r="7" fill="var(--accent)"/>
+<text class="t" x="40" y="176">Ummeed</text>
+<text class="t" x="115" y="100">Josh</text>
+<text class="t" x="300" y="28" text-anchor="middle">Euphoria (sab khush)</text>
+<text class="t" x="365" y="72">Fikr aur inkaar</text>
+<text class="t" x="445" y="126">Ghabrahat</text>
+<text class="t" x="520" y="235" text-anchor="middle">Haar maan lena</text>
+<text class="s" x="215" y="84" text-anchor="end" style="fill:var(--hot)">FOMO: yahan khareedna</text>
+<text class="s" x="432" y="162" style="fill:var(--hot)">Panic sell: yahan bechna</text>
+<text class="s" x="528" y="198" style="fill:var(--accent)">Aksar yahin mauqa</text>
+<text class="t" x="605" y="176" text-anchor="end">Ummeed</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Market ka jazbati chakkar. Naye traders aksar peak par khareedte aur neeche ja kar bechte hain. (Tasveeri khaka.)</figcaption>
+</figure>
+
+<h2>Ghalti 1: FOMO (Fear Of Missing Out)</h2>
+<p>Jab koi coin tezi se upar jaye aur sab uski baatein karein, to ek bechaini hoti hai: "Abhi nahi khareeda to mauqa nikal jayega!" Aksar is waqt tak sab se asaan munafa nikal chuka hota hai aur aap aise price par daakhil hote hain jahan se girne ka khatra zyada hai.</p>
+<p><b>Hal:</b> Apni entry ke qawaneen pehle likh lein. Agar setup aap ke plan mein nahi hai to trade na lein. Yaad rakhein: market mein hamesha naya mauqa aata rehta hai.</p>
+
+<h2>Ghalti 2: Zyada leverage (Over-leverage)</h2>
+<p>Crypto futures mein 10x, 25x, hatta ke 100x leverage mil jati hai. Jitni zyada leverage, utni <b>chhoti si ulti chaal</b> aap ka poora paisa (margin) khatam kar sakti hai. Isay <b>liquidation</b> kehte hain. Mota andaza:</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="Leverage aur liquidation">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<text class="h" x="20" y="22">Liquidation ke liye price kitni ulti jaye? (taqreeban)</text>
+<text class="t" x="20" y="62">2x</text><rect x="70" y="46" width="540" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="70" y="46" width="270" height="22" rx="4" fill="var(--accent)"/><text class="s" x="350" y="62">~ 50% chaal</text>
+<text class="t" x="20" y="102">5x</text><rect x="70" y="86" width="540" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="70" y="86" width="108" height="22" rx="4" fill="var(--accent)"/><text class="s" x="188" y="102">~ 20% chaal</text>
+<text class="t" x="20" y="142">10x</text><rect x="70" y="126" width="540" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="70" y="126" width="54" height="22" rx="4" fill="var(--hot)"/><text class="s" x="134" y="142">~ 10% chaal</text>
+<text class="t" x="20" y="182">50x</text><rect x="70" y="166" width="540" height="22" rx="4" fill="var(--soft)" stroke="var(--line)"/><rect x="70" y="166" width="11" height="22" rx="4" fill="var(--hot)"/><text class="s" x="92" y="182">~ 2% chaal</text>
+<text class="s" x="20" y="214">Fees aur maintenance margin ki wajah se asal liquidation is se qareeb ho sakti hai. Crypto mein 2% ka din mein hilna aam baat hai.</text>
+</svg>
+</div>
+<figcaption>Diagram 2: Leverage jitni zyada, liquidation utni qareeb. (Mota andaza: 100 / leverage.)</figcaption>
+</figure>
+
+<p><b>Hal:</b> Naye trader spot trading se shuru karein, ya bohat kam leverage (2x se 3x) use karein. Position size risk ke hisab se nikalein.</p>
+
+<h2>Ghalti 3: Emotional aur revenge trading</h2>
+<p>Ek haar ke baad ghusse mein foran dobara bara trade kholna, ya ek jeet ke baad "main to expert hoon" soch kar zyada risk lena. Dono surat mein faisla jazbaat karwate hain, plan nahi.</p>
+<p><b>Hal:</b> Do ya teen lagatar haar ke baad aaj ke liye trading rok dein. 15 se 30 minute chart se door hon. Daily loss limit pehle se tay karein.</p>
+
+<h2>Ghalti 4: Stop-loss na lagana ya usay hila dena</h2>
+<p>"Price wapas aa jayegi" ki umeed mein nuksan barhta jata hai. Aur kai baar ek chhota nuksan ek bare nuksan mein badal jata hai.</p>
+<p><b>Hal:</b> Trade kholte hi stop-loss lagayein aur usay sirf risk kam karne ke liye hilayein, barhane ke liye nahi.</p>
+
+<h2>Ghalti 5: Overtrading</h2>
+<p>Har chhoti si hilchal par trade lena. Ziyada trades ka matlab zyada fees aur zyada ghaltiyan.</p>
+<p><b>Hal:</b> Roz ke trades ki hadd tay karein aur sirf A+ setups lein.</p>
+
+<h2>Ghalti 6: Influencers aur "signals" par andha bharosa</h2>
+<p>Telegram, X (Twitter) ya YouTube par bohat se log aise hain jinhein aap ke nuksan se koi farq nahi, balke kuch ka apna coin hota hai jo wo aap ko khareedwa kar bechna chahte hain. Ye <b>pump and dump</b> ka tareeqa hai.</p>
+<p><b>Hal:</b> Kisi bhi signal ko apni research se jaanchein. Pooche: "Mujhe ye kyun khareedna chahiye? Mera stop-loss kahan hai?"</p>
+
+<h2>Ghalti 7: Security ko nazar andaz karna</h2>
+<p>Bohat se log trading mein maahir hote hain lekin apna paisa chori hone se nahi bachate.</p>
+<ul>
+<li><b>2FA</b> (two-factor authentication) har account par lagayein, behtar ye ke SMS ki jagah authenticator app istemal karein.</li>
+<li><b>Seed phrase</b> ya private key kisi ke saath share na karein, na kisi website mein likhein.</li>
+<li>Phishing links aur jhoote "support" messages se hoshiyar rahein.</li>
+<li>Lambi muddat ki holdings ke liye wallet ya hardware wallet par ghaur karein, sab kuch exchange par na rakhein.</li>
+</ul>
+
+<h2>Ek nazar mein: Ghalti, nuksan aur hal</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Ghalti</th><th>Nuksan kaise hota hai</th><th>Hal</th></tr>
+<tr><td>FOMO</td><td>Mehnge daam par entry</td><td>Plan ke bagair trade nahi</td></tr>
+<tr><td>Over-leverage</td><td>Chhoti chaal par liquidation</td><td>Kam leverage, chhota size</td></tr>
+<tr><td>Revenge trading</td><td>Haar ke baad bara aur ghalat risk</td><td>Break lein, daily limit</td></tr>
+<tr><td>No stop-loss</td><td>Chhota nuksan bara ban jata hai</td><td>Entry ke saath hi SL</td></tr>
+<tr><td>Overtrading</td><td>Fees aur ghaltiyan barhti hain</td><td>Daily trade limit</td></tr>
+<tr><td>Signals par bharosa</td><td>Pump and dump ka shikar</td><td>Khud research</td></tr>
+<tr><td>Kamzor security</td><td>Account hack ya funds chori</td><td>2FA, seed phrase mehfooz</td></tr>
+</table>
+</div>
+<figcaption>Diagram 3: Sab ghaltiyon ka khulasa.</figcaption>
+</figure>
+
+<h2>Har trade se pehle: FOMO se bachne ka workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 240" role="img" aria-label="Pre trade workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}.blog-html .l {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="170" height="52" rx="8"/><text class="t" x="95" y="52" text-anchor="middle">Trade ka khayal aaya</text>
+<rect class="q" x="215" y="20" width="200" height="52" rx="8"/><text class="t" x="315" y="42" text-anchor="middle">Kya ye mere plan ka</text><text class="t" x="315" y="58" text-anchor="middle">setup hai?</text>
+<rect class="q" x="450" y="20" width="180" height="52" rx="8"/><text class="t" x="540" y="42" text-anchor="middle">Risk 1-2%, SL tay,</text><text class="t" x="540" y="58" text-anchor="middle">R:R kam az kam 1:2?</text>
+<rect class="x" x="215" y="150" width="200" height="52" rx="8"/><text class="t" x="315" y="182" text-anchor="middle">Nahi: trade skip, aage badhein</text>
+<rect class="x" x="450" y="150" width="180" height="52" rx="8"/><text class="t" x="540" y="182" text-anchor="middle">Haan: trade lein</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="180" y1="46" x2="213" y2="46"/><line x1="415" y1="46" x2="448" y2="46"/>
+<line x1="315" y1="72" x2="315" y2="148"/><line x1="540" y1="72" x2="540" y2="148"/>
+</g>
+<text class="l" x="323" y="115">Nahi</text><text class="l" x="548" y="115">Haan</text>
+</svg>
+</div>
+<figcaption>Diagram 4: Ek bhi jawab "nahi" ho to trade skip. Market kal bhi khuli hogi.</figcaption>
+</figure>
+
+<div class="note"><b>Trading journal rakhein.</b> Har trade ke saath likhein ke aap ne kyun entry li aur us waqt aap ka jazbati mood kaisa tha ("josh", "darr", "ghussa"). Hafte ke aakhir mein dekhein ke aap ki sab se aam ghalti kaunsi hai.</div>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>FOMO se kaise bachun jab sab munafa dikha rahe hon?</b>
+Social media par sirf jeet dikhayi jati hai, haar nahi. Apne plan par tike rahein aur dusron ke screenshots ko apna maiyar na banayein.
+<b>Kya leverage hamesha buri hai?</b>
+Nahi, lekin zyada leverage naye traders ke liye bohat khatarnak hai. Pehle tajarba aur nazm seekhein.
+<b>Nuksan ke baad dobara kaise shuru karun?</b>
+Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sirf plan ke mutabiq trade karein.
+</div>
+
+<h2>Natija</h2>
+<p>Crypto mein sab se bara dushman aap ka apna jazbaat hai: FOMO, laalach aur ghussa. Agar aap kam leverage, tay shuda stop-loss, trading plan, journal aur achi security apna lein, to aap in ghaltiyon se kaafi had tak bach sakte hain. Yaad rakhein: bachana kamane se pehle hai.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto aur leveraged trading mein poora paisa khone ka khatra hota hai. Numbers aur diagrams sirf samjhane ke liye mota andaza hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+  },
+  {
+    slug: 'solana-ecosystem',
+    title: 'Solana Ecosystem Explained: SOL ke top projects, fees aur trading opportunities',
+    excerpt: 'Solana aaj crypto ke sab se mashhoor blockchains mein se ek hai. Is par DEX trading, lending, staking, memecoins, NFTs aur payments jaise kaafi apps chalte hain. Is blog mein hum…',
+    category: 'Solana Guide',
+    tags: ['Solana', 'SOL', 'DeFi', 'Ecosystem'],
+    date: '2026-10-01',
+    readingTime: '11 min read',
+    hero: '/blog/solana-ecosystem.webp',
+    heroAlt: 'Solana Ecosystem Explained: SOL ke top projects, fees aur trading opportunities',
+    html: `<p class="lead">Solana aaj crypto ke sab se mashhoor blockchains mein se ek hai. Is par DEX trading, lending, staking, memecoins, NFTs aur payments jaise kaafi apps chalte hain. Is blog mein hum Solana ka ecosystem, uski fees, mashhoor projects aur trading ke mauqe (aur khatray) aasan Roman Urdu mein samjhenge.</p>
+
+<h2>Solana kya hai aur SOL ka kya kaam hai?</h2>
+<p>Solana ek tez blockchain hai jahan transactions chand sau milliseconds mein process hoti hain aur fees bohat kam hoti hain. <b>SOL</b> is network ka native token hai. Iske teen bade kaam hain:</p>
+<ul>
+<li><b>Fees ada karna:</b> Har transaction ki chhoti si fees SOL mein hoti hai.</li>
+<li><b>Staking:</b> SOL ko validators ko delegate kar ke network ki hifazat mein hissa lena aur badle mein inaam kamana.</li>
+<li><b>Trading pair:</b> Bohat se tokens SOL ke muqable mein trade hote hain.</li>
+</ul>
+
+<h2>Solana ki fees kaisi hoti hain?</h2>
+<p>Ek aam transaction ki <b>base fee 0.000005 SOL</b> (5,000 lamports) hoti hai, yani aksar ek cent se bhi kam. Jab network par bhaari rush ho, to log tez processing ke liye <b>priority fee</b> bhi dete hain. Is liye asal kharcha wohi hota hai jo aap trade ke dauran slippage, DEX fees aur priority fees mein dete hain.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 210" role="img" aria-label="Solana transaction ka kharcha">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}</style>
+<text class="h" x="20" y="24">Ek swap ka kul kharcha kin cheezon se banta hai?</text>
+<rect x="20" y="40" width="600" height="46" rx="6" fill="var(--soft)" stroke="var(--line)"/>
+<rect x="20" y="40" width="70" height="46" rx="6" fill="var(--accent)"/>
+<rect x="90" y="40" width="130" height="46" fill="var(--accent)" opacity=".7"/>
+<rect x="220" y="40" width="190" height="46" fill="var(--hot)"/>
+<text class="t" x="55" y="68" text-anchor="middle" style="fill:#fff">Base</text>
+<text class="t" x="155" y="68" text-anchor="middle" style="fill:#fff">Priority</text>
+<text class="t" x="315" y="68" text-anchor="middle" style="fill:#fff">DEX / pool fee</text>
+<text class="s" x="520" y="68" text-anchor="middle">+ Slippage</text>
+<text class="t" x="20" y="120">Base fee: bohat chhoti, fixed.</text>
+<text class="t" x="20" y="142">Priority fee: rush mein jaldi confirm karne ke liye (optional).</text>
+<text class="t" x="20" y="164">DEX fee: pool aur platform ke hisab se.</text>
+<text class="t" x="20" y="186">Slippage: price jitni hili us ka farq, khaas kar kam liquidity wale tokens mein.</text>
+</svg>
+</div>
+<figcaption>Diagram 1: Solana par kharcha sirf network fee nahi, balke slippage aur pool fees bhi hain. (Tasveeri khaka, sizes asal ratio nahi.)</figcaption>
+</figure>
+
+<h2>Solana ka ecosystem ek nazar mein</h2>
+<p>Neeche mashhoor project categories aur un ke naam hain. Ye list <b>sirf taleemi misal</b> hai, kisi project ki sifarish nahi. Ecosystem tezi se badalta hai, is liye naye aur purane projects ki taaza halat khud check karein.</p>
+
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 330" role="img" aria-label="Solana ecosystem map">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .h {font:600 14px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .s {font:12px Inter,system-ui,sans-serif;fill:var(--mute)}</style>
+<rect x="215" y="120" width="210" height="70" rx="35" fill="var(--accent)"/>
+<text class="h" x="320" y="150" text-anchor="middle" style="fill:#fff">Solana (SOL)</text><text class="s" x="320" y="170" text-anchor="middle" style="fill:#fff">Layer 1 blockchain</text>
+<g stroke="var(--mute)" stroke-width="1.2" fill="none"><line x1="215" y1="140" x2="170" y2="85"/><line x1="425" y1="140" x2="470" y2="85"/><line x1="215" y1="170" x2="170" y2="245"/><line x1="425" y1="170" x2="470" y2="245"/><line x1="320" y1="120" x2="320" y2="75"/><line x1="320" y1="190" x2="320" y2="245"/></g>
+<rect x="30" y="40" width="270" height="70" rx="8" fill="var(--soft)" stroke="var(--accent)"/><text class="h" x="165" y="64" text-anchor="middle">Trading (DEX)</text><text class="t" x="165" y="88" text-anchor="middle">Jupiter, Raydium, Orca</text>
+<rect x="340" y="40" width="270" height="70" rx="8" fill="var(--soft)" stroke="var(--accent)"/><text class="h" x="475" y="64" text-anchor="middle">Lending aur Perps</text><text class="t" x="475" y="88" text-anchor="middle">Kamino, Drift</text>
+<rect x="30" y="220" width="270" height="70" rx="8" fill="var(--card)" stroke="var(--hot)"/><text class="h" x="165" y="244" text-anchor="middle">Staking aur Wallets</text><text class="t" x="165" y="268" text-anchor="middle">Jito, Marinade, Phantom</text>
+<rect x="340" y="220" width="270" height="70" rx="8" fill="var(--card)" stroke="var(--hot)"/><text class="h" x="475" y="244" text-anchor="middle">Infrastructure aur DePIN</text><text class="t" x="475" y="268" text-anchor="middle">Pyth (oracle), Helium</text>
+<text class="s" x="320" y="318" text-anchor="middle">Memecoin launchpads (jaise Pump.fun) aur NFT markets bhi is ecosystem ka hissa hain, lekin bohat risky.</text>
+</svg>
+</div>
+<figcaption>Diagram 2: Solana ecosystem ki buniyadi categories aur mashhoor misalein.</figcaption>
+</figure>
+
+<ul>
+<li><b>Jupiter:</b> DEX aggregator. Kai pools mein se behtar price dhoondta hai.</li>
+<li><b>Raydium, Orca:</b> Mashhoor DEXs aur liquidity pools.</li>
+<li><b>Kamino:</b> Lending aur borrowing.</li>
+<li><b>Drift:</b> Perpetual futures (leverage trading).</li>
+<li><b>Jito, Marinade:</b> Liquid staking. Aap SOL stake karte hain aur badle mein ek token (jaise JitoSOL) milta hai jo DeFi mein bhi chal sakta hai.</li>
+<li><b>Phantom:</b> Mashhoor Solana wallet.</li>
+<li><b>Pyth:</b> Oracle, jo smart contracts ko price data deta hai.</li>
+<li><b>Helium:</b> DePIN project (wireless network).</li>
+</ul>
+
+<h2>Solana ki taaza technical halat</h2>
+<p>Solana ke do bade technical mansoobay aksar khabron mein rehte hain: <b>Firedancer</b> (Jump Crypto ka banaya hua doosra validator client, jo network ki mazbooti aur diversity barhane ke liye hai) aur <b>Alpenglow</b> (nayi consensus design jis ka maqsad transaction finality ko bohat tez karna hai). In ke rollout ki tareekhein aur halat baar baar badalti rahi hain aur alag alag zarai mukhtalif tareekhein batate hain, is liye <b>taaza status ke liye Solana ki official website aur Foundation ki updates dekhein</b>. Ye yaad rakhein ke Solana ko maazi mein outages ka saamna rahe hain, aur technical behtari ke bawajood network ka risk khatam nahi hota.</p>
+
+<h2>Solana par trading ke mauqe</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Mauqa</th><th>Kya hai?</th><th>Mukhya khatra</th></tr>
+<tr><td>SOL spot trading</td><td>Exchange ya DEX par SOL khareedna aur bechna</td><td>Price ki volatility</td></tr>
+<tr><td>Staking aur liquid staking</td><td>SOL stake kar ke inaam kamana</td><td>Price giravat, smart contract aur validator risk</td></tr>
+<tr><td>DEX par altcoins</td><td>Solana par mojood tokens ki trading</td><td>Kam liquidity, slippage, scam tokens</td></tr>
+<tr><td>Lending aur borrowing</td><td>Apna crypto jama kar ke sood kamana ya qarz lena</td><td>Liquidation aur protocol risk</td></tr>
+<tr><td>Perps (futures)</td><td>Leverage ke saath long ya short</td><td>Bohat zyada risk, liquidation</td></tr>
+<tr><td>Memecoins</td><td>Tezi se barhne wale kam qeemat ke coins</td><td>Rug pull, pump and dump, poora nuksan</td></tr>
+</table>
+</div>
+<figcaption>Diagram 3: Mauqe aur un ke khatray. Jitna zyada munafe ka wada, aksar utna zyada risk.</figcaption>
+</figure>
+
+<div class="note"><b>Memecoins ke baare mein khaas hoshiyari:</b> Solana par naya token banana bohat aasan aur sasta hai, is liye har roz hazaron naye tokens aate hain, jin mein bohat se scam ya bekaar hote hain. Agar aap trade karein bhi to sirf utna paisa lagayein jo aap poori tarah kho sakte hain.</div>
+
+<h2>On-chain trade se pehle ka workflow</h2>
+<figure>
+<div class="scroll">
+<svg viewBox="0 0 640 230" role="img" aria-label="On-chain trade workflow">
+<style>.blog-html .t {font:13px Inter,system-ui,sans-serif;fill:var(--ink)}.blog-html .q {fill:var(--soft);stroke:var(--accent);stroke-width:1.5}.blog-html .x {fill:var(--card);stroke:var(--hot);stroke-width:1.5}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--mute)"/></marker></defs>
+<rect class="q" x="10" y="20" width="190" height="56" rx="8"/><text class="t" x="105" y="44" text-anchor="middle">1. Mehfooz wallet</text><text class="t" x="105" y="62" text-anchor="middle">(seed phrase chhupa kar)</text>
+<rect class="q" x="225" y="20" width="190" height="56" rx="8"/><text class="t" x="320" y="44" text-anchor="middle">2. Sahi website ka URL</text><text class="t" x="320" y="62" text-anchor="middle">khud check karein</text>
+<rect class="q" x="440" y="20" width="190" height="56" rx="8"/><text class="t" x="535" y="44" text-anchor="middle">3. Token ka contract</text><text class="t" x="535" y="62" text-anchor="middle">address verify karein</text>
+<rect class="x" x="440" y="130" width="190" height="56" rx="8"/><text class="t" x="535" y="154" text-anchor="middle">4. Liquidity aur volume</text><text class="t" x="535" y="172" text-anchor="middle">dekhein</text>
+<rect class="x" x="225" y="130" width="190" height="56" rx="8"/><text class="t" x="320" y="154" text-anchor="middle">5. Chhota test trade,</text><text class="t" x="320" y="172" text-anchor="middle">slippage tay karein</text>
+<rect class="x" x="10" y="130" width="190" height="56" rx="8"/><text class="t" x="105" y="154" text-anchor="middle">6. Permissions dekhein,</text><text class="t" x="105" y="172" text-anchor="middle">zaroorat nahi to hatayen</text>
+<g stroke="var(--mute)" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<line x1="200" y1="48" x2="223" y2="48"/><line x1="415" y1="48" x2="438" y2="48"/><line x1="535" y1="76" x2="535" y2="128"/>
+<line x1="440" y1="158" x2="417" y2="158"/><line x1="225" y1="158" x2="202" y2="158"/>
+</g>
+</svg>
+</div>
+<figcaption>Diagram 4: DEX par trade karne ka mehfooz tareeqa. Pehle security, phir trade.</figcaption>
+</figure>
+
+<h2>Aam khatray aur unse bachao</h2>
+<ul>
+<li><b>Fake tokens aur rug pulls:</b> Contract address official source se lein, kisi ke DM ya link se nahi.</li>
+<li><b>Wallet drainers:</b> Anjaan links par "Connect Wallet" ya "Approve" na dabayein. Doubtful sites se wallet ki permission hatayen.</li>
+<li><b>Smart contract risk:</b> Naye protocols mein bug ho sakta hai. Zyada paisa ek hi jagah na rakhein.</li>
+<li><b>Network ke masle:</b> Outage ya congestion ki surat mein trades fail ya late ho sakti hain.</li>
+<li><b>Leverage:</b> Perps mein liquidation ka khatra tezi se barhta hai.</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya Solana par trading sasti hai?</b>
+Network fee bohat kam hoti hai, lekin slippage aur DEX fees dekhna zaroori hai. Sasti fee ka matlab ye nahi ke trade mehfooz bhi hai.
+<b>Kya liquid staking mehfooz hai?</b>
+Nahi, ye bhi risk se khali nahi. Aap SOL ki price girne, smart contract bug aur token ka peg (SOL se tulna) toot jane ka risk lete hain.
+<b>SOL ki live price aur ecosystem ke numbers kahan dekhun?</b>
+CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki official website (network updates) dekhein.
+</div>
+
+<h2>Natija</h2>
+<p>Solana ka ecosystem tez, sasta aur mukhtalif cheezon se bharpoor hai: trading se le kar lending, staking aur memecoins tak. Lekin mauqon ke saath khatre bhi utne hi hain. Pehle seekhein, chhoti raqam se shuru karein, security ka khayal rakhein, aur har project ki apni research karein.</p>
+
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Is mein mazkoora projects ke naam sirf misal ke liye hain, kisi ki sifarish nahi. Solana ka ecosystem, fees aur technical roadmap tezi se badalte hain, is liye taaza maloomat check karein. Crypto mein aap apna poora paisa kho sakte hain.</p>`,
+  },
   {
     slug: 'crypto-futures-vs-spot-trading',
     title: 'Crypto Futures vs Spot Trading: Complete Comparison',
