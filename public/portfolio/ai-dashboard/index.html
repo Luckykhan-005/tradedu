@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Atlas AI — SaaS Dashboard & CRM Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f1f5f9;--panel:#ffffff;--ink:#0f172a;--mute:#64748b;--line:#e2e8f0;
+    --nav:#0b1220;--nav2:#111a2e;--primary:#4f46e5;--primary2:#818cf8;
+    --green:#10b981;--red:#ef4444;--amber:#f59e0b;--sky:#0ea5e9;--violet:#8b5cf6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased}
+  .side{width:246px;background:var(--nav);color:#94a3b8;padding:26px 18px;display:flex;flex-direction:column;gap:6px}
+  .brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;font-size:18px;letter-spacing:-.02em;padding:0 8px 24px}
+  .brand .m{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#a855f7);display:flex;align-items:center;justify-content:center;font-size:16px}
+  .navlbl{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#475569;padding:14px 10px 6px;font-weight:700}
+  .nav a{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;color:#94a3b8;margin-bottom:2px}
+  .nav a.on{background:linear-gradient(90deg,rgba(99,102,241,.28),rgba(99,102,241,.08));color:#e0e7ff;box-shadow:inset 3px 0 0 #6366f1}
+  .nav a:hover{background:var(--nav2);color:#e2e8f0}
+  .side .up{margin-top:auto;background:linear-gradient(135deg,rgba(99,102,241,.35),rgba(168,85,247,.2));border:1px solid rgba(129,140,248,.35);border-radius:14px;padding:16px;font-size:12.5px;line-height:1.5;color:#c7d2fe}
+  .side .up b{display:block;color:#fff;font-size:13.5px;margin-bottom:4px}
+  .side .up button{margin-top:10px;width:100%;background:#fff;color:#4338ca;border:0;border-radius:9px;padding:9px;font-weight:700;font-size:13px;cursor:pointer}
+  .main{flex:1;padding:26px 30px 40px;max-width:1240px}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;gap:16px}
+  .top h1{font-size:23px;letter-spacing:-.02em}
+  .top p{font-size:13.5px;color:var(--mute);margin-top:3px}
+  .tools{display:flex;gap:12px;align-items:center}
+  .search{background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px 14px;font-size:13.5px;color:#94a3b8;width:230px}
+  .bell{width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;font-size:15px}
+  .bell:after{content:"";position:absolute;top:9px;right:10px;width:7px;height:7px;background:#ef4444;border-radius:50%;border:2px solid #fff}
+  .me{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:7px 13px 7px 8px}
+  .me .av{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#6366f1,#a855f7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800}
+  .me b{font-size:13.5px}.me span{display:block;font-size:11.5px;color:var(--mute)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px 18px 14px}
+  .kpi .lbl{font-size:12.5px;color:var(--mute);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+  .kpi .ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .kpi .num{font-size:27px;font-weight:800;letter-spacing:-.03em;margin:8px 0 4px}
+  .delta{font-size:12px;font-weight:700}
+  .up-g{color:var(--green)}.down-g{color:var(--green)}.down-r{color:var(--red)}
+  .sub{font-size:11.5px;color:#94a3b8;font-weight:500}
+  .grid{display:grid;grid-template-columns:1.7fr 1fr;gap:16px;margin-bottom:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px}
+  .ct{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .ct h2{font-size:15.5px;letter-spacing:-.01em}
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:9px;overflow:hidden;font-size:12px;font-weight:600;color:var(--mute)}
+  .seg span{padding:6px 12px}.seg .on{background:var(--primary);color:#fff}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--mute);font-weight:600;margin:10px 0 4px}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+  .aih{background:linear-gradient(120deg,#4f46e5,#7c3aed 60%,#9333ea);color:#fff;border-radius:15px 15px 0 0;padding:17px 20px;display:flex;align-items:center;gap:10px}
+  .aih .spark{width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:15px}
+  .aih b{font-size:15px}.aih span{display:block;font-size:12px;opacity:.8}
+  .aib{border:1px solid var(--line);border-top:0;border-radius:0 0 15px 15px;padding:8px 14px 14px;background:#fff}
+  .ins{display:flex;gap:12px;padding:13px 6px;border-bottom:1px dashed var(--line)}
+  .ins:last-child{border-bottom:0}
+  .ins .i{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  .ins b{font-size:13.5px;display:block}
+  .ins p{font-size:12.5px;color:var(--mute);line-height:1.5;margin-top:2px}
+  .ins .act{font-size:12px;font-weight:700;color:var(--primary);margin-top:5px;display:inline-block}
+  .tbl{width:100%;border-collapse:collapse}
+  .tbl th{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:#94a3b8;text-align:left;padding:11px 12px;background:#f8fafc;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .tbl td{font-size:13.5px;padding:13px 12px;border-bottom:1px solid var(--line)}
+  .tbl tr:last-child td{border-bottom:0}
+  .who{display:flex;align-items:center;gap:10px}
+  .who .a{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff}
+  .who b{font-size:13.5px}.who span{display:block;font-size:11.5px;color:var(--mute)}
+  .pill{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:99px}
+  .p-g{background:#d1fae5;color:#047857}.p-b{background:#dbeafe;color:#1d4ed8}.p-a{background:#fef3c7;color:#b45309}.p-v{background:#ede9fe;color:#6d28d9}
+  .val{font-weight:700;font-size:13.5px}
+  .tblfoot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;font-size:12.5px;color:var(--mute)}
+  .btn{background:var(--primary);color:#fff;border:0;border-radius:9px;padding:9px 16px;font-size:12.5px;font-weight:700}
+  @media(max-width:980px){.side{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <aside class="side">
+    <div class="brand"><span class="m">◆</span> Atlas AI</div>
+    <nav class="nav">
+      <span class="navlbl">Menu</span>
+      <a class="on" href="#">▦ Overview</a>
+      <a href="#">📈 Analytics</a>
+      <a href="#">✦ AI Assistant</a>
+      <span class="navlbl">CRM</span>
+      <a href="#">👥 Customers</a>
+      <a href="#">🏷️ Deals pipeline</a>
+      <a href="#">📧 Campaigns</a>
+      <span class="navlbl">System</span>
+      <a href="#">📄 Reports</a>
+      <a href="#">⚙️ Settings</a>
+    </nav>
+    <div class="up"><b>🚀 Upgrade to Pro</b>Unlimited AI credits, advanced forecasting and custom reports.<button>Upgrade — $29/mo</button></div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div>
+        <h1>Good morning, Alex 👋</h1>
+        <p>Here is what is happening with your business today — Tuesday, Oct 1, 2026</p>
+      </div>
+      <div class="tools">
+        <div class="search">🔍 Search customers, deals…</div>
+        <div class="bell">🔔</div>
+        <div class="me"><span class="av">AK</span><div><b>Alex Kim</b><span>Admin</span></div></div>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="lbl">Monthly revenue <span class="ic" style="background:#eef2ff;color:#4f46e5">$</span></div>
+        <div class="num">$48,290</div>
+        <span class="delta up-g">▲ 12.4%</span> <span class="sub">vs last month</span>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Active customers <span class="ic" style="background:#ecfdf5;color:#059669">👥</span></div>
+        <div class="num">12,847</div>
+        <span class="delta up-g">▲ 8.1%</span> <span class="sub">vs last month</span>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Conversion rate <span class="ic" style="background:#eff6ff;color:#2563eb">%</span></div>
+        <div class="num">4.62%</div>
+        <span class="delta up-g">▲ 0.8%</span> <span class="sub">vs last month</span>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Churn rate <span class="ic" style="background:#fff7ed;color:#ea580c">↘</span></div>
+        <div class="num">1.9%</div>
+        <span class="delta down-g">▼ 0.3%</span> <span class="sub">improving</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="ct">
+          <h2>Revenue & growth</h2>
+          <div class="seg"><span class="on">12M</span><span>30D</span><span>7D</span></div>
+        </div>
+        <div class="legend"><span><i style="background:#4f46e5"></i>Revenue</span><span><i style="background:#34d399"></i>New customers</span></div>
+        <svg viewBox="0 0 640 240" width="100%" height="230">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4f46e5" stop-opacity=".35"/><stop offset="1" stop-color="#4f46e5" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#e2e8f0" stroke-width="1">
+            <line x1="30" y1="30" x2="630" y2="30"/><line x1="30" y1="80" x2="630" y2="80"/>
+            <line x1="30" y1="130" x2="630" y2="130"/><line x1="30" y1="180" x2="630" y2="180"/>
+            <line x1="30" y1="210" x2="630" y2="210"/>
+          </g>
+          <path d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40 L620,210 L30,210 Z" fill="url(#g1)"/>
+          <path d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40" fill="none" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
+          <path d="M30,205 C90,200 130,195 170,188 C240,178 270,185 320,170 C380,152 420,160 470,142 C520,124 570,130 620,118" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <circle cx="580" cy="45" r="5.5" fill="#4f46e5" stroke="#fff" stroke-width="2.5"/>
+          <g font-size="11" fill="#94a3b8" font-family="Inter">
+            <text x="30" y="230">Nov</text><text x="130" y="230">Jan</text><text x="235" y="230">Mar</text>
+            <text x="340" y="230">May</text><text x="445" y="230">Jul</text><text x="550" y="230">Sep</text>
+            <text x="8" y="34">$60k</text><text x="8" y="134">$30k</text><text x="8" y="214">$0</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="aih"><span class="spark">✦</span><div><b>AI Insights</b><span>Generated 6 min ago</span></div></div>
+        <div class="aib">
+          <div class="ins">
+            <span class="i" style="background:#eef2ff;color:#4f46e5">🎯</span>
+            <div><b>32 leads ready to close</b><p>Enterprise-tier leads with 80%+ engagement scored by the AI model this week.</p><span class="act">View leads →</span></div>
+          </div>
+          <div class="ins">
+            <span class="i" style="background:#fff7ed;color:#ea580c">⚠️</span>
+            <div><b>Churn risk detected</b><p>14 accounts dropped usage 40%+ in 14 days. Send re-engagement offer.</p><span class="act">Create campaign →</span></div>
+          </div>
+          <div class="ins">
+            <span class="i" style="background:#ecfdf5;color:#059669">💡</span>
+            <div><b>Best time to email</b><p>Your audience opens 2.3× more emails on Wednesdays at 10:00 AM.</p><span class="act">Schedule send →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ct" style="margin-bottom:14px">
+        <h2>New leads in CRM</h2>
+        <button class="btn">+ Add lead</button>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Contact</th><th>Company</th><th>Source</th><th>Status</th><th>Deal value</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="who"><span class="a" style="background:#6366f1">SM</span><div><b>Sophia Martins</b><span>sophia@nova.io</span></div></div></td>
+            <td>Nova Systems</td><td>Website demo</td><td><span class="pill p-g">Qualified</span></td><td class="val">$12,400</td><td>Alex K.</td>
+          </tr>
+          <tr>
+            <td><div class="who"><span class="a" style="background:#0ea5e9">JR</span><div><b>James Rivera</b><span>j.rivera@brightlabs.co</span></div></div></td>
+            <td>Bright Labs</td><td>AI outbound</td><td><span class="pill p-v">Proposal</span></td><td class="val">$8,900</td><td>Mia T.</td>
+          </tr>
+          <tr>
+            <td><div class="who"><span class="a" style="background:#f59e0b">EW</span><div><b>Emma Wilson</b><span>emma@peakform.app</span></div></div></td>
+            <td>Peakform</td><td>Referral</td><td><span class="pill p-b">New</span></td><td class="val">$4,250</td><td>Alex K.</td>
+          </tr>
+          <tr>
+            <td><div class="who"><span class="a" style="background:#8b5cf6">DO</span><div><b>Daniel Okafor</b><span>daniel@gridworks.ng</span></div></div></td>
+            <td>Gridworks</td><td>LinkedIn ad</td><td><span class="pill p-a">Follow-up</span></td><td class="val">$15,600</td><td>Sara P.</td>
+          </tr>
+          <tr>
+            <td><div class="who"><span class="a" style="background:#10b981">LC</span><div><b>Laura Chen</b><span>laura@mintly.dev</span></div></div></td>
+            <td>Mintly</td><td>Website demo</td><td><span class="pill p-g">Qualified</span></td><td class="val">$6,100</td><td>Mia T.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tblfoot"><span>Showing 5 of 1,284 leads</span><span style="display:flex;gap:8px"><button class="btn" style="background:#f1f5f9;color:#475569">← Prev</button><button class="btn">Next →</button></span></div>
+    </div>
+  </main>
+</body>
+</html>
