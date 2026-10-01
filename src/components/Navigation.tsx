@@ -72,7 +72,7 @@ const navGroups: {
     activePages: ['course-detail', 'blog-post'],
     items: [
       { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
-      { id: 'books', label: 'Books', icon: Library, desc: '25+ free trading books with diagrams' },
+      { id: 'books', label: 'Books', icon: Library, desc: '40+ free trading books with diagrams' },
       { id: 'blog', label: 'Blog', icon: Newspaper, desc: 'Guides, strategies aur market explainers' },
       { href: '/knowledge-base/', label: 'Knowledge Base', icon: Info, desc: 'Trading guides — bunyad se advanced tak' },
       { id: 'roadmap', label: 'Trading Roadmap', icon: Map, desc: 'Beginner se pro tak ka poora rasta' },

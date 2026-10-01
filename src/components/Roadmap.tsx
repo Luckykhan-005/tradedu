@@ -188,7 +188,7 @@ export function Roadmap({ onNavigate }: RoadmapProps) {
               </Button>
               <Button size="lg" variant="outline" className="gap-2" onClick={() => onNavigate('books')}>
                 <BookOpen className="h-5 w-5" />
-                25+ Books Dekhein
+                40+ Books Dekhein
               </Button>
             </div>
           </CardContent>

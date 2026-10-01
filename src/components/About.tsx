@@ -26,7 +26,7 @@ export function About({ onNavigate }: AboutProps) {
     {
       icon: Award,
       title: 'Quality Content',
-      description: '25+ books, 500+ chapters, har topic deep aur detailed coverage.',
+      description: '40+ books, 500+ chapters, har topic deep aur detailed coverage.',
     },
     {
       icon: Users,
@@ -61,7 +61,7 @@ export function About({ onNavigate }: AboutProps) {
           <em> har Pakistani trader ko professional-level trading education Urdu mein mile</em>.
         </p>
         <p>
-          Aaj TradeEd 25+ se zyada books, structured courses, live sessions, AI tools aur ek
+          Aaj TradeEd 40+ se zyada books, structured courses, live sessions, AI tools aur ek
           supportive community offer karta hai — sab kuch Urdu mein.
         </p>
       </div>
@@ -69,7 +69,7 @@ export function About({ onNavigate }: AboutProps) {
       {/* Stats */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 mb-16">
         {[
-          { label: 'Books Published', value: '25+' },
+          { label: 'Books Published', value: '40+' },
           { label: 'Total Chapters', value: '500+' },
           { label: 'YouTube Videos', value: 'Daily' },
           { label: 'Languages', value: 'Urdu' },
@@ -119,7 +119,7 @@ export function About({ onNavigate }: AboutProps) {
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 M. Aslam Khan 2020 se trading sikha rahe hain aur content creation aur authoring
-                mein unka 10 saal ka tajurba hai. Unhon ne 25+ books likhi hain (500+ chapters),
+                mein unka 10 saal ka tajurba hai. Unhon ne 40+ books likhi hain (500+ chapters),
                 daily YouTube videos banate hain aur TradeEd ke zariye Pakistani traders ko
                 professional-level education Urdu mein dete hain. Unka focus: basics se le kar
                 advanced strategies, risk management, trading psychology aur platform guides
@@ -133,7 +133,7 @@ export function About({ onNavigate }: AboutProps) {
                   <strong className="text-foreground">10+ saal</strong> ka experience
                 </span>
                 <span className="text-muted-foreground">
-                  <strong className="text-foreground">25+ books</strong> &amp; daily videos
+                  <strong className="text-foreground">40+ books</strong> &amp; daily videos
                 </span>
               </div>
             </div>

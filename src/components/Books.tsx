@@ -775,7 +775,7 @@ export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
               <BookOpen className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Trading Books in Urdu — 25+ Free &amp; Premium Guides</h1>
+              <h1 className="text-3xl font-bold tracking-tight">Trading Books in Urdu — 40+ Free &amp; Premium Guides</h1>
               <p className="text-muted-foreground">
                 Detailed trading guides in Urdu — with visual diagrams for every concept
               </p>

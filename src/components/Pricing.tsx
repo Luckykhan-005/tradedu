@@ -32,7 +32,7 @@ const plans: Plan[] = [
     icon: Star,
     iconColor: 'text-slate-500',
     features: [
-      { label: '25+ free trading books', included: true },
+      { label: '40+ free trading books', included: true },
       { label: 'Blog & Trading Glossary', included: true },
       { label: 'Risk Calculator', included: true },
       { label: 'Beginner course ka pehla module', included: true },
@@ -65,7 +65,7 @@ const plans: Plan[] = [
       { label: 'Trading Journal', included: true },
       { label: '2 Premium books (Binance + Forex)', included: true },
       { label: 'Live sessions + recordings', included: true },
-      { label: '25+ free books (sab included)', included: true },
+      { label: '40+ free books (sab included)', included: true },
       { label: 'Priority support', included: true },
     ],
   },

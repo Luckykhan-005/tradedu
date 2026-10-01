@@ -289,7 +289,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
               <div className="text-xs text-muted-foreground">Blogs</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary">25+</div>
+              <div className="text-2xl font-bold text-primary">40+</div>
               <div className="text-xs text-muted-foreground">Books</div>
             </div>
           </div>

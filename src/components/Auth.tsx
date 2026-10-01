@@ -641,7 +641,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                 </div>
                 <Badge className="bg-emerald-600 text-white">Selected</Badge>
               </div>
-              <p className="text-sm text-emerald-700">25+ free books, glossary, risk calculator, beginner course ka pehla module, aur limited AI mentor.</p>
+              <p className="text-sm text-emerald-700">40+ free books, glossary, risk calculator, beginner course ka pehla module, aur limited AI mentor.</p>
               <p className="text-xs text-emerald-600 mt-2 font-semibold">No credit card required</p>
             </button>
 

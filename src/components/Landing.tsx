@@ -30,7 +30,7 @@ interface LandingProps {
 }
 
 const stats = [
-  { label: 'Urdu Books', value: '25+' },
+  { label: 'Urdu Books', value: '40+' },
   { label: 'Total Chapters', value: '500+' },
   { label: 'Daily Videos', value: 'YouTube' },
   { label: 'Language', value: 'Urdu' },
@@ -44,7 +44,7 @@ const features = [
   },
   {
     icon: Library,
-    title: '25+ Urdu Books',
+    title: '40+ Urdu Books',
     description: 'Trading ki har topic par detail books — spot, futures, risk management, psychology.',
   },
   {
@@ -135,7 +135,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                 zero se professional tak
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
-                25+ books, structured courses, daily YouTube videos aur free trading tools —
+                40+ books, structured courses, daily YouTube videos aur free trading tools —
                 sab kuch Urdu mein. Pakistani traders ke liye, Pakistani traders dwara.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
@@ -227,7 +227,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">25+ Urdu Books</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">40+ Urdu Books</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Trading ki har topic par mukammal books — diagrams, examples aur quizzes ke saath.
             </p>
@@ -308,7 +308,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                 <div className="flex-1 space-y-5">
                   <p className="text-muted-foreground leading-relaxed">
                     M. Aslam Khan 2020 se trading sikha rahe hain — unka content creation aur
-                    authoring mein 10 saal ka tajurba hai. Unhon ne 25+ Urdu books likhi hain
+                    authoring mein 10 saal ka tajurba hai. Unhon ne 40+ Urdu books likhi hain
                     (500+ chapters), daily YouTube videos banate hain, aur live sessions mein
                     students ke sawalon ka jawab dete hain. TradeEd ka mission: har Pakistani
                     trader ko practical, professional-level education Urdu mein — bina language
@@ -318,7 +318,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                     {[
                       { value: '2020', label: 'Se teaching' },
                       { value: '10+', label: 'Saal experience' },
-                      { value: '25+', label: 'Books likhi' },
+                      { value: '40+', label: 'Books likhi' },
                       { value: 'Daily', label: 'YouTube videos' },
                     ].map((s) => (
                       <div key={s.label} className="rounded-lg border border-border bg-background p-3 text-center">
