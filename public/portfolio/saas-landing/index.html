@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lumina — Product Analytics for Modern Teams</title>
+<meta name="description" content="Portfolio demo — modern SaaS landing page designed and developed by M. Aslam Khan (TradeEd).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070b14;--bg2:#0b1020;--card:#111731;--card2:#0e1428;
+    --line:rgba(148,163,184,.14);--line2:rgba(148,163,184,.28);
+    --txt:#e8edf7;--mute:#94a3b8;--dim:#64748b;
+    --a1:#6366f1;--a2:#a855f7;--a3:#22d3ee;
+    --ok:#34d399;
+    --grad:linear-gradient(135deg,#6366f1,#a855f7 55%,#22d3ee);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;border-radius:12px;padding:13px 26px;cursor:pointer;border:1px solid transparent;transition:.2s}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 30px rgba(99,102,241,.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(99,102,241,.5)}
+  .btn-ghost{background:rgba(148,163,184,.08);border-color:var(--line2);color:var(--txt)}
+  .btn-ghost:hover{background:rgba(148,163,184,.16)}
+  .btn-sm{padding:9px 18px;font-size:14px;border-radius:10px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(7,11,20,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+  .logo .mark{width:32px;height:32px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:16px}
+  .nav-links{display:flex;gap:30px;font-size:15px;color:var(--mute)}
+  .nav-links a:hover{color:var(--txt)}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+
+  .hero{position:relative;padding:92px 0 70px;text-align:center;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-240px;left:50%;transform:translateX(-50%);width:900px;height:620px;background:radial-gradient(closest-side,rgba(99,102,241,.28),transparent 70%);pointer-events:none}
+  .hero:before{z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#c7d2fe;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.4);padding:7px 16px;border-radius:99px;margin-bottom:26px}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(52,211,153,.25)}
+  h1{font-size:clamp(38px,6vw,64px);line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
+  .sub{font-size:19px;color:var(--mute);max-width:640px;margin:0 auto 36px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+  .micro{font-size:13px;color:var(--dim)}
+
+  .mock{position:relative;max-width:960px;margin:64px auto 0;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line2);border-radius:18px;padding:22px;box-shadow:0 40px 90px rgba(0,0,0,.55);text-align:left}
+  .mock-bar{display:flex;gap:7px;margin-bottom:18px}
+  .mock-bar i{width:11px;height:11px;border-radius:50%;background:#334155}
+  .mock-bar i:nth-child(1){background:#f87171}.mock-bar i:nth-child(2){background:#fbbf24}.mock-bar i:nth-child(3){background:#34d399}
+  .mock-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+  .mock-card{background:rgba(7,11,20,.6);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .mock-label{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+  .mock-num{font-size:30px;font-weight:800;margin:4px 0 2px}
+  .mock-delta{font-size:13px;color:var(--ok);font-weight:600}
+  .bars{display:flex;align-items:flex-end;gap:9px;height:130px;margin-top:16px}
+  .bars span{flex:1;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--a1),rgba(99,102,241,.25))}
+  .bars span:nth-child(4){background:linear-gradient(180deg,var(--a2),rgba(168,85,247,.3))}
+  .bars span:nth-child(7){background:linear-gradient(180deg,var(--a3),rgba(34,211,238,.3))}
+  .side-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .side-row:last-child{border-bottom:0}
+  .pill{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:99px;background:rgba(52,211,153,.12);color:var(--ok)}
+  .pill.warn{background:rgba(251,191,36,.12);color:#fbbf24}
+
+  .logos{padding:54px 0 10px;text-align:center}
+  .logos p{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:22px}
+  .logo-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 44px;font-weight:700;font-size:19px;color:#475569;letter-spacing:-.02em}
+  .logo-row span{opacity:.85;transition:.2s}
+  .logo-row span:hover{color:var(--mute)}
+
+  section{padding:86px 0}
+  .eyebrow{display:block;text-align:center;font-size:13.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+  h2{text-align:center;font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin-bottom:16px}
+  .lead{text-align:center;color:var(--mute);font-size:17.5px;max-width:620px;margin:0 auto 54px}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:linear-gradient(180deg,rgba(17,23,49,.85),rgba(14,20,40,.85));border:1px solid var(--line);border-radius:16px;padding:28px;transition:.25s}
+  .feat:hover{border-color:rgba(99,102,241,.55);transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+  .feat .ic{width:46px;height:46px;border-radius:12px;background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.35);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .feat h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  .feat p{font-size:14.5px;color:var(--mute)}
+
+  .stats{background:linear-gradient(180deg,rgba(17,23,49,.7),transparent);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+  .stat b{display:block;font-size:clamp(32px,4vw,46px);font-weight:800;letter-spacing:-.03em}
+  .stat span{font-size:14px;color:var(--mute)}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .quote{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .quote .stars{color:#fbbf24;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+  .quote p{font-size:15px;color:#cbd5e1;margin-bottom:20px}
+  .who{display:flex;align-items:center;gap:12px}
+  .av{width:42px;height:42px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
+  .who b{display:block;font-size:14.5px}
+  .who span{font-size:12.5px;color:var(--dim)}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .plan{background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;position:relative}
+  .plan.hot{border-color:rgba(168,85,247,.6);background:linear-gradient(180deg,rgba(99,102,241,.12),var(--card2));box-shadow:0 24px 60px rgba(99,102,241,.22)}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);font-size:12px;font-weight:800;padding:5px 16px;border-radius:99px;letter-spacing:.04em}
+  .plan h3{font-size:17px;font-weight:700}
+  .plan .for{font-size:13.5px;color:var(--dim);margin-bottom:16px}
+  .price{font-size:44px;font-weight:800;letter-spacing:-.03em}
+  .price small{font-size:15px;font-weight:600;color:var(--mute)}
+  .plan ul{list-style:none;margin:22px 0 26px;display:grid;gap:11px}
+  .plan li{font-size:14.5px;color:#cbd5e1;display:flex;gap:10px;align-items:flex-start}
+  .plan li:before{content:"✓";color:var(--ok);font-weight:800}
+  .plan .btn{width:100%;margin-top:auto}
+
+  .cta{padding:0 0 96px}
+  .cta-box{background:linear-gradient(135deg,rgba(99,102,241,.22),rgba(168,85,247,.16),rgba(34,211,238,.1));border:1px solid rgba(99,102,241,.45);border-radius:24px;padding:64px 34px;text-align:center;position:relative;overflow:hidden}
+  .cta-box:before{content:"";position:absolute;inset:auto -120px -220px;width:480px;height:480px;background:radial-gradient(closest-side,rgba(168,85,247,.35),transparent);pointer-events:none}
+  .cta-box h2{margin-bottom:14px}
+  .cta-box p{color:var(--mute);max-width:520px;margin:0 auto 30px}
+
+  footer{border-top:1px solid var(--line);padding:44px 0;color:var(--dim);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:24px}
+  .foot-links a:hover{color:var(--txt)}
+
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .mock-grid{grid-template-columns:1fr}
+    .features,.quotes,.plans{grid-template-columns:1fr}
+    .stat-row{grid-template-columns:repeat(2,1fr);gap:30px}
+    section{padding:64px 0}
+    .hero{padding:64px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav">
+    <a class="logo" href="#"><span class="mark">◈</span> Lumina</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#testimonials">Customers</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#">Docs</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="#">Sign in</a>
+      <a class="btn btn-primary btn-sm" href="#pricing">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> v2.0 — now with AI insights</div>
+    <h1>Product analytics<br><span class="grad-text">your whole team will love</span></h1>
+    <p class="sub">Lumina turns raw product data into clear answers — funnels, retention aur revenue insights, bina SQL ke. Ship better features, faster.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#pricing">Start free — no card needed</a>
+      <a class="btn btn-ghost" href="#features">See how it works →</a>
+    </div>
+    <p class="micro">14-day Pro trial · Cancel anytime · Loved by 2,400+ teams</p>
+
+    <div class="mock" aria-label="Dashboard preview">
+      <div class="mock-bar"><i></i><i></i><i></i></div>
+      <div class="mock-grid">
+        <div class="mock-card">
+          <div class="mock-label">Weekly active users</div>
+          <div class="mock-num">48,291</div>
+          <div class="mock-delta">▲ 18.4% vs last week</div>
+          <div class="bars">
+            <span style="height:38%"></span><span style="height:52%"></span><span style="height:45%"></span>
+            <span style="height:74%"></span><span style="height:60%"></span><span style="height:68%"></span>
+            <span style="height:92%"></span><span style="height:80%"></span>
+          </div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-label">Top events</div>
+          <div class="side-row"><span>checkout_completed</span><span class="pill">12.4k</span></div>
+          <div class="side-row"><span>plan_upgraded</span><span class="pill">1.9k</span></div>
+          <div class="side-row"><span>onboarding_done</span><span class="pill">8.7k</span></div>
+          <div class="side-row"><span>trial_started</span><span class="pill warn">4.2k</span></div>
+          <div class="side-row"><span>invite_sent</span><span class="pill">3.1k</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="logos wrap">
+  <p>Trusted by fast-growing teams</p>
+  <div class="logo-row">
+    <span>Vertex</span><span>Northwind</span><span>Orbital</span><span>Cascade</span><span>Monolith</span><span>Fieldnote</span>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <span class="eyebrow">Features</span>
+    <h2>Everything you need to<br>understand your product</h2>
+    <p class="lead">Funnels se retention tak — sab kuch ek jagah. Engineering team ki zaroorat nahi.</p>
+    <div class="features">
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+        <h3>Funnels & conversion</h3>
+        <p>Har step par drop-off dekhein — sign-up se checkout tak poora safar visualize karein.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg></div>
+        <h3>AI insights</h3>
+        <p>Automatic anomalies aur trends — AI khud batata hai kya badla aur kyun.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Cohorts & retention</h3>
+        <p>Users kab wapas aate hain — weekly cohorts se retention curve turant samajh aaye.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Revenue tracking</h3>
+        <p>MRR, upgrades aur churn — product events ke sath revenue ko correlate karein.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Real-time events</h3>
+        <p>Sub-second ingestion — launch ke foran baad numbers live update hone lagen.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Privacy first</h3>
+        <p>SOC 2 ready, EU data residency aur GDPR controls — built-in, add-on nahi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stat-row">
+    <div class="stat"><b class="grad-text">2,400+</b><span>teams onboard</span></div>
+    <div class="stat"><b class="grad-text">18B</b><span>events / month</span></div>
+    <div class="stat"><b class="grad-text">99.99%</b><span>uptime SLA</span></div>
+    <div class="stat"><b class="grad-text">&lt;120ms</b><span>query latency</span></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow">Customers</span>
+    <h2>Teams ship smarter with Lumina</h2>
+    <p class="lead">Chhote startups se public companies tak — product decisions Lumina par.</p>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“Funnels set karne mein 10 minute lage — pehle har report ke liye SQL likhna parta tha. Ab PM khud sab dekh leta hai.”</p>
+        <div class="who"><div class="av">SK</div><div><b>Sara Khan</b><span>Head of Product, Vertex</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“Retention cohorts ne hamari onboarding ko badal diya. Ek month mein activation rate 34% se 51% ho gaya.”</p>
+        <div class="who"><div class="av">DM</div><div><b>Daniel Mercer</b><span>Founder, Orbital</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“Migration ek afternoon mein. Support team genuinely fastest jo humne dekha — bina enterprise sales ke.”</p>
+        <div class="who"><div class="av">AL</div><div><b>Ayesha Liaqat</b><span>CTO, Cascade</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <span class="eyebrow">Pricing</span>
+    <h2>Simple pricing that scales</h2>
+    <p class="lead">Shuru free mein — jab team bade, tab upgrade. Hidden charges koi nahi.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <p class="for">Side projects & small teams</p>
+        <div class="price">$0 <small>/mo</small></div>
+        <ul>
+          <li>50k events / month</li>
+          <li>3 team members</li>
+          <li>Funnels + retention</li>
+          <li>30-day data history</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Start free</a>
+      </div>
+      <div class="plan hot">
+        <span class="tag">MOST POPULAR</span>
+        <h3>Growth</h3>
+        <p class="for">Scaling product teams</p>
+        <div class="price">$49 <small>/mo</small></div>
+        <ul>
+          <li>5M events / month</li>
+          <li>Unlimited members</li>
+          <li>AI insights + revenue</li>
+          <li>1-year data history</li>
+          <li>Slack & email alerts</li>
+        </ul>
+        <a class="btn btn-primary" href="#">Start 14-day trial</a>
+      </div>
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <p class="for">Security & scale needs</p>
+        <div class="price">Custom</div>
+        <ul>
+          <li>Unlimited events</li>
+          <li>SSO / SAML + audit logs</li>
+          <li>Dedicated success manager</li>
+          <li>Custom data residency</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Ready to understand<br>your users better?</h2>
+      <p>2 minute mein setup — code snippet paste karein, pehla dashboard foran tayyar.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#pricing">Start free</a>
+        <a class="btn btn-ghost" href="#">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#"><span class="mark">◈</span> Lumina</a>
+    <div class="foot-links">
+      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">Status</a>
+    </div>
+    <div>© 2026 Lumina Labs, Inc.</div>
+  </div>
+</footer>
+
+</body>
+</html>
