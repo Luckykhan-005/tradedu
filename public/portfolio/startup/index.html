@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Synthflow — AI Support Agent for Modern Teams</title>
+<meta name="description" content="Portfolio demo — AI startup landing page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0c1222;--mute:#5b6577;--line:#e6e9f0;--bg:#fff;--soft:#f5f7fb;--p1:#ff5a1f;--p2:#ffb800;--violet:#6d5dfc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:14px;padding:14px 28px;border:0;cursor:pointer;transition:.2s}
+  .btn-main{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;box-shadow:0 12px 30px rgba(255,90,31,.35)}
+  .btn-main:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,90,31,.45)}
+  .btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-sm{padding:10px 20px;font-size:14px;border-radius:11px}
+  .grad{background:linear-gradient(120deg,var(--p1),var(--p2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.03em}
+  .logo .m{width:33px;height:33px;border-radius:10px;background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+  .links{display:flex;gap:28px;font-size:15px;font-weight:600;color:var(--mute)}
+  .links a:hover{color:var(--ink)}
+  .hero{position:relative;padding:96px 0 80px;text-align:center;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+  .b1{width:520px;height:520px;background:#ffd7a8;top:-180px;left:-140px}
+  .b2{width:440px;height:440px;background:#ffe9b8;top:40px;right:-160px}
+  .b3{width:380px;height:380px;background:#e6ddff;bottom:-180px;left:36%}
+  .hero .wrap{position:relative;z-index:1}
+  .pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 18px;font-size:13.5px;font-weight:700;box-shadow:0 8px 24px rgba(12,18,34,.07)}
+  .pill .d{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+  h1{font-size:clamp(40px,6.4vw,70px);line-height:1.03;letter-spacing:-.035em;font-weight:900;margin:26px 0 20px}
+  .sub{font-size:19.5px;color:var(--mute);max-width:640px;margin:0 auto 36px}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+  .wait{display:flex;gap:10px;max-width:470px;margin:0 auto 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:7px 7px 7px 18px;box-shadow:0 14px 40px rgba(12,18,34,.08)}
+  .wait input{flex:1;border:0;outline:0;font-size:15.5px;font-family:inherit;background:transparent}
+  .micro{font-size:13.5px;color:var(--mute)}
+  .micro b{color:var(--ink)}
+  .chatbox{max-width:780px;margin:64px auto 0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 90px rgba(12,18,34,.14);overflow:hidden;text-align:left}
+  .cb-top{display:flex;align-items:center;gap:11px;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .cb-top .av{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:center;color:#fff}
+  .cb-top b{font-size:14.5px}.cb-top span{display:block;font-size:12px;color:#22c55e}
+  .cb-body{padding:22px;display:grid;gap:14px;background:linear-gradient(180deg,#fff,#fafbfd)}
+  .msg{max-width:74%;font-size:14.5px;line-height:1.55;padding:13px 17px;border-radius:17px}
+  .msg.u{background:var(--ink);color:#fff;border-bottom-right-radius:5px;justify-self:end}
+  .msg.a{background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px}
+  .msg.a b{color:var(--p1)}
+  .cb-foot{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+  .cb-foot span{flex:1;background:var(--soft);border-radius:99px;padding:10px 18px}
+  .cb-foot i{width:40px;height:40px;border-radius:99px;background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:center;font-style:normal;color:#fff}
+  .logos{padding:56px 0 10px;text-align:center}
+  .logos p{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:20px;font-weight:700}
+  .logo-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 46px;font-weight:800;font-size:19px;color:#aeb6c4;letter-spacing:-.02em}
+  section{padding:90px 0}
+  .eyebrow{display:block;text-align:center;font-size:13.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--p1);margin-bottom:12px}
+  h2{text-align:center;font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.12;margin-bottom:14px}
+  .lead{text-align:center;color:var(--mute);font-size:17.5px;max-width:600px;margin:0 auto 54px}
+  .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .f{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;transition:.25s}
+  .f:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(12,18,34,.1);border-color:transparent}
+  .f .ic{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
+  .f h3{font-size:18.5px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
+  .f p{font-size:14.8px;color:var(--mute)}
+  .soft{background:var(--soft)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+  .st{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;position:relative}
+  .st .n{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .st h3{font-size:17.5px;font-weight:800;margin-bottom:7px}
+  .st p{font-size:14.5px;color:var(--mute)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+  .stat b{display:block;font-size:clamp(34px,4.4vw,50px);font-weight:900;letter-spacing:-.04em}
+  .stat span{font-size:14.5px;color:var(--mute);font-weight:600}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .q{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+  .q .s{color:#f59e0b;letter-spacing:3px;font-size:14px}
+  .q p{font-size:16.5px;margin:14px 0 20px;line-height:1.65}
+  .who{display:flex;gap:13px;align-items:center}
+  .who .a{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px}
+  .who b{display:block;font-size:15px}.who span{font-size:13px;color:var(--mute)}
+  .fin{padding:0 0 100px}
+  .fbox{background:linear-gradient(135deg,#141017,#241a2e);border-radius:28px;padding:70px 36px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .fbox:before{content:"";position:absolute;width:500px;height:500px;background:radial-gradient(closest-side,rgba(255,90,31,.5),transparent);top:-260px;right:-140px}
+  .fbox:after{content:"";position:absolute;width:420px;height:420px;background:radial-gradient(closest-side,rgba(255,184,0,.4),transparent);bottom:-240px;left:-120px}
+  .fbox h2{color:#fff;position:relative;z-index:1}.fbox p{color:#cbd2e0;max-width:520px;margin:14px auto 30px;position:relative;z-index:1;font-size:17px}
+  .fbox .cta{position:relative;z-index:1}
+  footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mute);font-size:14.5px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .fl{display:flex;gap:26px}
+  @media(max-width:900px){.links{display:none}.feats,.steps,.quotes{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:64px 0 50px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav">
+  <a class="logo" href="#"><span class="m">⚡</span> Synthflow</a>
+  <div class="links"><a href="#features">Product</a><a href="#how">How it works</a><a href="#customers">Customers</a><a href="#">Docs</a></div>
+  <div class="cta"><a class="btn btn-main btn-sm" href="#waitlist">Join waitlist</a></div>
+</div></nav>
+
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <span class="pill"><span class="d"></span> Backed by Y Combinator · Batch W26</span>
+    <h1>Your AI support agent<br><span class="grad">that never sleeps.</span></h1>
+    <p class="sub">Synthflow resolves 70% of customer tickets automatically — trained on your docs, live in under 10 minutes.</p>
+    <div class="wait" id="waitlist">
+      <input type="email" placeholder="Enter your work email">
+      <button class="btn btn-main">Get early access</button>
+    </div>
+    <p class="micro"><b>2,400+</b> teams already on the waitlist · No credit card required</p>
+
+    <div class="chatbox">
+      <div class="cb-top"><span class="av">⚡</span><div><b>Synthflow Agent</b><span>● Online — replies instantly</span></div></div>
+      <div class="cb-body">
+        <div class="msg u">My order #4821 hasn't shipped yet — what's going on?</div>
+        <div class="msg a">I checked order <b>#4821</b> — it's packed and ships today from our Karachi warehouse. Tracking will arrive by 8 PM. Want me to email it?</div>
+        <div class="msg u">Yes please, and upgrade to express.</div>
+        <div class="msg a">Done ✅ Express upgrade applied <b>free of charge</b> (our fault for the delay). Tracking is on its way to your inbox.</div>
+      </div>
+      <div class="cb-foot"><span>Message Synthflow…</span><i>➤</i></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos wrap">
+  <p>Trusted by fast-growing support teams</p>
+  <div class="logo-row"><span>HelioPay</span><span>Novacart</span><span>Driftwood</span><span>Kite</span><span>Formly</span><span>Batch&amp;Co</span></div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <span class="eyebrow">Why Synthflow</span>
+    <h2>Support that scales with you</h2>
+    <p class="lead">Hiring more agents is not a strategy. Automate the repetitive 70% — keep humans for what matters.</p>
+    <div class="feats">
+      <div class="f"><div class="ic" style="background:#fff1e7">📚</div><h3>Trained on your docs</h3><p>Drop in your help center, PDFs and past tickets. Synthflow learns your tone and policies in minutes.</p></div>
+      <div class="f"><div class="ic" style="background:#eef2ff">🧠</div><h3>Real reasoning</h3><p>Not canned replies — the agent checks orders, runs refunds and takes actions through your tools.</p></div>
+      <div class="f"><div class="ic" style="background:#e9fbf1">🌍</div><h3>32 languages</h3><p>Customers write in Urdu, English or Arabic — the agent replies fluently in the same language.</p></div>
+      <div class="f"><div class="ic" style="background:#fdeef2">📈</div><h3>CSAT that climbs</h3><p>Average satisfaction jumps to 4.8/5 with instant answers and zero hold music.</p></div>
+      <div class="f"><div class="ic" style="background:#fff7df">🔒</div><h3>Enterprise-ready</h3><p>SOC 2, GDPR, data residency options and full audit logs from day one.</p></div>
+      <div class="f"><div class="ic" style="background:#eef7ff">🔌</div><h3>Works with your stack</h3><p>Zendesk, Intercom, Shopify, WhatsApp and 40+ integrations — no developers needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="how">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>Live in three steps</h2>
+    <p class="lead">Most teams go from signup to production in a single coffee break.</p>
+    <div class="steps">
+      <div class="st"><div class="n">1</div><h3>Connect your knowledge</h3><p>Point Synthflow at your help docs, website and ticket history. It indexes everything automatically.</p></div>
+      <div class="st"><div class="n">2</div><h3>Set the rules</h3><p>Choose what it can do alone — refunds, order lookups, escalations — and where humans take over.</p></div>
+      <div class="st"><div class="n">3</div><h3>Go live</h3><p>Embed one snippet or flip on WhatsApp. Watch resolution rate climb from day one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stats">
+    <div class="stat"><b class="grad">70%</b><span>tickets auto-resolved</span></div>
+    <div class="stat"><b class="grad">4.8/5</b><span>average CSAT</span></div>
+    <div class="stat"><b class="grad">&lt;10 min</b><span>setup time</span></div>
+    <div class="stat"><b class="grad">32</b><span>languages supported</span></div>
+  </div>
+</section>
+
+<section class="soft" id="customers">
+  <div class="wrap">
+    <span class="eyebrow">Customers</span>
+    <h2>Teams sleep better with Synthflow</h2>
+    <p class="lead">From seed-stage startups to public marketplaces.</p>
+    <div class="quotes">
+      <div class="q"><div class="s">★★★★★</div><p>“We cut first-response time from 4 hours to 4 seconds. Our two agents now handle what used to take eight.”</p>
+        <div class="who"><span class="a" style="background:#ff5a1f">HK</span><div><b>Hina Khalid</b><span>Head of Support, Novacart</span></div></div></div>
+      <div class="q"><div class="s">★★★★★</div><p>“Setup genuinely took 8 minutes. By lunch it had resolved 120 tickets and escalated only the tricky ones.”</p>
+        <div class="who"><span class="a" style="background:#6d5dfc">MR</span><div><b>Mark Reyes</b><span>COO, HelioPay</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="wrap">
+    <div class="fbox">
+      <h2>Stop answering the same<br>questions forever.</h2>
+      <p>Join 2,400+ teams automating support with Synthflow. Early access pricing locked for life.</p>
+      <div class="cta"><a class="btn btn-main" href="#waitlist">Join the waitlist →</a><a class="btn btn-ghost" href="#">Book a demo</a></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap foot">
+  <a class="logo" href="#"><span class="m">⚡</span> Synthflow</a>
+  <div class="fl"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">Status</a></div>
+  <div>© 2026 Synthflow Inc.</div>
+</div></footer>
+</body>
+</html>

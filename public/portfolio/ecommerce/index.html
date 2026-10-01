@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LUXE &amp; Co. — Modern Fashion Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf9f7;--ink:#14100e;--mute:#7a736c;--line:#e9e4de;--card:#fff;--sale:#e11d48;--acc:#14100e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .promo{background:#14100e;color:#fff;text-align:center;font-size:13px;padding:9px 14px;letter-spacing:.03em}
+  .promo b{color:#fbbf24}
+  nav{position:sticky;top:0;z-index:40;background:rgba(250,249,247,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:26px}
+  .logo{font-family:'Playfair Display',serif;font-weight:700;font-size:23px;letter-spacing:.02em}
+  .links{display:flex;gap:26px;font-size:14.5px;font-weight:600}
+  .links a{position:relative}.links a:hover{opacity:.6}
+  .links a.hot{color:var(--sale)}
+  .icons{display:flex;gap:16px;font-size:17px;align-items:center}
+  .bag{position:relative}
+  .bag i{position:absolute;top:-7px;right:-9px;background:var(--sale);color:#fff;font-size:10px;font-style:normal;font-weight:800;border-radius:99px;padding:2px 5px}
+  .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;padding:58px 0 34px}
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sale)}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5.4vw,64px);line-height:1.04;letter-spacing:-.01em;margin:14px 0 16px}
+  h1 em{font-style:italic;color:var(--sale)}
+  .sub{font-size:17px;color:var(--mute);max-width:440px;margin-bottom:28px;line-height:1.65}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:#14100e;color:#fff;font-weight:700;font-size:15px;padding:15px 30px;border-radius:99px;border:0;cursor:pointer;transition:.2s}
+  .btn:hover{background:#3d332c;transform:translateY(-2px)}
+  .btn.red{background:var(--sale)}.btn.red:hover{background:#be123c}
+  .btn.ghost{background:transparent;color:#14100e;border:1.5px solid #14100e}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .visual{position:relative;height:440px;border-radius:26px;overflow:hidden;background:linear-gradient(150deg,#f9a8d4,#fb7185 45%,#f59e0b);box-shadow:0 30px 70px rgba(225,29,72,.25)}
+  .visual .sale-tag{position:absolute;top:26px;left:26px;background:#fff;border-radius:18px;padding:16px 22px;text-align:center;transform:rotate(-6deg);box-shadow:0 12px 30px rgba(0,0,0,.15)}
+  .sale-tag b{display:block;font-size:44px;font-weight:900;color:var(--sale);line-height:1}
+  .sale-tag span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .visual .fashion{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:150px;filter:drop-shadow(0 24px 30px rgba(0,0,0,.25))}
+  .visual .chip{position:absolute;bottom:22px;right:22px;background:rgba(20,16,14,.85);color:#fff;font-size:13px;font-weight:600;padding:10px 18px;border-radius:99px;backdrop-filter:blur(6px)}
+  .cats{display:flex;gap:12px;flex-wrap:wrap;padding:26px 0 8px}
+  .cat{background:#fff;border:1px solid var(--line);border-radius:99px;padding:11px 24px;font-size:14px;font-weight:600;transition:.2s}
+  .cat:hover,.cat.on{background:#14100e;color:#fff;border-color:#14100e}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;margin:44px 0 22px}
+  h2{font-family:'Playfair Display',serif;font-size:34px;letter-spacing:-.01em}
+  .sec-head a{font-size:14px;font-weight:700;text-decoration:underline}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;position:relative}
+  .prod:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(20,16,14,.1)}
+  .ph{height:250px;display:flex;align-items:center;justify-content:center;font-size:92px;position:relative}
+  .p1{background:linear-gradient(160deg,#fde68a,#fbbf24)}.p2{background:linear-gradient(160deg,#c7d2fe,#818cf8)}
+  .p3{background:linear-gradient(160deg,#fbcfe8,#f472b6)}.p4{background:linear-gradient(160deg,#bbf7d0,#34d399)}
+  .p5{background:linear-gradient(160deg,#e2e8f0,#94a3b8)}.p6{background:linear-gradient(160deg,#fed7aa,#fb923c)}
+  .tag{position:absolute;top:14px;left:14px;background:#14100e;color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:6px 12px;border-radius:99px;text-transform:uppercase}
+  .tag.red{background:var(--sale)}
+  .wish{position:absolute;top:12px;right:12px;width:38px;height:38px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+  .pinfo{padding:18px 18px 20px}
+  .pinfo .n{font-weight:700;font-size:15.5px}.pinfo .c{font-size:13px;color:var(--mute);margin-top:2px}
+  .prow{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+  .price{font-weight:800;font-size:17px}.price s{color:var(--mute);font-weight:500;font-size:13.5px;margin-right:7px}
+  .stars{font-size:13px;color:#f59e0b}
+  .add{width:100%;margin-top:14px;background:#f4f1ed;border:0;border-radius:12px;padding:12px;font-weight:700;font-size:14px;cursor:pointer;transition:.2s;font-family:inherit}
+  .add:hover{background:#14100e;color:#fff}
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:54px 0}
+  .t{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
+  .t .e{font-size:26px}.t b{display:block;font-size:15px;margin:8px 0 4px}.t span{font-size:13.5px;color:var(--mute)}
+  .news{background:linear-gradient(135deg,#14100e,#3d332c);border-radius:26px;padding:48px 40px;text-align:center;color:#fff;margin-bottom:60px}
+  .news h2{color:#fff}.news p{color:#c9c2bb;margin:10px auto 24px;max-width:430px;font-size:15.5px}
+  .form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+  .form input{flex:1;border:0;border-radius:99px;padding:15px 22px;font-size:15px;font-family:inherit;outline:0}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--mute);font-size:14px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  .fl{display:flex;gap:24px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}.visual{height:330px}.grid{grid-template-columns:1fr}.trust{grid-template-columns:1fr}.links{display:none}}
+</style>
+</head>
+<body>
+<div class="promo">☀️ SUMMER SALE — up to <b>40% OFF</b> sitewide · Free shipping over $50</div>
+<nav><div class="wrap nav">
+  <a class="logo" href="#">LUXE &amp; Co.</a>
+  <div class="links"><a href="#">New In</a><a href="#">Women</a><a href="#">Men</a><a href="#">Bags</a><a class="hot" href="#">Sale</a></div>
+  <div class="icons"><span>🔍</span><span>♡</span><span class="bag">🛍️ <i>2</i></span></div>
+</div></nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">New collection · Summer '26</span>
+      <h1>Style that <em>speaks</em><br>before you do.</h1>
+      <p class="sub">Hand-picked fashion essentials — quality fabrics, fair prices, and next-day delivery across the country.</p>
+      <div class="hero-cta">
+        <button class="btn red">Shop the sale →</button>
+        <button class="btn ghost">Explore new in</button>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="sale-tag"><b>40%</b><span>off everything</span></div>
+      <div class="fashion">👜</div>
+      <div class="chip">✨ 200+ new styles this week</div>
+    </div>
+  </section>
+
+  <div class="cats">
+    <span class="cat on">All</span><span class="cat">Dresses</span><span class="cat">Tops</span><span class="cat">Bags</span><span class="cat">Shoes</span><span class="cat">Accessories</span>
+  </div>
+
+  <div class="sec-head"><h2>Best sellers</h2><a href="#">View all products →</a></div>
+  <div class="grid">
+    <div class="prod"><div class="ph p1"><span class="tag red">-30%</span><span class="wish">♡</span>👗</div>
+      <div class="pinfo"><div class="n">Floral Midi Dress</div><div class="c">Summer collection</div>
+      <div class="prow"><span class="price"><s>$89</s>$62</span><span class="stars">★★★★★ 4.9</span></div>
+      <button class="add">Add to bag</button></div></div>
+    <div class="prod"><div class="ph p2"><span class="tag">New</span><span class="wish">♡</span>👜</div>
+      <div class="pinfo"><div class="n">Everyday Tote Bag</div><div class="c">Vegan leather</div>
+      <div class="prow"><span class="price">$54</span><span class="stars">★★★★☆ 4.6</span></div>
+      <button class="add">Add to bag</button></div></div>
+    <div class="prod"><div class="ph p3"><span class="tag red">-25%</span><span class="wish">♡</span>👠</div>
+      <div class="pinfo"><div class="n">Block Heel Sandals</div><div class="c">Comfort fit</div>
+      <div class="prow"><span class="price"><s>$76</s>$57</span><span class="stars">★★★★★ 4.8</span></div>
+      <button class="add">Add to bag</button></div></div>
+    <div class="prod"><div class="ph p4"><span class="tag">New</span><span class="wish">♡</span>👕</div>
+      <div class="pinfo"><div class="n">Linen Overshirt</div><div class="c">Unisex · 4 colors</div>
+      <div class="prow"><span class="price">$48</span><span class="stars">★★★★★ 4.9</span></div>
+      <button class="add">Add to bag</button></div></div>
+    <div class="prod"><div class="ph p5"><span class="wish">♡</span>⌚</div>
+      <div class="pinfo"><div class="n">Minimal Steel Watch</div><div class="c">Swiss movement</div>
+      <div class="prow"><span class="price">$129</span><span class="stars">★★★★☆ 4.7</span></div>
+      <button class="add">Add to bag</button></div></div>
+    <div class="prod"><div class="ph p6"><span class="tag red">-40%</span><span class="wish">♡</span>🧥</div>
+      <div class="pinfo"><div class="n">Denim Jacket Classic</div><div class="c">Bestseller</div>
+      <div class="prow"><span class="price"><s>$99</s>$59</span><span class="stars">★★★★★ 4.9</span></div>
+      <button class="add">Add to bag</button></div></div>
+  </div>
+
+  <div class="trust">
+    <div class="t"><div class="e">🚚</div><b>Free &amp; fast shipping</b><span>On all orders over $50</span></div>
+    <div class="t"><div class="e">↩️</div><b>30-day free returns</b><span>No questions asked</span></div>
+    <div class="t"><div class="e">🔒</div><b>Secure checkout</b><span>Card, PayPal &amp; COD</span></div>
+  </div>
+
+  <div class="news">
+    <h2>Get 10% off your first order</h2>
+    <p>Join 40,000+ subscribers for early access to drops, sales and style tips.</p>
+    <form class="form" onsubmit="return false"><input type="email" placeholder="Enter your email"><button class="btn red" style="padding:15px 26px">Subscribe</button></form>
+  </div>
+</div>
+
+<footer><div class="wrap foot">
+  <div class="logo">LUXE &amp; Co.</div>
+  <div class="fl"><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size guide</a><a href="#">Contact</a></div>
+  <div>© 2026 LUXE &amp; Co. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

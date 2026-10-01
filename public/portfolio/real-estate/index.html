@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PrimeNest Estates — Find Your Dream Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f6f8fb;--ink:#0e1626;--mute:#5d6b82;--line:#e3e8f0;--card:#fff;--navy:#10203f;--blue:#2563eb;--gold:#f59e0b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:12px;padding:14px 26px;border:0;cursor:pointer;transition:.2s}
+  .btn-main{background:var(--blue);color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.3)}
+  .btn-main:hover{background:#1d4ed8;transform:translateY(-2px)}
+  .btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}.btn-ghost:hover{border-color:var(--ink)}
+  .btn-sm{padding:10px 18px;font-size:14px;border-radius:10px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19.5px;letter-spacing:-.03em}
+  .logo .m{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#10203f,#2563eb);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px}
+  .links{display:flex;gap:27px;font-size:15px;font-weight:600;color:var(--mute)}
+  .links a:hover{color:var(--ink)}
+  .hero{position:relative;padding:84px 0 70px;background:linear-gradient(180deg,#eaf1fd 0%,#f6f8fb 100%);overflow:hidden;text-align:center}
+  .hero:before{content:"🏠";position:absolute;font-size:340px;opacity:.06;right:-40px;top:20px;transform:rotate(-8deg)}
+  .hero .wrap{position:relative;z-index:1}
+  .pill{display:inline-flex;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 18px;font-size:13.5px;font-weight:700;color:var(--blue);box-shadow:0 8px 22px rgba(14,22,38,.06)}
+  h1{font-size:clamp(38px,5.8vw,62px);line-height:1.06;letter-spacing:-.035em;font-weight:900;margin:24px 0 16px}
+  h1 span{color:var(--blue)}
+  .sub{font-size:18.5px;color:var(--mute);max-width:640px;margin:0 auto 38px}
+  .search{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;max-width:900px;margin:0 auto;box-shadow:0 26px 60px rgba(14,22,38,.12);text-align:left;flex-wrap:wrap}
+  .field{flex:1;min-width:170px;padding:8px 14px;border-right:1px solid var(--line)}
+  .field:last-of-type{border-right:0}
+  .field label{display:block;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+  .field select,.field input{border:0;outline:0;font-size:15.5px;font-weight:600;font-family:inherit;background:transparent;color:var(--ink);width:100%;padding-top:3px}
+  .search .btn{flex-shrink:0;align-self:center}
+  .trust{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:26px;font-size:14px;color:var(--mute);font-weight:600}
+  .trust b{color:var(--ink)}
+  section{padding:80px 0}
+  .eyebrow{display:block;text-align:center;font-size:13.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+  h2{text-align:center;font-size:clamp(29px,4.2vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.14;margin-bottom:14px}
+  .lead{text-align:center;color:var(--mute);font-size:17px;max-width:590px;margin:0 auto 50px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:var(--navy);border-radius:22px;padding:44px 30px;color:#fff}
+  .stat{text-align:center}
+  .stat b{display:block;font-size:clamp(30px,3.8vw,44px);font-weight:900;letter-spacing:-.03em;color:#7dd3fc}
+  .stat span{font-size:14.5px;color:#a9b6cd;font-weight:600}
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .home{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}
+  .home:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(14,22,38,.13)}
+  .img{height:210px;position:relative;display:flex;align-items:center;justify-content:center;font-size:76px}
+  .i1{background:linear-gradient(160deg,#bfd7ff,#60a5fa)}.i2{background:linear-gradient(160deg,#ffe3b3,#fbbf24)}
+  .i3{background:linear-gradient(160deg,#cfe8d6,#5ec48a)}.i4{background:linear-gradient(160deg,#e3d7ff,#a78bfa)}
+  .i5{background:linear-gradient(160deg,#ffd6d6,#f87171)}.i6{background:linear-gradient(160deg,#d3e7ff,#38bdf8)}
+  .tag{position:absolute;top:14px;left:14px;background:rgba(14,22,38,.85);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:6px 13px;border-radius:99px}
+  .tag.g{background:var(--gold);color:#1e1503}
+  .hinfo{padding:20px}
+  .price{font-size:23px;font-weight:900;letter-spacing:-.02em;color:var(--blue)}
+  .price span{font-size:13.5px;color:var(--mute);font-weight:600}
+  .hinfo h3{font-size:17px;font-weight:800;margin:6px 0 2px;letter-spacing:-.01em}
+  .loc{font-size:14px;color:var(--mute)}
+  .meta{display:flex;gap:16px;border-top:1px solid var(--line);margin-top:16px;padding-top:14px;font-size:13.5px;color:var(--mute);font-weight:600}
+  .meta b{color:var(--ink)}
+  .agents{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .ag{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center}
+  .ag .a{width:84px;height:84px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:26px}
+  .ag h3{font-size:18px;font-weight:800}.ag p{font-size:14px;color:var(--mute);margin-top:3px}
+  .ag .r{color:var(--gold);font-size:14px;margin-top:8px;letter-spacing:2px}
+  .ag .cnt{display:inline-block;margin-top:12px;background:#eff6ff;color:var(--blue);font-size:13px;font-weight:800;border-radius:99px;padding:6px 16px}
+  .cta{padding:0 0 90px}
+  .cbox{background:linear-gradient(135deg,#10203f,#1d3a6e);border-radius:26px;padding:64px 36px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .cbox:before{content:"🏡";position:absolute;right:-20px;bottom:-46px;font-size:200px;opacity:.1}
+  .cbox h2{color:#fff;position:relative}
+  .cbox p{color:#b9c6de;max-width:540px;margin:12px auto 30px;position:relative}
+  footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mute);font-size:14.5px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .fl{display:flex;gap:26px}
+  @media(max-width:960px){.links{display:none}.grid,.agents{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr);gap:30px}.field{border-right:0;border-bottom:1px solid var(--line);padding-bottom:12px}.search .btn{width:100%}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav">
+  <a class="logo" href="#"><span class="m">🏡</span> PrimeNest</a>
+  <div class="links"><a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#agents">Agents</a><a href="#">Sell</a></div>
+  <div style="display:flex;gap:10px"><a class="btn btn-ghost btn-sm" href="#">Sign in</a><a class="btn btn-main btn-sm" href="#">List property</a></div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="pill">★ 4.9/5 from 1,200+ happy buyers</span>
+    <h1>Find a home you'll<br><span>never want to leave.</span></h1>
+    <p class="sub">12,000+ verified listings, real photos, and agents who actually pick up the phone.</p>
+    <div class="search">
+      <div class="field"><label>Location</label><select><option>New York, NY</option><option>Los Angeles, CA</option><option>Austin, TX</option><option>Miami, FL</option></select></div>
+      <div class="field"><label>Property type</label><select><option>Any type</option><option>House</option><option>Apartment</option><option>Townhouse</option></select></div>
+      <div class="field"><label>Price range</label><select><option>$200k – $500k</option><option>$500k – $1M</option><option>$1M+</option></select></div>
+      <button class="btn btn-main">🔍 Search</button>
+    </div>
+    <div class="trust"><span>✅ <b>12,480</b> verified listings</span><span>⏱️ New homes <b>every hour</b></span><span>🤝 <b>No hidden fees</b></span></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap stats">
+    <div class="stat"><b>12,480+</b><span>Active listings</span></div>
+    <div class="stat"><b>8,200+</b><span>Homes sold in 2025</span></div>
+    <div class="stat"><b>$4.2B</b><span>Total sales volume</span></div>
+    <div class="stat"><b>21 days</b><span>Average time to close</span></div>
+  </div>
+</section>
+
+<section id="listings" style="padding-top:20px">
+  <div class="wrap">
+    <span class="eyebrow">Featured listings</span>
+    <h2>Homes picked for you</h2>
+    <p class="lead">Fresh listings updated daily — every property verified by our team.</p>
+    <div class="filters">
+      <span class="chip on">All</span><span class="chip">For sale</span><span class="chip">New</span><span class="chip">Open house</span><span class="chip">Reduced</span>
+    </div>
+    <div class="grid">
+      <div class="home"><div class="img i1"><span class="tag g">New</span>🏡</div>
+        <div class="hinfo"><div class="price">$685,000</div><h3>Maple Grove Family Home</h3><div class="loc">📍 Brooklyn, New York</div>
+        <div class="meta"><span>🛏️ <b>4</b> beds</span><span>🛁 <b>3</b> baths</span><span>📐 <b>2,400</b> sqft</span></div></div></div>
+      <div class="home"><div class="img i2"><span class="tag">Open house</span>🏘️</div>
+        <div class="hinfo"><div class="price">$429,000</div><h3>Sunrise Townhouse</h3><div class="loc">📍 Austin, Texas</div>
+        <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,780</b> sqft</span></div></div></div>
+      <div class="home"><div class="img i3"><span class="tag g">Reduced</span>🌴</div>
+        <div class="hinfo"><div class="price">$1,240,000</div><h3>Palm Court Villa</h3><div class="loc">📍 Miami, Florida</div>
+        <div class="meta"><span>🛏️ <b>5</b> beds</span><span>🛁 <b>4</b> baths</span><span>📐 <b>3,600</b> sqft</span></div></div></div>
+      <div class="home"><div class="img i4">🏢</div>
+        <div class="hinfo"><div class="price">$312,000</div><h3>City View Apartment</h3><div class="loc">📍 Manhattan, New York</div>
+        <div class="meta"><span>🛏️ <b>2</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,050</b> sqft</span></div></div></div>
+      <div class="home"><div class="img i5"><span class="tag">New</span>🏠</div>
+        <div class="hinfo"><div class="price">$549,000</div><h3>Orchard Lane Cottage</h3><div class="loc">📍 Portland, Oregon</div>
+        <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,960</b> sqft</span></div></div></div>
+      <div class="home"><div class="img i6">🏙️</div>
+        <div class="hinfo"><div class="price">$899,000</div><h3>Skyline Penthouse</h3><div class="loc">📍 Chicago, Illinois</div>
+        <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>3</b> baths</span><span>📐 <b>2,100</b> sqft</span></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:38px"><a class="btn btn-ghost" href="#">Browse all 12,480 listings →</a></div>
+  </div>
+</section>
+
+<section class="wrap" id="agents" style="padding-top:20px">
+  <span class="eyebrow">Top agents</span>
+  <h2>Meet your next agent</h2>
+  <p class="lead">Neighborhood specialists with proven track records.</p>
+  <div class="agents">
+    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#2563eb,#38bdf8)">SR</div><h3>Sofia Reyes</h3><p>Luxury specialist · Miami</p><div class="r">★★★★★</div><span class="cnt">312 homes sold</span></div>
+    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#10203f,#64748b)">DK</div><h3>David Kim</h3><p>First-time buyers · New York</p><div class="r">★★★★★</div><span class="cnt">248 homes sold</span></div>
+    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">AJ</div><h3>Amara Johnson</h3><p>Relocation expert · Austin</p><div class="r">★★★★★</div><span class="cnt">197 homes sold</span></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cbox">
+      <h2>Selling? List your property<br>with zero commission stress.</h2>
+      <p>Free valuation in 24 hours, professional photos, and exposure to 40,000 active buyers.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
+        <a class="btn btn-main" href="#">Get free valuation</a>
+        <a class="btn btn-ghost" href="#">Talk to an agent</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap foot">
+  <a class="logo" href="#"><span class="m">🏡</span> PrimeNest</a>
+  <div class="fl"><a href="#">About</a><a href="#">Careers</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+  <div>© 2026 PrimeNest Realty. All rights reserved.</div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>La Tavola — Authentic Italian Dining</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f7f2e9;--ink:#1e2a1e;--green:#24402a;--gold:#c9a24b;--mute:#6d7568;--line:#e5ddcd}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .top{background:var(--green);color:#e8e3d5;font-size:13.5px;text-align:center;padding:9px 14px;letter-spacing:.04em}
+  .top b{color:var(--gold)}
+  nav{position:sticky;top:0;z-index:40;background:rgba(247,242,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+  .logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:27px;letter-spacing:.02em}
+  .logo span{color:var(--gold)}
+  .links{display:flex;gap:28px;font-size:14.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+  .links a:hover{color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#f7f2e9;font-weight:600;font-size:14.5px;padding:13px 28px;border-radius:4px;border:0;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:.2s}
+  .btn:hover{background:#1a3020}
+  .btn.gold{background:var(--gold);color:#1e2a1e}.btn.gold:hover{background:#b8923f}
+  .btn.outline{background:transparent;border:1.5px solid var(--green);color:var(--green)}
+  .hero{position:relative;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,#14231a 0%,#24402a 55%,#3a5a3e 100%);color:#f7f2e9;overflow:hidden}
+  .hero:before{content:"🍝🍷🥂";position:absolute;font-size:170px;opacity:.07;letter-spacing:40px;top:20%;left:-4%}
+  .hero .wrap{position:relative;z-index:1;padding:90px 0}
+  .est{font-size:13px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  h1{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,7vw,84px);line-height:1.04;font-weight:700;letter-spacing:.01em}
+  h1 em{font-style:italic;color:var(--gold)}
+  .sub{font-size:18px;color:#d8d2c2;max-width:560px;margin:22px auto 34px;line-height:1.7}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hours-chip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.4);border:1px solid rgba(201,162,75,.5);border-radius:99px;padding:10px 24px;font-size:13.5px;letter-spacing:.06em;color:#efe9da;z-index:1}
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:90px 0}
+  .visual{height:420px;border-radius:8px;background:linear-gradient(150deg,#3a5a3e,#24402a 60%,#14231a);display:flex;align-items:center;justify-content:center;font-size:110px;box-shadow:0 30px 60px rgba(30,42,30,.3);position:relative}
+  .visual .badge{position:absolute;bottom:-22px;right:-14px;background:var(--gold);color:#1e2a1e;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px;padding:16px 26px;border-radius:4px;box-shadow:0 16px 34px rgba(0,0,0,.25);text-align:center;line-height:1.25}
+  .eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.4vw,48px);line-height:1.12;font-weight:700;margin-bottom:18px}
+  .story p{color:var(--mute);font-size:16px;line-height:1.8;margin-bottom:16px}
+  .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:var(--green)}
+  .menu-sec{background:var(--green);color:#efe9da;padding:86px 0}
+  .menu-sec h2{text-align:center;color:#f7f2e9}
+  .menu-sec .eyebrow{text-align:center;display:block}
+  .menu-note{text-align:center;color:#b9c2b2;margin:-6px 0 50px;font-size:15.5px}
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+  .mcol h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);border-bottom:1px solid rgba(201,162,75,.4);padding-bottom:12px;margin-bottom:20px;text-align:center}
+  .mitem{display:flex;justify-content:space-between;gap:14px;margin-bottom:17px;font-size:14.5px;align-items:baseline}
+  .mitem .d{flex:1;border-bottom:1.5px dotted rgba(201,162,75,.55);transform:translateY(-4px)}
+  .mitem b{font-weight:600}
+  .mitem span{color:var(--gold);font-weight:600}
+  .mitem p{display:block;font-size:12.5px;color:#9aa694;margin-top:3px}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:80px 0 20px}
+  .g{height:210px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:64px}
+  .g1{background:linear-gradient(150deg,#e8d9b8,#c9a24b)}.g2{background:linear-gradient(150deg,#2e4a33,#1a3020)}
+  .g3{background:linear-gradient(150deg,#d9c4a3,#a8823f)}.g4{background:linear-gradient(150deg,#3a5a3e,#24402a)}
+  .visit{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;padding:70px 0 90px;align-items:start}
+  .info-row{display:flex;gap:14px;margin-bottom:22px;font-size:15px}
+  .info-row .i{width:44px;height:44px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;flex-shrink:0}
+  .info-row b{display:block;font-size:15px;margin-bottom:3px}
+  .info-row p{color:var(--mute);font-size:14.5px;line-height:1.6}
+  .res{background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px;box-shadow:0 24px 50px rgba(30,42,30,.08)}
+  .res h3{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:20px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .res input,.res select,.res textarea{width:100%;border:1px solid var(--line);border-radius:7px;padding:13px 15px;font-size:14.5px;font-family:inherit;background:var(--cream);outline:0}
+  .res input:focus,.res select:focus{border-color:var(--gold)}
+  .res .btn{width:100%;justify-content:center;margin-top:6px}
+  footer{background:#14231a;color:#9aa694;font-size:14px;padding:40px 0}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  .fl{display:flex;gap:24px}footer a:hover{color:var(--gold)}
+  @media(max-width:900px){.story,.visit{grid-template-columns:1fr}.menu{grid-template-columns:1fr}.gal{grid-template-columns:repeat(2,1fr)}.links{display:none}.visual{height:320px}}
+</style>
+</head>
+<body>
+<div class="top">Tonight: live acoustic piano from 8 PM · <b>Reservations: +1 (212) 555-0147</b></div>
+<nav><div class="wrap nav">
+  <a class="logo" href="#">La <span>Tavola</span></a>
+  <div class="links"><a href="#story">Our Story</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a></div>
+  <button class="btn">Reserve a table</button>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="est">Est. 1998 · New York</div>
+    <h1>Where every meal<br>feels like <em>home</em></h1>
+    <p class="sub">Handmade pasta, wood-fired classics and wines from family vineyards — served the way nonna intended.</p>
+    <div class="hero-cta">
+      <button class="btn gold">Book your table</button>
+      <button class="btn outline" style="border-color:rgba(247,242,233,.6);color:#f7f2e9">View the menu</button>
+    </div>
+  </div>
+  <div class="hours-chip">🕗 Open today · 12:00 PM – 11:00 PM</div>
+</header>
+
+<div class="wrap">
+  <section class="story" id="story">
+    <div class="visual">👨‍🍳<span class="badge">25 years<br>of tradition</span></div>
+    <div>
+      <div class="eyebrow">Our story</div>
+      <h2>Three generations.<br>One recipe book.</h2>
+      <p>La Tavola began as a six-table trattoria in 1998, built around recipes carried from Naples. Today we still roll every pasta by hand, source tomatoes from the same family farm, and pour wine from producers we know by name.</p>
+      <p>Come for the food, stay for the feeling of being genuinely welcome.</p>
+      <div class="sig">— Chef Marco Benedetti</div>
+    </div>
+  </section>
+</div>
+
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <span class="eyebrow">The menu</span>
+    <h2>From our kitchen</h2>
+    <p class="menu-note">Seasonal menu · ask about today's specials</p>
+    <div class="menu">
+      <div class="mcol">
+        <h3>Antipasti</h3>
+        <div class="mitem"><b>Burrata &amp; heirloom tomato</b><div class="d"></div><span>$14</span></div>
+        <div class="mitem"><b>Calamari fritti</b><div class="d"></div><span>$13</span></div>
+        <div class="mitem"><b>Bruschetta trio</b><div class="d"></div><span>$11</span></div>
+        <div class="mitem"><b>Arancini (3 pc)</b><div class="d"></div><span>$10</span></div>
+      </div>
+      <div class="mcol">
+        <h3>Primi</h3>
+        <div class="mitem"><div><b>Tagliatelle al ragù</b><p>Slow-cooked beef &amp; pork, 6 hours</p></div><div class="d"></div><span>$22</span></div>
+        <div class="mitem"><div><b>Lobster ravioli</b><p>Saffron cream, chives</p></div><div class="d"></div><span>$28</span></div>
+        <div class="mitem"><div><b>Cacio e pepe</b><p>Pecorino, cracked black pepper</p></div><div class="d"></div><span>$18</span></div>
+        <div class="mitem"><div><b>Pizza Margherita</b><p>Wood-fired, San Marzano</p></div><div class="d"></div><span>$17</span></div>
+      </div>
+      <div class="mcol">
+        <h3>Dolci</h3>
+        <div class="mitem"><b>Tiramisù della casa</b><div class="d"></div><span>$9</span></div>
+        <div class="mitem"><b>Panna cotta</b><div class="d"></div><span>$8</span></div>
+        <div class="mitem"><b>Cannoli siciliani</b><div class="d"></div><span>$9</span></div>
+        <div class="mitem"><b>Affogato</b><div class="d"></div><span>$7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="gallery">
+  <div class="gal">
+    <div class="g g1">🍝</div><div class="g g2">🍷</div><div class="g g3">🍕</div><div class="g g4">🕯️</div>
+  </div>
+
+  <section class="visit" id="visit">
+    <div>
+      <div class="eyebrow">Visit us</div>
+      <h2>Find your table</h2>
+      <div class="info-row"><span class="i">📍</span><div><b>Address</b><p>148 Mulberry Street, Little Italy<br>New York, NY 10013</p></div></div>
+      <div class="info-row"><span class="i">🕗</span><div><b>Opening hours</b><p>Mon–Thu: 12 PM – 10 PM<br>Fri–Sat: 12 PM – 11 PM · Sun: 1 PM – 9 PM</p></div></div>
+      <div class="info-row"><span class="i">📞</span><div><b>Contact</b><p>+1 (212) 555-0147 · ciao@latavola.example</p></div></div>
+    </div>
+    <form class="res" onsubmit="return false">
+      <h3>Reserve a table</h3>
+      <div class="frow"><input type="text" placeholder="Your name"><input type="tel" placeholder="Phone number"></div>
+      <div class="frow"><input type="date"><select><option>7:00 PM</option><option>7:30 PM</option><option selected>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option></select></div>
+      <div class="frow"><select><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select><select><option>Indoor</option><option>Patio</option></select></div>
+      <textarea rows="2" placeholder="Special requests (optional)"></textarea>
+      <button class="btn gold">Confirm reservation</button>
+    </form>
+  </section>
+</div>
+
+<footer><div class="wrap foot">
+  <a class="logo" href="#">La <span>Tavola</span></a>
+  <div class="fl"><a href="#">Careers</a><a href="#">Private events</a><a href="#">Gift cards</a><a href="#">Contact</a></div>
+  <div>© 2026 La Tavola. All rights reserved.</div>
+</div></footer>
+</body>
+</html>
