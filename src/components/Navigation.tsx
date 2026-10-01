@@ -410,7 +410,15 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             </button>
           </div>
           <div className="border-t border-black/10 pt-2 mt-2">
-            {user ? (
+          <Button
+            onClick={() => onNavigate('hire')}
+            className="hidden h-9 gap-1.5 rounded-lg bg-black px-3 text-white hover:bg-black/80 md:inline-flex"
+            size="sm"
+          >
+            <Code2 className="h-4 w-4" />
+            Hire Me
+          </Button>
+          {user ? (
               <div className="flex items-center justify-between px-4 text-black">
                 <span className="text-sm">{user.name || user.email}</span>
               <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">

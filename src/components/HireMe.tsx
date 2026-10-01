@@ -201,14 +201,17 @@ export function HireMe({ onNavigate }: HireMeProps) {
           Aap ki website? <span className="text-primary">Main bana dun.</span>
         </h1>
         <div className="mx-auto mt-7 flex max-w-3xl items-center gap-5 text-left">
-          <img
-            src="/profile/aslam-khan.webp"
-            alt="M. Aslam Khan — Web Developer & Trading Educator"
-            className="h-24 w-24 shrink-0 rounded-full border-2 border-border object-cover sm:h-28 sm:w-28"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none'
-            }}
-          />
+          <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/60 via-primary/25 to-primary/5 p-1.5 sm:h-32 sm:w-32">
+            <img
+              src="/profile/aslam-khan.webp"
+              alt="M. Aslam Khan — Web Developer & Trading Educator"
+              className="h-full w-full rounded-full border-2 border-background object-cover"
+              onError={(e) => {
+                const parent = e.currentTarget.parentElement
+                if (parent) parent.style.display = 'none'
+              }}
+            />
+          </span>
           <p className="text-base text-muted-foreground sm:text-lg">
             Main <strong className="text-foreground">M. Aslam Khan</strong> — trading educator aur
             web developer.{' '}
