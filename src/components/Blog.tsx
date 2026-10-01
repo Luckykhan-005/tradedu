@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Newspaper, Clock, ArrowRight, Tag } from 'lucide-react'
+import { Newspaper, Clock, ArrowRight, Tag, User } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { blogPosts, type BlogPost } from '@/data/blog'
@@ -77,7 +77,13 @@ export function Blog({ onSelectPost }: BlogProps) {
                   </h2>
                   <p className="mb-4 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
                   <div className="flex items-center justify-between border-t border-border pt-4">
-                    <span className="text-xs text-muted-foreground">{post.date}</span>
+                    <span className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <User className="h-3.5 w-3.5" />
+                        M. Aslam Khan
+                      </span>
+                      <span>{post.date}</span>
+                    </span>
                     <span className="flex items-center gap-1 text-sm font-medium text-primary">
                       Parhein <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>

@@ -34,7 +34,9 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
         </h1>
         <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
           <span className="flex items-center gap-1.5">
-            <User className="h-4 w-4" /> M. Aslam Khan
+            <User className="h-4 w-4" />
+            <span className="font-medium text-foreground">M. Aslam Khan</span>
+            <span className="text-muted-foreground">· Author</span>
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar className="h-4 w-4" /> {post.date}
