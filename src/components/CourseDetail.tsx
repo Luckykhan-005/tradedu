@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ArrowLeft,
   Clock,
@@ -99,6 +99,22 @@ export function CourseDetail({
   // const isModuleLocked = (idx: number) =>
   //   !hasFullAccess && (idx > 0 || course.level !== 'beginner')
   const isModuleLocked = (idx: number) => false
+
+  const flatLessons = modules.flatMap((m) => m.lessons)
+
+  // Video khatam hone par: lesson auto-complete (green circle + progress %)
+  // aur agla lesson auto-start.
+  const handleVideoEnded = () => {
+    if (!activeLesson) return
+    if (!progress[activeLesson.id]) onToggleLesson(activeLesson.id)
+    const idx = flatLessons.findIndex((l) => l.id === activeLesson.id)
+    if (idx >= 0 && idx + 1 < flatLessons.length) {
+      const next = flatLessons[idx + 1]
+      const nextMod = modules.find((m) => m.lessons.some((l) => l.id === next.id))
+      if (nextMod) setExpandedModules((prev) => new Set(prev).add(nextMod.id))
+      setActiveLesson(next)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-secondary/30">
@@ -295,7 +311,7 @@ export function CourseDetail({
                   {/* Video / Content Area */}
                   <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/5 rounded-t-lg flex items-center justify-center relative">
                     {activeLesson.videoUrl ? (
-                      <VideoPlayer url={activeLesson.videoUrl} />
+                      <VideoPlayer url={activeLesson.videoUrl} onEnded={handleVideoEnded} />
                     ) : (
                       <div className="text-center p-8">
                         <FileText className="h-16 w-16 text-primary/30 mx-auto mb-2" />
@@ -379,7 +395,30 @@ export function CourseDetail({
   )
 }
 
-function VideoPlayer({ url }: { url: string }) {
+function loadYT(): Promise<any> {
+  const w = window as any
+  if (w.YT?.Player) return Promise.resolve(w.YT)
+  if (!w.__ytIframePromise) {
+    w.__ytIframePromise = new Promise((resolve) => {
+      const prev = w.onYouTubeIframeAPIReady
+      w.onYouTubeIframeAPIReady = () => {
+        if (prev) prev()
+        resolve(w.YT)
+      }
+      const s = document.createElement('script')
+      s.src = 'https://www.youtube.com/iframe_api'
+      s.async = true
+      document.head.appendChild(s)
+    })
+  }
+  return w.__ytIframePromise
+}
+
+function VideoPlayer({ url, onEnded }: { url: string; onEnded?: () => void }) {
+  const mountRef = useRef<HTMLDivElement>(null)
+  const endedRef = useRef(onEnded)
+  endedRef.current = onEnded
+
   // Convert various YouTube URL formats to embed URLs
   const getYouTubeId = (u: string): string | null => {
     const patterns = [
@@ -395,21 +434,60 @@ function VideoPlayer({ url }: { url: string }) {
   const ytId = getYouTubeId(url)
   const isDirectVideo = /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(url)
 
+  // YouTube IFrame API — video end detect karne ke liye (auto-complete + next)
+  useEffect(() => {
+    if (!ytId) return
+    const mount = mountRef.current
+    if (!mount) return
+    let destroyed = false
+    let player: any = null
+    const holder = document.createElement('div')
+    holder.style.width = '100%'
+    holder.style.height = '100%'
+    mount.appendChild(holder)
+    loadYT().then((YT: any) => {
+      if (destroyed) return
+      player = new YT.Player(holder, {
+        videoId: ytId,
+        playerVars: { rel: 0, autoplay: 1, origin: window.location.origin },
+        events: {
+          onReady: (e: any) => {
+            const f = e.target?.getIframe?.()
+            if (f) {
+              f.style.width = '100%'
+              f.style.height = '100%'
+              f.style.border = '0'
+            }
+          },
+          onStateChange: (e: any) => {
+            if (e.data === 0) endedRef.current?.() // 0 = ENDED
+          },
+        },
+      })
+    })
+    return () => {
+      destroyed = true
+      try {
+        player?.destroy?.()
+      } catch {
+        /* already removed */
+      }
+      mount.replaceChildren()
+    }
+  }, [ytId])
+
   if (ytId) {
-    return (
-      <iframe
-        className="h-full w-full rounded-t-lg"
-        src={`https://www.youtube.com/embed/${ytId}?rel=0`}
-        title="Lesson video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    )
+    return <div ref={mountRef} className="h-full w-full overflow-hidden" />
   }
 
   if (isDirectVideo) {
     return (
-      <video className="h-full w-full rounded-t-lg bg-black" controls>
+      <video
+        key={url}
+        className="h-full w-full rounded-t-lg bg-black"
+        controls
+        onEnded={() => onEnded?.()}
+      >
         <source src={url} />
         Your browser does not support the video tag.
       </video>
