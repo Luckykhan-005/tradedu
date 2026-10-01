@@ -27,9 +27,8 @@ interface HireMeProps {
 
 const WHATSAPP =
   'https://wa.me/923208427368?text=' +
-  encodeURIComponent('Salam! Mujhe apni website banwani hai — Hire Me page se aaya/aayi hun.')
+  encodeURIComponent('Hi! I would like to get a website built — I came from your Hire Me page.')
 
-// Button jaisa anchor (project ka Button asChild support nahi karta)
 function ButtonLink({
   href,
   variant = 'default',
@@ -67,37 +66,37 @@ const services = [
   {
     icon: TrendingUp,
     title: 'Trading & Education Websites',
-    desc: 'Trading academies, courses, signal providers aur fintech brands ke liye complete websites — jese tradeed.online.',
+    desc: 'Complete websites for trading academies, courses, signal providers and fintech brands — just like tradeed.online.',
     tags: ['React', 'Supabase', 'Courses'],
   },
   {
     icon: Rocket,
     title: 'Landing Pages',
-    desc: 'High-converting single pages — product, service ya campaign ke liye. Fast, mobile-first aur eye-catching.',
+    desc: 'High-converting single pages for your product, service or campaign. Fast, mobile-first and eye-catching.',
     tags: ['24-48 hours', 'Mobile-first', 'Fast'],
   },
   {
     icon: ShoppingCart,
     title: 'E-commerce Stores',
-    desc: 'Shopify ya WordPress (WooCommerce) par online store — products, payment gateway aur order management ke sath.',
+    desc: 'Online stores on Shopify or WordPress (WooCommerce) — products, payment gateway and order management included.',
     tags: ['Shopify', 'WooCommerce', 'Payments'],
   },
   {
     icon: Code2,
     title: 'Custom Web Apps',
-    desc: 'Dashboards, tools, portals aur custom React/Next.js applications — aap ke idea ke mutabiq bana kar dein.',
+    desc: 'Dashboards, tools, portals and custom React/Next.js applications — built exactly to your idea.',
     tags: ['React', 'Next.js', 'Supabase'],
   },
   {
     icon: Search,
     title: 'SEO & Speed Optimization',
-    desc: 'Maujooda website ki ranking aur speed improve karein — Core Web Vitals, meta tags aur technical SEO.',
+    desc: 'Improve your existing website ranking and speed — Core Web Vitals, meta tags and technical SEO.',
     tags: ['Google ranking', 'Core Vitals'],
   },
   {
     icon: Wrench,
     title: 'Maintenance & Support',
-    desc: 'Website ki updates, backups, edits aur security — monthly plan par regular care.',
+    desc: 'Website updates, backups, edits and security — regular care on a simple monthly plan.',
     tags: ['Monthly', 'Updates', 'Security'],
   },
 ]
@@ -106,12 +105,12 @@ const packages = [
   {
     name: 'Starter',
     price: '$79',
-    for: 'Landing page /1-page site',
+    for: 'Landing page / 1-page site',
     features: [
       '1 responsive page',
       'Contact form / WhatsApp button',
       'Basic SEO (title + description)',
-      '3 din mein delivery',
+      '3-day delivery',
       '2 revisions',
     ],
     highlight: false,
@@ -122,12 +121,12 @@ const packages = [
     for: '5-8 page business website',
     features: [
       '5-8 pages (Home, About, Services...)',
-      'Blog ya portfolio section',
+      'Blog or portfolio section',
       'Contact form + Google Maps',
       'Full on-page SEO',
       'Speed optimization',
-      '7 din mein delivery',
-      'Unlimited revisions (7 din tak)',
+      '7-day delivery',
+      'Unlimited revisions (within 7 days)',
     ],
     highlight: true,
   },
@@ -136,12 +135,12 @@ const packages = [
     price: '$499+',
     for: 'Web app / e-commerce / custom',
     features: [
-      'Custom design ya Figma se build',
+      'Custom design or built from your Figma file',
       'Database + user accounts',
       'Admin dashboard',
       'Payment integration',
-      '14-21 din (scope ke mutabiq)',
-      '30 din free support',
+      '14-21 days (depending on scope)',
+      '30 days free support',
     ],
     highlight: false,
   },
@@ -151,41 +150,41 @@ const steps = [
   {
     n: '1',
     title: 'Free Consultation',
-    desc: 'WhatsApp ya email par aap ki zaroorat samjhein — kya chahiye, budget aur timeline.',
+    desc: 'We understand your needs over WhatsApp or email — what you want, budget and timeline.',
   },
   {
     n: '2',
     title: 'Scope & Fixed Quote',
-    desc: 'Clear plan: kya kya banega, kitne ka aur kab tak. Surprise koi hidden cost nahi.',
+    desc: 'A clear plan: what gets built, how much, and by when. No surprise hidden costs.',
   },
   {
     n: '3',
     title: 'Build & Updates',
-    desc: 'Har step par update — design approve, phir pages, phir final review.',
+    desc: 'Updates at every step — design approval, then pages, then final review.',
   },
   {
     n: '4',
     title: 'Launch & Support',
-    desc: 'Domain/hosting par live karein, sikhayein kaise manage karein — 30 din free support.',
+    desc: 'Live on your domain/hosting, plus a walkthrough of how to manage it — 30 days free support.',
   },
 ]
 
 const faqs = [
   {
-    q: 'Kitna time lagta hai?',
-    a: 'Landing page 2-3 din, business website 7-10 din, custom app scope ke mutabiq 2-3 hafte. Rush order par express delivery bhi mumkin hai.',
+    q: 'How long does it take?',
+    a: 'Landing page: 2-3 days, business website: 7-10 days, custom app: 2-3 weeks depending on scope. Express delivery is available for rush orders.',
   },
   {
-    q: 'Payment kaise karein?',
-    a: '50% advance, 50% delivery par — bank transfer, EasyPaisa/JazzCash ya PayPal. Har milestone par invoice.',
+    q: 'How does payment work?',
+    a: '50% advance, 50% on delivery — bank transfer, EasyPaisa/JazzCash or PayPal. Invoice at every milestone.',
   },
   {
-    q: 'Domain aur hosting shamil hai?',
-    a: 'Domain/hosting aap apne naam se khareedein (GoDaddy/Namecheap) — main setup sambhal lunga. Chahen toh best options bhi suggest karunga.',
+    q: 'Are domain and hosting included?',
+    a: 'Buy the domain/hosting in your own name (GoDaddy/Namecheap) — I will handle the setup. I can also suggest the best options for your budget.',
   },
   {
-    q: 'Mujhe technical knowledge nahi hai — phir bhi?',
-    a: 'Bilkul. Aap sirf idea dein — design, code, deploy sab main karunga. Delivery par ek call mein poora system sikhata hun.',
+    q: 'I have no technical knowledge — is that still okay?',
+    a: 'Absolutely. You just bring the idea — design, code and deployment are all handled by me. On delivery I walk you through everything in one call.',
   },
 ]
 
@@ -198,7 +197,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
           <Users className="mr-1.5 h-3.5 w-3.5" /> Available for freelance work
         </Badge>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Aap ki website? <span className="text-primary">Main bana dun.</span>
+          Your website? <span className="text-primary">I will build it.</span>
         </h1>
         <div className="mx-auto mt-7 flex max-w-3xl items-center gap-5 text-left">
           <span className="flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary/60 via-primary/25 to-primary/5 p-1.5 sm:h-32 sm:w-32">
@@ -213,7 +212,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
             />
           </span>
           <p className="text-base text-muted-foreground sm:text-lg">
-            Main <strong className="text-foreground">M. Aslam Khan</strong> — trading educator aur
+            I am <strong className="text-foreground">M. Aslam Khan</strong> — trading educator and
             web developer.{' '}
             <a
               href="https://tradeed.online"
@@ -223,13 +222,13 @@ export function HireMe({ onNavigate }: HireMeProps) {
             >
               tradeed.online
             </a>{' '}
-            (mera apna platform) khud maine design aur develop kiya — trading, education aur fintech
-            websites meri speciality hai.
+            (my own platform) was designed and developed by me — trading, education and fintech
+            websites are my specialty.
           </p>
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <ButtonLink href={WHATSAPP}>
-            <MessageCircle className="h-4 w-4" /> WhatsApp par baat karein
+            <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
           </ButtonLink>
           <ButtonLink
             href="mailto:info@tradeed.online?subject=Website%20project%20enquiry"
@@ -240,9 +239,9 @@ export function HireMe({ onNavigate }: HireMeProps) {
           </ButtonLink>
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> 24 ghante mein jawab</span>
+          <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> Reply within 24 hours</span>
           <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Free consultation</span>
-          <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Fixed quote — koi hidden cost nahi</span>
+          <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Fixed quote — no hidden costs</span>
         </div>
       </div>
 
@@ -258,13 +257,13 @@ export function HireMe({ onNavigate }: HireMeProps) {
                 rel="noopener noreferrer"
                 className="text-sm text-primary underline"
               >
-                tradeed.online live dekhein →
+                See tradeed.online live →
               </a>
             </div>
             <h2 className="text-2xl font-bold">TradeEd — Urdu Trading Education Platform</h2>
             <p className="mt-2 text-muted-foreground">
-              Mera apna full production platform: courses, payments, blog, AI tools aur calculators —
-              sab kuch React + Tailwind + Supabase par. Har roz hazaron students use karte hain.
+              My own full production platform: courses, payments, blog, AI tools and calculators —
+              all built with React + Tailwind + Supabase. Thousands of students use it every day.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Auth + Payments', 'SEO', 'Dark Mode'].map(
@@ -298,7 +297,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
 
       {/* Services */}
       <section className="mt-16">
-        <h2 className="text-center text-3xl font-bold">Main kya bana sakta hun</h2>
+        <h2 className="text-center text-3xl font-bold">What I can build for you</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <Card key={s.title} className="transition-all hover:-translate-y-1 hover:border-primary/50">
@@ -323,13 +322,13 @@ export function HireMe({ onNavigate }: HireMeProps) {
 
       {/* Why me */}
       <section className="mt-16">
-        <h2 className="text-center text-3xl font-bold">Mujhe kyun choose karein?</h2>
+        <h2 className="text-center text-3xl font-bold">Why work with me?</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: Award, title: 'Trading domain expert', desc: 'Aap ki trading/fintech website ko samajhne wala developer — sirf design nahi, business sense bhi.' },
-            { icon: Zap, title: 'Fast delivery', desc: 'Landing page 48 ghante mein. Timeline maintain — late hone par update pehle se.' },
-            { icon: Smartphone, title: 'Mobile-first design', desc: '90% traffic mobile se aata hai — har page pehle mobile par perfect, phir desktop.' },
-            { icon: Users, title: 'Roman Urdu communication', desc: 'Koi technical jargon nahi — aap ki zubaan mein samjhaunga, aap approve karein, phir kaam.' },
+            { icon: Award, title: 'Trading domain expert', desc: 'A developer who understands your trading/fintech website — not just design, but business sense too.' },
+            { icon: Zap, title: 'Fast delivery', desc: 'Landing page in 48 hours. Timelines kept — and you hear from me first if anything changes.' },
+            { icon: Smartphone, title: 'Mobile-first design', desc: '90% of traffic comes from mobile — every page is perfect on mobile first, then desktop.' },
+            { icon: Users, title: 'Clear communication', desc: 'No technical jargon — I explain things simply, you approve, then I build.' },
           ].map((w) => (
             <Card key={w.title}>
               <CardContent className="p-5">
@@ -346,7 +345,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
       <section className="mt-16">
         <h2 className="text-center text-3xl font-bold">Packages</h2>
         <p className="mt-2 text-center text-muted-foreground">
-          Starting prices — final quote project ke scope ke mutabiq
+          Starting prices — final quote depends on project scope
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {packages.map((p) => (
@@ -374,7 +373,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
                   variant={p.highlight ? 'default' : 'outline'}
                   className="mt-6 w-full"
                 >
-                  Order shuru karein <ArrowRight className="h-4 w-4" />
+                  Start your order <ArrowRight className="h-4 w-4" />
                 </ButtonLink>
               </CardContent>
             </Card>
@@ -384,7 +383,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
 
       {/* Process */}
       <section className="mt-16">
-        <h2 className="text-center text-3xl font-bold">Kaam kaise hota hai</h2>
+        <h2 className="text-center text-3xl font-bold">How it works</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s) => (
             <Card key={s.n}>
@@ -402,7 +401,7 @@ export function HireMe({ onNavigate }: HireMeProps) {
 
       {/* FAQ */}
       <section className="mt-16">
-        <h2 className="text-center text-3xl font-bold">Aam sawalat</h2>
+        <h2 className="text-center text-3xl font-bold">Frequently asked questions</h2>
         <div className="mx-auto mt-8 max-w-3xl space-y-3">
           {faqs.map((f) => (
             <Card key={f.q}>
@@ -418,16 +417,16 @@ export function HireMe({ onNavigate }: HireMeProps) {
       {/* Final CTA */}
       <Card className="mt-16 border-primary/40 bg-primary/5">
         <CardContent className="p-8 text-center">
-          <h2 className="text-2xl font-bold">Aaj hi shuru karein</h2>
+          <h2 className="text-2xl font-bold">Let's start today</h2>
           <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-            Ek message bhejein — 24 ghante mein jawab, free consultation aur fixed quote.
+            Send one message — reply within 24 hours, free consultation and a fixed quote.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <ButtonLink href={WHATSAPP}>
               <MessageCircle className="h-4 w-4" /> WhatsApp: 0320-8427368
             </ButtonLink>
             <Button size="lg" variant="outline" onClick={() => onNavigate('contact')}>
-              Contact form bharein <ArrowRight className="ml-1.5 h-4 w-4" />
+              Fill out the contact form <ArrowRight className="ml-1.5 h-4 w-4" />
             </Button>
           </div>
         </CardContent>

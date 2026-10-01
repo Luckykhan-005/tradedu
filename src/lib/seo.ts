@@ -101,7 +101,7 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
   hire: {
     title: 'Hire M. Aslam Khan — Web Developer for Trading & Business Websites',
     description:
-      'Experienced web developer hire karein: React, Next.js, Tailwind aur Supabase se trading, education aur business websites — fixed quote, fast delivery. Free consultation.',
+      'Hire an experienced web developer: trading, education and business websites built with React, Next.js, Tailwind and Supabase — fixed quotes, fast delivery, free consultation.',
   },
   privacy: { title: 'Privacy Policy | TradeEd', description: 'TradeEd ki privacy policy — aapka data kaise use aur protect hota hai.' },
   terms: { title: 'Terms & Conditions | TradeEd', description: 'TradeEd ke terms and conditions — platform ke istemal ki shartein.' },

@@ -136,7 +136,7 @@ const menuItems: {
     id: 'hire',
     label: 'Hire Me',
     icon: Code2,
-    desc: 'Web developer — website banwane ka project dein',
+    desc: 'Web developer — start your website project',
   },
   {
     id: 'admin',

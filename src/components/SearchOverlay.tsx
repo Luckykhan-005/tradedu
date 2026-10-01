@@ -47,7 +47,7 @@ const pageResults: SearchResult[] = [
   { id: 'p-certificates', title: 'Certificates', subtitle: 'Course completion certificates', category: 'Page', icon: GraduationCap, action: { page: 'certificates' } },
   { id: 'p-pricing', title: 'Plans & Pricing', subtitle: 'Free aur Premium plans', category: 'Page', icon: FileText, action: { page: 'pricing' } },
   { id: 'p-about', title: 'About Us', subtitle: 'TradeEd aur M. Aslam Khan ke bare mein', category: 'Page', icon: FileText, action: { page: 'about' } },
-  { id: 'p-hire', title: 'Hire Me — Web Developer', subtitle: 'Trading, fintech aur business websites banwane ke liye', category: 'Page', icon: FileText, action: { page: 'hire' } },
+  { id: 'p-hire', title: 'Hire Me — Web Developer', subtitle: 'For trading, fintech and business websites', category: 'Page', icon: FileText, action: { page: 'hire' } },
   { id: 'p-contact', title: 'Contact', subtitle: 'Reach the TradeEd team', category: 'Page', icon: FileText, action: { page: 'contact' } },
   { id: 'p-disclaimer', title: 'Risk Disclaimer', subtitle: 'Trading risk disclosure', category: 'Page', icon: FileText, action: { page: 'disclaimer' } },
   { id: 'p-ai', title: 'AI Tools', subtitle: 'AI-powered trading tools', category: 'Page', icon: FileText, action: { page: 'ai-tools' } },
