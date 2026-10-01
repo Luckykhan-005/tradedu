@@ -27,6 +27,7 @@ import { Footer } from './components/Footer'
 import { About } from './components/About'
 import { Roadmap } from './components/Roadmap'
 import { Contact } from './components/Contact'
+import { HireMe } from './components/HireMe'
 import { Privacy } from './components/Privacy'
 import { Terms } from './components/Terms'
 import { Disclaimer } from './components/Disclaimer'
@@ -85,6 +86,7 @@ const pageToPath: Partial<Record<Page, string>> = {
   pricing: '/pricing',
   subscribe: '/subscribe',
   about: '/about',
+  hire: '/hire',
   contact: '/contact',
   privacy: '/privacy',
   terms: '/terms',
@@ -733,6 +735,10 @@ export default function App() {
 
       {currentPage === 'contact' && (
         <Contact />
+      )}
+
+      {currentPage === 'hire' && (
+        <HireMe onNavigate={navigate} />
       )}
 
       {currentPage === 'privacy' && (

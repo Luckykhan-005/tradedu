@@ -1,4 +1,4 @@
-import { TrendingUp, Youtube, Send, MessageSquare, Mail, Info, FileText, Shield, AlertTriangle, Newspaper, Bot } from 'lucide-react'
+import { TrendingUp, Youtube, Send, MessageSquare, Mail, Info, FileText, Shield, AlertTriangle, Newspaper, Bot, Code2 } from 'lucide-react'
 import type { Page } from './Navigation'
 
 interface FooterProps {
@@ -47,6 +47,7 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="mb-3 text-sm font-semibold">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><button onClick={() => onNavigate('about')} className="flex items-center gap-1.5 hover:text-highlight"><Info className="h-3.5 w-3.5" /> About Us</button></li>
+              <li><button onClick={() => onNavigate('hire')} className="flex items-center gap-1.5 hover:text-highlight"><Code2 className="h-3.5 w-3.5" /> Hire Me</button></li>
               <li><button onClick={() => onNavigate('contact')} className="flex items-center gap-1.5 hover:text-highlight"><Mail className="h-3.5 w-3.5" /> Contact</button></li>
               <li><button onClick={() => onNavigate('privacy')} className="flex items-center gap-1.5 hover:text-highlight"><Shield className="h-3.5 w-3.5" /> Privacy Policy</button></li>
               <li><button onClick={() => onNavigate('terms')} className="flex items-center gap-1.5 hover:text-highlight"><FileText className="h-3.5 w-3.5" /> Terms</button></li>

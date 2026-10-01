@@ -40,7 +40,7 @@ import {
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' |   'calculator' | 'calculator-detail' | 'glossary' | 'journal' | 'liquidation' | 'market' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' |   'calculator' | 'calculator-detail' | 'glossary' | 'journal' | 'liquidation' | 'market' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'hire' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page

@@ -98,6 +98,11 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
     description:
       'TradeEd se rabta karein — WhatsApp, Telegram, YouTube aur email. Sawaal, suggestions ya support ke liye contact karein.',
   },
+  hire: {
+    title: 'Hire M. Aslam Khan — Web Developer for Trading & Business Websites',
+    description:
+      'Experienced web developer hire karein: React, Next.js, Tailwind aur Supabase se trading, education aur business websites — fixed quote, fast delivery. Free consultation.',
+  },
   privacy: { title: 'Privacy Policy | TradeEd', description: 'TradeEd ki privacy policy — aapka data kaise use aur protect hota hai.' },
   terms: { title: 'Terms & Conditions | TradeEd', description: 'TradeEd ke terms and conditions — platform ke istemal ki shartein.' },
   disclaimer: { title: 'Risk Disclaimer | TradeEd', description: 'Trading risk disclaimer — trading mein significant risk hota hai, educational content only.' },
