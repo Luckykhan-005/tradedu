@@ -132,7 +132,7 @@ export function CourseDetail({
           <img
             src="/banners/course-hero.webp"
             alt=""
-            className="mb-5 h-40 sm:h-52 lg:h-60 w-full rounded-xl object-cover object-center border border-border"
+            className="mb-5 w-full aspect-[5/2] rounded-xl object-cover object-center border border-border"
             onError={(e) => {
               e.currentTarget.style.display = 'none'
             }}
