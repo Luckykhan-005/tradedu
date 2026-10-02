@@ -129,6 +129,15 @@ export function CourseDetail({
             Back to courses
           </button>
 
+          <img
+            src="/banners/course-hero.webp"
+            alt=""
+            className="mb-5 h-40 sm:h-52 lg:h-60 w-full rounded-xl object-cover object-center border border-border"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none'
+            }}
+          />
+
           <div className="flex flex-col lg:flex-row lg:items-start gap-6">
             <div className="flex-1">
               <Badge className={cn('mb-3', levelColors[course.level])}>{course.level}</Badge>
