@@ -46,6 +46,13 @@ const levelIcons: Record<string, typeof BookOpen> = {
   advanced: TrendingUp,
 }
 
+// Level-based course banners (falls back to gradient+icon if image missing)
+const levelBanners: Record<string, string> = {
+  beginner: '/banners/course-beginner.webp',
+  intermediate: '/banners/course-intermediate.webp',
+  advanced: '/banners/course-advanced.webp',
+}
+
 export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalogProps) {
   const [search, setSearch] = useState('')
   const [levelFilter, setLevelFilter] = useState<string>('all')
@@ -143,18 +150,29 @@ export function CourseCatalog({ courses, onSelectCourse, loading }: CourseCatalo
                     className="group overflow-hidden cursor-pointer border hover:shadow-lg transition-all hover:border-highlight/50"
                     onClick={() => onSelectCourse(course.id)}
                   >
-                    <div className="relative h-44 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                    <div className="relative h-44 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center overflow-hidden">
                       <LevelIcon className="h-16 w-16 text-primary/20" />
+                      {(course.thumbnail || levelBanners[course.level]) && (
+                        <img
+                          src={course.thumbnail || levelBanners[course.level]}
+                          alt=""
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                          }}
+                        />
+                      )}
                       <Badge
                         className={cn(
-                          'absolute top-3 left-3',
+                          'absolute top-3 left-3 z-10',
                           levelColors[course.level]
                         )}
                       >
                         {course.level}
                       </Badge>
                       {course.price === 0 && (
-                        <Badge className="absolute top-3 right-3 bg-emerald-500 text-white">
+                        <Badge className="absolute top-3 right-3 z-10 bg-emerald-500 text-white">
                           Free
                         </Badge>
                       )}
