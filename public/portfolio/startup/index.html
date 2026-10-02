@@ -111,9 +111,10 @@
     <h1>Your AI support agent<br><span class="grad">that never sleeps.</span></h1>
     <p class="sub">Synthflow resolves 70% of customer tickets automatically — trained on your docs, live in under 10 minutes.</p>
     <div class="wait" id="waitlist">
-      <input type="email" placeholder="Enter your work email">
-      <button class="btn btn-main">Get early access</button>
+      <input type="email" id="wEmail" placeholder="Enter your work email">
+      <button class="btn btn-main" id="wBtn">Get early access</button>
     </div>
+    <div class="wok" id="wOk" style="display:none">🎉 You're on the list! Check your inbox for confirmation.</div>
     <p class="micro"><b>2,400+</b> teams already on the waitlist · No credit card required</p>
 
     <div class="chatbox">
@@ -124,7 +125,7 @@
         <div class="msg u">Yes please, and upgrade to express.</div>
         <div class="msg a">Done ✅ Express upgrade applied <b>free of charge</b> (our fault for the delay). Tracking is on its way to your inbox.</div>
       </div>
-      <div class="cb-foot"><span>Message Synthflow…</span><i>➤</i></div>
+      <div class="cb-foot"><input id="chatIn" placeholder="Message Synthflow…" autocomplete="off"><i id="chatSend" style="cursor:pointer">➤</i></div>
     </div>
   </div>
 </header>
@@ -191,7 +192,7 @@
     <div class="fbox">
       <h2>Stop answering the same<br>questions forever.</h2>
       <p>Join 2,400+ teams automating support with Synthflow. Early access pricing locked for life.</p>
-      <div class="cta"><a class="btn btn-main" href="#waitlist">Join the waitlist →</a><a class="btn btn-ghost" href="#">Book a demo</a></div>
+      <div class="cta"><a class="btn btn-main" href="#waitlist">Join the waitlist →</a><a class="btn btn-ghost" href="#waitlist" data-focus="1">Book a demo</a></div>
     </div>
   </div>
 </section>
@@ -201,5 +202,103 @@
   <div class="fl"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">Status</a></div>
   <div>© 2026 Synthflow Inc.</div>
 </div></footer>
+
+<style>
+html{scroll-behavior:smooth}
+.wok{margin-top:12px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;padding:12px 18px;border-radius:12px;font-weight:600;font-size:14.5px;animation:pop .3s}
+@keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+.cb-foot input{flex:1;border:0;background:transparent;font-size:14px;font-family:inherit;outline:none;color:#334155}
+.msg.typing span{display:inline-block;width:6px;height:6px;background:#94a3b8;border-radius:50%;margin:0 1.5px;animation:blink 1s infinite}
+.msg.typing span:nth-child(2){animation-delay:.2s}
+.msg.typing span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.msg.new{animation:pop .25s}
+</style>
+
+<script>
+function toast(msg){
+  var t = document.getElementById('toast');
+  if (!t){
+    t = document.createElement('div');
+    t.id = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+
+document.querySelectorAll('a[href="#"]').forEach(function(a){
+  a.onclick = function(e){
+    e.preventDefault();
+    toast('Demo site — this page ships with the full build.');
+  };
+});
+
+var wait = document.getElementById('waitlist');
+function joinWaitlist(){
+  var em = document.getElementById('wEmail').value.trim();
+  if (em.indexOf('@') < 1){
+    toast('Please enter a valid work email');
+    document.getElementById('wEmail').focus();
+    return;
+  }
+  wait.style.display = 'none';
+  document.getElementById('wOk').style.display = 'block';
+}
+document.getElementById('wBtn').onclick = joinWaitlist;
+document.getElementById('wEmail').onkeydown = function(e){ if (e.key === 'Enter') joinWaitlist(); };
+
+document.querySelectorAll('a[data-focus]').forEach(function(a){
+  a.onclick = function(){
+    setTimeout(function(){ document.getElementById('wEmail').focus(); }, 400);
+  };
+});
+
+var REPLIES = [
+  "I can help with that! I've checked your account — refund issued, back on your card in 3–5 business days. Anything else?",
+  "Done ✅ Scheduled for tomorrow 9:00 AM and confirmation is in your inbox. Want me to add a calendar reminder too?",
+  "Great question — yes, your plan includes unlimited tickets. I've also applied a 20% courtesy credit 😄",
+  "Escalating to a human teammate now — they'll reply right here in under 2 minutes with full details."
+];
+var replyIdx = 0;
+var body = document.querySelector('.cb-body');
+var chatIn = document.getElementById('chatIn');
+var busy = false;
+
+function sendChat(){
+  var txt = chatIn.value.trim();
+  if (!txt || busy) return;
+  busy = true;
+  chatIn.value = '';
+  var u = document.createElement('div');
+  u.className = 'msg u new';
+  u.textContent = txt;
+  body.appendChild(u);
+
+  var typ = document.createElement('div');
+  typ.className = 'msg a typing new';
+  typ.innerHTML = '<span></span><span></span><span></span>';
+  body.appendChild(typ);
+  body.scrollTop = body.scrollHeight;
+
+  setTimeout(function(){
+    typ.className = 'msg a new';
+    typ.textContent = REPLIES[replyIdx % REPLIES.length];
+    replyIdx++;
+    body.scrollTop = body.scrollHeight;
+    busy = false;
+  }, 1100);
+}
+document.getElementById('chatSend').onclick = sendChat;
+chatIn.onkeydown = function(e){ if (e.key === 'Enter') sendChat(); };
+</script>
+
+<div class="toast" id="toast"></div>
+<style>
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,70px);background:#101828;color:#fff;padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:120;opacity:0;transition:.3s;max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+</style>
 </body>
 </html>

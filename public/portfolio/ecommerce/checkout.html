@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Checkout — LUXE &amp; Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,sans-serif;background:#f7f5f1;color:#1a1a1a}
+header{background:#fff;border-bottom:1px solid #eee}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.hrow{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.lock{font-size:13px;color:#666}
+.steps{display:flex;gap:10px;align-items:center;font-size:13px;color:#999;padding-bottom:16px}
+.steps b{color:#111}
+main{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:34px 0 60px}
+h1{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:6px}
+.sub{color:#777;font-size:14.5px;margin-bottom:26px}
+.card{background:#fff;border:1px solid #eee;border-radius:10px;padding:24px;margin-bottom:20px}
+.card h3{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-bottom:16px}
+label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+input,select{width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:7px;font-size:15px;font-family:inherit}
+input:focus,select:focus{outline:2px solid #111;border-color:#111}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pay{display:flex;gap:12px;flex-wrap:wrap}
+.payopt{flex:1;min-width:130px;border:2px solid #eee;border-radius:8px;padding:14px;text-align:center;cursor:pointer;font-size:14px;font-weight:600}
+.payopt.on{border-color:#111;background:#faf9f7}
+.payopt span{display:block;font-size:20px;margin-bottom:4px}
+.btn{display:block;width:100%;background:#111;color:#fff;border:0;padding:16px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
+.btn:hover{background:#c8102e}
+.err{color:#c00;font-size:13.5px;margin-top:12px;display:none}
+.summary .item{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:14.5px}
+.summary .item .q{color:#999;font-size:13px}
+.trow{display:flex;justify-content:space-between;padding:9px 0;font-size:14.5px;color:#555}
+.trow.total{border-top:2px solid #111;margin-top:8px;padding-top:14px;font-size:18px;font-weight:800;color:#111}
+.free{color:#0a8f42;font-weight:700}
+.empty{text-align:center;padding:40px 10px;color:#888}
+.empty a{display:inline-block;margin-top:14px;background:#111;color:#fff;text-decoration:none;padding:12px 24px;border-radius:7px;font-weight:700;font-size:14px}
+.success{display:none;background:#fff;border:1px solid #eee;border-radius:12px;padding:50px 30px;text-align:center}
+.success .big{font-size:56px}
+.success h1{margin:14px 0 8px}
+.success .order{display:inline-block;background:#f4f2ee;padding:10px 22px;border-radius:30px;font-weight:800;letter-spacing:.05em;margin:14px 0}
+.success p{color:#666;font-size:15px;line-height:1.7}
+.success a{display:inline-block;margin-top:22px;background:#111;color:#fff;text-decoration:none;padding:14px 30px;border-radius:8px;font-weight:700}
+.footer-note{text-align:center;color:#999;font-size:12.5px;padding:0 0 40px}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="hrow"><div class="logo">LUXE &amp; Co.</div><div class="lock">🔒 Secure checkout</div></div>
+  <div class="steps">Bag <b>→ Checkout</b> → Confirmation</div>
+</div></header>
+
+<main class="wrap">
+  <div id="checkoutView">
+    <h1>Checkout</h1>
+    <p class="sub">Almost yours — enter your details to place the order.</p>
+
+    <div class="card">
+      <h3>Contact</h3>
+      <label>Email address</label>
+      <input id="email" type="email" placeholder="you@example.com">
+      <div class="row2">
+        <div><label>First name</label><input id="fn" placeholder="Alex"></div>
+        <div><label>Last name</label><input id="ln" placeholder="Morgan"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Delivery address</h3>
+      <label>Street address</label>
+      <input id="addr" placeholder="123 Fashion Ave, Apt 4">
+      <div class="row2">
+        <div><label>City</label><input id="city" placeholder="New York"></div>
+        <div><label>ZIP / Postal code</label><input id="zip" placeholder="10001"></div>
+      </div>
+      <label>Country</label>
+      <select id="country"><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>UAE</option><option>Pakistan</option></select>
+    </div>
+
+    <div class="card">
+      <h3>Payment method</h3>
+      <div class="pay" id="pay">
+        <div class="payopt on" data-pay="Card"><span>💳</span>Card</div>
+        <div class="payopt" data-pay="PayPal"><span>🅿️</span>PayPal</div>
+        <div class="payopt" data-pay="Cash on delivery"><span>💵</span>COD</div>
+      </div>
+    </div>
+
+    <button class="btn" id="placeOrder">Place order</button>
+    <div class="err" id="err">⚠ Please fill in all fields with a valid email.</div>
+  </div>
+
+  <div class="success" id="successView">
+    <div class="big">🎉</div>
+    <h1>Order confirmed!</h1>
+    <div class="order" id="orderNo">LT-000000</div>
+    <p>Thank you — a confirmation email is on its way.<br>Estimated delivery: <b>3–5 business days</b> · Free tracking included.</p>
+    <a href="index.html">← Continue shopping</a>
+  </div>
+
+  <aside class="card summary" id="summaryCard">
+    <h3>Order summary</h3>
+    <div id="sumItems"></div>
+    <div id="sumTotals">
+      <div class="trow"><span>Subtotal</span><span id="sSub">$0</span></div>
+      <div class="trow"><span>Shipping</span><span class="free" id="sShip">Free</span></div>
+      <div class="trow"><span>Estimated tax</span><span id="sTax">$0</span></div>
+      <div class="trow total"><span>Total</span><span id="sTotal">$0</span></div>
+    </div>
+  </aside>
+</main>
+<div class="footer-note">© 2026 LUXE &amp; Co. — demo store, no real orders are processed.</div>
+
+<script>
+var cart = [];
+try { cart = JSON.parse(localStorage.getItem('luxe_cart') || '[]'); } catch(e) {}
+
+function render(){
+  var box = document.getElementById('sumItems');
+  if (!cart.length){
+    document.getElementById('checkoutView').style.display='none';
+    document.getElementById('summaryCard').style.display='none';
+    document.getElementById('successView').style.display='block';
+    document.getElementById('successView').innerHTML =
+      '<div class="big">🛍️</div><h1>Your bag is empty</h1><p>Add a few pieces first, then come back to checkout.</p><a href="index.html">← Back to the store</a>';
+    return;
+  }
+  box.innerHTML = cart.map(function(i){
+    return '<div class="item"><div>'+i.name+'<div class="q">Qty '+i.q+' × $'+i.price+'</div></div><b>$'+(i.q*i.price)+'</b></div>';
+  }).join('');
+  var sub = cart.reduce(function(s,i){return s+i.q*i.price;},0);
+  var tax = Math.round(sub * 0.08 * 100) / 100;
+  var ship = sub >= 50 ? 0 : 7;
+  document.getElementById('sSub').textContent = '$' + sub;
+  document.getElementById('sShip').textContent = ship === 0 ? 'Free' : '$' + ship;
+  document.getElementById('sShip').className = ship === 0 ? 'free' : '';
+  document.getElementById('sTax').textContent = '$' + tax;
+  document.getElementById('sTotal').textContent = '$' + (sub + tax + ship);
+}
+render();
+
+document.querySelectorAll('#pay .payopt').forEach(function(o){
+  o.onclick = function(){
+    document.querySelectorAll('#pay .payopt').forEach(function(x){x.classList.remove('on');});
+    o.classList.add('on');
+  };
+});
+
+document.getElementById('placeOrder').onclick = function(){
+  var email = document.getElementById('email').value.trim();
+  var ok = email.indexOf('@') > 0 &&
+           document.getElementById('fn').value.trim() &&
+           document.getElementById('ln').value.trim() &&
+           document.getElementById('addr').value.trim() &&
+           document.getElementById('city').value.trim() &&
+           document.getElementById('zip').value.trim();
+  var err = document.getElementById('err');
+  if (!ok){ err.style.display='block'; return; }
+  err.style.display='none';
+  var no = 'LT-' + Math.floor(100000 + Math.random()*899999);
+  try { localStorage.removeItem('luxe_cart'); } catch(e) {}
+  document.getElementById('checkoutView').style.display='none';
+  document.getElementById('summaryCard').style.display='none';
+  var sv = document.getElementById('successView');
+  document.getElementById('orderNo').textContent = no;
+  sv.style.display='block';
+  window.scrollTo(0,0);
+};
+</script>
+</body>
+</html>

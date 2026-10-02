@@ -80,31 +80,31 @@
 <body>
   <aside class="side">
     <div class="brand"><span class="m">◆</span> Atlas AI</div>
-    <nav class="nav">
+    <nav class="nav" id="nav">
       <span class="navlbl">Menu</span>
-      <a class="on" href="#">▦ Overview</a>
-      <a href="#">📈 Analytics</a>
-      <a href="#">✦ AI Assistant</a>
+      <a class="on" href="#overview">▦ Overview</a>
+      <a href="#analytics">📈 Analytics</a>
+      <a href="#assistant">✦ AI Assistant</a>
       <span class="navlbl">CRM</span>
-      <a href="#">👥 Customers</a>
-      <a href="#">🏷️ Deals pipeline</a>
-      <a href="#">📧 Campaigns</a>
+      <a href="#crm">👥 Customers</a>
+      <a href="#crm">🏷️ Deals pipeline</a>
+      <a href="#crm">📧 Campaigns</a>
       <span class="navlbl">System</span>
-      <a href="#">📄 Reports</a>
-      <a href="#">⚙️ Settings</a>
+      <a href="#crm">📄 Reports</a>
+      <a href="#" data-toast="Settings module opens in the full build — this is a live demo.">⚙️ Settings</a>
     </nav>
-    <div class="up"><b>🚀 Upgrade to Pro</b>Unlimited AI credits, advanced forecasting and custom reports.<button>Upgrade — $29/mo</button></div>
+    <div class="up"><b>🚀 Upgrade to Pro</b>Unlimited AI credits, advanced forecasting and custom reports.<button onclick="demoToast('Pro plan: $29/mo — billing opens in the full product.')">Upgrade — $29/mo</button></div>
   </aside>
 
   <main class="main">
-    <div class="top">
+    <div class="top" id="overview">
       <div>
         <h1>Good morning, Alex 👋</h1>
         <p>Here is what is happening with your business today — Tuesday, Oct 1, 2026</p>
       </div>
       <div class="tools">
-        <div class="search">🔍 Search customers, deals…</div>
-        <div class="bell">🔔</div>
+        <input class="search" id="leadSearch" placeholder="🔍 Search customers, deals…">
+        <div class="bell" style="cursor:pointer" onclick="demoToast('🔔 3 new notifications: 2 new leads, 1 deal won.')">🔔</div>
         <div class="me"><span class="av">AK</span><div><b>Alex Kim</b><span>Admin</span></div></div>
       </div>
     </div>
@@ -133,10 +133,10 @@
     </div>
 
     <div class="grid">
-      <div class="card">
+      <div class="card" id="analytics">
         <div class="ct">
-          <h2>Revenue & growth</h2>
-          <div class="seg"><span class="on">12M</span><span>30D</span><span>7D</span></div>
+          <h2>Revenue &amp; growth</h2>
+          <div class="seg" id="seg"><span class="on">12M</span><span>30D</span><span>7D</span></div>
         </div>
         <div class="legend"><span><i style="background:#4f46e5"></i>Revenue</span><span><i style="background:#34d399"></i>New customers</span></div>
         <svg viewBox="0 0 640 240" width="100%" height="230">
@@ -150,10 +150,10 @@
             <line x1="30" y1="130" x2="630" y2="130"/><line x1="30" y1="180" x2="630" y2="180"/>
             <line x1="30" y1="210" x2="630" y2="210"/>
           </g>
-          <path d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40 L620,210 L30,210 Z" fill="url(#g1)"/>
-          <path d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40" fill="none" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
-          <path d="M30,205 C90,200 130,195 170,188 C240,178 270,185 320,170 C380,152 420,160 470,142 C520,124 570,130 620,118" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
-          <circle cx="580" cy="45" r="5.5" fill="#4f46e5" stroke="#fff" stroke-width="2.5"/>
+          <path id="area1" d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40 L620,210 L30,210 Z" fill="url(#g1)"/>
+          <path id="line1" d="M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40" fill="none" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
+          <path id="line2" d="M30,205 C90,200 130,195 170,188 C240,178 270,185 320,170 C380,152 420,160 470,142 C520,124 570,130 620,118" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <circle id="dot1" cx="580" cy="45" r="5.5" fill="#4f46e5" stroke="#fff" stroke-width="2.5"/>
           <g font-size="11" fill="#94a3b8" font-family="Inter">
             <text x="30" y="230">Nov</text><text x="130" y="230">Jan</text><text x="235" y="230">Mar</text>
             <text x="340" y="230">May</text><text x="445" y="230">Jul</text><text x="550" y="230">Sep</text>
@@ -162,29 +162,29 @@
         </svg>
       </div>
 
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding:0;overflow:hidden" id="assistant">
         <div class="aih"><span class="spark">✦</span><div><b>AI Insights</b><span>Generated 6 min ago</span></div></div>
         <div class="aib">
           <div class="ins">
             <span class="i" style="background:#eef2ff;color:#4f46e5">🎯</span>
-            <div><b>32 leads ready to close</b><p>Enterprise-tier leads with 80%+ engagement scored by the AI model this week.</p><span class="act">View leads →</span></div>
+            <div><b>32 leads ready to close</b><p>Enterprise-tier leads with 80%+ engagement scored by the AI model this week.</p><span class="act" style="cursor:pointer" onclick="jump('#crm')">View leads →</span></div>
           </div>
           <div class="ins">
             <span class="i" style="background:#fff7ed;color:#ea580c">⚠️</span>
-            <div><b>Churn risk detected</b><p>14 accounts dropped usage 40%+ in 14 days. Send re-engagement offer.</p><span class="act">Create campaign →</span></div>
+            <div><b>Churn risk detected</b><p>14 accounts dropped usage 40%+ in 14 days. Send re-engagement offer.</p><span class="act" style="cursor:pointer" onclick="demoToast('Campaign builder opens in the full build — audience pre-filled with 14 at-risk accounts.')">Create campaign →</span></div>
           </div>
           <div class="ins">
             <span class="i" style="background:#ecfdf5;color:#059669">💡</span>
-            <div><b>Best time to email</b><p>Your audience opens 2.3× more emails on Wednesdays at 10:00 AM.</p><span class="act">Schedule send →</span></div>
+            <div><b>Best time to email</b><p>Your audience opens 2.3× more emails on Wednesdays at 10:00 AM.</p><span class="act" style="cursor:pointer" onclick="demoToast('Scheduled: next campaign set for Wednesday 10:00 AM.')">Schedule send →</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" id="crm">
       <div class="ct" style="margin-bottom:14px">
         <h2>New leads in CRM</h2>
-        <button class="btn">+ Add lead</button>
+        <button class="btn" id="addLeadBtn">+ Add lead</button>
       </div>
       <table class="tbl">
         <thead><tr><th>Contact</th><th>Company</th><th>Source</th><th>Status</th><th>Deal value</th><th>Owner</th></tr></thead>
@@ -211,8 +211,156 @@
           </tr>
         </tbody>
       </table>
-      <div class="tblfoot"><span>Showing 5 of 1,284 leads</span><span style="display:flex;gap:8px"><button class="btn" style="background:#f1f5f9;color:#475569">← Prev</button><button class="btn">Next →</button></span></div>
+      <div class="tblfoot"><span id="leadCount">Showing 5 of 1,284 leads</span><span style="display:flex;gap:8px"><button class="btn" style="background:#f1f5f9;color:#475569" onclick="demoToast('Demo data: page 1 of 257.')">← Prev</button><button class="btn" onclick="demoToast('Demo data: page 2 of 257 — connect your data to load more.')">Next →</button></span></div>
     </div>
   </main>
+
+  <div class="ovl" id="ovl">
+    <div class="modal">
+      <div class="mhead"><b>Add new lead</b><span id="mClose" style="cursor:pointer">✕</span></div>
+      <div class="mbody">
+        <label>Full name</label>
+        <input id="mName" placeholder="Jordan Blake">
+        <label>Email</label>
+        <input id="mEmail" type="email" placeholder="jordan@company.com">
+        <div class="mrow">
+          <div><label>Company</label><input id="mCompany" placeholder="Acme Inc."></div>
+          <div><label>Deal value ($)</label><input id="mValue" type="number" placeholder="5000"></div>
+        </div>
+        <div class="merr" id="mErr">⚠ Name, valid email and company are required.</div>
+        <button class="btn" id="mSave" style="width:100%;padding:12px;font-size:14px">Add to CRM</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+<style>
+  .nav a{cursor:pointer}
+  .search{border:1px solid #e2e8f0;background:#f8fafc;border-radius:9px;padding:9px 14px;font-size:12.5px;width:250px;font-family:inherit;color:#334155}
+  .search:focus{outline:2px solid var(--primary);background:#fff}
+  .ovl{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;z-index:99}
+  .ovl.on{display:flex}
+  .modal{background:#fff;border-radius:14px;width:min(420px,92vw);box-shadow:0 24px 60px rgba(0,0,0,.25);overflow:hidden}
+  .mhead{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #eef2f7;font-size:15px}
+  .mbody{padding:18px 20px 22px}
+  .mbody label{display:block;font-size:12px;font-weight:700;color:#64748b;margin:12px 0 5px}
+  .mbody input{width:100%;padding:10px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:14px;font-family:inherit}
+  .mbody input:focus{outline:2px solid var(--primary);border-color:transparent}
+  .mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .merr{color:#dc2626;font-size:12.5px;margin-top:10px;display:none}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,70px);background:#0f172a;color:#fff;padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:120;opacity:0;transition:.3s;max-width:90vw;text-align:center}
+  .toast.on{transform:translate(-50%,0);opacity:1}
+  tr.flash td{background:#eef2ff !important}
+  .seg span{cursor:pointer}
+</style>
+
+<script>
+function demoToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+function jump(sel){
+  var el = document.querySelector(sel);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.onclick = function(e){
+    var toastMsg = a.getAttribute('data-toast');
+    if (toastMsg){
+      e.preventDefault();
+      demoToast(toastMsg);
+      return;
+    }
+    document.querySelectorAll('#nav a').forEach(function(x){ x.classList.remove('on'); });
+    a.classList.add('on');
+  };
+});
+
+var CHARTS = {
+  '12M': {
+    area:'M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40 L620,210 L30,210 Z',
+    line:'M30,190 C90,175 120,160 160,150 C220,135 250,155 300,120 C350,88 380,105 430,80 C480,55 530,70 580,45 L620,40',
+    dot:'580,45'
+  },
+  '30D': {
+    area:'M30,175 C80,160 120,180 170,150 C230,120 260,140 310,110 C360,85 400,120 450,95 C500,70 550,85 620,60 L620,210 L30,210 Z',
+    line:'M30,175 C80,160 120,180 170,150 C230,120 260,140 310,110 C360,85 400,120 450,95 C500,70 550,85 620,60',
+    dot:'620,60'
+  },
+  '7D': {
+    area:'M30,140 C90,150 130,120 180,130 C240,145 280,105 330,115 C390,130 430,95 480,105 C540,118 580,80 620,88 L620,210 L30,210 Z',
+    line:'M30,140 C90,150 130,120 180,130 C240,145 280,105 330,115 C390,130 430,95 480,105 C540,118 580,80 620,88',
+    dot:'620,88'
+  }
+};
+document.querySelectorAll('#seg span').forEach(function(s){
+  s.onclick = function(){
+    document.querySelectorAll('#seg span').forEach(function(x){ x.classList.remove('on'); });
+    s.classList.add('on');
+    var c = CHARTS[s.textContent];
+    document.getElementById('area1').setAttribute('d', c.area);
+    document.getElementById('line1').setAttribute('d', c.line);
+    var parts = c.dot.split(',');
+    var dot = document.getElementById('dot1');
+    dot.setAttribute('cx', parts[0]);
+    dot.setAttribute('cy', parts[1]);
+    demoToast('Chart range set to ' + s.textContent + '.');
+  };
+});
+
+var ovl = document.getElementById('ovl');
+document.getElementById('addLeadBtn').onclick = function(){
+  document.getElementById('mErr').style.display = 'none';
+  ovl.classList.add('on');
+  document.getElementById('mName').focus();
+};
+document.getElementById('mClose').onclick = function(){ ovl.classList.remove('on'); };
+ovl.onclick = function(e){ if (e.target === ovl) ovl.classList.remove('on'); };
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') ovl.classList.remove('on'); });
+
+var AV_COLORS = ['#6366f1','#0ea5e9','#f59e0b','#8b5cf6','#10b981','#ec4899','#ef4444'];
+document.getElementById('mSave').onclick = function(){
+  var name = document.getElementById('mName').value.trim();
+  var email = document.getElementById('mEmail').value.trim();
+  var company = document.getElementById('mCompany').value.trim();
+  var value = parseInt(document.getElementById('mValue').value, 10) || 0;
+  var err = document.getElementById('mErr');
+  if (!name || !company || email.indexOf('@') < 1){ err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  var initials = name.split(/\s+/).map(function(w){ return w[0]; }).join('').slice(0,2).toUpperCase();
+  var color = AV_COLORS[Math.floor(Math.random()*AV_COLORS.length)];
+  var tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td><div class="who"><span class="a" style="background:'+color+'">'+initials+'</span><div><b>'+name+'</b><span>'+email+'</span></div></div></td>'+
+    '<td>'+company+'</td><td>Manual entry</td><td><span class="pill p-b">New</span></td><td class="val">$'+(value ? value.toLocaleString() : '0')+'</td><td>Alex K.</td>';
+  var tbody = document.querySelector('.tbl tbody');
+  tbody.insertBefore(tr, tbody.firstChild);
+  tr.classList.add('flash');
+  setTimeout(function(){ tr.classList.remove('flash'); }, 1600);
+  ovl.classList.remove('on');
+  ['mName','mEmail','mCompany','mValue'].forEach(function(id){ document.getElementById(id).value = ''; });
+  demoToast(name + ' added to CRM ✓');
+  var cnt = document.getElementById('leadCount');
+  var shown = tbody.querySelectorAll('tr').length;
+  cnt.textContent = 'Showing ' + shown + ' of 1,285 leads';
+};
+
+document.getElementById('leadSearch').oninput = function(){
+  var q = this.value.toLowerCase();
+  var shown = 0;
+  document.querySelectorAll('.tbl tbody tr').forEach(function(tr){
+    var hit = tr.textContent.toLowerCase().indexOf(q) > -1;
+    tr.style.display = hit ? '' : 'none';
+    if (hit) shown++;
+  });
+  document.getElementById('leadCount').textContent = q
+    ? 'Showing ' + shown + ' matching lead' + (shown === 1 ? '' : 's')
+    : 'Showing ' + shown + ' of 1,284 leads';
+};
+</script>
 </body>
 </html>

@@ -89,7 +89,7 @@
 
 <nav><div class="wrap nav">
   <a class="logo" href="#"><span class="n">✦</span> Northstar Studio</a>
-  <div class="links"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#">Contact</a></div>
+  <div class="links"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
   <a class="btn btn-acc btn-sm" href="#contact">Start a project</a>
 </div></nav>
 
@@ -129,11 +129,11 @@
     <span class="eyebrow">Selected work</span>
     <h2>Recent launches</h2>
     <p class="lead">A few projects we're proud of.</p>
-    <div class="work">
-      <div class="wk w1"><span class="emoji">💳</span><div><h3>HelioPay — fintech rebrand</h3><p>Identity + marketing site · +38% demo requests</p><span class="go">View case study →</span></div></div>
-      <div class="wk w2"><span class="emoji">🌱</span><div><h3>Sprout SaaS site</h3><p>Next.js build · 98 Lighthouse</p><span class="go">View case →</span></div></div>
-      <div class="wk w3"><span class="emoji">🎧</span><div><h3>Echo — music app</h3><p>Product design · 100k installs</p><span class="go">View case →</span></div></div>
-      <div class="wk w1" style="background:linear-gradient(150deg,#38bdf8,#0c4a6e)"><span class="emoji">🏋️</span><div><h3>PulseFit — fitness brand</h3><p>Brand + app · Editor's choice</p><span class="go">View case →</span></div></div>
+    <div class="work" id="workGrid">
+      <div class="wk w1" style="cursor:pointer"><span class="emoji">💳</span><div><h3>HelioPay — fintech rebrand</h3><p>Identity + marketing site · +38% demo requests</p><span class="go">View case study →</span></div></div>
+      <div class="wk w2" style="cursor:pointer"><span class="emoji">🌱</span><div><h3>Sprout SaaS site</h3><p>Next.js build · 98 Lighthouse</p><span class="go">View case →</span></div></div>
+      <div class="wk w3" style="cursor:pointer"><span class="emoji">🎧</span><div><h3>Echo — music app</h3><p>Product design · 100k installs</p><span class="go">View case →</span></div></div>
+      <div class="wk w1" style="background:linear-gradient(150deg,#38bdf8,#0c4a6e);cursor:pointer"><span class="emoji">🏋️</span><div><h3>PulseFit — fitness brand</h3><p>Brand + app · Editor's choice</p><span class="go">View case →</span></div></div>
     </div>
   </div>
 </section>
@@ -173,7 +173,7 @@
     <div class="fbox">
       <h2>Got a bold idea?<br>Let's make it undeniable.</h2>
       <p>Tell us about your project — we reply within 24 hours with next steps and a rough budget range.</p>
-      <div class="hero-cta"><a class="btn btn-acc" href="#">hello@northstar.example →</a><a class="btn btn-out" href="#">Book a 15-min call</a></div>
+      <div class="hero-cta"><a class="btn btn-acc" href="#" id="briefBtn">Start a project brief →</a><a class="btn btn-out" href="#" id="callBtn">Book a 15-min call</a></div>
     </div>
   </div>
 </section>
@@ -183,5 +183,157 @@
   <div class="fl"><a href="#">Instagram</a><a href="#">Dribbble</a><a href="#">LinkedIn</a><a href="#">Privacy</a></div>
   <div>© 2026 Northstar Studio. All rights reserved.</div>
 </div></footer>
+
+<div class="ovl" id="ovl"><div class="nmodal"><span class="nx" id="nx">✕</span><div id="nbody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<style>
+html{scroll-behavior:smooth}
+.wk{transition:transform .25s}
+.wk:hover{transform:translateY(-5px)}
+.ovl{position:fixed;inset:0;background:rgba(7,10,18,.6);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.ovl.on{display:flex}
+.nmodal{background:#fff;border-radius:18px;width:min(500px,94vw);max-height:88vh;overflow:auto;position:relative;padding:28px 28px 32px;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:up .25s}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.nx{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+.nx:hover{background:#e2e8f0}
+.n-emoji{font-size:52px;background:#0b0f1a;border-radius:14px;text-align:center;padding:16px 0}
+.nmodal h3{font-size:21px;margin-top:14px}
+.n-sub{color:#64748b;font-size:14px;margin-top:4px}
+.n-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.n-stats span{background:#f1f5f9;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600}
+.n-sec{margin-top:16px}
+.n-sec b{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:#94a3b8}
+.n-sec p{font-size:14.5px;color:#334155;margin-top:5px;line-height:1.65}
+.form label{display:block;font-size:12.5px;font-weight:700;color:#64748b;margin:13px 0 5px}
+.form input,.form select,.form textarea{width:100%;padding:11px 13px;border:1px solid #dbe4ef;border-radius:9px;font-size:14.5px;font-family:inherit}
+.form textarea{resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid #111;border-color:transparent}
+.form .go{width:100%;margin-top:16px;background:#0b0f1a;color:#fff;border:0;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.form .go:hover{background:#2563eb}
+.ferr{color:#dc2626;font-size:13px;margin-top:10px;display:none}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.slot{border:2px solid #e2e8f0;border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer;font-size:14px;font-weight:600}
+.slot.on{border-color:#0b0f1a;background:#0b0f1a;color:#fff}
+.okbox{text-align:center;padding:16px 4px 4px}
+.okbox .e{font-size:52px}
+.okbox h3{margin:10px 0 6px}
+.okbox p{color:#64748b;font-size:14.5px;line-height:1.7}
+.okbox button{margin-top:18px;background:#0b0f1a;color:#fff;border:0;padding:12px 26px;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,70px);background:#0b0f1a;color:#fff;padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:120;opacity:0;transition:.3s;max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+</style>
+
+<script>
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+document.querySelectorAll('a[href="#"]').forEach(function(a){
+  a.onclick = function(e){ e.preventDefault(); toast('Demo site — social links open in the full build.'); };
+});
+
+var ovl = document.getElementById('ovl');
+var nbody = document.getElementById('nbody');
+function openModal(html){ nbody.innerHTML = html; ovl.classList.add('on'); }
+function closeModal(){ ovl.classList.remove('on'); nbody.innerHTML = ''; }
+document.getElementById('nx').onclick = closeModal;
+ovl.onclick = function(e){ if (e.target === ovl) closeModal(); };
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+var CASES = [
+  {stats:['+38% demo requests','6-week launch','Brand + web'],
+   ch:'A trusted fintech with a dated look was losing enterprise deals to slicker competitors before the first call.',
+   so:'Full identity refresh, messaging workshop, and a conversion-focused marketing site with interactive product tours.',
+   re:'Demo requests up 38% in the first quarter; sales cycle shortened by 9 days.'},
+  {stats:['98 Lighthouse','3.1× faster pages','Next.js build'],
+   ch:'Sprout\u2019s old site was slow, hard to update, and leaking signups on mobile.',
+   so:'Rebuilt in Next.js with a headless CMS, edge caching, and a redesigned onboarding flow.',
+   re:'98 Lighthouse score, 3.1× faster loads, signup conversion up 24%.'},
+  {stats:['100k installs','4.9★ store rating','Product design'],
+   ch:'Echo had a great algorithm but an app that confused first-time listeners.',
+   so:'End-to-end product design — onboarding, player, and social features tested with 40 real users.',
+   re:'100k installs in 8 weeks and a 4.9★ store rating.'},
+  {stats:['Editor\u2019s choice','+61% trials','Brand + app'],
+   ch:'PulseFit needed a brand and app that could stand next to global fitness players.',
+   so:'Bold visual identity, motion system, and a workout app built with coaches in the room.',
+   re:'Editor\u2019s choice award; free-trial starts up 61% post-launch.'}
+];
+
+document.querySelectorAll('#workGrid .wk').forEach(function(card, i){
+  card.onclick = function(){
+    var c = CASES[i] || CASES[0];
+    openModal(
+      '<div class="n-emoji">' + card.querySelector('.emoji').textContent + '</div>' +
+      '<h3>' + esc(card.querySelector('h3').textContent) + '</h3>' +
+      '<div class="n-sub">' + esc(card.querySelector('p').textContent) + '</div>' +
+      '<div class="n-stats">' + c.stats.map(function(s){ return '<span>' + s + '</span>'; }).join('') + '</div>' +
+      '<div class="n-sec"><b>The challenge</b><p>' + c.ch + '</p></div>' +
+      '<div class="n-sec"><b>What we did</b><p>' + c.so + '</p></div>' +
+      '<div class="n-sec"><b>The result</b><p>' + c.re + '</p></div>' +
+      '<button class="go" style="width:100%;margin-top:18px;background:#0b0f1a;color:#fff;border:0;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit" id="caseCta">Start a project like this →</button>'
+    );
+    document.getElementById('caseCta').onclick = function(){
+      closeModal();
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    };
+  };
+});
+
+document.getElementById('briefBtn').onclick = function(e){
+  e.preventDefault();
+  openModal(
+    '<div class="n-emoji">📋</div><h3>Project brief</h3>' +
+    '<div class="n-sub">Two minutes now, a tailored plan from us within 24 hours.</div>' +
+    '<div class="form"><label>Your name</label><input id="bName" placeholder="Alex Morgan">' +
+    '<label>Email</label><input id="bEmail" type="email" placeholder="you@company.com">' +
+    '<label>Budget range</label><select id="bBudget"><option>$3k – $8k</option><option>$8k – $20k</option><option>$20k – $50k</option><option>$50k+</option></select>' +
+    '<label>What are you building?</label><textarea id="bMsg" rows="3" placeholder="Landing page, web app, rebrand…"></textarea>' +
+    '<div class="ferr" id="bErr">⚠ Name, valid email and a short description are required.</div>' +
+    '<button class="go" id="bGo">Send brief →</button></div>'
+  );
+  document.getElementById('bGo').onclick = function(){
+    var name = document.getElementById('bName').value.trim();
+    var email = document.getElementById('bEmail').value.trim();
+    var msg = document.getElementById('bMsg').value.trim();
+    var err = document.getElementById('bErr');
+    if (!name || email.indexOf('@') < 1 || msg.length < 5){ err.style.display = 'block'; return; }
+    nbody.innerHTML = '<div class="okbox"><div class="e">✅</div><h3>Brief received!</h3><p>Thanks ' + esc(name) + ' — we\u2019ll reply within 24 hours with next steps and a rough budget range.</p><button onclick="closeModal()">Close</button></div>';
+  };
+};
+
+var pickedSlot = 'Tue 10:00';
+document.getElementById('callBtn').onclick = function(e){
+  e.preventDefault();
+  openModal(
+    '<div class="n-emoji">📅</div><h3>Book a 15-min call</h3>' +
+    '<div class="n-sub">Pick a slot — calendar invite lands in your inbox instantly.</div>' +
+    '<div class="slots" id="slots"><div class="slot on">Tue 10:00</div><div class="slot">Wed 14:00</div><div class="slot">Thu 16:30</div></div>' +
+    '<div class="form"><label>Your name</label><input id="cName" placeholder="Alex Morgan">' +
+    '<label>Email</label><input id="cEmail" type="email" placeholder="you@company.com">' +
+    '<div class="ferr" id="cErr">⚠ Name and a valid email are required.</div>' +
+    '<button class="go" id="cGo">Confirm slot →</button></div>'
+  );
+  document.querySelectorAll('#slots .slot').forEach(function(s){
+    s.onclick = function(){
+      document.querySelectorAll('#slots .slot').forEach(function(x){ x.classList.remove('on'); });
+      s.classList.add('on');
+      pickedSlot = s.textContent;
+    };
+  });
+  document.getElementById('cGo').onclick = function(){
+    var name = document.getElementById('cName').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var err = document.getElementById('cErr');
+    if (!name || email.indexOf('@') < 1){ err.style.display = 'block'; return; }
+    nbody.innerHTML = '<div class="okbox"><div class="e">📅</div><h3>Call booked!</h3><p>' + esc(name) + ', your 15-min intro call is set for <b>' + esc(pickedSlot) + '</b>. Invite + joining link are on the way.</p><button onclick="closeModal()">Close</button></div>';
+  };
+};
+</script>
 </body>
 </html>

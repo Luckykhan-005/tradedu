@@ -274,24 +274,25 @@
     <span class="eyebrow">Pricing</span>
     <h2>Simple pricing that scales</h2>
     <p class="lead">Start free — upgrade when your team grows. No hidden fees, ever.</p>
+    <div class="billing" id="billing"><span class="b on" data-b="m">Monthly</span><span class="b" data-b="y">Yearly · save 20%</span></div>
     <div class="plans">
       <div class="plan">
         <h3>Starter</h3>
         <p class="for">Side projects & small teams</p>
-        <div class="price">$0 <small>/mo</small></div>
+        <div class="price" data-m="$0 <small>/mo</small>" data-y="$0 <small>/mo</small>">$0 <small>/mo</small></div>
         <ul>
           <li>50k events / month</li>
           <li>3 team members</li>
           <li>Funnels + retention</li>
           <li>30-day data history</li>
         </ul>
-        <a class="btn btn-ghost" href="#">Start free</a>
+        <a class="btn btn-ghost" href="#" id="planFree">Start free</a>
       </div>
       <div class="plan hot">
         <span class="tag">MOST POPULAR</span>
         <h3>Growth</h3>
         <p class="for">Scaling product teams</p>
-        <div class="price">$49 <small>/mo</small></div>
+        <div class="price" data-m="$49 <small>/mo</small>" data-y="$39 <small>/mo</small>">$49 <small>/mo</small></div>
         <ul>
           <li>5M events / month</li>
           <li>Unlimited members</li>
@@ -299,20 +300,34 @@
           <li>1-year data history</li>
           <li>Slack & email alerts</li>
         </ul>
-        <a class="btn btn-primary" href="#">Start 14-day trial</a>
+        <a class="btn btn-primary" href="#" id="planTrial">Start 14-day trial</a>
       </div>
       <div class="plan">
         <h3>Enterprise</h3>
         <p class="for">Security & scale needs</p>
-        <div class="price">Custom</div>
+        <div class="price" data-m="Custom" data-y="Custom">Custom</div>
         <ul>
           <li>Unlimited events</li>
           <li>SSO / SAML + audit logs</li>
           <li>Dedicated success manager</li>
           <li>Custom data residency</li>
         </ul>
-        <a class="btn btn-ghost" href="#">Talk to sales</a>
+        <a class="btn btn-ghost" href="#" id="planSales">Talk to sales</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:10px">
+  <div class="wrap" style="max-width:760px">
+    <span class="eyebrow">FAQ</span>
+    <h2>Questions, answered</h2>
+    <div class="faqs">
+      <div class="fq"><div class="q">Do I need a developer to install Lumina?<span class="arr">+</span></div><div class="a">No. Paste one <b>&lt;script&gt;</b> tag (or use our npm package) and data starts flowing in under 2 minutes.</div></div>
+      <div class="fq"><div class="q">Is there a free trial?<span class="arr">+</span></div><div class="a">Every paid plan includes a 14-day trial with all features. No credit card required to start.</div></div>
+      <div class="fq"><div class="q">What counts as an event?<span class="arr">+</span></div><div class="a">Pageviews, button clicks, custom track() calls and API events all count as one event each.</div></div>
+      <div class="fq"><div class="q">Can I cancel anytime?<span class="arr">+</span></div><div class="a">Yes — cancel in one click from billing settings. Your data stays exportable for 60 days after cancellation.</div></div>
+      <div class="fq"><div class="q">Are you GDPR and SOC 2 compliant?<span class="arr">+</span></div><div class="a">Yes — EU data residency, DPA on request, and SOC 2 Type II report available for Enterprise plans.</div></div>
     </div>
   </div>
 </section>
@@ -324,7 +339,7 @@
       <p>Set up in 2 minutes — paste one snippet and your first dashboard is ready.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#pricing">Start free</a>
-        <a class="btn btn-ghost" href="#">Book a demo</a>
+        <a class="btn btn-ghost" href="#" id="ctaDemo">Book a demo</a>
       </div>
     </div>
   </div>
@@ -340,5 +355,131 @@
   </div>
 </footer>
 
+<div class="ovl" id="ovl"><div class="lmodal"><span class="lx" id="lx">✕</span><div id="lbody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<style>
+html{scroll-behavior:smooth}
+.billing{display:flex;justify-content:center;margin:0 0 30px}
+.billing .b{padding:10px 22px;border:1.5px solid var(--line);cursor:pointer;font-size:14px;font-weight:600;color:var(--mute)}
+.billing .b:first-child{border-radius:22px 0 0 22px;border-right:0}
+.billing .b:last-child{border-radius:0 22px 22px 0}
+.billing .b.on{background:var(--a1);color:#fff;border-color:var(--a1)}
+.faqs{margin-top:26px;border-top:1px solid var(--line)}
+.fq{border-bottom:1px solid var(--line)}
+.fq .q{display:flex;justify-content:space-between;gap:14px;padding:18px 4px;font-weight:600;cursor:pointer;font-size:16px}
+.fq .q:hover{color:var(--a1)}
+.fq .arr{font-size:20px;color:var(--a1);transition:.25s;flex-shrink:0}
+.fq.open .arr{transform:rotate(45deg)}
+.fq .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--mute);font-size:15px;line-height:1.7}
+.fq.open .a{max-height:200px;padding:0 4px 18px}
+.ovl{position:fixed;inset:0;background:rgba(4,7,14,.72);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.ovl.on{display:flex}
+.lmodal{background:#fff;color:#0b0f1a;border-radius:18px;width:min(440px,94vw);max-height:88vh;overflow:auto;position:relative;padding:28px 28px 32px;box-shadow:0 30px 70px rgba(0,0,0,.35);animation:up .25s}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.lx{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+.lx:hover{background:#e2e8f0}
+.lmodal .mark{font-size:44px;background:#0b0f1a;border-radius:12px;width:66px;height:66px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.lmodal h3{font-size:21px}
+.l-sub{color:#64748b;font-size:14.5px;margin-top:6px;line-height:1.6}
+.form label{display:block;font-size:12.5px;font-weight:700;color:#64748b;margin:13px 0 5px}
+.form input{width:100%;padding:11px 13px;border:1px solid #dbe4ef;border-radius:9px;font-size:14.5px;font-family:inherit}
+.form input:focus{outline:2px solid #6366f1;border-color:transparent}
+.form .go{width:100%;margin-top:16px;background:#6366f1;color:#fff;border:0;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.form .go:hover{background:#4f46e5}
+.ferr{color:#dc2626;font-size:13px;margin-top:10px;display:none}
+.okbox{text-align:center;padding:14px 4px 4px}
+.okbox .e{font-size:50px}
+.okbox h3{margin:10px 0 6px}
+.okbox p{color:#64748b;font-size:14.5px;line-height:1.7}
+.okbox button{margin-top:18px;background:#0b0f1a;color:#fff;border:0;padding:12px 26px;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,70px);background:#0b0f1a;color:#fff;padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:120;opacity:0;transition:.3s;max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+</style>
+
+<script>
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+document.querySelectorAll('a[href="#"]').forEach(function(a){
+  a.onclick = function(e){ e.preventDefault(); toast('Demo site — this page ships with the full build.'); };
+});
+
+document.querySelectorAll('#billing .b').forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll('#billing .b').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    var mode = b.getAttribute('data-b');
+    document.querySelectorAll('.plans .price').forEach(function(p){
+      p.innerHTML = p.getAttribute(mode === 'y' ? 'data-y' : 'data-m');
+    });
+    toast(mode === 'y' ? 'Yearly billing — 20% off, Growth now $39/mo.' : 'Monthly billing selected.');
+  };
+});
+
+document.querySelectorAll('.fq').forEach(function(fq){
+  fq.querySelector('.q').onclick = function(){
+    var wasOpen = fq.classList.contains('open');
+    document.querySelectorAll('.fq').forEach(function(x){ x.classList.remove('open'); });
+    if (!wasOpen) fq.classList.add('open');
+  };
+});
+
+var ovl = document.getElementById('ovl');
+var lbody = document.getElementById('lbody');
+function openModal(html){ lbody.innerHTML = html; ovl.classList.add('on'); }
+function closeModal(){ ovl.classList.remove('on'); lbody.innerHTML = ''; }
+document.getElementById('lx').onclick = closeModal;
+ovl.onclick = function(e){ if (e.target === ovl) closeModal(); };
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+function openStart(title, sub, extra, successMsg, btnLabel){
+  openModal(
+    '<div class="mark">✦</div><h3>' + title + '</h3><div class="l-sub">' + sub + '</div>' +
+    '<div class="form">' + extra +
+    '<label>Work email</label><input id="sEmail" type="email" placeholder="you@company.com">' +
+    '<div class="ferr" id="sErr">⚠ Please enter a valid work email.</div>' +
+    '<button class="go" id="sGo">' + btnLabel + '</button></div>'
+  );
+  document.getElementById('sGo').onclick = function(){
+    var email = document.getElementById('sEmail').value.trim();
+    var err = document.getElementById('sErr');
+    if (email.indexOf('@') < 1){ err.style.display = 'block'; return; }
+    if (email.indexOf('.') < 3){ err.style.display = 'block'; return; }
+    lbody.innerHTML = '<div class="okbox"><div class="e">🎉</div><h3>You\u2019re in!</h3><p>' + successMsg.replace('{e}', esc(email)) + '</p><button onclick="closeModal()">Close</button></div>';
+  };
+}
+
+document.getElementById('planFree').onclick = function(e){
+  e.preventDefault();
+  openStart('Create your free workspace', 'Starter plan — 50k events/month, free forever.',
+    '<label>Team name (optional)</label><input id="sName" placeholder="Acme Analytics">',
+    'Check <b>{e}</b> — your workspace is ready and the install snippet is waiting inside.', 'Start free →');
+};
+document.getElementById('planTrial').onclick = function(e){
+  e.preventDefault();
+  openStart('Start your 14-day Growth trial', 'All features unlocked. No credit card required.',
+    '<label>Team name (optional)</label><input id="sName" placeholder="Acme Analytics">',
+    'Trial activated for <b>{e}</b> — 14 days of Growth, on us. Setup guide is in your inbox.', 'Start trial →');
+};
+document.getElementById('planSales').onclick = function(e){
+  e.preventDefault();
+  openStart('Talk to sales', 'Tell us about your scale — we\u2019ll tailor security and pricing to your needs.',
+    '<label>Company</label><input id="sName" placeholder="Acme Inc.">',
+    'Thanks! An enterprise specialist will email <b>{e}</b> within one business day.', 'Request contact →');
+};
+document.getElementById('ctaDemo').onclick = function(e){
+  e.preventDefault();
+  openStart('Book a live demo', '15 minutes, product walkthrough, real answers — no slides.',
+    '<label>Your name (optional)</label><input id="sName" placeholder="Alex Morgan">',
+    'Demo requested! Three time slots are on the way to <b>{e}</b>.', 'Book demo →');
+};
+</script>
 </body>
 </html>

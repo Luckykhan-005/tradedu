@@ -78,7 +78,7 @@
 <nav><div class="wrap nav">
   <a class="logo" href="#">La <span>Tavola</span></a>
   <div class="links"><a href="#story">Our Story</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a></div>
-  <button class="btn">Reserve a table</button>
+  <button class="btn" onclick="jump('#visit')">Reserve a table</button>
 </div></nav>
 
 <header class="hero">
@@ -87,8 +87,8 @@
     <h1>Where every meal<br>feels like <em>home</em></h1>
     <p class="sub">Handmade pasta, wood-fired classics and wines from family vineyards — served the way nonna intended.</p>
     <div class="hero-cta">
-      <button class="btn gold">Book your table</button>
-      <button class="btn outline" style="border-color:rgba(247,242,233,.6);color:#f7f2e9">View the menu</button>
+      <button class="btn gold" onclick="jump('#visit')">Book your table</button>
+      <button class="btn outline" style="border-color:rgba(247,242,233,.6);color:#f7f2e9" onclick="jump('#menu')">View the menu</button>
     </div>
   </div>
   <div class="hours-chip">🕗 Open today · 12:00 PM – 11:00 PM</div>
@@ -139,8 +139,8 @@
 </section>
 
 <div class="wrap" id="gallery">
-  <div class="gal">
-    <div class="g g1">🍝</div><div class="g g2">🍷</div><div class="g g3">🍕</div><div class="g g4">🕯️</div>
+  <div class="gal" id="gal">
+    <div class="g g1" data-cap="Handmade tagliatelle al ragù">🍝</div><div class="g g2" data-cap="Wines from family vineyards">🍷</div><div class="g g3" data-cap="Wood-fired margherita">🍕</div><div class="g g4" data-cap="Candlelit patio tables">🕯️</div>
   </div>
 
   <section class="visit" id="visit">
@@ -151,14 +151,22 @@
       <div class="info-row"><span class="i">🕗</span><div><b>Opening hours</b><p>Mon–Thu: 12 PM – 10 PM<br>Fri–Sat: 12 PM – 11 PM · Sun: 1 PM – 9 PM</p></div></div>
       <div class="info-row"><span class="i">📞</span><div><b>Contact</b><p>+1 (212) 555-0147 · ciao@latavola.example</p></div></div>
     </div>
-    <form class="res" onsubmit="return false">
+    <form class="res" id="resForm">
       <h3>Reserve a table</h3>
-      <div class="frow"><input type="text" placeholder="Your name"><input type="tel" placeholder="Phone number"></div>
-      <div class="frow"><input type="date"><select><option>7:00 PM</option><option>7:30 PM</option><option selected>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option></select></div>
-      <div class="frow"><select><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select><select><option>Indoor</option><option>Patio</option></select></div>
+      <div class="frow"><input type="text" id="rName" placeholder="Your name"><input type="tel" id="rPhone" placeholder="Phone number"></div>
+      <div class="frow"><input type="date" id="rDate"><select id="rTime"><option>7:00 PM</option><option>7:30 PM</option><option selected>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option></select></div>
+      <div class="frow"><select id="rGuests"><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select><select id="rSeat"><option>Indoor</option><option>Patio</option></select></div>
       <textarea rows="2" placeholder="Special requests (optional)"></textarea>
-      <button class="btn gold">Confirm reservation</button>
+      <div class="rerr" id="rErr">⚠ Please enter your name and phone number.</div>
+      <button class="btn gold" type="submit">Confirm reservation</button>
     </form>
+    <div class="res ok" id="resOk" style="display:none;text-align:center">
+      <div style="font-size:44px">🎉</div>
+      <h3 style="margin:10px 0 6px">Table reserved!</h3>
+      <p id="resLine" style="opacity:.85;line-height:1.7"></p>
+      <p style="font-size:13px;opacity:.7;margin-top:10px">A confirmation text will be sent to your phone.<br>Need to change plans? Call +1 (212) 555-0147.</p>
+      <button class="btn gold" style="margin-top:16px" onclick="resetRes()">Make another reservation</button>
+    </div>
   </section>
 </div>
 
@@ -167,5 +175,67 @@
   <div class="fl"><a href="#">Careers</a><a href="#">Private events</a><a href="#">Gift cards</a><a href="#">Contact</a></div>
   <div>© 2026 La Tavola. All rights reserved.</div>
 </div></footer>
+
+<div class="lightbox" id="lightbox"><div class="lb-in"><span class="lb-x" id="lbX">✕</span><div class="lb-e" id="lbE"></div><div class="lb-c" id="lbC"></div></div></div>
+
+<style>
+html{scroll-behavior:smooth}
+.g{cursor:pointer;transition:transform .25s}
+.g:hover{transform:scale(1.04)}
+.rerr{color:#ff8f7a;font-size:13.5px;margin-top:8px;display:none}
+.res .btn{width:100%;cursor:pointer}
+.lightbox{position:fixed;inset:0;background:rgba(12,10,8,.9);display:none;align-items:center;justify-content:center;z-index:100}
+.lightbox.on{display:flex}
+.lb-in{position:relative;text-align:center;animation:pop .25s}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.lb-e{font-size:130px;background:#1c1712;border:1px solid rgba(247,242,233,.2);border-radius:18px;padding:50px 70px}
+.lb-c{color:#f7f2e9;font-family:'Cormorant Garamond',serif;font-size:22px;margin-top:18px}
+.lb-x{position:absolute;top:-16px;right:-16px;background:#f7f2e9;color:#1c1712;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+</style>
+
+<script>
+function jump(sel){
+  var el = document.querySelector(sel);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+var lb = document.getElementById('lightbox');
+document.querySelectorAll('#gal .g').forEach(function(tile){
+  tile.onclick = function(){
+    document.getElementById('lbE').textContent = tile.textContent;
+    document.getElementById('lbC').textContent = tile.getAttribute('data-cap');
+    lb.classList.add('on');
+  };
+});
+function closeLb(){ lb.classList.remove('on'); }
+document.getElementById('lbX').onclick = closeLb;
+lb.onclick = function(e){ if (e.target === lb) closeLb(); };
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLb(); });
+
+document.getElementById('resForm').onsubmit = function(e){
+  e.preventDefault();
+  var name = document.getElementById('rName').value.trim();
+  var phone = document.getElementById('rPhone').value.trim();
+  var err = document.getElementById('rErr');
+  if (!name || phone.length < 6){ err.style.display = 'block'; return false; }
+  err.style.display = 'none';
+  var date = document.getElementById('rDate').value;
+  var dateTxt = date ? new Date(date + 'T12:00:00').toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric'}) : 'any evening';
+  document.getElementById('resLine').innerHTML =
+    '<b>' + name + '</b>, we saved a table for ' + document.getElementById('rGuests').value +
+    ' · ' + document.getElementById('rSeat').value.toLowerCase() + ' seating<br>' +
+    dateTxt + ' at <b>' + document.getElementById('rTime').value + '</b>';
+  this.style.display = 'none';
+  document.getElementById('resOk').style.display = 'block';
+  document.getElementById('resOk').scrollIntoView({behavior:'smooth', block:'center'});
+  return false;
+};
+function resetRes(){
+  document.getElementById('resOk').style.display = 'none';
+  var f = document.getElementById('resForm');
+  f.reset();
+  f.style.display = 'block';
+}
+</script>
 </body>
 </html>

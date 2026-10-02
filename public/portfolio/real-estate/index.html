@@ -101,7 +101,7 @@
       <div class="field"><label>Location</label><select><option>New York, NY</option><option>Los Angeles, CA</option><option>Austin, TX</option><option>Miami, FL</option></select></div>
       <div class="field"><label>Property type</label><select><option>Any type</option><option>House</option><option>Apartment</option><option>Townhouse</option></select></div>
       <div class="field"><label>Price range</label><select><option>$200k – $500k</option><option>$500k – $1M</option><option>$1M+</option></select></div>
-      <button class="btn btn-main">🔍 Search</button>
+      <button class="btn btn-main" id="searchBtn">🔍 Search</button>
     </div>
     <div class="trust"><span>✅ <b>12,480</b> verified listings</span><span>⏱️ New homes <b>every hour</b></span><span>🤝 <b>No hidden fees</b></span></div>
   </div>
@@ -121,30 +121,30 @@
     <span class="eyebrow">Featured listings</span>
     <h2>Homes picked for you</h2>
     <p class="lead">Fresh listings updated daily — every property verified by our team.</p>
-    <div class="filters">
-      <span class="chip on">All</span><span class="chip">For sale</span><span class="chip">New</span><span class="chip">Open house</span><span class="chip">Reduced</span>
+    <div class="filters" id="filters">
+      <span class="chip on" data-f="all">All</span><span class="chip" data-f="sale">For sale</span><span class="chip" data-f="new">New</span><span class="chip" data-f="open">Open house</span><span class="chip" data-f="reduced">Reduced</span>
     </div>
-    <div class="grid">
-      <div class="home"><div class="img i1"><span class="tag g">New</span>🏡</div>
+    <div class="grid" id="homes">
+      <div class="home" data-f="sale new" style="cursor:pointer"><div class="img i1"><span class="tag g">New</span>🏡</div>
         <div class="hinfo"><div class="price">$685,000</div><h3>Maple Grove Family Home</h3><div class="loc">📍 Brooklyn, New York</div>
         <div class="meta"><span>🛏️ <b>4</b> beds</span><span>🛁 <b>3</b> baths</span><span>📐 <b>2,400</b> sqft</span></div></div></div>
-      <div class="home"><div class="img i2"><span class="tag">Open house</span>🏘️</div>
+      <div class="home" data-f="sale open" style="cursor:pointer"><div class="img i2"><span class="tag">Open house</span>🏘️</div>
         <div class="hinfo"><div class="price">$429,000</div><h3>Sunrise Townhouse</h3><div class="loc">📍 Austin, Texas</div>
         <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,780</b> sqft</span></div></div></div>
-      <div class="home"><div class="img i3"><span class="tag g">Reduced</span>🌴</div>
+      <div class="home" data-f="sale reduced" style="cursor:pointer"><div class="img i3"><span class="tag g">Reduced</span>🌴</div>
         <div class="hinfo"><div class="price">$1,240,000</div><h3>Palm Court Villa</h3><div class="loc">📍 Miami, Florida</div>
         <div class="meta"><span>🛏️ <b>5</b> beds</span><span>🛁 <b>4</b> baths</span><span>📐 <b>3,600</b> sqft</span></div></div></div>
-      <div class="home"><div class="img i4">🏢</div>
+      <div class="home" data-f="sale" style="cursor:pointer"><div class="img i4">🏢</div>
         <div class="hinfo"><div class="price">$312,000</div><h3>City View Apartment</h3><div class="loc">📍 Manhattan, New York</div>
         <div class="meta"><span>🛏️ <b>2</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,050</b> sqft</span></div></div></div>
-      <div class="home"><div class="img i5"><span class="tag">New</span>🏠</div>
+      <div class="home" data-f="sale new" style="cursor:pointer"><div class="img i5"><span class="tag">New</span>🏠</div>
         <div class="hinfo"><div class="price">$549,000</div><h3>Orchard Lane Cottage</h3><div class="loc">📍 Portland, Oregon</div>
         <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>2</b> baths</span><span>📐 <b>1,960</b> sqft</span></div></div></div>
-      <div class="home"><div class="img i6">🏙️</div>
+      <div class="home" data-f="sale" style="cursor:pointer"><div class="img i6">🏙️</div>
         <div class="hinfo"><div class="price">$899,000</div><h3>Skyline Penthouse</h3><div class="loc">📍 Chicago, Illinois</div>
         <div class="meta"><span>🛏️ <b>3</b> beds</span><span>🛁 <b>3</b> baths</span><span>📐 <b>2,100</b> sqft</span></div></div></div>
     </div>
-    <div style="text-align:center;margin-top:38px"><a class="btn btn-ghost" href="#">Browse all 12,480 listings →</a></div>
+    <div style="text-align:center;margin-top:38px"><a class="btn btn-ghost" href="#" id="browseAll">Browse all 12,480 listings →</a></div>
   </div>
 </section>
 
@@ -152,10 +152,10 @@
   <span class="eyebrow">Top agents</span>
   <h2>Meet your next agent</h2>
   <p class="lead">Neighborhood specialists with proven track records.</p>
-  <div class="agents">
-    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#2563eb,#38bdf8)">SR</div><h3>Sofia Reyes</h3><p>Luxury specialist · Miami</p><div class="r">★★★★★</div><span class="cnt">312 homes sold</span></div>
-    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#10203f,#64748b)">DK</div><h3>David Kim</h3><p>First-time buyers · New York</p><div class="r">★★★★★</div><span class="cnt">248 homes sold</span></div>
-    <div class="ag"><div class="a" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">AJ</div><h3>Amara Johnson</h3><p>Relocation expert · Austin</p><div class="r">★★★★★</div><span class="cnt">197 homes sold</span></div>
+  <div class="agents" id="agents-list">
+    <div class="ag" style="cursor:pointer" data-agent="Sofia Reyes|Luxury specialist · Miami|312 homes sold"><div class="a" style="background:linear-gradient(135deg,#2563eb,#38bdf8)">SR</div><h3>Sofia Reyes</h3><p>Luxury specialist · Miami</p><div class="r">★★★★★</div><span class="cnt">312 homes sold</span></div>
+    <div class="ag" style="cursor:pointer" data-agent="David Kim|First-time buyers · New York|248 homes sold"><div class="a" style="background:linear-gradient(135deg,#10203f,#64748b)">DK</div><h3>David Kim</h3><p>First-time buyers · New York</p><div class="r">★★★★★</div><span class="cnt">248 homes sold</span></div>
+    <div class="ag" style="cursor:pointer" data-agent="Amara Johnson|Relocation expert · Austin|197 homes sold"><div class="a" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">AJ</div><h3>Amara Johnson</h3><p>Relocation expert · Austin</p><div class="r">★★★★★</div><span class="cnt">197 homes sold</span></div>
   </div>
 </section>
 
@@ -165,8 +165,8 @@
       <h2>Selling? List your property<br>with zero commission stress.</h2>
       <p>Free valuation in 24 hours, professional photos, and exposure to 40,000 active buyers.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative">
-        <a class="btn btn-main" href="#">Get free valuation</a>
-        <a class="btn btn-ghost" href="#">Talk to an agent</a>
+        <a class="btn btn-main" href="#" id="valBtn">Get free valuation</a>
+        <a class="btn btn-ghost" href="#agents">Talk to an agent</a>
       </div>
     </div>
   </div>
@@ -177,5 +177,182 @@
   <div class="fl"><a href="#">About</a><a href="#">Careers</a><a href="#">Privacy</a><a href="#">Terms</a></div>
   <div>© 2026 PrimeNest Realty. All rights reserved.</div>
 </div></footer>
+
+<div class="ovl" id="ovl"><div class="pmodal"><span class="px" id="px">✕</span><div id="pbody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<style>
+html{scroll-behavior:smooth}
+.chip{cursor:pointer}
+.home{transition:transform .25s}
+.home:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(14,32,63,.13)}
+.home.hide{display:none}
+.ag{transition:transform .25s}
+.ag:hover{transform:translateY(-4px)}
+.ovl{position:fixed;inset:0;background:rgba(14,32,63,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.ovl.on{display:flex}
+.pmodal{background:#fff;border-radius:18px;width:min(480px,94vw);max-height:88vh;overflow:auto;position:relative;padding:26px 26px 30px;box-shadow:0 30px 70px rgba(0,0,0,.3);animation:up .25s}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.px{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;background:#eef2f7;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+.px:hover{background:#dbe4ef}
+.p-emoji{font-size:56px;background:#eef4ff;border-radius:14px;text-align:center;padding:18px 0}
+.p-price{font-size:26px;font-weight:800;color:#10203f;margin-top:14px}
+.p-name{font-size:19px;font-weight:700;margin-top:2px}
+.p-loc{color:#64748b;font-size:14px;margin-top:4px}
+.p-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.p-meta span{background:#f1f5f9;border-radius:8px;padding:7px 12px;font-size:13px}
+.p-list{margin-top:14px;padding-left:0;list-style:none}
+.p-list li{padding:6px 0;font-size:14px;color:#334155}
+.form label{display:block;font-size:12.5px;font-weight:700;color:#64748b;margin:13px 0 5px}
+.form input,.form select{width:100%;padding:11px 13px;border:1px solid #dbe4ef;border-radius:9px;font-size:14.5px;font-family:inherit}
+.form input:focus,.form select:focus{outline:2px solid #2563eb;border-color:transparent}
+.form .go{width:100%;margin-top:16px;background:#2563eb;color:#fff;border:0;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.form .go:hover{background:#1d4ed8}
+.ferr{color:#dc2626;font-size:13px;margin-top:10px;display:none}
+.okbox{text-align:center;padding:16px 4px 4px}
+.okbox .e{font-size:52px}
+.okbox h3{margin:10px 0 6px;color:#10203f}
+.okbox p{color:#64748b;font-size:14.5px;line-height:1.7}
+.okbox button{margin-top:18px;background:#10203f;color:#fff;border:0;padding:12px 26px;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,70px);background:#10203f;color:#fff;padding:12px 22px;border-radius:30px;font-size:13.5px;z-index:120;opacity:0;transition:.3s;max-width:90vw;text-align:center}
+.toast.on{transform:translate(-50%,0);opacity:1}
+</style>
+
+<script>
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._x);
+  t._x = setTimeout(function(){ t.classList.remove('on'); }, 2600);
+}
+function jump(sel){
+  var el = document.querySelector(sel);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+var ovl = document.getElementById('ovl');
+var pbody = document.getElementById('pbody');
+function openModal(html){
+  pbody.innerHTML = html;
+  ovl.classList.add('on');
+  bindForm();
+}
+function closeModal(){ ovl.classList.remove('on'); pbody.innerHTML = ''; }
+document.getElementById('px').onclick = closeModal;
+ovl.onclick = function(e){ if (e.target === ovl) closeModal(); };
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+document.querySelectorAll('#filters .chip').forEach(function(chip){
+  chip.onclick = function(){
+    document.querySelectorAll('#filters .chip').forEach(function(c){ c.classList.remove('on'); });
+    chip.classList.add('on');
+    var f = chip.getAttribute('data-f');
+    var shown = 0;
+    document.querySelectorAll('#homes .home').forEach(function(h){
+      var hit = f === 'all' || h.getAttribute('data-f').split(' ').indexOf(f) > -1;
+      h.classList.toggle('hide', !hit);
+      if (hit) shown++;
+    });
+    toast(shown + ' featured listing' + (shown === 1 ? '' : 's') + ' — “' + chip.textContent + '”');
+  };
+});
+
+function emojiOf(img){
+  var out = '';
+  img.childNodes.forEach(function(n){ if (n.nodeType === 3) out += n.textContent; });
+  return out.trim() || '🏡';
+}
+document.querySelectorAll('#homes .home').forEach(function(card){
+  card.onclick = function(){
+    var img = card.querySelector('.img');
+    var price = card.querySelector('.price').textContent;
+    var name = card.querySelector('h3').textContent;
+    var loc = card.querySelector('.loc').textContent;
+    var meta = Array.prototype.map.call(card.querySelectorAll('.meta span'), function(s){ return '<span>' + s.textContent + '</span>'; }).join('');
+    openModal(
+      '<div class="p-emoji">' + emojiOf(img) + '</div>' +
+      '<div class="p-price">' + esc(price) + '</div>' +
+      '<div class="p-name">' + esc(name) + '</div>' +
+      '<div class="p-loc">' + esc(loc) + '</div>' +
+      '<div class="p-meta">' + meta + '</div>' +
+      '<ul class="p-list"><li>✅ Verified by PrimeNest · photos are real</li><li>🎥 3D walkthrough available</li><li>🏫 Top-rated school district nearby</li><li>💬 Agent replies in under 10 minutes</li></ul>' +
+      '<div class="form"><b style="font-size:15px">Schedule a private tour</b>' +
+      '<label>Your name</label><input id="fName" placeholder="Alex Morgan">' +
+      '<label>Email</label><input id="fEmail" type="email" placeholder="you@example.com">' +
+      '<label>Preferred date</label><input id="fDate" type="date">' +
+      '<div class="ferr" id="fErr">⚠ Please add your name and a valid email.</div>' +
+      '<button class="go" id="fGo">Book my tour →</button></div>'
+    );
+    pbody.setAttribute('data-mode', 'tour');
+    pbody.setAttribute('data-title', name);
+  };
+});
+
+document.getElementById('valBtn').onclick = function(e){
+  e.preventDefault();
+  openModal(
+    '<div class="p-emoji">💰</div>' +
+    '<div class="p-price" style="font-size:22px">Free home valuation</div>' +
+    '<div class="p-loc">Know your home’s real market value — report delivered within 24 hours.</div>' +
+    '<div class="form"><label>Property address</label><input id="fName" placeholder="148 Mulberry Street, NY">' +
+    '<label>Email</label><input id="fEmail" type="email" placeholder="you@example.com">' +
+    '<div class="ferr" id="fErr">⚠ Address and a valid email are required.</div>' +
+    '<button class="go" id="fGo">Request my valuation →</button></div>'
+  );
+  pbody.setAttribute('data-mode', 'val');
+  pbody.setAttribute('data-title', 'valuation');
+};
+
+document.querySelectorAll('.ag').forEach(function(ag){
+  ag.onclick = function(){
+    var parts = ag.getAttribute('data-agent').split('|');
+    openModal(
+      '<div class="p-emoji">' + parts[0].split(' ').map(function(w){ return w[0]; }).join('') + '</div>' +
+      '<div class="p-price" style="font-size:22px">' + esc(parts[0]) + '</div>' +
+      '<div class="p-loc">' + esc(parts[1]) + ' · ' + esc(parts[2]) + '</div>' +
+      '<div class="p-meta"><span>★★★★★ 5.0 rating</span><span>Replies in ~8 min</span></div>' +
+      '<div class="form"><b style="font-size:15px">Book a free intro call</b>' +
+      '<label>Your name</label><input id="fName" placeholder="Alex Morgan">' +
+      '<label>Email</label><input id="fEmail" type="email" placeholder="you@example.com">' +
+      '<div class="ferr" id="fErr">⚠ Please add your name and a valid email.</div>' +
+      '<button class="go" id="fGo">Request intro call →</button></div>'
+    );
+    pbody.setAttribute('data-mode', 'agent');
+    pbody.setAttribute('data-title', parts[0]);
+  };
+});
+
+function bindForm(){
+  var go = document.getElementById('fGo');
+  if (!go) return;
+  go.onclick = function(){
+    var name = document.getElementById('fName').value.trim();
+    var email = document.getElementById('fEmail').value.trim();
+    var err = document.getElementById('fErr');
+    if (!name || email.indexOf('@') < 1){ err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    var mode = pbody.getAttribute('data-mode');
+    var title = pbody.getAttribute('data-title');
+    var msg = mode === 'tour'
+      ? 'Tour requested for <b>' + esc(title) + '</b>! An agent will confirm your date by email within 30 minutes.'
+      : mode === 'val'
+        ? 'Valuation requested! A market report for <b>' + esc(name) + '</b> will arrive within 24 hours.'
+        : '<b>' + esc(title) + '</b> received your request — expect a call slot in your inbox shortly.';
+    pbody.innerHTML = '<div class="okbox"><div class="e">✅</div><h3>All set!</h3><p>' + msg + '</p><button onclick="closeModal()">Close</button></div>';
+  };
+}
+
+document.getElementById('searchBtn').onclick = function(){
+  var loc = document.querySelector('.search select').value;
+  toast('128 homes found near ' + loc + ' — showing featured picks below.');
+  jump('#listings');
+};
+document.getElementById('browseAll').onclick = function(e){
+  e.preventDefault();
+  toast('Demo grid: the full 12,480-listing map loads in the live product.');
+};
+</script>
 </body>
 </html>
