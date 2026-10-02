@@ -206,6 +206,21 @@ export const books: BookItem[] = [
     cover: '/covers/Alami_Maliyati_Nizam_Kitab.webp',
   },
   {
+    id: 'maliyati-nizam-tafheem',
+    title: 'Financial Ecosystem — Complete Guide (Urdu)',
+    titleUrdu: 'مالیاتی نظام کی مکمل تفہیم',
+    description:
+      'Forex aur crypto traders ke liye financial ecosystem ka mukammal khaka — paise ki tareekh se le kar banking, central banks, forex markets aur crypto tak, wo poora nizam jis ke upar trading chalti hai. 14 chapters, Urdu mein.',
+    chapters: 14,
+    pages: '14 Chapters · Complete Guide',
+    icon: Layers,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-50',
+    href: '/maliyati-nizam-tafheem/index.html',
+    tags: ['Urdu', 'Finance', '14 Chapters'],
+    cover: '/covers/maliyati-nizam-tafheem.webp',
+  },
+  {
     id: 'crypto-futures',
     title: 'Crypto Futures Trading (Urdu)',
     titleUrdu: 'کرپٹو فیوچرز ٹریڈنگ',
