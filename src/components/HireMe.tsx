@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Mail,
   ArrowRight,
+  ExternalLink,
   Clock,
   Users,
   Award,
@@ -61,6 +62,16 @@ function ButtonLink({
     </a>
   )
 }
+
+const portfolio = [
+  { title: 'SaaS Landing Page', cat: 'SaaS / Marketing', img: '/portfolio/thumbs/saas-landing.webp', url: 'https://tradeed.online/portfolio/saas-landing/' },
+  { title: 'AI Dashboard & CRM', cat: 'Web App / SaaS', img: '/portfolio/thumbs/ai-dashboard.webp', url: 'https://tradeed.online/portfolio/ai-dashboard/' },
+  { title: 'E-commerce Store', cat: 'Retail / E-commerce', img: '/portfolio/thumbs/ecommerce.webp', url: 'https://tradeed.online/portfolio/ecommerce/' },
+  { title: 'AI Startup Landing', cat: 'Startup / AI', img: '/portfolio/thumbs/startup.webp', url: 'https://tradeed.online/portfolio/startup/' },
+  { title: 'Restaurant Website', cat: 'Local Business', img: '/portfolio/thumbs/restaurant.webp', url: 'https://tradeed.online/portfolio/restaurant/' },
+  { title: 'Real Estate Platform', cat: 'Real Estate', img: '/portfolio/thumbs/real-estate.webp', url: 'https://tradeed.online/portfolio/real-estate/' },
+  { title: 'Creative Agency Site', cat: 'Agency', img: '/portfolio/thumbs/agency.webp', url: 'https://tradeed.online/portfolio/agency/' },
+]
 
 const services = [
   {
@@ -294,6 +305,41 @@ export function HireMe({ onNavigate }: HireMeProps) {
           </div>
         </CardContent>
       </Card>
+
+      {/* Portfolio */}
+      <section className="mt-16">
+        <h2 className="text-center text-3xl font-bold">Selected Work</h2>
+        <p className="mt-2 text-center text-muted-foreground">
+          Live demos — click any card to open the full site. Every build is fast and fully responsive.
+        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {portfolio.map((p) => (
+            <a
+              key={p.title}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/50"
+            >
+              <div className="aspect-[16/10] overflow-hidden border-b border-border">
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <div className="text-xs font-semibold uppercase tracking-wider text-primary">{p.cat}</div>
+                <div className="mt-1 flex items-center justify-between">
+                  <h3 className="font-semibold">{p.title}</h3>
+                  <ExternalLink className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
 
       {/* Services */}
       <section className="mt-16">
