@@ -152,6 +152,12 @@ create policy "Admins can update requests"
   on public.subscription_requests for update
   using (public.is_admin());
 
+-- Admins can delete duplicate/extra requests (admin panel Delete button)
+drop policy if exists "Admins can delete requests" on public.subscription_requests;
+create policy "Admins can delete requests"
+  on public.subscription_requests for delete
+  using (public.is_admin());
+
 -- 4) SUBSCRIPTION EXPIRY PROTECTION
 -- Paid plans are valid for 30 days. Only admins may change plan/role/expiry;
 -- a student may only move themselves back to FREE (the auto-downgrade path).

@@ -15,6 +15,7 @@ import {
   BarChart3,
   Circle,
   AlertTriangle,
+  Trash2,
 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -199,6 +200,32 @@ export function AdminStudents() {
     setUpdating(null)
   }
 
+  // Duplicate/mazboot entries yahan se hataein — RLS chup-chap 0 rows delete kar
+  // sakta hai (error bhi nahi), is liye .select('id') se asal delete verify hota hai.
+  const deleteRequest = async (request: SubscriptionRequest) => {
+    const label = `${request.name} (${request.email || 'no email'}) — ${request.plan} / ${request.status}`
+    if (!window.confirm(`Ye subscription request delete karein?\n\n${label}\n\nDelete ke baad wapas nahi aayegi.`)) {
+      return
+    }
+    setUpdating(request.id)
+    setActionError(null)
+    const { data, error } = await supabase
+      .from('subscription_requests')
+      .delete()
+      .eq('id', request.id)
+      .select('id')
+    if (error) {
+      setActionError(`Delete FAILED: ${error.message || error}`)
+    } else if (!data || data.length === 0) {
+      setActionError(
+        'Delete nahi hua — Supabase RLS mein admin delete policy nahi hai. SQL editor mein ye chalayein: create policy "Admins can delete requests" on public.subscription_requests for delete using (public.is_admin());'
+      )
+    } else {
+      setRequests((prev) => prev.filter((r) => r.id !== request.id))
+    }
+    setUpdating(null)
+  }
+
   if (!hasSupabase) {
     return (
       <Card>
@@ -342,29 +369,42 @@ export function AdminStudents() {
                       )}
                     </div>
                   </div>
-                  {req.status === 'pending' && (
-                    <div className="flex gap-2 shrink-0">
-                      <Button
-                        size="sm"
-                        onClick={() => approveRequest(req, true)}
-                        disabled={updating === req.id}
-                        className="gap-1.5 bg-emerald-600 hover:bg-emerald-700"
-                      >
-                        <CheckCircle className="h-3.5 w-3.5" />
-                        Approve
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => approveRequest(req, false)}
-                        disabled={updating === req.id}
-                        className="gap-1.5 border-red-400/50 text-red-600 dark:text-red-400 hover:bg-red-500/10"
-                      >
-                        <XCircle className="h-3.5 w-3.5" />
-                        Reject
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex gap-2 shrink-0 flex-wrap">
+                    {req.status === 'pending' && (
+                      <>
+                        <Button
+                          size="sm"
+                          onClick={() => approveRequest(req, true)}
+                          disabled={updating === req.id}
+                          className="gap-1.5 bg-emerald-600 hover:bg-emerald-700"
+                        >
+                          <CheckCircle className="h-3.5 w-3.5" />
+                          Approve
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => approveRequest(req, false)}
+                          disabled={updating === req.id}
+                          className="gap-1.5 border-red-400/50 text-red-600 dark:text-red-400 hover:bg-red-500/10"
+                        >
+                          <XCircle className="h-3.5 w-3.5" />
+                          Reject
+                        </Button>
+                      </>
+                    )}
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => deleteRequest(req)}
+                      disabled={updating === req.id}
+                      className="gap-1.5 border-red-400/50 text-red-600 dark:text-red-400 hover:bg-red-500/10"
+                      title="Duplicate ya extra entry delete karein"
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                      Delete
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
