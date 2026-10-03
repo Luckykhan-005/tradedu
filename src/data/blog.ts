@@ -32,131 +32,100 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     hero: '/blog/forex-trading-pakistan-2026.webp',
     heroAlt: 'Forex Trading Pakistan Mein Kaise Shuru Karein – Broker, Payments aur Taxes (2026 Guide)',
-    sections: [
-      {
-        paragraphs: [
-          'Pakistan mein forex trading ki popularity tezi se barh rahi hai — lekin shuru karne se pehle teen sawal sab ko hota hain: ye legal hai, broker kaise choose karein, aur paisa account mein kaise jaye. Is guide mein hum in teenon ka practical jawab Roman Urdu mein denge.',
-          'Ye guide educational maqsad ke liye hai. Har trader apni country ke rules, broker ke terms aur tax obligations khud verify kare — ya qualified professional se mashwara kare.',
-        ],
-      },
-      {
-        heading: '1. Forex Trading Pakistan Mein Legal Hai?',
-        paragraphs: [
-          'Seedhi baat: Pakistan mein "forex trading" par aisa complete ban nahi hai jaise kuch log forums par likhte hain. Masla regulation ka hai. Pakistan mein securities (stocks, funds) ka regulator <b>SECP</b> hai, aur banking transactions par <b>State Bank of Pakistan (SBP)</b> ke rules hain — lekin international forex brokers ke liye koi dedicated local regulator/license system nahi bana.',
-          'Isi wajah se zyada tar Pakistani traders internationally regulated brokers (jaise FCA/ASIC/CySEC waghera) ke through trade karte hain, aur deposit/withdrawal ke tareeqe badal kar (bank wire, P2P, e-wallets) paisa move karte hain. Yeh aam practice hai — lekin iska matlab ye nahi ke har "local agent" wala platform safe hai.',
-          'Zaroori hai ke aap yahan income report aur tax obligations ko lightly na lein. Trading se honay wali income ki reporting Pakistan mein lazmi nahi chhodi jati — filer ya non-filer, apne accountant se confirm karein aur har withdrawal ka record rakhein.',
-        ],
-        list: [
-          'Koi bhi platform jo "100% guaranteed profit" kahe — wo scam hai, legal broker aisa nahi kehta',
-          'SECP "registered" ka label khud check karein — kai scam companies fake registration number deti hain',
-          'Agar koi local company aap ko apne hi app pe trade karwa rahi hai aur withdrawal rok rahi hai — turant stop',
-          'Personal advice ke liye: tax lawyer ya chartered accountant se yearly ek consultation sasti nahi, mehngi ghalti se bachati hai',
-        ],
-      },
-      {
-        heading: '2. Sahi Broker Kaise Chunein — 7 Point Checklist',
-        paragraphs: [
-          'Broker ka selection trading se zyada important hai, kyunki aapka paisa aur trade usi ke upar hain. Neeche wali checklist har naye trader ko broker ke naam final karne se pehle follow karni chahiye.',
-        ],
-        list: [
-          'Regulation: FCA (UK), ASIC (Australia), CySEC (Cyprus) ya ESMA-covered license — number broker ki website par verify karein',
-          'History: Kam az kam 7–10 saal ka track record, public reviews mein withdrawal complaints na hon',
-          'Trading cost: Spread + commission mila kar actual cost — EUR/USD standard account par 1–1.5 pips normal hai',
-          'Deposit/Withdrawal methods: Aap ke pas jo method hai wo support ho (bank, P2P, e-wallet)',
-          'Platform: MT4/MT5 ya cTrader — mobile + desktop dono kaam karte hon',
-          'Customer support: 24/5 hon, aur Urdu support ka ilzaam na ho (ziada tar English hi hoti hai)',
-          'Minimum deposit: Naye trader ke liye $50–200 kaafi hai — bari deposit "bonus" ke naam par force na kare',
-        ],
-        table: {
-          headers: ['Safe Sign', 'Red Flag'],
-          rows: [
-            ['License number website par verifiable', 'Sirf "regulated" likha hai, number nahi'],
-            ['Chhoti amount pe fast withdrawal', 'Withdrawal mein "verification fee" maangay'],
-            ['Spreads publicly listed', 'Fixed "0 pip" marketing without conditions'],
-            ['Demo account free', 'Demo ke liye paisa maange'],
-            ['Risk warning pages mojood', 'Guaranteed income / fixed monthly profit ka wada'],
-          ],
-        },
-      },
-      {
-        heading: '3. Pakistan Se Deposit aur Withdrawal Ke Tareeqe',
-        paragraphs: [
-          'Ye woh hissa hai jahan zyada tar log phanste hain. International card payments par Pakistan ke restrictions hain, aur har broker har method Pakistan se support nahi karta. Amal tor par yeh teen tareeqe sab se zyada chalte hain:',
-        ],
-        list: [
-          '<b>Crypto P2P (USDT):</b> Binance P2P se PKR mein USDT khareedein, phir USDT broker ke wallet mein deposit — sab se popular aur fast method. TradeEd par is ka complete guide maujood hai',
-          '<b>Bank wire / international transfer:</b> Kabhi kabhi kaam karta hai, lekin fee zyada (20–40 USD) aur time 2–5 din',
-          '<b>E-wallets:</b> Some brokers support Skrill/Neteller — agar Pakistan se accessible hon toh ye bhi acha option hai',
-        ],
-      },
-      {
-        heading: '4. Har Deposit/Withdrawal Ka Rule',
-        paragraphs: [
-          'Pehli baar naye broker pe chhoti amount se test karein — jitni aap khone ko tayyar hain. Deposit confirm hone do, ek chhota trade lo, phir withdrawal karo. Jab tak withdrawal na aa jaye, bari amount mat daalo.',
-          'Har transaction ka screenshot, reference number aur date save karein. Withdrawal tax filing ke waqt bhi kaam aata hai.',
-        ],
-      },
-      {
-        heading: '5. Pakistan Mein Aam Forex Scams',
-        paragraphs: ['Scams ka pattern har jagah same hota hai — agar neeche ka koi point match ho, toh paisa mat daalo:'],
-        list: [
-          '"Monthly fixed 10–30% profit" — koi legit trading is tarah guarantee nahi kar sakti',
-          'Paid signal groups jin mein "insider levels" beche jate hain',
-          'Local "trading companies" jo naye members ke paisay se puranay ko pay karti hain (Ponzi)',
-          'Fake apps jin mein balance dikhta hai lekin withdrawal nahi hota',
-          'Copy-trading schemes jin mein "har member ko profit" ka wada ho',
-          'Koi bhi cheez jo jaldi ameer banane ka wada de — woh is waqt 100% scam hai',
-        ],
-      },
-      {
-        heading: '6. Pehla Mahina: Practical Roadmap',
-        list: [
-          'Week 1: Broker choose karein (checklist follow), demo account khol lein — paisa abhi nahi',
-          'Week 2: Demo pe trading basics, risk management aur 1% rule parh lein',
-          'Week 3: Chhota real account ($50–100), sirf minimum lot size, stop loss har trade mein',
-          'Week 4: Trading journal shuru karein — har trade ka reason likhein',
-          'Month 2+: Sirf tabhi barhana jab 20+ trades ke consistent results hon',
-        ],
-        paragraphs: [
-          'Isi roadmap ko video format mein seekhne ke liye TradeEd ka free Forex Trading Course (12 lectures, Roman Urdu) available hai — market structure, risk aur psychology sab isi mein cover hote hain.',
-        ],
-      },
-      {
-        heading: 'Key Takeaways',
-        list: [
-          'Pakistan mein dedicated forex regulator nahi — international regulated broker hi safe route hai',
-          'Regulation number khud verify karein, marketing text par bharosa na karein',
-          'Chhoti test deposit → pehla trade → test withdrawal, hamesha isi order mein',
-          'P2P (USDT) Pakistan se sab se reliable deposit method hai',
-          'Fixed-profit wada = scam; income report karna aur records rakhna lazmi hain',
-        ],
-      },
-      {
-        heading: 'Frequently Asked Questions',
-      },
-      {
-        heading: 'Forex trading shuru karne ke liye kitna paisa chahiye?',
-        paragraphs: ['Broker ke minimum $10–50 se bhi account khulta hai, lekin practical shuruaat $50–200 se karein — is se aap real execution seekh sakte hain bina bari loss ke. Aur ye paisa sirf wahi hon jo afford kar saken ke wo poora khatam ho jaye.'],
-      },
-      {
-        heading: 'Pakistan se deposit ke liye PayPal/Payoneer chalta hai?',
-        paragraphs: ['Har broker har wallet support nahi karta, aur PayPal Pakistan mein limited hai. Sab se zyada reliably P2P (USDT) ya supported e-wallet chalta hai — deposit page par apne liye available method pehle dekh lein.'],
-      },
-      {
-        heading: 'Forex income par Pakistan mein tax lagta hai?',
-        paragraphs: ['Trading income ko apni tax filing mein report karna chahiye. Exact treatment (capital gains vs business income) aap ki situation par depend karti hai — is ke liye chartered accountant se mashwara lein aur withdrawal records zaroor rakhein.'],
-      },
-      {
-        heading: 'Demo account se seedha real mein shift karein?',
-        paragraphs: ['Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se execution aur emotions test karein. Demo aur real ka farq psychology ka hota hai — asal paisa lagane par decisions badalte hain.'],
-      },
-      {
-        heading: 'Aaj Se Shuru Karein',
-        paragraphs: [
-          'Checklist print karein ya phone mein save karein. Broker ki regulation verify karein, demo account khol lein, aur pehla trade plan ke sath lo — bina plan ke trading sirf gamble hai. Plan seekhne ke liye TradeEd ka free Forex course shuru karein.',
-        ],
-      },
-    ],
+    html: `<p class="lead">Pakistan mein forex trading ki popularity tezi se barh rahi hai — lekin shuru karne se pehle teen sawal sab ko hota hain: ye legal hai, broker kaise choose karein, aur paisa account mein kaise jaye. Is guide mein hum in teenon ka practical jawab Roman Urdu mein denge.</p>
+<p>Ye guide educational maqsad ke liye hai. Har trader apni country ke rules, broker ke terms aur tax obligations khud verify kare — ya qualified professional se mashwara kare.</p>
+
+<h2>1. Forex Trading Pakistan Mein Legal Hai?</h2>
+<p>Seedhi baat: Pakistan mein "forex trading" par aisa complete ban nahi hai jaise kuch log forums par likhte hain. Masla regulation ka hai. Pakistan mein securities (stocks, funds) ka regulator <b>SECP</b> hai, aur banking transactions par <b>State Bank of Pakistan (SBP)</b> ke rules hain — lekin international forex brokers ke liye koi dedicated local regulator/license system nahi bana.</p>
+<p>Isi wajah se zyada tar Pakistani traders internationally regulated brokers (jaise FCA/ASIC/CySEC waghera) ke through trade karte hain, aur deposit/withdrawal ke tareeqe badal kar (bank wire, P2P, e-wallets) paisa move karte hain. Yeh aam practice hai — lekin iska matlab ye nahi ke har "local agent" wala platform safe hai.</p>
+<p>Zaroori hai ke aap yahan income report aur tax obligations ko lightly na lein. Trading se honay wali income ki reporting Pakistan mein lazmi nahi chhodi jati — filer ya non-filer, apne accountant se confirm karein aur har withdrawal ka record rakhein.</p>
+<ul>
+<li>Koi bhi platform jo "100% guaranteed profit" kahe — wo scam hai, legal broker aisa nahi kehta</li>
+<li>SECP "registered" ka label khud check karein — kai scam companies fake registration number deti hain</li>
+<li>Agar koi local company aap ko apne hi app pe trade karwa rahi hai aur withdrawal rok rahi hai — turant stop</li>
+<li>Personal advice ke liye: tax lawyer ya chartered accountant se yearly ek consultation sasti nahi, mehngi ghalti se bachati hai</li>
+</ul>
+
+<h2>2. Sahi Broker Kaise Chunein — 7 Point Checklist</h2>
+<p>Broker ka selection trading se zyada important hai, kyunki aapka paisa aur trade usi ke upar hain. Neeche wali checklist har naye trader ko broker ke naam final karne se pehle follow karni chahiye.</p>
+<ul>
+<li><b>Regulation:</b> FCA (UK), ASIC (Australia), CySEC (Cyprus) ya ESMA-covered license — number broker ki website par verify karein</li>
+<li><b>History:</b> Kam az kam 7–10 saal ka track record, public reviews mein withdrawal complaints na hon</li>
+<li><b>Trading cost:</b> Spread + commission mila kar actual cost — EUR/USD standard account par 1–1.5 pips normal hai</li>
+<li><b>Deposit/Withdrawal methods:</b> Aap ke pas jo method hai wo support ho (bank, P2P, e-wallet)</li>
+<li><b>Platform:</b> MT4/MT5 ya cTrader — mobile + desktop dono kaam karte hon</li>
+<li><b>Customer support:</b> 24/5 hon, aur Urdu support ka ilzaam na ho (ziada tar English hi hoti hai)</li>
+<li><b>Minimum deposit:</b> Naye trader ke liye $50–200 kaafi hai — bari deposit "bonus" ke naam par force na kare</li>
+</ul>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Safe Sign</th><th>Red Flag</th></tr>
+<tr><td>License number website par verifiable</td><td>Sirf "regulated" likha hai, number nahi</td></tr>
+<tr><td>Chhoti amount pe fast withdrawal</td><td>Withdrawal mein "verification fee" maangay</td></tr>
+<tr><td>Spreads publicly listed</td><td>Fixed "0 pip" marketing without conditions</td></tr>
+<tr><td>Demo account free</td><td>Demo ke liye paisa maange</td></tr>
+<tr><td>Risk warning pages mojood</td><td>Guaranteed income / fixed monthly profit ka wada</td></tr>
+</table>
+</div>
+</figure>
+
+<h2>3. Pakistan Se Deposit aur Withdrawal Ke Tareeqe</h2>
+<p>Ye woh hissa hai jahan zyada tar log phanste hain. International card payments par Pakistan ke restrictions hain, aur har broker har method Pakistan se support nahi karta. Amal tor par yeh teen tareeqe sab se zyada chalte hain:</p>
+<ul>
+<li><b>Crypto P2P (USDT):</b> Binance P2P se PKR mein USDT khareedein, phir USDT broker ke wallet mein deposit — sab se popular aur fast method. TradeEd par is ka complete guide maujood hai</li>
+<li><b>Bank wire / international transfer:</b> Kabhi kabhi kaam karta hai, lekin fee zyada (20–40 USD) aur time 2–5 din</li>
+<li><b>E-wallets:</b> Some brokers support Skrill/Neteller — agar Pakistan se accessible hon toh ye bhi acha option hai</li>
+</ul>
+
+<h2>4. Har Deposit/Withdrawal Ka Rule</h2>
+<p>Pehli baar naye broker pe chhoti amount se test karein — jitni aap khone ko tayyar hain. Deposit confirm hone do, ek chhota trade lo, phir withdrawal karo. Jab tak withdrawal na aa jaye, bari amount mat daalo.</p>
+<p>Har transaction ka screenshot, reference number aur date save karein. Withdrawal tax filing ke waqt bhi kaam aata hai.</p>
+
+<h2>5. Pakistan Mein Aam Forex Scams</h2>
+<p>Scams ka pattern har jagah same hota hai — agar neeche ka koi point match ho, toh paisa mat daalo:</p>
+<ul>
+<li>"Monthly fixed 10–30% profit" — koi legit trading is tarah guarantee nahi kar sakti</li>
+<li>Paid signal groups jin mein "insider levels" beche jate hain</li>
+<li>Local "trading companies" jo naye members ke paisay se puranay ko pay karti hain (Ponzi)</li>
+<li>Fake apps jin mein balance dikhta hai lekin withdrawal nahi hota</li>
+<li>Copy-trading schemes jin mein "har member ko profit" ka wada ho</li>
+<li>Koi bhi cheez jo jaldi ameer banane ka wada de — woh is waqt 100% scam hai</li>
+</ul>
+
+<h2>6. Pehla Mahina: Practical Roadmap</h2>
+<ul>
+<li><b>Week 1:</b> Broker choose karein (checklist follow), demo account khol lein — paisa abhi nahi</li>
+<li><b>Week 2:</b> Demo pe trading basics, risk management aur 1% rule parh lein</li>
+<li><b>Week 3:</b> Chhota real account ($50–100), sirf minimum lot size, stop loss har trade mein</li>
+<li><b>Week 4:</b> Trading journal shuru karein — har trade ka reason likhein</li>
+<li><b>Month 2+:</b> Sirf tabhi barhana jab 20+ trades ke consistent results hon</li>
+</ul>
+<p>Isi roadmap ko video format mein seekhne ke liye TradeEd ka free Forex Trading Course (12 lectures, Roman Urdu) available hai — market structure, risk aur psychology sab isi mein cover hote hain.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+<li>Pakistan mein dedicated forex regulator nahi — international regulated broker hi safe route hai</li>
+<li>Regulation number khud verify karein, marketing text par bharosa na karein</li>
+<li>Chhoti test deposit → pehla trade → test withdrawal, hamesha isi order mein</li>
+<li>P2P (USDT) Pakistan se sab se reliable deposit method hai</li>
+<li>Fixed-profit wada = scam; income report karna aur records rakhna lazmi hain</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Forex trading shuru karne ke liye kitna paisa chahiye?</b>
+Broker ke minimum $10–50 se bhi account khulta hai, lekin practical shuruaat $50–200 se karein — is se aap real execution seekh sakte hain bina bari loss ke. Aur ye paisa sirf wahi hon jo afford kar saken ke wo poora khatam ho jaye.
+<b>Pakistan se deposit ke liye PayPal/Payoneer chalta hai?</b>
+Har broker har wallet support nahi karta, aur PayPal Pakistan mein limited hai. Sab se zyada reliably P2P (USDT) ya supported e-wallet chalta hai — deposit page par apne liye available method pehle dekh lein.
+<b>Forex income par Pakistan mein tax lagta hai?</b>
+Trading income ko apni tax filing mein report karna chahiye. Exact treatment (capital gains vs business income) aap ki situation par depend karti hai — is ke liye chartered accountant se mashwara lein aur withdrawal records zaroor rakhein.
+<b>Demo account se seedha real mein shift karein?</b>
+Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se execution aur emotions test karein. Demo aur real ka farq psychology ka hota hai — asal paisa lagane par decisions badalte hain.
+</div>
+
+<h2>Aaj Se Shuru Karein</h2>
+<p>Checklist print karein ya phone mein save karein. Broker ki regulation verify karein, demo account khol lein, aur pehla trade plan ke sath lo — bina plan ke trading sirf gamble hai. Plan seekhne ke liye TradeEd ka free Forex course shuru karein.</p>`
   },
   {
     slug: 'forex-best-time-karachi-sessions',
@@ -168,119 +137,91 @@ export const blogPosts: BlogPost[] = [
     readingTime: '6 min read',
     hero: '/blog/forex-best-time-karachi-sessions.webp',
     heroAlt: 'Forex Trading Ka Best Time: Karachi Time Mein Sessions aur Market Flow (2026 Guide)',
-    sections: [
-      {
-        paragraphs: [
-          'Naye traders yeh galti sab se zyada karte hain: chaar ghante ka bhi session dekh lein aur trade kar lete hain — bina soche ke us waqt liquidity kitni hai. Forex 5 din 24 ghante chalta hai, lekin sirf kuch ghante aise hain jahan asal paisa (volume) move hota hai.',
-          'Is guide mein hum har session ka Karachi (PKT) time dekhenge, batayenge ke beginner ke liye kaunsa window best hai, aur kaunse ghante avoid karne chahiye.',
-        ],
-      },
-      {
-        heading: '1. Forex Market 24/5 Kyun Chalti Hai',
-        paragraphs: [
-          'Forex ka koi central exchange nahi — London, New York, Tokyo, Sydney ke banks ke opening/closing ke sath sessions bante hain. Jab ek session band hota hai, doosra khulta hai (weekend ko band), isi liye market hamesha "khuli" rehti hai.',
-          'Lekin har session ka apna mizaj (character) hota hai: kis pair par volume hai, kitni volatility hai, aur trend ban raha hai ya range. Time na jaanna = bina reason ke trade lena.',
-        ],
-      },
-      {
-        heading: '2. Karachi Time Mein 4 Sessions',
-        table: {
-          headers: ['Session (PKT Winter)', 'Timing', 'Khasiyat'],
-          rows: [
-            ['Sydney — 02:00 se 11:00', 'Low volume', 'AUD/NZD pairs; aksar range-bound, news kam'],
-            ['Tokyo — 05:00 se 14:00', 'Medium', 'JPY pairs active; Asian range kehte hain'],
-            ['London — 12:00 se 21:00', 'High', 'Sab se bara session; EUR/GBP trends bante hain'],
-            ['New York — 17:00 se 02:00', 'High', 'USD news; day ka doosra bari movement wala hissa'],
-          ],
-        },
-        paragraphs: [
-          'Note: Summer (DST) mein timings 1 ghanta shift ho jati hain — isi liye apne broker ke server time ka timezone dekhna zaroori hai.',
-          'Sab se important line: <b>London aur New York ka overlap — 17:00 se 21:00 PKT</b> — wo window hai jahan duniya ki sab se zyada currency trading hoti hai. Spreads tight, movement clear.',
-        ],
-      },
-      {
-        heading: '3. Beginners Ke Liye Best Time',
-        paragraphs: [
-          'Har kaam ka apna time hota hai — strategy ke hisaab se window chunein, bas "jab free hon" se nahi:',
-          'Agar aap din mein job karte hain, toh 17:00–21:00 PKT ka window realistic hai — din ka 4 ghante ka plan isi mein fit hota hai, 24/7 screen ke saamne baithne ki zaroorat nahi.',
-        ],
-        table: {
-          headers: ['Aap Ka Style', 'Best Window (PKT)', 'Kyun'],
-          rows: [
-            ['Breakout trading', 'London open — 12:00 se 14:00', 'Din ka volume start hota hai, range tootti hai'],
-            ['Trend follow / swing', '17:00 se 21:00 (overlap)', 'Sab se zyada liquidity, chal raha trend continue hota hai'],
-            ['Scalping', '17:00 se 20:00', 'Tight spreads aur fast moves — lekin experience chahiye'],
-            ['Range / practice', 'Tokyo — 05:00 se 11:00', 'Chhoti movement, beginners ke liye sasta practice ground'],
-          ],
-        },
-      },
-      {
-        heading: '4. Ye Waqt Avoid Karein',
-        list: [
-          '<b>Rollover time (taqreeban 03:00 PKT):</b> Spread spike ho jata hai, chhoti positions ke liye mehnga',
-          '<b>Major news ke 15 minute pehle aur baad:</b> NFP, CPI, FOMC — spread barhta hai, stop loss hunt hota hai',
-          '<b>Friday aakhri 2–3 ghante:</b> Liquidity khatam hoti hai, gap ka risk barhta hai',
-          '<b>Sunday/Monday early hours:</b> Thin market, unexpected gaps',
-          '<b>Jab tak setup na mile:</b> Boredom se liya gaya trade sab se mehnga trade hota hai',
-        ],
-      },
-      {
-        heading: '5. News Hours — Karachi Schedule',
-        paragraphs: [
-          'Sab se bari news (NFP = mahina ka pehla Jumera) Pakistan time se lagbhag 18:30 (winter) aati hai. Us ke aas paas spreads double ho sakte hain aur price 2-way chalti hai — beginners ke liye best approach hai: news se 15 min pehle trade band, aur baad mein settle hone do.',
-          'Simple rule: Economic calendar ko PKT mein set karein (brokers ke calendars mein timezone option hota hai), aur sirf apne 2–3 high-impact events dekhein — sab kuch track karne ki zaroorat nahi.',
-        ],
-      },
-      {
-        heading: '6. Apna PKT Schedule Kaise Banayein',
-        list: [
-          'Session table ko phone wallpaper ya sticky note pe rakhein',
-          '12:00 (London open) par chart check — kya setup ban raha hai?',
-          '17:00–21:00 ko "prime block" treat karein — yahin main trading ho',
-          'Har trade journal mein time of day bhi likhein — 1 mahine baad pata chalega ke aap ka asal edge kis session mein hai',
-          'Fix schedule > random checks — discipline hi edge hai',
-        ],
-        paragraphs: [
-          'Trading routine, psychology aur session-based planning ka practical system TradeEd ke free Forex course (12 lectures, Roman Urdu) mein lectures ke sath cover kiya gaya hai.',
-        ],
-      },
-      {
-        heading: 'Key Takeaways',
-        list: [
-          'Har session equal nahi — London–NY overlap (17:00–21:00 PKT) sab se behtar hai',
-          'Session ki timings DST se shift hoti hain — broker server time confirm karein',
-          'Strategy ke hisaab se window chunein: breakout → London open, trend → overlap',
-          'News ke aas paas aur Friday close par trading beginners ke liye risk hai',
-          'Fixed daily schedule banao — "jab free ho" wali trading edge nahi deti',
-        ],
-      },
-      {
-        heading: 'Frequently Asked Questions',
-      },
-      {
-        heading: 'Karachi time mein forex ka best time kya hai?',
-        paragraphs: ['17:00 se 21:00 PKT (London–New York overlap) — yahan liquidity aur volatility dono high hote hain. Agar sirf 2 ghante nikalne hain, toh 18:00–20:00 best balance hai.'],
-      },
-      {
-        heading: 'Raat ko trade karna chahiye (New York session)?',
-        paragraphs: ['NY session 02:00 PKT tak chalta hai. Agar aap ki neend ya next day suffer hoti hai, toh na — thaka hua trader ghalti karta hai. Quality 4 ghante > thakan wali 8 ghante.'],
-      },
-      {
-        heading: 'Friday trading karni chahiye?',
-        paragraphs: ['Haan, lekin aakhri 2–3 ghante skip karein. Subah London/NY session normal chalta hai; din ke end mein liquidity khatam hoti hai aur weekend gap ka risk badh jata hai.'],
-      },
-      {
-        heading: 'Kya session ke baghair bhi trade le sakte hain?',
-        paragraphs: ['Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginners ke liye fake moves dete hain. Pehle high-volume window mein edge banao, phir low session test karo.'],
-      },
-      {
-        heading: 'Aaj Apna Schedule Banayein',
-        paragraphs: [
-          'Calendar khol kar 4 sessions apne phone mein set karein. Kal se sirf 17:00–21:00 PKT block rakhein, har trade journal karein, aur 1 hafte baad dekhein ke discipline ka result kaisa hai.',
-        ],
-      },
-    ],
+    html: `<p class="lead">Naye traders yeh galti sab se zyada karte hain: chaar ghante ka bhi session dekh lein aur trade kar lete hain — bina soche ke us waqt liquidity kitni hai. Forex 5 din 24 ghante chalta hai, lekin sirf kuch ghante aise hain jahan asal paisa (volume) move hota hai.</p>
+<p>Is guide mein hum har session ka Karachi (PKT) time dekhenge, batayenge ke beginner ke liye kaunsa window best hai, aur kaunse ghante avoid karne chahiye.</p>
+
+<h2>1. Forex Market 24/5 Kyun Chalti Hai</h2>
+<p>Forex ka koi central exchange nahi — London, New York, Tokyo, Sydney ke banks ke opening/closing ke sath sessions bante hain. Jab ek session band hota hai, doosra khulta hai (weekend ko band), isi liye market hamesha "khuli" rehti hai.</p>
+<p>Lekin har session ka apna mizaj (character) hota hai: kis pair par volume hai, kitni volatility hai, aur trend ban raha hai ya range. Time na jaanna = bina reason ke trade lena.</p>
+
+<h2>2. Karachi Time Mein 4 Sessions</h2>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Session (PKT Winter)</th><th>Timing</th><th>Khasiyat</th></tr>
+<tr><td>Sydney — 02:00 se 11:00</td><td>Low volume</td><td>AUD/NZD pairs; aksar range-bound, news kam</td></tr>
+<tr><td>Tokyo — 05:00 se 14:00</td><td>Medium</td><td>JPY pairs active; Asian range kehte hain</td></tr>
+<tr><td>London — 12:00 se 21:00</td><td>High</td><td>Sab se bara session; EUR/GBP trends bante hain</td></tr>
+<tr><td>New York — 17:00 se 02:00</td><td>High</td><td>USD news; day ka doosra bari movement wala hissa</td></tr>
+</table>
+</div>
+</figure>
+<p>Note: Summer (DST) mein timings 1 ghanta shift ho jati hain — isi liye apne broker ke server time ka timezone dekhna zaroori hai.</p>
+<p>Sab se important line: <b>London aur New York ka overlap — 17:00 se 21:00 PKT</b> — wo window hai jahan duniya ki sab se zyada currency trading hoti hai. Spreads tight, movement clear.</p>
+
+<h2>3. Beginners Ke Liye Best Time</h2>
+<p>Har kaam ka apna time hota hai — strategy ke hisaab se window chunein, bas "jab free hon" se nahi:</p>
+<figure>
+<div class="scroll">
+<table>
+<tr><th>Aap Ka Style</th><th>Best Window (PKT)</th><th>Kyun</th></tr>
+<tr><td>Breakout trading</td><td>London open — 12:00 se 14:00</td><td>Din ka volume start hota hai, range tootti hai</td></tr>
+<tr><td>Trend follow / swing</td><td>17:00 se 21:00 (overlap)</td><td>Sab se zyada liquidity, chal raha trend continue hota hai</td></tr>
+<tr><td>Scalping</td><td>17:00 se 20:00</td><td>Tight spreads aur fast moves — lekin experience chahiye</td></tr>
+<tr><td>Range / practice</td><td>Tokyo — 05:00 se 11:00</td><td>Chhoti movement, beginners ke liye sasta practice ground</td></tr>
+</table>
+</div>
+</figure>
+<p>Agar aap din mein job karte hain, toh 17:00–21:00 PKT ka window realistic hai — din ka 4 ghante ka plan isi mein fit hota hai, 24/7 screen ke saamne baithne ki zaroorat nahi.</p>
+
+<h2>4. Ye Waqt Avoid Karein</h2>
+<ul>
+<li><b>Rollover time (taqreeban 03:00 PKT):</b> Spread spike ho jata hai, chhoti positions ke liye mehnga</li>
+<li><b>Major news ke 15 minute pehle aur baad:</b> NFP, CPI, FOMC — spread barhta hai, stop loss hunt hota hai</li>
+<li><b>Friday aakhri 2–3 ghante:</b> Liquidity khatam hoti hai, gap ka risk barhta hai</li>
+<li><b>Sunday/Monday early hours:</b> Thin market, unexpected gaps</li>
+<li><b>Jab tak setup na mile:</b> Boredom se liya gaya trade sab se mehnga trade hota hai</li>
+</ul>
+
+<h2>5. News Hours — Karachi Schedule</h2>
+<p>Sab se bari news (NFP = mahina ka pehla Jumera) Pakistan time se lagbhag 18:30 (winter) aati hai. Us ke aas paas spreads double ho sakte hain aur price 2-way chalti hai — beginners ke liye best approach hai: news se 15 min pehle trade band, aur baad mein settle hone do.</p>
+<p>Simple rule: Economic calendar ko PKT mein set karein (brokers ke calendars mein timezone option hota hai), aur sirf apne 2–3 high-impact events dekhein — sab kuch track karne ki zaroorat nahi.</p>
+
+<h2>6. Apna PKT Schedule Kaise Banayein</h2>
+<ul>
+<li>Session table ko phone wallpaper ya sticky note pe rakhein</li>
+<li>12:00 (London open) par chart check — kya setup ban raha hai?</li>
+<li>17:00–21:00 ko "prime block" treat karein — yahin main trading ho</li>
+<li>Har trade journal mein time of day bhi likhein — 1 mahine baad pata chalega ke aap ka asal edge kis session mein hai</li>
+<li>Fix schedule > random checks — discipline hi edge hai</li>
+</ul>
+<p>Trading routine, psychology aur session-based planning ka practical system TradeEd ke free Forex course (12 lectures, Roman Urdu) mein lectures ke sath cover kiya gaya hai.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+<li>Har session equal nahi — London–NY overlap (17:00–21:00 PKT) sab se behtar hai</li>
+<li>Session ki timings DST se shift hoti hain — broker server time confirm karein</li>
+<li>Strategy ke hisaab se window chunein: breakout → London open, trend → overlap</li>
+<li>News ke aas paas aur Friday close par trading beginners ke liye risk hai</li>
+<li>Fixed daily schedule banao — "jab free ho" wali trading edge nahi deti</li>
+</ul>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Karachi time mein forex ka best time kya hai?</b>
+17:00 se 21:00 PKT (London–New York overlap) — yahan liquidity aur volatility dono high hote hain. Agar sirf 2 ghante nikalne hain, toh 18:00–20:00 best balance hai.
+<b>Raat ko trade karna chahiye (New York session)?</b>
+NY session 02:00 PKT tak chalta hai. Agar aap ki neend ya next day suffer hoti hai, toh na — thaka hua trader ghalti karta hai. Quality 4 ghante > thakan wali 8 ghante.
+<b>Friday trading karni chahiye?</b>
+Haan, lekin aakhri 2–3 ghante skip karein. Subah London/NY session normal chalta hai; din ke end mein liquidity khatam hoti hai aur weekend gap ka risk badh jata hai.
+<b>Kya session ke baghair bhi trade le sakte hain?</b>
+Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginners ke liye fake moves dete hain. Pehle high-volume window mein edge banao, phir low session test karo.
+</div>
+
+<h2>Aaj Apna Schedule Banayein</h2>
+<p>Calendar khol kar 4 sessions apne phone mein set karein. Kal se sirf 17:00–21:00 PKT block rakhein, har trade journal karein, aur 1 hafte baad dekhein ke discipline ka result kaisa hai.</p>`
   },
+
   {
     slug: 'bitcoin-halving',
     title: 'Bitcoin Halving ke baad BTC ki price: Tareekh kya batati hai?',
