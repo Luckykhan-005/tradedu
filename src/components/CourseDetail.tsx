@@ -130,7 +130,7 @@ export function CourseDetail({
           </button>
 
           <img
-            src="/banners/course-hero.webp"
+            src={course.thumbnail || '/banners/course-hero.webp'}
             alt=""
             className="mb-5 w-full aspect-[5/2] rounded-xl object-cover object-center border border-border"
             onError={(e) => {
