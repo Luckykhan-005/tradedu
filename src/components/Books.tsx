@@ -236,6 +236,21 @@ export const books: BookItem[] = [
     cover: '/covers/crypto-futures-book.webp',
   },
   {
+    id: 'futures-order-types',
+    title: 'Futures Trading Order Types (Roman Urdu)',
+    titleUrdu: 'فیوچرز ٹریڈنگ آرڈر ٹائپس',
+    description:
+      'Market, limit, stop-market, stop-limit, trailing stop, post-only aur scaled orders — futures ke har order type ka professional guide, comparison table, real trading workflows, risk best practices aur Q&A test ke sath. Roman Urdu mein.',
+    chapters: 12,
+    pages: '12 Chapters · Professional Guide',
+    icon: Crosshair,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-50',
+    href: '/futures-order-types/index.html',
+    tags: ['Roman Urdu', 'Futures', 'Order Types'],
+    cover: '/covers/futures-order-types.webp',
+  },
+  {
     id: 'spot-trading',
     title: 'Spot Trading — Complete Guide (Urdu)',
     titleUrdu: 'اسپاٹ ٹریڈنگ — مکمل گائیڈ',

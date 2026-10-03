@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futures Trading Order Types – Professional Guide (Roman Urdu)</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --card: #1a2332;
+    --accent: #00d4aa;
+    --accent2: #3b82f6;
+    --warn: #f59e0b;
+    --danger: #ef4444;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #2d3a4f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .container { max-width: 920px; margin: 0 auto; padding: 24px 20px 80px; }
+  header {
+    text-align: center;
+    padding: 48px 20px 36px;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f172a 100%);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 2.1rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  header .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+  .badge {
+    display: inline-block;
+    background: rgba(0,212,170,0.15);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 16px;
+    border: 1px solid rgba(0,212,170,0.3);
+  }
+  nav.toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 40px;
+  }
+  nav.toc h2 { font-size: 1.2rem; margin-bottom: 14px; color: var(--accent); }
+  nav.toc ol { padding-left: 22px; }
+  nav.toc li { margin: 8px 0; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    margin-bottom: 32px;
+  }
+  section h2 {
+    font-size: 1.55rem;
+    color: var(--accent);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  section h3 {
+    font-size: 1.2rem;
+    color: var(--accent2);
+    margin: 24px 0 12px;
+  }
+  section h4 { font-size: 1.05rem; color: var(--warn); margin: 18px 0 8px; }
+  p { margin-bottom: 14px; }
+  ul, ol { margin: 12px 0 16px 22px; }
+  li { margin-bottom: 6px; }
+  .highlight {
+    background: rgba(0,212,170,0.08);
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 18px 0;
+  }
+  .warning {
+    background: rgba(245,158,11,0.1);
+    border-left: 4px solid var(--warn);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 18px 0;
+  }
+  .danger-box {
+    background: rgba(239,68,68,0.1);
+    border-left: 4px solid var(--danger);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 18px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    text-align: left;
+  }
+  th { background: rgba(0,212,170,0.12); color: var(--accent); }
+  tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+  .svg-wrap {
+    background: #0a0e14;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 24px 0;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .svg-wrap svg { max-width: 100%; height: auto; }
+  .caption { font-size: 0.85rem; color: var(--muted); margin-top: 10px; text-align: center; }
+  .workflow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  .wf-box {
+    background: rgba(59,130,246,0.15);
+    border: 1px solid var(--accent2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    min-width: 140px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .wf-arrow { color: var(--accent); font-size: 1.4rem; }
+  .example {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 18px 0;
+  }
+  .example strong { color: var(--accent2); }
+  .quiz-section { margin-top: 20px; }
+  .quiz-q {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .quiz-q p { font-weight: 600; margin-bottom: 12px; }
+  .quiz-opts label {
+    display: block;
+    padding: 10px 14px;
+    margin: 6px 0;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .quiz-opts label:hover { border-color: var(--accent2); }
+  .quiz-opts input { margin-right: 10px; }
+  .quiz-feedback {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    font-size: 0.95rem;
+  }
+  .quiz-feedback.correct { background: rgba(0,212,170,0.15); border: 1px solid var(--accent); display: block; }
+  .quiz-feedback.wrong { background: rgba(239,68,68,0.15); border: 1px solid var(--danger); display: block; }
+  .btn {
+    background: var(--accent);
+    color: #0f1419;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn:hover { opacity: 0.9; }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  .tag-green { background: rgba(0,212,170,0.2); color: var(--accent); }
+  .tag-blue { background: rgba(59,130,246,0.2); color: var(--accent2); }
+  .tag-orange { background: rgba(245,158,11,0.2); color: var(--warn); }
+  .tag-red { background: rgba(239,68,68,0.2); color: var(--danger); }
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    section { padding: 22px 16px; }
+    .workflow { flex-direction: column; }
+    .wf-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Futures Trading Order Types</h1>
+  <p class="subtitle">Limit • Market • Conditional • Trailing Stop • Post Only • Scaled Order<br>
+  Complete Professional Guide – Research-Based & Practical</p>
+  <span class="badge">Roman Urdu • Professional Level • 2026 Edition</span>
+</header>
+
+<div class="container">
+
+<nav class="toc">
+  <h2>Kitabon ka Index (Table of Contents)</h2>
+  <ol>
+    <li><a href="#intro">1. Introduction – Order Types kyun zaroori hain?</a></li>
+    <li><a href="#market">2. Market Order – Speed ka badshah</a></li>
+    <li><a href="#limit">3. Limit Order – Price control ka master</a></li>
+    <li><a href="#conditional">4. Conditional Orders (Stop Market / Stop Limit)</a></li>
+    <li><a href="#trailing">5. Trailing Stop Order – Profit lock karne ka tarika</a></li>
+    <li><a href="#postonly">6. Post Only Order – Maker fee ka fayda</a></li>
+    <li><a href="#scaled">7. Scaled Order – Badi size ko smart split</a></li>
+    <li><a href="#comparison">8. Comparison Table & Decision Framework</a></li>
+    <li><a href="#workflows">9. Real Trading Workflows & Examples</a></li>
+    <li><a href="#risk">10. Risk Management Best Practices</a></li>
+    <li><a href="#quiz">11. Interactive Q&A – Apna knowledge test karein</a></li>
+    <li><a href="#summary">12. Final Summary & Pro Tips</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 1. INTRO ===================== -->
+<section id="intro">
+  <h2>1. Introduction – Order Types kyun zaroori hain?</h2>
+  <p>Futures trading mein order type aapka sab se powerful tool hai. Galat order type choose karne se slippage, missed fill, ya badi loss ho sakti hai. Professional traders order type ko strategy ke hisse ke tor par treat karte hain, sirf “button” nahi.</p>
+  
+  <div class="highlight">
+    <strong>Core Principle:</strong> Har order type ek trade-off hai — <em>Fill Certainty</em> vs <em>Price Certainty</em>. Market order fill guarantee karta hai lekin price nahi. Limit order price guarantee karta hai lekin fill nahi.
+  </div>
+
+  <p>Is guide mein hum Binance, Bybit, OKX, CME jaise platforms par available major order types cover karenge. Crypto perpetual futures aur traditional futures (ES, NQ, CL) dono ke liye concepts same hain.</p>
+
+  <h3>Order Types ka Overview</h3>
+  <table>
+    <tr>
+      <th>Order Type</th>
+      <th>Fill Guarantee</th>
+      <th>Price Control</th>
+      <th>Best Use</th>
+    </tr>
+    <tr>
+      <td>Market</td>
+      <td>Haan</td>
+      <td>Nahi</td>
+      <td>Emergency exit / Fast entry</td>
+    </tr>
+    <tr>
+      <td>Limit</td>
+      <td>Nahi</td>
+      <td>Haan</td>
+      <td>Planned entry / Take-profit</td>
+    </tr>
+    <tr>
+      <td>Stop Market</td>
+      <td>Haan (trigger ke baad)</td>
+      <td>Nahi</td>
+      <td>Stop-loss (protective)</td>
+    </tr>
+    <tr>
+      <td>Stop Limit</td>
+      <td>Nahi</td>
+      <td>Haan</td>
+      <td>Controlled exit (stable market)</td>
+    </tr>
+    <tr>
+      <td>Trailing Stop</td>
+      <td>Haan (usually)</td>
+      <td>Dynamic</td>
+      <td>Trend following / Profit lock</td>
+    </tr>
+    <tr>
+      <td>Post Only</td>
+      <td>Nahi (reject ho sakta)</td>
+      <td>Haan</td>
+      <td>Maker fee save</td>
+    </tr>
+    <tr>
+      <td>Scaled</td>
+      <td>Partial</td>
+      <td>Haan</td>
+      <td>Large size without market impact</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ===================== 2. MARKET ===================== -->
+<section id="market">
+  <h2>2. Market Order – Speed ka Badshah</h2>
+  
+  <h3>Kya hai Market Order?</h3>
+  <p>Market order exchange ko bolta hai: <strong>“Abhi fill karo, best available price pe.”</strong> Aap speed choose karte ho, price control nahi.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Order book visual -->
+      <text x="300" y="25" text-anchor="middle" fill="#94a3b8" font-size="14">Market Buy Order – Instant Fill</text>
+      <!-- Asks (sell side) -->
+      <rect x="320" y="50" width="180" height="28" fill="#ef4444" opacity="0.7" rx="4"/>
+      <text x="410" y="69" text-anchor="middle" fill="#fff" font-size="12">Ask 50100 – 2.5 BTC</text>
+      <rect x="320" y="82" width="140" height="28" fill="#ef4444" opacity="0.5" rx="4"/>
+      <text x="390" y="101" text-anchor="middle" fill="#fff" font-size="12">Ask 50080 – 1.8 BTC</text>
+      <rect x="320" y="114" width="100" height="28" fill="#ef4444" opacity="0.4" rx="4"/>
+      <text x="370" y="133" text-anchor="middle" fill="#fff" font-size="12">Ask 50050 – 0.9 BTC</text>
+      <!-- Bids -->
+      <rect x="100" y="114" width="100" height="28" fill="#00d4aa" opacity="0.4" rx="4"/>
+      <text x="150" y="133" text-anchor="middle" fill="#fff" font-size="12">Bid 50020</text>
+      <rect x="80" y="146" width="140" height="28" fill="#00d4aa" opacity="0.5" rx="4"/>
+      <text x="150" y="165" text-anchor="middle" fill="#fff" font-size="12">Bid 50000</text>
+      <rect x="60" y="178" width="180" height="28" fill="#00d4aa" opacity="0.7" rx="4"/>
+      <text x="150" y="197" text-anchor="middle" fill="#fff" font-size="12">Bid 49980</text>
+      <!-- Arrow -->
+      <path d="M280 100 L310 100" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+          <path d="M0,0 L9,3 L0,6 Z" fill="#3b82f6"/>
+        </marker>
+      </defs>
+      <text x="250" y="90" fill="#3b82f6" font-size="11">Market Buy</text>
+      <text x="300" y="215" text-anchor="middle" fill="#94a3b8" font-size="11">Fill hota hai best available Ask pe → Slippage possible</text>
+    </svg>
+    <p class="caption">Market buy order instantly best ask se match hota hai. Agar size bari ho to multiple levels se fill hota hai → average price worse ho sakta hai.</p>
+  </div>
+
+  <h3>Kab Use Karein?</h3>
+  <ul>
+    <li><span class="tag tag-green">Best</span> Losing position ko turant band karna (stop-loss trigger ke baad)</li>
+    <li><span class="tag tag-green">Best</span> Strong breakout / momentum trade jahan miss karna costly ho</li>
+    <li><span class="tag tag-green">Best</span> High liquidity markets (BTCUSDT, ES, NQ) normal conditions mein</li>
+  </ul>
+
+  <h3>Kab Avoid Karein?</h3>
+  <ul>
+    <li><span class="tag tag-red">Avoid</span> Thin / low liquidity coins ya after-hours sessions</li>
+    <li><span class="tag tag-red">Avoid</span> Major news events (FOMC, NFP, CPI) ke around jab spreads widen hote hain</li>
+    <li><span class="tag tag-red">Avoid</span> Jab 1-2 ticks slippage aapka R:R ratio kharab kar de</li>
+  </ul>
+
+  <div class="example">
+    <strong>Example (BTCUSDT Perpetual):</strong><br>
+    Current price: 64,250. Aap long position close karna chahte ho emergency mein. Market sell order place kiya → fill 64,248 pe (2$ slippage). Liquid market mein ye normal hai. Agar aap limit 64,250 pe lagate to shayad fill na hota aur loss badh jata.
+  </div>
+
+  <div class="warning">
+    <strong>Pro Tip:</strong> Market order kabhi bhi “default” entry ke liye mat use karein. Entry ke liye limit prefer karein; exit (especially stop-loss) ke liye market better hai.
+  </div>
+</section>
+
+<!-- ===================== 3. LIMIT ===================== -->
+<section id="limit">
+  <h2>3. Limit Order – Price Control ka Master</h2>
+
+  <h3>Kya hai Limit Order?</h3>
+  <p>Limit order aapko price specify karne deta hai. Buy limit sirf aapke price ya usse better (lower) pe fill hoga. Sell limit sirf aapke price ya usse better (higher) pe.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <text x="300" y="22" text-anchor="middle" fill="#94a3b8" font-size="14">Limit Buy Order – Price Control</text>
+      <!-- Price line -->
+      <line x1="80" y1="120" x2="520" y2="120" stroke="#2d3a4f" stroke-width="2"/>
+      <text x="80" y="110" fill="#94a3b8" font-size="11">Price</text>
+      <!-- Current price -->
+      <circle cx="380" cy="120" r="8" fill="#3b82f6"/>
+      <text x="380" y="145" text-anchor="middle" fill="#3b82f6" font-size="12">Current: 50200</text>
+      <!-- Limit price -->
+      <circle cx="220" cy="120" r="8" fill="#00d4aa"/>
+      <text x="220" y="145" text-anchor="middle" fill="#00d4aa" font-size="12">Your Limit: 50000</text>
+      <!-- Arrow showing wait -->
+      <path d="M240 100 Q300 60 360 100" stroke="#f59e0b" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+      <text x="300" y="55" text-anchor="middle" fill="#f59e0b" font-size="12">Price drop ka wait</text>
+      <!-- Result boxes -->
+      <rect x="100" y="175" width="160" height="45" rx="6" fill="rgba(0,212,170,0.15)" stroke="#00d4aa"/>
+      <text x="180" y="195" text-anchor="middle" fill="#00d4aa" font-size="11">Agar price 50000</text>
+      <text x="180" y="210" text-anchor="middle" fill="#00d4aa" font-size="11">touch kare → FILL</text>
+      <rect x="340" y="175" width="160" height="45" rx="6" fill="rgba(239,68,68,0.15)" stroke="#ef4444"/>
+      <text x="420" y="195" text-anchor="middle" fill="#ef4444" font-size="11">Agar price neeche</text>
+      <text x="420" y="210" text-anchor="middle" fill="#ef4444" font-size="11">na aaye → NO FILL</text>
+    </svg>
+    <p class="caption">Limit order order book mein rest karta hai. Fill tabhi hota hai jab market aapke price tak aaye.</p>
+  </div>
+
+  <h3>Kab Use Karein?</h3>
+  <ul>
+    <li>Support / Resistance / VWAP pe planned entry</li>
+    <li>Take-profit target set karna</li>
+    <li>Range-bound / calm markets jahan patience reward hoti hai</li>
+    <li>Maker fee save karna (Post Only ke sath)</li>
+  </ul>
+
+  <h3>Kab Avoid Karein?</h3>
+  <ul>
+    <li>Fast breakout jahan miss karna costly ho</li>
+    <li>Emergency exit (stop-loss)</li>
+    <li>Highly volatile news periods</li>
+  </ul>
+
+  <div class="example">
+    <strong>Example (ES Futures):</strong><br>
+    ES 5205 pe trade kar raha hai. Aap support 5200 pe buy karna chahte ho. Buy Limit @ 5200 lagaya. Agar price 5200 touch kare to fill, warna order open rehta hai. Market order se aap 5205 pe enter karte – 5 points zyada.
+  </div>
+
+  <div class="highlight">
+    <strong>Professional Habit:</strong> Entry ke liye Limit, Exit (protective stop) ke liye Stop-Market. Ye combination most consistent results deta hai.
+  </div>
+</section>
+
+<!-- ===================== 4. CONDITIONAL ===================== -->
+<section id="conditional">
+  <h2>4. Conditional Orders – Stop Market & Stop Limit</h2>
+
+  <p>Conditional order (ya Stop order) dormant rehta hai jab tak trigger price touch na ho. Trigger hone ke baad ye Market ya Limit order ban jata hai.</p>
+
+  <h3>4.1 Stop Market Order</h3>
+  <p>Trigger price touch hote hi <strong>Market order</strong> ban jata hai. Fill guarantee, price nahi.</p>
+
+  <div class="workflow">
+    <div class="wf-box">Price Trigger<br>Touch</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-box">Order Activate<br>(Market)</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-box">Instant Fill<br>(Slippage possible)</div>
+  </div>
+
+  <h4>Kab Use Karein?</h4>
+  <ul>
+    <li>Protective stop-loss (long ke neeche / short ke upar)</li>
+    <li>Breakout entry (buy stop above resistance)</li>
+    <li>Volatile markets / news events – jahan exit zaroori ho</li>
+  </ul>
+
+  <div class="danger-box">
+    <strong>Critical Warning:</strong> Stop-Limit ko protective stop ke liye mat use karein agar aap gap risk tolerate nahi kar sakte. Gap through limit hone pe aapka stop fail ho jata hai aur position open reh jati hai.
+  </div>
+
+  <h3>4.2 Stop Limit Order</h3>
+  <p>Trigger ke baad <strong>Limit order</strong> ban jata hai. Price control hai, lekin fill guarantee nahi.</p>
+
+  <table>
+    <tr>
+      <th>Factor</th>
+      <th>Stop Market</th>
+      <th>Stop Limit</th>
+    </tr>
+    <tr>
+      <td>Execution Guarantee</td>
+      <td>Haan</td>
+      <td>Nahi (gap risk)</td>
+    </tr>
+    <tr>
+      <td>Price Certainty</td>
+      <td>Nahi</td>
+      <td>Haan</td>
+    </tr>
+    <tr>
+      <td>Best Market</td>
+      <td>Volatile / News</td>
+      <td>Range-bound / Liquid</td>
+    </tr>
+    <tr>
+      <td>Risk</td>
+      <td>Slippage</td>
+      <td>Missed fill</td>
+    </tr>
+  </table>
+
+  <div class="example">
+    <strong>Practical Setup (Long BTC):</strong><br>
+    Entry: 64,000<br>
+    Stop Market: 63,200 (risk ~800$)<br>
+    Agar aap Stop Limit use karte ho (Trigger 63,200, Limit 63,100) to flash crash mein price 63,000 pe jump kar sakta hai aur aapka order unfilled reh jata hai.
+  </div>
+
+  <h3>Conditional Order on Binance / Bybit</h3>
+  <p>Modern platforms pe Conditional order mein aap choose kar sakte ho:</p>
+  <ul>
+    <li>Trigger: Mark Price ya Last Price</li>
+    <li>Order type after trigger: Limit / Market / BBO</li>
+  </ul>
+  <p><strong>Recommendation:</strong> Stop-loss ke liye Mark Price trigger prefer karein (manipulation se bachne ke liye).</p>
+</section>
+
+<!-- ===================== 5. TRAILING STOP ===================== -->
+<section id="trailing">
+  <h2>5. Trailing Stop Order – Profit Lock karne ka Tarika</h2>
+
+  <h3>Kya hai Trailing Stop?</h3>
+  <p>Trailing stop dynamic stop-loss hai jo price ke sath favorable direction mein move karta hai, lekin kabhi unfavorable direction mein nahi. Aap ek distance (points / % / ticks) set karte ho.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg">
+      <text x="310" y="22" text-anchor="middle" fill="#94a3b8" font-size="14">Trailing Stop – Long Position Example (3% Callback)</text>
+      <!-- Price path -->
+      <polyline points="60,200 120,160 180,140 240,100 300,80 360,90 420,70 480,110 540,130" 
+                fill="none" stroke="#3b82f6" stroke-width="3"/>
+      <!-- Trailing stop path -->
+      <polyline points="60,220 120,185 180,165 240,130 300,110 360,110 420,100 480,100 540,100" 
+                fill="none" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <!-- Labels -->
+      <text x="60" y="240" fill="#3b82f6" font-size="11">Entry 60000</text>
+      <text x="60" y="255" fill="#00d4aa" font-size="11">Stop 58200</text>
+      <text x="300" y="65" fill="#3b82f6" font-size="11">Peak 65000</text>
+      <text x="300" y="125" fill="#00d4aa" font-size="11">Stop → 63050</text>
+      <text x="520" y="150" fill="#ef4444" font-size="11">Trigger</text>
+      <circle cx="540" cy="130" r="6" fill="#ef4444"/>
+      <!-- Legend -->
+      <line x1="50" y1="270" x2="80" y2="270" stroke="#3b82f6" stroke-width="3"/>
+      <text x="85" y="274" fill="#94a3b8" font-size="11">Price</text>
+      <line x1="150" y1="270" x2="180" y2="270" stroke="#00d4aa" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <text x="185" y="274" fill="#94a3b8" font-size="11">Trailing Stop</text>
+    </svg>
+    <p class="caption">Long position: Price up jate hi stop upar move karta hai. Price reverse hote hi stop fixed rehta hai aur trigger hota hai.</p>
+  </div>
+
+  <h3>Kaise Kaam Karta Hai? (Long Example)</h3>
+  <ol>
+    <li>Entry @ 60,000 + 3% trailing stop → Initial stop = 58,200</li>
+    <li>Price 62,000 pe jata hai → Stop moves to 60,140</li>
+    <li>Price 65,000 pe jata hai → Stop moves to 63,050</li>
+    <li>Price reverse hoke 63,050 touch karta hai → Market sell trigger → Profit lock</li>
+  </ol>
+
+  <h3>Kab Use Karein?</h3>
+  <ul>
+    <li>Strong trending market mein profit maximize karna</li>
+    <li>Jab aapko exact exit level nahi pata (trend following)</li>
+    <li>Partial profit leke remaining position ko trail karna</li>
+  </ul>
+
+  <h3>Kab Avoid Karein?</h3>
+  <ul>
+    <li>Choppy / ranging market – whipsaw se bar bar stop hit hota hai</li>
+    <li>Bahut tight trail (normal volatility se kam) – premature exit</li>
+  </ul>
+
+  <div class="warning">
+    <strong>Pro Tip:</strong> Trail distance ko ATR (Average True Range) se set karein. Example: 1.5× ATR trail. Ye market ke natural noise se bachata hai.
+  </div>
+</section>
+
+<!-- ===================== 6. POST ONLY ===================== -->
+<section id="postonly">
+  <h2>6. Post Only Order – Maker Fee ka Fayda</h2>
+
+  <h3>Kya hai Post Only?</h3>
+  <p>Post Only ek flag hai jo ensure karta hai ke aapka limit order <strong>sirf Maker</strong> ban ke order book mein add ho. Agar order turant match hota (Taker ban jata) to system usse <strong>reject</strong> kar deta hai.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg">
+      <text x="290" y="25" text-anchor="middle" fill="#94a3b8" font-size="14">Post Only Logic</text>
+      <!-- Box 1 -->
+      <rect x="40" y="50" width="200" height="90" rx="8" fill="rgba(0,212,170,0.12)" stroke="#00d4aa"/>
+      <text x="140" y="80" text-anchor="middle" fill="#00d4aa" font-size="13" font-weight="bold">Maker Scenario</text>
+      <text x="140" y="105" text-anchor="middle" fill="#e2e8f0" font-size="12">Order book mein rest</text>
+      <text x="140" y="125" text-anchor="middle" fill="#e2e8f0" font-size="12">→ Lower Maker Fee</text>
+      <!-- Box 2 -->
+      <rect x="340" y="50" width="200" height="90" rx="8" fill="rgba(239,68,68,0.12)" stroke="#ef4444"/>
+      <text x="440" y="80" text-anchor="middle" fill="#ef4444" font-size="13" font-weight="bold">Taker Scenario</text>
+      <text x="440" y="105" text-anchor="middle" fill="#e2e8f0" font-size="12">Would cross spread</text>
+      <text x="440" y="125" text-anchor="middle" fill="#e2e8f0" font-size="12">→ Order REJECTED</text>
+      <text x="290" y="175" text-anchor="middle" fill="#94a3b8" font-size="12">Post Only = “I only want to provide liquidity, not take it”</text>
+    </svg>
+  </div>
+
+  <h3>Kab Use Karein?</h3>
+  <ul>
+    <li>High-frequency ya high-volume traders jo fee edge chahte hain</li>
+    <li>Calm markets jahan aap wait kar sakte ho</li>
+    <li>Market making / passive strategies</li>
+  </ul>
+
+  <h3>Kab Avoid Karein?</h3>
+  <ul>
+    <li>Urgent entry / exit</li>
+    <li>Fast markets – rejection se trade miss ho sakta hai</li>
+    <li>Jab fill zaroori ho aur fee secondary ho</li>
+  </ul>
+
+  <div class="example">
+    <strong>Fee Impact Example (Binance Futures VIP0):</strong><br>
+    Maker: ~0.02% | Taker: ~0.05%<br>
+    10 BTC @ 60,000 = 600,000 USDT notional<br>
+    Maker fee: 120 USDT | Taker fee: 300 USDT<br>
+    Difference: 180 USDT per trade. Daily 5 trades pe ~900 USDT save possible.
+  </div>
+</section>
+
+<!-- ===================== 7. SCALED ===================== -->
+<section id="scaled">
+  <h2>7. Scaled Order – Badi Size ko Smart Split</h2>
+
+  <h3>Kya hai Scaled Order?</h3>
+  <p>Scaled order ek badi quantity ko multiple chhote limit orders mein split karta hai, ek price range ke andar. Har sub-order alag price pe place hota hai taake market impact kam ho.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+      <text x="300" y="22" text-anchor="middle" fill="#94a3b8" font-size="14">Scaled Buy Order – 10 BTC across 49800–50200</text>
+      <!-- Price levels -->
+      <rect x="150" y="45" width="300" height="22" rx="3" fill="rgba(0,212,170,0.5)"/>
+      <text x="300" y="61" text-anchor="middle" fill="#fff" font-size="11">50200 – 1.0 BTC</text>
+      <rect x="150" y="72" width="300" height="22" rx="3" fill="rgba(0,212,170,0.45)"/>
+      <text x="300" y="88" text-anchor="middle" fill="#fff" font-size="11">50100 – 1.5 BTC</text>
+      <rect x="150" y="99" width="300" height="22" rx="3" fill="rgba(0,212,170,0.4)"/>
+      <text x="300" y="115" text-anchor="middle" fill="#fff" font-size="11">50000 – 2.0 BTC</text>
+      <rect x="150" y="126" width="300" height="22" rx="3" fill="rgba(0,212,170,0.35)"/>
+      <text x="300" y="142" text-anchor="middle" fill="#fff" font-size="11">49900 – 2.5 BTC</text>
+      <rect x="150" y="153" width="300" height="22" rx="3" fill="rgba(0,212,170,0.3)"/>
+      <text x="300" y="169" text-anchor="middle" fill="#fff" font-size="11">49800 – 3.0 BTC</text>
+      <text x="300" y="210" text-anchor="middle" fill="#94a3b8" font-size="12">Total: 10 BTC | Average entry better if price dips</text>
+      <text x="300" y="235" text-anchor="middle" fill="#f59e0b" font-size="11">Allocation modes: Flat / Increasing / Decreasing</text>
+    </svg>
+    <p class="caption">Scaled order price range mein multiple limit orders generate karta hai. Badi size ko chhupa ke market impact kam karta hai.</p>
+  </div>
+
+  <h3>Parameters jo Set Karte Hain</h3>
+  <ul>
+    <li><strong>Min Price / Max Price</strong> – Range define</li>
+    <li><strong>Number of Orders</strong> – Kitne sub-orders</li>
+    <li><strong>Total Size</strong> – Overall quantity</li>
+    <li><strong>Allocation Mode</strong> – Flat (equal), Increasing (neeche zyada), Decreasing</li>
+  </ul>
+
+  <h3>Kab Use Karein?</h3>
+  <ul>
+    <li>Large position build karna without moving market</li>
+    <li>Accumulation / distribution strategies</li>
+    <li>Jab aap average entry improve karna chahte ho</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>Pro Use Case:</strong> Institutional-style accumulation. 50 BTC long accumulate karna hai support zone mein. Scaled order 5–10 levels pe split karke quietly position build karein.
+  </div>
+</section>
+
+<!-- ===================== 8. COMPARISON ===================== -->
+<section id="comparison">
+  <h2>8. Comparison Table & Decision Framework</h2>
+
+  <table>
+    <tr>
+      <th>Situation</th>
+      <th>Recommended Order</th>
+      <th>Reason</th>
+    </tr>
+    <tr>
+      <td>Emergency exit / Stop-loss</td>
+      <td>Stop Market</td>
+      <td>Fill guarantee zaroori</td>
+    </tr>
+    <tr>
+      <td>Planned entry at support</td>
+      <td>Limit (Post Only optional)</td>
+      <td>Price control + better fee</td>
+    </tr>
+    <tr>
+      <td>Breakout momentum entry</td>
+      <td>Market ya Buy Stop</td>
+      <td>Speed > Price</td>
+    </tr>
+    <tr>
+      <td>Take-profit target</td>
+      <td>Limit</td>
+      <td>Exact price chahiye</td>
+    </tr>
+    <tr>
+      <td>Trend following profit lock</td>
+      <td>Trailing Stop</td>
+      <td>Dynamic protection</td>
+    </tr>
+    <tr>
+      <td>Large size, low impact</td>
+      <td>Scaled Order</td>
+      <td>Split + hide intent</td>
+    </tr>
+    <tr>
+      <td>Fee optimization (passive)</td>
+      <td>Post Only Limit</td>
+      <td>Maker fee only</td>
+    </tr>
+    <tr>
+      <td>Range-bound controlled exit</td>
+      <td>Stop Limit</td>
+      <td>Price protection acceptable</td>
+    </tr>
+  </table>
+
+  <h3>Decision Tree (Simple)</h3>
+  <div class="workflow">
+    <div class="wf-box">Fill zaroori<br>hai?</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-box">Haan → Market<br>/ Stop Market</div>
+  </div>
+  <div class="workflow">
+    <div class="wf-box">Price control<br>zaroori?</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-box">Haan → Limit<br>/ Stop Limit</div>
+  </div>
+  <div class="workflow">
+    <div class="wf-box">Trend follow<br>karna hai?</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-box">Trailing Stop</div>
+  </div>
+</section>
+
+<!-- ===================== 9. WORKFLOWS ===================== -->
+<section id="workflows">
+  <h2>9. Real Trading Workflows & Examples</h2>
+
+  <h3>Workflow 1: Classic Long Setup (Day Trade)</h3>
+  <div class="example">
+    <strong>Setup:</strong> BTC support 63,800 pe bounce expect<br>
+    <ol>
+      <li><strong>Entry:</strong> Buy Limit @ 63,850 (thoda upar support se)</li>
+      <li><strong>Stop Loss:</strong> Stop Market @ 63,500 (risk defined)</li>
+      <li><strong>Take Profit 1:</strong> Sell Limit @ 64,400 (50% size)</li>
+      <li><strong>Remaining:</strong> Trailing Stop 1.5% se trail</li>
+    </ol>
+    Ye structure risk define karta hai aur profit maximize karta hai.
+  </div>
+
+  <h3>Workflow 2: Breakout Entry</h3>
+  <div class="example">
+    <strong>Setup:</strong> Resistance 65,000 break<br>
+    <ol>
+      <li><strong>Entry:</strong> Buy Stop Market @ 65,050 (confirmation ke baad)</li>
+      <li><strong>Stop:</strong> Stop Market @ 64,700</li>
+      <li><strong>Target:</strong> Limit @ 66,200 + Trailing on remaining</li>
+    </ol>
+  </div>
+
+  <h3>Workflow 3: Large Accumulation (Scaled)</h3>
+  <div class="example">
+    <strong>Goal:</strong> 20 BTC accumulate 62,000–63,500 range mein<br>
+    <ol>
+      <li>Scaled Buy: Min 62,000 / Max 63,500 / 10 orders / Increasing allocation</li>
+      <li>Har fill pe corresponding Stop Market lagana (ya average entry pe overall stop)</li>
+      <li>Position complete hone pe Trailing Stop activate</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 10. RISK ===================== -->
+<section id="risk">
+  <h2>10. Risk Management Best Practices</h2>
+
+  <div class="danger-box">
+    <strong>Golden Rule:</strong> Har open position ke sath active protective stop hona chahiye. “Mental stop” professional trading mein acceptable nahi.
+  </div>
+
+  <ul>
+    <li><strong>Position Size pehle decide karein</strong> – Risk % account se calculate karke, phir order type choose karein.</li>
+    <li><strong>Stop-loss ke liye Stop Market prefer karein</strong> – especially volatile sessions mein.</li>
+    <li><strong>Slippage ko risk calculation mein include karein</strong> – especially thin markets ya news ke around.</li>
+    <li><strong>Post Only sirf tab</strong> jab aap fill miss karne ka risk le sakte ho.</li>
+    <li><strong>Trailing Stop ko ATR based</strong> rakhein taake noise se bach sakein.</li>
+    <li><strong>One trade = One plan</strong> – Entry, Stop, Target pehle se decide, order types us hisab se.</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>Common Mistake:</strong> Beginners aksar Stop Limit protective stop ke liye use karte hain “price control” ke liye. Reality: gap through limit = unprotected position. Professional consensus – protective stops ke liye Stop Market better hai.
+  </div>
+</section>
+
+<!-- ===================== 11. QUIZ ===================== -->
+<section id="quiz">
+  <h2>11. Interactive Q&A – Apna Knowledge Test Karein</h2>
+  <p>Har sawal ke options select karke “Check Answer” dabayein.</p>
+
+  <div class="quiz-section">
+    <!-- Q1 -->
+    <div class="quiz-q" data-correct="b">
+      <p>Q1. Aapko emergency mein losing long position close karni hai. Kaunsa order best hai?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q1" value="a"> Limit Sell</label>
+        <label><input type="radio" name="q1" value="b"> Market Sell</label>
+        <label><input type="radio" name="q1" value="c"> Post Only Sell</label>
+        <label><input type="radio" name="q1" value="d"> Scaled Sell</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q" data-correct="a">
+      <p>Q2. Support level pe planned buy entry ke liye best order type?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q2" value="a"> Limit Buy</label>
+        <label><input type="radio" name="q2" value="b"> Market Buy</label>
+        <label><input type="radio" name="q2" value="c"> Trailing Stop</label>
+        <label><input type="radio" name="q2" value="d"> Stop Market</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q" data-correct="c">
+      <p>Q3. Strong uptrend mein profit lock karte hue trade ko chalne dena hai. Kaunsa tool?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q3" value="a"> Fixed Limit Take-Profit</label>
+        <label><input type="radio" name="q3" value="b"> Market Order</label>
+        <label><input type="radio" name="q3" value="c"> Trailing Stop</label>
+        <label><input type="radio" name="q3" value="d"> Post Only</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q" data-correct="b">
+      <p>Q4. Post Only order ka main fayda kya hai?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q4" value="a"> Instant fill guarantee</label>
+        <label><input type="radio" name="q4" value="b"> Maker fee milti hai (ya reject)</label>
+        <label><input type="radio" name="q4" value="c"> Slippage zero hoti hai</label>
+        <label><input type="radio" name="q4" value="d"> Automatic trailing</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q" data-correct="a">
+      <p>Q5. Protective stop-loss ke liye professional consensus kya hai?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q5" value="a"> Stop Market – fill guarantee</label>
+        <label><input type="radio" name="q5" value="b"> Stop Limit – price control</label>
+        <label><input type="radio" name="q5" value="c"> Limit Order</label>
+        <label><input type="radio" name="q5" value="d"> Scaled Order</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz-q" data-correct="c">
+      <p>Q6. Badi quantity ko market impact kam karke accumulate karna hai. Best choice?</p>
+      <div class="quiz-opts">
+        <label><input type="radio" name="q6" value="a"> Single Market Order</label>
+        <label><input type="radio" name="q6" value="b"> Single Limit Order</label>
+        <label><input type="radio" name="q6" value="c"> Scaled Order</label>
+        <label><input type="radio" name="q6" value="d"> Trailing Stop</label>
+      </div>
+      <button class="btn" onclick="checkAnswer(this)">Check Answer</button>
+      <div class="quiz-feedback"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12. SUMMARY ===================== -->
+<section id="summary">
+  <h2>12. Final Summary & Pro Tips</h2>
+
+  <h3>Key Takeaways</h3>
+  <ul>
+    <li><strong>Market</strong> = Speed. Emergency aur momentum ke liye.</li>
+    <li><strong>Limit</strong> = Price control. Planned entries aur targets ke liye.</li>
+    <li><strong>Stop Market</strong> = Protective stop ka gold standard.</li>
+    <li><strong>Stop Limit</strong> = Controlled exit, lekin gap risk.</li>
+    <li><strong>Trailing Stop</strong> = Trend ka saath dena + profit lock.</li>
+    <li><strong>Post Only</strong> = Fee edge, passive strategies.</li>
+    <li><strong>Scaled</strong> = Large size, low footprint.</li>
+  </ul>
+
+  <div class="highlight">
+    <strong>Professional Mantra:</strong><br>
+    “Entry pe price control lo (Limit), Exit pe fill control lo (Stop Market / Market). Trend mein trail karo. Size bari ho to scale karo. Fee matter kare to Post Only.”
+  </div>
+
+  <h3>Next Steps</h3>
+  <ol>
+    <li>Demo account pe har order type practice karein.</li>
+    <li>Apni strategy ke liye default order combination decide karein.</li>
+    <li>Risk journal mein order type + slippage note karein.</li>
+    <li>News events se pehle order type policy review karein.</li>
+  </ol>
+
+  <p style="margin-top:24px; color:var(--muted); font-size:0.95rem;">
+    Ye guide research-based hai (Binance, Bybit, NinjaTrader, professional trading literature). Markets change hote rehte hain – hamesha apne platform ke latest docs check karein. Trading mein risk involved hai; sirf us capital se trade karein jiski loss aap afford kar saken.
+  </p>
+</section>
+
+</div>
+
+<footer>
+  <p>Futures Trading Order Types – Professional Guide (Roman Urdu)</p>
+  <p>Research-based • Educational Purpose • 2026</p>
+</footer>
+
+<script>
+function checkAnswer(btn) {
+  const q = btn.closest('.quiz-q');
+  const correct = q.dataset.correct;
+  const selected = q.querySelector('input[type="radio"]:checked');
+  const feedback = q.querySelector('.quiz-feedback');
+  
+  if (!selected) {
+    feedback.className = 'quiz-feedback wrong';
+    feedback.textContent = 'Pehle koi option select karein!';
+    return;
+  }
+  
+  if (selected.value === correct) {
+    feedback.className = 'quiz-feedback correct';
+    feedback.innerHTML = '✅ Sahi jawab! Bahut accha.';
+  } else {
+    feedback.className = 'quiz-feedback wrong';
+    const answers = {
+      'q1': 'Market Sell – emergency exit mein fill guarantee zaroori hai.',
+      'q2': 'Limit Buy – planned support entry ke liye price control chahiye.',
+      'q3': 'Trailing Stop – trend follow karke profit lock karta hai.',
+      'q4': 'Maker fee milti hai; warna order reject ho jata hai.',
+      'q5': 'Stop Market – protective stop mein fill guarantee priority hai.',
+      'q6': 'Scaled Order – badi size ko split karke impact kam karta hai.'
+    };
+    const qName = selected.name;
+    feedback.innerHTML = '❌ Galat. Sahi jawab: ' + (answers[qName] || 'Dobara sochiye.');
+  }
+}
+</script>
+
+</body>
+</html>
