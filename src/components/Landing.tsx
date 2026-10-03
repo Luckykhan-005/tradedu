@@ -31,7 +31,7 @@ interface LandingProps {
 
 const stats = [
   { label: 'Urdu Books', value: '40+' },
-  { label: 'Total Chapters', value: '500+' },
+  { label: 'Total Chapters', value: '650+' },
   { label: 'Daily Videos', value: 'YouTube' },
   { label: 'Language', value: 'Urdu' },
 ]
@@ -309,7 +309,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                   <p className="text-muted-foreground leading-relaxed">
                     M. Aslam Khan 2020 se trading sikha rahe hain — unka content creation aur
                     authoring mein 10 saal ka tajurba hai. Unhon ne 40+ Urdu books likhi hain
-                    (500+ chapters), daily YouTube videos banate hain, aur live sessions mein
+                    (650+ chapters), daily YouTube videos banate hain, aur live sessions mein
                     students ke sawalon ka jawab dete hain. TradeEd ka mission: har Pakistani
                     trader ko practical, professional-level education Urdu mein — bina language
                     barrier ke.
