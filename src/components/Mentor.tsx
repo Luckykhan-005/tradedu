@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import {
   Bot,
   Send,
@@ -38,6 +38,8 @@ const GREETING: ChatMessage = {
 }
 
 let nextId = 1
+
+const MentorAvatar3D = lazy(() => import('./MentorAvatar3D'))
 
 const QUOTA_KEY = 'tradeed-ai-quota'
 const FREE_AI_LIMIT = 5
@@ -200,12 +202,32 @@ export function Mentor({ user, onUpgrade }: MentorProps) {
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
         {/* Header */}
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+        <div className="mb-6 flex items-center gap-3 sm:gap-4">
+          <div className="hidden sm:block">
+            <Suspense
+              fallback={
+                <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-primary/10">
+                  <Bot className="h-8 w-8 animate-pulse text-primary" />
+                </div>
+              }
+            >
+              <MentorAvatar3D className="h-32 w-32" />
+            </Suspense>
+          </div>
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 sm:hidden">
             <Bot className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">AI Trading Mentor</h1>
+            <h1 className="flex flex-wrap items-center gap-2 text-3xl font-bold tracking-tight">
+              AI Trading Mentor
+              <span className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-600">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                </span>
+                live
+              </span>
+            </h1>
             <p className="text-muted-foreground">
               {isPremium
                 ? 'Premium · AI unlimited — KB (instant) + Gemini · Roman Urdu jawab'
