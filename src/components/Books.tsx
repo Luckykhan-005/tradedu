@@ -56,6 +56,21 @@ interface BooksProps {
 
 export const books: BookItem[] = [
   {
+    id: 'ai-kaise-seekhain',
+    title: 'AI Kaise Seekhain — Complete Roadmap',
+    titleUrdu: 'AI کیسے سیکھیں — مکمل رودمیپ',
+    description:
+      'AI kaise seekhein — zero se lekar practical skills tak complete roadmap: Python, ChatGPT, prompt engineering, automation aur AI tools. Roman Urdu mein, 30 chapters + 3 appendices ke saath.',
+    chapters: 30,
+    pages: '30 chapters · 3 appendices',
+    icon: Brain,
+    color: 'text-teal-600',
+    bgColor: 'bg-teal-50',
+    href: '/ai-kaise-seekhain/index.html',
+    tags: ['Roman Urdu', 'AI Roadmap', '30 Chapters'],
+    cover: '/covers/ai-kaise-seekhain.webp',
+  },
+  {
     id: 'bollinger-squeeze-mastery',
     title: 'Bollinger Squeeze Mastery',
     titleUrdu: 'بولنجر اسکوئز ماسٹری',
