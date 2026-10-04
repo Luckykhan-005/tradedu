@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   TrendingUp,
   BookOpen,
@@ -150,11 +150,27 @@ const menuItems: {
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut, onOpenSearch }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastScrollY = useRef(0)
   const { theme, toggleTheme } = useTheme()
 
-  // Scroll par header compact ho jata hai (logo chhota + topbar patli)
+  // Scroll par header compact ho jata hai (logo chhota + topbar patli).
+  // Mobile pe scroll-down par header chhup jata hai taki footer ke top
+  // links (nav ke overlay wale hisse) tap ho sakein; scroll-up par wapas.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 30)
+      const isMobile = window.innerWidth < 768
+      if (!isMobile || y < 120) {
+        setHidden(false)
+      } else if (y > lastScrollY.current + 5) {
+        setHidden(true)
+      } else if (y < lastScrollY.current - 5) {
+        setHidden(false)
+      }
+      lastScrollY.current = y
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -172,8 +188,9 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
   return (
     <nav
       className={cn(
-        'sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg transition-shadow duration-300',
-        scrolled && 'shadow-lg'
+        'sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg transition-all duration-300',
+        scrolled && 'shadow-lg',
+        hidden && !mobileOpen && '-translate-y-full'
       )}
     >
       <div

@@ -301,6 +301,7 @@ export default function App() {
     if (page === 'courses') {
       setSelectedCourse(null)
     }
+    window.scrollTo(0, 0)
   }
 
   const openBlogPost = (post: BlogPostData) => {
