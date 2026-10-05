@@ -576,6 +576,7 @@ export default function App() {
           onNavigateToBooks={() => navigate('books')}
           onNavigate={navigate}
           onSignIn={openAuth}
+          onOpenBlog={openBlogPost}
         />
       )}
 
@@ -665,7 +666,7 @@ export default function App() {
       )}
 
       {currentPage === 'blog-post' && selectedBlogPost && (
-        <BlogPost post={selectedBlogPost} onBack={() => navigate('blog')} />
+        <BlogPost post={selectedBlogPost} onBack={() => navigate('blog')} onOpenBlog={openBlogPost} onNavigate={navigate} />
       )}
 
       {currentPage === 'blog-post' && !selectedBlogPost && (

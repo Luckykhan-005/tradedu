@@ -21,12 +21,15 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import type { Page } from './Navigation'
+import { blogPosts } from '@/data/blog'
+import type { BlogPost } from '@/data/blog'
 
 interface LandingProps {
   onNavigateToCourses: () => void
   onNavigateToBooks: () => void
   onNavigate: (page: Page) => void
   onSignIn: () => void
+  onOpenBlog: (post: BlogPost) => void
 }
 
 const stats = [
@@ -116,7 +119,7 @@ const journeyPaths = [
   },
 ]
 
-export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn }: LandingProps) {
+export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn, onOpenBlog }: LandingProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -399,6 +402,41 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
               </div>
             </div>
           </Card>
+        </div>
+      </section>
+
+      {/* Latest Articles (SEO internal hub) */}
+      <section className="py-16 md:py-24 bg-card/50 border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">Latest Articles</h2>
+              <p className="text-muted-foreground">
+                Roman Urdu mein fresh guides — crypto, forex, psychology aur tools.
+              </p>
+            </div>
+            <Button variant="outline" className="gap-2" onClick={() => onNavigate('blog')}>
+              Sab articles dekhein <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.slice(0, 6).map((p) => (
+              <button
+                key={p.slug}
+                type="button"
+                onClick={() => onOpenBlog(p)}
+                className="group rounded-xl border border-border bg-card p-5 text-left transition-colors hover:border-primary/50"
+              >
+                <p className="mb-2 text-xs text-muted-foreground">
+                  {p.category} · {p.date}
+                </p>
+                <h3 className="mb-2 font-semibold leading-snug group-hover:text-primary line-clamp-2">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 

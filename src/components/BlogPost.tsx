@@ -3,15 +3,41 @@ import { ArrowLeft, Calendar, Check, Clock, Facebook, Link2, MessageCircle, Tag,
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { BlogPost as BlogPostType } from '@/data/blog'
+import { blogPosts } from '@/data/blog'
+import type { Page } from '@/components/Navigation'
 
 interface BlogPostPageProps {
   post: BlogPostType
   onBack: () => void
+  onOpenBlog: (post: BlogPostType) => void
+  onNavigate: (page: Page) => void
+}
+
+// Step 9 — internal linking: category ke mutabiq hub page (static pages = full nav, sahi hai)
+const CATEGORY_HUB: Record<string, { href: string; label: string }> = {
+  'Crypto Regulation': { href: '/knowledge-base/crypto-kya-hai', label: 'Crypto Kya Hai — complete guide' },
+  'Crypto Basics': { href: '/knowledge-base/crypto-kya-hai', label: 'Crypto Kya Hai — complete guide' },
+  'Crypto Analysis': { href: '/knowledge-base/chart-kaise-padhein', label: 'Chart Kaise Padhein' },
+  'Crypto Trading Guide': { href: '/knowledge-base/crypto-kya-hai', label: 'Crypto Kya Hai — complete guide' },
+  Crypto: { href: '/knowledge-base/crypto-kya-hai', label: 'Crypto Kya Hai — complete guide' },
+  'Solana Guide': { href: '/knowledge-base/crypto-kya-hai', label: 'Crypto Kya Hai — complete guide' },
+  Forex: { href: '/knowledge-base/forex-trading-kya-hai', label: 'Forex Trading Kya Hai' },
+  'Forex Basics': { href: '/knowledge-base/forex-trading-kya-hai', label: 'Forex Trading Kya Hai' },
+  Gold: { href: '/knowledge-base/forex-trading-kya-hai', label: 'Forex Trading Kya Hai' },
+  'AI Tools': { href: '/ai-kaise-seekhain/', label: 'AI Kaise Seekhein — hub' },
+  'Technical Analysis': { href: '/knowledge-base/chart-kaise-padhein', label: 'Chart Kaise Padhein' },
+  'Trading Basics': { href: '/knowledge-base/trading-kya-hai', label: 'Trading Kya Hai' },
+  Learning: { href: '/knowledge-base/trading-kya-hai', label: 'Trading Kya Hai' },
+  'Trading Psychology': { href: '/glossary/fomo/', label: 'FOMO kya hai — glossary' },
+  Psychology: { href: '/glossary/fomo/', label: 'FOMO kya hai — glossary' },
+  'Risk Management': { href: '/glossary/risk-management/', label: 'Risk Management — glossary' },
+  'Personal Finance': { href: '/calculator/compounding/', label: 'Compound Interest Calculator' },
+  'Macro Economics': { href: '/knowledge-base/stock-market-kya-hai', label: 'Stock Market Kya Hai' },
 }
 
 // SEO (title, description, canonical, Article schema) central hota hai
 // src/lib/seo.ts me — wahan har route par apply hota hai.
-export function BlogPost({ post, onBack }: BlogPostPageProps) {
+export function BlogPost({ post, onBack, onOpenBlog, onNavigate }: BlogPostPageProps) {
   const [copied, setCopied] = useState(false)
   const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://tradeed.online'
   const shareTitle = `${post.title} | TradeEd`
@@ -26,6 +52,12 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
       /* clipboard blocked — kuch nahi */
     }
   }
+  const related = blogPosts
+    .filter(
+      (p) => p.slug !== post.slug && (p.category === post.category || p.tags.some((t) => post.tags.includes(t))),
+    )
+    .slice(0, 3)
+  const hub = CATEGORY_HUB[post.category]
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -138,7 +170,56 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
         )}
       </div>
 
-      <div className="mt-10 rounded-xl border border-border bg-card p-5">
+      <nav aria-label="Related articles" className="mt-10 rounded-xl border border-border bg-card p-5">
+        <p className="mb-3 text-sm font-semibold">Aage kya parhein</p>
+        <ul className="space-y-2">
+          {related.map((p) => (
+            <li key={p.slug}>
+              <a
+                href={`/blog/${p.slug}`}
+                className="text-primary underline-offset-4 hover:underline"
+                onClick={(e) => {
+                  e.preventDefault()
+                  onOpenBlog(p)
+                }}
+              >
+                {p.title}
+              </a>
+              <span className="ml-2 text-xs text-muted-foreground">{p.category}</span>
+            </li>
+          ))}
+          {hub ? (
+            <li>
+              <a href={hub.href} className="text-primary underline-offset-4 hover:underline">
+                {hub.label}
+              </a>
+            </li>
+          ) : (
+            <li>
+              <a
+                href="/blog"
+                className="text-primary underline-offset-4 hover:underline"
+                onClick={(e) => {
+                  e.preventDefault()
+                  onNavigate('blog')
+                }}
+              >
+                Sab trading articles
+              </a>
+            </li>
+          )}
+        </ul>
+        <div className="mt-4 flex flex-wrap gap-2 border-t border-border pt-4">
+          <button type="button" className={sharePill} onClick={() => onNavigate('courses')}>
+            Course join karein
+          </button>
+          <button type="button" className={sharePill} onClick={() => onNavigate('calculator')}>
+            Position size calculator
+          </button>
+        </div>
+      </nav>
+
+      <div className="mt-6 rounded-xl border border-border bg-card p-5">
         <p className="mb-3 text-sm font-semibold">
           Ye post pasand aayi? Apne doston ke sath share karein:
         </p>
