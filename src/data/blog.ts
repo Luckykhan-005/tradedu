@@ -23,6 +23,105 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'forex-lot-size-guide-urdu',
+    title: 'Forex Lot Size Kaise Calculate Karein — Position Size Formula (Urdu)',
+    excerpt: 'Forex lot size kaise calculate karein: standard, mini aur micro lot ka farq, pip value, 3-step position size formula with examples, leverage ka rishta aur aam 4 galtiyan — saath free Position Size Calculator. Roman Urdu mein...',
+    category: 'Forex Basics',
+    tags: ['Forex Lot Size', 'Position Size', 'Lot Size Calculator', 'Forex Money Management', 'Risk Per Trade'],
+    date: '2026-10-05',
+    readingTime: '7 min read',
+    html: `<p class="lead">Forex mein sab se important hissa lot size hi hai — strategy kitni bhi achi ho, galat lot size se ek hi trade pura account kha sakta hai. Ye guide batati hai ke lot size hota kya hai, pip value kaise kaam karti hai, aur 3-step formula se har trade ke liye apna position size kaise nikalein — examples ke sath.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Lot sizes:</b> Standard lot = 100,000 units, mini lot = 10,000, micro lot = 0.01 (1,000 units). Naye traders micro/mini se shuru karte hain.</li>
+<li><b>Formula:</b> Lot Size = Risk Amount ÷ (Stop Pips × Pip Value per Lot)</li>
+<li><b>10 second ka tareeqa:</b> <a href="/calculator/position-size">Position Size Calculator</a> mein account balance, risk % aur stop daalein — lot size khud nikal aata hai.</li>
+</ul></div>
+
+<h2>1. Lot size hota kya hai?</h2>
+<p>Lot trading ka "packet size" hai. Jaise cheezain pack mein biki hain, waise hi currency packs mein — aur pack jitna bara, har pip ka nuksan/faida bhi utna bara hota hai.</p>
+<div class="scroll"><table>
+<thead><tr><th>Lot Type</th><th>Units</th><th>EURUSD mein 1 pip ki value (USD)</th></tr></thead>
+<tbody>
+<tr><td>Standard (1.00)</td><td>100,000</td><td>$10</td></tr>
+<tr><td>Mini (0.10)</td><td>10,000</td><td>$1</td></tr>
+<tr><td>Micro (0.01)</td><td>1,000</td><td>$0.10</td></tr>
+</tbody></table></div>
+<p>Isi liye micro lot wala trader 20 pips ke stop par $2 gawata hai, aur standard lot wala wahi 20 pips par $200 — strategy same, result bilkul alag. <b>Lot size hi woh cheez hai jo trading ko gambling se banati hai ya business.</b></p>
+
+<h2>2. Pip value samjhein — formula ka doosra hissa</h2>
+<p>Pip currency pair ke price ka aakhri (ya doosra) digit hota hai, aur har lot size par us ki fixed value hoti hai. USD account walon ke liye JPY pair ke ilawa taqreeban sab major pairs par rule ye hai:</p>
+<ul>
+<li>1.00 lot = har pip par $10</li>
+<li>0.10 lot = har pip par $1</li>
+<li>0.01 lot = har pip par $0.10</li>
+</ul>
+<p>JPY pairs mein pip ka value alag hota hai, aur kuch brokers account currency non-USD rakhte hain — is liye manual hisaab ki jagah calculator use karein jo ye sab khud handle karta hai. Pip aur spread ki tafseel: <a href="/glossary/spread/">Spread kya hai</a> aur <a href="/knowledge-base/forex-trading-kya-hai">Forex Trading Kya Hai — complete guide</a>.</p>
+
+<h2>3. 3-step position size formula (examples ke sath)</h2>
+<p>Formula:</p>
+<div class="note"><b>Lot Size = Risk Amount ÷ (Stop Pips × Pip Value per 1.00 Lot)</b><br>
+Risk Amount = Account Balance × Risk %</div>
+<p><b>Example 1 — $500 account:</b></p>
+<ul>
+<li>Balance: $500 | Risk: 1% → Risk Amount = <b>$5</b></li>
+<li>Stop loss: 25 pips (apne setup ke hisaab se)</li>
+<li>Pip value (0.01 lot par) = $0.10 → lekin pehle 1.00 lot par $10/pip se nikalein: 25 × $10 = <b>$250 risk per 1.00 lot</b></li>
+<li>Lot = $5 ÷ $250 = <b>0.02 lot</b> ✅</li>
+</ul>
+<p><b>Example 2 — $2,000 account, 1% risk, 40 pip stop:</b></p>
+<ul>
+<li>Risk Amount = $20 | 40 × $10 = $400 per 1.00 lot</li>
+<li>Lot = $20 ÷ $400 = <b>0.05 lot</b> ✅</li>
+</ul>
+<p>Dono examples mein gaur karein: balance bara hua, lot bara hua — lekin <b>ek trade ka khota hua paisa hamesha 1% hai.</b> Isi cheez ko position sizing kehte hain: <a href="/glossary/position-sizing/">Position Sizing kya hai — glossary</a>.</p>
+<p><b>Quick reference table</b> — 1% risk, EURUSD (pip value $10 per 1.00 lot), aam balances ke liye:</p>
+<div class="scroll"><table>
+<thead><tr><th>Balance</th><th>Risk (1%)</th><th>Lot @ 25 pip stop</th><th>Lot @ 50 pip stop</th></tr></thead>
+<tbody>
+<tr><td>$100</td><td>$1</td><td>0.04</td><td>0.02</td></tr>
+<tr><td>$500</td><td>$5</td><td>0.02</td><td>0.01</td></tr>
+<tr><td>$1,000</td><td>$10</td><td>0.04</td><td>0.02</td></tr>
+<tr><td>$5,000</td><td>$50</td><td>0.20</td><td>0.10</td></tr>
+</tbody></table></div>
+<p><b>Note:</b> Hisaab ka result hamesha neeche ki taraf round karein (0.035 → 0.03) — zyada lot se risk barhta hai, kam se sirf chhota trade hota hai. Aur table sirf example hai: asal account par hamesha apna exact formula ya calculator chalayein, kyunke non-USD account, JPY pairs aur commodities mein pip value alag hoti hai.</p>
+
+<h2>4. 10-second method: calculator use karein</h2>
+<p>Manual hisaab seekhna zaroori hai (upar wale examples dekhein), lekin har trade ke liye mental math karne ki zaroorat nahi:</p>
+<ul>
+<li><a href="/calculator/position-size"><b>Position Size Calculator</b></a> — balance, risk %, stop pips daalein, lot size milega</li>
+<li><a href="/calculator/risk-reward"><b>Risk-Reward Calculator</b></a> — target aur stop se reward ratio check karein, taake expected value samajh aaye</li>
+</ul>
+<p>Ye dono free hain aur trade plan ka hissa bana lein — entry se pehle number tay ho, entry ke baad nahi.</p>
+
+<h2>5. Aam 4 galtiyan jo naye trader karte hain</h2>
+<ul>
+<li><b>Poora balance ek trade mein:</b> "100% se 200% karunga" wala soch = ek hi loss account khatam. Risk hamesha chhoti rakhein (1% ya us se kam).</li>
+<li><b>Leverage ko risk samajhna:</b> 1:500 leverage ka matlab ye nahi ke aap 500 guna risk le sakte hain — leverage sirf margin chhota karta hai, nuksan utna hi bara hota hai. <a href="/glossary/leverage/">Leverage kya hai</a> aur <a href="/glossary/margin/">Margin kya hai</a>.</li>
+<li><b>Stop ke bina lot lena:</b> Bina stop-loss ke lot size ka koi matlab nahi — worst case define hi nahi. Har trade ka stop pehle se tay ho: <a href="/glossary/stop-loss/">Stop-Loss kya hai</a>.</li>
+<li><b>Sab ko ek hi formula:</b> Scalp ka stop 10 pip aur swing ka stop 80 pip alag hota hai — lot usi hisaab se badalna chahiye, fixed lot nahi.</li>
+</ul>
+
+<h2>6. Risk % kitna rakhein?</h2>
+<p>Standard advice 1% ya us se kam hai — is ka matlab ke 10 loss streak mein bhi sirf ~10% balance jaata hai, jo recover ho sakta hai. 5% risk par 4 loss = ~19% khota (compound effect), jo wapas lane ke liye ~23% chahiye. Isi wajah se purane traders <a href="/blog/risk-management-1-percent-rule">1% Rule</a> par itne zor dete hain. Poori money management course Urdu mein free hai: <a href="/risk-management/index.html">Risk Management Course (Urdu Book)</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Naye trader se shuru kis lot se karein?</b>
+Micro (0.01) se — aur wo bhi tab jab account balance aur stop ke mutabiq risk 1% ke andar aaye. Pehle 20-30 trades demo account par karein phir chhoti real amount par.
+<b>Har pair par pip value same rehti hai?</b>
+Nahi. Major USD pairs par taaqreeban same hai, JPY pairs aur commodities mein farq hota hai — is liye manual jagah calculator use karein jo live pip value pakadta hai.
+<b>PKR account walon ke liye kya?</b>
+Zyada tar brokers USD account rakhte hain; balance USD mein rakhein aur PKR conversion withdrawal ke waqt hota hai — is se hisaab saaf rehta hai.
+<b>Risk-reward aur lot size ka kya rishta?</b>
+Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta hai ke jitna gawaya us ka kitna wapas aayega. Dono saath chalte hain — pehle stop (risk), phir target (reward), phir lot.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Formula ab clear hai — ab ise system banayein: har trade se pehle risk % tay karein, stop nikalein, lot calculate karein. Seekhne ke liye <a href="/forex-complete/index.html">Forex Trading Course (Urdu Book)</a> parhein, aur concept mukammal karne ke liye <a href="/knowledge-base/forex-trading-kya-hai">Forex Trading Kya Hai</a> wali guide. Book khud nahi mili ho to <a href="/books">Books page</a> par sari Urdu books ek jagah hain.</p>`
+  },
+  {
     slug: 'forex-scam-pakistan-pehchan',
     title: 'Forex Scam Pakistan Kaise Pehchanain — 7 Warning Signs (2026 Guide)',
     excerpt: 'Forex scam Pakistan mein kaise pehchanain: guaranteed profit wade, jhoota regulation dawa, VIP signal groups, withdrawal fee tricks aur recovery scam — 7 warning signs, 5-minute verify checklist aur scam phansne ke baad kya karein. Roman Urdu mein...',

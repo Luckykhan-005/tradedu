@@ -17,7 +17,7 @@ Pillar pages (already live):
 | # | Target query | Intent | URL | Internal links |
 |---|---|---|---|---|
 | 1 | forex trading kaise kare pakistan | Informational | ~~`/blog/forex-kaise-shuru-karein-pakistan`~~ SKIP — existing `forex-trading-pakistan-2026` isi intent cover karta hai (cannibalization) | — |
-| 2 | forex lot size kaise calculate karein | Informational | `/blog/forex-lot-size-guide-urdu` | `/calculator/position-size`, pillar forex, `/glossary/leverage/` |
+| 2 | forex lot size kaise calculate karein | Informational | ~~`/blog/forex-lot-size-guide-urdu`~~ **DONE 2026-10-05** | `/calculator/position-size`, pillar forex, `/glossary/leverage/` |
 | 3 | pips kya hote hain forex | Informational | `/blog/pips-kya-hain-urdu` | `/glossary/pips/` (agar na ho to glossary banana), pillar forex |
 | 4 | forex scam pakistan kaise pehchanain | Informational | ~~`/blog/forex-scam-pakistan-pehchan`~~ **DONE 2026-10-05** | pillar forex, `/blog/pakistan-crypto-tax-2026` (regulation angle) |
 | 5 | leverage kya hai forex trading | Informational | `/blog/leverage-kya-hai-urdu` | `/glossary/leverage/`, `/calculator/position-size` |
