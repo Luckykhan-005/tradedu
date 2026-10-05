@@ -215,3 +215,16 @@
   height: auto;
   display: block;
 }
+.blog-html svg text {
+  fill: var(--foreground);
+}
+.blog-html svg .s {
+  fill: var(--secondary);
+  stroke: var(--border);
+}
+.blog-html svg .a {
+  fill: #f59e0b;
+}
+.blog-html svg .m {
+  fill: var(--muted-foreground);
+}
