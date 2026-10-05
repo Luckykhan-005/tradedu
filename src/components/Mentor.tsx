@@ -80,6 +80,18 @@ export function Mentor({ user, onUpgrade }: MentorProps) {
   const [loading, setLoading] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  // lg+ par full-body 3D mentor chat ke right side; us se pehle header wala chhota avatar
+  const [isWide, setIsWide] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
+  )
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const onChange = () => setIsWide(mq.matches)
+    onChange()
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages])
@@ -200,20 +212,22 @@ export function Mentor({ user, onUpgrade }: MentorProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:max-w-5xl">
         {/* Header */}
         <div className="mb-6 flex items-center gap-3 sm:gap-4">
-          <div className="hidden sm:block">
-            <Suspense
-              fallback={
-                <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-primary/10">
-                  <Bot className="h-8 w-8 animate-pulse text-primary" />
-                </div>
-              }
-            >
-              <MentorAvatar3D className="h-32 w-32" />
-            </Suspense>
-          </div>
+          {!isWide && (
+            <div className="hidden sm:block">
+              <Suspense
+                fallback={
+                  <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-primary/10">
+                    <Bot className="h-8 w-8 animate-pulse text-primary" />
+                  </div>
+                }
+              >
+                <MentorAvatar3D className="h-32 w-32" />
+              </Suspense>
+            </div>
+          )}
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 sm:hidden">
             <Bot className="h-6 w-6 text-primary" />
           </div>
@@ -236,6 +250,9 @@ export function Mentor({ user, onUpgrade }: MentorProps) {
           </div>
         </div>
 
+        {/* Chat + right-side full-body mentor */}
+        <div className="flex items-start gap-4">
+        <div className="min-w-0 flex-1">
         {/* Chat window */}
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
           <div
@@ -426,6 +443,43 @@ export function Mentor({ user, onUpgrade }: MentorProps) {
           (educational) hidayat deta hai — financial advice nahi. Trading mein significant risk
           hota hai. Har trade se pehle apni research (DYOR) karein.
         </p>
+        </div>
+
+        {/* Full-body 3D mentor — desktop (lg+) right side */}
+        {isWide && (
+          <aside
+            aria-hidden
+            className="sticky top-24 hidden w-72 shrink-0 lg:block"
+          >
+            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+              <div className="flex items-center justify-between border-b border-border px-4 py-3">
+                <span className="flex items-center gap-2 text-sm font-semibold">
+                  <Bot className="h-4 w-4 text-primary" /> AI Mentor
+                </span>
+                <span className="flex items-center gap-1.5 text-[10px] font-medium text-emerald-600">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  </span>
+                  online
+                </span>
+              </div>
+              <Suspense
+                fallback={
+                  <div className="flex h-[440px] w-full items-center justify-center bg-primary/5">
+                    <Bot className="h-8 w-8 animate-pulse text-primary" />
+                  </div>
+                }
+              >
+                <MentorAvatar3D fullBody className="h-[440px] w-full" />
+              </Suspense>
+              <div className="border-t border-border px-4 py-2.5 text-center text-xs text-muted-foreground">
+                Neeche sawal likhein — mentor jawab dega
+              </div>
+            </div>
+          </aside>
+        )}
+        </div>
       </div>
     </div>
   )

@@ -8,9 +8,11 @@ type Status = 'loading' | 'ready' | 'error'
 
 interface MentorAvatar3DProps {
   className?: string
+  /** true = poora body frame (chat ke right side panel), false = head/upper-body (header avatar) */
+  fullBody?: boolean
 }
 
-export default function MentorAvatar3D({ className }: MentorAvatar3DProps) {
+export default function MentorAvatar3D({ className, fullBody = false }: MentorAvatar3DProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [status, setStatus] = useState<Status>('loading')
 
@@ -104,8 +106,13 @@ export default function MentorAvatar3D({ className }: MentorAvatar3DProps) {
           model = gltf.scene
           pivot.add(model)
 
-          camera.position.set(0, 3.55, 4.6)
-          camera.lookAt(0, 3.38, 0)
+          if (fullBody) {
+            camera.position.set(0, 2.55, 9.1)
+            camera.lookAt(0, 2.5, 0)
+          } else {
+            camera.position.set(0, 3.55, 4.6)
+            camera.lookAt(0, 3.38, 0)
+          }
 
           mixer = new THREE.AnimationMixer(model)
           const actions = new Map<string, THREE.AnimationAction>()
@@ -173,7 +180,7 @@ export default function MentorAvatar3D({ className }: MentorAvatar3DProps) {
       desktopMq.removeEventListener('change', onMqChange)
       if (cleanup) cleanup()
     }
-  }, [])
+  }, [fullBody])
 
   if (status === 'error') {
     return (
@@ -192,7 +199,10 @@ export default function MentorAvatar3D({ className }: MentorAvatar3DProps) {
     <div className={cn('relative', className)}>
       <div
         aria-hidden
-        className="absolute inset-1 rounded-full bg-primary/20 blur-xl"
+        className={cn(
+          'absolute inset-1 blur-xl',
+          fullBody ? 'rounded-3xl bg-primary/10' : 'rounded-full bg-primary/20'
+        )}
       />
       <div
         ref={wrapRef}
