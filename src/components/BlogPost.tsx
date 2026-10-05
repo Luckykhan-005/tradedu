@@ -1,4 +1,5 @@
-import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowLeft, Calendar, Check, Clock, Facebook, Link2, MessageCircle, Tag, Twitter, User } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { BlogPost as BlogPostType } from '@/data/blog'
@@ -11,6 +12,21 @@ interface BlogPostPageProps {
 // SEO (title, description, canonical, Article schema) central hota hai
 // src/lib/seo.ts me — wahan har route par apply hota hai.
 export function BlogPost({ post, onBack }: BlogPostPageProps) {
+  const [copied, setCopied] = useState(false)
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://tradeed.online'
+  const shareTitle = `${post.title} | TradeEd`
+  const sharePill =
+    'inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary'
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      /* clipboard blocked — kuch nahi */
+    }
+  }
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <Button variant="ghost" size="sm" onClick={onBack} className="mb-6 -ml-2 gap-2">
@@ -120,6 +136,46 @@ export function BlogPost({ post, onBack }: BlogPostPageProps) {
           </section>
           ))
         )}
+      </div>
+
+      <div className="mt-10 rounded-xl border border-border bg-card p-5">
+        <p className="mb-3 text-sm font-semibold">
+          Ye post pasand aayi? Apne doston ke sath share karein:
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <a
+            className={sharePill}
+            href={`https://wa.me/?text=${encodeURIComponent(`${shareTitle} ${shareUrl}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+          <a
+            className={sharePill}
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Facebook className="h-4 w-4" /> Facebook
+          </a>
+          <a
+            className={sharePill}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Twitter className="h-4 w-4" /> X
+          </a>
+          <button type="button" className={sharePill} onClick={copyLink}>
+            {copied ? (
+              <Check className="h-4 w-4 text-emerald-500" />
+            ) : (
+              <Link2 className="h-4 w-4" />
+            )}
+            {copied ? 'Copied!' : 'Copy link'}
+          </button>
+        </div>
       </div>
 
       <footer className="mt-12 rounded-xl border border-primary/30 bg-primary/5 p-6">

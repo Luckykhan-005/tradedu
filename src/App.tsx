@@ -1,43 +1,54 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { getCurrentSession, signOut as supaSignOut, supabase, type TradeEdUser } from '@/lib/supabase'
 import { listCatalogCourses, listSessions, getCourseDetail, fetchLessonProgress, fetchEnrollments, addEnrollment, setLessonProgress as saveLessonProgress } from '@/lib/courses'
-import { Navigation, Page } from './components/Navigation'
+import { Navigation, type Page } from './components/Navigation'
 import { Landing } from './components/Landing'
-import { CourseCatalog, type CourseData } from './components/CourseCatalog'
-import { CourseDetail } from './components/CourseDetail'
-import { Dashboard } from './components/Dashboard'
-import { LiveSessions } from './components/LiveSessions'
-import { Auth, type AuthView } from './components/Auth'
-import { AdminPanel } from './components/AdminPanel'
-import { AiToolsHub } from './components/AiToolsHub'
-import { AiToolDetail } from './components/AiToolDetail'
-import { getAiToolPage, type AiToolPage } from './data/aiTools'
-import { Books } from './components/Books'
-import { CalculatorHub } from './components/CalculatorHub'
-import { CalculatorDetail } from './components/CalculatorDetail'
-import { Glossary } from './components/Glossary'
-import { Journal } from './components/Journal'
-import { Liquidation } from './components/Liquidation'
-import { MarketOverview } from './components/MarketOverview'
-import { Certificates } from './components/Certificates'
-import { Pricing } from './components/Pricing'
-import { PlanGate } from './components/PlanGate'
-import { Subscribe } from './components/Subscribe'
+import type { CourseData } from './components/CourseCatalog'
+import type { AuthView } from './components/Auth'
 import { Footer } from './components/Footer'
-import { About } from './components/About'
-import { Roadmap } from './components/Roadmap'
-import { Contact } from './components/Contact'
-import { HireMe } from './components/HireMe'
-import { Privacy } from './components/Privacy'
-import { Terms } from './components/Terms'
-import { Disclaimer } from './components/Disclaimer'
-import { NotFound } from './components/NotFound'
-import { Blog } from './components/Blog'
-import { BlogPost } from './components/BlogPost'
-import { Mentor } from './components/Mentor'
-import { SearchOverlay } from './components/SearchOverlay'
+import { getAiToolPage, type AiToolPage } from './data/aiTools'
 import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
 import { applyPageSeo } from './lib/seo'
+
+// Route-level code splitting: pehla paint halka rahe — heavy components sirf
+// apne route par load hon. (Bundle 2.7MB se toota ga.)
+const CourseCatalog = lazy(() => import('./components/CourseCatalog').then((m) => ({ default: m.CourseCatalog })))
+const CourseDetail = lazy(() => import('./components/CourseDetail').then((m) => ({ default: m.CourseDetail })))
+const Dashboard = lazy(() => import('./components/Dashboard').then((m) => ({ default: m.Dashboard })))
+const LiveSessions = lazy(() => import('./components/LiveSessions').then((m) => ({ default: m.LiveSessions })))
+const Auth = lazy(() => import('./components/Auth').then((m) => ({ default: m.Auth })))
+const AdminPanel = lazy(() => import('./components/AdminPanel').then((m) => ({ default: m.AdminPanel })))
+const AiToolsHub = lazy(() => import('./components/AiToolsHub').then((m) => ({ default: m.AiToolsHub })))
+const AiToolDetail = lazy(() => import('./components/AiToolDetail').then((m) => ({ default: m.AiToolDetail })))
+const Books = lazy(() => import('./components/Books').then((m) => ({ default: m.Books })))
+const CalculatorHub = lazy(() => import('./components/CalculatorHub').then((m) => ({ default: m.CalculatorHub })))
+const CalculatorDetail = lazy(() => import('./components/CalculatorDetail').then((m) => ({ default: m.CalculatorDetail })))
+const Glossary = lazy(() => import('./components/Glossary').then((m) => ({ default: m.Glossary })))
+const Journal = lazy(() => import('./components/Journal').then((m) => ({ default: m.Journal })))
+const Liquidation = lazy(() => import('./components/Liquidation').then((m) => ({ default: m.Liquidation })))
+const MarketOverview = lazy(() => import('./components/MarketOverview').then((m) => ({ default: m.MarketOverview })))
+const Certificates = lazy(() => import('./components/Certificates').then((m) => ({ default: m.Certificates })))
+const Pricing = lazy(() => import('./components/Pricing').then((m) => ({ default: m.Pricing })))
+const PlanGate = lazy(() => import('./components/PlanGate').then((m) => ({ default: m.PlanGate })))
+const Subscribe = lazy(() => import('./components/Subscribe').then((m) => ({ default: m.Subscribe })))
+const About = lazy(() => import('./components/About').then((m) => ({ default: m.About })))
+const Roadmap = lazy(() => import('./components/Roadmap').then((m) => ({ default: m.Roadmap })))
+const Contact = lazy(() => import('./components/Contact').then((m) => ({ default: m.Contact })))
+const HireMe = lazy(() => import('./components/HireMe').then((m) => ({ default: m.HireMe })))
+const Privacy = lazy(() => import('./components/Privacy').then((m) => ({ default: m.Privacy })))
+const Terms = lazy(() => import('./components/Terms').then((m) => ({ default: m.Terms })))
+const Disclaimer = lazy(() => import('./components/Disclaimer').then((m) => ({ default: m.Disclaimer })))
+const NotFound = lazy(() => import('./components/NotFound').then((m) => ({ default: m.NotFound })))
+const Blog = lazy(() => import('./components/Blog').then((m) => ({ default: m.Blog })))
+const BlogPost = lazy(() => import('./components/BlogPost').then((m) => ({ default: m.BlogPost })))
+const Mentor = lazy(() => import('./components/Mentor').then((m) => ({ default: m.Mentor })))
+const SearchOverlay = lazy(() => import('./components/SearchOverlay').then((m) => ({ default: m.SearchOverlay })))
+
+const PageFallback = (
+  <div className="flex min-h-[50vh] items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
+  </div>
+)
 
 interface CourseDetailData extends CourseData {
   modules: {
@@ -494,7 +505,11 @@ export default function App() {
 
   // Auth screen
   if (showAuth) {
-    return <Auth onAuth={handleAuth} onCancel={closeAuth} initialView={authInitialView} />
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-background">{PageFallback}</div>}>
+        <Auth onAuth={handleAuth} onCancel={closeAuth} initialView={authInitialView} />
+      </Suspense>
+    )
   }
 
   // /admin par session check mukammal hone tak spinner — warna admin ke liye
@@ -547,6 +562,7 @@ export default function App() {
         onOpenSearch={() => setSearchOpen(true)}
       />
 
+      <Suspense fallback={PageFallback}>
       <SearchOverlay
         open={searchOpen}
         onClose={() => setSearchOpen(false)}
@@ -757,6 +773,7 @@ export default function App() {
       {currentPage === 'not-found' && (
         <NotFound onNavigate={navigate} />
       )}
+      </Suspense>
 
       <Footer onNavigate={navigate} />
     </div>

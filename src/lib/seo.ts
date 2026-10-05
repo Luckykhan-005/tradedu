@@ -160,16 +160,38 @@ const breadcrumb = (name: string, path: string) => ({
   ],
 })
 
-interface SeoInput {
+export interface SeoInput {
   page: Page
   path: string
   post?: BlogPost | null
   course?: { title: string; description?: string } | null
   tool?: { name?: string; description?: string } | null
   calcSlug?: string | null
+  /** DOM-free callers (build-time prerender) ke liye fallback jab document.title na ho */
+  fallbackTitle?: string
 }
 
-export function applyPageSeo({ page, path, post, course, tool, calcSlug }: SeoInput) {
+export interface PageSeo {
+  title: string
+  description: string
+  index: boolean
+  ogType: 'website' | 'article'
+  ogImage: string
+  keywords?: string
+  jsonLd: unknown
+}
+
+// Pure SEO calculation — koi DOM access nahi, isliye Node (prerender script)
+// mein bhi chal sakti hai. applyPageSeo ise browser mein document par apply karta hai.
+export function buildPageSeo({
+  page,
+  path,
+  post,
+  course,
+  tool,
+  calcSlug,
+  fallbackTitle = '',
+}: SeoInput): PageSeo {
   let meta: RouteMeta | undefined
   let title = ''
   let description = ''
@@ -244,8 +266,8 @@ export function applyPageSeo({ page, path, post, course, tool, calcSlug }: SeoIn
         }
       : null
   } else {
-      // ai-tool-detail / unknown — dynamic title jo abhi browser me hai, wahi rehne do
-      title = document.title
+      // ai-tool-detail / unknown — fallback title (browser mein document.title)
+      title = fallbackTitle
       description = ''
     }
   }
@@ -318,20 +340,35 @@ export function applyPageSeo({ page, path, post, course, tool, calcSlug }: SeoIn
       : { '@graph': [jsonLd, breadcrumb(name, path)].filter(Boolean) }
   }
 
-  document.title = title || document.title
-  upsertLink('canonical', `${SITE}${path}`)
-  setRobots(index && path !== '/subscribe')
-  if (description) upsertMeta('name', 'description', description)
-  upsertMeta('property', 'og:title', document.title)
-  if (description) upsertMeta('property', 'og:description', description)
-  upsertMeta('property', 'og:url', `${SITE}${path}`)
-  upsertMeta('property', 'og:type', page === 'blog-post' ? 'article' : 'website')
   const ogImage =
     page === 'blog-post' && post?.hero ? `${SITE}${post.hero}` : `${SITE}/hero-banner.webp`
-  upsertMeta('property', 'og:image', ogImage)
+  const keywords = post?.tags?.length ? post.tags.join(', ') : undefined
+  return {
+    title,
+    description,
+    index,
+    ogType: page === 'blog-post' ? 'article' : 'website',
+    ogImage,
+    keywords,
+    jsonLd,
+  }
+}
+
+export function applyPageSeo(input: SeoInput) {
+  const seo = buildPageSeo({ ...input, fallbackTitle: input.fallbackTitle ?? document.title })
+
+  document.title = seo.title || document.title
+  upsertLink('canonical', `${SITE}${input.path}`)
+  setRobots(seo.index && input.path !== '/subscribe')
+  if (seo.description) upsertMeta('name', 'description', seo.description)
+  upsertMeta('property', 'og:title', document.title)
+  if (seo.description) upsertMeta('property', 'og:description', seo.description)
+  upsertMeta('property', 'og:url', `${SITE}${input.path}`)
+  upsertMeta('property', 'og:type', seo.ogType)
+  upsertMeta('property', 'og:image', seo.ogImage)
   upsertMeta('name', 'twitter:title', document.title)
-  if (description) upsertMeta('name', 'twitter:description', description)
-  upsertMeta('name', 'twitter:image', ogImage)
-  if (post?.tags?.length) upsertMeta('name', 'keywords', post.tags.join(', '))
-  setJsonLd(jsonLd)
+  if (seo.description) upsertMeta('name', 'twitter:description', seo.description)
+  upsertMeta('name', 'twitter:image', seo.ogImage)
+  if (seo.keywords) upsertMeta('name', 'keywords', seo.keywords)
+  setJsonLd(seo.jsonLd)
 }
