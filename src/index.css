@@ -139,6 +139,12 @@
 .blog-html strong {
   font-weight: 700;
 }
+.blog-html a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .blog-html figure {
   margin: 24px 0;
   padding: 16px;
@@ -181,7 +187,8 @@
   font-size: 16px;
   border-radius: 0 8px 8px 0;
 }
-.blog-html ul {
+.blog-html ul,
+.blog-html ol {
   padding-left: 22px;
   margin: 14px 0;
 }
