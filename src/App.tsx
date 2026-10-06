@@ -9,6 +9,7 @@ import { Footer } from './components/Footer'
 import { getAiToolPage, type AiToolPage } from './data/aiTools'
 import { getBlogPost, type BlogPost as BlogPostData } from './data/blog'
 import { applyPageSeo } from './lib/seo'
+import { courseSlug } from './lib/courseSlug'
 
 // Route-level code splitting: pehla paint halka rahe — heavy components sirf
 // apne route par load hon. (Bundle 2.7MB se toota ga.)
@@ -121,11 +122,17 @@ const calcSlugFromPath = (path: string): string | null => {
   return m ? m[1] : null
 }
 
+const courseSlugFromPath = (path: string): string | null => {
+  const m = path.match(/^\/courses\/([a-z0-9-]+)$/)
+  return m ? m[1] : null
+}
+
 const pageFromLocation = (): Page => {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
   if (pathToPage[path]) return pathToPage[path]
   if (blogSlugFromPath(path)) return 'blog-post'
   if (calcSlugFromPath(path)) return 'calculator-detail'
+  if (courseSlugFromPath(path)) return 'course-detail'
   return 'not-found'
 }
 
@@ -138,6 +145,7 @@ export default function App() {
   const [selectedPlan, setSelectedPlan] = useState<string>('PREMIUM')
   const [courses, setCourses] = useState<CourseData[]>([])
   const [selectedCourse, setSelectedCourse] = useState<CourseDetailData | null>(null)
+  const [courseLoading, setCourseLoading] = useState(false)
   const [selectedAiTool, setSelectedAiTool] = useState<AiToolPage | null>(null)
   const [enrolledCourseIds, setEnrolledCourseIds] = useState<Set<string>>(new Set())
   const [lessonProgress, setLessonProgress] = useState<Record<string, Record<string, boolean>>>({})
@@ -356,12 +364,45 @@ export default function App() {
       }
       setSelectedCourse(detail as CourseDetailData)
       setCurrentPage('course-detail')
-      // Push a history entry so browser back returns to the course list
-      window.history.pushState({}, '', window.location.pathname)
+      // Real URL taake page share/crawl ho sake — back/forward bhi chalega
+      const path = `/courses/${courseSlug(detail.id, detail.title)}`
+      if (window.location.pathname !== path) {
+        window.history.pushState({}, '', path)
+      }
+      window.scrollTo(0, 0)
     } catch (err) {
       console.error('Failed to load course:', err)
     }
   }
+
+  // Direct URL load (jaise /courses/forex-trading-course-intermediate) aur
+  // browser back/forward: slug se course dhoond kar load karo. URL galat ho
+  // to NotFound — blank page nahi.
+  useEffect(() => {
+    if (loading || currentPage !== 'course-detail') return
+    const slug = courseSlugFromPath(window.location.pathname)
+    if (!slug) return
+    if (selectedCourse && courseSlug(selectedCourse.id, selectedCourse.title) === slug) return
+    let cancelled = false
+    setCourseLoading(true)
+    ;(async () => {
+      let list: { id: string; title: string }[] = courses
+      if (!list.length) {
+        const res = await listCatalogCourses()
+        list = res.courses || []
+      }
+      const match = list.find((c) => courseSlug(c.id, c.title) === slug)
+      const detail = match ? await getCourseDetail(match.id) : null
+      if (cancelled) return
+      if (detail) setSelectedCourse(detail as CourseDetailData)
+      else setCurrentPage('not-found')
+      setCourseLoading(false)
+    })()
+    return () => {
+      cancelled = true
+      setCourseLoading(false)
+    }
+  }, [currentPage, selectedCourse, courses, loading])
 
   const handleSelectAiTool = (toolId: string) => {
     const tool = getAiToolPage(toolId)
@@ -588,27 +629,32 @@ export default function App() {
         />
       )}
 
-      {currentPage === 'course-detail' && selectedCourse && (
-        <CourseDetail
-          course={selectedCourse}
-          modules={selectedCourse.modules}
-          progress={lessonProgress[selectedCourse.id] || {}}
-          enrolled={enrolledCourseIds.has(selectedCourse.id)}
-          hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
-          onBack={() => navigate('courses')}
-          onUpgrade={() => navigate('pricing')}
-          onEnroll={() => {
-            if (!user) {
-              openAuth()
-            } else {
-              handleEnroll(selectedCourse.id)
+      {currentPage === 'course-detail' &&
+        (selectedCourse ? (
+          <CourseDetail
+            course={selectedCourse}
+            modules={selectedCourse.modules}
+            progress={lessonProgress[selectedCourse.id] || {}}
+            enrolled={enrolledCourseIds.has(selectedCourse.id)}
+            hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
+            onBack={() => navigate('courses')}
+            onUpgrade={() => navigate('pricing')}
+            onEnroll={() => {
+              if (!user) {
+                openAuth()
+              } else {
+                handleEnroll(selectedCourse.id)
+              }
+            }}
+            onToggleLesson={(lessonId) =>
+              handleToggleLesson(selectedCourse.id, lessonId)
             }
-          }}
-          onToggleLesson={(lessonId) =>
-            handleToggleLesson(selectedCourse.id, lessonId)
-          }
-        />
-      )}
+          />
+        ) : loading || courseLoading ? (
+          PageFallback
+        ) : (
+          <NotFound onNavigate={navigate} />
+        ))}
 
       {currentPage === 'dashboard' && (
         <Dashboard

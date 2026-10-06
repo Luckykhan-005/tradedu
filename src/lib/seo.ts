@@ -215,14 +215,20 @@ export function buildPageSeo({
     }
   } else if (page === 'course-detail' && course) {
     title = `${course.title} — Urdu Trading Course | TradeEd`
-    description =
-      (course.description || `Urdu trading course: ${course.title} — practical video lessons ke sath zero se professional tak seekhein.`).slice(0, 155)
+    description = (
+      course.description ||
+      `Urdu trading course: ${course.title} — practical video lessons ke sath zero se professional tak.`
+    )
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 155)
     jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'Course',
       name: course.title,
-      description: course.description,
+      description: course.description || undefined,
       inLanguage: 'ur-Latn',
+      url: `${SITE}${path}`,
       provider: { '@type': 'Organization', name: 'TradeEd', url: `${SITE}/` },
       educationalLevel: 'Beginner to Advanced',
     }

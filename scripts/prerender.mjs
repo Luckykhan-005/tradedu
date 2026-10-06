@@ -36,7 +36,7 @@ let written = 0
 let skipped = 0
 
 for (const rawPath of urls) {
-  const input = seoForPath(rawPath)
+  const input = await seoForPath(rawPath)
   if (!input) {
     skipped++
     continue
@@ -74,6 +74,13 @@ for (const rawPath of urls) {
     /<link rel="canonical" href="[^"]*" \/>/,
     `<link rel="canonical" href="${canonical}" />`
   )
+
+  // JSON-LD structured data (Course/BlogPosting/etc.) — social crawlers ke liye
+  // head tags kaafi hain, lekin Google rich results ke liye schema bhi dekhta hai.
+  if (seo.jsonLd) {
+    const ld = JSON.stringify(seo.jsonLd).replace(/</g, '\\u003c')
+    html = html.replace('</head>', `    <script type="application/ld+json">${ld}</script>\n  </head>`)
+  }
 
   const outFile = join(root, 'dist', path.replace(/^\//, ''), 'index.html')
   mkdirSync(dirname(outFile), { recursive: true })
