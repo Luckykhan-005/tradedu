@@ -27,7 +27,7 @@ Pillar pages (already live):
 
 | # | Target query | Intent | URL | Internal links |
 |---|---|---|---|---|
-| 7 | crypto trading kaise shuru karein pakistan | Informational | `/blog/crypto-trading-shuru-karein-pakistan` | pillar crypto, `/blog/binance-p2p-guide-urdu` |
+| 7 | crypto trading kaise shuru karein pakistan | Informational | ~~`/blog/crypto-trading-shuru-karein-pakistan`~~ **DONE 2026-10-06** | pillar crypto, `/blog/binance-p2p-guide-urdu` |
 | 8 | bitcoin kya hai urdu mein | Informational | `/blog/bitcoin-kya-hai-urdu` | `/glossary/bitcoin/`, pillar crypto, `/blog/bitcoin-halving` |
 | 9 | stablecoin usdt kya hai | Informational | `/blog/stablecoin-usdt-kya-hai` | pillar crypto, `/blog/pakistan-crypto-tax-2026` |
 | 10 | crypto wallet kaise banayein (trust wallet) | Informational | `/blog/crypto-wallet-kaise-banayein` | pillar crypto, `/blog/binance-p2p-guide-urdu` |
@@ -71,8 +71,8 @@ Pillar pages (already live):
 
 ## Execution order (pehle ye 8)
 
-1. #1 forex kaise shuru (highest local volume + fresh pillar)
-2. #7 crypto kaise shuru (same pattern, P2P post se strong link)
+1. #1 forex kaise shuru (highest local volume + fresh pillar) — SKIP (cannibalization)
+2. #7 crypto kaise shuru (same pattern, P2P post se strong link) — **DONE 2026-10-06**
 3. #19 position sizing (calculator se convert hota hai, tool page ko boost)
 4. #13 support resistance (TA pillar ka core missing piece)
 5. #22 emotional trading (glossary + purane psychology posts se deep cluster)
