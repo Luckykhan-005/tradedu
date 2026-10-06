@@ -13,6 +13,7 @@ import {
   Award,
   ChevronDown,
   ChevronRight,
+  Download,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -36,6 +37,10 @@ interface LessonData {
   content?: string
   videoUrl?: string
   duration?: string
+  description?: string | null
+  isPublished?: boolean
+  resources?: { label: string; url: string }[] | null
+  quiz?: { question: string; options: string[]; correct: number; explanation?: string }[] | null
   order: number
   type: string
 }
@@ -50,6 +55,10 @@ interface CourseDetailProps {
   onEnroll: () => void
   onUpgrade?: () => void
   onToggleLesson: (lessonId: string) => void
+  /** "Back to courses" button label (e.g. learn route -> "Back to dashboard") */
+  backLabel?: string
+  /** Future route support: /learn/<course>/lesson-01 -> auto-open that lesson */
+  initialLessonSlug?: string | null
 }
 
 const typeIcons: Record<string, typeof Play> = {
@@ -68,6 +77,8 @@ export function CourseDetail({
   onEnroll,
   onUpgrade,
   onToggleLesson,
+  backLabel = 'Back to courses',
+  initialLessonSlug = null,
 }: CourseDetailProps) {
   const [expandedModules, setExpandedModules] = useState<Set<string>>(() => {
     if (modules.length > 0) return new Set([modules[0].id])
@@ -78,6 +89,24 @@ export function CourseDetail({
   const totalLessons = modules.reduce((acc, m) => acc + m.lessons.length, 0)
   const completedLessons = Object.values(progress).filter(Boolean).length
   const progressPercent = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0
+
+  const flatLessons = modules.flatMap((m) => m.lessons)
+
+  // /learn/<course>/lesson-01 support: slug se lesson auto-open
+  useEffect(() => {
+    if (!initialLessonSlug) return
+    const m = initialLessonSlug.match(/^lesson-(\d+)$/)
+    if (!m) return
+    const n = parseInt(m[1], 10)
+    const lesson =
+      flatLessons.find((l) => l.order === n) || flatLessons[n - 1]
+    if (lesson) {
+      setActiveLesson(lesson)
+      const mod = modules.find((mm) => mm.lessons.some((l) => l.id === lesson.id))
+      if (mod) setExpandedModules((prev) => new Set(prev).add(mod.id))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialLessonSlug])
 
   const toggleModule = (moduleId: string) => {
     setExpandedModules((prev) => {
@@ -99,8 +128,6 @@ export function CourseDetail({
   // const isModuleLocked = (idx: number) =>
   //   !hasFullAccess && (idx > 0 || course.level !== 'beginner')
   const isModuleLocked = (idx: number) => false
-
-  const flatLessons = modules.flatMap((m) => m.lessons)
 
   // Video khatam hone par: lesson auto-complete (green circle + progress %)
   // aur agla lesson auto-start.
@@ -126,7 +153,7 @@ export function CourseDetail({
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to courses
+            {backLabel}
           </button>
 
           <img
@@ -350,13 +377,18 @@ export function CourseDetail({
 
                   <div className="p-6">
                     <h2 className="text-xl font-bold mb-2">{activeLesson.title}</h2>
+                    {activeLesson.description && (
+                      <p className="text-sm text-muted-foreground mb-3">{activeLesson.description}</p>
+                    )}
                     {activeLesson.duration && (
                       <div className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
                         <Clock className="h-3.5 w-3.5" /> {activeLesson.duration}
                       </div>
                     )}
                     <Separator className="mb-4" />
-                    {activeLesson.content ? (
+                    {activeLesson.quiz && activeLesson.quiz.length > 0 ? (
+                      <QuizBlock quiz={activeLesson.quiz} />
+                    ) : activeLesson.content ? (
                       <div className="prose prose-sm max-w-none">
                         <p className="text-muted-foreground whitespace-pre-wrap">
                           {activeLesson.content}
@@ -368,6 +400,28 @@ export function CourseDetail({
                           ? 'Watch the video above to continue your lesson.'
                           : 'Lesson content coming soon.'}
                       </p>
+                    )}
+                    {activeLesson.resources && activeLesson.resources.length > 0 && (
+                      <div className="mt-6 border-t border-border pt-4">
+                        <h4 className="text-sm font-semibold mb-2 flex items-center gap-1.5">
+                          <FileText className="h-4 w-4" /> Resources
+                        </h4>
+                        <ul className="space-y-1.5">
+                          {activeLesson.resources.map((r, i) => (
+                            <li key={i}>
+                              <a
+                                href={r.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-primary hover:underline flex items-center gap-1.5"
+                              >
+                                <Download className="h-3.5 w-3.5 shrink-0" />
+                                {r.label || r.url}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </div>
                 </CardContent>
@@ -400,6 +454,91 @@ export function CourseDetail({
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+function QuizBlock({ quiz }: { quiz: import('@/lib/courses').QuizQuestion[] }) {
+  const [answers, setAnswers] = useState<Record<number, number>>({})
+  const [checked, setChecked] = useState<Record<number, boolean>>({})
+
+  return (
+    <div className="space-y-5">
+      {quiz.map((q, qi) => {
+        const picked = answers[qi]
+        const isChecked = checked[qi]
+        return (
+          <div key={qi} className="rounded-lg border border-border bg-secondary/30 p-4">
+            <p className="text-sm font-medium mb-3">
+              <span className="text-muted-foreground mr-1">Q{qi + 1}.</span>
+              {q.question}
+            </p>
+            <div className="space-y-2">
+              {q.options.map((opt, oi) => {
+                const isPicked = picked === oi
+                const isCorrect = q.correct === oi
+                let cls = 'border-input'
+                if (isChecked) {
+                  cls = isCorrect
+                    ? 'border-emerald-500 bg-emerald-500/10'
+                    : isPicked
+                      ? 'border-destructive bg-destructive/10'
+                      : 'border-input opacity-60'
+                } else if (isPicked) {
+                  cls = 'border-primary bg-primary/5'
+                }
+                return (
+                  <button
+                    key={oi}
+                    disabled={isChecked}
+                    onClick={() => setAnswers((prev) => ({ ...prev, [qi]: oi }))}
+                    className={cn(
+                      'flex w-full items-center gap-2.5 rounded-lg border px-3 py-2 text-left text-sm transition-colors',
+                      cls
+                    )}
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-current text-[11px] font-semibold">
+                      {String.fromCharCode(65 + oi)}
+                    </span>
+                    {opt}
+                  </button>
+                )
+              })}
+            </div>
+            {isChecked ? (
+              <div className="mt-3 text-sm">
+                <p className={cn('font-medium', picked === q.correct ? 'text-emerald-600' : 'text-destructive')}>
+                  {picked === q.correct ? 'Sahi jawab!' : 'Galat jawab.'}
+                </p>
+                {q.explanation && (
+                  <p className="text-muted-foreground mt-1 whitespace-pre-wrap">{q.explanation}</p>
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="mt-2 h-7 text-xs"
+                  onClick={() => {
+                    setChecked((prev) => ({ ...prev, [qi]: false }))
+                    setAnswers((prev) => ({ ...prev, [qi]: undefined as any }))
+                  }}
+                >
+                  Try again
+                </Button>
+              </div>
+            ) : (
+              <Button
+                size="sm"
+                variant="outline"
+                className="mt-3"
+                disabled={picked === undefined}
+                onClick={() => setChecked((prev) => ({ ...prev, [qi]: true }))}
+              >
+                Check Answer
+              </Button>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }

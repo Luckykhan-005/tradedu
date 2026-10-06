@@ -16,6 +16,18 @@ export interface CatalogCourse {
   moduleCount: number
 }
 
+export interface LessonResource {
+  label: string
+  url: string
+}
+
+export interface QuizQuestion {
+  question: string
+  options: string[]
+  correct: number
+  explanation?: string
+}
+
 export interface CourseLesson {
   id: string
   title: string
@@ -23,6 +35,10 @@ export interface CourseLesson {
   duration?: string | null
   videoUrl?: string | null
   content?: string | null
+  description?: string | null
+  isPublished: boolean
+  resources?: LessonResource[] | null
+  quiz?: QuizQuestion[] | null
   order: number
 }
 
@@ -59,6 +75,10 @@ const mapLesson = (l: any): CourseLesson => ({
   duration: l.duration,
   videoUrl: l.video_url,
   content: l.content,
+  description: l.description,
+  isPublished: l.is_published ?? true,
+  resources: Array.isArray(l.resources) ? l.resources : null,
+  quiz: Array.isArray(l.quiz) ? l.quiz : null,
   order: l.order ?? 0,
 })
 
@@ -110,7 +130,7 @@ export async function getCourseDetail(id: string): Promise<CourseDetail | null> 
   const { data, error } = await supabase
     .from('courses')
     .select(
-      'id,title,description,level,thumbnail,price,rating,student_count,duration,is_published,modules(id,title,"order",lessons(id,title,type,duration,video_url,content,"order"))'
+      'id,title,description,level,thumbnail,price,rating,student_count,duration,is_published,modules(id,title,"order",lessons(id,title,type,duration,video_url,content,description,is_published,resources,quiz,"order"))'
     )
     .eq('id', id)
     .single()
@@ -131,7 +151,7 @@ export async function listAdminCourses(): Promise<{ courses?: CourseDetail[]; er
   const { data, error } = await supabase
     .from('courses')
     .select(
-      'id,title,description,level,thumbnail,price,rating,student_count,duration,is_published,created_at,modules(id,title,"order",lessons(id,title,type,duration,video_url,content,"order"))'
+      'id,title,description,level,thumbnail,price,rating,student_count,duration,is_published,created_at,modules(id,title,"order",lessons(id,title,type,duration,video_url,content,description,is_published,resources,quiz,"order"))'
     )
     .order('created_at', { ascending: false })
   if (error) return { error: error.message }
@@ -203,7 +223,18 @@ export async function adminDeleteModule(id: string): Promise<{ error?: string }>
 
 export async function adminSaveLesson(
   moduleId: string,
-  input: { title: string; type: string; videoUrl?: string; duration?: string; content?: string },
+  input: {
+    title: string
+    type: string
+    videoUrl?: string
+    duration?: string
+    content?: string
+    description?: string
+    order?: number
+    isPublished?: boolean
+    resources?: LessonResource[]
+    quiz?: QuizQuestion[]
+  },
   editingId?: string
 ): Promise<{ error?: string }> {
   const row = {
@@ -212,13 +243,23 @@ export async function adminSaveLesson(
     video_url: input.videoUrl || null,
     duration: input.duration || null,
     content: input.content || null,
+    description: input.description || null,
+    is_published: input.isPublished !== false,
+    resources: input.resources && input.resources.length ? input.resources : null,
+    quiz: input.quiz && input.quiz.length ? input.quiz : null,
   }
   if (editingId) {
-    const { error } = await supabase.from('lessons').update(row).eq('id', editingId)
+    const { error } = await supabase
+      .from('lessons')
+      .update(input.order !== undefined ? { ...row, order: input.order } : row)
+      .eq('id', editingId)
     return { error: error?.message }
   }
   const { data: existing } = await supabase.from('lessons').select('"order"').eq('module_id', moduleId)
-  const nextOrder = (existing || []).reduce((m, r: any) => Math.max(m, r.order || 0), 0) + 1
+  const nextOrder =
+    input.order !== undefined
+      ? input.order
+      : (existing || []).reduce((m, r: any) => Math.max(m, r.order || 0), 0) + 1
   const { error } = await supabase.from('lessons').insert({ ...row, module_id: moduleId, order: nextOrder })
   return { error: error?.message }
 }

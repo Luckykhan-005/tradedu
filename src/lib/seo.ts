@@ -252,6 +252,11 @@ export function buildPageSeo({
       creator: { '@type': 'Person', name: 'M. Aslam Khan' },
       educationalLevel: 'Beginner to Advanced',
     }
+  } else if (page === 'learn-course' && course) {
+    // Auth-only student route — index nahi hona chahiye (private content)
+    title = `${course.title} — Course Dashboard | TradeEd`
+    description = `Enrolled course dashboard: ${course.title} — video lessons, notes, quizzes aur progress tracking.`
+    index = false
   } else if (page === 'ai-tool-detail') {
     title = `${tool?.name || 'AI Trading Tool'} — Free AI Tool | TradeEd`
     description =

@@ -27,6 +27,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { Switch } from '@/components/ui/switch'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { AdminStudents } from '@/components/AdminStudents'
@@ -50,11 +51,15 @@ import { adminListStudents } from '@/lib/supabase'
 interface AdminLesson {
   id: string
   title: string
+  description?: string
   content?: string
   videoUrl?: string
   duration?: string
   order: number
   type: string
+  isPublished: boolean
+  resources?: { label: string; url: string }[] | null
+  quiz?: { question: string; options: string[]; correct: number; explanation?: string }[] | null
 }
 
 interface AdminModule {
@@ -190,19 +195,72 @@ function CourseForm({
 function LessonForm({
   moduleTitle,
   initial,
+  nextOrder,
   onSave,
   onCancel,
 }: {
   moduleTitle: string
   initial?: AdminLesson
+  nextOrder: number
   onSave: (data: any) => void
   onCancel: () => void
 }) {
   const [title, setTitle] = useState(initial?.title || '')
+  const [description, setDescription] = useState(initial?.description || '')
   const [type, setType] = useState(initial?.type || 'video')
   const [videoUrl, setVideoUrl] = useState(initial?.videoUrl || '')
   const [duration, setDuration] = useState(initial?.duration || '')
   const [content, setContent] = useState(initial?.content || '')
+  const [order, setOrder] = useState(
+    initial ? String(initial.order) : String(nextOrder)
+  )
+  const [isPublished, setIsPublished] = useState(initial ? initial.isPublished : true)
+  const [resources, setResources] = useState<{ label: string; url: string }[]>(
+    initial?.resources || []
+  )
+  const [quiz, setQuiz] = useState<
+    { question: string; options: string[]; correct: number; explanation?: string }[]
+  >(initial?.quiz || [])
+
+  const addResource = () => setResources((r) => [...r, { label: '', url: '' }])
+  const updateResource = (i: number, key: 'label' | 'url', val: string) =>
+    setResources((r) => r.map((x, idx) => (idx === i ? { ...x, [key]: val } : x)))
+  const removeResource = (i: number) => setResources((r) => r.filter((_, idx) => idx !== i))
+
+  const addQuestion = () =>
+    setQuiz((q) => [...q, { question: '', options: ['', ''], correct: 0, explanation: '' }])
+  const updateQuestion = (i: number, patch: Record<string, any>) =>
+    setQuiz((q) => q.map((x, idx) => (idx === i ? { ...x, ...patch } : x)))
+  const updateOption = (qi: number, oi: number, val: string) =>
+    setQuiz((q) =>
+      q.map((x, idx) =>
+        idx === qi ? { ...x, options: x.options.map((o, oidx) => (oidx === oi ? val : o)) } : x
+      )
+    )
+  const addOption = (qi: number) =>
+    setQuiz((q) => q.map((x, idx) => (idx === qi ? { ...x, options: [...x.options, ''] } : x)))
+  const removeOption = (qi: number, oi: number) =>
+    setQuiz((q) =>
+      q.map((x, idx) =>
+        idx === qi
+          ? {
+              ...x,
+              options: x.options.filter((_, oidx) => oidx !== oi),
+              correct: x.correct > oi ? x.correct - 1 : x.correct,
+            }
+          : x
+      )
+    )
+  const removeQuestion = (i: number) => setQuiz((q) => q.filter((_, idx) => idx !== i))
+
+  const cleanQuiz = quiz
+    .filter((q) => q.question.trim() && q.options.filter((o) => o.trim()).length >= 2)
+    .map((q) => ({
+      question: q.question.trim(),
+      options: q.options.filter((o) => o.trim()),
+      correct: Math.min(q.correct, q.options.filter((o) => o.trim()).length - 1),
+      explanation: q.explanation?.trim() || undefined,
+    }))
 
   return (
     <Card className="border-primary/20">
@@ -216,6 +274,14 @@ function LessonForm({
             <Label className="text-xs">Lesson Title</Label>
             <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Candlestick Patterns" />
           </div>
+          <div className="space-y-1.5 sm:col-span-2">
+            <Label className="text-xs">Short Description</Label>
+            <Input
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Lesson ka 1-line summary (students ko list mein dikhega)"
+            />
+          </div>
           <div className="space-y-1.5">
             <Label className="text-xs">Type</Label>
             <select value={type} onChange={(e) => setType(e.target.value)} className="w-full rounded-lg border border-input bg-background text-sm">
@@ -225,8 +291,27 @@ function LessonForm({
             </select>
           </div>
           <div className="space-y-1.5">
+            <Label className="text-xs">Order</Label>
+            <Input
+              type="number"
+              value={order}
+              onChange={(e) => setOrder(e.target.value)}
+              placeholder="1, 2, 3..."
+              min={1}
+            />
+          </div>
+          <div className="space-y-1.5">
             <Label className="text-xs">Duration</Label>
             <Input value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="e.g. 15 min" />
+          </div>
+          <div className="flex items-center justify-between gap-3 rounded-lg border border-input px-3 py-2">
+            <div>
+              <Label className="text-xs">Published</Label>
+              <p className="text-[11px] text-muted-foreground">
+                {isPublished ? 'Students ko visible' : 'Draft — students se hidden'}
+              </p>
+            </div>
+            <Switch checked={isPublished} onCheckedChange={setIsPublished} />
           </div>
           {type === 'video' && (
             <div className="space-y-1.5 sm:col-span-2">
@@ -234,16 +319,154 @@ function LessonForm({
               <Input value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder="https://youtube.com/..." />
             </div>
           )}
-          <div className="space-y-1.5 sm:col-span-2">
-            <Label className="text-xs">Content / Notes</Label>
-            <Textarea value={content} onChange={(e) => setContent(e.target.value)} rows={4} placeholder="Lesson content in markdown or plain text..." />
-          </div>
+          {type !== 'quiz' && (
+            <div className="space-y-1.5 sm:col-span-2">
+              <Label className="text-xs">Content / Notes</Label>
+              <Textarea value={content} onChange={(e) => setContent(e.target.value)} rows={4} placeholder="Lesson content in plain text..." />
+            </div>
+          )}
         </div>
+
+        {/* Resources */}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <Label className="text-xs">Resources (downloadable links)</Label>
+            <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={addResource}>
+              <Plus className="h-3.5 w-3.5" /> Add Resource
+            </Button>
+          </div>
+          {resources.map((r, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <Input
+                value={r.label}
+                onChange={(e) => updateResource(i, 'label', e.target.value)}
+                placeholder="Label (e.g. Lecture Notes PDF)"
+                className="flex-1"
+              />
+              <Input
+                value={r.url}
+                onChange={(e) => updateResource(i, 'url', e.target.value)}
+                placeholder="https://..."
+                className="flex-[2]"
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-destructive shrink-0"
+                onClick={() => removeResource(i)}
+              >
+                <X className="h-3.5 w-3.5" />
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        {/* Quiz (type = quiz) */}
+        {type === 'quiz' && (
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <Label className="text-xs">Quiz Questions</Label>
+              <Button variant="outline" size="sm" className="h-7 text-xs gap-1" onClick={addQuestion}>
+                <Plus className="h-3.5 w-3.5" /> Add Question
+              </Button>
+            </div>
+            {quiz.map((q, qi) => (
+              <div key={qi} className="rounded-lg border border-border bg-secondary/30 p-3 space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-muted-foreground">Q{qi + 1}</span>
+                  <Input
+                    value={q.question}
+                    onChange={(e) => updateQuestion(qi, { question: e.target.value })}
+                    placeholder="Question..."
+                    className="flex-1"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-destructive shrink-0"
+                    onClick={() => removeQuestion(qi)}
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </Button>
+                </div>
+                {q.options.map((opt, oi) => (
+                  <div key={oi} className="flex items-center gap-2 pl-6">
+                    <button
+                      type="button"
+                      onClick={() => updateQuestion(qi, { correct: oi })}
+                      className={cn(
+                        'flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[10px] font-bold transition-colors',
+                        q.correct === oi
+                          ? 'border-emerald-500 bg-emerald-500 text-white'
+                          : 'border-input text-muted-foreground hover:border-emerald-400'
+                      )}
+                      title="Mark as correct answer"
+                    >
+                      {String.fromCharCode(65 + oi)}
+                    </button>
+                    <Input
+                      value={opt}
+                      onChange={(e) => updateOption(qi, oi, e.target.value)}
+                      placeholder={`Option ${String.fromCharCode(65 + oi)}`}
+                      className="flex-1"
+                    />
+                    {q.options.length > 2 && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-destructive shrink-0"
+                        onClick={() => removeOption(qi, oi)}
+                      >
+                        <X className="h-3 w-3" />
+                      </Button>
+                    )}
+                  </div>
+                ))}
+                {q.options.length < 6 && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-7 text-xs gap-1 ml-6"
+                    onClick={() => addOption(qi)}
+                  >
+                    <Plus className="h-3 w-3" /> Add Option
+                  </Button>
+                )}
+                <Textarea
+                  value={q.explanation || ''}
+                  onChange={(e) => updateQuestion(qi, { explanation: e.target.value })}
+                  rows={2}
+                  placeholder="Explanation (jawab submit hone ke baad dikhega)..."
+                  className="ml-6"
+                />
+              </div>
+            ))}
+            {quiz.length === 0 && (
+              <p className="text-xs text-muted-foreground italic">
+                Koi question nahi hai. "Add Question" se quiz banayein.
+              </p>
+            )}
+          </div>
+        )}
+
         <div className="flex justify-end gap-2">
           <Button variant="outline" size="sm" onClick={onCancel}>Cancel</Button>
           <Button
             size="sm"
-            onClick={() => onSave({ title, type, videoUrl, duration, content })}
+            onClick={() =>
+              onSave({
+                title,
+                type,
+                videoUrl,
+                duration,
+                content,
+                description,
+                order: order ? parseInt(order, 10) : undefined,
+                isPublished,
+                resources: resources.filter((r) => r.url.trim()),
+                quiz: cleanQuiz,
+              })
+            }
             disabled={!title.trim()}
             className="gap-1"
           >
@@ -744,11 +967,24 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                       <div className="border-t border-border">
                         {mod.lessons.map((lesson) => (
                           <div key={lesson.id} className="flex items-center gap-3 px-4 py-3 border-l-2 border-l-transparent hover:bg-secondary/30 ml-8">
+                            <span className="w-5 shrink-0 text-center text-[11px] font-semibold text-muted-foreground">
+                              {lesson.order}
+                            </span>
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-medium">{lesson.title}</div>
+                              <div className="text-sm font-medium flex items-center gap-2">
+                                {lesson.title}
+                                {lesson.isPublished ? (
+                                  <Badge variant="outline" className="text-[10px] px-1.5 py-0 border-emerald-500/40 text-emerald-600">Published</Badge>
+                                ) : (
+                                  <Badge variant="outline" className="text-[10px] px-1.5 py-0 border-amber-500/40 text-amber-600">Draft</Badge>
+                                )}
+                              </div>
                               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                 <Badge variant="outline" className="text-[10px] px-1.5 py-0">{lesson.type}</Badge>
                                 {lesson.duration && <span>{lesson.duration}</span>}
+                                {lesson.description && (
+                                  <span className="truncate hidden sm:inline">— {lesson.description}</span>
+                                )}
                               </div>
                             </div>
                             <Button
@@ -774,12 +1010,14 @@ export function AdminPanel({ onBack, user, onSessionExpired }: AdminPanelProps) 
                           {showLessonForm === mod.id && editingLesson === null ? (
                             <LessonForm
                               moduleTitle={mod.title}
+                              nextOrder={mod.lessons.length + 1}
                               onSave={(data) => handleSaveLesson(mod.id, data)}
                               onCancel={() => setShowLessonForm(null)}
                             />
                           ) : showLessonForm === mod.id && editingLesson ? (
                             <LessonForm
                               moduleTitle={mod.title}
+                              nextOrder={mod.lessons.length + 1}
                               initial={editingLesson}
                               onSave={(data) => handleSaveLesson(mod.id, data)}
                               onCancel={() => { setShowLessonForm(null); setEditingLesson(null) }}
