@@ -171,7 +171,7 @@ export function LiveSessions({ sessions, loading, hasAccess = false, onUpgrade, 
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Poori recordings dekhne ke liye Premium lein — saare live sessions + recordings,
-                    sirf PKR 1,499/month.
+                    sirf PKR 2,999/month.
                   </p>
                   <Button size="sm" className="gap-2" onClick={onUpgrade || onSignIn}>
                     <Crown className="h-4 w-4" />

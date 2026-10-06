@@ -39,9 +39,9 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
       'Roman Urdu trading articles: risk management, trading psychology, candlestick patterns, Binance P2P guide aur trading journal — practical guides.',
   },
   pricing: {
-    title: 'Plans & Pricing — Free aur Premium PKR 1,499 | TradeEd',
+    title: 'Plans & Pricing — Free aur Premium PKR 2,999 | TradeEd',
     description:
-      'TradeEd Free aur Premium plan: 40+ free books aur beginner course ka pehla module free; Premium PKR 1,499/month — saare courses, certificates, AI tools.',
+      'TradeEd Free aur Premium plan: 40+ free books aur beginner course ka pehla module free; Premium PKR 2,999/month — saare courses, certificates, AI tools.',
   },
   glossary: {
     title: 'Trading Glossary in Urdu — Trading Terms Samjhein | TradeEd',

@@ -448,7 +448,7 @@ export const threePaths: ThreePath[] = [
   {
     key: 'tradeed',
     name: 'TradeEd Master Program',
-    tag: '₨1,499/month — cancel anytime',
+    tag: '₨2,999/month — cancel anytime',
     desc: 'Same structured mentor-led training, practical assignments aur real tools — fraction of the cost mein.',
     points: [
       '24-week structured roadmap — Phase 01 se 20 tak sequence',
@@ -480,7 +480,7 @@ export const comparisonRows: ComparisonRow[] = [
 ]
 
 export const comparisonFootnote =
-  'Academies structured hoti hain magar ₨50,000+ ki fees aur lock-in ke sath. TradeEd wahi structure + risk/backtesting system, ₨1,499/month mein — cancel anytime.'
+  'Academies structured hoti hain magar ₨50,000+ ki fees aur lock-in ke sath. TradeEd wahi structure + risk/backtesting system, ₨2,999/month mein — cancel anytime.'
 
 // Bonus stack — real site assets (value stacking)
 export interface Bonus {

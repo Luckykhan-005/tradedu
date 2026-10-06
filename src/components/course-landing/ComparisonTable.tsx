@@ -6,7 +6,7 @@ export function ComparisonTable() {
   const cols = [
     { key: 'youtube', label: 'Free YouTube', sub: '₨0' },
     { key: 'academy', label: 'Academy', sub: '₨50,000+' },
-    { key: 'tradeed', label: 'TradeEd', sub: '₨1,499/mo' },
+    { key: 'tradeed', label: 'TradeEd', sub: '₨2,999/mo' },
   ] as const
 
   const renderCell = (v: boolean, highlight: boolean) => {

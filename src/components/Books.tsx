@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   BookOpen,
   CandlestickChart,
@@ -783,7 +783,7 @@ export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
                 <h2 className="text-xl font-bold">{book.title}</h2>
                 <p className="text-sm text-muted-foreground">
                   Yeh book Premium members ke liye hai — Chapter 1 bilkul free padhein ya Premium lein
-                  (PKR 1,499/month) aur poori book + sab kuch unlock karein.
+                  (PKR 2,999/month) aur poori book + sab kuch unlock karein.
                 </p>
                 <div className="space-y-2 pt-2">
                   <Button className="w-full gap-2" onClick={() => setReader({ book, mode: 'preview' })}>
@@ -792,7 +792,7 @@ export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
                   </Button>
                   <Button variant="outline" className="w-full gap-2" onClick={onUpgrade}>
                     <Crown className="h-4 w-4" />
-                    Premium lein — PKR 1,499/month
+                    Premium lein — PKR 2,999/month
                   </Button>
                   <Button variant="ghost" className="w-full" onClick={() => setReader(null)}>
                     Wapas Books par

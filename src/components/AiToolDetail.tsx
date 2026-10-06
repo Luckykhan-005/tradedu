@@ -63,7 +63,7 @@ export function AiToolDetail({ tool, user, onSignIn, onUpgrade, onBack, onHome }
             <p className="text-sm text-muted-foreground">
               {gate === 'auth'
                 ? 'Yeh tool use karne ke liye free account chahiye — sirf 1 minute ka signup. Agar pehle se account hai to login karein.'
-                : 'Yeh tool Premium plan (PKR 1,499/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
+                : 'Yeh tool Premium plan (PKR 2,999/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
             </p>
             <div className="space-y-2 pt-2">
               {gate === 'auth' ? (
@@ -74,7 +74,7 @@ export function AiToolDetail({ tool, user, onSignIn, onUpgrade, onBack, onHome }
               ) : (
                 <Button className="w-full gap-2" onClick={() => onUpgrade?.()}>
                   <Sparkles className="h-4 w-4" />
-                  Premium Lein — PKR 1,499/month
+                  Premium Lein — PKR 2,999/month
                 </Button>
               )}
               <Button variant="outline" className="w-full" onClick={() => setGate(null)}>

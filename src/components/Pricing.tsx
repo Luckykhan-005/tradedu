@@ -49,7 +49,7 @@ const plans: Plan[] = [
   {
     id: 'PREMIUM',
     name: 'Premium',
-    price: 1499,
+    price: 2999,
     period: 'month',
     color: 'text-amber-600',
     bgGradient: 'from-amber-50 to-amber-100',
@@ -90,7 +90,7 @@ export function Pricing({ currentPlan, user, onBack, onSubscribe }: PricingProps
             <h1 className="text-3xl font-bold tracking-tight">Choose Your Plan</h1>
           </div>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            Free mein shuru karein, jab tayyar ho jayein to Premium lein — sirf PKR 1,499/month.
+            Free mein shuru karein, jab tayyar ho jayein to Premium lein — sirf PKR 2,999/month.
             {user && (
               <span className="ml-2 font-medium text-foreground">
                 Current plan: <span className="text-primary">{planNames[currentPlan] || 'Free'}</span>

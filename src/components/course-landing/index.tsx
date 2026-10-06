@@ -41,6 +41,9 @@ interface MasterCourseLandingProps {
 export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
   const [active, setActive] = useState('overview')
   const [showMobileCta, setShowMobileCta] = useState(false)
+  // Mobile par global header scroll-down par chhup jata hai — sub-nav ka top
+  // uske sath sync rahe (header chhupa to top-0, warna header ke neeche top-12).
+  const [navPinnedTop, setNavPinnedTop] = useState(false)
 
   useEffect(() => {
     const ids = [...NAV_ITEMS.map((n) => n.id), 'enroll']
@@ -67,15 +70,37 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    let lastY = 0
+    const onScroll = () => {
+      const y = window.scrollY
+      const isMobile = window.innerWidth < 768
+      if (!isMobile || y < 120) {
+        setNavPinnedTop(false)
+      } else if (y > lastY + 5) {
+        setNavPinnedTop(true)
+      } else if (y < lastY - 5) {
+        setNavPinnedTop(false)
+      }
+      lastY = y
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="min-h-screen bg-background">
       {/* Anchor sub-navigation — global Navigation ke neeche sticky */}
       <nav
         aria-label="Course sections"
-        className="sticky top-12 z-40 hidden border-b border-border bg-background/90 backdrop-blur-lg lg:block"
+        className={cn(
+          'sticky z-40 border-b border-border bg-background/95 backdrop-blur-lg transition-all duration-300',
+          navPinnedTop ? 'top-0' : 'top-12'
+        )}
       >
-        <div className="mx-auto flex w-full max-w-6xl items-center gap-1 px-4 sm:px-6">
-          <span className="flex items-center gap-1.5 pr-3 text-xs font-bold uppercase tracking-wider text-accent">
+        <div className="mx-auto flex w-full max-w-6xl items-center gap-1 overflow-x-auto px-4 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <span className="hidden shrink-0 items-center gap-1.5 pr-3 text-xs font-bold uppercase tracking-wider text-accent sm:flex">
             <ListTree className="h-3.5 w-3.5" />
             Master Program
           </span>
@@ -84,7 +109,7 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
               key={item.id}
               type="button"
               className={cn(
-                'whitespace-nowrap rounded-md px-3 py-2.5 text-sm font-medium transition-colors',
+                'shrink-0 whitespace-nowrap rounded-md px-3 py-2.5 text-sm font-medium transition-colors',
                 active === item.id
                   ? 'text-accent'
                   : 'text-muted-foreground hover:text-foreground'
@@ -94,7 +119,7 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
               {item.label}
             </button>
           ))}
-          <div className="ml-auto">
+          <div className="ml-auto hidden shrink-0 md:block">
             <Button size="sm" className="gap-1.5" onClick={onEnroll}>
               {masterCourse.ctaPrimary}
               <ArrowRight className="h-3.5 w-3.5" />

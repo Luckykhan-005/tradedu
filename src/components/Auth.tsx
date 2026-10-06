@@ -651,7 +651,7 @@ export function Auth({ onAuth, onCancel, initialView }: AuthProps) {
                   <TrendingUp className="h-5 w-5 text-primary" />
                   <span className="font-bold">Premium</span>
                 </div>
-                <Badge variant="outline">PKR 1,499/month</Badge>
+                <Badge variant="outline">PKR 2,999/month</Badge>
               </div>
               <p className="text-sm text-muted-foreground">Full access to all courses, live sessions, certificates, and priority support.</p>
             </div>

@@ -10,7 +10,7 @@ interface PlanGateProps {
 }
 
 const planMeta: Record<string, { name: string; price: string }> = {
-  PREMIUM: { name: 'Premium', price: 'PKR 1,499/month' },
+  PREMIUM: { name: 'Premium', price: 'PKR 2,999/month' },
 }
 
 export function PlanGate({ requiredPlan, currentPlan, onUpgrade, onSignIn }: PlanGateProps) {

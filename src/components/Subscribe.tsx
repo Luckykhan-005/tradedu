@@ -154,7 +154,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
               Admin will verify and activate your subscription within 24 hours.
             </p>
             <div className="mb-6 rounded-lg bg-secondary/50 p-4 text-sm text-left">
-              <p className="font-semibold mb-1">💳 Payment — PKR 1,499 (Premium):</p>
+              <p className="font-semibold mb-1">💳 Payment — PKR 2,999 (Premium):</p>
               <p className="text-muted-foreground">JazzCash: <strong>{PAYMENT_ACCOUNTS.jazzcash}</strong> ({PAYMENT_ACCOUNTS.jazzcashName})</p>
               <p className="text-muted-foreground mt-1">WhatsApp (receipt bhejein): <strong>{PAYMENT_ACCOUNTS.whatsapp}</strong></p>
               <p className="text-muted-foreground mt-1">Include your email: <strong>{form.email}</strong></p>
@@ -232,7 +232,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
                     >
                       <Sparkles className={`h-6 w-6 ${form.plan === plan ? 'text-primary' : 'text-muted-foreground'}`} />
                       <span className="font-semibold">Premium</span>
-                      <span className="text-sm text-muted-foreground">PKR 1,499/month</span>
+                      <span className="text-sm text-muted-foreground">PKR 2,999/month</span>
                     </button>
                   ))}
                 </div>
@@ -283,7 +283,7 @@ export function Subscribe({ user, onBack, selectedPlan = 'PREMIUM' }: SubscribeP
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  JazzCash par PKR 1,499 bhejein aur payment ka screenshot yahan upload karein.
+                  JazzCash par PKR 2,999 bhejein aur payment ka screenshot yahan upload karein.
                 </p>
               </div>
 

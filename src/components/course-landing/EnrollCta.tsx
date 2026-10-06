@@ -65,7 +65,7 @@ export function EnrollCta({ onEnroll, onCurriculum }: EnrollCtaProps) {
                       </p>
                     ) : (
                       <p className="text-3xl font-bold">
-                        PKR 1,499
+                        PKR 2,999
                         <span className="text-base font-medium text-muted-foreground"> /month</span>
                       </p>
                     )}

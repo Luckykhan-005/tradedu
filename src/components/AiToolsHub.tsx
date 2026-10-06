@@ -319,7 +319,7 @@ export function AiToolsHub({ user, onSignIn, onUpgrade, onSelectTool, onHome }: 
             <p className="text-sm text-muted-foreground">
               {isGuest
                 ? 'Yeh tool use karne ke liye free account chahiye — sirf 1 minute ka signup. Agar pehle se account hai to login karein.'
-                : 'Yeh tool Premium plan (PKR 1,499/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
+                : 'Yeh tool Premium plan (PKR 2,999/month) ke saath available hai. Premium lein aur sab AI tools unlock karein.'}
             </p>
             <div className="space-y-2 pt-2">
               {isGuest ? (
@@ -330,7 +330,7 @@ export function AiToolsHub({ user, onSignIn, onUpgrade, onSelectTool, onHome }: 
               ) : (
                 <Button className="w-full gap-2" onClick={() => onUpgrade?.()}>
                   <Shield className="h-4 w-4" />
-                  Premium Lein — PKR 1,499/month
+                  Premium Lein — PKR 2,999/month
                 </Button>
               )}
               <Button
