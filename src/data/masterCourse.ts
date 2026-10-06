@@ -403,3 +403,120 @@ export const masterSeo = {
     'TradeEd ka structured Crypto Trading Master Program. Beginner se advanced tak market structure, technical analysis, risk management, Futures, strategies, backtesting, paper trading aur professional trading process seekhein.',
   ogImage: '/blog/crypto-trading-shuru-karein-pakistan.webp',
 }
+
+/* ============================================================
+   FUNNEL LAYER — persuasive sections (sab real claims)
+   ============================================================ */
+
+// "3 Raste" — visitor apna situation identify kare
+export interface ThreePath {
+  key: 'academy' | 'youtube' | 'tradeed'
+  name: string
+  tag: string
+  desc: string
+  points: string[]
+  verdict: 'avoid' | 'choose'
+}
+
+export const threePaths: ThreePath[] = [
+  {
+    key: 'academy',
+    name: 'Mahangi Trading Academy',
+    tag: 'Aam taur par ₨50,000 – ₨200,000+',
+    desc: 'Academies mein structured teaching hoti hai, lekin price zyada aur access limited hota hai.',
+    points: [
+      'Mehangi fees — aam taur par ₨50,000 se ₨200,000+',
+      'Fixed batch timing — schedule adjust karna mushkil',
+      'Ek baar course khatam, phir mentor se connection nahi',
+      'Content jaldi outdated ho jata hai',
+    ],
+    verdict: 'avoid',
+  },
+  {
+    key: 'youtube',
+    name: 'Free YouTube Videos',
+    tag: '₨0 — magar sach mein bohat mehnga',
+    desc: 'Information free hai, structure nahi. Mahinon video dekhne ke baad bhi roadmap clear nahi hota.',
+    points: [
+      'Bikhra hua content — koi sequence, koi roadmap nahi',
+      'Har creator ki alag strategy — kiski maano?',
+      'Koi accountability nahi — koi check nahi karta practice ho ya nahi',
+      'Risk management, backtesting, journal — yeh sab missing rehta hai',
+    ],
+    verdict: 'avoid',
+  },
+  {
+    key: 'tradeed',
+    name: 'TradeEd Master Program',
+    tag: '₨1,499/month — cancel anytime',
+    desc: 'Same structured mentor-led training, practical assignments aur real tools — fraction of the cost mein.',
+    points: [
+      '24-week structured roadmap — Phase 01 se 20 tak sequence',
+      'Live mentor teaching — sawal jawab har class mein',
+      'Risk management + backtesting + paper trading + journal',
+      'Cancel anytime — koi lock-in nahi, koi hidden charges nahi',
+    ],
+    verdict: 'choose',
+  },
+]
+
+// Comparison table — logical justification
+export interface ComparisonRow {
+  feature: string
+  youtube: boolean
+  academy: boolean
+  tradeed: boolean
+}
+
+export const comparisonRows: ComparisonRow[] = [
+  { feature: 'Structured curriculum (Phase 01 → 20)', youtube: false, academy: true, tradeed: true },
+  { feature: 'Live mentor teaching + sawal jawab', youtube: false, academy: true, tradeed: true },
+  { feature: 'Risk management system (position sizing, SL, limits)', youtube: false, academy: false, tradeed: true },
+  { feature: 'Backtesting + paper trading practice', youtube: false, academy: false, tradeed: true },
+  { feature: 'Trading journal system + review', youtube: false, academy: false, tradeed: true },
+  { feature: 'Practical chart assignments + feedback', youtube: false, academy: true, tradeed: true },
+  { feature: 'Final assessment + certificate', youtube: false, academy: true, tradeed: true },
+  { feature: 'Cancel anytime, no lock-in', youtube: false, academy: false, tradeed: true },
+]
+
+export const comparisonFootnote =
+  'Academies structured hoti hain magar ₨50,000+ ki fees aur lock-in ke sath. TradeEd wahi structure + risk/backtesting system, ₨1,499/month mein — cancel anytime.'
+
+// Bonus stack — real site assets (value stacking)
+export interface Bonus {
+  icon: 'journal' | 'ai' | 'calculator' | 'books' | 'glossary' | 'sessions'
+  title: string
+  desc: string
+}
+
+export const bonuses: Bonus[] = [
+  { icon: 'journal', title: 'Trading Journal Tool', desc: 'Har trade record, analyze aur review karo — mistakes repeat hona band.' },
+  { icon: 'ai', title: 'AI Trading Tools', desc: 'Signal aur market analysis tools — practice aur learning ke liye.' },
+  { icon: 'calculator', title: 'Risk Calculators', desc: 'Position size, risk-reward, leverage aur P&L calculators — trade se pehle hisaab.' },
+  { icon: 'books', title: '40+ Urdu Trading Books', desc: 'Crypto futures, forex, price action, SMC aur risk management — poori library.' },
+  { icon: 'glossary', title: 'Trading Glossary', desc: 'Har technical term Roman Urdu mein — kabhi atakna nahi.' },
+  { icon: 'sessions', title: 'Live Sessions + Recordings', desc: 'Live market sessions aur unki recordings — dobara dekho, revise karo.' },
+]
+
+export const guarantee = {
+  title: 'Koi Risk Nahi. Cancel Anytime.',
+  body:
+    'TradeEd Premium monthly subscription hai — koi yearly lock-in nahi, koi hidden charges nahi. Agar course aap ke expectations par nahi utarta, aap anytime cancel kar sakte hain. Hum result ki guarantee nahi dete (koi legitimate course nahi deta), magar hum structure, mentorship aur tools ki guarantee dete hain.',
+  points: [
+    'No lock-in — cancel anytime',
+    'No hidden charges',
+    'Poora 24-week structured program access',
+    'Live mentor support classes mein',
+  ],
+}
+
+export const finalCta = {
+  checklist: [
+    '24-week structured roadmap, beginner se advanced',
+    'Live mentor teaching — 3 classes har hafte',
+    'Risk management, backtesting aur journal system',
+    '40+ books, AI tools, calculators — sab included',
+  ],
+  closing:
+    'Trading mein waqt sabse mehnga hota hai. Har mahina random content ke sath guzarna usse bhi mehnga hai. Decision aap ka hai — structure mein invest karein, ya random rehte rahein.',
+}

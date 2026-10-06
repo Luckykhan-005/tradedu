@@ -5,7 +5,9 @@ import { Button } from '@/components/ui/button'
 import { masterCourse } from '@/data/masterCourse'
 import { CourseHero } from './CourseHero'
 import { ProblemSolution } from './ProblemSolution'
+import { ThreePaths } from './ThreePaths'
 import { WhatYouGet } from './WhatYouGet'
+import { ComparisonTable } from './ComparisonTable'
 import { CurriculumTimeline } from './CurriculumTimeline'
 import { MethodSection } from './MethodSection'
 import { ToolsWorkflow } from './ToolsWorkflow'
@@ -13,8 +15,11 @@ import { RiskBacktest } from './RiskBacktest'
 import { JourneyOutcomes } from './JourneyOutcomes'
 import { CourseFormat } from './CourseFormat'
 import { MentorWhy } from './MentorWhy'
+import { BonusStack } from './BonusStack'
+import { GuaranteeSection } from './GuaranteeSection'
 import { FaqSection } from './FaqSection'
 import { EnrollCta } from './EnrollCta'
+import { FinalCta } from './FinalCta'
 
 const NAV_ITEMS = [
   { label: 'Overview', id: 'overview' },
@@ -100,7 +105,9 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
 
       <CourseHero onEnroll={onEnroll} />
       <ProblemSolution onEnroll={onEnroll} />
+      <ThreePaths />
       <WhatYouGet />
+      <ComparisonTable />
       <CurriculumTimeline />
       <MethodSection />
       <ToolsWorkflow />
@@ -108,8 +115,11 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
       <JourneyOutcomes />
       <CourseFormat />
       <MentorWhy />
+      <BonusStack />
+      <GuaranteeSection onEnroll={onEnroll} />
       <FaqSection />
       <EnrollCta onEnroll={onEnroll} onCurriculum={() => scrollToSection('curriculum')} />
+      <FinalCta onEnroll={onEnroll} onCurriculum={() => scrollToSection('curriculum')} />
 
       {/* Mobile sticky CTA */}
       <div
