@@ -23,6 +23,84 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'support-resistance-kaise-banayein',
+    title: 'Support aur Resistance Kaise Banayein — Sahi Levels Chart Par (Urdu)',
+    excerpt: 'Support aur resistance kaise banayein: swing points se zones chhanna, strong level ki 5 nishaniyan, false breakout aur retest ka fayda, 4 aam galtiyan aur practical chart workflow...',
+    category: 'Technical Analysis',
+    tags: ['Support Resistance', 'Trading Levels', 'Technical Analysis', 'Price Action', 'Chart Reading'],
+    date: '2026-10-06',
+    readingTime: '7 min read',
+    html: `<p class="lead">Support aur resistance kaise banayein — yehi sab se pehla sawal hai jab chart khulta hai. Log 20 lines draw kar dete hain aur phir har trade mein confuse ho jate hain. Ye guide batati hai ke levels kaise nikalte hain (sirf 4 steps), kaun sa level asal mein strong hota hai, false breakout se kaise bachein, aur chart par ek saaf workflow kaise chalayein — Roman Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>4 steps:</b> Pehle higher timeframe kholen → swing highs/lows nishan karein → jo level 2+ baar touch hua ho usay zone ki tarah mark karein → lower timeframe par sirf wahan setups dhundein.</li>
+<li><b>Rule:</b> Level line nahi, <b>zone</b> hota hai (thick band) — price kabhi exact line par nahi rukti.</li>
+<li><b>Entry:</b> Level ke paas blind order nahi — <a href="/glossary/breakout/">breakout</a> ya retest ka confirmation <a href="/blog/candlestick-patterns-shuruaat">candlestick patterns</a> se lein.</li>
+</ul></div>
+
+<h2>1. Support aur Resistance kya hai — ek nazar mein</h2>
+<p><b>Support</b> wo jagah hai jahan buyers itne strong hote hain ke price neeche nahi ja sakti (aam tor par neeche se kharidna shuru hota hai). <b>Resistance</b> ulta hai — upar se bechne wale itne hote hain ke price upar nahi nikalti. Dono ka darasal naam: <b>wo price levels jahan purani yaadein bani hain</b> — jahan logon ne pichhli baar khareeda/beechna chaha tha, wo level yaad rakha jata hai.</p>
+<p>Ye psychology hai, koi jaadu nahi: jo log galat level par phase gaye the wo wapas aane par apna money bachana chahte hain (breakeven par bechna), aur jo log chuk gaye the wo wapas mauka milne par dobara khareedte hain. Isi "price memory" se levels bante hain. Definition detail: <a href="/glossary/support/">Support kya hai</a> aur <a href="/glossary/resistance/">Resistance kya hai</a>.</p>
+
+<h2>2. Support aur Resistance kaise banayein — 4 steps</h2>
+<p><b>Step 1 — Pehle bada chart:</b> Daily/4-hour se shuru karein, 5-minute se nahi. Chhote timeframe ke levels bara khate hain — upar wale timeframe ka level hamesha pehle aata hai.</p>
+<p><b>Step 2 — Swing points nishan karein:</b> Chart par wo jagadein dekhein jahan price neeche aaya aur tezi se mod liya (swing low), ya upar gaya aur gir gaya (swing high). Ye hi asal turning points hain.</p>
+<p><b>Step 3 — Jo level 2+ baar touch hua, wo mark karein:</b> Ek baar ka touch coincidence ho sakta hai; do-teen baar ka touch = asal demand/supply zone. <b>Line ki jagah zone banayein</b> — highs ke aas-paas 1-2% ka band, kyunki har wick ka exact hona mumkin nahi.</p>
+<p><b>Step 4 — Zones ko label karein:</b> R1/R2/S1/S2 — aise naam jo yaad rahen, aur har naye session mein purane levels check karein (purane levels kaafi der tak kaam karte hain — jab tak toot na jayein). Trendlines bhi isi tarah banti hain: <a href="/glossary/trendline/">Trendline kya hai</a>.</p>
+<p>Kisi level ki strength kaafi had tak history se pata chalti hai — backtesting se confirm karein: <a href="/blog/backtesting-complete-guide">Backtesting complete guide</a>.</p>
+
+<h2>3. Kaun sa level strong hai — 5 nishaniyan</h2>
+<div class="scroll"><table>
+<thead><tr><th>Nishani</th><th>Kyun matter karti hai</th></tr></thead>
+<tbody>
+<tr><td>2+ baar touch</td><td>Buyers/sellers ne wahan dobara line khinchi — area sabit ho chuka</td></tr>
+<tr><td>Bada timeframe (Daily/Weekly)</td><td>Bade players wahi dekhte hain — chhote 5-min levels se zyada strong</td></tr>
+<tr><td>Purana level (hafton/mahinon purana)</td><td>Zyada logon ki "yaadein" bani hui hain</td></tr>
+<tr><td>Round numbers</td><td>Psychological orders (BTC 100k, gold 2000) wahan jama hote hain</td></tr>
+<tr><td>Do levels mil rahein (confluence)</td><td>Trendline + horizontal level ek jagah = asal roadmap</td></tr>
+</tbody></table></div>
+<p>Strong level ka matlab guaranteed reversal nahi — sirf itna ke wahan reaction ki umeed zyada hai. Isi liye position entry se pehle tay hoti hai: <a href="/glossary/position-sizing/">Position Sizing</a> + <a href="/blog/position-sizing-kya-hai">trade size ki guide</a>.</p>
+
+<h2>4. False breakout aur retest — asal paisa yahin hai</h2>
+<p>Sab se aam trap: price level ko chhoo kar wapas aa jati hai — jo jaldi mein tha wo phansta hai. Is ke do raste:</p>
+<ul>
+<li><b>Breakout:</b> Price level ke upar/neeche <b>close</b> hone de (sirf wick se kaam nahi) aur volume/momentum sath ho. Trap ki tafseel: <a href="/glossary/breakout/">Breakout kya hai</a>.</li>
+<li><b>Retest (behtar):</b> Breakout ke baad price wapas level par aati hai aur wahan se confirm hoti hai — kam risk, saaf stop. Isi liye purane traders kehte hain "breakout pehli baar mat lo, retest ka intezar karo."</li>
+</ul>
+<p>Kabhi kabhi liquidity ke liye level jaan-boojh par tod kar wapas aata hai — ye normal market behaviour hai: <a href="/blog/liquidity-concepts-smart-money-trading">Liquidity concepts — smart money kaise kaam karti hai</a>.</p>
+
+<h2>5. Aam 4 galtiyan</h2>
+<ul>
+<li><b>Har wick ko level samajhna:</b> 20 lines = koi line nahi. Sirf 2-4 sab se saaf levels rakhein — chart saaf, dimaag saaf.</li>
+<li><b>Level par blind limit order:</b> "Support par khareed lunga" — bina confirmation ke. Confirmation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick patterns</a> (pin bar, engulfing) ya retest structure.</li>
+<li><b>Chhote timeframe ka jaadu:</b> 1-minute ke levels par poori strategy bana lena — higher timeframe ka trend bhool jana. Hamesha HTF → LTF order mein chalein.</li>
+<li><b>Level tootne par andar hi andar pakadna:</b> Support toot gaya to wo resistance ban jata hai — purani position chhoti ya band karni chahiye, umeed nahi. Exit ka plan: <a href="/glossary/stop-loss/">Stop-Loss</a>.</li>
+</ul>
+
+<h2>6. Practical workflow — ek level ki poori zindagi</h2>
+<p>Level mile, phir kya? Ye sequence chalayein:</p>
+<div class="note"><b>1.</b> HTF par zones mark → <b>2.</b> Price ke level ke paas aane ka intezar → <b>3.</b> Confirmation (candle close ya retest structure) → <b>4.</b> Stop level ke doosri taraf, target agle level par → <b>5.</b> Risk-reward check: <a href="/calculator/risk-reward"><b>Risk-Reward Calculator</b></a> (kam se kam 1:2) → <b>6.</b> Size calculate: <a href="/calculator/position-size"><b>Position Size Calculator</b></a> → <b>7.</b> Journal mein likho aur aage barho.</div>
+<p>Isi workflow ko structured form mein seekhne ke liye course ka intermediate module isi topic par hai: <a href="/courses/crypto-trading-course-intermediate"><b>Crypto Trading Course — Intermediate</b></a> (support &amp; resistance, trendlines, channels — poora module). Chart reading ki bunyad chahiye to pehle ye parhein: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein (TA pillar)</a> aur <a href="/blog/technical-analysis-basics">Technical Analysis basics</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kitne levels banane chahiye?</b>
+Aam chart par 2 support + 2 resistance kaafi hain (ek paas wala, ek agla bara). Zyada lines = zyada confusion.
+<b>Support/Resistance kis timeframe par best hai?</b>
+Daily/4-hour ke levels sab se zyada reliable hain; lower timeframe unke andar setups dhundne ke liye. Order: HTF level → LTF entry.
+<b>Level ke exactly kitne percent paas se entry lein?</b>
+Exact hone ki zaroorat nahi — zone ke andar hi confirmation ka wait karein. Zone ke doosri taraf stop rakhein taake noise se bach saken.
+<b>Purane levels kitne waqt tak chalte hain?</b>
+Jab tak unhe tod na diya jaye — kaafi hafton/mahinon tak. Ek baar tootne ke baad level role reverse kar leta hai (support ↔ resistance).
+<b>Levels ke sath kaun sa indicator zaroori hai?</b>
+Koi zaroori nahi — pure price action se kaam chalta hai. Chahein to volume confluence ke liye: <a href="/blog/backtesting-complete-guide">backtesting</a> se pehle test kar lein.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Ab chart khol kar sirf 2-4 zones banayein — lines ka jungle nahi. Bunyad se parhna hai to <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a> pillar guide follow karein, phir practice ke liye <a href="/courses/crypto-trading-course-intermediate">Intermediate course</a> ka S/R module. Book format chahiye to <a href="/price-action-mastery/index.html">Price Action Mastery</a> aur patterns ki tafseel <a href="/technical-analysis/index.html">Technical Analysis book</a> mein — sari Urdu books: <a href="/books">Books page</a>.</p>`
+  },
+  {
     slug: 'position-sizing-kya-hai',
     title: 'Position Sizing Kya Hai — Trade Ka Size Kaise Tay Karein (Urdu)',
     excerpt: 'Position sizing kya hai: har trade ka size kaise tay karein — 3-number formula, risk % kitna rakhein, crypto aur forex examples, 4 aam galtiyan aur free calculator...',
