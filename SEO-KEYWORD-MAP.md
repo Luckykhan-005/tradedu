@@ -49,7 +49,7 @@ Pillar pages (already live):
 
 | # | Target query | Intent | URL | Internal links |
 |---|---|---|---|---|
-| 19 | position sizing kya hai | Informational | `/blog/position-sizing-kya-hai` | `/calculator/position-size`, `/glossary/risk-management/` |
+| 19 | position sizing kya hai | Informational | ~~`/blog/position-sizing-kya-hai`~~ **DONE 2026-10-06** | `/calculator/position-size`, `/glossary/risk-management/` |
 | 20 | risk reward ratio kaise calculate karein | Informational | `/blog/risk-reward-ratio-guide` | `/calculator/risk-reward`, `/glossary/risk-management/` |
 | 21 | trading plan kaise banayein | Informational | `/blog/trading-plan-kaise-banayein` | `/blog/trading-journal-kyun-zaroori`, `/glossary/risk-management/` |
 | 22 | emotional trading kaise rokein | Informational | `/blog/emotional-trading-kaise-rokein` | `/glossary/fomo/`, `/blog/fomo-revenge-trading-psychology` |
@@ -73,7 +73,7 @@ Pillar pages (already live):
 
 1. #1 forex kaise shuru (highest local volume + fresh pillar) — SKIP (cannibalization)
 2. #7 crypto kaise shuru (same pattern, P2P post se strong link) — **DONE 2026-10-06**
-3. #19 position sizing (calculator se convert hota hai, tool page ko boost)
+3. #19 position sizing (calculator se convert hota hai, tool page ko boost) — **DONE 2026-10-06**
 4. #13 support resistance (TA pillar ka core missing piece)
 5. #22 emotional trading (glossary + purane psychology posts se deep cluster)
 6. #8 bitcoin kya hai (glossary term ka flagship — fresh term banao)
