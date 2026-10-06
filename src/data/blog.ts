@@ -392,7 +392,7 @@ Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta h
 
 <h2>1. Fixed profit ya "guaranteed return" ka wada</h2>
 <p>Yeh sab se aam aur sab se asaan pakdne wala signal hai. Koi bhi platform, group ya "mentor" jo <b>"mahina 20% fixed"</b>, <b>"daily 1% guaranteed"</b> ya <b>"loss hum bharenge"</b> kahe — wo ya to bewaqoof hai ya fraud. Asal markets mein koi bhi strategy har din nahi chalti; agar aisa mumkin hota to wo banda khud trade karta, kisi ko batata nahi.</p>
-<p>Scam ye bhi karte hain ke pehle thoda sa profit dikhate hain (jo wo aap ke paise se hi chala rahe hote hain — ye <b>Ponzi model</b> hai), taake aap bara paisa jama karein. Phir ek din withdrawal request pending rehti hai aur site band ho jati hai.</p>
+<p>Scam ye bhi karte hain ke pehle thoda sa profit dikhate hain (jo wo aap ke paise se hi chala rahe hote hain — ye <b>Ponzi model</b> hai), taake aap bara paisa jama karein. Phir ek din withdrawal request pending rehti hai aur site band ho jati hai. Ye wahi lalach ki psychology hai jise <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> wali guide alag se samjhati hai.</p>
 
 <h2>2. Regulation ka jhoota dawa</h2>
 <p>Scam brokers apni website par "regulated", "FCA licensed", "SEC approved" jaise badges lagate hain — jo aksar fake hote hain. Do sachai yahan clear kar lein:</p>
@@ -412,7 +412,7 @@ Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta h
 <div class="note"><b>Ehtiyat:</b> Agar kisi group mein admin baar baar "aaj ka trade vip members ke liye tha, free members peeche reh gaye" bole to wo ek classic conversion tactic hai — free ko incomplete feel karwa kar paisa karwate hain.</div>
 
 <h2>4. Deposit sirf personal wallet se — company account nahi</h2>
-<p>Legitimate brokers mein deposit card, bank wire ya verified payment processor se hota hai, aur account naam (KYC) par hota hai. Scam ka pattern aksar ye hota hai:</p>
+<p>Legitimate brokers mein deposit card, bank wire ya verified payment processor se hota hai, aur account naam (<a href="/glossary/kyc/">KYC</a>) par hota hai. Scam ka pattern aksar ye hota hai:</p>
 <ul>
 <li>Paisa maanga jata hai <b>personal USDT wallet, EasyPaisa ya JazzCash personal number</b> par — koi invoice, koi company detail nahi.</li>
 <li>KYC (CNIC, selfie) maanga hi nahi jata — kyunki fraud ko aap ki identity se koi matlab nahi, sirf paise se hai.</li>
@@ -441,7 +441,7 @@ Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta h
 <li>Posts mein cars, watches aur " Forex freedom" lifestyle — magar koi verified track record link nahi hota.</li>
 <li>"Limited slots", "last chance" — hamesha jaldi dilati hai taake aap sochne ka time na dein.</li>
 </ul>
-<p>Asli trading seekhne ki koi zaroorat nahi hoti in models mein — is liye aap ko course ya practice karne nahi diya jata. Seekhna hi asal protection hai.</p>
+<p>Asli trading seekhne ki koi zaroorat nahi hoti in models mein — is liye aap ko course ya practice karne nahi diya jata. Seekhna hi asal protection hai, aur sahi sequence <a href="/knowledge-base/trading-shuru-kaise-karein">Trading Shuru Kaise Karein</a> wali guide se mil jata hai.</p>
 
 <h2>Verify checklist: 5 minute mein broker check karein</h2>
 <p>Koi bhi broker ya platform apne aap ko test mein daalein:</p>
@@ -460,7 +460,7 @@ Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta h
 <li><b>Card se deposit tha?</b> Bank ko batayein aur chargeback/dispute file karein — ye sab se mohkam option hai.</li>
 <li><b>Crypto/wallet tha?</b> Transaction ID save karein, aur wahan tak ke raste (exchange KYC) maloom hon to kisi bhi platform ya relevant authority ko report karein. Recovery 100% guaranteed nahi hai — lekin records rakhne se hi koi chance banta hai.</li>
 <li><b>Recovery "agents" ke messages</b> block karein — wo scam ke agla step hain.</li>
-<li>Apne aap ko blame na karein — ye attacks professional hote hain jo conversion psychology par banaye jate hain. Aap ka agla qadam seekhna hai, badla lena nahi.</li>
+<li>Apne aap ko blame na karein — ye attacks professional hote hain jo conversion psychology par banaye jate hain. Aap ka agla qadam seekhna hai, badla lena nahi — is ka poora rasta <a href="/roadmap">Trading Roadmap</a> par hai.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -476,7 +476,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 </div>
 
 <h2>Seekhna hi sab se acha protection hai</h2>
-<p>Scam un ko pakarta hai jo jaldi kamana chahte hain bina samjhe. Agar aap thora waqt concepts, risk aur execution par lagayenge to aap par koi "guaranteed return" wala filter nahi chalega. Shuruaat ke liye TradeEd ka <a href="/knowledge-base/forex-trading-kya-hai">Forex Trading Kya Hai — complete guide</a> parhein, phir free courses se basics complete karein — safety aur skill dono isi se banti hain.</p>`
+<p>Scam un ko pakarta hai jo jaldi kamana chahte hain bina samjhe. Agar aap thora waqt concepts, <a href="/glossary/risk-management/">risk</a> aur execution par lagayenge to aap par koi "guaranteed return" wala filter nahi chalega. Shuruaat ke liye TradeEd ka <a href="/knowledge-base/forex-trading-kya-hai">Forex Trading Kya Hai — complete guide</a> parhein, phir <a href="/courses/forex-trading-course-beginner">Forex Beginner Course</a> se basics complete karein — safety aur skill dono isi se banti hain.</p>`
   },
   {
     slug: 'pakistan-crypto-tax-2026',
@@ -491,13 +491,13 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
     html: `<main>
 <div class="note"><b>Jaldi ka jawab:</b>
 <ul>
-<li><b>Declare karna hai?</b> Ji haan. FBR ke ek official ke mutabiq crypto se hone wali income pehle hi maujooda Income Tax qanoon ke tehat taxable hai.</li>
+<li><b>Declare karna hai?</b> Ji haan. FBR ke ek official ke mutabiq <a href="/knowledge-base/crypto-kya-hai">crypto</a> se hone wali income pehle hi maujooda Income Tax qanoon ke tehat taxable hai.</li>
 <li><b>Kitna tax?</b> Reports me 10% se 30% tak ke rates aaye. Final rate ki main kisi bharosemand official source se tasdeeq nahi kar saka (neeche tafseel hai).</li>
 <li><b>Na declare karne par?</b> Chhupi income par aam Income Tax qanoon ke jurmane aur FBR ki tehqeeq ka risk hai. Crypto ka alag jurmana main verify nahi kar saka.</li>
 </ul></div>
 
 <h2>1. Sab se bari ghalat-fehmi: Act = Tax law nahi</h2>
-<p>Virtual Assets Act 2026 ek <b>regulation ka qanoon</b> hai. Yeh PVARA (Pakistan Virtual Assets Regulatory Authority) ko exchanges aur service providers ko licence dene, nigrani karne aur money laundering rokne ka ikhtiyar deta hai. Isme tax ka rate tay nahi hota. Tax ka kaam Income Tax Ordinance 2001 aur FBR ka hai.</p>
+<p>Virtual Assets Act 2026 ek <b>regulation ka qanoon</b> hai. Yeh PVARA (Pakistan Virtual Assets Regulatory Authority) ko <a href="/glossary/exchange/">exchanges</a> aur service providers ko licence dene, nigrani karne aur money laundering rokne ka ikhtiyar deta hai. Isme tax ka rate tay nahi hota. Tax ka kaam Income Tax Ordinance 2001 aur FBR ka hai.</p>
 <p>Fark yeh para ke crypto ab "grey area" se nikal kar legal framework me aa gaya, aur jab cheez legal aur documented ho jaye to tax lagana FBR ke liye asaan ho jata hai.</p>
 
 <h2>2. Timeline: yahan tak kaise pohanche</h2>
@@ -530,7 +530,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <text class="m" x="180" y="205" text-anchor="middle" font-size="11">Yeh tajaweez/reports hain, final qanoon nahi</text>
 </svg>
 <div class="note"><b>Ehtiyat:</b> Kuch websites dawa karti hain ke final rate "15% flat" ya "5% long-term / 15% short-term" hai, magar un ki shartein (500,000 ya 10 lakh ki limit, 6 mahine ya 1 saal) aapas me takrati hain, aur main FBR ya Finance Act ke asal text se isay confirm nahi kar saka. Is liye in ko final na samjhein. Return file karne se pehle FBR ki website ya kisi registered tax advisor se rate zaroor check karein.</div>
-<p>Ek reference point: Arab News ke mutabiq listed securities par capital gains tax filers ke liye 15% aur non-filers ke liye 30% hai. FBR official ne kaha ke crypto ka rate isi tarah ke regimes se mutabiq rakha jayega. Is se ek cheez saaf hai: <b>filer hona fayde ka sauda hai.</b></p>
+<p>Ek reference point: Arab News ke mutabiq <a href="/blog/stocks-crypto-forex">listed securities</a> par capital gains tax filers ke liye 15% aur non-filers ke liye 30% hai. FBR official ne kaha ke crypto ka rate isi tarah ke regimes se mutabiq rakha jayega. Is se ek cheez saaf hai: <b>filer hona fayde ka sauda hai.</b></p>
 
 <h2>4. Kis tarah ki income par kya asar?</h2>
 <figure><div class="scroll"><table>
@@ -540,7 +540,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <tr><td>Mining, staking, airdrop</td><td>Aam slab rates (secondary sources ke mutabiq)</td></tr>
 <tr><td>Foreign exchange ka munafa</td><td>Abhi saaf nahi. Reports me foreign platforms ke liye reporting rules par ghaur ka zikr hai</td></tr>
 </table></div></figure>
-<p>Agar aap futures aur leverage trading karte hain to ahem sawal yeh hai ke FBR aap ke gains ko "capital gain" samjhega ya "business income". Is par mujhe koi pakka official jawab nahi mila, is liye isay tax advisor se confirm karwana behtar hai.</p>
+<p>Agar aap <a href="/blog/crypto-futures-vs-spot-trading">futures aur leverage trading</a> karte hain to ahem sawal yeh hai ke FBR aap ke gains ko "capital gain" samjhega ya "business income". Is par mujhe koi pakka official jawab nahi mila, is liye isay tax advisor se confirm karwana behtar hai.</p>
 
 <h2>5. Declare karne ka workflow</h2>
 <svg viewBox="0 0 360 385" role="img" aria-label="Workflow">
@@ -559,8 +559,8 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 
 <h2>6. Na declare karne par kya hoga?</h2>
 <ul>
-<li><b>Data ka dayra barh raha hai.</b> Licensed exchanges par KYC lazmi hai, aur banks ko due diligence aur shak wali transactions report karni hoti hain (Profit ki report ke mutabiq).</li>
-<li><b>Banking trail.</b> Agar aap P2P ya bank ke zariye PKR le kar aate hain to paisay ka nishan FBR ko dikh sakta hai.</li>
+<li><b>Data ka dayra barh raha hai.</b> Licensed exchanges par <a href="/glossary/kyc/">KYC</a> lazmi hai, aur banks ko due diligence aur shak wali transactions report karni hoti hain (Profit ki report ke mutabiq).</li>
+<li><b>Banking trail.</b> Agar aap <a href="/blog/binance-p2p-guide-urdu">P2P</a> ya bank ke zariye PKR le kar aate hain to paisay ka nishan FBR ko dikh sakta hai.</li>
 <li><b>Jurmana.</b> Chhupi ya kam batayi gayi income par aam Income Tax qanoon ke tehat jurmana aur additional tax lag sakta hai. Crypto ke liye alag jurmane ki tafseel main verify nahi kar saka.</li>
 <li><b>Non-filer ka nuqsan.</b> Zyada withholding aur zyada rate ka khatra (jaisa PSX par hota hai).</li>
 <li><b>Foreign assets.</b> Business Recorder ke ek opinion piece me OECD CARF se alignment aur offshore holdings ki voluntary declaration scheme ka zikr hai. Yeh tajaweez thi, final qanoon nahi.</li>
@@ -576,7 +576,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li>Bari trading ho to chartered accountant se ek martaba consult karein.</li>
 </ol>
 
-<p class="warn"><b>Zaroori:</b> Yeh blog maloomati hai, qanooni ya tax mashwara nahi. Qawaneen aur rates tabdeel ho sakte hain. Faisla karne se pehle FBR aur PVARA ke official notifications check karein.</p>
+<p class="warn"><b>Zaroori:</b> Yeh blog maloomati hai, qanooni ya tax mashwara nahi. Qawaneen aur rates tabdeel ho sakte hain. Faisla karne se pehle FBR aur PVARA ke official notifications check karein, aur trading ki bunyadein ke liye <a href="/courses/crypto-trading-course-beginner">Crypto Trading Course (Beginner)</a> dekhein.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -604,7 +604,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <div class="note"><b>Jaldi ka jawab:</b>
 <ul>
 <li><b>Legal raasta kaun sa?</b> PMEX (Pakistan Mercantile Exchange) par currency futures, kisi PMEX-registered broker ke zariye. PMEX khud ko Pakistan ka SECP-licensed commodity futures exchange batata hai.</li>
-<li><b>Farq kya hai?</b> Yeh aam offshore "spot forex" nahi, balke exchange par <b>futures contracts</b> hain, jin ki settlement PKR me hoti hai.</li>
+<li><b>Farq kya hai?</b> Yeh aam offshore "spot forex" nahi, balke exchange par <b><a href="/glossary/futures/">futures contracts</a></b> hain, jin ki settlement PKR me hoti hai.</li>
 <li><b>Account kaise?</b> Broker chunein, CNIC aur IBAN ke sath online ya manual form bharein, KYC karwayen, phir fund karein. Tafseel section 4 me hai.</li>
 </ul></div>
 
@@ -615,12 +615,12 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <rect class="s" x="6" y="90" width="348" height="72" rx="8" style="stroke:#eab308"/><text x="20" y="114" font-weight="700" style="fill:#eab308">2. Offshore forex broker</text><text class="m" x="20" y="134" font-size="11.5">Grey area: account kholna jurm nahi mana jata,</text><text class="m" x="20" y="150" font-size="11.5">magar fund bhejne par SBP ki pabandiyan</text>
 <rect class="s" x="6" y="174" width="348" height="72" rx="8" style="stroke:#ef4444"/><text x="20" y="198" font-weight="700" style="fill:#ef4444">3. Unregistered app / WhatsApp group</text><text class="m" x="20" y="218" font-size="11.5">Koi tahaffuz nahi. PMEX ke mutabiq jo us framework</text><text class="m" x="20" y="234" font-size="11.5">ke bahar ho woh unregulated hai</text>
 </g></svg>
-<p>Offshore brokers ki qanooni position par sources ikhtilaf karte hain. Ek broker-site ise "SBP ke tehat ghair-qanooni" kehti hai, jabke kai doosray sources ise "jurm nahi, magar paisay bhejne par pabandi" batate hain. Main is blog me yahi kehta hun ke yeh <b>saaf nahi</b> hai, aur is ka qanooni mashwara kisi mahir se lein. Is guide ka focus PMEX hai.</p>
+<p>Offshore brokers ki qanooni position par sources ikhtilaf karte hain. Ek broker-site ise "SBP ke tehat ghair-qanooni" kehti hai, jabke kai doosray sources ise "jurm nahi, magar paisay bhejne par pabandi" batate hain. Main is blog me yahi kehta hun ke yeh <b>saaf nahi</b> hai, aur is ka qanooni mashwara kisi mahir se lein. Is guide ka focus PMEX hai — forex ki bunyadi tareef <a href="/knowledge-base/forex-trading-kya-hai">Forex Trading Kya Hai</a> wali guide me pehle parh lein.</p>
 
 <h2>2. PMEX par forex aur "normal forex" me farq</h2>
 <ul>
 <li><b>Futures contract:</b> aap currency ki qeemat par contract kharidte/bechte hain. Contracts ki expiry hoti hai, is liye position rollover ka khayal rakhna parta hai.</li>
-<li><b>Margin:</b> poori raqam nahi, sirf ek hissa (margin) lagta hai. Ek 2024 ki broker table me yeh taqreeban 1% se 3% tha. Matlab leverage bohat zyada hai, aur nuqsan bhi utni hi tezi se ho sakta hai. Current margin broker ya PMEX se confirm karein.</li>
+<li><b>Margin:</b> poori raqam nahi, sirf ek hissa (margin) lagta hai. Ek 2024 ki broker table me yeh taqreeban 1% se 3% tha. Matlab leverage bohat zyada hai, aur nuqsan bhi utni hi tezi se ho sakta hai — nuqsan ka size aap ke <a href="/blog/forex-lot-size-guide-urdu">lot size</a> se juda hota hai. Current margin broker ya PMEX se confirm karein.</li>
 <li><b>Platform:</b> PMEX MetaTrader 5 (MT5) offer karta hai.</li>
 <li><b>Muhafiz system:</b> PMEX ka Direct Fund Mode, jis me margin seedha exchange ke sath jama hota hai (SCS Trade ke mutabiq).</li>
 </ul>
@@ -668,7 +668,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 
 <h2>5. Scam se kaise bachein</h2>
 <ol>
-<li>Broker ka naam PMEX ki official list me dhundhein. Jo list me nahi, PMEX ke mutabiq woh unregistered hai.</li>
+<li>Broker ka naam PMEX ki official list me dhundhein. Jo list me nahi, PMEX ke mutabiq woh unregistered hai. Scam ki aur nishaniyan hamari <a href="/blog/forex-scam-pakistan-pehchan">Forex Scam Pakistan</a> guide me hain.</li>
 <li>Kisi WhatsApp group, Telegram channel ya "signal seller" ko paisay na dein, chahe woh "PMEX" ka naam le.</li>
 <li>Paisay sirf apne naam ke bank account se aur broker ke official channel se bhejein.</li>
 <li>"Guaranteed profit" ya "daily return" ka waada karne wala fauran shak ki nazar se dekhein.</li>
@@ -676,9 +676,9 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 </ol>
 
 <h2>6. Tax aur withdrawal</h2>
-<p>PMEX trading se hone wali income par tax kaise lagta hai, is ka mujhe koi saaf official jawab nahi mila, is liye main koi rate nahi likh raha. Aap ka broker ya chartered accountant yeh bata sakta hai. Apne tamam trades ka record (statement) sambhal kar rakhein, kyunke return file karte waqt zarurat padegi.</p>
+<p>PMEX trading se hone wali income par tax kaise lagta hai, is ka mujhe koi saaf official jawab nahi mila, is liye main koi rate nahi likh raha. Aap ka broker ya chartered accountant yeh bata sakta hai. Apne tamam trades ka record (statement) — jaise <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> me hota hai — sambhal kar rakhein, kyunke return file karte waqt zarurat padegi.</p>
 
-<p class="warn"><b>Zaroori:</b> Futures aur leverage me bohat tezi se nuqsan ho sakta hai, aur yeh blog maloomati hai, investment ya qanooni mashwara nahi. Kuch sources broker marketing hain (jin me kuch ke apne commission links hain), is liye main ne unhein sirf wahin use kiya jahan PMEX ki apni site ya notification se mel khata tha. Faisle se pehle PMEX aur SECP ki official websites dekhein.</p>
+<p class="warn"><b>Zaroori:</b> Futures aur leverage me bohat tezi se nuqsan ho sakta hai, aur yeh blog maloomati hai, investment ya qanooni mashwara nahi. Kuch sources broker marketing hain (jin me kuch ke apne commission links hain), is liye main ne unhein sirf wahin use kiya jahan PMEX ki apni site ya notification se mel khata tha. Faisle se pehle PMEX aur SECP ki official websites dekhein, aur trading ki bunyad <a href="/forex-complete/index.html">Forex Complete</a> book aur <a href="/courses/forex-trading-course-beginner">Forex Trading Course</a> se mazboot kar lein.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -707,7 +707,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <div class="note"><b>Jaldi ka jawab:</b>
 <ul>
 <li><b>Kya AI bot paisay banata hai?</b> Aisa koi bharosemand saboot mujhe nahi mila. US regulator CFTC ne khud warning di hai ke AI market ki achanak tabdeeli ka andaza nahi laga sakta aur "yaqeeni munafa" ke dawe fraud ki nishani hain.</li>
-<li><b>Phir AI kis kaam ka?</b> Madadgar ke taur par: signal filter karna, risk limits lagana, aur rules par amal karwana. Yeh meri tashreeh hai, koi saabit shuda natija nahi.</li>
+<li><b>Phir AI kis kaam ka?</b> Madadgar ke taur par: signal filter karna, risk limits lagana, aur rules par amal karwana. Yeh meri tashreeh hai, koi saabit shuda natija nahi — AI ki bunyadi seekh <a href="/ai-kaise-seekhain/">AI kaise seekhein</a> guide mein maujood hai.</li>
 <li><b>Sab se bari ghalti?</b> Yeh sochna ke bot qanoon, liquidity aur platform ke risk ko khud sambhal lega. Aisa nahi hota.</li>
 </ul></div>
 
@@ -727,7 +727,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 </g></svg>
 
 <h2>2. Base rate: aam traders ka kya haal hai?</h2>
-<p>Yeh bots ke baare me nahi, magar ahem hai. SEBI ki study ke mutabiq India me FY25 me taqreeban 91% individual F&amp;O traders ne nuqsan uthaya, aur kul net nuqsan Rs 1.05 lakh crore se zyada tha. Yani sirf automation ya "smart tool" laga dene se odds khud ba khud nahi badalte.</p>
+<p>Yeh bots ke baare me nahi, magar ahem hai. SEBI ki study ke mutabiq India me FY25 me taqreeban 91% individual F&amp;O traders ne nuqsan uthaya, aur kul net nuqsan Rs 1.05 lakh crore se zyada tha. Yani sirf automation ya "smart tool" laga dene se odds khud ba khud nahi badalte. Asal jaiz automation aur AI tools ka istemal <a href="/blog/ai-tools-automation-2026">AI tools automation guide</a> mein alag se samjha gaya hai.</p>
 <svg viewBox="0 0 360 190" role="img" aria-label="SEBI loss rates">
 <g font-size="12.5">
 <text x="6" y="34">FY22</text><rect x="90" y="20" width="204.7" height="20" rx="3" fill="#ef4444"/><text x="300" y="35" font-weight="700">89%</text>
@@ -743,7 +743,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li><b>CFTC advisory:</b> "AI Won't Turn Trading Bots into Money Machines". Is me kaha gaya ke bohat zyada ya yaqeeni munafa ke dawe fraud ki nishani hain.</li>
 <li><b>YieldTrust.ai:</b> Amrika ki kuch states ne ispar Ponzi scheme chalane ka ilzam lagaya, aur ke AI bot ke wujood ya karkardagi ka saboot nahi diya gaya.</li>
 <li><b>Pakistan (SECP):</b> December 2025 ki warning ke mutabiq jaali trading apps asli brokers ki nakal karti hain aur fake dashboards me jhoote balance aur profit dikhati hain. Ek aur notice me SECP ne AI-generated ads aur ek WhatsApp group ka zikr kiya jo "AI-based trading system" ko ek asli brokerage se jor raha tha.</li>
-<li><b>Asli broker kaise pehchanen?</b> SECP ke mutabiq sirf SECP-licensed securities aur futures brokers qanooni hain, aur unki list SECP, PSX aur PMEX ki official websites par hai.</li>
+<li><b>Asli broker kaise pehchanen?</b> SECP ke mutabiq sirf SECP-licensed securities aur futures brokers qanooni hain, aur unki list SECP, PSX aur PMEX ki official websites par hai. Pakistan mein scams ki nishandahi <a href="/blog/forex-scam-pakistan-pehchan">forex scam pehchan</a> wali post mein bhi hai.</li>
 </ul>
 <figure><div class="scroll"><table>
 <tr><th>Red flag</th><th>Matlab</th></tr>
@@ -762,7 +762,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 </table></div></figure>
 
 <h2>5. Liquidity aur costs: backtest ka nafa asli nafa nahi</h2>
-<p>Yeh aam usool hai (koi local data nahi): backtest me aksar fees, spread aur slippage kam ginay jate hain. Jahan order book patli ho (kam liquid pair, chhoti exchange, ya P2P), wahan slippage zyada hoti hai. Neeche ek <b>farzi misaal</b> hai:</p>
+<p>Yeh aam usool hai (koi local data nahi): <a href="/blog/backtesting-complete-guide">backtesting guide</a> ke mutabiq backtest me aksar fees, spread aur slippage kam ginay jate hain. Jahan order book patli ho (<a href="/glossary/liquidity/">liquidity</a> kam wale pair, chhoti exchange, ya P2P), wahan slippage zyada hoti hai. Neeche ek <b>farzi misaal</b> hai:</p>
 <svg viewBox="0 0 360 205" role="img" aria-label="Cost waterfall">
 <g font-size="11.5">
 <line x1="10" y1="150" x2="350" y2="150" stroke="#525252"/>
@@ -782,13 +782,13 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li><b>Paper trading:</b> kam az kam kuch hafte bina asli paisay ke chalayen.</li>
 <li><b>Costs shamil karein:</b> backtest me fees aur slippage dalein, aur jo "nafa" bache usay dekhein.</li>
 <li><b>Chhoti raqam:</b> jitna nuqsan bardasht kar saken utni hi.</li>
-<li><b>Risk limits:</b> har trade ka maximum nuqsan aur rozana loss limit pehle se tay karein.</li>
+<li><b>Risk limits:</b> har trade ka maximum nuqsan aur rozana loss limit pehle se tay karein — ye usool <a href="/glossary/risk-management/">risk management</a> ka hi hissa hain.</li>
 <li><b>Kill switch:</b> bot ko foran band karne ka tareeqa aap ke paas ho.</li>
 <li><b>Record:</b> har trade ka record rakhein, tax aur bank ke sawalat ke liye bhi.</li>
 </ol>
 
 <h2>7. Nateeja</h2>
-<p>AI aur bots ek <b>aala</b> hain, nateeja nahi. Wo aap ka discipline mazboot kar sakte hain, magar mulk ka qanoon, platform ka risk aur market ki liquidity samajhna aap ka kaam hai. Jo bhi "AI se yaqeeni munafa" bechta hai, usse door rahein.</p>
+<p>AI aur bots ek <b>aala</b> hain, nateeja nahi. Wo aap ka discipline mazboot kar sakte hain, magar mulk ka qanoon, platform ka risk aur market ki liquidity samajhna aap ka kaam hai. Jo bhi "AI se yaqeeni munafa" bechta hai, usse door rahein. AI se asal trading edge banane ke tareeqe <a href="/blog/ai-tools-forex-crypto-trading-edge-2026">AI tools trading edge guide</a> mein hain, aur bunyadi amli seekh <a href="/courses">trading courses</a> se karein.</p>
 
 <p class="warn"><b>Zaroori:</b> Yeh maloomati blog hai, investment ya qanooni mashwara nahi. Kuch qanooni tafseelat broker blogs se hain, aur asli notices (SEBI, SECP, PMEX) khud dekhna zaroori hai. Mujhe aisi independent tehqeeq nahi mili jo saabit kare ke retail AI bots aam traders ko consistently behtar banate hain.</p>
 
@@ -818,7 +818,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
     html: `<main>
 <div class="note"><b>Jaldi ka jawab:</b>
 <ul>
-<li><b>Kya ban lag gaya?</b> Nahi. Mujhe jo sources mile unke mutabiq abhi India me koi naya ban nahi hai. Crypto par tax aur anti-money-laundering rules lagoo hain.</li>
+<li><b>Kya ban lag gaya?</b> Nahi. Mujhe jo sources mile unke mutabiq abhi India me koi naya ban nahi hai. <a href="/knowledge-base/crypto-kya-hai">Crypto</a> par tax aur anti-money-laundering rules lagoo hain.</li>
 <li><b>Phir shor kyun?</b> Reuters ki July 2026 ki report ke mutabiq RBI ki andar ki raye "ban ki taraf jhukti" hai, jabke Finance Ministry kam az kam thori regulatory clarity chahti hai.</li>
 <li><b>Aage kya?</b> Parliament ki Finance Committee ki report ka intezar hai. Woh sirf sifarish hogi, qanoon nahi.</li>
 </ul></div>
@@ -860,7 +860,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <h2>3. Kaun kya chahta hai?</h2>
 <figure><div class="scroll"><table>
 <tr><th>Idara</th><th>Position (reports ke mutabiq)</th></tr>
-<tr><td>RBI</td><td>Banks aur financial institutions crypto aur private stablecoins se door rahen. Foreign currency wale private stablecoins ko monetary sovereignty ka khatra kaha. Regulation se crypto ko "jaiz" samajhne ka khatra bhi bataya.</td></tr>
+<tr><td>RBI</td><td>Banks aur financial institutions crypto aur private <a href="/glossary/stablecoin/">stablecoins</a> se door rahen. Foreign currency wale private stablecoins ko monetary sovereignty ka khatra kaha. Regulation se crypto ko "jaiz" samajhne ka khatra bhi bataya.</td></tr>
 <tr><td>Finance Ministry</td><td>Reuters ke mutabiq September me RBI se mashwara ke baad limited regulatory clarity ki himayat ki. Parliament committee ko bataya ke crypto abhi sirf tax, money laundering aur reporting ke liye regulated hai.</td></tr>
 <tr><td>CBDT (tax department)</td><td>Offshore exchanges par trading track karna mushkil hai, aur ghalat reporting ke cases mile.</td></tr>
 <tr><td>SEBI</td><td>Security jaisay tokens ko regulate karne ke liye khula.</td></tr>
@@ -872,7 +872,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li><b>Supreme Court 2020:</b> 2018 ki banking pabandi ko Court ne ghair-aaini qarar diya tha. RBI sirf circular se dobara waisi pabandi nahi laga sakta, naye qanoon ki zarurat paregi.</li>
 <li><b>Users ki tadad:</b> Tax department ke andaze ke mutabiq May 2026 tak taqreeban 39 million investors thay (doosray sources 100 million se zyada kehte hain, yeh farq definition ka hai).</li>
 <li><b>Tax income:</b> Sarkar 30% tax le rahi hai. Ban se yeh amdani aur nigrani dono khatre me aate hain.</li>
-<li><b>Amli mushkil:</b> Exchanges band ho sakti hain, lekin self-custody wallets aur offshore platforms ko rokna mushkil hai.</li>
+<li><b>Amli mushkil:</b> Exchanges band ho sakti hain, lekin self-custody <a href="/glossary/wallet/">wallets</a> aur offshore platforms ko rokna mushkil hai.</li>
 <li><b>Registered platforms:</b> 54 VDA service providers FIU-IND ke sath registered hain (Coinpedia ke mutabiq).</li>
 </ul>
 
@@ -901,14 +901,14 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 
 <h2>6. Aam aadmi ke liye kya matlab?</h2>
 <ol>
-<li>Panic na karein. Abhi ke rules me FIU-registered platforms par trading chal rahi hai, magar tax (30%) aur TDS dena parta hai.</li>
-<li>Apna record rakhein, kyunke nigrani sakht hone ka rujhan hai.</li>
+<li>Panic na karein. Abhi ke rules me FIU-registered platforms par <a href="/blog/crypto-trading-shuru-karein-pakistan">trading</a> chal rahi hai, magar tax (30%) aur TDS dena parta hai.</li>
+<li><a href="/journal">Apna record rakhein</a>, kyunke nigrani sakht hone ka rujhan hai.</li>
 <li>Sirf registered platforms use karein, offshore ya anjaan platforms se bachein.</li>
 <li>Faisle ke liye nahi, sirf khabar ke liye report ka intezar karein. Report qanoon nahi hoti.</li>
 </ol>
-<p>Muqabla: hamsaya mulk Pakistan ne regulation ka raasta chuna (licensing, PVARA). India abhi RBI ke "roko" aur Finance Ministry ke "regulate karo" ke beech phansa hua hai.</p>
+<p>Muqabla: hamsaya mulk <a href="/blog/pakistan-crypto-tax-2026">Pakistan ne regulation ka raasta chuna</a> (licensing, PVARA). India abhi RBI ke "roko" aur Finance Ministry ke "regulate karo" ke beech phansa hua hai.</p>
 
-<p class="warn"><b>Zaroori:</b> Yeh maloomati blog hai, qanooni ya financial mashwara nahi. Reuters ki report ki tafseel main ne secondary news sites (Incrypted, Coinpedia, CryptoTimes) ke zariye li hain, asal Reuters article direct verify nahi kiya. Faisle se pehle official khabar aur kisi mahir se mashwara lein.</p>
+<p class="warn"><b>Zaroori:</b> Yeh maloomati blog hai, qanooni ya financial mashwara nahi. Reuters ki report ki tafseel main ne secondary news sites (Incrypted, Coinpedia, CryptoTimes) ke zariye li hain, asal Reuters article direct verify nahi kiya. Faisle se pehle official khabar aur kisi mahir se mashwara lein — aur crypto ki bunyadein ke liye <a href="/crypto-beginner/index.html">Crypto Beginner book</a> dekhein.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -935,8 +935,8 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
     html: `<main>
 <div class="note"><b>Jaldi ka jawab:</b>
 <ul>
-<li><b>Legal hai?</b> Nahi, kam az kam official taur par nahi. Bangladesh Bank 2017 se crypto lain-dain ke khilaf warning deta aa raha hai. Lekin "Crypto Ban Act" naam ka koi ek qanoon nahi, aur Dhaka Tribune ke mutabiq crypto rakhna (ownership) khaas taur par jurm qarar nahi diya gaya.</li>
-<li><b>Asal risk?</b> Sab se aam risk bank account freeze hona, P2P me scam, aur qanooni tahaffuz ka na hona hai.</li>
+<li><b>Legal hai?</b> Nahi, kam az kam official taur par nahi. Bangladesh Bank 2017 se <a href="/knowledge-base/crypto-kya-hai">crypto</a> lain-dain ke khilaf warning deta aa raha hai. Lekin "Crypto Ban Act" naam ka koi ek qanoon nahi, aur Dhaka Tribune ke mutabiq crypto rakhna (ownership) khaas taur par jurm qarar nahi diya gaya.</li>
+<li><b>Asal risk?</b> Sab se aam risk bank account freeze hona, <a href="/glossary/p2p/">P2P</a> me scam, aur qanooni tahaffuz ka na hona hai.</li>
 <li><b>Tax?</b> Crypto ka koi alag tax qanoon nahi. Magar income tax ka asool "chhupi income bhi taxable" hai. Mujhe crypto par tax wasool hone ka koi tasdeeq shuda case nahi mila (section 5 dekhein).</li>
 </ul></div>
 
@@ -981,7 +981,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <line x1="180" y1="232" x2="180" y2="256" stroke="#9ca3af" stroke-width="2" marker-end="url(#ar2)"/>
 <rect class="s" x="20" y="258" width="320" height="58" rx="8" style="stroke:#eab308"/><text x="180" y="280" text-anchor="middle" font-weight="700">4. Qanooni tahaffuz</text><text x="180" y="300" text-anchor="middle" font-size="11.5" style="fill:#eab308">Local court/police se madad mushkil</text>
 </g></svg>
-<p>Ek source ke mutabiq police ghalat hone par ise "razamandi ka lain-dain" ek ghair-qanooni market me samajh kar dismiss kar sakti hai. Kuch sites P2P traders ki giriftari ka zikr karti hain, magar mujhe kisi bharosemand khabar se isay confirm nahi mila. Mere paas "kis par kya saza hoti hai" ke saboot nahi, is liye main saza ka koi number nahi likh raha.</p>
+<p>Ek source ke mutabiq police ghalat hone par ise "razamandi ka lain-dain" ek ghair-qanooni market me samajh kar dismiss kar sakti hai. Kuch sites <a href="/blog/binance-p2p-guide-urdu">P2P traders</a> ki giriftari ka zikr karti hain, magar mujhe kisi bharosemand khabar se isay confirm nahi mila. Mere paas "kis par kya saza hoti hai" ke saboot nahi, is liye main saza ka koi number nahi likh raha.</p>
 
 <h2>4. Tax wala paradox: "illegal" magar taxable?</h2>
 <p>Asal bat yeh hai ke income tax qanoon "income kahan se aayi" ke bajaye "income hui ya nahi" dekhta hai. Isi liye kuch sources kehte hain ke chhupi ya unexplained income par NBR (National Board of Revenue) tax aur jurmana laga sakta hai, chahe woh crypto se ho.</p>
@@ -1002,14 +1002,14 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li>Pehle samjhein ke aap kis qanooni risk me hain. Yeh ban "grey" zaroor hai, "safe" nahi.</li>
 <li>Apna lain-dain ka record rakhein, taake bank pooche to funds ka source samjha sakein.</li>
 <li>Dhokhe se bachne ke liye sirf platform ke escrow system ke andar rahein, aur platform ke bahar kisi ko paisay na dein.</li>
-<li>Itni raqam hi use karein jis ke account freeze hone ka nuqsan bardasht kar saken.</li>
+<li><a href="/blog/position-sizing-kya-hai">Itni raqam hi use karein</a> jis ke account freeze hone ka nuqsan bardasht kar saken.</li>
 <li>Qanooni mashwara Bangladesh ke kisi lawyer se lein. Yeh blog mashwara nahi hai.</li>
 </ol>
 
 <h2>7. Aage kya?</h2>
-<p>2026 ke election ke baad Bangladesh me nayi sarkar aur Bangladesh Bank ka naya governor aaya hai. Mujhe crypto policy badalne ka koi saboot nahi mila. Hamsaya mulkon me Pakistan ne licensing ka raasta chuna aur India tax lagata hai magar RBI ke sath ban par behas jari hai. Bangladesh abhi in teeno se alag, "sakht warning magar saaf qanoon nahi" ki jagah par hai.</p>
+<p>2026 ke election ke baad Bangladesh me nayi sarkar aur Bangladesh Bank ka naya governor aaya hai. Mujhe crypto policy badalne ka koi saboot nahi mila. Hamsaya mulkon me <a href="/blog/pakistan-crypto-tax-2026">Pakistan ne licensing ka raasta chuna</a> aur <a href="/blog/india-crypto-ban-rbi-finance-ministry-2026">India tax lagata hai magar RBI ke sath ban par behas jari hai</a>. Bangladesh abhi in teeno se alag, "sakht warning magar saaf qanoon nahi" ki jagah par hai.</p>
 
-<p class="warn"><b>Zaroori:</b> Yeh maloomati blog hai, qanooni ya tax mashwara nahi, aur yeh kisi ko Bangladesh ke qanoon ke khilaf amal karne ki targheeb nahi deta. Maloomat badal sakti hain; faisla karne se pehle Bangladesh Bank aur NBR ki official notices dekhein.</p>
+<p class="warn"><b>Zaroori:</b> Yeh maloomati blog hai, qanooni ya tax mashwara nahi, aur yeh kisi ko Bangladesh ke qanoon ke khilaf amal karne ki targheeb nahi deta. Maloomat badal sakti hain; faisla karne se pehle Bangladesh Bank aur NBR ki official notices dekhein, aur trading ki bunyadein ke liye <a href="/courses/crypto-trading-course-beginner">Crypto Trading Course (Beginner)</a> ka rasta dekhein.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -1034,7 +1034,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
     readingTime: '9 min read',
     hero: '/blog/ai-tools-automation-2026.webp',
     heroAlt: 'Best AI Tools 2026 – Content Creation aur Small Business Automation Ka Complete Guide',
-    html: `<p class="lead">2026 mein content creation aur small business chalane wale log AI tools ke bina reh gaye hain — lekin sahi tool kaunsa? Is guide mein hum top tools ki practical comparison karenge, workflows banaenge, aur batayenge ke shuruaat kis stack se karni chahiye — sab Roman Urdu mein.</p>
+    html: `<p class="lead">2026 mein content creation aur small business chalane wale log AI tools ke bina reh gaye hain — lekin sahi tool kaunsa? Is guide mein hum top tools ki practical comparison karenge, workflows banaenge, aur batayenge ke shuruaat kis stack se karni chahiye — sab Roman Urdu mein. AI ki bunyadi samajh chahiye ho to <a href="/ai-kaise-seekhain/">AI kaise seekhein</a> pillar guide bhi sath parhein.</p>
 <p>Orbit Media ke 2026 survey ke mutabiq <b>92.4% bloggers</b> AI tools use kar rahe hain, aur marketers mein se taqreeban 94% content creation ke liye AI plan kar rahe hain. Matlab: sawal ye nahi ke AI use karna hai ya nahi — sawal ye hai ke <b>sahi tools kaunse hain</b> aur unhe sahi tareeqe se kaise use karein.</p>
 <div class="note"><b>Quick answer (2026):</b> Zyada tar logon ke liye behtareen shuruaat hai <b>ChatGPT + Claude + Canva + Zapier</b> — ye chaaron mila kar likhna, lambi research, visuals aur automation cover kar lete hain, munasib kharche mein.</div>
 
@@ -1083,7 +1083,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <div class="note"><b>Pro tip:</b> Koi ek "best" tool nahi hota. Tool ko kaam ke sath match karein — zyada tar power users 2–3 tools rakhte hain aur kaam ke mutabiq switch karte hain.</div>
 
 <h2>4. Small Business Automation Kaise Karein</h2>
-<p>Automation hi woh jagah hai jahan chhoti businesses sab se zyada waqt bachati hain. 2026 ke top tools:</p>
+<p>Automation hi woh jagah hai jahan chhoti businesses sab se zyada waqt bachati hain. Waqt ke sath paisa bhi bachta hai, jise baad mein <a href="/blog/personal-finance-specific-demographics-2026">personal finance 2026 guide</a> mein plan kiya ja sakta hai. 2026 ke top tools:</p>
 <ol>
 <li><b>Zapier</b> — non-technical logon ke liye best (sab se bara app library)</li>
 <li><b>Make</b> (pehle Integromat) — complex visual workflows ke liye (aksar sasta bhi)</li>
@@ -1136,7 +1136,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li>Har kaam ke liye sirf aik hi tool istemal karne ki zid</li>
 <li>Brand voice aur apne asli experience ko nazar andaz karna</li>
 <li>Customer-facing messages bina human review ke automate karna</li>
-<li>Har naye AI tool ka peechha karna — chhota, bharosemand stack master karna behtar hai</li>
+<li><a href="/glossary/fomo/">Har naye AI tool ka peechha karna</a> — chhota, bharosemand stack master karna behtar hai</li>
 </ul>
 
 <h2>8. 2026 Ke Liye Final Recommendation</h2>
@@ -1146,7 +1146,7 @@ Kabhi kabhi — jaise card chargeback se. Isi liye pehla deposit chhota rakhein 
 <li>Originality, judgment aur brand voice ke liye <b>insaan ki expertise</b></li>
 <li>System chalta rahe tab bhi is ke liye <b>smart automation</b></li>
 </ul>
-<p>Chhoti shuruaat karein, aik workflow master karein, phir barhayein — ye tareeqa har naye tool ke peechhe bhagne se hamesha behtar result deta hai.</p>
+<p>Chhoti shuruaat karein, aik workflow master karein, phir barhayein — ye tareeqa har naye tool ke peechhe bhagne se hamesha behtar result deta hai. Agar aapka maqsad trading bhi hai to <a href="/blog/ai-tools-forex-crypto-trading-edge-2026">AI tools se forex aur crypto trading edge</a> aur <a href="/blog/ai-trading-bots-reality-check-2026">AI trading bots ka reality check</a> bhi parh lein.</p>
 
 <h2>Key Takeaways</h2>
 <ul>
@@ -1170,7 +1170,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 </div>
 
 <h2>Aaj Se Shuru Karein</h2>
-<p>Aaj hi free accounts banayein aur pehla workflow aaj complete karein — research se le kar publish tak. AI seekhne ka systematic Roman Urdu tareeqa hamari <a href="/ai-kaise-seekhain/index.html">AI Kaise Seekhain</a> book mein maujood hai — chatbot se le kar practical tak sab isi mein cover hota hai.</p>
+<p>Aaj hi free accounts banayein aur pehla workflow aaj complete karein — research se le kar publish tak. AI seekhne ka systematic Roman Urdu tareeqa hamari <a href="/ai-kaise-seekhain/index.html">AI Kaise Seekhain</a> book mein maujood hai — chatbot se le kar practical tak sab isi mein cover hota hai. Aur amli practice chahiye to <a href="/courses">trading courses</a> ka lineup bhi dekhein.</p>
 <p class="warn"><b>Zaroori note:</b> Tools ke features aur prices waqt ke sath badalte hain — hamesha official websites par current rate verify karein. Ye blog sirf taleemi (educational) maqsad ke liye hai.</p>`
   },
   {
@@ -1183,7 +1183,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
     readingTime: '11 min read',
     hero: '/blog/personal-finance-specific-demographics-2026.webp',
     heroAlt: 'Personal Finance 2026 – Salaried, Fauji Families, Freelancers aur Late Starters Ke Liye Practical Plan',
-    html: `<p class="lead">Generic personal finance advice zyada tar logon par fit nahi hota. Fixed-income jobholder, fauj ki family jiski posting hoti rehti hai, freelancer parent, aur 50 par financial independence shuru karne wala shakhs — sab ko alag strategy chahiye. Ye guide isi "apni situation wali" salah par focus karti hai jo 2026 mein sab se zyada kaam aati hai.</p>
+    html: `<p class="lead">Generic personal finance advice zyada tar logon par fit nahi hota. Fixed-income jobholder, fauj ki family jiski posting hoti rehti hai, freelancer parent, aur 50 par financial independence shuru karne wala shakhs — sab ko alag strategy chahiye. Ye guide isi "apni situation wali" salah par focus karti hai jo 2026 mein sab se zyada kaam aati hai, aur saving ke sath invest karne walon ke liye <a href="/knowledge-base/day-trading-vs-investing">investing aur day trading ka farq</a> bhi aana chahiye.</p>
 <div class="note"><b>Ye guide kis ke liye hai:</b> der se savings shuru karne wale (40+), salaried class jo budget sametna chahti hai, fauj (military) families jinki tabdeeli/postings hoti rehti hain, freelancers/self-employed parents jinki income irregular hai, aur parents jo bacchon ki taleem aur retirement sath sath manage kar rahe hain.</div>
 
 <h2>1. Specific Demographics 2026 Mein Kyun Jeet-te Hain</h2>
@@ -1208,7 +1208,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <div class="note"><b>Aham insight:</b> Aap pension/retirement age ke zyada qareeb hain. Ye "two-phase" math aap ko chahiye nest egg taqreeban <b>20–25% tak kam</b> kar sakti hai — us shakhs ke muqable jo 40 ki umar mein decades tak sirf portfolio par depend karta hai.</div>
 <p><b>Late starters ke taqatwar levers:</b></p>
 <ol>
-<li><b>Savings rate ahista ahista barhayein</b> — "1% method": har mahine savings rate 1 percentage point barhayein. Nazar andaaz hone wala chhota change, compounding mein zabardast</li>
+<li><b>Savings rate ahista ahista barhayein</b> — "1% method": har mahine savings rate 1 percentage point barhayein. Nazar andaaz hone wala chhota change, compounding mein zabardast — apna figure <a href="/calculator/compounding">compounding calculator</a> par dekhein</li>
 <li><b>Housing lever</b> — chhota gar ya saste area relocate karna aksar kisi bhi aik move se zyada kharcha kam karta hai</li>
 <li><b>Coast FIRE path</b> — aik chhota "Coast number" tak pohanchein jahan sirf compound growth traditional retirement age tak fund kar de. Phir pressure kam hota hai aur kaam flexible ho jata hai</li>
 <li><b>Catch-up contributions</b> — 50 ke baad retirement accounts ki contribution limits barh jati hain; faida uthayein</li>
@@ -1225,7 +1225,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <li>Easy transfers aur bharosemand customer service</li>
 <li>Rate promotional hai ya regular — promo rate wala masla zaroor samjhein</li>
 </ul>
-<p class="warn"><b>Zaroori:</b> Rates aksar badalte hain. Account kholne se pehle current APY aur terms official site par verify karein — promotional rates aam tor par 3–6 mahine baad gir jati hain.</p>
+<p class="warn"><b>Zaroori:</b> Rates aksar badalte hain. Account kholne se pehle current APY aur terms official site par verify karein — promotional rates aam tor par 3–6 mahine baad gir jati hain. Aur bohat zyada achhe rate ke wade dekh kar <a href="/blog/forex-scam-pakistan-pehchan">scam ki pehchan</a> wali post bhi sath parh lein.</p>
 <p><b>Practical strategy:</b></p>
 <ol>
 <li>3–6 mahine ka kharcha best HYSA mein emergency fund ke tor par rakhein</li>
@@ -1242,7 +1242,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <li>Fixed income, magar mehngai aur rehna-shena har jagah farq karta hai</li>
 <li>Bachon ki taleem baar baar school/tabdeeli se mutasir hoti hai</li>
 <li>Lambi duty/separation ke doran ghar ke kharche aik hi income se chalte hain</li>
-<li>Transferable assets aur liquidity ki zyada zaroorat hoti hai — ghar/property jaisi cheezein asaan se move nahi hotin</li>
+<li>Transferable assets aur <a href="/glossary/liquidity/">liquidity</a> ki zyada zaroorat hoti hai — ghar/property jaisi cheezein asaan se move nahi hotin</li>
 </ul></div>
 <p><b>High-impact actions:</b></p>
 <ul>
@@ -1266,7 +1266,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <ul>
 <li><b>50/30/20 rule:</b> 50% zaroorat, 30% khwahish, 20% saving/debt — pehle apne kharche is hisaab se tag karein</li>
 <li><b>Emergency fund pehla target:</b> 3–6 mahine ke zaroori kharche — investment se pehle ye complete</li>
-<li><b>Reverse budgeting:</b> Payday se pehle savings auto transfer — jo bacha wo save, na ke ulti baat</li>
+<li><b>Reverse budgeting:</b> Payday se pehle savings auto transfer — jo bacha wo save, na ke ulti baat. Is tarah ka automation <a href="/blog/ai-tools-automation-2026">AI tools</a> se bhi ho sakta hai</li>
 <li><b>Health/family insurance:</b> Aik hospital bill pura plan bigad deta hai — cover lazmi</li>
 <li><b>High-interest debt pehle khatam:</b> Credit card ya personal loan ka interest koi investment nahi de sakta — sab se pehle ye clear karein</li>
 </ul>
@@ -1285,7 +1285,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <li><b>Alag accounts:</b> Business aur personal paisa mukammal alag rakhein — mix hona sab se bara masla hai</li>
 <li><b>Profit-first style system:</b> Khud ko aik fixed "tankhwah" dein aur us se savings automate kar dein</li>
 <li><b>Retirement/pension accounts:</b> Solo options aksar standard IRA se kahin zyada contribution allow karte hain — apna woh dekhein</li>
-<li><b>Tax discipline:</b> Har payment ka aik fixed percentage taxes ke liye alag rakhein — April/filing waqt crisis na bane</li>
+<li><b>Tax discipline:</b> Har payment ka aik fixed percentage taxes ke liye alag rakhein — April/filing waqt crisis na bane, aur Pakistan ka income aur crypto tax setup <a href="/blog/pakistan-crypto-tax-2026">crypto tax 2026 guide</a> mein detail se hai</li>
 <li><b>Emergency buffer pehle:</b> Income fluctuate hoti hai, is liye naukri wale (W-2) se zyada cash reserve aap ke liye zaroori hai</li>
 </ol>
 
@@ -1328,7 +1328,7 @@ Starter stack taqreeban $50/mo ke andar aa jata hai — lekin shuru free plans s
 <li>Late starters ke paas zyada tar options — savings rate, Coast FIRE aur housing decisions — abhi bhi hain</li>
 <li>High-yield saving aaj bhi sab se simple high-impact move hai</li>
 <li>Har situation ka apna plan chahiye — generic plan salaried, fauj aur freelancers par fit nahi hota</li>
-<li>Is hafta sirf aik clear action lein — consistency perfection se behtar hai</li>
+<li>Is hafta sirf aik clear action lein — consistency perfection se behtar hai, aur bara safar <a href="/roadmap">roadmap</a> par tay kiya ja sakta hai</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -1346,7 +1346,7 @@ Current rate, fees, minimum balance aur bank ki regulation/insurance check karei
 </div>
 
 <h2>Aaj Se Shuru Karein</h2>
-<p>Is hafta sirf aik action chunein — behtar saving account kholna, Coast FIRE number calculate karna, ya business aur personal finance alag karna. Chhota action, bara farq.</p>
+<p>Is hafta sirf aik action chunein — behtar saving account kholna, Coast FIRE number calculate karna, ya business aur personal finance alag karna. Chhota action, bara farq. Portfolio ko tarteeb dene ka poora tareeqa <a href="/portfolio-management/index.html">Portfolio Management book</a> mein hai.</p>
 <p class="warn"><b>Zaroori note:</b> Rates, taxes aur rules waqt ke sath badalte hain — official sources aur qualified professionals se verify karein. Ye blog sirf taleemi (educational) maqsad ke liye hai, ye personalized financial advice nahi.</p>`
   },
   {
@@ -1359,7 +1359,7 @@ Current rate, fees, minimum balance aur bank ki regulation/insurance check karei
     readingTime: '6 min read',
     hero: '/blog/forex-trading-pakistan-2026.webp',
     heroAlt: 'Forex Trading Pakistan Mein Kaise Shuru Karein – Broker, Payments aur Taxes (2026 Guide)',
-    html: `<p class="lead">Pakistan mein forex trading ki popularity tezi se barh rahi hai — lekin shuru karne se pehle teen sawal sab ko hota hain: ye legal hai, broker kaise choose karein, aur paisa account mein kaise jaye. Is guide mein hum in teenon ka practical jawab Roman Urdu mein denge.</p>
+    html: `<p class="lead">Pakistan mein <a href="/knowledge-base/forex-trading-kya-hai">forex trading</a> ki popularity tezi se barh rahi hai — lekin shuru karne se pehle teen sawal sab ko hota hain: ye legal hai, broker kaise choose karein, aur paisa account mein kaise jaye. Is guide mein hum in teenon ka practical jawab Roman Urdu mein denge.</p>
 <p>Ye guide educational maqsad ke liye hai. Har trader apni country ke rules, broker ke terms aur tax obligations khud verify kare — ya qualified professional se mashwara kare.</p>
 
 <h2>1. Forex Trading Pakistan Mein Legal Hai?</h2>
@@ -1400,7 +1400,7 @@ Current rate, fees, minimum balance aur bank ki regulation/insurance check karei
 <h2>3. Pakistan Se Deposit aur Withdrawal Ke Tareeqe</h2>
 <p>Ye woh hissa hai jahan zyada tar log phanste hain. International card payments par Pakistan ke restrictions hain, aur har broker har method Pakistan se support nahi karta. Amal tor par yeh teen tareeqe sab se zyada chalte hain:</p>
 <ul>
-<li><b>Crypto P2P (USDT):</b> Binance P2P se PKR mein USDT khareedein, phir USDT broker ke wallet mein deposit — sab se popular aur fast method. TradeEd par is ka complete guide maujood hai</li>
+<li><b>Crypto P2P (USDT):</b> Binance P2P se PKR mein USDT khareedein, phir USDT broker ke wallet mein deposit — sab se popular aur fast method. TradeEd par is ka <a href="/blog/binance-p2p-guide-urdu">complete guide</a> maujood hai</li>
 <li><b>Bank wire / international transfer:</b> Kabhi kabhi kaam karta hai, lekin fee zyada (20–40 USD) aur time 2–5 din</li>
 <li><b>E-wallets:</b> Some brokers support Skrill/Neteller — agar Pakistan se accessible hon toh ye bhi acha option hai</li>
 </ul>
@@ -1410,7 +1410,7 @@ Current rate, fees, minimum balance aur bank ki regulation/insurance check karei
 <p>Har transaction ka screenshot, reference number aur date save karein. Withdrawal tax filing ke waqt bhi kaam aata hai.</p>
 
 <h2>5. Pakistan Mein Aam Forex Scams</h2>
-<p>Scams ka pattern har jagah same hota hai — agar neeche ka koi point match ho, toh paisa mat daalo:</p>
+<p>Scams ka pattern har jagah same hota hai — nishaniyan detail me hamari <a href="/blog/forex-scam-pakistan-pehchan">Forex Scam Pakistan</a> guide me hain; agar neeche ka koi point match ho, toh paisa mat daalo:</p>
 <ul>
 <li>"Monthly fixed 10–30% profit" — koi legit trading is tarah guarantee nahi kar sakti</li>
 <li>Paid signal groups jin mein "insider levels" beche jate hain</li>
@@ -1423,12 +1423,12 @@ Current rate, fees, minimum balance aur bank ki regulation/insurance check karei
 <h2>6. Pehla Mahina: Practical Roadmap</h2>
 <ul>
 <li><b>Week 1:</b> Broker choose karein (checklist follow), demo account khol lein — paisa abhi nahi</li>
-<li><b>Week 2:</b> Demo pe trading basics, risk management aur 1% rule parh lein</li>
+<li><b>Week 2:</b> Demo pe trading basics, <a href="/blog/risk-management-5-rules">risk management</a> aur 1% rule parh lein</li>
 <li><b>Week 3:</b> Chhota real account ($50–100), sirf minimum lot size, stop loss har trade mein</li>
-<li><b>Week 4:</b> Trading journal shuru karein — har trade ka reason likhein</li>
+<li><b>Week 4:</b> <a href="/blog/trading-journal-kyun-zaroori">Trading journal</a> shuru karein — har trade ka reason likhein</li>
 <li><b>Month 2+:</b> Sirf tabhi barhana jab 20+ trades ke consistent results hon</li>
 </ul>
-<p>Isi roadmap ko video format mein seekhne ke liye TradeEd ka free Forex Trading Course (12 lectures, Roman Urdu) available hai — market structure, risk aur psychology sab isi mein cover hote hain.</p>
+<p>Isi roadmap ko video format mein seekhne ke liye TradeEd ka free <a href="/courses/forex-trading-course-beginner">Forex Trading Course</a> (12 lectures, Roman Urdu) available hai — market structure, risk aur psychology sab isi mein cover hote hain.</p>
 
 <h2>Key Takeaways</h2>
 <ul>
@@ -1452,7 +1452,7 @@ Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se executi
 </div>
 
 <h2>Aaj Se Shuru Karein</h2>
-<p>Checklist print karein ya phone mein save karein. Broker ki regulation verify karein, demo account khol lein, aur pehla trade plan ke sath lo — bina plan ke trading sirf gamble hai. Plan seekhne ke liye TradeEd ka free Forex course shuru karein.</p>`
+<p>Checklist print karein ya phone mein save karein. Broker ki regulation verify karein, demo account khol lein, aur pehla trade plan ke sath lo — bina plan ke trading sirf gamble hai. Plan ko mazboot karne ke liye <a href="/risk-management/index.html">Risk Management</a> book parh lein, aur seekhne ke liye TradeEd ka free Forex course shuru karein.</p>`
   },
   {
     slug: 'forex-best-time-karachi-sessions',
@@ -1464,7 +1464,7 @@ Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se executi
     readingTime: '6 min read',
     hero: '/blog/forex-best-time-karachi-sessions.webp',
     heroAlt: 'Forex Trading Ka Best Time: Karachi Time Mein Sessions aur Market Flow (2026 Guide)',
-    html: `<p class="lead">Naye traders yeh galti sab se zyada karte hain: chaar ghante ka bhi session dekh lein aur trade kar lete hain — bina soche ke us waqt liquidity kitni hai. Forex 5 din 24 ghante chalta hai, lekin sirf kuch ghante aise hain jahan asal paisa (volume) move hota hai.</p>
+    html: `<p class="lead">Naye traders yeh galti sab se zyada karte hain: chaar ghante ka bhi session dekh lein aur trade kar lete hain — bina soche ke us waqt <a href="/glossary/liquidity/">liquidity</a> kitni hai. Forex 5 din 24 ghante chalta hai, lekin sirf kuch ghante aise hain jahan asal paisa (volume) move hota hai.</p>
 <p>Is guide mein hum har session ka Karachi (PKT) time dekhenge, batayenge ke beginner ke liye kaunsa window best hai, aur kaunse ghante avoid karne chahiye.</p>
 
 <h2>1. Forex Market 24/5 Kyun Chalti Hai</h2>
@@ -1487,7 +1487,7 @@ Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se executi
 <p>Sab se important line: <b>London aur New York ka overlap — 17:00 se 21:00 PKT</b> — wo window hai jahan duniya ki sab se zyada currency trading hoti hai. Spreads tight, movement clear.</p>
 
 <h2>3. Beginners Ke Liye Best Time</h2>
-<p>Har kaam ka apna time hota hai — strategy ke hisaab se window chunein, bas "jab free hon" se nahi:</p>
+<p>Har kaam ka apna time hota hai — <a href="/blog/scalping-vs-day-vs-swing-trading-timeframes">scalping, day trading ya swing</a> jaisi strategy ke hisaab se window chunein, bas "jab free hon" se nahi:</p>
 <figure>
 <div class="scroll">
 <table>
@@ -1504,7 +1504,7 @@ Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se executi
 <h2>4. Ye Waqt Avoid Karein</h2>
 <ul>
 <li><b>Rollover time (taqreeban 03:00 PKT):</b> Spread spike ho jata hai, chhoti positions ke liye mehnga</li>
-<li><b>Major news ke 15 minute pehle aur baad:</b> NFP, CPI, FOMC — spread barhta hai, stop loss hunt hota hai</li>
+<li><b>Major news ke 15 minute pehle aur baad:</b> NFP, CPI, FOMC — spread barhta hai, <a href="/glossary/stop-loss/">stop loss</a> hunt hota hai</li>
 <li><b>Friday aakhri 2–3 ghante:</b> Liquidity khatam hoti hai, gap ka risk barhta hai</li>
 <li><b>Sunday/Monday early hours:</b> Thin market, unexpected gaps</li>
 <li><b>Jab tak setup na mile:</b> Boredom se liya gaya trade sab se mehnga trade hota hai</li>
@@ -1512,17 +1512,17 @@ Na. Kam az kam 20–30 trades demo pe karein, phir chhoti real amount se executi
 
 <h2>5. News Hours — Karachi Schedule</h2>
 <p>Sab se bari news (NFP = mahina ka pehla Jumera) Pakistan time se lagbhag 18:30 (winter) aati hai. Us ke aas paas spreads double ho sakte hain aur price 2-way chalti hai — beginners ke liye best approach hai: news se 15 min pehle trade band, aur baad mein settle hone do.</p>
-<p>Simple rule: Economic calendar ko PKT mein set karein (brokers ke calendars mein timezone option hota hai), aur sirf apne 2–3 high-impact events dekhein — sab kuch track karne ki zaroorat nahi.</p>
+<p>Simple rule: Economic calendar ko PKT mein set karein (brokers ke calendars mein timezone option hota hai), aur sirf apne 2–3 high-impact events dekhein — kaunse events market move karte hain is ki list hamari <a href="/blog/global-markets-movers">Global Markets Movers</a> guide me hai, sab kuch track karne ki zaroorat nahi.</p>
 
 <h2>6. Apna PKT Schedule Kaise Banayein</h2>
 <ul>
 <li>Session table ko phone wallpaper ya sticky note pe rakhein</li>
 <li>12:00 (London open) par chart check — kya setup ban raha hai?</li>
 <li>17:00–21:00 ko "prime block" treat karein — yahin main trading ho</li>
-<li>Har trade journal mein time of day bhi likhein — 1 mahine baad pata chalega ke aap ka asal edge kis session mein hai</li>
+<li><a href="/blog/trading-journal-kyun-zaroori">Har trade journal</a> mein time of day bhi likhein — 1 mahine baad pata chalega ke aap ka asal edge kis session mein hai</li>
 <li>Fix schedule > random checks — discipline hi edge hai</li>
 </ul>
-<p>Trading routine, psychology aur session-based planning ka practical system TradeEd ke free Forex course (12 lectures, Roman Urdu) mein lectures ke sath cover kiya gaya hai.</p>
+<p><a href="/blog/profitable-trading-routine">Trading routine</a>, psychology aur session-based planning ka practical system TradeEd ke free <a href="/courses/forex-trading-course-beginner">Forex course</a> (12 lectures, Roman Urdu) mein lectures ke sath cover kiya gaya hai.</p>
 
 <h2>Key Takeaways</h2>
 <ul>
@@ -1546,7 +1546,7 @@ Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginner
 </div>
 
 <h2>Aaj Apna Schedule Banayein</h2>
-<p>Calendar khol kar 4 sessions apne phone mein set karein. Kal se sirf 17:00–21:00 PKT block rakhein, har trade journal karein, aur 1 hafte baad dekhein ke discipline ka result kaisa hai.</p>`
+<p>Calendar khol kar 4 sessions apne phone mein set karein. Kal se sirf 17:00–21:00 PKT block rakhein, har trade journal karein, aur 1 hafte baad dekhein ke discipline ka result kaisa hai. Aur agar poora daily setup chahiye to <a href="/day-trading-guide/index.html">Day Trading Guide</a> book bhi dekh lein.</p>`
   },
 
   {
@@ -1559,7 +1559,7 @@ Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginner
     readingTime: '8 min read',
     hero: '/blog/bitcoin-halving.webp',
     heroAlt: 'Bitcoin Halving ke baad BTC ki price: Tareekh kya batati hai?',
-    html: `<p class="lead">Har chaar saal baad Bitcoin ki dunya mein ek bara waqia hota hai jise <b>Halving</b> kehte hain. Is blog mein hum aasan Roman Urdu mein samjhenge ke halving kya hai, ab tak price ne kya kiya, aur ek trader ko kya dhyan rakhna chahiye.</p>
+    html: `<p class="lead">Har chaar saal baad <a href="/knowledge-base/crypto-kya-hai">Bitcoin</a> ki dunya mein ek bara waqia hota hai jise <b>Halving</b> kehte hain. Is blog mein hum aasan Roman Urdu mein samjhenge ke halving kya hai, ab tak price ne kya kiya, aur ek trader ko kya dhyan rakhna chahiye.</p>
 
 <h2>Bitcoin Halving kya hoti hai?</h2>
 <p>Bitcoin network mein naye BTC <b>miners</b> ko inaam (block reward) ke tor par milte hain, jab wo transactions ka naya block verify karte hain. Bitcoin ke code mein likha hai ke har <b>210,000 blocks</b> (taqreeban 4 saal) baad ye inaam <b>aadha</b> ho jayega. Isi ko halving kehte hain.</p>
@@ -1638,7 +1638,7 @@ Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginner
 <p>Bohat se log sochte hain ke halving khud hi price ko upar le jati hai. Haqeeqat mein dusre factors bhi bare asar daalte hain:</p>
 <ul>
 <li><b>Market sentiment:</b> Log kitne josh ya darr mein hain.</li>
-<li><b>Interest rates aur liquidity:</b> Jab sasta qarz aur zyada paisa market mein hota hai, risk wale assets (crypto, stocks) aksar behtar chalte hain.</li>
+<li><b>Interest rates aur <a href="/glossary/liquidity/">liquidity</a>:</b> Jab sasta qarz aur zyada paisa market mein hota hai, risk wale assets (crypto, <a href="/blog/stocks-crypto-forex">stocks</a>) aksar behtar chalte hain.</li>
 <li><b>Spot ETFs aur institutions:</b> Bare idaron ki khareedari demand ko badal sakti hai.</li>
 <li><b>Regulations:</b> Hukumaton ke qawaneen achi ya buri khabar ban sakte hain.</li>
 <li><b>Halving pehle se price in hoti hai:</b> Kyunke har koi iske baare mein jaanta hai, market kabhi kabhi pehle hi react kar deti hai.</li>
@@ -1648,11 +1648,11 @@ Le sakte hain — lekin Asian range jaise low-volatility hours breakout beginner
 
 <h2>Ek trader ke liye 5 practical tips</h2>
 <ul>
-<li><b>Hype ke peeche mat bhaagein.</b> "Halving = pakka profit" jaisi baatein sun kar ek hi dafa mein saara paisa mat lagayein.</li>
+<li><b><a href="/blog/crypto-trading-mistakes">Hype ke peeche mat bhaagein.</a></b> "Halving = pakka profit" jaisi baatein sun kar ek hi dafa mein saara paisa mat lagayein.</li>
 <li><b>DCA (Dollar Cost Averaging) apnayein.</b> Har mahine ek tay raqam se thora thora khareedna timing ka risk kam karta hai.</li>
-<li><b>Stop-loss use karein</b> agar trading kar rahe hain, aur leverage se door rahein jab tak experience na ho.</li>
-<li><b>Sirf wohi paisa lagayein</b> jo aap khone ka bojh utha sakein.</li>
-<li><b>Cycle ka khayal rakhein:</b> Tezi ke baad lambi giravat bhi aati rahi hai, is liye profit lene ka plan pehle se banayein.</li>
+<li><b><a href="/glossary/stop-loss/">Stop-loss use karein</a></b> agar trading kar rahe hain, aur leverage se door rahein jab tak experience na ho.</li>
+<li><b><a href="/blog/position-sizing-kya-hai">Sirf wohi paisa lagayein</a></b> jo aap khone ka bojh utha sakein.</li>
+<li><b><a href="/market-cycles/index.html">Cycle ka khayal rakhein:</a></b> Tezi ke baad lambi giravat bhi aati rahi hai, is liye profit lene ka plan pehle se banayein.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -1683,12 +1683,12 @@ Nahi. Pichli 4 dafa aisa hua, lekin ye koi guarantee nahi hai.
     html: `<p class="lead">ETH aur SOL, dono smart contract blockchains hain, lekin dono ka tareeqa bilkul alag hai. Is blog mein hum dono ko aasan Roman Urdu mein compare karenge, taake aap samajh sakein ke kaun sa aap ki soch aur risk ke liye munasib hai.</p>
 
 <h2>Smart contract blockchain kya hota hai?</h2>
-<p>Bitcoin sirf paisa bhejne ke liye bana tha. Ethereum aur Solana us se aage jate hain: yahan par <b>smart contracts</b> (khud-ba-khud chalne wale programs) par DeFi, NFTs, games, stablecoins aur payments jaise apps chalte hain. ETH aur SOL dono apne apne network ki "fuel" coins hain, jin se fees ada hoti hai aur staking bhi hoti hai.</p>
+<p>Bitcoin sirf paisa bhejne ke liye bana tha. Ethereum aur Solana us se aage jate hain: yahan par <b>smart contracts</b> (khud-ba-khud chalne wale programs) par <a href="/glossary/defi/">DeFi</a>, NFTs, games, stablecoins aur payments jaise apps chalte hain. ETH aur SOL dono apne apne network ki "fuel" coins hain, jin se fees ada hoti hai aur staking bhi hoti hai.</p>
 
 <h2>Ethereum: Mazboot aur bhaarosay wala</h2>
 <ul>
 <li><b>Sab se purana aur bara ecosystem:</b> 2015 se chal raha hai, DeFi aur stablecoins ka bara hissa yahin hai.</li>
-<li><b>Proof of Stake:</b> 2022 ki "Merge" ke baad ETH mining chhod kar staking par aa gaya.</li>
+<li><b>Proof of Stake:</b> 2022 ki "Merge" ke baad ETH mining chhod kar <a href="/glossary/staking/">staking</a> par aa gaya.</li>
 <li><b>Layer 2 (L2) strategy:</b> Asal Ethereum (L1) ko mehfooz aur decentralized rakha gaya hai, aur tez aur sasti transactions L2 networks (jaise Arbitrum, Optimism, Base) par hoti hain.</li>
 <li><b>Kamzori:</b> L1 par fees kabhi kabhi mehngi ho sakti hain, aur L2s ki wajah se liquidity aur user experience thora bikhra hua lagta hai.</li>
 </ul>
@@ -1697,7 +1697,7 @@ Nahi. Pichli 4 dafa aisa hua, lekin ye koi guarantee nahi hai.
 <ul>
 <li><b>Ek hi bari chain par tez raftaar:</b> Blocks bohat jaldi ban jate hain aur fees aam tor par bohat kam (ek cent se bhi kam) hoti hain.</li>
 <li><b>Proof of History + Proof of Stake:</b> Ye design transactions ko tarteeb dene mein madad karta hai.</li>
-<li><b>Kamyabi ke shobe:</b> Memecoins, payments, DEX trading aur consumer apps mein Solana ne bohat tawajjo hasil ki.</li>
+<li><b>Kamyabi ke shobe:</b> <a href="/blog/solana-ecosystem">Memecoins</a>, payments, DEX trading aur consumer apps mein Solana ne bohat tawajjo hasil ki.</li>
 <li><b>Kamzori:</b> Maazi mein network outages (band hona) ho chuke hain, aur validators ki hardware requirements zyada hain. Network behtar hua hai, lekin ye tareekh yaad rakhni chahiye.</li>
 </ul>
 
@@ -1739,7 +1739,7 @@ Nahi. Pichli 4 dafa aisa hua, lekin ye koi guarantee nahi hai.
 <tr><td>Ecosystem</td><td>Sab se bara DeFi aur stablecoin base</td><td>Tezi se barhta hua, trading aur consumer apps</td></tr>
 <tr><td>Decentralization</td><td>Zyada validators, mazboot reputation</td><td>Kam validators, hardware mehngi</td></tr>
 <tr><td>Track record</td><td>Lambi aur stable</td><td>Maazi mein outages, ab behtar</td></tr>
-<tr><td>Risk style</td><td>Kam tez, "blue chip" altcoin</td><td>Zyada tez aur volatile</td></tr>
+<tr><td>Risk style</td><td>Kam tez, "blue chip" <a href="/blog/altcoin-checklist">altcoin</a></td><td>Zyada tez aur volatile</td></tr>
 </table>
 </div>
 <figcaption>Diagram 2: Muqabla table. Live numbers (price, TVL, validators) ke liye CoinGecko ya DefiLlama dekhein.</figcaption>
@@ -1783,15 +1783,15 @@ Nahi. Pichli 4 dafa aisa hua, lekin ye koi guarantee nahi hai.
 <b>Kya Solana Ethereum ko pichhe chhor degi?</b>
 Koi nahi jaanta. Dono ke apne faide hain aur dono ke developers, users aur funding barh rahe hain. Aaj ki lead kal badal sakti hai.
 <b>Kya sasti fees ka matlab behtar investment hai?</b>
-Nahi. Investment ka faisla sirf fees se nahi, balke adoption, security, tokenomics aur competition se hota hai.
+Nahi. Investment ka faisla sirf fees se nahi, balke adoption, security, <a href="/glossary/tokenomics/">tokenomics</a> aur competition se hota hai.
 <b>Staking kya hai?</b>
 Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko inaam milta hai. Is mein bhi risk (price giravat, lock-up, platform risk) hota hai.
 </div>
 
 <h2>Natija</h2>
-<p>Ethereum zyada purana, mazboot aur bharosay wala network hai, jabke Solana tez, sasta aur zyada tezi se barhta hua. Dono mein volatility hai. Behtar tareeqa ye hai ke aap apna risk samjhein, research karein, aur kisi ek coin par poora paisa na lagayein.</p>
+<p>Ethereum zyada purana, mazboot aur bharosay wala network hai, jabke Solana tez, sasta aur zyada tezi se barhta hua. Dono mein volatility hai. Behtar tareeqa ye hai ke aap <a href="/blog/risk-management-5-rules">apna risk samjhein</a>, research karein, aur kisi ek coin par poora paisa na lagayein.</p>
 
-<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto mein bohat zyada risk hai aur aap apna poora paisa kho sakte hain. Fees, speed aur network ki halat waqt ke saath badalti rehti hai, is liye faisla karne se pehle taaza maloomat check karein.</p>`,
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto mein bohat zyada risk hai aur aap apna poora paisa kho sakte hain. Fees, speed aur network ki halat waqt ke saath badalti rehti hai, is liye faisla karne se pehle taaza maloomat check karein, aur apne holdings ko theek tarah baantne ka tareeqa <a href="/portfolio-management/index.html">Portfolio Management book</a> mein dekhein.</p>`,
   },
   {
     slug: 'altcoin-checklist',
@@ -1803,7 +1803,7 @@ Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko in
     readingTime: '9 min read',
     hero: '/blog/altcoin-checklist.webp',
     heroAlt: 'Altcoins mein trade karne se pehle 7 cheezein jo har trader ko check karni chahiye',
-    html: `<p class="lead">Bitcoin aur Ethereum ke ilawa jitne bhi coins hain, unhein <b>altcoins</b> kehte hain. Inmein tezi se munafa bhi ho sakta hai aur tezi se nuksan bhi. Is blog mein 7 aisi cheezein hain jo aap ko kisi bhi altcoin mein paisa lagane se pehle zaroor dekhni chahiye.</p>
+    html: `<p class="lead">Bitcoin aur <a href="/blog/ethereum-vs-solana">Ethereum</a> ke ilawa jitne bhi coins hain, unhein <b><a href="/glossary/altcoin/">altcoins</a></b> kehte hain. Inmein tezi se munafa bhi ho sakta hai aur tezi se nuksan bhi. Is blog mein 7 aisi cheezein hain jo aap ko kisi bhi altcoin mein paisa lagane se pehle zaroor dekhni chahiye.</p>
 
 <h2>Altcoins ka risk kitna hota hai?</h2>
 <p>Altcoins ek jaise nahi hote. Kuch bare aur purane projects hain, aur kuch bilkul naye ya sirf hype par chalne wale. Jitna aap neeche jayenge, utna <b>risk</b> aur <b>volatility</b> barhti jayegi.</p>
@@ -1844,7 +1844,7 @@ Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko in
 </ul>
 
 <h2>4. Market cap aur FDV</h2>
-<p><b>Market cap</b> = abhi ki circulating supply x price. <b>FDV (Fully Diluted Valuation)</b> = poori supply x price. Agar FDV market cap se bohat zyada hai, to iska matlab hai ke aage bohat se tokens aana baaki hain.</p>
+<p><a href="/glossary/market-cap/"><b>Market cap</b></a> = abhi ki circulating supply x price. <b>FDV (Fully Diluted Valuation)</b> = poori supply x price. Agar FDV market cap se bohat zyada hai, to iska matlab hai ke aage bohat se tokens aana baaki hain.</p>
 
 <figure>
 <div class="scroll">
@@ -1866,10 +1866,10 @@ Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko in
 </figure>
 
 <h2>5. Liquidity aur trading volume</h2>
-<p>Liquidity ka matlab hai ke aap jab chahein asaani se khareed ya bech sakein, bina price ko zyada hilaye. Kam liquidity wale coins mein <b>slippage</b> (apni dee hui price se alag price par order fill hona) aur phans jane ka khatra hota hai. Dekhein ke coin kai bari exchanges par listed hai aur roz ka volume theek hai ya nahi. Volume ke saath real activity ko bhi dekhein, kyunke kuch coins mein volume fake (wash trading) bhi hota hai.</p>
+<p><a href="/glossary/liquidity/">Liquidity</a> ka matlab hai ke aap jab chahein asaani se khareed ya bech sakein, bina price ko zyada hilaye. Kam liquidity wale coins mein <b>slippage</b> (apni dee hui price se alag price par order fill hona) aur phans jane ka khatra hota hai. Dekhein ke coin kai bari exchanges par listed hai aur roz ka volume theek hai ya nahi. Volume ke saath real activity ko bhi dekhein, kyunke kuch coins mein volume fake (wash trading) bhi hota hai.</p>
 
 <h2>6. Security, audit aur scam ki nishaniyan</h2>
-<p>Altcoin market mein <b>rug pull</b> (team ka paisa le kar bhaag jana), <b>pump and dump</b> aur <b>honeypot</b> (jahan aap khareed sakte hain lekin bech nahi sakte) jaisi scams hoti hain. Ye nishaniyan dekhein:</p>
+<p>Altcoin market mein <b><a href="/glossary/rug-pull/">rug pull</a></b> (team ka paisa le kar bhaag jana), <b>pump and dump</b> aur <b>honeypot</b> (jahan aap khareed sakte hain lekin bech nahi sakte) jaisi scams hoti hain. Ye nishaniyan dekhein:</p>
 <ul>
 <li>"Pakka munafa" ya "guaranteed returns" ke wade.</li>
 <li>Telegram ya social media par paid influencers ka achanak shor.</li>
@@ -1879,7 +1879,7 @@ Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko in
 </ul>
 
 <h2>7. Apna risk management</h2>
-<p>Chahe coin kitna hi achha kyun na lage, aap ka plan ahem hai. Position size chhoti rakhein, pehle se stop-loss tay karein, aur leverage se door rahein. Ek hi altcoin mein apne capital ka bara hissa mat lagayein.</p>
+<p>Chahe coin kitna hi achha kyun na lage, aap ka plan ahem hai. <a href="/blog/position-sizing-kya-hai">Position size chhoti rakhein</a>, pehle se stop-loss tay karein, aur leverage se door rahein. Ek hi altcoin mein apne capital ka bara hissa mat lagayein.</p>
 
 <h2>Checklist workflow: Khareedne se pehle</h2>
 <figure>
@@ -1908,7 +1908,7 @@ Apne ETH ya SOL ko network ki hifazat ke liye lock karna, jis ke badle aap ko in
 <figcaption>Diagram 3: Har altcoin ke liye ye 7 qadam dohrayein. Ek bhi jawab mushkil lage to ruk jayein.</figcaption>
 </figure>
 
-<div class="note"><b>Yaad rakhein:</b> Hype aur FOMO (kuch miss na ho jaye ka darr) trading ke sab se bade dushman hain. Jab sab khareed rahe hon, wohi waqt hota hai jab sab se zyada sochne ki zaroorat hoti hai.</div>
+<div class="note"><b>Yaad rakhein:</b> <a href="/blog/crypto-trading-mistakes">Hype aur FOMO</a> (kuch miss na ho jaye ka darr) trading ke sab se bade dushman hain. Jab sab khareed rahe hon, wohi waqt hota hai jab sab se zyada sochne ki zaroorat hoti hai.</div>
 
 <h2>Aksar pooche jane wale sawal</h2>
 <div class="faq">
@@ -1923,7 +1923,7 @@ Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo
 <h2>Natija</h2>
 <p>Altcoins mein bohat mauqe hain lekin utne hi khatre bhi hain. Agar aap in 7 cheezein (use case, team, tokenomics, FDV, liquidity, scam nishaniyan aur risk plan) check kar lein, to aap bina soche samjhe hone wale nuksan se kaafi had tak bach sakte hain.</p>
 
-<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Altcoins mein poora paisa khone ka khatra hota hai. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Altcoins mein poora paisa khone ka khatra hota hai. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein — risk ko system banane ka poora tareeqa <a href="/risk-management/index.html">Risk Management book</a> mein hai.</p>`,
   },
   {
     slug: 'forex-beginners',
@@ -1935,10 +1935,10 @@ Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo
     readingTime: '10 min read',
     hero: '/blog/forex-beginners.webp',
     heroAlt: 'Forex Trading for Beginners: Pips, Lots aur Leverage ko aasan zubaan mein samjhein',
-    html: `<p class="lead">Forex (Foreign Exchange) duniya ki sab se bari financial market hai, jahan ek currency ko dusri currency se badla jata hai. Naye traders ko sab se zyada Pips, Lots aur Leverage confuse karte hain. Is blog mein hum in sab ko misaalon ke saath aasan Roman Urdu mein samjhenge.</p>
+    html: `<p class="lead">Forex (Foreign Exchange) duniya ki sab se bari financial market hai, jahan ek currency ko dusri currency se badla jata hai. Naye traders ko sab se zyada Pips, Lots aur <a href="/glossary/leverage/">Leverage</a> confuse karte hain. Is blog mein hum in sab ko misaalon ke saath aasan Roman Urdu mein samjhenge.</p>
 
 <h2>Forex market kya hai aur kaise chalti hai?</h2>
-<p>Forex mein aap kisi ek currency ko khareedte hain aur saath hi dusri ko bechte hain. Is liye currencies hamesha <b>jori (pair)</b> ki shakal mein quote hoti hain, jaise EUR/USD. Ye market hafte mein 5 din, taqreeban 24 ghante khuli rehti hai, kyunke alag alag mulkon ke sessions (Sydney, Tokyo, London, New York) ek ke baad ek chalte hain. Sab se zyada activity aam tor par <b>London aur New York ke overlap</b> ke waqt hoti hai.</p>
+<p>Forex mein aap kisi ek currency ko khareedte hain aur saath hi dusri ko bechte hain. Is liye currencies hamesha <b>jori (pair)</b> ki shakal mein quote hoti hain, jaise EUR/USD. Ye market hafte mein 5 din, taqreeban 24 ghante khuli rehti hai, kyunke alag alag mulkon ke sessions (Sydney, Tokyo, London, New York) ek ke baad ek chalte hain. Sab se zyada activity aam tor par <b><a href="/blog/forex-best-time-karachi-sessions">London aur New York ke overlap</a></b> ke waqt hoti hai.</p>
 
 <h2>Currency pair ko kaise parhein?</h2>
 <figure>
@@ -1972,7 +1972,7 @@ Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo
 <tr><td>Micro lot (0.01)</td><td>1,000</td><td>$0.10</td></tr>
 </table>
 </div>
-<figcaption>Diagram 2: Lot sizes aur pip ki value. Doosre pairs mein value thori alag ho sakti hai, broker ka calculator dekhein.</figcaption>
+<figcaption>Diagram 2: Lot sizes aur pip ki value. Doosre pairs mein value thori alag ho sakti hai, <a href="/calculator/position-size">broker ka calculator</a> dekhein.</figcaption>
 </figure>
 
 <h2>Leverage aur Margin: Double-edged talwar</h2>
@@ -2003,7 +2003,7 @@ Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo
 </figure>
 
 <h2>Spread: Broker ki fees</h2>
-<p>Har pair ki do prices hoti hain: <b>Bid</b> (jis par aap bech sakte hain) aur <b>Ask</b> (jis par aap khareed sakte hain). In dono ke farq ko <b>spread</b> kehte hain, jo trade shuru karte hi aap ko ada karna parta hai. Jis pair mein spread kam ho (jaise EUR/USD), us mein trade karna sasta parta hai.</p>
+<p>Har pair ki do prices hoti hain: <b>Bid</b> (jis par aap bech sakte hain) aur <b>Ask</b> (jis par aap khareed sakte hain). In dono ke farq ko <b><a href="/glossary/spread/">spread</a></b> kehte hain, jo trade shuru karte hi aap ko ada karna parta hai. Jis pair mein spread kam ho (jaise EUR/USD), us mein trade karna sasta parta hai.</p>
 
 <h2>Ek trade ki misaal: Qadam ba qadam</h2>
 <p>Farz karein aap EUR/USD ko 1.1000 par <b>Buy</b> karte hain, 1 mini lot (pip = $1) ke saath. Stop-loss 1.0950 par (50 pip neeche) aur take-profit 1.1100 par (100 pip upar).</p>
@@ -2040,15 +2040,15 @@ Ye aap ke risk par munhasir hai. Aam usool ye hai ke sirf wohi paisa lagayein jo
 <ul>
 <li><b>Zyada leverage aur bara lot:</b> Ek ya do trades mein account khatam.</li>
 <li><b>Stop-loss na lagana:</b> "Price wapas aa jayegi" ki umeed mein nuksan barhta jata hai.</li>
-<li><b>Revenge trading:</b> Nuksan ke baad ghusse mein fauran dobara trade karna.</li>
+<li><b><a href="/blog/fomo-revenge-trading-psychology">Revenge trading</a>:</b> Nuksan ke baad ghusse mein fauran dobara trade karna.</li>
 <li><b>Bina plan ke trade:</b> Dosron ke signals ya telegram groups par andha bharosa.</li>
-<li><b>Ghair-mustanad (unregulated) broker:</b> Kisi bhi broker mein paisa dalne se pehle ye zaroor dekhein ke wo kisi mo'tabar regulator ke tahat registered hai ya nahi, aur apne mulk ke qawaneen bhi check karein.</li>
+<li><b>Ghair-mustanad (unregulated) broker:</b> Kisi bhi broker mein paisa dalne se pehle ye zaroor dekhein ke wo kisi mo'tabar regulator ke tahat registered hai ya nahi, aur <a href="/blog/forex-trading-pakistan-2026">apne mulk ke qawaneen</a> bhi check karein.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
 <div class="faq">
 <b>Forex mein kitne paise se shuru kar sakte hain?</b>
-Bohat se brokers chhoti raqam (jaise $10 se $100) se account kholne dete hain, lekin chhota account zyada risk aur zyada dabao bhi laata hai. Pehle demo se seekhein.
+Bohat se brokers chhoti raqam (jaise $10 se $100) se account kholne dete hain, lekin chhota account zyada risk aur zyada dabao bhi laata hai. Pehle <a href="/courses/forex-trading-course-beginner">Forex Trading Course</a> aur demo se seekhein.
 <b>Kya forex mein pakka munafa hota hai?</b>
 Nahi. Bohat se retail traders nuksan uthate hain. Jo "pakka munafa" ka wada kare, us se door rahein.
 <b>Kaun sa pair beginners ke liye theek hai?</b>
@@ -2056,7 +2056,7 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 </div>
 
 <h2>Natija</h2>
-<p>Pip, lot aur leverage forex ki buniyad hain. Agar aap in teeno ko samajh kar chhote lot, stop-loss aur sahi risk management ke saath shuru karein, to aap apne nuksan ko qaabu mein rakh sakte hain. Pehle seekhein, phir kamayen.</p>
+<p>Pip, lot aur leverage forex ki buniyad hain. Agar aap in teeno ko samajh kar chhote lot, stop-loss aur sahi risk management ke saath shuru karein, to aap apne nuksan ko qaabu mein rakh sakte hain — poora curriculum hamari <a href="/forex-complete/index.html">Forex Complete</a> book me hai. Pehle seekhein, phir kamayen.</p>
 
 <p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Forex aur leveraged trading mein bohat zyada risk hota hai aur aap apna poora capital kho sakte hain. Examples sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
   },
@@ -2074,9 +2074,9 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 
 <h2>Teeno markets ek nazar mein</h2>
 <ul>
-<li><b>Stocks (Hissa):</b> Aap kisi company ke hissay (shares) khareedte hain. Company barhti hai to aap ka hissa bhi qeemti hota hai, aur kuch companies dividend bhi deti hain.</li>
-<li><b>Crypto:</b> Digital assets jaise BTC, ETH aur SOL. Ye blockchain par chalte hain aur inki qeemat zyada tar demand, supply aur sentiment se chalti hai.</li>
-<li><b>Forex:</b> Currencies ki jori (pairs) mein trading, jaise EUR/USD. Ye duniya ki sab se bari market hai aur mulkon ki economy aur interest rates se chalti hai.</li>
+<li><b>Stocks (Hissa):</b> Aap kisi <a href="/knowledge-base/stock-market-kya-hai">company ke hissay (shares)</a> khareedte hain. Company barhti hai to aap ka hissa bhi qeemti hota hai, aur kuch companies dividend bhi deti hain.</li>
+<li><b>Crypto:</b> Digital assets jaise BTC, ETH aur SOL. Ye blockchain par chalte hain aur inki qeemat zyada tar demand, supply aur sentiment se chalti hai. Pakistan mein shuruaat <a href="/blog/crypto-trading-shuru-karein-pakistan">crypto trading shuru karne</a> wali guide se karein.</li>
+<li><b>Forex:</b> Currencies ki jori (pairs) mein trading, jaise EUR/USD. Ye duniya ki sab se bari market hai aur mulkon ki economy aur interest rates se chalti hai. Ibtaadi seekh <a href="/blog/forex-beginners">forex beginners guide</a> mein hai.</li>
 </ul>
 
 <h2>Muqabla table</h2>
@@ -2086,7 +2086,7 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 <tr><th>Pehlu</th><th>Stocks</th><th>Crypto</th><th>Forex</th></tr>
 <tr><td>Trading ke ghantay</td><td>Muqarrar (exchange ke ghantay)</td><td>24 ghante, 7 din</td><td>24 ghante, hafte ke 5 din</td></tr>
 <tr><td>Volatility (utaar chadhao)</td><td>Darmiyani</td><td>Bohat zyada</td><td>Aam tor par kam, magar leverage se barhta hai</td></tr>
-<tr><td>Leverage</td><td>Aam tor par kam ya nahi</td><td>Spot par nahi, futures mein zyada</td><td>Aksar bohat zyada</td></tr>
+<tr><td>Leverage</td><td>Aam tor par kam ya nahi</td><td><a href="/blog/crypto-futures-vs-spot-trading">Spot</a> par nahi, futures mein zyada</td><td>Aksar bohat zyada</td></tr>
 <tr><td>Lambi muddat ki investment</td><td>Bohat mazboot rawaj</td><td>Mumkin, magar risk zyada</td><td>Kam, zyada tar short term trading</td></tr>
 <tr><td>Regulation</td><td>Zyada tar mazboot aur wazeh</td><td>Mulk ke hisab se badalti hai</td><td>Broker aur mulk ke hisab se alag</td></tr>
 <tr><td>Kharcha</td><td>Commission aur tax</td><td>Trading fees aur spread</td><td>Spread aur kabhi commission</td></tr>
@@ -2097,7 +2097,7 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 </figure>
 
 <h2>Market ke khulne ke ghantay</h2>
-<p>Stocks ek tay waqt par khulte aur band hote hain, forex hafte ke 5 din chalta hai, aur crypto kabhi band nahi hota. Ye farq aap ki zindagi par bhi asar daalta hai: agar aap job karte hain to 24 ghante khuli market mein raat ko nuksan ka khatra aur dabao zyada ho sakta hai.</p>
+<p>Stocks ek tay waqt par khulte aur band hote hain, forex hafte ke 5 din chalta hai, aur crypto kabhi band nahi hota. Forex ke behtareen waqt <a href="/blog/forex-best-time-karachi-sessions">Karachi ke sessions</a> wali post mein dekhein. Ye farq aap ki zindagi par bhi asar daalta hai: agar aap job karte hain to 24 ghante khuli market mein raat ko nuksan ka khatra aur dabao zyada ho sakta hai.</p>
 
 <figure>
 <div class="scroll">
@@ -2119,7 +2119,7 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 </figure>
 
 <h2>Risk aur volatility ka scale</h2>
-<p>Har market ka risk aap ke tareeqe par bhi munhasir hai. Misal ke taur par, forex mein chhoti chaal bhi leverage se bara nuksan ban sakti hai, jabke crypto mein asal qeemat khud bohat tezi se upar neeche hoti hai. Neeche diagram aam andaza dikhata hai (har trader ke liye alag ho sakta hai):</p>
+<p>Har market ka risk aap ke tareeqe par bhi munhasir hai. Misal ke taur par, forex mein chhoti chaal bhi <a href="/glossary/leverage/">leverage</a> se bara nuksan ban sakti hai, jabke crypto mein asal qeemat khud bohat tezi se upar neeche hoti hai. Neeche diagram aam andaza dikhata hai (har trader ke liye alag ho sakta hai):</p>
 
 <figure>
 <div class="scroll">
@@ -2174,7 +2174,7 @@ Major pairs jaise EUR/USD, GBP/USD, USD/JPY jin mein liquidity zyada aur spread 
 <li><b>Stop-loss aur plan:</b> Entry se pehle exit ka plan tay karein.</li>
 <li><b>Diversify karein:</b> Ek hi asset par poora bharosa na karein.</li>
 <li><b>Fees aur tax samjhein:</b> Har market ke kharche aur apne mulk ke tax qawaneen alag ho sakte hain.</li>
-<li><b>Emotions qaabu mein rakhein:</b> FOMO aur revenge trading teeno markets mein nuksan dete hain.</li>
+<li><b>Emotions qaabu mein rakhein:</b> <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> teeno markets mein nuksan dete hain.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -2188,7 +2188,7 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
 </div>
 
 <h2>Natija</h2>
-<p>Stocks, crypto aur forex mein se koi bhi "sab se behtar" nahi hai. Sahi market wohi hai jo aap ke maqsad, sabr, risk bardasht karne ki salahiyat aur waqt ke mutabiq ho. Pehle seekhein, chhoti raqam se shuru karein, aur apna risk hamesha qaabu mein rakhein.</p>
+<p>Stocks, crypto aur forex mein se koi bhi "sab se behtar" nahi hai. Sahi market wohi hai jo aap ke maqsad, sabr, risk bardasht karne ki salahiyat aur waqt ke mutabiq ho. Pehle seekhein, chhoti raqam se shuru karein, aur apna risk hamesha qaabu mein rakhein. Aur chuninda market par amli seekh <a href="/courses">trading courses</a> se aasan ho jati hai.</p>
 
 <p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Har market mein nuksan ka khatra hota hai. Qawaneen, fees aur tax mulk aur broker ke hisab se mukhtalif hain, is liye faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
   },
@@ -2202,7 +2202,7 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
     readingTime: '10 min read',
     hero: '/blog/risk-management-5-rules.webp',
     heroAlt: 'Risk Management ke 5 Golden Rules: Apna capital kaise bachayein',
-    html: `<p class="lead">Zyada tar naye traders is liye nahi haarte ke unki strategy kharab hoti hai, balke is liye haarte hain ke wo apna risk sambhal nahi paate. Risk management ka maqsad munafa barhana nahi, balke <b>nuksan ko is had tak chhota rakhna hai ke aap market mein tike rahein.</b> Ye usool crypto, forex aur stocks teeno par lagoo hote hain.</p>
+    html: `<p class="lead">Zyada tar naye traders is liye nahi haarte ke unki strategy kharab hoti hai, balke is liye haarte hain ke wo apna risk sambhal nahi paate. <a href="/glossary/risk-management/">Risk management</a> ka maqsad munafa barhana nahi, balke <b>nuksan ko is had tak chhota rakhna hai ke aap market mein tike rahein.</b> Ye usool crypto, forex aur stocks teeno par lagoo hote hain.</p>
 
 <h2>Pehle ye samjhein: Nuksan wapas kamana mushkil hota hai</h2>
 <p>Agar aap ka account 50% gir jaye, to wapas pehle level par aane ke liye aap ko <b>100% munafa</b> chahiye, na ke 50%. Jitna bara nuksan, utna mushkil wapsi.</p>
@@ -2234,7 +2234,7 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
 </figure>
 
 <h2>Rule 1: Har trade mein sirf 1 se 2 fisad risk</h2>
-<p>Ek trade mein apne poore account ka sirf <b>1 se 2 fisad</b> risk karein. Is ka matlab ye nahi ke aap sirf 1% ka paisa lagate hain, balke ye ke agar aap ka stop-loss lage to account ka sirf 1% (ya 2%) nuksan hoga. Dekhein ye farq kitna bara hai:</p>
+<p>Ek trade mein apne poore account ka sirf <b>1 se 2 fisad</b> risk karein. Is ka matlab ye nahi ke aap sirf 1% ka paisa lagate hain, balke ye ke agar aap ka stop-loss lage to account ka sirf 1% (ya 2%) nuksan hoga — isi usool ka complete tareeqa <a href="/blog/risk-management-1-percent-rule">1% rule</a> wali post mein hai. Dekhein ye farq kitna bara hai:</p>
 
 <figure>
 <div class="scroll">
@@ -2248,7 +2248,7 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
 </figure>
 
 <h2>Rule 2: Hamesha Stop-Loss use karein</h2>
-<p><b>Stop-loss</b> wo pehle se tay shuda price hai jahan aap apni haari hui trade khud band kar dete hain. Ye aap ko "shayad wapas aa jaye" ki umeed se bachata hai. Stop-loss aise point par lagayein jahan aap ka trade idea ghalat sabit ho jaye (jaise support ke neeche), na ke apni pasand ki raqam par.</p>
+<p><b>Stop-loss</b> wo pehle se tay shuda price hai jahan aap apni haari hui trade khud band kar dete hain. Ye aap ko "shayad wapas aa jaye" ki umeed se bachata hai. Stop-loss aise point par lagayein jahan aap ka trade idea ghalat sabit ho jaye (<a href="/blog/support-resistance-kaise-banayein">jaise support ke neeche</a>), na ke apni pasand ki raqam par.</p>
 <p>Sab se bari ghalti: nuksan mein ja kar stop-loss <b>door karna</b>. Ek baar tay kar diya to usse na hilayein.</p>
 
 <h2>Rule 3: Risk to Reward ratio kam az kam 1:2</h2>
@@ -2269,7 +2269,7 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
 </figure>
 
 <h2>Rule 4: Position size sahi nikalein aur leverage qaabu mein rakhein</h2>
-<p>Position size andaza laga kar nahi, <b>hisab se</b> nikalein. Formula:</p>
+<p>Position size andaza laga kar nahi, <b>hisab se</b> nikalein — <a href="/calculator/position-size">Position size calculator</a> se bhi turant nikal sakte hain. Formula:</p>
 <ul>
 <li><b>Risk raqam</b> = Account x risk fisad (jaise $1,000 x 1% = $10)</li>
 <li><b>Stop distance</b> = Entry price aur stop-loss price ka farq</li>
@@ -2296,9 +2296,9 @@ Aam tor par lambi muddat ki stock ya index investment ko naye logon ke liye sama
 <h2>Rule 5: Hadd tay karein, journal rakhein, jazbaat qaabu mein rakhein</h2>
 <ul>
 <li><b>Daily aur weekly loss limit:</b> Maslan, agar aap ek din mein account ka 3% ya hafte mein 6% haar jayein, to us waqt trading rok dein.</li>
-<li><b>Trading journal:</b> Har trade ki wajah, entry, exit, natija aur apni jazbati halat likhein. Hafte ke end par patterns dekhein.</li>
+<li><b>Trading journal:</b> Har trade ki wajah, entry, exit, natija aur apni jazbati halat likhein. Hafte ke end par patterns dekhein — iska poora tareeqa <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> wali guide mein hai.</li>
 <li><b>Revenge trading se bachein:</b> Haar ke baad bara size laga kar nuksan wapas karne ki koshish aksar aur bara nuksan deti hai.</li>
-<li><b>FOMO se bachein:</b> Tezi se barhte asset ke peeche bhaagna aksar ghalat jagah entry deta hai.</li>
+<li><b>FOMO se bachein:</b> Tezi se barhte asset ke peeche bhaagna aksar ghalat jagah entry deta hai — is cycle ka ilaaj <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> guide mein detail mein hai.</li>
 </ul>
 
 <h2>Ek din ka risk workflow</h2>
@@ -2336,7 +2336,7 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
 </div>
 
 <h2>Natija</h2>
-<p>Paanch usool yaad rakhein: 1 se 2 fisad risk, hamesha stop-loss, behtar risk-reward, sahi position size, aur nazm ke saath daily limit aur journal. Jo trader apne capital ki hifazat karta hai, wohi lambi muddat tak market mein reh kar seekh sakta hai.</p>
+<p>Paanch usool yaad rakhein: 1 se 2 fisad risk, hamesha stop-loss, behtar risk-reward, sahi position size, aur nazm ke saath daily limit aur journal. Jo trader apne capital ki hifazat karta hai, wohi lambi muddat tak market mein reh kar seekh sakta hai. Is usool ka mukammal ilm <a href="/risk-management/index.html">Risk Management book</a> mein hai.</p>
 
 <p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Trading mein nuksan ka khatra hamesha rehta hai. Misalon ke numbers sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
   },
@@ -2350,12 +2350,12 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
     readingTime: '11 min read',
     hero: '/blog/technical-analysis-basics.webp',
     heroAlt: 'Technical Analysis Basics: Support, Resistance aur Candlestick patterns ko kaise parhein',
-    html: `<p class="lead">Technical Analysis (TA) ka matlab hai price chart ko dekh kar ye samajhna ke market ka mood kya hai aur agla mumkina rukh kya ho sakta hai. Ye crypto, forex aur stocks teeno mein istemal hota hai. Is blog mein hum 3 buniyadi cheezein seekhenge: candlesticks, support/resistance aur chand aam patterns.</p>
+    html: `<p class="lead">Technical Analysis (TA) ka matlab hai <a href="/knowledge-base/chart-kaise-padhein">price chart</a> ko dekh kar ye samajhna ke market ka mood kya hai aur agla mumkina rukh kya ho sakta hai. Ye crypto, forex aur stocks teeno mein istemal hota hai. Is blog mein hum 3 buniyadi cheezein seekhenge: candlesticks, support/resistance aur chand aam patterns.</p>
 
 <div class="note"><b>Pehle ek haqeeqat:</b> TA kisi ko pakka nahi batati ke price kahan jayegi. Ye sirf <b>imkanat (probabilities)</b> dikhati hai. Isi liye isay hamesha stop-loss aur risk management ke saath istemal karein.</div>
 
 <h2>Candlestick chart kya hai?</h2>
-<p>Har candle ek tay waqt (jaise 1 ghanta ya 1 din) ki price ki kahani batati hai: <b>Open</b> (shuru ki price), <b>Close</b> (aakhir ki price), <b>High</b> (sab se unchi) aur <b>Low</b> (sab se neechi). Candle ka moti hissa <b>body</b> aur patli lakeerein <b>wick (ya shadow)</b> kehlati hain.</p>
+<p>Har <a href="/glossary/candlestick/">candle</a> ek tay waqt (jaise 1 ghanta ya 1 din) ki price ki kahani batati hai: <b>Open</b> (shuru ki price), <b>Close</b> (aakhir ki price), <b>High</b> (sab se unchi) aur <b>Low</b> (sab se neechi). Candle ka moti hissa <b>body</b> aur patli lakeerein <b>wick (ya shadow)</b> kehlati hain.</p>
 
 <figure>
 <div class="scroll">
@@ -2383,7 +2383,7 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
 
 <h2>Support aur Resistance</h2>
 <p><b>Support</b> wo price ka area hai jahan se price baar baar neeche girne ke baad ruk kar wapas uthi hai (khareedar active hote hain). <b>Resistance</b> wo area hai jahan price baar baar upar ja kar rukti aur wapas girti hai (bechne wale active hote hain). Ye <b>ek line nahi, balke ek zone</b> hota hai.</p>
-<p>Ek dilchasp usool: jab price kisi resistance ko tod kar upar nikal jaye (breakout), to aksar wahi purani resistance ab <b>nayi support</b> ban jati hai. Isay "role reversal" kehte hain.</p>
+<p>Ek dilchasp usool: jab price kisi resistance ko tod kar upar nikal jaye (breakout), to aksar wahi purani resistance ab <b>nayi support</b> ban jati hai. Isay "role reversal" kehte hain. Ye poora tareeqa <a href="/blog/support-resistance-kaise-banayein">support aur resistance kaise banayein</a> wali guide mein qadam ba qadam samjha gaya hai.</p>
 
 <figure>
 <div class="scroll">
@@ -2411,7 +2411,7 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
 </ul>
 
 <h2>4 aam candlestick patterns</h2>
-<p>Patterns tab zyada kaam ke hote hain jab wo <b>kisi support ya resistance ke qareeb</b> banein. Hawa mein bane pattern par bharosa kam karein.</p>
+<p>Patterns tab zyada kaam ke hote hain jab wo <b>kisi support ya resistance ke qareeb</b> banein. Hawa mein bane pattern par bharosa kam karein, aur har pattern ki mukammal tasveer <a href="/blog/candlestick-patterns-shuruaat">candlestick patterns ki ibtadai guide</a> mein dekhi ja sakti hai.</p>
 
 <figure>
 <div class="scroll">
@@ -2452,7 +2452,7 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
 <li><b>Downtrend:</b> Highs aur lows dono pehle se neeche (Lower Highs, Lower Lows).</li>
 <li><b>Sideways (range):</b> Price ek band ke andar upar neeche hoti rahe.</li>
 </ul>
-<p>Mashhoor kehawat hai: <b>"The trend is your friend."</b> Trend ke saath trade karna aam tor par us ke khilaf trade karne se aasan hota hai. Trend ko jaanchne ka ek aasan tareeqa <b>moving average</b> (jaise 50 ya 200 period) hai, jo price ka aaosat dikha kar chart ko hamwar karti hai.</p>
+<p>Mashhoor kehawat hai: <b>"The trend is your friend."</b> Trend ke saath trade karna aam tor par us ke khilaf trade karne se aasan hota hai. Trend ko jaanchne ka ek aasan tareeqa <b><a href="/glossary/moving-average/">moving average</a></b> (jaise 50 ya 200 period) hai, jo price ka aaosat dikha kar chart ko hamwar karti hai.</p>
 
 <h2>Ek simple TA workflow</h2>
 <figure>
@@ -2480,7 +2480,7 @@ Nahi. Nuksan trading ka hissa hai. Risk management usay qaabu mein rakhta hai ta
 <li><b>Bohat saare indicators lagana:</b> 2 se 3 simple tools kaafi hain, warna chart uljh jata hai.</li>
 <li><b>Sirf pattern par entry:</b> Pattern ke saath level, trend aur volume bhi dekhein.</li>
 <li><b>Sirf chhote timeframe dekhna:</b> Pehle bara picture (Daily ya 4-Hour), phir chhota.</li>
-<li><b>Stop-loss na lagana:</b> Chart par sab theek lage tab bhi risk hamesha hai.</li>
+<li><b><a href="/glossary/stop-loss/">Stop-loss</a> na lagana:</b> Chart par sab theek lage tab bhi risk hamesha hai.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -2494,7 +2494,7 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 </div>
 
 <h2>Natija</h2>
-<p>Candlesticks market ki kahani batati hain, support aur resistance us kahani ke ahem muqamat dikhate hain, aur patterns mod ke ishare dete hain. In sab ko ek saath, bade timeframe se shuru kar ke, aur risk management ke saath istemal karein. Practice ke liye pehle demo account ya purane charts par mashq karein.</p>
+<p>Candlesticks market ki kahani batati hain, support aur resistance us kahani ke ahem muqamat dikhate hain, aur patterns mod ke ishare dete hain. In sab ko ek saath, bade timeframe se shuru kar ke, aur risk management ke saath istemal karein. Practice ke liye pehle demo account ya purane charts par mashq karein, aur reference ke liye <a href="/technical-analysis/index.html">Technical Analysis book</a> apne paas rakhein.</p>
 
 <p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Technical analysis koi guarantee nahi deti aur har trade mein nuksan ka khatra hota hai. Diagrams tasveeri misalein hain, asal market ka chart nahi. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
   },
@@ -2516,7 +2516,7 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 <li><b>Inflation (mehngai):</b> Cheezon ki qeematon ka barhna.</li>
 <li><b>Economic data:</b> Naukriyan, GDP, retail sales jaise aankre.</li>
 <li><b>Geopolitics:</b> Jang, pabandiyan, intikhabaat aur siyasi tanaao.</li>
-<li><b>Liquidity aur sentiment:</b> Market mein kitna paisa hai aur log kitne josh ya darr mein hain.</li>
+<li><b><a href="/glossary/liquidity/">Liquidity</a> aur sentiment:</b> Market mein kitna paisa hai aur log kitne josh ya darr mein hain.</li>
 </ul>
 
 <h2>1. Inflation aur Interest rates: Sab se bara jora</h2>
@@ -2547,7 +2547,7 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 <figcaption>Diagram 1: Mehngai aur interest rates ka aam silsila.</figcaption>
 </figure>
 
-<p>Misaal ke taur par, <b>2022</b> mein jab bohat se mulkon ne mehngai rokne ke liye rates tezi se barhaye, to stocks aur crypto dono mein badi giravat dekhi gayi. Is se ye sabaq milta hai ke rates ki chaal ko nazar andaz karna mehnga par sakta hai.</p>
+<p>Misaal ke taur par, <b>2022</b> mein jab bohat se mulkon ne mehngai rokne ke liye rates tezi se barhaye, to stocks aur crypto dono mein badi giravat dekhi gayi. Is se ye sabaq milta hai ke rates ki chaal ko nazar andaz karna mehnga par sakta hai. Ye asar teeno bade markets par alag alag hota hai, is ka tafseeli taqabul <a href="/blog/stocks-crypto-forex">stocks, crypto aur forex</a> wali post mein hai.</p>
 
 <h2>Rates ka alag alag assets par asar</h2>
 <figure>
@@ -2600,7 +2600,7 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 </figure>
 
 <h2>4. Geopolitics aur achanak khabrein</h2>
-<p>Jang, tijarti pabandiyan, intikhabaat, ya kisi mulk ki policy mein badlao market ko achanak hila sakte hain. Aise waqt <b>volatility</b> barh jati hai aur <b>spread</b> bhi kabhi kabhi chorra ho jata hai. Crypto ke liye regulations (qawaneen) aur bade idaron ki khabrein (jaise ETFs) bhi bara asar daalti hain.</p>
+<p>Jang, tijarti pabandiyan, intikhabaat, ya kisi mulk ki policy mein badlao market ko achanak hila sakte hain. Aise waqt <b><a href="/glossary/volatility/">volatility</a></b> barh jati hai aur <b>spread</b> bhi kabhi kabhi chorra ho jata hai. Crypto ke liye regulations (qawaneen) aur bade idaron ki khabrein (jaise ETFs) bhi bara asar daalti hain.</p>
 
 <h2>News ke waqt trading kaise karein? Workflow</h2>
 <figure>
@@ -2628,10 +2628,10 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 <h2>Beginners ke liye 5 practical mashwaray</h2>
 <ul>
 <li><b>Economic calendar rozana dekhein,</b> khaas kar high-impact events (CPI, NFP, rate decisions).</li>
-<li><b>Khabar ke waqt leverage kam rakhein</b> ya trade se bahar rahein.</li>
+<li><b>Khabar ke waqt <a href="/glossary/leverage/">leverage</a> kam rakhein</b> ya trade se bahar rahein.</li>
 <li><b>Sirf headline nahi, umeed aur asal aankre ka farq dekhein.</b></li>
 <li><b>Mo'tabar zarai se khabar lein:</b> social media ki afwahon par fauran trade na karein.</li>
-<li><b>Apna plan pehle se likhein,</b> khabar ke josh mein faisle na badlein.</li>
+<li><b>Apna plan pehle se likhein,</b> khabar ke josh mein <a href="/blog/fomo-revenge-trading-psychology">FOMO</a> wale faisle na badlein.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -2639,13 +2639,13 @@ Dono apni jagah ahem hain. TA price ki chaal aur timing mein madad deti hai, jab
 <b>Kya crypto bhi Fed ke faislon par chalta hai?</b>
 Aksar haan. Pichle kuch saalon mein BTC aur altcoins ne interest rates aur liquidity ki khabron par bara reaction diya hai, lekin ye har waqt aisa nahi hota.
 <b>Mehngai barhne par gold kyun upar jata hai?</b>
-Bohat se log gold ko mehngai se bachao ka zariya samajhte hain, lekin gold ki qeemat rates, dollar aur sentiment par bhi munhasir hai.
+Bohat se log <a href="/blog/gold-xauusd-trading-strategy">gold</a> ko mehngai se bachao ka zariya samajhte hain, lekin gold ki qeemat rates, dollar aur sentiment par bhi munhasir hai.
 <b>Kya sirf news par trade karna theek hai?</b>
-Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Chart, risk management aur plan ke saath hi use karein.
+Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Chart, <a href="/blog/risk-management-5-rules">risk management</a> aur plan ke saath hi use karein.
 </div>
 
 <h2>Natija</h2>
-<p>Interest rates, inflation, economic data, geopolitics aur market sentiment duniya ki markets ko chalate hain. In ke rishton ko samajhna aap ko achanak jhatkon se bachane aur behtar faisle karne mein madad deta hai. Yaad rakhein, koi bhi rujhan pakka nahi hota, is liye hamesha risk management ke saath chalein.</p>
+<p>Interest rates, inflation, economic data, geopolitics aur market sentiment duniya ki markets ko chalate hain. In ke rishton ko samajhna aap ko achanak jhatkon se bachane aur behtar faisle karne mein madad deta hai. Yaad rakhein, koi bhi rujhan pakka nahi hota, is liye hamesha risk management ke saath chalein, aur us hunar ka mukammal ilm <a href="/risk-management/index.html">Risk Management book</a> mein hai.</p>
 
 <p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Market ke rujhan badalte rehte hain aur misalein sirf samjhane ke liye hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
   },
@@ -2659,7 +2659,7 @@ Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Char
     readingTime: '10 min read',
     hero: '/blog/crypto-trading-mistakes.webp',
     heroAlt: 'Crypto Trading mein sab se aam ghaltiyan (FOMO, over-leverage aur emotional trading) aur unse bachne ke tareeqe',
-    html: `<p class="lead">Crypto market 24 ghante khuli rehti hai, bohat tezi se chalti hai, aur har taraf "100x" ke wade hote hain. Isi mahaul mein naye (aur purane) traders aksar wohi ghaltiyan dohrate hain. Is blog mein hum sab se aam ghaltiyon ko pehchanenge aur unka hal bhi dekhenge.</p>
+    html: `<p class="lead"><a href="/knowledge-base/crypto-kya-hai">Crypto</a> market 24 ghante khuli rehti hai, bohat tezi se chalti hai, aur har taraf "100x" ke wade hote hain. Isi mahaul mein naye (aur purane) traders aksar wohi ghaltiyan dohrate hain. Is blog mein hum sab se aam ghaltiyon ko pehchanenge aur unka hal bhi dekhenge.</p>
 
 <h2>Pehle samjhein: Market ka jazbati chakkar</h2>
 <p>Zyada tar log tab khareedte hain jab sab khush hon (price upar), aur tab bechte hain jab sab daray hue hon (price neeche). Yani ulta kaam: <b>mehnga khareedna, sasta bechna.</b> Neeche diagram is jazbati chakkar ko dikhata hai.</p>
@@ -2687,12 +2687,12 @@ Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Char
 <figcaption>Diagram 1: Market ka jazbati chakkar. Naye traders aksar peak par khareedte aur neeche ja kar bechte hain. (Tasveeri khaka.)</figcaption>
 </figure>
 
-<h2>Ghalti 1: FOMO (Fear Of Missing Out)</h2>
+<h2>Ghalti 1: <a href="/glossary/fomo/">FOMO</a> (Fear Of Missing Out)</h2>
 <p>Jab koi coin tezi se upar jaye aur sab uski baatein karein, to ek bechaini hoti hai: "Abhi nahi khareeda to mauqa nikal jayega!" Aksar is waqt tak sab se asaan munafa nikal chuka hota hai aur aap aise price par daakhil hote hain jahan se girne ka khatra zyada hai.</p>
 <p><b>Hal:</b> Apni entry ke qawaneen pehle likh lein. Agar setup aap ke plan mein nahi hai to trade na lein. Yaad rakhein: market mein hamesha naya mauqa aata rehta hai.</p>
 
 <h2>Ghalti 2: Zyada leverage (Over-leverage)</h2>
-<p>Crypto futures mein 10x, 25x, hatta ke 100x leverage mil jati hai. Jitni zyada leverage, utni <b>chhoti si ulti chaal</b> aap ka poora paisa (margin) khatam kar sakti hai. Isay <b>liquidation</b> kehte hain. Mota andaza:</p>
+<p>Crypto futures mein 10x, 25x, hatta ke 100x leverage mil jati hai. Jitni zyada leverage, utni <b>chhoti si ulti chaal</b> aap ka poora paisa (margin) khatam kar sakti hai. Isay <b><a href="/glossary/liquidation/">liquidation</a></b> kehte hain. Mota andaza:</p>
 
 <figure>
 <div class="scroll">
@@ -2709,9 +2709,9 @@ Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Char
 <figcaption>Diagram 2: Leverage jitni zyada, liquidation utni qareeb. (Mota andaza: 100 / leverage.)</figcaption>
 </figure>
 
-<p><b>Hal:</b> Naye trader spot trading se shuru karein, ya bohat kam leverage (2x se 3x) use karein. Position size risk ke hisab se nikalein.</p>
+<p><b>Hal:</b> Naye trader <a href="/blog/crypto-futures-vs-spot-trading">spot trading</a> se shuru karein, ya bohat kam leverage (2x se 3x) use karein. <a href="/blog/position-sizing-kya-hai">Position size</a> risk ke hisab se nikalein.</p>
 
-<h2>Ghalti 3: Emotional aur revenge trading</h2>
+<h2>Ghalti 3: Emotional aur <a href="/blog/fomo-revenge-trading-psychology">revenge trading</a></h2>
 <p>Ek haar ke baad ghusse mein foran dobara bara trade kholna, ya ek jeet ke baad "main to expert hoon" soch kar zyada risk lena. Dono surat mein faisla jazbaat karwate hain, plan nahi.</p>
 <p><b>Hal:</b> Do ya teen lagatar haar ke baad aaj ke liye trading rok dein. 15 se 30 minute chart se door hon. Daily loss limit pehle se tay karein.</p>
 
@@ -2774,7 +2774,7 @@ Aam tor par nahi. News volatility laati hai, lekin timing mushkil hoti hai. Char
 <figcaption>Diagram 4: Ek bhi jawab "nahi" ho to trade skip. Market kal bhi khuli hogi.</figcaption>
 </figure>
 
-<div class="note"><b>Trading journal rakhein.</b> Har trade ke saath likhein ke aap ne kyun entry li aur us waqt aap ka jazbati mood kaisa tha ("josh", "darr", "ghussa"). Hafte ke aakhir mein dekhein ke aap ki sab se aam ghalti kaunsi hai.</div>
+<div class="note"><b><a href="/blog/trading-journal-kyun-zaroori">Trading journal</a> rakhein.</b> Har trade ke saath likhein ke aap ne kyun entry li aur us waqt aap ka jazbati mood kaisa tha ("josh", "darr", "ghussa"). Hafte ke aakhir mein dekhein ke aap ki sab se aam ghalti kaunsi hai.</div>
 
 <h2>Aksar pooche jane wale sawal</h2>
 <div class="faq">
@@ -2789,7 +2789,7 @@ Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sir
 <h2>Natija</h2>
 <p>Crypto mein sab se bara dushman aap ka apna jazbaat hai: FOMO, laalach aur ghussa. Agar aap kam leverage, tay shuda stop-loss, trading plan, journal aur achi security apna lein, to aap in ghaltiyon se kaafi had tak bach sakte hain. Yaad rakhein: bachana kamane se pehle hai.</p>
 
-<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto aur leveraged trading mein poora paisa khone ka khatra hota hai. Numbers aur diagrams sirf samjhane ke liye mota andaza hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein.</p>`,
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Crypto aur leveraged trading mein poora paisa khone ka khatra hota hai. Numbers aur diagrams sirf samjhane ke liye mota andaza hain. Koi bhi faisla karne se pehle apni research karein aur zaroorat ho to licensed financial advisor se mashwara lein — aur har ghalti se bachne ka poora framework <a href="/risk-management/index.html">Risk Management book</a> mein hai.</p>`,
   },
   {
     slug: 'solana-ecosystem',
@@ -2801,13 +2801,13 @@ Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sir
     readingTime: '11 min read',
     hero: '/blog/solana-ecosystem.webp',
     heroAlt: 'Solana Ecosystem Explained: SOL ke top projects, fees aur trading opportunities',
-    html: `<p class="lead">Solana aaj crypto ke sab se mashhoor blockchains mein se ek hai. Is par DEX trading, lending, staking, memecoins, NFTs aur payments jaise kaafi apps chalte hain. Is blog mein hum Solana ka ecosystem, uski fees, mashhoor projects aur trading ke mauqe (aur khatray) aasan Roman Urdu mein samjhenge.</p>
+    html: `<p class="lead">Solana aaj <a href="/knowledge-base/crypto-kya-hai">crypto</a> ke sab se mashhoor blockchains mein se ek hai. Is par DEX trading, lending, staking, memecoins, NFTs aur payments jaise kaafi apps chalte hain. Is blog mein hum Solana ka ecosystem, uski fees, mashhoor projects aur trading ke mauqe (aur khatray) aasan Roman Urdu mein samjhenge.</p>
 
 <h2>Solana kya hai aur SOL ka kya kaam hai?</h2>
 <p>Solana ek tez blockchain hai jahan transactions chand sau milliseconds mein process hoti hain aur fees bohat kam hoti hain. <b>SOL</b> is network ka native token hai. Iske teen bade kaam hain:</p>
 <ul>
 <li><b>Fees ada karna:</b> Har transaction ki chhoti si fees SOL mein hoti hai.</li>
-<li><b>Staking:</b> SOL ko validators ko delegate kar ke network ki hifazat mein hissa lena aur badle mein inaam kamana.</li>
+<li><b><a href="/glossary/staking/">Staking</a>:</b> SOL ko validators ko delegate kar ke network ki hifazat mein hissa lena aur badle mein inaam kamana.</li>
 <li><b>Trading pair:</b> Bohat se tokens SOL ke muqable mein trade hote hain.</li>
 </ul>
 
@@ -2858,7 +2858,7 @@ Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sir
 
 <ul>
 <li><b>Jupiter:</b> DEX aggregator. Kai pools mein se behtar price dhoondta hai.</li>
-<li><b>Raydium, Orca:</b> Mashhoor DEXs aur liquidity pools.</li>
+<li><b>Raydium, Orca:</b> Mashhoor DEXs aur <a href="/blog/liquidity-concepts-smart-money-trading">liquidity pools</a>.</li>
 <li><b>Kamino:</b> Lending aur borrowing.</li>
 <li><b>Drift:</b> Perpetual futures (leverage trading).</li>
 <li><b>Jito, Marinade:</b> Liquid staking. Aap SOL stake karte hain aur badle mein ek token (jaise JitoSOL) milta hai jo DeFi mein bhi chal sakta hai.</li>
@@ -2879,7 +2879,7 @@ Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sir
 <tr><td>Staking aur liquid staking</td><td>SOL stake kar ke inaam kamana</td><td>Price giravat, smart contract aur validator risk</td></tr>
 <tr><td>DEX par altcoins</td><td>Solana par mojood tokens ki trading</td><td>Kam liquidity, slippage, scam tokens</td></tr>
 <tr><td>Lending aur borrowing</td><td>Apna crypto jama kar ke sood kamana ya qarz lena</td><td>Liquidation aur protocol risk</td></tr>
-<tr><td>Perps (futures)</td><td>Leverage ke saath long ya short</td><td>Bohat zyada risk, liquidation</td></tr>
+<tr><td><a href="/blog/crypto-futures-vs-spot-trading">Perps (futures)</a></td><td>Leverage ke saath long ya short</td><td>Bohat zyada risk, liquidation</td></tr>
 <tr><td>Memecoins</td><td>Tezi se barhne wale kam qeemat ke coins</td><td>Rug pull, pump and dump, poora nuksan</td></tr>
 </table>
 </div>
@@ -2915,7 +2915,7 @@ Pehle rukein aur apna journal dekhein. Phir chhote size par wapas aayein aur sir
 <li><b>Wallet drainers:</b> Anjaan links par "Connect Wallet" ya "Approve" na dabayein. Doubtful sites se wallet ki permission hatayen.</li>
 <li><b>Smart contract risk:</b> Naye protocols mein bug ho sakta hai. Zyada paisa ek hi jagah na rakhein.</li>
 <li><b>Network ke masle:</b> Outage ya congestion ki surat mein trades fail ya late ho sakti hain.</li>
-<li><b>Leverage:</b> Perps mein liquidation ka khatra tezi se barhta hai.</li>
+<li><b><a href="/glossary/leverage/">Leverage</a>:</b> Perps mein liquidation ka khatra tezi se barhta hai.</li>
 </ul>
 
 <h2>Aksar pooche jane wale sawal</h2>
@@ -2929,9 +2929,9 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
 </div>
 
 <h2>Natija</h2>
-<p>Solana ka ecosystem tez, sasta aur mukhtalif cheezon se bharpoor hai: trading se le kar lending, staking aur memecoins tak. Lekin mauqon ke saath khatre bhi utne hi hain. Pehle seekhein, chhoti raqam se shuru karein, security ka khayal rakhein, aur har project ki apni research karein.</p>
+<p>Solana ka ecosystem tez, sasta aur mukhtalif cheezon se bharpoor hai: trading se le kar lending, staking aur memecoins tak. Lekin mauqon ke saath khatre bhi utne hi hain. Pehle seekhein, chhoti raqam se shuru karein, security ka khayal rakhein, aur har project ki <a href="/blog/altcoin-checklist">apni research karein</a>.</p>
 
-<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Is mein mazkoora projects ke naam sirf misal ke liye hain, kisi ki sifarish nahi. Solana ka ecosystem, fees aur technical roadmap tezi se badalte hain, is liye taaza maloomat check karein. Crypto mein aap apna poora paisa kho sakte hain.</p>`,
+<p class="warn"><b>Zaroori note:</b> Ye blog sirf taleemi maqsad ke liye hai, ye financial advice nahi hai. Is mein mazkoora projects ke naam sirf misal ke liye hain, kisi ki sifarish nahi. Solana ka ecosystem, fees aur technical roadmap tezi se badalte hain, is liye taaza maloomat check karein. Crypto mein aap apna poora paisa kho sakte hain — aur shuruaat ke liye <a href="/courses/crypto-trading-course-beginner">Crypto Trading Course (Beginner)</a> dekhein.</p>`,
   },
   {
     slug: 'crypto-futures-vs-spot-trading',
@@ -2945,7 +2945,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Crypto Futures vs Spot Trading: Complete Comparison',
     sections: [
       {
-        paragraphs: ['Crypto trading shuru karte waqt sab se pehla aur important decision yeh hota hai: Spot trading karun ya Futures?'],
+        paragraphs: ['<a href="/knowledge-base/crypto-kya-hai">Crypto trading</a> shuru karte waqt sab se pehla aur important decision yeh hota hai: Spot trading karun ya Futures?'],
       },
       {
         paragraphs: ['Dono bilkul alag instruments hain. Ek mein aap actual crypto own karte hain, doosre mein aap sirf price pe bet lagate hain. Is guide mein hum dono ko deep level pe compare karenge taake aap clear decision le saken.'],
@@ -2967,7 +2967,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '2. Futures Trading Kya Hai?',
       },
       {
-        paragraphs: ['Futures trading mein aap actual crypto nahi kharidte. Aap ek contract trade karte hain jo crypto ki price ko track karta hai. Aap price ke upar (Long) ya neeche (Short) jaane pe profit kama sakte hain.'],
+        paragraphs: ['<a href="/glossary/futures/">Futures trading</a> mein aap actual crypto nahi kharidte. Aap ek contract trade karte hain jo crypto ki price ko track karta hai. Aap price ke upar (Long) ya neeche (Short) jaane pe profit kama sakte hain.'],
         list: ['Leverage available hota hai (2x se 100x+ tak)', 'Aap short bhi kar sakte hain (price girne pe profit)', 'Actual coin aapke paas nahi aata', 'Liquidation ka risk hota hai', 'Perpetual futures mein funding rate bhi apply hota hai'],
       },
       {
@@ -3012,7 +3012,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '5. Funding Rate Kya Hai? (Futures Specific)',
       },
       {
-        paragraphs: ['Perpetual futures mein funding rate naam ka mechanism hota hai. Har 8 hours (platform ke hisaab se) Long aur Short traders ek doosre ko payment karte hain.'],
+        paragraphs: ['Perpetual futures mein <a href="/glossary/funding-rate/">funding rate</a> naam ka mechanism hota hai. Har 8 hours (platform ke hisaab se) Long aur Short traders ek doosre ko payment karte hain.'],
         list: ['Agar market bullish hai toh Longs Shorts ko pay karte hain', 'Agar bearish hai toh Shorts Longs ko pay karte hain'],
       },
       {
@@ -3036,7 +3036,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         list: ['Capital efficiency (kam paise se bari position)', 'Short selling ki facility', 'Hedging existing spot positions', 'High liquidity aur tight spreads (major pairs pe)'],
       },
       {
-        paragraphs: ['Lekin yeh tabhi kaam karta hai jab trader strict risk management, position sizing aur emotional control rakhta ho.'],
+        paragraphs: ['Lekin yeh tabhi kaam karta hai jab trader strict <a href="/blog/risk-management-5-rules">risk management</a>, <a href="/blog/position-sizing-kya-hai">position sizing</a> aur emotional control rakhta ho.'],
       },
       {
         heading: '8. Practical Recommendation 2026',
@@ -3054,7 +3054,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '9. Common Mistakes Jo Traders Karte Hain',
-        list: ['Bina experience ke high leverage (20x–50x) lena', 'Funding rate ignore karna', 'Liquidation price na check karna', 'Spot se seedha high leverage futures pe jump karna', 'Position size bohot bada rakhna', 'Stop loss na lagana futures mein'],
+        list: ['<a href="/blog/crypto-trading-mistakes">Bina experience ke high leverage (20x–50x) lena</a>', 'Funding rate ignore karna', 'Liquidation price na check karna', 'Spot se seedha high leverage futures pe jump karna', 'Position size bohot bada rakhna', 'Stop loss na lagana futures mein'],
       },
       {
         heading: 'Key Takeaways',
@@ -3064,7 +3064,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Aghla Qadam',
       },
       {
-        paragraphs: ['Agar aap beginner hain toh aaj se Spot trading pe focus karein. Demo pe Futures bhi try kar sakte hain taake mechanism samajh aaye, lekin real money pe pehle Spot master karein.'],
+        paragraphs: ['Agar aap beginner hain toh aaj se Spot trading pe focus karein. Demo pe Futures bhi try kar sakte hain taake mechanism samajh aaye, lekin real money pe pehle Spot master karein — poori detail ke liye <a href="/crypto-futures-book/index.html">Crypto Futures book</a> parhein.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -3119,7 +3119,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Trading psychology woh sabse powerful factor hai jo profitable traders ko baqi 90% logon se alag karta hai. Industry research, professional traders aur behavioral finance studies bar bar yeh confirm karte hain ke trading success ka lagbhag 70–80% psychology se aata hai, jabke strategy, indicators aur technical analysis sirf 20–30% contribute karte hain.'],
       },
       {
-        paragraphs: ['Aapke paas duniya ka best strategy ho sakta hai, high win-rate system ho, perfect risk-reward ratio ho — lekin agar fear, greed, FOMO, revenge trading ya overconfidence aapke rules ko override kar de, toh aap phir bhi paise khote rahenge. Yeh reality hai jo har successful trader ne experience ki hai.'],
+        paragraphs: ['Aapke paas duniya ka best strategy ho sakta hai, high win-rate system ho, perfect risk-reward ratio ho — lekin agar fear, greed, <a href="/glossary/fomo/">FOMO</a>, revenge trading ya overconfidence aapke rules ko override kar de, toh aap phir bhi paise khote rahenge. Yeh reality hai jo har successful trader ne experience ki hai.'],
       },
       {
         paragraphs: ['Yeh guide sirf surface level tips nahi deti. Yeh trading psychology ke actual mechanisms ko deep level pe explain karti hai — aapka brain markets mein kaise react karta hai, kaunse cognitive biases systematically aapko nuksan pahunchate hain, emotional traps kaise accounts barbaad karte hain, aur sab se zaroori: woh practical systems kya hain jo professionals use karte hain in sab cheezon ko control karne ke liye.'],
@@ -3221,7 +3221,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Symptoms: Turant naya trade, size barha hua, setup criteria ignore, emotional state high.'],
       },
       {
-        paragraphs: ['Fix: Hard daily loss limit set karein (e.g. account ka 2%). Limit hit hone pe platform band. Iske alawa do consecutive losses ke baad mandatory 15–30 minute break.'],
+        paragraphs: ['Fix: Hard daily loss limit set karein (e.g. account ka 2%). Limit hit hone pe platform band. Iske alawa do consecutive losses ke baad mandatory 15–30 minute break. Is poore cycle ko detail mein <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> guide mein samjha gaya hai.'],
       },
       {
         heading: '4.2 FOMO (Fear of Missing Out)',
@@ -3275,7 +3275,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Risk management sirf capital protect nahi karta — yeh aapke psychology ko bhi protect karta hai. Jab aapko pata ho ke ek trade aapke account ko seriously damage nahi kar sakta, toh fear kaam ho jata hai aur decisions clear rehte hain.'],
-        list: ['1% Rule: Kabhi ek trade pe account ka 1% se zyada risk na karein (conservative traders 0.5% use karte hain).', 'Daily Loss Limit: 2–3% daily loss pe trading band. No exceptions.', 'Position Size Formula: Size = (Account Risk Amount) ÷ (Entry se Stop tak ka distance).'],
+        list: ['<a href="/blog/risk-management-1-percent-rule">1% Rule</a>: Kabhi ek trade pe account ka 1% se zyada risk na karein (conservative traders 0.5% use karte hain).', 'Daily Loss Limit: 2–3% daily loss pe trading band. No exceptions.', 'Position Size Formula: Size = (Account Risk Amount) ÷ (Entry se Stop tak ka distance).'],
       },
       {
         paragraphs: ['Pro Tip: Jo risk aapko sochne pe majboor kare ke “agar yeh trade lose ho gaya toh main pareshan ho jaunga”, woh risk already zyada hai. Size kam karein.'],
@@ -3284,7 +3284,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '5.4 Psychology-Focused Trading Journal',
       },
       {
-        paragraphs: ['Sirf P&L aur setup note karna kaafi nahi. Asal power us journal mein hai jo emotions aur process ko track kare. Har trade ke liye yeh fields zaroor likhein:'],
+        paragraphs: ['Sirf P&L aur setup note karna kaafi nahi. Asal power us <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> mein hai jo emotions aur process ko track kare. Har trade ke liye yeh fields zaroor likhein:'],
         list: ['Entry se pehle emotional state (Calm / FOMO / Revenge / Overconfident / Fearful / Neutral)', 'Kya trade fully planned tha ya emotional tha?', 'Trade ke dauran kya mehsoos kiya (especially jab price against gaya)', 'Plan se koi deviation hui? Kyun?', 'Is trade se kya psychological lesson mila?'],
       },
       {
@@ -3318,7 +3318,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '7. Badi Losses aur Drawdowns Se Recovery',
       },
       {
-        paragraphs: ['Har trader ko kabhi na kabhi heavy loss ya drawdown face karna padta hai. Us waqt psychology sab se zyada test hoti hai.'],
+        paragraphs: ['Har trader ko kabhi na kabhi heavy loss ya drawdown face karna padta hai. Us waqt psychology sab se zyada test hoti hai — <a href="/blog/drawdown-recovery-psychology-account">drawdown se recovery</a> isi ka detailed framework hai.'],
         list: ['Turant ruk jayein. Revenge trading se bachne ke liye platform band karein.', 'Cool off period lein. Kam az kam ek din, preferably 2–3 din. Physical activity, sleep, aur mind clear karein.', 'Journal objectively review karein. Process failures identify karein, sirf “market galat tha” mat sochein.', 'Reduced size se wapas aayein. Pehle 50% size se start karein, aur tabhi full size pe jayein jab process adherence consistent ho.', 'Confidence process se rebuild karein , “paise wapas kamaane” ki soch se nahi.'],
       },
       {
@@ -3333,7 +3333,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         list: ['Trading psychology execution layer hai. Iske baghair best strategy bhi fail hoti hai.', 'Structure willpower se kahin better hai. Pre-commitment (plan, checklist, hard limits) real-time emotional decisions ko almost eliminate kar deta hai.', 'Emotions ko setups ki tarah systematically track karein. Patterns tabhi visible aur correctable bante hain.', 'Probabilities aur series of trades mein sochein, individual outcomes mein nahi.', 'Consistency compounds. Process quality pehle improve hoti hai — P&L uske baad follow karta hai.', 'Losses normal hain. Unko personally mat lo. Unko process improvement ka mauka samjhein.'],
       },
       {
-        paragraphs: ['Trading psychology master karna ek raat ka kaam nahi hai. Yeh continuous practice hai. Aapko aise systems banane hain jo aapko aapke apne brain se protect karein — khas taur pe jab emotions high hon.'],
+        paragraphs: ['Trading psychology master karna ek raat ka kaam nahi hai. Yeh continuous practice hai — <a href="/blog/profitable-trading-routine">strong trading routine</a> isi ko support karti hai. Aapko aise systems banane hain jo aapko aapke apne brain se protect karein — khas taur pe jab emotions high hon.'],
       },
       {
         paragraphs: ['Is week se shuru karein: Ek clear written plan likhein, ek simple pre-trade checklist banaein, strict risk rules set karein, aur agle 20–30 trades ko psychology journal ke saath honestly track karein. Yeh char steps akele hi majority of costly emotional errors ko khatam kar dete hain.'],
@@ -3342,7 +3342,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Ab Action Lene Ka Time Hai',
       },
       {
-        paragraphs: ['Aaj hi apna Trading Plan document banaein. Pre-trade checklist likhein. Aur agle session se har trade ko emotional tag ke saath journal karein. Jo edge aapke paas pehle se hai, usko ab kaam karne ka mauka milega.'],
+        paragraphs: ['Aaj hi apna Trading Plan document banaein. Pre-trade checklist likhein. Aur agle session se har trade ko emotional tag ke saath journal karein. Jo edge aapke paas pehle se hai, usko ab kaam karne ka mauka milega. Is sab ka tafseeli ilm <a href="/trading-psychology/index.html">Trading Psychology book</a> mein hai.'],
       },
       {
         heading: 'Frequently Asked Questions (FAQ)',
@@ -3369,7 +3369,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Kya har trader ko detailed journal rakhna chahiye?',
       },
       {
-        paragraphs: ['Haan, khas taur pe pehle 1–2 saal. Sirf P&L nahi, emotional state, plan adherence, aur lessons bhi record karein. Yeh aapko patterns dikhata hai jo warna nazar nahi aate, aur continuous improvement possible banata hai.'],
+        paragraphs: ['Haan, khas taur pe pehle 1–2 saal. Sirf P&L nahi, emotional state, plan adherence, aur lessons bhi record karein. Yeh aapko patterns dikhata hai jo warna nazar nahi aate, aur continuous improvement possible banata hai. Is kaam ke liye <a href="/journal">TradeEd journal</a> bhi istemal kar sakte hain.'],
       },
       {
         heading: 'Kab pata chale ke meri psychology improve ho rahi hai?',
@@ -3400,7 +3400,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Forex vs Crypto Trading 2026 — Kaunsa Market Aapke Liye Better Hai?',
     sections: [
       {
-        paragraphs: ['2026 mein har trader yeh sawal pooch raha hai: Forex trade karun ya Crypto? Dono markets mein opportunity hai, lekin unki nature bilkul alag hai. Ek mein stability aur structure hai, doosre mein high volatility aur 24/7 action.'],
+        paragraphs: ['2026 mein har trader yeh sawal pooch raha hai: <a href="/knowledge-base/forex-trading-kya-hai">Forex</a> trade karun ya Crypto? Dono markets mein opportunity hai, lekin unki nature bilkul alag hai. Ek mein stability aur structure hai, doosre mein high volatility aur 24/7 action.'],
       },
       {
         paragraphs: ['Is detailed guide mein hum Forex aur Crypto ko har important angle se compare karenge — taake aap clear decision le saken ke beginners ke liye kaunsa better hai, aur professionals ke liye kaunsa zyada suitable hai.'],
@@ -3440,7 +3440,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Crypto Volatility',
       },
       {
-        paragraphs: ['Bitcoin normal din mein 3–5% move kar sakta hai. Strong trend ya news pe 10–20% single day moves common hain. Altcoins toh 30–50% bhi move kar sakte hain. Yeh high volatility badi profit ki opportunity deti hai, lekin account blow-up ka risk bhi bohot barha deti hai.'],
+        paragraphs: ['Bitcoin normal din mein 3–5% move kar sakta hai. Strong trend ya news pe 10–20% single day moves common hain. <a href="/blog/altcoin-checklist">Altcoins</a> toh 30–50% bhi move kar sakte hain. Yeh high volatility badi profit ki opportunity deti hai, lekin account blow-up ka risk bhi bohot barha deti hai.'],
       },
       {
         paragraphs: ['Important: Crypto mein bina leverage ke bhi aapka account 50%+ drawdown dekh sakta hai. Forex mein itna bada move major pairs pe almost impossible hai (leverage ke baghair).'],
@@ -3458,7 +3458,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Crypto – 24/7/365',
       },
       {
-        paragraphs: ['Market kabhi nahi sooti. Weekend, holiday, raat — har waqt trade ho sakta hai. Yeh flexibility un logon ke liye best hai jinke paas weekday pe time nahi hota. Lekin iska downside yeh hai ke FOMO aur overtrading ka risk barh jata hai. Bohot se traders neend aur personal life sacrifice kar dete hain.'],
+        paragraphs: ['Market kabhi nahi sooti. Weekend, holiday, raat — har waqt trade ho sakta hai. Yeh flexibility un logon ke liye best hai jinke paas weekday pe time nahi hota. Lekin iska downside yeh hai ke <a href="/blog/fomo-revenge-trading-psychology">FOMO</a> aur overtrading ka risk barh jata hai. Bohot se traders neend aur personal life sacrifice kar dete hain.'],
       },
       {
         heading: '4. Regulation aur Safety',
@@ -3482,7 +3482,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Dono markets mein leverage available hai, lekin uska impact alag hai.'],
-        list: ['Forex: Low volatility ki wajah se leverage zaroori hota hai meaningful returns ke liye. Regulated brokers pe limits hain.', 'Crypto: High volatility ki wajah se even low leverage (5x–10x) bhi account liquidate kar sakta hai. Spot trading (bina leverage) beginners ke liye safer option hai.'],
+        list: ['Forex: Low volatility ki wajah se leverage zaroori hota hai meaningful returns ke liye. Regulated brokers pe limits hain.', 'Crypto: High volatility ki wajah se even low leverage (5x–10x) bhi account liquidate kar sakta hai. <a href="/blog/crypto-futures-vs-spot-trading">Spot trading</a> (bina leverage) beginners ke liye safer option hai.'],
       },
       {
         paragraphs: ['Pro Tip: Crypto mein pehle spot se start karein. Jab aap volatility handle karna seekh jayein, tab lightly leveraged products consider karein.'],
@@ -3509,7 +3509,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         list: ['Forex → Consistent income, high liquidity, tight spreads, macro edge', 'Crypto → High beta opportunities, trend trading, portfolio diversification'],
       },
       {
-        paragraphs: ['Prop firm traders ke liye Forex ab bhi dominant hai kyunki challenges aur funded accounts mostly forex pairs pe based hote hain. Crypto prop firms bhi badh rahe hain, lekin volatility ki wajah se rules stricter hote hain.'],
+        paragraphs: ['<a href="/blog/prop-firm-challenge-mistakes">Prop firm traders</a> ke liye Forex ab bhi dominant hai kyunki challenges aur funded accounts mostly forex pairs pe based hote hain. Crypto prop firms bhi badh rahe hain, lekin volatility ki wajah se rules stricter hote hain.'],
       },
       {
         paragraphs: ['Experienced traders jo risk manage kar sakte hain, unke liye Crypto mein asymmetric upside (bohot badi moves) mil sakti hai jo Forex mein rare hoti hai.'],
@@ -3540,7 +3540,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Key Takeaways',
-        list: ['Forex = Structure, lower volatility, strong regulation, better for learning & consistency', 'Crypto = High volatility, 24/7 access, higher risk & higher reward potential', 'Beginners ke liye Forex aksar safer training ground hai', 'Professionals dono markets ka combination use kar sakte hain', 'Asal decision aapke risk tolerance, lifestyle aur goals pe depend karta hai', 'Jo bhi market choose karein — risk management aur trading psychology sab se important hai'],
+        list: ['Forex = Structure, lower volatility, strong regulation, better for learning & consistency', 'Crypto = High volatility, 24/7 access, higher risk & higher reward potential', 'Beginners ke liye Forex aksar safer training ground hai', 'Professionals dono markets ka combination use kar sakte hain', 'Asal decision aapke risk tolerance, lifestyle aur goals pe depend karta hai', 'Jo bhi market choose karein — <a href="/glossary/risk-management/">risk management</a> aur trading psychology sab se important hai'],
       },
       {
         heading: '10. Final Verdict 2026',
@@ -3556,7 +3556,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Aghla Qadam Kya Ho?',
       },
       {
-        paragraphs: ['Agar aap abhi decide nahi kar pa rahe, toh dono markets ka demo account khol kar 2–3 weeks practice karein. Khud experience karke dekhain kaunsa market aapke temperament se match karta hai. Phir usi pe focus karein.'],
+        paragraphs: ['Agar aap abhi decide nahi kar pa rahe, toh dono markets ka demo account khol kar 2–3 weeks practice karein — structure chahiye to <a href="/courses/crypto-trading-course-beginner">Crypto Trading Course</a> bhi madad karega. Khud experience karke dekhain kaunsa market aapke temperament se match karta hai. Phir usi pe focus karein.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -3610,8 +3610,8 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     sections: [
       {
         paragraphs: [
-          'Trading mein sab se ahem cheez entry nahi hai — exit aur risk management hai. Duniya bhar mein log 100 trades jeet kar bhi akela trade haar kar apna poora account kha jaate hain. Masla strategy ka nahi, risk ka hota hai.',
-          'Is post mein hum 1% rule, position sizing aur stop loss ka practical tareeqa seekhenge — aise ke aap kal se apne har trade par apply kar sakein.',
+          'Trading mein sab se ahem cheez entry nahi hai — exit aur <a href="/glossary/risk-management/">risk management</a> hai. Duniya bhar mein log 100 trades jeet kar bhi akela trade haar kar apna poora account kha jaate hain. Masla strategy ka nahi, risk ka hota hai.',
+          'Is post mein hum 1% rule, position sizing aur stop loss ka practical tareeqa seekhenge — aise ke aap kal se apne har trade par apply kar sakein. Poore framework ka mukammal khulasa <a href="/blog/risk-management-5-rules">risk management ke paanch rules</a> wali guide mein hai.',
         ],
       },
       {
@@ -3624,9 +3624,9 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Position Size Kaise Nikalein',
         paragraphs: [
-          'Position sizing ka formula simple hai: Risk Amount = Account × 1%. Phir position size = Risk Amount ÷ (Entry − Stop Loss distance).',
+          '<a href="/blog/position-sizing-kya-hai">Position sizing</a> ka formula simple hai: Risk Amount = Account × 1%. Phir position size = Risk Amount ÷ (Entry − Stop Loss distance).',
           'Example: Account 500 dollar, 1% risk = 5 dollar. Aap entry 100 par le rahe hain aur stop loss 98 par rakha hai — matlab 2 dollar per unit risk. Position size = 5 ÷ 2 = 2.5 units.',
-          'Yeh calculation har trade se pehle karni chahiye. Binance ka calculate tool bhi hai, lekin aap Risk Calculator (TradeEd website par free) se bhi kar sakte hain.',
+          'Yeh calculation har trade se pehle karni chahiye. Binance ka calculate tool bhi hai, lekin aap <a href="/calculator/position-size">Risk Calculator</a> (TradeEd website par free) se bhi kar sakte hain.',
         ],
         list: [
           'Step 1: Account ka 1% nikalein (risk amount)',
@@ -3641,7 +3641,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Stop Loss Bina Trade Mat Lein',
         paragraphs: [
           'Har trade mein stop loss pehle se tay hona chahiye — entry se pehle, na ke baad mein. Stop loss ke bina trade lena lottery khelne jaisa hai.',
-          'Log isliye stop loss nahi lagate kyunki woh "market wapas aayegi" sochte hain. Futures mein wapas aane ka intezar nahi hota — liquidation pehle ho jata hai. Spot mein bhi bina stop ke holding emotions ko control kar deta hai.',
+          'Log isliye stop loss nahi lagate kyunki woh "market wapas aayegi" sochte hain. Futures mein wapas aane ka intezar nahi hota — liquidation pehle ho jata hai (<a href="/blog/crypto-futures-vs-spot-trading">futures aur spot</a> ka farq yahin hai). Spot mein bhi bina stop ke holding emotions ko control kar deta hai.',
         ],
         list: [
           'Stop loss entry se pehle tay karein',
@@ -3653,14 +3653,14 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Risk-Reward Ratio: 1:2 Minimum',
         paragraphs: [
-          'Agar aap 1 dollar risk le rahe hain to kam se kam 2 dollar ka target rakhein — yani 1:2 risk-reward. Iska matlab hai agar aap sirf 40% trades bhi jeetein, tab bhi profitable rahenge.',
+          'Agar aap 1 dollar risk le rahe hain to kam se kam 2 dollar ka target rakhein — yani <a href="/glossary/risk-reward-ratio/">1:2 risk-reward</a>. Iska matlab hai agar aap sirf 40% trades bhi jeetein, tab bhi profitable rahenge.',
           'Buri trades ko chhota stop dein, achi trades ko chalne dein. Yehi asal kaam hai jo winning traders karte hain — losses chhote rakhte hain, profits ko lamba jaane dete hain.',
         ],
       },
       {
         heading: 'Aakhri Lafz',
         paragraphs: [
-          'Risk management trading ki woh seat belt hai jo fast car mein zaroori hoti hai. 1% rule, stop loss aur 1:2 risk-reward — teenon milkar aapka account zinda rakhte hain. Strategy baad mein aati hai, pehle survival.',
+          'Risk management trading ki woh seat belt hai jo fast car mein zaroori hoti hai. 1% rule, stop loss aur 1:2 risk-reward — teenon milkar aapka account zinda rakhte hain. Strategy baad mein aati hai, pehle survival. Is bare mein gehrai se <a href="/risk-management/index.html">Risk Management book</a> parhi ja sakti hai.',
           'TradeEd ki Risk Management book aur Risk Calculator dono free hain — aaj hi apna risk plan banayein.',
         ],
       },
@@ -3678,7 +3678,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Gold (XAU/USD) Trading Strategy 2026 — Psychology Tips Ke Sath',
     sections: [
       {
-        paragraphs: ['Gold (XAU/USD) duniya ke sab se popular trading instruments mein se ek hai. Ismein high liquidity, strong trends, aur clear levels milte hain. Lekin isi volatility ki wajah se bohot se traders emotional decisions le kar paise khote hain.'],
+        paragraphs: ['Gold (XAU/USD) duniya ke sab se popular trading instruments mein se ek hai. Ismein high liquidity, strong trends, aur clear levels milte hain. Lekin isi <a href="/glossary/volatility/">volatility</a> ki wajah se bohot se traders emotional decisions le kar paise khote hain.'],
       },
       {
         paragraphs: ['Is guide mein hum practical Gold trading strategies cover karenge saath hi un psychology tips ke jo gold jaise fast-moving instrument mein zaroori hain.'],
@@ -3704,7 +3704,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Gold lambi trends banata hai. Yeh strategy beginners aur professionals dono ke liye best hai.'],
-        list: ['4-hour ya Daily chart use karein', '50 EMA aur 200 EMA add karein', 'Price dono EMAs ke upar ho toh sirf Buy setups lo', 'Price dono ke neeche ho toh sirf Sell setups lo', 'Pullback pe enter karein (EMAs ya key support/resistance pe)', 'Stop loss structure ke neeche/upar rakhein'],
+        list: ['4-hour ya Daily chart use karein', '50 EMA aur 200 EMA add karein', 'Price dono EMAs ke upar ho toh sirf Buy setups lo', 'Price dono ke neeche ho toh sirf Sell setups lo', 'Pullback pe enter karein (EMAs ya key <a href="/blog/support-resistance-kaise-banayein">support/resistance</a> pe)', 'Stop loss structure ke neeche/upar rakhein'],
       },
       {
         paragraphs: ['Best Timeframe: H4 aur Daily. Scalping se avoid karein jab tak experience na ho.'],
@@ -3733,7 +3733,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '3. Gold Trading Mein Risk Management (Critical)',
       },
       {
-        paragraphs: ['Gold ki volatility normal forex pairs se zyada hoti hai. Isliye standard 1% rule ko carefully apply karein.'],
+        paragraphs: ['Gold ki volatility normal forex pairs se zyada hoti hai. Isliye standard <a href="/blog/risk-management-1-percent-rule">1% rule</a> ko carefully apply karein.'],
         table: {
           headers: ['Rule', 'Recommendation'],
           rows: [
@@ -3758,7 +3758,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Tip 1: FOMO Se Bachein',
       },
       {
-        paragraphs: ['Gold jab tezi se move karta hai toh lagta hai ke “miss ho gaya”. Yeh feeling aapko late entry pe majboor karti hai. Solution: Sirf apne pre-planned levels pe trade karein. Move miss hona normal hai.'],
+        paragraphs: ['Gold jab tezi se move karta hai toh lagta hai ke “miss ho gaya”. Yeh feeling (yaani <a href="/blog/fomo-revenge-trading-psychology">FOMO</a>) aapko late entry pe majboor karti hai. Solution: Sirf apne pre-planned levels pe trade karein. Move miss hona normal hai.'],
       },
       {
         heading: 'Tip 2: Revenge Trading Band Karein',
@@ -3789,7 +3789,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '5. Best Trading Sessions for Gold',
-        list: ['London Open – Strong moves, good for breakouts', 'London–New York Overlap – Highest liquidity aur tight spreads', 'Asia Session – Range trading ke liye better, low volatility'],
+        list: ['London Open – Strong moves, good for breakouts', '<a href="/blog/forex-best-time-karachi-sessions">London–New York Overlap</a> – Highest liquidity aur tight spreads', 'Asia Session – Range trading ke liye better, low volatility'],
       },
       {
         paragraphs: ['Agar aap part-time hain toh London–NY overlap pe focus karein. Yeh sab se efficient window hai.'],
@@ -3807,13 +3807,13 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Key Takeaways',
-        list: ['Gold mein Trend Following aur Pullback strategies sab se consistent hain', 'Risk per trade 0.5–1% rakhein aur ATR based stops use karein', 'FOMO aur Revenge trading gold mein sab se dangerous hain', 'London–NY overlap best trading window hai', 'Har trade se pehle checklist zaroor chalayein', 'Psychology + Risk Management = Long-term survival in Gold'],
+        list: ['Gold mein Trend Following aur Pullback strategies sab se consistent hain', 'Risk per trade 0.5–1% rakhein aur ATR based stops use karein', 'FOMO aur Revenge trading gold mein sab se dangerous hain', 'London–NY overlap best trading window hai', 'Har trade se pehle checklist zaroor chalayein', 'Psychology + <a href="/risk-management/index.html">Risk Management</a> = Long-term survival in Gold'],
       },
       {
         heading: 'Ab Practice Shuru Karein',
       },
       {
-        paragraphs: ['Demo account pe ek strategy choose karein (Trend Following recommended). 20–30 trades tak sirf usi strategy aur checklist ke saath trade karein. Phir results review karein. Consistency pehle aati hai, badi profits baad mein.'],
+        paragraphs: ['Demo account pe ek strategy choose karein (Trend Following recommended) — guided chahiye to TradeEd ka <a href="/courses/forex-trading-course-intermediate">Forex Trading Course</a> bhi dekh lein. 20–30 trades tak sirf usi strategy aur checklist ke saath trade karein. Phir results review karein. Consistency pehle aati hai, badi profits baad mein.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -3867,8 +3867,8 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     sections: [
       {
         paragraphs: [
-          'Aapne apna trading plan banaya, risk calculate kiya, sab kuch theek tha — phir bhi trade haar gaye. Kyun? Aksar jawab strategy mein nahi hota, psychology mein hota hai. Do feelings barbaad karti hain: FOMO aur revenge trading.',
-          'Yeh do emotions hain jo har beginner aur har expert ko kabhi na kabhi chhoo chuke hain. Inhe samajhna aadhi trading seekh hai.',
+          'Aapne apna trading plan banaya, risk calculate kiya, sab kuch theek tha — phir bhi trade haar gaye. Kyun? Aksar jawab strategy mein nahi hota, psychology mein hota hai. Do feelings barbaad karti hain: <a href="/glossary/fomo/">FOMO</a> aur revenge trading.',
+          'Yeh do emotions hain jo har beginner aur har expert ko kabhi na kabhi chhoo chuke hain. Inhe samajhna <a href="/blog/trading-psychology-mechanism">trading psychology</a> ki aadhi seekh hai.',
         ],
       },
       {
@@ -3888,7 +3888,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Revenge Trading — Nuksan Ka Badla',
         paragraphs: [
           'Revenge trading tab hoti hai jab aap haar ke turant dubara trade lete hain — is niyat ke ke jo gaya use wapas karna hai. Emotionally aap trade nahi le rahe, gussa nikaal rahe hain.',
-          'Yeh trading ka sab se mehnga khel hai. Pehle trade par 1% gaya, revenge trade par 5% gaya, uske baad ka 10% — teen trades mein account aadha. Professional traders ke paas yeh rule hota hai: do loss ke baad trading band.',
+          'Yeh trading ka sab se mehnga khel hai. Pehle trade par 1% gaya, revenge trade par 5% gaya, uske baad ka 10% — teen trades mein account aadha — yani <a href="/blog/risk-management-1-percent-rule">1% rule</a> ka sab se bara ulanghana. Professional traders ke paas yeh rule hota hai: do loss ke baad trading band.',
         ],
         list: [
           'Loss ke saath saath trade ka size barha diya',
@@ -3901,8 +3901,8 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Inhe Rokne Ka Tareeqa',
         paragraphs: [
           'Sab se pehle apne aap ko rules se baandhein jo gussa honay se pehle likhe ja chuke hon. Rule likha hua ho to emotion usse nahi tor sakta.',
-          'Doosra tareeqa: trading journal. Har trade ka reason likhein. Agar wajah "FOMO laga" hai to woh trade skip kar dein. Journal mein patterns nazar aane lagte hain ke aap kis waqt emotional hote hain.',
-          'Teesra: daily loss limit. Ek din mein 2-3% se zyada account jaaye to trading band — laptop band. Yeh limit subah trading shuru hone se pehle tay honi chahiye.',
+          'Doosra tareeqa: <a href="/blog/trading-journal-kyun-zaroori">trading journal</a>. Har trade ka reason likhein. Agar wajah "FOMO laga" hai to woh trade skip kar dein. Journal mein patterns nazar aane lagte hain ke aap kis waqt emotional hote hain.',
+          'Teesra: daily loss limit. Ek din mein 2-3% se zyada account jaaye to trading band — laptop band. Yeh limit subah trading shuru hone se pehle tay honi chahiye. Is limit ko set karne ka tareeqa <a href="/blog/risk-management-5-rules">risk management ke paanch rules</a> wali guide mein hai.',
         ],
         list: [
           'Trading plan likha hua ho — emotions se pehle',
@@ -3917,8 +3917,8 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Aakhri Lafz',
         paragraphs: [
-          'Market aapko har din mauqa deta hai — jaldi karne ki zaroorat nahi. FOMO aur revenge dono ek hi ilaj se theek hote hain: apna plan follow karna jab tak emotions bolein.',
-          'Trading mein sab se bari jeet disciplined rehna hai. Strategy aap seekh loge, lekin emotions ko control karna hi asal farq daalta hai.',
+          'Market aapko har din mauqa deta hai — jaldi karne ki zaroorat nahi. FOMO aur revenge dono ek hi ilaj se theek hote hain: apna plan follow karna jab tak emotions bolein. Isi liye <a href="/blog/profitable-trading-routine">strong trading routine</a> itni ahmiyat rakhti hai.',
+          'Trading mein sab se bari jeet disciplined rehna hai. Strategy aap seekh loge, lekin emotions ko control karna hi asal farq daalta hai. Is silsile mein <a href="/trading-psychology/index.html">Trading Psychology book</a> aur gehrai se madad deti hai.',
         ],
       },
     ],
@@ -3937,21 +3937,21 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     sections: [
       {
         paragraphs: [
-          'Pakistan mein crypto khareedne ka sab se aam tareeqa Binance P2P hai. Yahan aap seedha doosre logon se (peer-to-peer) PKR mein crypto khareedte hain — bank transfer, JazzCash, EasyPaisa sab chalta hai.',
+          'Pakistan mein <a href="/knowledge-base/crypto-kya-hai">crypto</a> khareedne ka sab se aam tareeqa Binance P2P hai. Yahan aap seedha doosre logon se (peer-to-peer) PKR mein crypto khareedte hain — bank transfer, JazzCash, EasyPaisa sab chalta hai.',
           'Is guide mein hum step-by-step samjhenge ke P2P par order kaise lagayein, payment kaise karein, aur sab se ahem: scam se kaise bachein.',
         ],
       },
       {
         heading: 'Pehle KYC Poora Karein',
         paragraphs: [
-          'Binance par trading shuru karne se pehle identity verification (KYC) zaroori hai — bina KYC ke P2P limit bohat kam hoti hai. CNIC ya passport, selfie, aur basic details — aksar 15-30 minute mein verify ho jata hai.',
+          '<a href="/blog/crypto-trading-shuru-karein-pakistan">Binance par trading shuru karne se pehle</a> identity verification (<a href="/glossary/kyc/">KYC</a>) zaroori hai — bina KYC ke P2P limit bohat kam hoti hai. CNIC ya passport, selfie, aur basic details — aksar 15-30 minute mein verify ho jata hai.',
           'KYC sirf Binance ki demand nahi, yeh aapki apni safety hai. Verified accounts par fraud kam hota hai aur agar koi masla ho to support better help karta hai.',
         ],
       },
       {
         heading: 'P2P Par Order Kaise Lagayein',
         paragraphs: [
-          'Binance app mein "P2P" section kholein. Yahan aapko buyers aur sellers ki list milti hai — har ek ka rate, available amount, aur payment methods dikhte hain.',
+          'Binance app mein "<a href="/glossary/p2p/">P2P</a>" section kholein. Yahan aapko buyers aur sellers ki list milti hai — har ek ka rate, available amount, aur payment methods dikhte hain.',
           'Order lagane ka tareeqa simple hai: apna amount (PKR) likhein, seller chunein, aur "Buy Crypto" dabayein. Aapka order hold par chala jata hai — crypto seller ke paas se hold hota hai aur aapki payment confirm hone ke baad aapko mil jata hai.',
         ],
         list: [
@@ -3968,7 +3968,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Scam Se Bachein — Zaroori Rules',
         paragraphs: [
-          'P2P mein aksar fraud tab hota hai jab log order ke bahar payment karte hain ya jaldi mein bina confirm ke crypto release kar dete hain. Hamesha order ke andar hi rahen.',
+          'P2P mein aksar <a href="/knowledge-base/trading-scams-se-kaise-bachein">fraud</a> tab hota hai jab log order ke bahar payment karte hain ya jaldi mein bina confirm ke crypto release kar dete hain. Hamesha order ke andar hi rahen.',
           'Sab se ahem rule: hamesha high-rated aur verified sellers se kharidein (500+ trades, 95%+ completion). Aur payment ka screen recording rakhein — kisi bhi dispute mein yehi saboot kaam aata hai.',
         ],
         list: [
@@ -3991,7 +3991,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Aakhri Lafz',
         paragraphs: [
           'P2P simple hai agar rules follow karein: order ke andar rehna, rated sellers chunein, payment khud verify karna. In teen cheezon se 99% fraud ruk jate hain.',
-          'Practice ke liye pehle chhoti amount se shuru karein — 5,000-10,000 PKR — process samajh lein phir barhayein.',
+          'Practice ke liye pehle <a href="/blog/position-sizing-kya-hai">chhoti amount se shuru karein</a> — 5,000-10,000 PKR — process samajh lein phir barhayein, aur pura Binance tareeqa <a href="/binance-complete/index.html">Binance Complete book</a> mein dekhein.',
         ],
       },
     ],
@@ -4020,7 +4020,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '1. Trading Routine Kyun Itni Important Hai?',
       },
       {
-        paragraphs: ['Bina routine ke trading luck pe chalti hai. Routine ke saath trading ek professional process ban jati hai.'],
+        paragraphs: ['Bina routine ke trading luck pe chalti hai. Routine ke saath trading ek professional process ban jati hai. <a href="/glossary/discipline/">Discipline</a> yahin se banti hai.'],
         list: ['Emotional decisions kam hote hain', 'Overtrading control mein aata hai', 'Aap apne edge ko consistently execute karte hain', 'Mistakes se seekhne ka system ban jata hai', 'Long-term consistency possible hoti hai'],
       },
       {
@@ -4042,7 +4042,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Yeh phase decide karta hai ke aapka poora din kaisa guzrega. Isse skip mat karein.'],
-        list: ['News & Economic Calendar Check – Aaj ke important events (NFP, CPI, FOMC, central bank decisions) dekh lein. High impact news pe trading avoid ya size reduce karein.', 'Market Overview – Overnight price action, major pairs/crypto ka direction, aur overall market sentiment check karein.', 'Key Levels Mark Karein – Support, resistance, previous day high/low, VWAP, aur important zones charts pe mark kar lein.', 'Watchlist Finalize – Maximum 3–5 high quality setups select karein. Zyada instruments mat rakhein.', 'Risk Parameters Set Karein – Aaj ke liye maximum risk per trade aur daily loss limit clearly define karein.', 'Mental Check – Apni emotional state rate karein (1–10). Agar 6 se kam hai toh size reduce karein ya aaj sirf observe karein.'],
+        list: ['News & Economic Calendar Check – Aaj ke important events (NFP, CPI, FOMC, central bank decisions) dekh lein. High impact news pe trading avoid ya size reduce karein.', 'Market Overview – Overnight price action, major pairs/crypto ka direction, aur overall market sentiment check karein.', 'Key Levels Mark Karein – <a href="/blog/support-resistance-kaise-banayein">Support aur resistance</a>, previous day high/low, VWAP, aur important zones charts pe mark kar lein.', 'Watchlist Finalize – Maximum 3–5 high quality setups select karein. Zyada instruments mat rakhein.', 'Risk Parameters Set Karein – Aaj ke liye <a href="/blog/risk-management-1-percent-rule">1% rule</a> ke mutabiq maximum risk per trade aur daily loss limit clearly define karein.', 'Mental Check – Apni emotional state rate karein (1–10). Agar 6 se kam hai toh size reduce karein ya aaj sirf observe karein.'],
       },
       {
         paragraphs: ['Pro Tip: Pre-session routine ko likh kar rakhein (checklist banaein). Har din usi checklist ko follow karein taake kuch miss na ho.'],
@@ -4052,17 +4052,17 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Market open hone ke baad aapka kaam plan follow karna hai, naya plan banana nahi.'],
-        list: ['Sirf wohi setups trade karein jo pre-session mein plan kiye the', '“Yeh bhi achha lag raha hai” wale trades avoid karein', 'Har trade pe pehle se decide kiya hua risk use karein', 'Stop loss aur target turant set kar dein', 'Do consecutive losses ya daily loss limit hit hone pe trading band kar dein', 'Har 45–60 minutes baad short break lein (screen se door)'],
+        list: ['Sirf wohi setups trade karein jo pre-session mein plan kiye the', '“Yeh bhi achha lag raha hai” wale trades avoid karein', 'Har trade pe pehle se decide kiya hua risk use karein', 'Stop loss aur target turant set kar dein', 'Do consecutive losses ya daily loss limit hit hone pe trading band kar dein — <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge</a> ko torne ka pehla qadam', 'Har 45–60 minutes baad short break lein (screen se door)'],
       },
       {
-        paragraphs: ['Common Mistake: Session ke dauran naye setups dhoondte rehna. Yeh overtrading aur emotional decisions ki taraf le jata hai. Apni watchlist se bahar mat jayein.'],
+        paragraphs: ['Common Mistake: Session ke dauran naye setups dhoondte rehna. Yeh overtrading aur emotional decisions ki taraf le jata hai. Apni watchlist se bahar mat jayein. Emotions ko samajhne ke liye <a href="/blog/trading-psychology-mechanism">trading psychology</a> guide zaroor parhein.'],
       },
       {
         heading: 'Phase 3: Post-Session Routine (Improvement Phase)',
       },
       {
         paragraphs: ['Yeh phase long-term success ka asl engine hai. Isse skip karna sab se bari galti hai.'],
-        list: ['Har trade ka screenshot lein aur journal mein entry karein', 'Likhein: Setup kya tha, kya plan follow kiya, emotional state kya thi', 'Rule break hua toh uski wajah honestly note karein', 'Aaj ka ek positive point aur ek improvement point likhein', 'Kal ke liye short note banaein (agar koi ongoing setup hai)'],
+        list: ['Har trade ka screenshot lein aur <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> mein entry karein', 'Likhein: Setup kya tha, kya plan follow kiya, emotional state kya thi', 'Rule break hua toh uski wajah honestly note karein', 'Aaj ka ek positive point aur ek improvement point likhein', 'Kal ke liye short note banaein (agar koi ongoing setup hai)'],
       },
       {
         paragraphs: ['Post-session review 15–25 minutes se zyada nahi lena chahiye. Consistency length se zyada important hai.'],
@@ -4128,7 +4128,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Abhi Action Lein',
       },
       {
-        paragraphs: ['Aaj hi apni Pre-Session Checklist likh lein (paper pe ya phone note mein). Kal se usko follow karna shuru kar dein. Chhoti consistency bari results laati hai.'],
+        paragraphs: ['Aaj hi apni Pre-Session Checklist likh lein (paper pe ya phone note mein). Kal se usko follow karna shuru kar dein. Chhoti consistency bari results laati hai. Poore framework ka khulasa <a href="/professional-system/index.html">Professional System book</a> mein hai.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4182,7 +4182,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     sections: [
       {
         paragraphs: [
-          'Candlestick chart ka har kaindli aapko batati hai ke us waqt buyers aur sellers ki jung mein kaun jeeta. Yeh patterns trading ki basic zabaan hain — inhe samajh lein to aadha chart reading seekh jate hain.',
+          'Candlestick chart ka har kaindli aapko batati hai ke us waqt buyers aur sellers ki jung mein kaun jeeta. Yeh patterns trading ki basic zabaan hain — inhe samajh lein to aadha <a href="/knowledge-base/chart-kaise-padhein">chart reading</a> seekh jate hain.',
           'Is post mein hum 5 aise patterns dekhenge jo har naye trader ko yaad hone chahiye — kefiyat (shape) ke sath ke kab kya matlab hai.',
         ],
       },
@@ -4190,20 +4190,20 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '1. Doji — Faisla Ka Waqt',
         paragraphs: [
           'Doji mein kaindli ka open aur close taqreeban barabar hote hain — yani buyers aur sellers barabar taaqat par hain. Yeh pattern batata hai ke trend thak raha hai aur reversal mumkin hai.',
-          'Achanak tezi se chadhne ke baad doji aana = buying khatam ho rahi. Gir raha ho to doji = selling ruk rahi hai. Halke mein nahi lena chahiye — confirmation ke sath lena chahiye.',
+          'Achanak tezi se chadhne ke baad doji aana = buying khatam ho rahi. Gir raha ho to doji = selling ruk rahi hai. Halke mein nahi lena chahiye — confirmation ke sath lena chahiye, aur confirmation ka poora tareeqa <a href="/blog/technical-analysis-basics">technical analysis basics</a> wali post mein mil jata hai.',
         ],
       },
       {
         heading: '2. Bullish Engulfing — Kharidari Ka Izhar',
         paragraphs: [
           'Jab pichhli chhoti red kaindli ko agli badi green kaindli poora niga le (engulf kar le), to yeh bullish engulfing hai. Iska matlab buyers ne poora control le liya.',
-          'Yeh pattern downtrend ke end mein aaye to zyada maani hai. Agla candle open bhi green ho to entry ka acha signal ban sakta hai — lekin hamesha volume aur support ke sath confirm karein.',
+          'Yeh pattern downtrend ke end mein aaye to zyada maani hai. Agla candle open bhi green ho to entry ka acha signal ban sakta hai — lekin hamesha <a href="/glossary/volume/">volume</a> aur <a href="/blog/support-resistance-kaise-banayein">support/resistance levels</a> ke sath confirm karein.',
         ],
       },
       {
         heading: '3. Hammer — Neeche Se Wapsi',
         paragraphs: [
-          'Hammer ki chhoti body upar hoti hai aur lambi wick neeche — iska matlab price neeche giri lekin buyers ne wapas upar khinch liya. Downtrend ke end mein yeh reversal ka signal hai.',
+          'Hammer ki chhoti body upar hoti hai aur lambi <a href="/glossary/candlestick-wick/">wick</a> neeche — iska matlab price neeche giri lekin buyers ne wapas upar khinch liya. Downtrend ke end mein yeh reversal ka signal hai.',
           'Lambi wick jitni lambi, signal utna strong. Lekin akela hammer kaafi nahi — agla candle confirm kare to hi trade karein.',
         ],
       },
@@ -4224,8 +4224,8 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Aakhri Lafz',
         paragraphs: [
-          'Yeh paanch patterns aapko chart par pehchanna shuru ho jayenge. Lekin yaad rakhein: koi bhi pattern akela trade ka reason nahi — hamesha trend, support/resistance aur risk management ke sath use karein.',
-          'TradeEd ki Candlestick book mein 40+ patterns detail se covered hain — woh parh kar inhen practice karein.',
+          'Yeh paanch patterns aapko chart par pehchanna shuru ho jayenge. Lekin yaad rakhein: koi bhi pattern akela trade ka reason nahi — hamesha trend, support/resistance aur <a href="/glossary/risk-management/">risk management</a> ke sath use karein.',
+          'TradeEd ki <a href="/candlestick-book/index.html">Candlestick book</a> mein 40+ patterns detail se covered hain — woh parh kar inhen practice karein. Aur structured practice ke liye <a href="/courses">trading courses</a> bhi dekhein.',
         ],
         diagram: '/blog/diagrams/candlestick-patterns.svg',
         diagramAlt: 'Paanch candlestick patterns ka diagram — Doji, Bullish Engulfing, Hammer, Shooting Star aur Morning Star',
@@ -4247,7 +4247,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Prop firm challenges pass karna mushkil nahi hai — lekin majority traders isi liye fail ho jate hain kyunki woh common mistakes bar bar repeat karte hain.'],
       },
       {
-        paragraphs: ['Industry data ke mutabiq, 70% se zyada first-phase failures daily drawdown limit breach hone se hoti hain. Strategy ki kami se nahi, balki behavior aur risk management ki kami se.'],
+        paragraphs: ['Industry data ke mutabiq, 70% se zyada first-phase failures <a href="/glossary/drawdown/">daily drawdown limit</a> breach hone se hoti hain. Strategy ki kami se nahi, balki behavior aur risk management ki kami se.'],
       },
       {
         paragraphs: ['Yeh guide un sab se common mistakes ko cover karti hai jo traders ko challenge fail karwati hain — saath hi practical solutions bhi degi taake aap unse bach saken.'],
@@ -4262,7 +4262,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Data dikhata hai ke 70–78% failures daily loss limit breach se hoti hain. Ek bura session poora challenge khatam kar sakta hai — chahe aap pehle din profit mein hi kyun na hon.'],
       },
       {
-        paragraphs: ['Solution: Apni personal daily loss limit firm ki limit se kam set karein (maslan firm 5% allow karti hai toh aap 2.5–3% pe ruk jayein). Limit approach hote hi platform band kar dein.'],
+        paragraphs: ['Solution: Apni personal daily loss limit firm ki limit se kam set karein (maslan firm 5% allow karti hai toh aap 2.5–3% pe ruk jayein). Limit approach hote hi platform band kar dein. Agar limit breach ho jaye toh <a href="/blog/drawdown-recovery-psychology-account">drawdown se recovery</a> wali framework par amal karein.'],
       },
       {
         heading: '2. Revenge Trading After Losses',
@@ -4271,7 +4271,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Ek loss ke baad turant doosra trade lena, size barha dena, aur “paise wapas lene” ki koshish karna — yeh pattern challenge accounts ko sab se tez barbaad karta hai.'],
       },
       {
-        paragraphs: ['Revenge trading emotional decision hota hai. Challenge ke pressure mein yeh aur strong ho jata hai.'],
+        paragraphs: ['Revenge trading emotional decision hota hai. Challenge ke pressure mein yeh aur strong ho jata hai. Is bare mein <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> par amli guide mojood hai.'],
         list: ['Do consecutive losses ke baad mandatory break lein (minimum 30 minutes ya session end)', 'Size kabhi bhi recent loss ke basis pe na barhayein', 'Har trade se pehle poochein: “Kya yeh setup mere plan mein tha?”'],
       },
       {
@@ -4282,7 +4282,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         paragraphs: ['Safe Approach:'],
-        list: ['Risk per trade: 0.5% se 1% maximum', 'Pehle hafte size aur bhi conservative rakhein', 'Profit target ko marathon samjhein, sprint nahi'],
+        list: ['Risk per trade: <a href="/blog/risk-management-1-percent-rule">1% rule</a> ke mutabiq 0.5% se 1% maximum', 'Pehle hafte size aur bhi conservative rakhein', 'Profit target ko marathon samjhein, sprint nahi'],
       },
       {
         paragraphs: ['Yaad rakhein: Challenge pass karna consistency dikhane ke liye hota hai, ek din mein target hit karne ke liye nahi.'],
@@ -4304,7 +4304,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: '5. Strategy Challenge Se Pehle Test Na Karna',
       },
       {
-        paragraphs: ['Bohot se traders challenge ko testing ground bana lete hain. Yeh expensive galti hai. Challenge mein aapko already proven strategy use karni chahiye.'],
+        paragraphs: ['Bohot se traders challenge ko testing ground bana lete hain. Yeh expensive galti hai. Challenge mein aapko already proven strategy use karni chahiye. Strategy ko <a href="/blog/backtesting-complete-guide">backtesting complete guide</a> se pehle hi test kar lein.'],
         list: ['Kam az kam 50–100 trades ka backtest/demo record ho', 'Win rate, average R, max drawdown pata ho', 'Strategy rules clear aur written hon'],
       },
       {
@@ -4350,7 +4350,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         paragraphs: ['Data ke mutabiq, traders ka sab se common improvement area yeh hai ke woh heavy session ke baad rukte nahi — chahe din bura guzra ho ya bohot achha.'],
       },
       {
-        paragraphs: ['Winning day pe bhi overtrading se profit de sakte hain. Losing day pe revenge se account khatam kar sakte hain. Dono situations mein rukna seekhein.'],
+        paragraphs: ['Winning day pe bhi <a href="/glossary/overtrading/">overtrading</a> se profit de sakte hain. Losing day pe revenge se account khatam kar sakte hain. Dono situations mein rukna seekhein.'],
       },
       {
         heading: 'Challenge Pass Karne Ka Simple Framework',
@@ -4364,7 +4364,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Aghla Challenge Better Banayein',
       },
       {
-        paragraphs: ['Agla challenge shuru karne se pehle upar di gayi mistakes ki list review karein. Apni previous failures ko honestly analyze karein. Phir tight risk rules ke saath dubara try karein. Discipline hi aapko funded banayegi.'],
+        paragraphs: ['Agla challenge shuru karne se pehle upar di gayi mistakes ki list review karein. Apni previous failures ko honestly analyze karein. Phir tight risk rules ke saath dubara try karein. Discipline hi aapko funded banayegi. Is ka poora ilm <a href="/risk-management/index.html">Risk Management book</a> mein hai.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4385,7 +4385,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Agar main pehle fail ho chuka hoon toh kya karun?',
       },
       {
-        paragraphs: ['Failure ko data samjhein. Kaunsi mistake hui thi? Usay fix karein. Strategy change karne se pehle behavior fix karein.'],
+        paragraphs: ['Failure ko data samjhein. Kaunsi mistake hui thi? Usay fix karein. Is data ke liye <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> sab se behtareen zariya hai. Strategy change karne se pehle behavior fix karein.'],
       },
       {
         heading: 'Kitna risk per trade safe hai?',
@@ -4418,15 +4418,15 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     sections: [
       {
         paragraphs: [
-          'Trading journal ka matlab hai apni har trade ka record rakhna — entry, exit, stop loss, aur sab se ahem: us waqt aap kaisa mehsoos kar rahe the aur trade kyun li.',
+          '<a href="/glossary/trading-journal/">Trading journal</a> ka matlab hai apni har trade ka record rakhna — entry, exit, stop loss, aur sab se ahem: us waqt aap kaisa mehsoos kar rahe the aur trade kyun li.',
           'Bagair journal ke aap wohi ghaltiyan bar bar karte hain kyunke memory selective hoti hai. Journal mein likha hua saboot aapse jhoot nahi bolta.',
         ],
       },
       {
         heading: 'Journal Mein Kya Likhein',
         paragraphs: [
-          'Har trade ke liye ye cheezain likhein: currency pair, direction (long/short), entry price, stop loss, target, position size, aur result (profit/loss amount mein).',
-          'Uske ilawa do column aur rakhein jo sab se zyada faida dete hain: "Trade ka reason" aur "Kaisa feel ho raha tha". Yeh do columns aapko apne patterns dikhate hain.',
+          'Har trade ke liye ye cheezain likhein: currency pair, direction (long/short), entry price, stop loss, target, <a href="/glossary/position-sizing/">position size</a>, aur result (profit/loss amount mein).',
+          'Uske ilawa do column aur rakhein jo sab se zyada faida dete hain: "Trade ka reason" aur "Kaisa feel ho raha tha". Yeh do columns aapko apne <a href="/blog/trading-psychology-mechanism">psychological patterns</a> dikhate hain.',
         ],
         list: [
           'Date, time, pair, direction',
@@ -4434,7 +4434,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
           'Position size aur risk (dollar mein)',
           'Result: profit/loss + pips/percentage',
           'Trade ka reason (setup kya tha)',
-          'Emotion: confident, scared, FOMO, revenge?',
+          'Emotion: confident, scared, <a href="/blog/fomo-revenge-trading-psychology">FOMO ya revenge</a>?',
           'Screenshot of the chart (entry wala)',
         ],
       },
@@ -4449,12 +4449,12 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
         heading: 'Kaise Shuru Karein',
         paragraphs: [
           'Simple spreadsheet kaafi hai — Google Sheets, Excel, ya paper notebook. Perfect hone ki zaroorat nahi, consistent hona zaroori hai. Har trade ke baad 2 minute lagayein.',
-          'TradeEd ka built-in Journal bhi isi kaam ke liye hai — har trade record karein aur monthly stats dekhein. Jo tool aap use karein, usmein roz likhna zaroori hai.',
+          'TradeEd ka built-in <a href="/journal">Journal</a> bhi isi kaam ke liye hai — har trade record karein aur monthly stats dekhein. Jo tool aap use karein, usmein roz likhna zaroori hai.',
         ],
         list: [
           'Rozana har trade ke baad 2 minute',
           'Screenshot zaroor lagayein',
-          'Har week/month review karein',
+          'Har week/month <a href="/blog/profitable-trading-routine">review routine</a> chalayein',
           'Sirf numbers nahi — emotions bhi likhein',
           'Journal ke baghar trade mat lein',
         ],
@@ -4464,7 +4464,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: 'Aakhri Lafz',
         paragraphs: [
-          'Trading seekhne ka sab se tez tareeqa journal hai — kyunki yeh aapki apni galtiyon ko dikhata hai. Strategy internet par sab ke paas hai, journal sirf aapka hai.',
+          'Trading seekhne ka sab se tez tareeqa journal hai — kyunki yeh aapki apni galtiyon ko dikhata hai. Strategy internet par sab ke paas hai, journal sirf aapka hai. Is bare mein <a href="/trading-psychology/index.html">Trading Psychology book</a> aur gehrai se parha ja sakta hai.',
           'Aaj se shuru karein. Ek mahine baad khud dekhenge ke farq kitna aa gaya hai.',
         ],
       },
@@ -4482,12 +4482,12 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'AI Tools se Forex aur Crypto Trading Mein Edge Kaise Banayein (2026 Guide)',
     sections: [
       {
-        paragraphs: ['AI + Trading combination ab trending hai. Yeh practical guide batati hai ke aap AI tools ko research, analysis, journaling aur risk management mein kaise use karke real edge bana sakte hain.', '2026 mein AI tools trading ka hissa ban chuke hain. Lekin bohot se traders galat expectation rakhte hain — ke AI unke liye 90% win rate wali strategy de dega. Asal edge kahin aur hai.', 'Yeh guide realistic approach pe based hai: AI ko assistant banao, replacement nahi. Is se aapki research speed, consistency, aur decision quality improve hoti hai.', 'Real edge AI se 3–8% process improvement aati hai (better research, fewer emotional mistakes, faster journaling). Magic signals nahi.'],
+        paragraphs: ['AI + Trading combination ab trending hai. AI ki bunyad chahiye ho to <a href="/ai-kaise-seekhain/">AI kaise seekhein</a> pillar guide pehle parh lein. Yeh practical guide batati hai ke aap AI tools ko research, analysis, journaling aur risk management mein kaise use karke real edge bana sakte hain.', '2026 mein AI tools trading ka hissa ban chuke hain. Lekin bohot se traders galat expectation rakhte hain — ke AI unke liye 90% win rate wali strategy de dega. Asal edge kahin aur hai.', 'Yeh guide realistic approach pe based hai: AI ko assistant banao, replacement nahi. Is se aapki research speed, consistency, aur decision quality improve hoti hai.', 'Real edge AI se 3–8% process improvement aati hai (better research, fewer emotional mistakes, faster journaling). Magic signals nahi.'],
       },
       {
         heading: '1. AI Se Real Edge Kahan Se Aati Hai?',
         paragraphs: ['AI aapko yeh areas mein madad kar sakta hai:'],
-        list: ['News aur macro research jaldi summarize karna', 'Chart patterns aur multi-timeframe analysis', 'Trading journal ko structured banana aur patterns nikalna', 'Risk management rules check karna', 'Trade ideas generate karna (lekin final decision aapka)', 'Backtesting ideas ko fast explore karna'],
+        list: ['News aur macro research jaldi summarize karna', 'Chart patterns aur multi-timeframe analysis', '<a href="/blog/trading-journal-kyun-zaroori">Trading journal</a> ko structured banana aur patterns nikalna', 'Risk management rules check karna', 'Trade ideas generate karna (lekin final decision aapka)', '<a href="/blog/backtesting-complete-guide">Backtesting</a> ideas ko fast explore karna'],
       },
       {
         paragraphs: ['Jo cheez AI nahi karta: Market predict karna 100% accuracy se, ya aapki jagah emotional control rakhna.'],
@@ -4497,7 +4497,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'A. Research & Market Context',
-        paragraphs: ['ChatGPT, Claude, ya Perplexity jaise tools se aap:'],
+        paragraphs: ['ChatGPT, Claude, ya Perplexity jaise tools (inki mukammal comparison <a href="/blog/ai-tools-automation-2026">AI tools automation guide</a> mein hai) se aap:'],
         list: ['Economic calendar events ka impact samajh sakte hain', 'Crypto narratives aur on-chain trends summarize kar sakte hain', 'Multiple sources se news ka quick overview le sakte hain'],
       },
       {
@@ -4512,7 +4512,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'D. Risk & Rule Checking',
-        paragraphs: ['Trade lene se pehle AI se pooch sakte hain: “Yeh setup mere 1% risk rule aur 1:2 R:R ke mutabiq hai?”'],
+        paragraphs: ['Trade lene se pehle AI se pooch sakte hain: “Yeh setup mere <a href="/blog/risk-management-1-percent-rule">1% risk rule</a> aur <a href="/glossary/risk-reward-ratio/">1:2 R:R</a> ke mutabiq hai?”'],
       },
       {
         heading: '3. Practical AI Stack for Traders (2026)',
@@ -4558,7 +4558,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Aaj Se Shuru Karein',
-        paragraphs: ['Is hafte sirf ek cheez implement karein: Har trade ke baad AI se short structured review generate karwayein. 20–30 trades baad aap dekhoge ke kaunse patterns baar baar aa rahe hain. Yeh chhoti si habit badi edge ban sakti hai.'],
+        paragraphs: ['Is hafte sirf ek cheez implement karein: Har trade ke baad AI se short structured review generate karwayein. 20–30 trades baad aap dekhoge ke kaunse patterns baar baar aa rahe hain. Yeh chhoti si habit badi edge ban sakti hai, aur ise misaal ke tor par <a href="/journal">trading journal</a> mein record rakhein.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4577,7 +4577,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'AI signals trustworthy hain?',
-        paragraphs: ['Koi bhi signal 100% nahi hota. AI ko idea generation aur confirmation ke liye use karein, final filter apne rules ka rakhein.', 'SEO Optimized AI Trading Guide • Primary: AI Tools Forex Crypto Trading • Secondary: AI Trading Edge 2026', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves significant risk of loss. AI tools do not guarantee profits.'],
+        paragraphs: ['Koi bhi signal 100% nahi hota. AI ko idea generation aur confirmation ke liye use karein, final filter apne rules ka rakhein, aur bots ke dawon ka <a href="/blog/ai-trading-bots-reality-check-2026">reality check</a> bhi parh lein.', 'SEO Optimized AI Trading Guide • Primary: AI Tools Forex Crypto Trading • Secondary: AI Trading Edge 2026', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves significant risk of loss. AI tools do not guarantee profits.'],
       },
     ],
   },
@@ -4593,7 +4593,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Backtesting Kaise Karein Jo Asal Mein Kaam Kare (Complete Guide) – 2026',
     sections: [
       {
-        paragraphs: ['Zyada tar traders strategy bana lete hain lekin proper backtesting nahi karte. Yeh guide aapko woh process sikhati hai jo strategy ko real edge validate karti hai.', 'Bohot se traders “strategy ready hai” keh kar live account pe chale jate hain. Phir loss hota hai aur woh sochte hain strategy kharab thi. Asal mein problem yeh hoti hai ke strategy ko properly backtest hi nahi kiya gaya.', 'Yeh complete guide aapko sikhati hai ke backtesting kaise karein jo asal mein kaam kare — taake aap real money se pehle apni edge validate kar saken.', 'Backtesting ka maqsad yeh nahi ke aapko perfect win rate dikhe. Maqsad yeh hai ke aapko pata chale strategy ka statistical edge hai ya nahi, aur kis market condition mein woh fail hoti hai.'],
+        paragraphs: ['Zyada tar traders strategy bana lete hain lekin proper <a href="/glossary/backtesting/">backtesting</a> nahi karte. Yeh guide aapko woh process sikhati hai jo strategy ko real edge validate karti hai.', 'Bohot se traders “strategy ready hai” keh kar live account pe chale jate hain. Phir loss hota hai aur woh sochte hain strategy kharab thi. Asal mein problem yeh hoti hai ke strategy ko properly backtest hi nahi kiya gaya.', 'Yeh complete guide aapko sikhati hai ke backtesting kaise karein jo asal mein kaam kare — taake aap real money se pehle apni edge validate kar saken.', 'Backtesting ka maqsad yeh nahi ke aapko perfect win rate dikhe. Maqsad yeh hai ke aapko pata chale strategy ka statistical edge hai ya nahi, aur kis market condition mein woh fail hoti hai.'],
       },
       {
         heading: '1. Backtesting Kya Hai?',
@@ -4602,7 +4602,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: '2. Pehle Rules Crystal Clear Likhein',
         paragraphs: ['Agar aapki strategy vague hai toh backtest bekaar hai. Rules itne clear hone chahiye ke koi aur trader bhi unhe follow kar sake.'],
-        list: ['Entry conditions (exact)', 'Stop loss placement', 'Take profit / exit rules', 'Position sizing (risk %)', 'Filters (time, volatility, trend etc.)', 'Kaunse market conditions avoid karni hain'],
+        list: ['Entry conditions (exact)', '<a href="/glossary/stop-loss/">Stop loss</a> placement', 'Take profit / exit rules', '<a href="/blog/position-sizing-kya-hai">Position sizing</a> (risk %)', 'Filters (time, volatility, trend etc.)', 'Kaunse market conditions avoid karni hain'],
       },
       {
         paragraphs: ['Test: Agar aap rules kisi aur ko de dein aur woh bilkul same trades le sakta hai, tabhi strategy backtestable hai.'],
@@ -4648,15 +4648,15 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '8. Mentorship Level Tips',
-        list: ['Har backtest trade ko journal karein (screenshot + reason)', 'Market condition tag karein (trending / ranging / high volatility)', 'Worst 10 trades alag se analyze karein', 'Strategy ko different pairs/timeframes pe bhi test karein', 'Results ko honestly accept karein — agar edge nahi hai toh drop kar dein'],
+        list: ['Har backtest trade ko <a href="/blog/trading-journal-kyun-zaroori">journal</a> karein (screenshot + reason)', 'Market condition tag karein (trending / ranging / high volatility)', 'Worst 10 trades alag se analyze karein', 'Strategy ko different pairs/timeframes pe bhi test karein', 'Results ko honestly accept karein — agar edge nahi hai toh drop kar dein'],
       },
       {
         heading: 'Key Takeaways',
-        list: ['Rules crystal clear hone chahiye warna backtest invalid hai', 'Minimum 100–200 trades across different market conditions', 'Profit Factor, Max Drawdown aur Expectancy sab se important metrics hain', 'Forward Bias aur Overfitting se bachein', 'Out-of-Sample + Forward Testing ke baghair live mat jayein', 'Manual replay beginners ke liye best starting point hai', 'Honest data > Beautiful equity curve'],
+        list: ['Rules crystal clear hone chahiye warna backtest invalid hai', 'Minimum 100–200 trades across different market conditions', 'Profit Factor, <a href="/blog/drawdown-recovery-psychology-account">Max Drawdown</a> aur Expectancy sab se important metrics hain', 'Forward Bias aur Overfitting se bachein', 'Out-of-Sample + Forward Testing ke baghair live mat jayein', 'Manual replay beginners ke liye best starting point hai', 'Honest data > Beautiful equity curve'],
       },
       {
         heading: 'Aaj Se Proper Backtesting Shuru Karein',
-        paragraphs: ['Apni current strategy ke rules likhein. TradingView Bar Replay khol kar last 6–12 months ka data lein. 50 trades manually log karein. Phir metrics nikalein. Yeh process aapko mahine ke losses bacha sakta hai.'],
+        paragraphs: ['Apni current strategy ke rules likhein. TradingView Bar Replay khol kar last 6–12 months ka data lein. 50 trades manually log karein. Phir metrics nikalein. Yeh process aapko mahine ke losses bacha sakta hai, aur ready-made strategies ka poora bank <a href="/trading-strategies/index.html">Trading Strategies book</a> mein maujood hai.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4671,7 +4671,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Agar backtest achha hai lekin live mein loss ho?',
-        paragraphs: ['Possible reasons: Overfitting, slippage/fees ignore kiye, psychology issues, ya market regime change. Forward testing is gap ko kam karta hai.'],
+        paragraphs: ['Possible reasons: Overfitting, slippage/fees ignore kiye, <a href="/blog/trading-psychology-mechanism">psychology</a> issues, ya market regime change. Forward testing is gap ko kam karta hai.'],
       },
       {
         heading: 'Kya har strategy backtest karni chahiye?',
@@ -4691,7 +4691,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Drawdown Se Recovery: Badi Loss Ke Baad Psychology aur Account Kaise Recover Karein – 2026 Guide',
     sections: [
       {
-        paragraphs: ['Badi loss ke baad sab se dangerous kaam “jaldi recover” karne ki koshish hota hai. Yeh guide aapko structured recovery framework deti hai — psychology + account dono ke liye.', 'Har trader drawdown face karta hai. Farq yeh hai ke kuch traders usse recover kar lete hain, aur kuch usi drawdown ko account blow-up bana dete hain.', 'Asal masla strategy ka nahi, response ka hota hai. Badi loss ke baad emotions control se bahar ho jate hain aur traders “paise wapas lene” ki koshish mein aur badi galti kar baithte hain.', 'Drawdown recovery ka pehla rule: Trading your way out of a drawdown almost never works. Pehle rukna, diagnose karna, phir controlled tarike se wapas aana.'],
+        paragraphs: ['Badi loss ke baad sab se dangerous kaam “jaldi recover” karne ki koshish hota hai. Yeh guide aapko structured recovery framework deti hai — psychology + account dono ke liye.', 'Har trader <a href="/glossary/drawdown/">drawdown</a> face karta hai. Farq yeh hai ke kuch traders usse recover kar lete hain, aur kuch usi drawdown ko account blow-up bana dete hain.', 'Asal masla strategy ka nahi, response ka hota hai. Badi loss ke baad emotions control se bahar ho jate hain aur traders “paise wapas lene” ki koshish mein aur badi galti kar baithte hain. Emotions ko control karne ka poora mechanism <a href="/blog/trading-psychology-mechanism">trading psychology</a> guide mein samjha gaya hai.', 'Drawdown recovery ka pehla rule: Trading your way out of a drawdown almost never works. Pehle rukna, diagnose karna, phir controlled tarike se wapas aana.'],
       },
       {
         heading: '1. Drawdown Ki Math Samajhein',
@@ -4714,14 +4714,14 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       {
         heading: '2. Pehla Qadam: Turant Ruk Jayein',
         paragraphs: ['Significant drawdown recognize hote hi trading band kar dein (kam az kam 24–72 hours, deep drawdown mein 1–2 weeks).'],
-        list: ['Charts band karein', 'Social media / signal groups se door rahein', 'Revenge trading ka impulse control karein', 'Brain ko settle hone ka time dein'],
+        list: ['Charts band karein', 'Social media / signal groups se door rahein', '<a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> ka impulse control karein', 'Brain ko settle hone ka time dein'],
       },
       {
         paragraphs: ['Yeh sab se mushkil step hai. Dimag kehta hai “abhi recover kar lo”. Lekin yahi feeling account ko aur deep drawdown mein le jati hai.'],
       },
       {
         heading: '3. Diagnose Karein: Strategy Problem Ya Execution Problem?',
-        paragraphs: ['Journal khol kar drawdown period ke trades review karein:'],
+        paragraphs: ['Apna <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> khol kar drawdown period ke trades review karein:'],
         list: ['Kitne trades rules follow karte hue the?', 'Kitne trades mein size barhaya, stop move kiya, ya FOMO/Revenge se entry li?'],
       },
       {
@@ -4765,15 +4765,15 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '8. Long-Term Protection: Future Drawdowns Ke Liye',
-        list: ['Hard daily loss limit set karein', 'Max drawdown level pe pre-defined response plan likh lein', 'Risk per trade 0.5–1% se zyada na lein', 'Regular journal + weekly review', 'Emotional state check before every session'],
+        list: ['Hard daily loss limit set karein', 'Max drawdown level pe pre-defined response plan likh lein', '<a href="/blog/risk-management-1-percent-rule">1% rule</a> ke mutabiq risk per trade 0.5–1% se zyada na lein', 'Regular journal + weekly review', 'Emotional state check before every session'],
       },
       {
         heading: 'Key Takeaways',
-        list: ['Drawdown se recovery ka pehla step: Rukna', 'Jaldi recover karne ki koshish aksar aur deep loss laati hai', 'Strategy vs Execution diagnose karna zaroori hai', 'Reduced size se wapas aayein, full size tabhi jab process stable ho', 'Psychology recovery account recovery se pehle aati hai', '50% drawdown = 100% gain chahiye — isliye deep drawdown se bachein', 'Structured plan > Emotional reaction'],
+        list: ['Drawdown se recovery ka pehla step: Rukna', 'Jaldi recover karne ki koshish aksar aur deep loss laati hai', 'Strategy vs Execution diagnose karna zaroori hai', 'Reduced <a href="/glossary/position-sizing/">position size</a> se wapas aayein, full size tabhi jab process stable ho', 'Psychology recovery account recovery se pehle aati hai', '50% drawdown = 100% gain chahiye — isliye deep drawdown se bachein', 'Structured plan > Emotional reaction'],
       },
       {
         heading: 'Aaj Se Recovery Plan Likhein',
-        paragraphs: ['Agar aap abhi drawdown mein hain toh pehle trading band karein. Journal review karein. Phir reduced size ke saath controlled recovery shuru karein. Process pe focus karein, paise pe nahi. Consistency wapas aayegi.'],
+        paragraphs: ['Agar aap abhi drawdown mein hain toh pehle trading band karein. Journal review karein. Phir reduced size ke saath controlled recovery shuru karein. Process pe focus karein, paise pe nahi. Consistency wapas aayegi. Is poore framework ka mukammal nizam <a href="/risk-management/index.html">Risk Management book</a> mein mil jayega.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4808,7 +4808,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Liquidity Concepts in Trading: Smart Money Kaise Move Karta Hai (Forex + Crypto) – 2026 Guide',
     sections: [
       {
-        paragraphs: ['Smart Money Concepts (SMC/ICT) ka core – Liquidity. Samjhein ke institutions price ko kahan aur kyun move karte hain, aur aap unke saath kaise trade kar sakte hain.', 'Retail traders aksar sochte hain ke price randomly move karti hai. Asal mein price liquidity ki talash mein move karti hai. Smart money (banks, institutions, large players) apne bade orders fill karne ke liye retail traders ke stop losses aur pending orders ko target karte hain.', 'Yeh guide aapko Liquidity Concepts aur Smart Money Concepts (SMC/ICT) ka practical samajh degi — Forex aur Crypto dono ke liye.', 'Price do cheezon ke liye move karti hai: Liquidity grab karne ke liye ya Imbalance (Fair Value Gap) fill karne ke liye. Baaki sab secondary hai.'],
+        paragraphs: ['Smart Money Concepts (SMC/ICT) ka core – <a href="/glossary/liquidity/">Liquidity</a>. Samjhein ke institutions price ko kahan aur kyun move karte hain, aur aap unke saath kaise trade kar sakte hain.', 'Retail traders aksar sochte hain ke price randomly move karti hai. Asal mein price liquidity ki talash mein move karti hai. Smart money (banks, institutions, large players) apne bade orders fill karne ke liye retail traders ke stop losses aur pending orders ko target karte hain.', 'Yeh guide aapko Liquidity Concepts aur Smart Money Concepts (SMC/ICT) ka practical samajh degi — Forex aur Crypto dono ke liye.', 'Price do cheezon ke liye move karti hai: Liquidity grab karne ke liye ya Imbalance (Fair Value Gap) fill karne ke liye. Baaki sab secondary hai.'],
       },
       {
         heading: '1. Liquidity Kya Hai?',
@@ -4831,7 +4831,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Order Blocks',
-        paragraphs: ['Woh last opposing candle jahan se strong move shuru hua. Institutions wahan orders chhodte hain. Price aksar un levels pe wapas aati hai (mitigation).'],
+        paragraphs: ['<a href="/glossary/order-block/">Order block</a> woh last <a href="/blog/candlestick-patterns-shuruaat">opposing candle</a> jahan se strong move shuru hua. Institutions wahan orders chhodte hain. Price aksar un levels pe wapas aati hai (mitigation).'],
       },
       {
         heading: 'Fair Value Gaps (FVG / Imbalance)',
@@ -4868,14 +4868,14 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '6. Common Mistakes Traders Karte Hain',
-        list: ['Har wick ko liquidity sweep samajh lena', 'Lower timeframe pe over-trading bina higher TF bias ke', 'Order Block aur FVG ko randomly trade karna', 'Crypto mein session killzones ko blindly apply karna', 'Risk management ignore karna (SMC ke saath bhi 1% rule zaroori hai)'],
+        list: ['Har wick ko liquidity sweep samajh lena', 'Lower timeframe pe over-trading bina higher TF bias ke', 'Order Block aur <a href="/glossary/fvg/">FVG</a> ko randomly trade karna', 'Crypto mein session killzones ko blindly apply karna', 'Risk management ignore karna (SMC ke saath bhi <a href="/blog/risk-management-1-percent-rule">1% rule</a> zaroori hai)'],
       },
       {
         paragraphs: ['Yaad rakhein: Smart Money Concepts ek framework hai, holy grail nahi. Iske saath proper risk management aur psychology control zaroori hai.'],
       },
       {
         heading: '7. Shuru Kaise Karein (Beginner Roadmap)',
-        list: ['Pehle Market Structure (BOS/CHoCH) clear karein', 'Phir Liquidity (BSL/SSL) identify karna seekhein', 'Order Blocks aur FVGs mark karna practice karein', 'Demo pe sirf higher timeframe setups trade karein', 'Har trade journal karein – sweep hua ya nahi'],
+        list: ['Pehle Market Structure (BOS/CHoCH) clear karein', 'Phir Liquidity (BSL/SSL) identify karna seekhein', 'Order Blocks aur FVGs mark karna practice karein', 'Demo pe sirf higher timeframe setups trade karein', 'Har trade <a href="/blog/trading-journal-kyun-zaroori">journal</a> karein – sweep hua ya nahi'],
       },
       {
         heading: 'Key Takeaways',
@@ -4883,7 +4883,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Practice Shuru Karein',
-        paragraphs: ['Aaj se apne charts pe sirf do cheezein mark karein: Equal Highs/Lows (Liquidity) aur strong displacement ke baad Order Blocks. 2–3 weeks observation ke baad setups lena shuru karein. Consistency pehle aati hai.'],
+        paragraphs: ['Aaj se apne charts pe sirf do cheezein mark karein: Equal Highs/Lows (Liquidity) aur strong displacement ke baad Order Blocks. 2–3 weeks observation ke baad setups lena shuru karein. Consistency pehle aati hai, aur SMC setups ka poora reference <a href="/smc-book/index.html">SMC book</a> mein maujood hai.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -4894,7 +4894,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Order Block aur Support/Resistance mein kya farq hai?',
-        paragraphs: ['Order Block specific institutional candle hota hai jahan se strong move start hua. Normal S/R zyada general hota hai.'],
+        paragraphs: ['Order Block specific institutional candle hota hai jahan se strong move start hua. Normal <a href="/blog/support-resistance-kaise-banayein">support/resistance</a> zyada general hota hai.'],
       },
       {
         heading: 'Kya indicators ki zaroorat hai?',
@@ -4918,7 +4918,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Mentorship vs Self-Learning: Trading Mein Success Ke Liye Kya Better Hai? (2026 Guide)',
     sections: [
       {
-        paragraphs: ['Dono paths possible hain. Lekin time, cost, psychology aur results ke hisaab se kaunsa aapke liye better hai? Honest comparison + practical decision framework.', 'Har trader yeh sawal poochta hai: Kya main khud seekh sakta hoon, ya mentorship lena chahiye?', 'Yeh topic sirf information nahi — yeh decision stage ka content hai. Is guide mein hum dono paths ko honestly compare karenge taake aap apni situation ke hisaab se sahi faisla le saken.', 'Self-learning full ownership deta hai lekin slow aur expensive (mistakes ki shakal mein) ho sakta hai. Mentorship curve ko shorten karta hai — lekin sirf tab jab aap actively engage karein.'],
+        paragraphs: ['Dono paths possible hain. Lekin time, cost, psychology aur results ke hisaab se kaunsa aapke liye better hai? Honest comparison + practical decision framework.', 'Har trader yeh sawal poochta hai: Kya main khud seekh sakta hoon, ya mentorship lena chahiye? Agar aap bilkul shuru se hain toh <a href="/knowledge-base/trading-shuru-kaise-karein">trading shuru kaise karein</a> wali guide pehle parh lein.', 'Yeh topic sirf information nahi — yeh decision stage ka content hai. Is guide mein hum dono paths ko honestly compare karenge taake aap apni situation ke hisaab se sahi faisla le saken.', 'Self-learning full ownership deta hai lekin slow aur expensive (mistakes ki shakal mein) ho sakta hai. Mentorship curve ko shorten karta hai — lekin sirf tab jab aap actively engage karein.'],
       },
       {
         heading: '1. Self-Learning: Pros aur Cons',
@@ -4929,7 +4929,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Cons',
-        list: ['Feedback delayed hota hai — galti ka pata loss ke baad chalta hai', 'Years lag sakte hain consistent hone mein', 'Psychology aur risk management aksar ignore ho jate hain', 'Information overload (YouTube, courses, signals)', 'Accountability zero hoti hai'],
+        list: ['Feedback delayed hota hai — galti ka pata loss ke baad chalta hai, lekin <a href="/blog/trading-journal-kyun-zaroori">trading journal</a> yeh gap kam kar deta hai', 'Years lag sakte hain consistent hone mein', 'Psychology aur risk management aksar ignore ho jate hain — <a href="/blog/risk-management-5-rules">risk management ke paanch rules</a> is area ki behtareen shuruaat hain', 'Information overload (YouTube, courses, signals)', 'Accountability zero hoti hai'],
       },
       {
         paragraphs: ['Self-learning un logon ke liye better hai jo analytical background rakhte hain, time hai, aur capital ke saath experiments afford kar sakte hain.'],
@@ -4972,7 +4972,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '5. Kab Mentorship Better Hai?',
-        list: ['Aap already 6–12 months se struggle kar rahe hain', 'Same mistakes baar baar ho rahi hain', 'Capital limited hai aur experiments afford nahi kar sakte', 'Aapko structure aur accountability chahiye', 'Aap jaldi consistent hona chahte hain (under 12 months mindset)', 'Psychology aur risk management aapke weak areas hain'],
+        list: ['Aap already 6–12 months se struggle kar rahe hain', 'Same mistakes baar baar ho rahi hain', 'Capital limited hai aur experiments afford nahi kar sakte', 'Aapko structure aur accountability chahiye', 'Aap jaldi consistent hona chahte hain (under 12 months mindset)', 'Psychology aur risk management aapke weak areas hain — <a href="/blog/trading-psychology-mechanism">trading psychology ki deep guide</a> isi ke liye hai'],
       },
       {
         heading: '6. Kab Self-Learning Better Hai?',
@@ -4999,7 +4999,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Apna Next Step Decide Karein',
-        paragraphs: ['Agar aap mehsoos karte hain ke aap akele circular mistakes mein phanse hain, toh structured guidance aapke liye game-changer ban sakti hai. Sahi mentorship aapko years aur capital bacha sakti hai — lekin sirf tab jab aap ready hon kaam karne ke liye.'],
+        paragraphs: ['Agar aap mehsoos karte hain ke aap akele circular mistakes mein phanse hain, toh structured guidance aapke liye game-changer ban sakti hai. Sahi <a href="/mentor">mentorship</a> aapko years aur capital bacha sakti hai — lekin sirf tab jab aap ready hon kaam karne ke liye.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -5010,7 +5010,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Self-learning se bhi log successful hote hain?',
-        paragraphs: ['Haan. Lekin woh aksar analytical background wale, highly disciplined, aur time + capital wale traders hote hain. Majority ke liye yeh path lamba padta hai.'],
+        paragraphs: ['Haan. Lekin woh aksar analytical background wale, highly disciplined, aur time + capital wale traders hote hain. Unke paas aksar <a href="/blog/profitable-trading-routine">strong trading routine</a> hoti hai. Majority ke liye yeh path lamba padta hai.'],
       },
       {
         heading: 'Mentorship kitne time ke liye lena chahiye?',
@@ -5018,7 +5018,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Sasta course vs real mentorship?',
-        paragraphs: ['Recorded courses information dete hain. Real mentorship feedback, accountability aur personalized correction deta hai. Dono alag cheezein hain.', 'SEO Optimized Mentorship Guide • Primary: Mentorship vs Self-Learning Trading • Secondary: Trading Mentorship', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves risk of loss.'],
+        paragraphs: ['<a href="/courses">Recorded courses</a> information dete hain. Real mentorship feedback, accountability aur personalized correction deta hai. Dono alag cheezein hain.', 'SEO Optimized Mentorship Guide • Primary: Mentorship vs Self-Learning Trading • Secondary: Trading Mentorship', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves risk of loss.'],
       },
     ],
   },
@@ -5034,7 +5034,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
     heroAlt: 'Best Trading Timeframes: Scalping vs Day Trading vs Swing (Forex & Crypto Comparison) – 2026',
     sections: [
       {
-        paragraphs: ['Kaunsa trading style aapke lifestyle, time aur personality ke liye better hai? Scalping, Day Trading aur Swing Trading ka detailed comparison – Forex aur Crypto dono ke liye.', 'Traders aksar yeh poochte hain: Scalping better hai, Day Trading, ya Swing? Asal mein koi ek style sab ke liye best nahi. Yeh depend karta hai aapke available time, stress tolerance, capital aur personality pe.', 'Is guide mein hum teenon styles ko deep compare karenge taake aap apne liye sahi choice kar saken.', 'Sab se badi galti yeh hai ke log lifestyle ignore karke style choose karte hain. Jo style aap consistently follow nahi kar sakte, woh profitable nahi banega.'],
+        paragraphs: ['Kaunsa trading style aapke lifestyle, time aur personality ke liye better hai? Scalping, Day Trading aur Swing Trading ka detailed comparison – Forex aur <a href="/knowledge-base/crypto-kya-hai">Crypto</a> dono ke liye.', 'Traders aksar yeh poochte hain: Scalping better hai, Day Trading, ya Swing? Asal mein koi ek style sab ke liye best nahi. Yeh depend karta hai aapke available time, stress tolerance, capital aur personality pe.', 'Is guide mein hum teenon styles ko deep compare karenge taake aap apne liye sahi choice kar saken.', 'Sab se badi galti yeh hai ke log lifestyle ignore karke style choose karte hain. Jo style aap consistently follow nahi kar sakte, woh profitable nahi banega.'],
       },
       {
         heading: '1. Teenon Styles Ka Short Overview',
@@ -5076,11 +5076,11 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '4. Day Trading – Details',
-        paragraphs: ['Pros: No overnight risk, clear daily routine, moderate trade frequency.', 'Cons: Full focus chahiye during session, high psychological pressure, opportunity cost of time.', 'Best for: Traders jo specific session (London/NY) dedicate kar sakte hain aur intraday volatility pasand karte hain.'],
+        paragraphs: ['Pros: No overnight risk, clear daily routine, moderate trade frequency.', 'Cons: Full focus chahiye during session, high psychological pressure, opportunity cost of time.', 'Best for: Traders jo specific <a href="/blog/forex-best-time-karachi-sessions">session (London/NY)</a> dedicate kar sakte hain aur intraday volatility pasand karte hain.'],
       },
       {
         heading: '5. Swing Trading – Details',
-        paragraphs: ['Pros: Part-time possible, kam stress, bade moves, lower costs, better for most people with jobs.', 'Cons: Overnight/weekend risk, patience chahiye, fewer trading opportunities.', 'Best for: Working professionals, beginners, aur woh log jo quality over quantity prefer karte hain.', 'Data Point: Studies mein swing traders ki success rate day traders se generally better dikhti hai, mainly kyunki stress aur overtrading kam hota hai.'],
+        paragraphs: ['Pros: Part-time possible, kam stress, bade moves, lower costs, better for most people with jobs.', 'Cons: Overnight/weekend risk, patience chahiye, fewer trading opportunities.', 'Best for: Working professionals, beginners, aur woh log jo quality over quantity prefer karte hain.', 'Data Point: Studies mein swing traders ki success rate day traders se generally better dikhti hai, mainly kyunki stress aur <a href="/glossary/overtrading/">overtrading</a> kam hota hai.'],
       },
       {
         heading: '6. Forex vs Crypto – Style Suitability',
@@ -5092,7 +5092,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: '8. Practical Recommendation 2026',
-        paragraphs: ['Agar aap beginner hain ya part-time trader hain → Swing Trading se shuru karein (4H + Daily).', 'Agar aap full-time hain aur experience hai → Day Trading try kar sakte hain.', 'Scalping sirf tab consider karein jab aap already consistent hain kisi doosre style mein aur proper infrastructure hai.'],
+        paragraphs: ['Agar aap <a href="/blog/forex-beginners">beginner</a> hain ya part-time trader hain → Swing Trading se shuru karein (4H + Daily).', 'Agar aap full-time hain aur experience hai → Day Trading try kar sakte hain.', 'Scalping sirf tab consider karein jab aap already consistent hain kisi doosre style mein aur proper infrastructure hai.'],
       },
       {
         heading: 'Key Takeaways',
@@ -5100,7 +5100,7 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Apna Style Decide Karein',
-        paragraphs: ['Apne daily available hours aur stress tolerance honestly assess karein. Phir ek style choose karke uspe 2–3 months focus karein. Style switching se progress ruk jati hai.'],
+        paragraphs: ['Apne daily available hours aur stress tolerance honestly assess karein. Phir ek style choose karke uspe 2–3 months focus karein. Style switching se progress ruk jati hai — practical training ke liye <a href="/courses/forex-trading-course-beginner">Forex Trading Course</a> bhi madad karegi.'],
       },
       {
         heading: 'Frequently Asked Questions',
@@ -5115,11 +5115,11 @@ CoinGecko ya CoinMarketCap (price), DefiLlama (TVL aur protocols) aur Solana ki 
       },
       {
         heading: 'Crypto mein scalping profitable hai?',
-        paragraphs: ['Possible hai lekin fees, slippage aur 24/7 attention ki wajah se mushkil. Zyada tar traders ke liye sustainable nahi.'],
+        paragraphs: ['Possible hai lekin fees, <a href="/glossary/slippage/">slippage</a> aur 24/7 attention ki wajah se mushkil. Zyada tar traders ke liye sustainable nahi.'],
       },
       {
         heading: 'Swing Trading mein overnight risk kaise manage karein?',
-        paragraphs: ['Position size kam rakhein, major news se pehle size reduce karein, aur weekend se pehle careful rahein.', 'SEO Optimized Comparison • Primary: Scalping vs Day Trading vs Swing • Secondary: Best Trading Timeframes', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves risk of loss.'],
+        paragraphs: ['<a href="/calculator/position-size">Position size</a> kam rakhein, major news se pehle size reduce karein, aur weekend se pehle careful rahein.', 'SEO Optimized Comparison • Primary: Scalping vs Day Trading vs Swing • Secondary: Best Trading Timeframes', 'Banner size: 1200 × 675 px', '© 2026 • Educational purpose only. Trading involves risk of loss.'],
       },
     ],
   },

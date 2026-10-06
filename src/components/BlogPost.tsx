@@ -115,9 +115,11 @@ export function BlogPost({ post, onBack, onOpenBlog, onNavigate }: BlogPostPageP
               <h2 className="mb-3 text-2xl font-bold tracking-tight">{section.heading}</h2>
             )}
             {(section.paragraphs || []).map((p, j) => (
-              <p key={j} className="mb-4 leading-relaxed text-foreground/90">
-                {p}
-              </p>
+              <p
+                key={j}
+                className="mb-4 leading-relaxed text-foreground/90"
+                dangerouslySetInnerHTML={{ __html: p }}
+              />
             ))}
             {section.table && (
               <div className="my-4 overflow-x-auto rounded-lg border border-border">
@@ -150,7 +152,7 @@ export function BlogPost({ post, onBack, onOpenBlog, onNavigate }: BlogPostPageP
                 {section.list.map((item, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-foreground/90">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    {item}
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
                   </li>
                 ))}
               </ul>
