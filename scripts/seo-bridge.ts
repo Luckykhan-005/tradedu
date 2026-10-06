@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url'
 const STATIC: Record<string, Page> = {
   '/': 'landing',
   '/courses': 'courses',
+  '/courses/master-crypto-trading': 'master-course',
   '/live-sessions': 'live-sessions',
   '/ai-tools': 'ai-tools',
   '/books': 'books',

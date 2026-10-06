@@ -17,6 +17,7 @@ const CourseCatalog = lazy(() => import('./components/CourseCatalog').then((m) =
 const CourseDetail = lazy(() => import('./components/CourseDetail').then((m) => ({ default: m.CourseDetail })))
 const Dashboard = lazy(() => import('./components/Dashboard').then((m) => ({ default: m.Dashboard })))
 const LiveSessions = lazy(() => import('./components/LiveSessions').then((m) => ({ default: m.LiveSessions })))
+const MasterCourseLanding = lazy(() => import('./components/course-landing').then((m) => ({ default: m.MasterCourseLanding })))
 const Auth = lazy(() => import('./components/Auth').then((m) => ({ default: m.Auth })))
 const AdminPanel = lazy(() => import('./components/AdminPanel').then((m) => ({ default: m.AdminPanel })))
 const AiToolsHub = lazy(() => import('./components/AiToolsHub').then((m) => ({ default: m.AiToolsHub })))
@@ -84,6 +85,7 @@ interface SessionData {
 const pageToPath: Partial<Record<Page, string>> = {
   landing: '/',
   courses: '/courses',
+  'master-course': '/courses/master-crypto-trading',
   dashboard: '/dashboard',
   'live-sessions': '/live-sessions',
   'ai-tools': '/ai-tools',
@@ -655,6 +657,10 @@ export default function App() {
         ) : (
           <NotFound onNavigate={navigate} />
         ))}
+
+      {currentPage === 'master-course' && (
+        <MasterCourseLanding onEnroll={() => navigate('pricing')} />
+      )}
 
       {currentPage === 'dashboard' && (
         <Dashboard

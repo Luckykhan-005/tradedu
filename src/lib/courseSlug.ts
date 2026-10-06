@@ -9,6 +9,8 @@ const PINNED: Record<string, string> = {
   '651ff86a-1415-44c4-a8d5-d20e894d2b7b': 'crypto-trading-course-advanced',
   'cd799311-4c6a-43e1-a9cd-f1037545f0cf': 'forex-trading-course-beginner',
   'aadebd3f-49a1-4fa0-97e7-34fadef918cf': 'forex-trading-course-intermediate',
+  // Master Crypto Trading (Supabase draft — supabase-master-crypto-course.sql)
+  '9f3c2b7a-6d51-4c98-b2ae-71d957e84f10': 'master-crypto-trading',
 }
 
 export function courseSlugify(title: string): string {

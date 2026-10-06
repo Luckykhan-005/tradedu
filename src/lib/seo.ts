@@ -2,6 +2,7 @@ import type { Page } from '@/components/Navigation'
 import { books } from '@/components/Books'
 import { blogPosts, type BlogPost } from '@/data/blog'
 import { getCalculator } from '@/data/calculators'
+import { masterCourse, masterSeo } from '@/data/masterCourse'
 
 const SITE = 'https://tradeed.online'
 
@@ -22,6 +23,10 @@ const ROUTES: Partial<Record<Page, RouteMeta>> = {
     title: 'Trading Courses in Urdu — Zero se Professional | TradeEd',
     description:
       'Binance, forex, crypto futures, price action aur risk management ke practical Urdu courses — beginner course ka pehla module bilkul free.',
+  },
+  'master-course': {
+    title: masterSeo.title,
+    description: masterSeo.description,
   },
   books: {
     title: '40+ Free Trading Books in Urdu | TradeEd',
@@ -232,6 +237,21 @@ export function buildPageSeo({
       provider: { '@type': 'Organization', name: 'TradeEd', url: `${SITE}/` },
       educationalLevel: 'Beginner to Advanced',
     }
+  } else if (page === 'master-course') {
+    meta = ROUTES[page]
+    title = meta?.title || masterSeo.title
+    description = meta?.description || masterSeo.description
+    jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: masterCourse.title,
+      description: masterCourse.description,
+      inLanguage: 'ur-Latn',
+      url: `${SITE}${path}`,
+      provider: { '@type': 'Organization', name: 'TradeEd', url: `${SITE}/` },
+      creator: { '@type': 'Person', name: 'M. Aslam Khan' },
+      educationalLevel: 'Beginner to Advanced',
+    }
   } else if (page === 'ai-tool-detail') {
     title = `${tool?.name || 'AI Trading Tool'} — Free AI Tool | TradeEd`
     description =
@@ -347,7 +367,11 @@ export function buildPageSeo({
   }
 
   const ogImage =
-    page === 'blog-post' && post?.hero ? `${SITE}${post.hero}` : `${SITE}/hero-banner.webp`
+    page === 'blog-post' && post?.hero
+      ? `${SITE}${post.hero}`
+      : page === 'master-course'
+        ? `${SITE}${masterSeo.ogImage}`
+        : `${SITE}/hero-banner.webp`
   const keywords = post?.tags?.length ? post.tags.join(', ') : undefined
   return {
     title,
