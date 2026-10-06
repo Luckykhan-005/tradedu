@@ -30,6 +30,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Forex Lot Size', 'Position Size', 'Lot Size Calculator', 'Forex Money Management', 'Risk Per Trade'],
     date: '2026-10-05',
     readingTime: '7 min read',
+    hero: '/blog/forex-lot-size-guide-urdu.webp',
+    heroAlt: 'Forex Lot Size Kaise Calculate Karein — Position Size Formula (Urdu)',
     html: `<p class="lead">Forex mein sab se important hissa lot size hi hai — strategy kitni bhi achi ho, galat lot size se ek hi trade pura account kha sakta hai. Ye guide batati hai ke lot size hota kya hai, pip value kaise kaam karti hai, aur 3-step formula se har trade ke liye apna position size kaise nikalein — examples ke sath.</p>
 
 <div class="note"><b>Jaldi ka jawab:</b>
@@ -129,6 +131,8 @@ Lot size decide karta hai ke aap kitna gawa sakte ho, risk-reward decide karta h
     tags: ['Forex Scam Pakistan', 'Fake Forex Broker', 'Forex Fraud', 'Recovery Scam', 'Forex Safety'],
     date: '2026-10-05',
     readingTime: '7 min read',
+    hero: '/blog/forex-scam-pakistan-pehchan.webp',
+    heroAlt: 'Forex Scam Pakistan Kaise Pehchanain — 7 Warning Signs (2026 Guide)',
     html: `<p class="lead">Forex scam Pakistan mein tezi se phail raha hai — WhatsApp groups se le kar Instagram ads tak, har jagah "mahina 5 lakh kamao" wale dave. Ye guide 7 practical warning signs batati hai jo scam brokers aur fraud groups mein aam tor par milte hain, aur aakhir mein ek 5-minute checklist hai jise har naye trader ko apne broker par chalani chahiye.</p>
 
 <div class="note"><b>Jaldi ka jawab:</b>
