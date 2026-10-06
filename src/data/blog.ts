@@ -30,6 +30,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Crypto Trading Kaise Shuru', 'Crypto Pakistan', 'Binance P2P', 'Crypto Beginners', 'Spot Trading'],
     date: '2026-10-06',
     readingTime: '7 min read',
+    hero: '/blog/crypto-trading-shuru-karein-pakistan.webp',
+    heroAlt: 'Crypto Trading Kaise Shuru Karein Pakistan — 6 Step Guide (2026)',
     html: `<p class="lead">Crypto trading kaise shuru karein — Pakistan se — sab se bara confusion yehi hai: account kahan banega, paisa kaise jayega, pehla trade kaise lagega, aur ye sab kitne ka padega. Ye guide 6 practical steps mein poora rasta dikhati hai — knowledge se le kar exchange, wallet, pehla trade aur 30-din ke plan tak — sab Roman Urdu mein.</p>
 
 <div class="note"><b>Jaldi ka jawab:</b>
