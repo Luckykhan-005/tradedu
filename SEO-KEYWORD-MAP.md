@@ -38,7 +38,7 @@ Pillar pages (already live):
 
 | # | Target query | Intent | URL | Internal links |
 |---|---|---|---|---|
-| 13 | support resistance kaise banayein | Informational | `/blog/support-resistance-kaise-banayein` | pillar TA, `/blog/candlestick-patterns-shuruaat` |
+| 13 | support resistance kaise banayein | Informational | ~~`/blog/support-resistance-kaise-banayein`~~ **DONE 2026-10-06** | pillar TA, `/blog/candlestick-patterns-shuruaat` |
 | 14 | rsi indicator kya hai urdu | Informational | `/blog/rsi-indicator-kya-hai` | `/glossary/rsi/` (naya term), pillar TA |
 | 15 | moving average kya hai trading | Informational | `/blog/moving-average-kya-hai` | pillar TA, `/blog/technical-analysis-basics` |
 | 16 | trend kaise identify karein (market structure) | Informational | `/blog/market-structure-trend-kaise-padhain` | pillar TA, `/blog/liquidity-concepts-smart-money-trading` |
@@ -74,7 +74,7 @@ Pillar pages (already live):
 1. #1 forex kaise shuru (highest local volume + fresh pillar) — SKIP (cannibalization)
 2. #7 crypto kaise shuru (same pattern, P2P post se strong link) — **DONE 2026-10-06**
 3. #19 position sizing (calculator se convert hota hai, tool page ko boost) — **DONE 2026-10-06**
-4. #13 support resistance (TA pillar ka core missing piece)
+4. #13 support resistance (TA pillar ka core missing piece) — **DONE 2026-10-06**
 5. #22 emotional trading (glossary + purane psychology posts se deep cluster)
 6. #8 bitcoin kya hai (glossary term ka flagship — fresh term banao)
 7. #4 forex scam ( Pakistan-specific, kam competition, share-worthy)
