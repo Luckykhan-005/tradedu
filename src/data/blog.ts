@@ -23,6 +23,88 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'crypto-trading-shuru-karein-pakistan',
+    title: 'Crypto Trading Kaise Shuru Karein Pakistan — 6 Step Guide (2026)',
+    excerpt: 'Crypto trading kaise shuru karein Pakistan mein: exchange account, P2P se PKR dalein, wallet security, spot se pehla trade, 1% risk rule aur 30-din ka plan — Roman Urdu guide...',
+    category: 'Crypto Basics',
+    tags: ['Crypto Trading Kaise Shuru', 'Crypto Pakistan', 'Binance P2P', 'Crypto Beginners', 'Spot Trading'],
+    date: '2026-10-06',
+    readingTime: '7 min read',
+    html: `<p class="lead">Crypto trading kaise shuru karein — Pakistan se — sab se bara confusion yehi hai: account kahan banega, paisa kaise jayega, pehla trade kaise lagega, aur ye sab kitne ka padega. Ye guide 6 practical steps mein poora rasta dikhati hai — knowledge se le kar exchange, wallet, pehla trade aur 30-din ke plan tak — sab Roman Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Sab se pehle:</b> Bina knowledge ke account na banayein — <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai</a> wali pillar guide 1 baar parh lein.</li>
+<li><b>Account:</b> Exchange par KYC complete karein, phir P2P se PKR dalein — poora tareeqa: <a href="/blog/binance-p2p-guide-urdu">Binance P2P guide</a>.</li>
+<li><b>Pehla trade:</b> Spot market mein chhoti amount se — futures/liqiudation se pehle mahine door rahein.</li>
+<li><b>Risk rule:</b> Ek trade par 1% se zyada risk nahi — <a href="/calculator/position-size">Position Size Calculator</a> se hisaab karein.</li>
+<li><b>Plan:</b> Neeche Section 6 mein 30-din ka plan hai — usi par chalein.</li>
+</ul></div>
+
+<h2>1. Pakistan mein crypto — pehle asliyat samajh lein</h2>
+<p>Pakistan mein crypto ke rules waqt ke sath badle hain — taxes, exchange registration aur reporting ki latest tafseel hamari yearly guide mein hoti hai: <a href="/blog/pakistan-crypto-tax-2026">Pakistan Crypto Tax 2026</a>. Do cheezein hamesha yaad rakhein: apne deposits, withdrawals aur profits ki proper record rakhein, aur kisi bhi viral message ("hukumat ne ban kar diya" ya "ab bilkul free hai") par confirm kiye baghair decision na lein — asal update sarkari notification se hota hai, WhatsApp forward se nahi.</p>
+<p>Agar aap forex kar rahe hain ya dono ka soch rahe hain to farq samajh lein — method, timings aur risk dono alag hain: <a href="/blog/forex-vs-crypto-trading-2026">Forex vs Crypto — kya farq hai</a>.</p>
+
+<h2>2. Crypto trading kaise shuru karein — 6 steps</h2>
+<p><b>Step 1 — Bunyad (pehla hafta):</b> Bitcoin, blockchain aur wallet kya hain ye samajh lein. Ye 4 concepts samajh aa gaye to 90% "crypto jargon" khud clear ho jata hai. Detail: <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai — complete guide</a>. Jaldi hone wale log <a href="/crypto-beginner/index.html">Crypto Beginner book (Urdu)</a> bhi parh sakte hain.</p>
+<p><b>Step 2 — Exchange account + KYC:</b> Binance jaise bade exchange par account banayein, email + phone verify karein aur KYC (CNIC) complete karein. KYC ke baad hi P2P aur card options khulte hain — ye exchange ki security ka hissa hai, darrne wali baat nahi.</p>
+<p><b>Step 3 — P2P se PKR dalein:</b> Pakistan mein seedha card se crypto khareedna aam nahi — is liye P2P (peer-to-peer) trading use hoti hai jahan verified seller se PKR transfer karke USDT milta hai. Poora safe tareeqa: <a href="/blog/binance-p2p-guide-urdu">Binance P2P — Pakistan guide</a>. Sirf verified merchants se deal karein aur hamesha release tab karein jab funds account mein confirm ho jayein.</p>
+<p><b>Step 4 — Security set karein:</b> Exchange ka 2FA (Google Authenticator) on karein, aur jo bhi amount rakhna hai us ka zyada hissa wallet mein rakhein. Ye 2 term achanak samajh aa jayengi — pehle hi parh lein: <a href="/glossary/wallet/">Wallet kya hai</a> aur private key (jo kabhi kisi ko na dein). Simple rule: <b>private key / seed phrase kisi ko dikhana = paisa dene jaisa hai.</b></p>
+<p><b>Step 5 — Pehla trade (spot):</b> Chhoti amount se shuru karein — jaise $10-20 ka trade. Pehle din se leverage aur futures na chhooein (Section 4 mein wajah hai). Entry se pehle 3 cheezein tay karein: kya khareedna hai, kahan stop lagega, aur kitne % risk hai.</p>
+<p><b>Step 6 — Journal + review:</b> Har trade ka reason, entry, stop aur result likhein — bina journal ke pata hi nahi chalta ke paise kahan gawai. Pattern milne lagta hai 10-15 trades ke baad.</p>
+
+<h2>3. Kitna paisa lagayein?</h2>
+<p>Simple jawab: <b>utna hi lagayein jitne ko khone ka irada ho.</b> Crypto volatile hai — ek din mein 10% chala jana normal hai. Chalne wala rule wahi hai jo forex mein hai:</p>
+<ul>
+<li>Har trade par risk account ka <b>1% ya us se kam</b> — <a href="/blog/risk-management-1-percent-rule">1% Rule</a> ki tafseel ye hai.</li>
+<li>Lot/quantity apne aap mat nikalein — <a href="/calculator/position-size"><b>Position Size Calculator</b></a> mein balance, risk % aur stop daalein, quantity khud aa jayegi.</li>
+<li>Shuruaat ka capital aisa ho jo agar poora dub jaye to zindagi na badle. "Ghar bech ke" trading kabhi nahi.</li>
+</ul>
+
+<h2>4. Spot se shuru, futures se abhi door</h2>
+<p>Do alag cheezein hain:</p>
+<div class="scroll"><table>
+<thead><tr><th>Cheez</th><th>Kya hai</th><th>Naye trader ke liye</th></tr></thead>
+<tbody>
+<tr><td>Spot</td><td>Asli coin khareed kar rakha — upar jaaye to faida, neeche to nuksan (lekin coin apna rehta hai)</td><td>✅ Bilkul sahi shuruaat</td></tr>
+<tr><td>Futures</td><td>Udhaar/leverage se long-short — galat side par position <a href="/glossary/liquidation/">liquidation</a> ho jati hai</td><td>❌ Pehle mahine bilkul nahi</td></tr>
+</tbody></table></div>
+<p>Futures mein leverage, margin aur liquidation jaise terms aate hain — baad mein ek ek karke: <a href="/glossary/futures/">Futures kya hai</a>, <a href="/glossary/liquidation/">Liquidation kya hai</a>. Jaldi mein 20x leverage dekh kar "double karunga" sochna wahi ghalti hai jo 90% naye traders ko account kha kar jaati hai.</p>
+
+<h2>5. Naye trader ki aam 5 galtiyan</h2>
+<ul>
+<li><b>Bina research ke altcoin:</b> "Yeh 100x dega" wale doston ki baon par coin khareedna. Checklist: <a href="/blog/altcoin-checklist">Altcoin Checklist — coin kaise check karein</a>.</li>
+<li><b>Ek hi jagah sab kuch:</b> Pura capital ek coin mein — diversify karein aur sirf utna daalein jitna khone ka irada ho.</li>
+<li><b>Private key/seed kisi ko dena:</b> "Support agent", fake airdrop ya fake website — sab yahi maangte hain. Official site ka address khud type karein, link par click nahi.</li>
+<li><b>Bina stop ke trade:</b> "Long term ke liye rakha hai" har loss par kehna strategy nahi hai. Stop/plan pehle tay: <a href="/glossary/stop-loss/">Stop-Loss kya hai</a>.</li>
+<li><b>FOMO entry:</b> Price tez barh raha hai to peeche bhagna — yahi <a href="/blog/fomo-revenge-trading-psychology">FOMO aur revenge trading</a> ka sab se aam waqt hota hai.</li>
+</ul>
+
+<h2>6. 30-din ka plan — exact sequence</h2>
+<p>Theory zyada mat parhein, sequence se chalein:</p>
+<div class="note"><b>Hafta 1 — Bunyad:</b> <a href="/knowledge-base/crypto-kya-hai">Crypto pillar guide</a> + wallet/coin terms. Hafta 2 — <b>Setup:</b> Exchange KYC, P2P se chhoti amount daalein, 2FA on, thoda spot trade practice mein.<br>
+<b>Hafta 3 — Chart:</b> Candlesticks aur basic charts seekhein — <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — shuruaat</a> aur <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>.<br>
+<b>Hafta 4 — Pehla plan wala trade:</b> Chhoti amount, stop ke sath, journal mein likhein — phir review karein.</div>
+<p>Video + notes ke sath structured tarika chahiye to crypto beginner course bilkul isi sequence par bana hai: <a href="/courses/crypto-trading-course-beginner"><b>Crypto Trading Course — Beginner (Urdu)</b></a> — pehla module free hai. Book format pasand ho to <a href="/crypto-beginner/index.html">Crypto Beginner (Urdu book)</a> aur exchange/Binance ki tafseel <a href="/binance-complete/index.html">Binance Complete Training</a> mein hai.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Crypto trading kaise shuru karein Pakistan mein — sab se pehla kadam?</b>
+Pehle 1 hafta knowledge (pillar guide + wallet terms), phir exchange KYC + P2P. Pehla trade usi hafta mat karein — pehle samajh, phir paisa.
+<b>Kitne paisa se shuru karein?</b>
+Wahi jo agar poora khatam ho jaye to koi farq na pade — aam shuruaat $20-100 (PKR mein chhoti amount) hoti hai. Amount se zyada important risk rule hai: har trade par 1%.
+<b>P2P safe hai?</b>
+Verified merchants aur platform escrow ke sath haan — release sirf tab karein jab PKR/USDT confirm ho jaye. Poora tareeqa: <a href="/blog/binance-p2p-guide-urdu">Binance P2P guide</a>.
+<b>Forex aur crypto — kis se shuru karein?</b>
+Jo aap zyada parhne ko tayyar hain. Forex fixed timings + regulation, crypto 24/7 + zyada volatility — farq samajhne ke liye: <a href="/blog/forex-vs-crypto-trading-2026">Forex vs Crypto</a>.
+<b>Bitcoin abhi khareedein ya nahi?</b>
+Is ka fixed jawab nahi — timing ki jagah risk samjhein. DCA jaisa lambe-muddat ka tareeqa zyada safe hai, aur bitcoin ki supply events ki tafseel: <a href="/blog/bitcoin-halving">Bitcoin Halving kya hai</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Ab sequence clear hai: hafta 1 se plan par chalein aur pehle 30 din sirf seekhne + chhoti practice ke liye rakhein. Poora rasta ek jagah chahiye to <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai</a> pillar guide parhein, practical likha hua material <a href="/books">Books page</a> par mil jayega, aur course se structured video chahiye to <a href="/courses/crypto-trading-course-beginner">Crypto Beginner Course</a> join karein.</p>`
+  },
+  {
     slug: 'forex-lot-size-guide-urdu',
     title: 'Forex Lot Size Kaise Calculate Karein — Position Size Formula (Urdu)',
     excerpt: 'Forex lot size kaise calculate karein: standard, mini aur micro lot ka farq, pip value, 3-step position size formula with examples, leverage ka rishta aur aam 4 galtiyan — saath free Position Size Calculator. Roman Urdu mein...',
