@@ -38,6 +38,7 @@ export function AccordionTrigger({ className, children, ...props }: HTMLAttribut
   return (
     <button
       className={cn('flex w-full items-center justify-between px-4 py-3 text-sm font-medium transition-all hover:underline', className)}
+      aria-expanded={open}
       onClick={toggle}
       {...props}
     >
