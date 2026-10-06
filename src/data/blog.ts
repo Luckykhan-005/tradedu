@@ -23,6 +23,88 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'position-sizing-kya-hai',
+    title: 'Position Sizing Kya Hai — Trade Ka Size Kaise Tay Karein (Urdu)',
+    excerpt: 'Position sizing kya hai: har trade ka size kaise tay karein — 3-number formula, risk % kitna rakhein, crypto aur forex examples, 4 aam galtiyan aur free calculator...',
+    category: 'Risk Management',
+    tags: ['Position Sizing', 'Risk Management', 'Trade Size', 'Risk Per Trade', 'Money Management'],
+    date: '2026-10-06',
+    readingTime: '7 min read',
+    html: `<p class="lead">Position sizing kya hai — yehi wo cheez hai jo trading ko business banati hai ya gambling. Strategy aap ko direction batati hai, lekin position sizing decide karti hai ke har loss kitna chhota hoga aur har win kitni bari. Ye guide batati hai ke trade ka "kitna" — size — 3 numbers se kaise nikalte hain, risk % kitna rakhte hain, aur naye trader kaunsi 4 galtiyan karte hain.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Formula:</b> Position Size = (Account Balance × Risk %) ÷ Stop Distance</li>
+<li><b>Rule:</b> Har trade par account ka 1% se zyada risk nahi — 10 loss streak mein bhi ~10% bach jata hai.</li>
+<li><b>10 second ka tareeqa:</b> <a href="/calculator/position-size">Position Size Calculator</a> mein balance, risk % aur stop daalein — size khud nikal aata hai.</li>
+</ul></div>
+
+<h2>1. Position sizing kya hai — ek nazar mein</h2>
+<p>Position sizing ka matlab hai <b>har trade mein kitna paisa lagana hai</b> ye pehle se tay karna. Ye decision entry se pehle hota hai, aur ye sirf 3 cheezein pakadta hai: account kitna hai, ek trade par kitna risk uthana hai, aur stop kitne door hai.</p>
+<p>Do traders ko same signal mila — ek ne account ka 2% lagaya, doosre ne 50%. Doosre ka stop lag gaya to us ka aadha khatam. Strategy same thi, farq sirf size ka tha. Isi liye purane traders kehte hain: <b>aap jo strategy choose karte hain wo important nahi, aap kitna risk le rahe hain wo important hai.</b> Is concept ki tafseel glossary mein: <a href="/glossary/position-sizing/">Position Sizing kya hai</a> aur poori framework: <a href="/glossary/risk-management/">Risk Management</a>.</p>
+
+<h2>2. Formula — 3 numbers jo har trade se pehle tay hon</h2>
+<div class="note"><b>Position Size = Risk Amount ÷ Stop Distance</b><br>
+Risk Amount = Account Balance × Risk %</div>
+<p><b>Example — crypto spot, $500 account:</b></p>
+<ul>
+<li>Risk 1% → Risk Amount = <b>$5</b></li>
+<li>Stop loss entry se <b>4% neeche</b> (apne setup ke mutabiq)</li>
+<li>Position Size = $5 ÷ 0.04 = <b>$125</b> — matlab $125 ka coin khareedein, agar stop hit ho to sirf $5 (1%) gawa</li>
+</ul>
+<p>Formula ka asal faida yeh hai ke <b>size khud barhta-ghat-ta hai:</b> stop zyada door to size chhota, stop qareeb to size bara — risk hamesha wahi $5. Aur haan — position utni hi rakhein jitni stop ke baad bhi hold ho sake, "price wapas aa jayega" ke sapne mein average karte rahein to planned 1% kahin 10% ban jata hai.</p>
+
+<h2>3. Risk % kitna rakhein?</h2>
+<p>Standard 1% hai — lekin sahi jawab aap ki nerves aur track record par depend karta hai:</p>
+<div class="scroll"><table>
+<thead><tr><th>Risk %</th><th>Kis ke liye</th><th>10 loss streak ke baad</th></tr></thead>
+<tbody>
+<tr><td>0.5%</td><td>Bilkul naye trader / chhota account</td><td>~5% khota</td></tr>
+<tr><td>1%</td><td>Standard — zyada tar traders</td><td>~10% khota</td></tr>
+<tr><td>2%</td><td>Sirf tested system + strong nerves</td><td>~18% khota</td></tr>
+</tbody></table></div>
+<p>Gaur karein: 3% risk par 10 losses = ~26% account (compounding), aur 26% wapas lane ke liye ~35% chahiyen — yehi cheez logon ko accounts khatam karati hai. Isi liye <a href="/blog/risk-management-1-percent-rule">1% Rule</a> itna simple hai: chhota risk = lambi zindagi. Aur agar loss ke baad size barhane ka mann kare ("recover kar lunga") — wo <a href="/glossary/fomo/">FOMO</a> aur revenge trading hai, strategy nahi.</p>
+
+<h2>4. Position sizing har market mein — farq sirf unit ka hai</h2>
+<p>Formula wahi rehta hai, badalta sirf unit hai:</p>
+<div class="scroll"><table>
+<thead><tr><th>Market</th><th>Size kis unit mein</th><th>Aage detail</th></tr></thead>
+<tbody>
+<tr><td>Crypto spot</td><td>Dollar amount ($)</td><td>Upar wala example — <a href="/blog/crypto-trading-shuru-karein-pakistan">crypto kaise shuru karein</a></td></tr>
+<tr><td>Forex</td><td>Lots (pip value ke sath)</td><td><a href="/blog/forex-lot-size-guide-urdu">Forex Lot Size guide</a> — wahi concept, pip wala formula</td></tr>
+<tr><td>Stocks/ETF</td><td>Shares</td><td>Risk ÷ (entry − stop) = shares ki tadaad</td></tr>
+</tbody></table></div>
+<p>Matlab: aap koi bhi market chunein, pehle formula seekh lein — phir sirf unit convert karna seekhna hai. Forex walon ke liye wo alag guide isi liye hai kyunki pip value beech mein aa jati hai.</p>
+
+<h2>5. Naye trader ki aam 4 galtiyan</h2>
+<ul>
+<li><b>Har trade ek fixed size:</b> Account badhta ja raha hai lekin size purana — risk % ghutta ja raha hai (acha hai), lekin account girta hua aur size fixed = risk % chupke se barh jata hai. Size hamesha balance se dobara nikalein.</li>
+<li><b>"Confident setup" par size barhana:</b> 5 baar jeetne ke baad 5% lagana — jahan jeetne ka confidence sab se bara hota hai wahi drawdown ka darwaza hota hai. <a href="/blog/fomo-revenge-trading-psychology">FOMO/overconfidence</a> isi waqt kaam karta hai.</li>
+<li><b>Stop ke bagair size:</b> Bina stop ke "risk kitna hai" ka jawab hi nahi — formula chal hi nahi sakta. Stop define: <a href="/glossary/stop-loss/">Stop-Loss kya hai</a>.</li>
+<li><b>Leverage ko size samajhna:</b> 1:500 leverage ka matlab 500 guna position lena nahi — leverage margin kam karta hai, aap ka risk % utna hi hona chahiye. <a href="/glossary/leverage/">Leverage kya hai</a>.</li>
+</ul>
+
+<h2>6. Position sizing + risk-reward = trading system</h2>
+<p>Position sizing sirf loss control karti hai — kitna wapas aayega wo risk-reward decide karta hai. Dono saath chalte hain: pehle stop (risk), phir target (reward), phir size. Aam setup: stop 4% aur target 8% (1:2) — is ka matlab har 3 mein se 1 trade mein bhi aap break-even se upar rehte hain. Hisaab yahan karein: <a href="/calculator/risk-reward"><b>Risk-Reward Calculator</b></a> + <a href="/glossary/risk-reward-ratio/">Risk-Reward Ratio kya hai</a>. Aur dono calculators ek sath use karein — position size, RR, phir entry. Number trade se pehle tay hon, trade ke baad nahi.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Position sizing aur money management mein kya farq hai?</b>
+Money management poora system hai (risk %, diversification, leverage rules); position sizing us ka sab se zaroori hissa hai — har trade ka size. Aam tor par dono ko ek hi cheez samjha jata hai.
+<b>Chhote account ($50-100) par bhi ye lagta hai?</b>
+Haan — chhota account hi zyada discipline maangta hai. 1% par $50 account = $0.50 risk; is se chhota size hota hai to leverage ki lalach na karein — pehle account barhayein ya demo par size practice karein.
+<b>Target tak size change karun?</b>
+Nahi. Size entry par tay hota hai aur stop tab tak nahi chalta (chhota bilkul nahi). Target/stop beech mein badalna hi planned risk ko khatam kar deta hai.
+<b>Forex mein lot size yehi hai?</b>
+Concept wahi hai lekin unit alag — forex mein pip value aati hai. Poora formula examples ke sath: <a href="/blog/forex-lot-size-guide-urdu">Forex Lot Size guide</a>.
+<b>Sab se pehle kya parhun?</b>
+Yehi 2 page kaafi hain: <a href="/glossary/risk-management/">Risk Management glossary</a> + <a href="/blog/risk-management-1-percent-rule">1% Rule</a> — phir seedha calculator par jayen.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Formula ab simple hai — ab ise aadat banayein: har trade se pehle 3 number (balance, risk %, stop) tay karein aur size khud nikal aayein. Concept mukammal karne ke liye <a href="/risk-management/index.html">Risk Management Course (Urdu book)</a> parhein, aur books ek jagah chahiye to <a href="/books">Books page</a> par hain. Practice ke liye pehle demo/demo amount par — structured course chahiye to <a href="/courses">Academy courses</a> dekhein.</p>`
+  },
+  {
     slug: 'crypto-trading-shuru-karein-pakistan',
     title: 'Crypto Trading Kaise Shuru Karein Pakistan — 6 Step Guide (2026)',
     excerpt: 'Crypto trading kaise shuru karein Pakistan mein: exchange account, P2P se PKR dalein, wallet security, spot se pehla trade, 1% risk rule aur 30-din ka plan — Roman Urdu guide...',
