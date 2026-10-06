@@ -30,6 +30,8 @@ export const blogPosts: BlogPost[] = [
     tags: ['Support Resistance', 'Trading Levels', 'Technical Analysis', 'Price Action', 'Chart Reading'],
     date: '2026-10-06',
     readingTime: '7 min read',
+    hero: '/blog/support-resistance-kaise-banayein.webp',
+    heroAlt: 'Support aur Resistance Kaise Banayein — Sahi Levels Chart Par (Urdu)',
     html: `<p class="lead">Support aur resistance kaise banayein — yehi sab se pehla sawal hai jab chart khulta hai. Log 20 lines draw kar dete hain aur phir har trade mein confuse ho jate hain. Ye guide batati hai ke levels kaise nikalte hain (sirf 4 steps), kaun sa level asal mein strong hota hai, false breakout se kaise bachein, aur chart par ek saaf workflow kaise chalayein — Roman Urdu mein.</p>
 
 <div class="note"><b>Jaldi ka jawab:</b>
@@ -108,6 +110,8 @@ Koi zaroori nahi — pure price action se kaam chalta hai. Chahein to volume con
     tags: ['Position Sizing', 'Risk Management', 'Trade Size', 'Risk Per Trade', 'Money Management'],
     date: '2026-10-06',
     readingTime: '7 min read',
+    hero: '/blog/position-sizing-kya-hai.webp',
+    heroAlt: 'Position Sizing Kya Hai — Trade Ka Size Kaise Tay Karein (Urdu)',
     html: `<p class="lead">Position sizing kya hai — yehi wo cheez hai jo trading ko business banati hai ya gambling. Strategy aap ko direction batati hai, lekin position sizing decide karti hai ke har loss kitna chhota hoga aur har win kitni bari. Ye guide batati hai ke trade ka "kitna" — size — 3 numbers se kaise nikalte hain, risk % kitna rakhte hain, aur naye trader kaunsi 4 galtiyan karte hain.</p>
 
 <div class="note"><b>Jaldi ka jawab:</b>
