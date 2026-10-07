@@ -73,6 +73,7 @@ pre button{position:absolute;top:6px;right:6px;border:1px solid var(--bd);backgr
 #res{margin-top:12px;font-weight:600}
 footer{margin-top:60px;padding:18px;border:2px dashed var(--bd);border-radius:12px;text-align:center;color:var(--mut)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}nav{transition:none}}
+html[data-theme="dark"]{--bg:#11162a;--fg:#e6eaf6;--mut:#9aa5c2;--card:#1a2140;--bd:#2c365c;--ac:#8c93ff;--am:#f0a640;--ok:#4ade80;--bad:#f87171;--code:#232c52}
 </style>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
@@ -81,6 +82,10 @@ footer{margin-top:60px;padding:18px;border:2px dashed var(--bd);border-radius:12
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ys0bro2pyz");
+</script>
+<!-- data-theme-init -->
+<script>
+(function(){try{var t=localStorage.getItem('tradeed-theme');var d=t?t==='dark':true;var h=document.documentElement;h.classList.toggle('dark',d);var dt=h.getAttribute('data-theme');if(!dt||/^(dark|light)$/.test(dt))h.setAttribute('data-theme',d?'dark':'light');if(!h.getAttribute('data-mode'))h.setAttribute('data-mode',d?'dark':'light');window.addEventListener('storage',function(e){if(e.key==='tradeed-theme'){var d2=e.newValue?e.newValue==='dark':true;h.classList.toggle('dark',d2);var dt2=h.getAttribute('data-theme');if(!dt2||/^(dark|light)$/.test(dt2))h.setAttribute('data-theme',d2?'dark':'light');}});}catch(e){}})();
 </script>
 </head>
 <body>

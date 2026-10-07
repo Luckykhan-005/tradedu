@@ -76,7 +76,20 @@
         }
         footer a { color: #cbd5e1; margin: 0 8px; }
         @media (max-width: 600px) { h1 { font-size: 1.55rem; } }
-    </style>
+    
+html.dark body{background:#0b0e11;color:#eaecef}
+html.dark a{color:#60a5fa}
+html.dark h1{color:#eaecef}
+html.dark .crumbs,html.dark .crumbs a{color:#8b97a8}
+html.dark .badge{background:#1e1b4b;color:#a5b4fc}
+html.dark .card{background:#151a22;border-color:#242c3a}
+html.dark .card h2{color:#8b97a8}
+html.dark .ctx{color:#aab6c6}
+html.dark .section h2{color:#eaecef}
+html.dark .section li a{background:#151a22;border-color:#242c3a;color:#93c5fd}
+html.dark .section li a:hover{background:#1c2430;border-color:#3b82f6}
+
+</style>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -84,6 +97,10 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ys0bro2pyz");
+</script>
+<!-- data-theme-init -->
+<script>
+(function(){try{var t=localStorage.getItem('tradeed-theme');var d=t?t==='dark':true;var h=document.documentElement;h.classList.toggle('dark',d);var dt=h.getAttribute('data-theme');if(!dt||/^(dark|light)$/.test(dt))h.setAttribute('data-theme',d?'dark':'light');if(!h.getAttribute('data-mode'))h.setAttribute('data-mode',d?'dark':'light');window.addEventListener('storage',function(e){if(e.key==='tradeed-theme'){var d2=e.newValue?e.newValue==='dark':true;h.classList.toggle('dark',d2);var dt2=h.getAttribute('data-theme');if(!dt2||/^(dark|light)$/.test(dt2))h.setAttribute('data-theme',d2?'dark':'light');}});}catch(e){}})();
 </script>
 </head>
 <body>
