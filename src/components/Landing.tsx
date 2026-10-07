@@ -163,9 +163,9 @@ function CountUp({ value }: { value: string }) {
       return
     }
     let raf = 0
-    const start = performance.now()
+    const t0 = performance.now() + 300
     const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / 1500)
+      const p = Math.min(1, Math.max(0, (t - t0) / 2000))
       setCur(Math.round(target * (1 - Math.pow(1 - p, 3))))
       if (p < 1) raf = requestAnimationFrame(tick)
     }
@@ -199,7 +199,7 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
           }
         })
       },
-      { threshold: 0.08 },
+      { threshold: 0.25 },
     )
     secs.forEach((s) => io.observe(s))
     return () => io.disconnect()
