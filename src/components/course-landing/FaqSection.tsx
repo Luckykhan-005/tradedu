@@ -4,7 +4,7 @@ import { SECTION, SectionHead, CONTAINER } from './shared'
 
 export function FaqSection() {
   return (
-    <section id="faq" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+    <section id="faq" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         <div className="grid gap-8 lg:grid-cols-[1fr,1.4fr]">
           <SectionHead

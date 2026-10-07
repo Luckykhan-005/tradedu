@@ -7,7 +7,7 @@ export function MethodSection() {
   const totalMin = classWorkflow.reduce((sum, s) => sum + parseInt(s.min, 10) || 0, 0)
 
   return (
-    <section id="method" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+    <section id="method" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         <Reveal>
           <div className="max-w-3xl">

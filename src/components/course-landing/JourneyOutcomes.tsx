@@ -7,7 +7,7 @@ export function JourneyOutcomes() {
   return (
     <>
       {/* Student journey */}
-      <section id="journey" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+      <section id="journey" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <SectionTitle className="max-w-3xl">Aap Ka Learning Journey</SectionTitle>
           <div className="mt-8 overflow-x-auto pb-2">
@@ -44,7 +44,7 @@ export function JourneyOutcomes() {
       </section>
 
       {/* Outcomes */}
-      <section id="outcomes" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+      <section id="outcomes" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <SectionHeadInline />
           <div className="mt-8 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">

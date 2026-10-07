@@ -22,7 +22,7 @@ export function EnrollCta({ onEnroll, onCurriculum }: EnrollCtaProps) {
   return (
     <>
       {/* Pricing / Enrollment */}
-      <section id="enroll" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+      <section id="enroll" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <div className="grid items-center gap-6 lg:grid-cols-2">
             <Reveal>

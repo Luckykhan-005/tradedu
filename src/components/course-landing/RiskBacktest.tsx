@@ -7,7 +7,7 @@ export function RiskBacktest() {
   return (
     <>
       {/* Risk Management */}
-      <section id="risk" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+      <section id="risk" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <Reveal>
             <div className="max-w-3xl">
@@ -89,7 +89,7 @@ export function RiskBacktest() {
       </section>
 
       {/* Backtesting + Paper Trading */}
-      <section id="backtest" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+      <section id="backtest" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <Reveal>
             <div className="max-w-3xl">

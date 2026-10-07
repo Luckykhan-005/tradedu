@@ -9,7 +9,7 @@ export function CurriculumTimeline() {
   const [open, setOpen] = useState<string | null>(curriculum[0]?.id ?? null)
 
   return (
-    <section id="curriculum" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+    <section id="curriculum" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         <SectionHead
           eyebrow="Complete Curriculum"

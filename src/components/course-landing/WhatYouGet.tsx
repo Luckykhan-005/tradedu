@@ -4,7 +4,7 @@ import { Reveal, SECTION, SectionHead, CONTAINER } from './shared'
 
 export function WhatYouGet() {
   return (
-    <section id="what-you-get" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+    <section id="what-you-get" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         <SectionHead
           eyebrow="What You Get"

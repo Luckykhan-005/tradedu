@@ -7,7 +7,7 @@ export function MentorWhy() {
   return (
     <>
       {/* Mentor */}
-      <section id="mentor" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+      <section id="mentor" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <div className="grid items-start gap-8 lg:grid-cols-[320px,1fr]">
             <Reveal>
@@ -61,7 +61,7 @@ export function MentorWhy() {
       </section>
 
       {/* Why TradeEd */}
-      <section id="why-tradeed" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+      <section id="why-tradeed" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
         <div className={CONTAINER}>
           <SectionTitle className="max-w-3xl">TradeEd Ka Approach Different Kyun Hai?</SectionTitle>
 

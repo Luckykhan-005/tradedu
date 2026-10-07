@@ -104,7 +104,7 @@ function HeroChart() {
 
 export function CourseHero({ onEnroll }: { onEnroll: () => void }) {
   return (
-    <section id="overview" className="relative overflow-hidden bg-secondary/40 scroll-mt-28">
+    <section id="overview" className="relative overflow-hidden bg-secondary/40 scroll-mt-36">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.05]"

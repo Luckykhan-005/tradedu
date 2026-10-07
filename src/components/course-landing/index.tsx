@@ -72,7 +72,7 @@ export function MasterCourseLanding({ onEnroll }: MasterCourseLandingProps) {
       {/* Anchor sub-navigation — global Navigation ke neeche sticky */}
       <nav
         aria-label="Course sections"
-        className="sticky top-12 z-40 border-b border-border bg-background/95 backdrop-blur-lg"
+        className="sticky top-[86px] z-40 border-b border-border bg-background/95 backdrop-blur-lg"
       >
         <div className="mx-auto flex w-full max-w-6xl items-center gap-1 overflow-x-auto px-4 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <span className="hidden shrink-0 items-center gap-1.5 pr-3 text-xs font-bold uppercase tracking-wider text-accent sm:flex">

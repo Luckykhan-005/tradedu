@@ -14,7 +14,7 @@ export function CourseFormat() {
   ]
 
   return (
-    <section id="format" className={`${SECTION} scroll-mt-28 bg-secondary/30 py-14 sm:py-20`}>
+    <section id="format" className={`${SECTION} scroll-mt-36 bg-secondary/30 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         {/* Format */}
         <SectionTitle className="max-w-3xl">Course Format</SectionTitle>

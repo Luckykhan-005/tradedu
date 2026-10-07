@@ -33,7 +33,7 @@ export function SectionHead({
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <SectionTitle className="mt-3">{title}</SectionTitle>
       {lead && <p className={cn(LEAD, center && 'mx-auto')}>{lead}</p>}
-      {id && <span id={id} className="block h-0 scroll-mt-28" />}
+      {id && <span id={id} className="block h-0 scroll-mt-36" />}
     </div>
   )
 }

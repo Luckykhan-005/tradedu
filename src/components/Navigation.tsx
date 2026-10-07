@@ -163,7 +163,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
   // Header hamesha sticky rehta hai — students kisi bhi page se bina scroll
   // kiye kisi bhi menu item tak asaani se move kar saken.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
+    const onScroll = () => setScrolled(window.scrollY > 10)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)

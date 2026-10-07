@@ -8,7 +8,7 @@ const toolIcons = [CandlestickChart, Wallet, NotebookPen, Repeat2, Database]
 
 export function ToolsWorkflow() {
   return (
-    <section id="tools" className={`${SECTION} scroll-mt-28 py-14 sm:py-20`}>
+    <section id="tools" className={`${SECTION} scroll-mt-36 py-14 sm:py-20`}>
       <div className={CONTAINER}>
         {/* Tools */}
         <SectionHeadInline />
