@@ -20,6 +20,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import type { ReactNode } from 'react'
 import type { Page } from './Navigation'
 import { blogPosts } from '@/data/blog'
 import type { BlogPost } from '@/data/blog'
@@ -119,6 +120,37 @@ const journeyPaths = [
   },
 ]
 
+const HERO_SEGMENTS: Array<[string, boolean]> = [
+  ['Trading seekhein ', false],
+  ['Urdu mein', true],
+  [', zero se professional tak', false],
+]
+
+const HERO_CHARS = HERO_SEGMENTS.flatMap(([text, hl]) => [...text].map((c) => ({ c, hl })))
+
+function WaveHeading() {
+  const nodes: ReactNode[] = []
+  let word: ReactNode[] = []
+  HERO_CHARS.forEach((ch, i) => {
+    if (ch.c === ' ') {
+      if (word.length) {
+        nodes.push(<span key={`w${i}`} className="inline-block whitespace-nowrap">{word}</span>)
+        word = []
+      }
+      nodes.push(' ')
+      return
+    }
+    const delay = 0.55 + (i / (HERO_CHARS.length - 1)) * 0.5
+    word.push(
+      <span key={i} className={ch.hl ? 'wave-char text-highlight' : 'wave-char'} style={{ animationDelay: `${delay.toFixed(3)}s` }}>
+        {ch.c}
+      </span>,
+    )
+  })
+  if (word.length) nodes.push(<span key="wend" className="inline-block whitespace-nowrap">{word}</span>)
+  return <>{nodes}</>
+}
+
 export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn, onOpenBlog }: LandingProps) {
   return (
     <div className="min-h-screen">
@@ -136,10 +168,8 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                 <Star className="h-3 w-3 fill-primary text-primary" />
                 Trading Education in Urdu
               </Badge>
-              <h1 className="relative text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-                Trading seekhein{' '}
-                <span className="text-highlight">Urdu mein</span>,{' '}
-                zero se professional tak
+              <h1 className="relative font-kerning-none text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+                <WaveHeading />
                 <span aria-hidden className="text-shine pointer-events-none absolute inset-0">
                   Trading seekhein Urdu mein, zero se professional tak
                 </span>
