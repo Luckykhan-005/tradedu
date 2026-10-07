@@ -129,13 +129,20 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div className="space-y-6 text-center md:text-left">
               <Badge variant="secondary" className="gap-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-highlight opacity-75 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-highlight" />
+                </span>
                 <Star className="h-3 w-3 fill-primary text-primary" />
                 Trading Education in Urdu
               </Badge>
-              <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+              <h1 className="relative text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
                 Trading seekhein{' '}
                 <span className="text-highlight">Urdu mein</span>,{' '}
                 zero se professional tak
+                <span aria-hidden className="text-shine pointer-events-none absolute inset-0">
+                  Trading seekhein Urdu mein, zero se professional tak
+                </span>
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
                 40+ books, structured courses, daily YouTube videos aur free trading tools —
