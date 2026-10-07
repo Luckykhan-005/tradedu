@@ -70,7 +70,7 @@ const navGroups: {
     {
       label: 'Learn',
       icon: BookOpen,
-      activePages: ['course-detail', 'blog-post', 'live-sessions', 'master-course'],
+      activePages: ['course-detail', 'blog-post'],
       items: [
         { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
         { id: 'books', label: 'Books', icon: Library, desc: '40+ free trading books with diagrams' },
@@ -120,12 +120,6 @@ const menuItems: {
       label: 'Certificates',
       icon: Trophy,
       desc: 'Course mukammal karke certificates hasil karein',
-    },
-    {
-      id: 'master-course',
-      label: 'Master Course',
-      icon: Crown,
-      desc: 'Flagship crypto trading program — seekhein aur enroll karein',
     },
     {
       id: 'live-sessions',
@@ -261,6 +255,23 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
 
         {/* Right of logo — Menu + actions */}
         <div className="flex flex-1 items-center gap-2 pl-4 lg:gap-3 lg:pl-6">
+          {/* Master Course — seedha top bar mein (Menu dropdown se bahar) */}
+          <div className="hidden shrink-0 items-center md:flex">
+            <button
+              type="button"
+              onClick={() => onNavigate('master-course')}
+              title="Master Course"
+              className={cn(
+                'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-base font-medium transition-all',
+                currentPage === 'master-course'
+                  ? 'bg-black text-white'
+                  : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+              )}
+            >
+              <Crown className="h-4 w-4" />
+              <span className="hidden lg:inline">Master Course</span>
+            </button>
+          </div>
           {menuItems.length > 0 && (
             <div className="hidden shrink-0 items-center md:flex">
               <DropdownMenu>
@@ -374,6 +385,21 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
           >
             <Search className="h-4 w-4" />
             Search
+          </button>
+          <button
+            onClick={() => {
+              onNavigate('master-course')
+              setMobileOpen(false)
+            }}
+            className={cn(
+              'flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-all',
+              currentPage === 'master-course'
+                ? 'bg-black text-white'
+                : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+            )}
+          >
+            <Crown className="h-4 w-4" />
+            Master Course
           </button>
           {navGroups.map((group) => (
             <div key={group.label} className="pt-1">
