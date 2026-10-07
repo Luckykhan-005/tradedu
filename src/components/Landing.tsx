@@ -169,7 +169,19 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
 
             {/* Hero stats card */}
             <div className="relative">
-              <Card className="overflow-hidden border-primary/20 shadow-2xl">
+              {/* Rotating light ring around the box */}
+              <div className="pointer-events-none absolute -inset-[3px] overflow-hidden rounded-[15px] motion-reduce:hidden">
+                <div
+                  className="absolute left-1/2 top-1/2 h-[300%] w-[300%] -translate-x-1/2 -translate-y-1/2 animate-spin"
+                  style={{
+                    background:
+                      'conic-gradient(from 0deg, transparent 0deg, transparent 250deg, color-mix(in oklab, var(--primary) 35%, transparent) 300deg, color-mix(in oklab, var(--primary) 95%, transparent) 345deg, #ffffff 358deg, color-mix(in oklab, var(--primary) 95%, transparent) 360deg)',
+                    animationDuration: '3.5s',
+                    filter: 'blur(2px)',
+                  }}
+                />
+              </div>
+              <Card className="relative overflow-hidden border-primary/20 shadow-2xl">
                 <div className="bg-gradient-to-br from-primary/10 via-card to-card p-8">
                   <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
