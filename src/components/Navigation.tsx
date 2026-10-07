@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import {
   TrendingUp,
   BookOpen,
@@ -29,6 +29,7 @@ import {
   GraduationCap,
   Map,
   Crown,
+  Calendar,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CryptoTicker } from '@/components/CryptoTicker'
@@ -121,10 +122,16 @@ const menuItems: {
       desc: 'Course mukammal karke certificates hasil karein',
     },
     {
-      id: 'live-sessions',
+      id: 'master-course',
       label: 'Master Course',
       icon: Crown,
       desc: 'Flagship crypto trading program — seekhein aur enroll karein',
+    },
+    {
+      id: 'live-sessions',
+      label: 'Live Sessions',
+      icon: Calendar,
+      desc: 'Upcoming live webinars aur schedule dekhein',
     },
     {
       id: 'pricing',
@@ -150,27 +157,13 @@ const menuItems: {
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut, onOpenSearch }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
-  const lastScrollY = useRef(0)
   const { theme, toggleTheme } = useTheme()
 
   // Scroll par header compact ho jata hai (logo chhota + topbar patli).
-  // Mobile pe scroll-down par header chhup jata hai taki footer ke top
-  // links (nav ke overlay wale hisse) tap ho sakein; scroll-up par wapas.
+  // Header hamesha sticky rehta hai — students kisi bhi page se bina scroll
+  // kiye kisi bhi menu item tak asaani se move kar saken.
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 30)
-      const isMobile = window.innerWidth < 768
-      if (!isMobile || y < 120) {
-        setHidden(false)
-      } else if (y > lastScrollY.current + 5) {
-        setHidden(true)
-      } else if (y < lastScrollY.current - 5) {
-        setHidden(false)
-      }
-      lastScrollY.current = y
-    }
+    const onScroll = () => setScrolled(window.scrollY > 30)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -189,8 +182,7 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
     <nav
       className={cn(
         'sticky top-0 z-50 border-b border-black/10 bg-[#BAFF29] backdrop-blur-lg transition-all duration-300',
-        scrolled && 'shadow-lg',
-        hidden && !mobileOpen && '-translate-y-full'
+        scrolled && 'shadow-lg'
       )}
     >
       <div

@@ -18,6 +18,7 @@ const CourseCatalog = lazy(() => import('./components/CourseCatalog').then((m) =
 const CourseDetail = lazy(() => import('./components/CourseDetail').then((m) => ({ default: m.CourseDetail })))
 const Dashboard = lazy(() => import('./components/Dashboard').then((m) => ({ default: m.Dashboard })))
 const MasterCourseLanding = lazy(() => import('./components/course-landing').then((m) => ({ default: m.MasterCourseLanding })))
+const LiveSessions = lazy(() => import('./components/LiveSessions').then((m) => ({ default: m.LiveSessions })))
 const Auth = lazy(() => import('./components/Auth').then((m) => ({ default: m.Auth })))
 const AdminPanel = lazy(() => import('./components/AdminPanel').then((m) => ({ default: m.AdminPanel })))
 const AiToolsHub = lazy(() => import('./components/AiToolsHub').then((m) => ({ default: m.AiToolsHub })))
@@ -794,10 +795,14 @@ export default function App() {
           />
         )}
 
-        {/* /live-sessions ab Master Crypto Course landing dikhata hai
-          (purani Live Sessions UI hata di gayi hai). */}
         {currentPage === 'live-sessions' && (
-          <MasterCourseLanding onEnroll={() => navigate('pricing')} />
+          <LiveSessions
+            sessions={sessions}
+            loading={loading}
+            hasAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
+            onUpgrade={() => navigate('pricing')}
+            onSignIn={openAuth}
+          />
         )}
 
         {currentPage === 'ai-tools' && (
