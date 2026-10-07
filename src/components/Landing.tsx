@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import type { ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Page } from './Navigation'
 import { blogPosts } from '@/data/blog'
 import type { BlogPost } from '@/data/blog'
@@ -151,9 +152,60 @@ function WaveHeading() {
   return <>{nodes}</>
 }
 
-export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn, onOpenBlog }: LandingProps) {
+function CountUp({ value }: { value: string }) {
+  const m = value.match(/^(\d+)(.*)$/)
+  const target = m ? parseInt(m[1], 10) : 0
+  const [cur, setCur] = useState(0)
+  useEffect(() => {
+    if (!m) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCur(target)
+      return
+    }
+    let raf = 0
+    const start = performance.now()
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / 1500)
+      setCur(Math.round(target * (1 - Math.pow(1 - p, 3))))
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value])
+  if (!m) return <>{value}</>
   return (
-    <div className="min-h-screen">
+    <>
+      {cur}
+      {m[2]}
+    </>
+  )
+}
+
+export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, onSignIn, onOpenBlog }: LandingProps) {
+  const rootRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const root = rootRef.current
+    if (!root) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const secs = [...root.querySelectorAll<HTMLElement>('section')].slice(1)
+    secs.forEach((s) => s.classList.add('reveal-sec'))
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in')
+            io.unobserve(e.target)
+          }
+        })
+      },
+      { threshold: 0.08 },
+    )
+    secs.forEach((s) => io.observe(s))
+    return () => io.disconnect()
+  }, [])
+  return (
+    <div className="min-h-screen" ref={rootRef}>
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-background to-card">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
@@ -232,7 +284,9 @@ export function Landing({ onNavigateToCourses, onNavigateToBooks, onNavigate, on
                   <div className="grid grid-cols-2 gap-4">
                     {stats.map((stat) => (
                       <div key={stat.label} className="rounded-lg border border-border bg-card/50 p-4">
-                        <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                        <div className="text-2xl font-bold text-primary">
+                          <CountUp value={stat.value} />
+                        </div>
                         <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
                       </div>
                     ))}
