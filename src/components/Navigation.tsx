@@ -3,7 +3,6 @@ import {
   TrendingUp,
   BookOpen,
   LayoutDashboard,
-  Calendar,
   LogIn,
   LogOut,
   Menu,
@@ -29,6 +28,7 @@ import {
   Flame,
   GraduationCap,
   Map,
+  Crown,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CryptoTicker } from '@/components/CryptoTicker'
@@ -41,7 +41,7 @@ import {
 import { cn } from '@/lib/cn'
 import { useTheme } from '@/lib/theme'
 
-export type Page = 'landing' | 'courses' | 'course-detail' | 'learn-course' | 'master-course' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' |   'calculator' | 'calculator-detail' | 'glossary' | 'journal' | 'liquidation' | 'market' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'hire' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
+export type Page = 'landing' | 'courses' | 'course-detail' | 'learn-course' | 'master-course' | 'dashboard' | 'live-sessions' | 'ai-tools' | 'ai-tool-detail' | 'admin' | 'books' | 'calculator' | 'calculator-detail' | 'glossary' | 'journal' | 'liquidation' | 'market' | 'certificates' | 'pricing' | 'subscribe' | 'about' | 'hire' | 'contact' | 'privacy' | 'terms' | 'disclaimer' | 'blog' | 'blog-post' | 'mentor' | 'roadmap' | 'not-found'
 
 interface NavigationProps {
   currentPage: Page
@@ -66,40 +66,40 @@ const navGroups: {
   items: NavItem[]
   activePages?: Page[]
 }[] = [
-  {
-    label: 'Learn',
-    icon: BookOpen,
-    activePages: ['course-detail', 'blog-post'],
-    items: [
-      { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
-      { id: 'books', label: 'Books', icon: Library, desc: '40+ free trading books with diagrams' },
-      { id: 'blog', label: 'Blog', icon: Newspaper, desc: 'Guides, strategies aur market explainers' },
-      { href: '/knowledge-base/', label: 'Knowledge Base', icon: Info, desc: 'Trading guides — bunyad se advanced tak' },
-      { id: 'roadmap', label: 'Trading Roadmap', icon: Map, desc: 'Beginner se pro tak ka poora rasta' },
-    ],
-  },
-  {
-    label: 'Tools',
-    icon: Calculator,
-    activePages: ['calculator-detail'],
-    items: [
-      { id: 'calculator', label: 'Calculators', icon: Calculator, desc: 'Position size, risk, P&L aur compounding' },
-      { id: 'journal', label: 'Journal', icon: NotebookPen, desc: 'Apne trades log aur analyze karein' },
-      { id: 'glossary', label: 'Glossary', icon: BookMarked, desc: 'Trading terms English + Urdu' },
-      { id: 'market', label: 'Market Overview', icon: TrendingUp, desc: 'Live prices, dominance aur fear & greed' },
-      { id: 'liquidation', label: 'Heatmap', icon: Flame, desc: 'Live liquidation heatmap (Binance)' },
-    ],
-  },
-  {
-    label: 'AI',
-    icon: Bot,
-    activePages: ['ai-tool-detail'],
-    items: [
-      { id: 'ai-tools', label: 'AI Tools', icon: Bot, desc: 'AI-powered analysis tools' },
-      { id: 'mentor', label: 'AI Mentor', icon: Sparkles, desc: 'Sawaal poochein — foran jawab' },
-    ],
-  },
-]
+    {
+      label: 'Learn',
+      icon: BookOpen,
+      activePages: ['course-detail', 'blog-post', 'live-sessions', 'master-course'],
+      items: [
+        { id: 'courses', label: 'Academy', icon: GraduationCap, desc: 'Structured Urdu courses — beginner se advanced' },
+        { id: 'books', label: 'Books', icon: Library, desc: '40+ free trading books with diagrams' },
+        { id: 'blog', label: 'Blog', icon: Newspaper, desc: 'Guides, strategies aur market explainers' },
+        { href: '/knowledge-base/', label: 'Knowledge Base', icon: Info, desc: 'Trading guides — bunyad se advanced tak' },
+        { id: 'roadmap', label: 'Trading Roadmap', icon: Map, desc: 'Beginner se pro tak ka poora rasta' },
+      ],
+    },
+    {
+      label: 'Tools',
+      icon: Calculator,
+      activePages: ['calculator-detail'],
+      items: [
+        { id: 'calculator', label: 'Calculators', icon: Calculator, desc: 'Position size, risk, P&L aur compounding' },
+        { id: 'journal', label: 'Journal', icon: NotebookPen, desc: 'Apne trades log aur analyze karein' },
+        { id: 'glossary', label: 'Glossary', icon: BookMarked, desc: 'Trading terms English + Urdu' },
+        { id: 'market', label: 'Market Overview', icon: TrendingUp, desc: 'Live prices, dominance aur fear & greed' },
+        { id: 'liquidation', label: 'Heatmap', icon: Flame, desc: 'Live liquidation heatmap (Binance)' },
+      ],
+    },
+    {
+      label: 'AI',
+      icon: Bot,
+      activePages: ['ai-tool-detail'],
+      items: [
+        { id: 'ai-tools', label: 'AI Tools', icon: Bot, desc: 'AI-powered analysis tools' },
+        { id: 'mentor', label: 'AI Mentor', icon: Sparkles, desc: 'Sawaal poochein — foran jawab' },
+      ],
+    },
+  ]
 
 const menuItems: {
   id: Page
@@ -108,44 +108,44 @@ const menuItems: {
   adminOnly?: boolean
   desc: string
 }[] = [
-  {
-    id: 'dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-    desc: 'Progress aur courses jari rakhein',
-  },
-  {
-    id: 'certificates',
-    label: 'Certificates',
-    icon: Trophy,
-    desc: 'Course mukammal karke certificates hasil karein',
-  },
-  {
-    id: 'live-sessions',
-    label: 'Live Sessions',
-    icon: Calendar,
-    desc: 'Upcoming live webinars aur schedule dekhein',
-  },
-  {
-    id: 'pricing',
-    label: 'Plans',
-    icon: Sparkles,
-    desc: 'Free aur paid plans compare karein',
-  },
-  {
-    id: 'hire',
-    label: 'Hire Me',
-    icon: Code2,
-    desc: 'Web developer — start your website project',
-  },
-  {
-    id: 'admin',
-    label: 'Admin',
-    icon: Shield,
-    adminOnly: true,
-    desc: 'Students, requests aur content manage karein',
-  },
-]
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: LayoutDashboard,
+      desc: 'Progress aur courses jari rakhein',
+    },
+    {
+      id: 'certificates',
+      label: 'Certificates',
+      icon: Trophy,
+      desc: 'Course mukammal karke certificates hasil karein',
+    },
+    {
+      id: 'live-sessions',
+      label: 'Master Course',
+      icon: Crown,
+      desc: 'Flagship crypto trading program — seekhein aur enroll karein',
+    },
+    {
+      id: 'pricing',
+      label: 'Plans',
+      icon: Sparkles,
+      desc: 'Free aur paid plans compare karein',
+    },
+    {
+      id: 'hire',
+      label: 'Hire Me',
+      icon: Code2,
+      desc: 'Web developer — start your website project',
+    },
+    {
+      id: 'admin',
+      label: 'Admin',
+      icon: Shield,
+      adminOnly: true,
+      desc: 'Students, requests aur content manage karein',
+    },
+  ]
 
 export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut, onOpenSearch }: NavigationProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -271,85 +271,85 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
         <div className="flex flex-1 items-center gap-2 pl-4 lg:gap-3 lg:pl-6">
           {menuItems.length > 0 && (
             <div className="hidden shrink-0 items-center md:flex">
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                className={cn(
-                  'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-base font-medium transition-all',
-                  filteredMenu.some((item) => item.id === currentPage)
-                    ? 'bg-black text-white'
-                    : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
-                )}
-              >
-                <LayoutGrid className="h-4 w-4" />
-                Menu
-                <ChevronDown className="h-3.5 w-3.5" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[330px] rounded-xl border-border/60 p-2 shadow-xl">
-                {filteredMenu.map((item) => (
-                  <DropdownMenuItem
-                    key={item.id}
-                    onClick={() => onNavigate(item.id)}
-                    className="items-start gap-3 rounded-lg p-2.5 hover:bg-secondary"
-                  >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                      <item.icon className="h-4 w-4" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className={cn('block text-sm font-medium', currentPage === item.id && 'text-primary')}>
-                        {item.label}
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    'flex shrink-0 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-base font-medium transition-all',
+                    filteredMenu.some((item) => item.id === currentPage)
+                      ? 'bg-black text-white'
+                      : 'text-black/80 hover:bg-primary hover:text-primary-foreground'
+                  )}
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                  Menu
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-[330px] rounded-xl border-border/60 p-2 shadow-xl">
+                  {filteredMenu.map((item) => (
+                    <DropdownMenuItem
+                      key={item.id}
+                      onClick={() => onNavigate(item.id)}
+                      className="items-start gap-3 rounded-lg p-2.5 hover:bg-secondary"
+                    >
+                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
+                        <item.icon className="h-4 w-4" />
                       </span>
-                      <span className="block text-xs text-muted-foreground">{item.desc}</span>
-                    </span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        )}
+                      <span className="min-w-0">
+                        <span className={cn('block text-sm font-medium', currentPage === item.id && 'text-primary')}>
+                          {item.label}
+                        </span>
+                        <span className="block text-xs text-muted-foreground">{item.desc}</span>
+                      </span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          )}
 
           <div className="ml-auto hidden items-center gap-2 md:flex">
-          <button
-            onClick={onOpenSearch}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
-            aria-label="Search"
-            title="Search (Ctrl+K)"
-          >
-            <Search className="h-4 w-4" />
-          </button>
-          <button
-            onClick={toggleTheme}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
-            aria-label="Toggle theme"
-            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
-          >
-            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
-          <Button
-            onClick={() => onNavigate('hire')}
-            className="hidden h-9 gap-1.5 whitespace-nowrap rounded-lg bg-black px-3 text-white hover:bg-black/80 md:inline-flex"
-            size="sm"
-          >
-            <Code2 className="h-4 w-4" />
-            Hire Me
-          </Button>
-          {user ? (
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 rounded-full bg-black/15 px-3 py-1.5 text-black">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/25">
-                  <User className="h-3.5 w-3.5 text-white" />
-                </div>
-                <span className="text-sm font-medium max-w-[160px] truncate">{user.name || user.email}</span>
-              </div>
-                <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
-                <LogOut className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <Button onClick={onSignIn} className="gap-2">
-              <LogIn className="h-4 w-4" />
-              Sign In
+            <button
+              onClick={onOpenSearch}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
+              aria-label="Search"
+              title="Search (Ctrl+K)"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/30 text-black transition-colors hover:bg-primary hover:text-primary-foreground"
+              aria-label="Toggle theme"
+              title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <Button
+              onClick={() => onNavigate('hire')}
+              className="hidden h-9 gap-1.5 whitespace-nowrap rounded-lg bg-black px-3 text-white hover:bg-black/80 md:inline-flex"
+              size="sm"
+            >
+              <Code2 className="h-4 w-4" />
+              Hire Me
             </Button>
-          )}
+            {user ? (
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 rounded-full bg-black/15 px-3 py-1.5 text-black">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-black/25">
+                    <User className="h-3.5 w-3.5 text-white" />
+                  </div>
+                  <span className="text-sm font-medium max-w-[160px] truncate">{user.name || user.email}</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Button onClick={onSignIn} className="gap-2">
+                <LogIn className="h-4 w-4" />
+                Sign In
+              </Button>
+            )}
           </div>
 
           <button
@@ -442,10 +442,10 @@ export function Navigation({ currentPage, onNavigate, user, onSignIn, onSignOut,
             </button>
           </div>
           <div className="border-t border-black/10 pt-2 mt-2">
-          {user ? (
+            {user ? (
               <div className="flex items-center justify-between px-4 text-black">
                 <span className="text-sm">{user.name || user.email}</span>
-              <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
+                <Button variant="ghost" size="sm" onClick={onSignOut} className="text-black hover:bg-primary hover:text-primary-foreground">
                   <LogOut className="h-4 w-4" />
                 </Button>
               </div>

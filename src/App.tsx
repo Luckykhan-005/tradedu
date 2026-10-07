@@ -17,7 +17,6 @@ import { Button } from './components/ui/button'
 const CourseCatalog = lazy(() => import('./components/CourseCatalog').then((m) => ({ default: m.CourseCatalog })))
 const CourseDetail = lazy(() => import('./components/CourseDetail').then((m) => ({ default: m.CourseDetail })))
 const Dashboard = lazy(() => import('./components/Dashboard').then((m) => ({ default: m.Dashboard })))
-const LiveSessions = lazy(() => import('./components/LiveSessions').then((m) => ({ default: m.LiveSessions })))
 const MasterCourseLanding = lazy(() => import('./components/course-landing').then((m) => ({ default: m.MasterCourseLanding })))
 const Auth = lazy(() => import('./components/Auth').then((m) => ({ default: m.Auth })))
 const AdminPanel = lazy(() => import('./components/AdminPanel').then((m) => ({ default: m.AdminPanel })))
@@ -406,21 +405,21 @@ export default function App() {
     if (selectedCourse && courseSlug(selectedCourse.id, selectedCourse.title) === slug) return
     let cancelled = false
     setCourseLoading(true)
-    ;(async () => {
-      let detail: CourseDetailData | null = null
-      // Enrolled courses (published + unpublished dono) — admin bypass RLS
-      for (const id of enrolledCourseIds) {
-        const d = await getCourseDetail(id)
-        if (d && courseSlug(d.id, d.title) === slug) {
-          detail = d as CourseDetailData
-          break
+      ; (async () => {
+        let detail: CourseDetailData | null = null
+        // Enrolled courses (published + unpublished dono) — admin bypass RLS
+        for (const id of enrolledCourseIds) {
+          const d = await getCourseDetail(id)
+          if (d && courseSlug(d.id, d.title) === slug) {
+            detail = d as CourseDetailData
+            break
+          }
         }
-      }
-      if (cancelled) return
-      if (detail) setSelectedCourse(detail as CourseDetailData)
-      // detail nahi mila = not enrolled/not admin → access gate render hoga
-      setCourseLoading(false)
-    })()
+        if (cancelled) return
+        if (detail) setSelectedCourse(detail as CourseDetailData)
+        // detail nahi mila = not enrolled/not admin → access gate render hoga
+        setCourseLoading(false)
+      })()
     return () => {
       cancelled = true
       setCourseLoading(false)
@@ -437,10 +436,10 @@ export default function App() {
       return
     }
     let cancelled = false
-    ;(async () => {
-      const details = await Promise.all(missing.map((id) => getCourseDetail(id)))
-      if (!cancelled) setEnrolledExtra(details.filter(Boolean) as CourseDetailData[])
-    })()
+      ; (async () => {
+        const details = await Promise.all(missing.map((id) => getCourseDetail(id)))
+        if (!cancelled) setEnrolledExtra(details.filter(Boolean) as CourseDetailData[])
+      })()
     return () => {
       cancelled = true
     }
@@ -457,19 +456,19 @@ export default function App() {
     if (selectedCourse && courseSlug(selectedCourse.id, selectedCourse.title) === slug) return
     let cancelled = false
     setCourseLoading(true)
-    ;(async () => {
-      let list: { id: string; title: string }[] = courses
-      if (!list.length) {
-        const res = await listCatalogCourses()
-        list = res.courses || []
-      }
-      const match = list.find((c) => courseSlug(c.id, c.title) === slug)
-      const detail = match ? await getCourseDetail(match.id) : null
-      if (cancelled) return
-      if (detail) setSelectedCourse(detail as CourseDetailData)
-      else setCurrentPage('not-found')
-      setCourseLoading(false)
-    })()
+      ; (async () => {
+        let list: { id: string; title: string }[] = courses
+        if (!list.length) {
+          const res = await listCatalogCourses()
+          list = res.courses || []
+        }
+        const match = list.find((c) => courseSlug(c.id, c.title) === slug)
+        const detail = match ? await getCourseDetail(match.id) : null
+        if (cancelled) return
+        if (detail) setSelectedCourse(detail as CourseDetailData)
+        else setCurrentPage('not-found')
+        setCourseLoading(false)
+      })()
     return () => {
       cancelled = true
       setCourseLoading(false)
@@ -509,15 +508,15 @@ export default function App() {
       return
     }
     let cancelled = false
-    ;(async () => {
-      const [progress, enrollments] = await Promise.all([
-        fetchLessonProgress(user.id),
-        fetchEnrollments(user.id),
-      ])
-      if (cancelled) return
-      setLessonProgress(progress)
-      setEnrolledCourseIds(new Set(enrollments.courseIds || []))
-    })()
+      ; (async () => {
+        const [progress, enrollments] = await Promise.all([
+          fetchLessonProgress(user.id),
+          fetchEnrollments(user.id),
+        ])
+        if (cancelled) return
+        setLessonProgress(progress)
+        setEnrolledCourseIds(new Set(enrollments.courseIds || []))
+      })()
     return () => {
       cancelled = true
     }
@@ -697,256 +696,252 @@ export default function App() {
       />
 
       <Suspense fallback={PageFallback}>
-      <SearchOverlay
-        open={searchOpen}
-        onClose={() => setSearchOpen(false)}
-        onNavigate={navigate}
-        onOpenBlog={openBlogPost}
-      />
-
-      {currentPage === 'landing' && (
-        <Landing
-          onNavigateToCourses={() => navigate('courses')}
-          onNavigateToBooks={() => navigate('books')}
+        <SearchOverlay
+          open={searchOpen}
+          onClose={() => setSearchOpen(false)}
           onNavigate={navigate}
-          onSignIn={openAuth}
           onOpenBlog={openBlogPost}
         />
-      )}
 
-      {currentPage === 'courses' && (
-        <CourseCatalog
-          courses={courses}
-          onSelectCourse={handleSelectCourse}
-          loading={loading}
-        />
-      )}
+        {currentPage === 'landing' && (
+          <Landing
+            onNavigateToCourses={() => navigate('courses')}
+            onNavigateToBooks={() => navigate('books')}
+            onNavigate={navigate}
+            onSignIn={openAuth}
+            onOpenBlog={openBlogPost}
+          />
+        )}
 
-      {currentPage === 'course-detail' &&
-        (selectedCourse ? (
-          <CourseDetail
-            course={selectedCourse}
-            modules={selectedCourse.modules}
-            progress={lessonProgress[selectedCourse.id] || {}}
-            enrolled={enrolledCourseIds.has(selectedCourse.id)}
-            hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
-            onBack={() => navigate('courses')}
-            onUpgrade={() => navigate('pricing')}
-            onEnroll={() => {
-              if (!user) {
-                openAuth()
-              } else {
-                handleEnroll(selectedCourse.id)
+        {currentPage === 'courses' && (
+          <CourseCatalog
+            courses={courses}
+            onSelectCourse={handleSelectCourse}
+            loading={loading}
+          />
+        )}
+
+        {currentPage === 'course-detail' &&
+          (selectedCourse ? (
+            <CourseDetail
+              course={selectedCourse}
+              modules={selectedCourse.modules}
+              progress={lessonProgress[selectedCourse.id] || {}}
+              enrolled={enrolledCourseIds.has(selectedCourse.id)}
+              hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
+              onBack={() => navigate('courses')}
+              onUpgrade={() => navigate('pricing')}
+              onEnroll={() => {
+                if (!user) {
+                  openAuth()
+                } else {
+                  handleEnroll(selectedCourse.id)
+                }
+              }}
+              onToggleLesson={(lessonId) =>
+                handleToggleLesson(selectedCourse.id, lessonId)
               }
-            }}
-            onToggleLesson={(lessonId) =>
-              handleToggleLesson(selectedCourse.id, lessonId)
-            }
-          />
-        ) : loading || courseLoading ? (
-          PageFallback
-        ) : (
-          <NotFound onNavigate={navigate} />
-        ))}
+            />
+          ) : loading || courseLoading ? (
+            PageFallback
+          ) : (
+            <NotFound onNavigate={navigate} />
+          ))}
 
-      {/* Student course dashboard — same CourseDetail/lesson-player, enrolled-only */}
-      {currentPage === 'learn-course' &&
-        (selectedCourse &&
-        user &&
-        (enrolledCourseIds.has(selectedCourse.id) || user.role === 'admin') ? (
-          <CourseDetail
-            course={selectedCourse}
-            modules={selectedCourse.modules}
-            progress={lessonProgress[selectedCourse.id] || {}}
-            enrolled={true}
-            hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
-            onBack={() => navigate('dashboard')}
-            backLabel="Back to dashboard"
-            initialLessonSlug={learnLessonSlug}
+        {/* Student course dashboard — same CourseDetail/lesson-player, enrolled-only */}
+        {currentPage === 'learn-course' &&
+          (selectedCourse &&
+            user &&
+            (enrolledCourseIds.has(selectedCourse.id) || user.role === 'admin') ? (
+            <CourseDetail
+              course={selectedCourse}
+              modules={selectedCourse.modules}
+              progress={lessonProgress[selectedCourse.id] || {}}
+              enrolled={true}
+              hasFullAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
+              onBack={() => navigate('dashboard')}
+              backLabel="Back to dashboard"
+              initialLessonSlug={learnLessonSlug}
+              onUpgrade={() => navigate('pricing')}
+              onEnroll={() => navigate('pricing')}
+              onToggleLesson={(lessonId) =>
+                handleToggleLesson(selectedCourse.id, lessonId)
+              }
+            />
+          ) : loading || courseLoading ? (
+            PageFallback
+          ) : (
+            <LearnAccessGate
+              user={user}
+              onSignIn={openAuth}
+              onEnroll={() => navigate('pricing')}
+            />
+          ))}
+
+        {currentPage === 'master-course' && (
+          <MasterCourseLanding onEnroll={() => navigate('pricing')} />
+        )}
+
+        {currentPage === 'dashboard' && (
+          <Dashboard
+            enrolledCourses={enrolledCourses}
+            upcomingSessions={sessions.filter((s) => new Date(s.date) > new Date()).slice(0, 3)}
+            stats={stats}
+            onSelectCourse={handleSelectCourse}
+            onBrowseCourses={() => navigate('courses')}
+            user={user}
             onUpgrade={() => navigate('pricing')}
-            onEnroll={() => navigate('pricing')}
-            onToggleLesson={(lessonId) =>
-              handleToggleLesson(selectedCourse.id, lessonId)
-            }
           />
-        ) : loading || courseLoading ? (
-          PageFallback
-        ) : (
-          <LearnAccessGate
+        )}
+
+        {/* /live-sessions ab Master Crypto Course landing dikhata hai
+          (purani Live Sessions UI hata di gayi hai). */}
+        {currentPage === 'live-sessions' && (
+          <MasterCourseLanding onEnroll={() => navigate('pricing')} />
+        )}
+
+        {currentPage === 'ai-tools' && (
+          <AiToolsHub
             user={user}
             onSignIn={openAuth}
-            onEnroll={() => navigate('pricing')}
-          />
-        ))}
-
-      {currentPage === 'master-course' && (
-        <MasterCourseLanding onEnroll={() => navigate('pricing')} />
-      )}
-
-      {currentPage === 'dashboard' && (
-        <Dashboard
-          enrolledCourses={enrolledCourses}
-          upcomingSessions={sessions.filter((s) => new Date(s.date) > new Date()).slice(0, 3)}
-          stats={stats}
-          onSelectCourse={handleSelectCourse}
-          onBrowseCourses={() => navigate('courses')}
-          user={user}
-          onUpgrade={() => navigate('pricing')}
-        />
-      )}
-
-      {currentPage === 'live-sessions' && (
-        <LiveSessions
-          sessions={sessions}
-          loading={loading}
-          hasAccess={!!user && (user.role === 'admin' || user.plan !== 'FREE')}
-          onUpgrade={() => navigate('pricing')}
-          onSignIn={openAuth}
-        />
-      )}
-
-      {currentPage === 'ai-tools' && (
-        <AiToolsHub
-          user={user}
-          onSignIn={openAuth}
-          onUpgrade={() => navigate('pricing')}
-          onSelectTool={handleSelectAiTool}
-          onHome={() => navigate('landing')}
-        />
-      )}
-
-      {currentPage === 'ai-tool-detail' && selectedAiTool && (
-        <AiToolDetail
-          tool={selectedAiTool}
-          user={user}
-          onSignIn={openAuth}
-          onUpgrade={() => navigate('pricing')}
-          onBack={() => navigate('ai-tools')}
-          onHome={() => navigate('landing')}
-        />
-      )}
-
-      {currentPage === 'books' && (
-        <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} onSignIn={openAuth} />
-      )}
-
-      {currentPage === 'blog' && (
-        <Blog onSelectPost={openBlogPost} />
-      )}
-
-      {currentPage === 'mentor' && (
-        <Mentor user={user} onUpgrade={() => navigate('pricing')} />
-      )}
-
-      {currentPage === 'blog-post' && selectedBlogPost && (
-        <BlogPost post={selectedBlogPost} onBack={() => navigate('blog')} onOpenBlog={openBlogPost} onNavigate={navigate} />
-      )}
-
-      {currentPage === 'blog-post' && !selectedBlogPost && (
-        <NotFound onNavigate={navigate} />
-      )}
-
-      {currentPage === 'calculator' && (
-        <CalculatorHub onOpen={openCalculator} onNavigate={navigate} />
-      )}
-
-      {currentPage === 'calculator-detail' && (
-        <CalculatorDetail
-          slug={selectedCalc || ''}
-          onBack={() => navigate('calculator')}
-          onOpen={openCalculator}
-          onNavigate={navigate}
-        />
-      )}
-
-      {currentPage === 'glossary' && (
-        <Glossary />
-      )}
-
-      {currentPage === 'journal' && (
-        user && (user.role === 'admin' || user.plan !== 'FREE') ? (
-          <Journal user={user} onSignIn={openAuth} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
             onUpgrade={() => navigate('pricing')}
-            onSignIn={openAuth}
+            onSelectTool={handleSelectAiTool}
+            onHome={() => navigate('landing')}
           />
-        )
-      )}
+        )}
 
-  {currentPage === 'liquidation' && (
-  <Liquidation />
-  )}
-  {currentPage === 'market' && (
-    <MarketOverview />
-  )}
-
-      {currentPage === 'certificates' && (
-        user && (user.role === 'admin' || user.plan !== 'FREE') ? (
-          <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
-        ) : (
-          <PlanGate
-            requiredPlan="PREMIUM"
-            currentPlan={user?.plan || 'FREE'}
+        {currentPage === 'ai-tool-detail' && selectedAiTool && (
+          <AiToolDetail
+            tool={selectedAiTool}
+            user={user}
+            onSignIn={openAuth}
             onUpgrade={() => navigate('pricing')}
-            onSignIn={openAuth}
+            onBack={() => navigate('ai-tools')}
+            onHome={() => navigate('landing')}
           />
-        )
-      )}
+        )}
 
-      {currentPage === 'pricing' && (
-        <Pricing
-          currentPlan={user?.plan || 'FREE'}
-          user={user}
-          onBack={() => navigate('dashboard')}
-          onSubscribe={(plan) => {
-            setSelectedPlan(plan)
-            navigate('subscribe')
-          }}
-        />
-      )}
+        {currentPage === 'books' && (
+          <Books user={user} onBack={() => navigate('dashboard')} onUpgrade={() => navigate('pricing')} onSignIn={openAuth} />
+        )}
 
-      {currentPage === 'subscribe' && (
-        <Subscribe user={user} onBack={() => navigate('pricing')} selectedPlan={selectedPlan} />
-      )}
+        {currentPage === 'blog' && (
+          <Blog onSelectPost={openBlogPost} />
+        )}
 
-      {currentPage === 'admin' && (
-        <AdminPanel onBack={() => navigate('landing')} user={user} onSessionExpired={handleSessionExpired} />
-      )}
+        {currentPage === 'mentor' && (
+          <Mentor user={user} onUpgrade={() => navigate('pricing')} />
+        )}
 
-      {currentPage === 'about' && (
-        <About onNavigate={(p) => navigate(p as Page)} />
-      )}
+        {currentPage === 'blog-post' && selectedBlogPost && (
+          <BlogPost post={selectedBlogPost} onBack={() => navigate('blog')} onOpenBlog={openBlogPost} onNavigate={navigate} />
+        )}
 
-      {currentPage === 'roadmap' && (
-        <Roadmap onNavigate={navigate} />
-      )}
+        {currentPage === 'blog-post' && !selectedBlogPost && (
+          <NotFound onNavigate={navigate} />
+        )}
 
-      {currentPage === 'contact' && (
-        <Contact />
-      )}
+        {currentPage === 'calculator' && (
+          <CalculatorHub onOpen={openCalculator} onNavigate={navigate} />
+        )}
 
-      {currentPage === 'hire' && (
-        <HireMe onNavigate={navigate} />
-      )}
+        {currentPage === 'calculator-detail' && (
+          <CalculatorDetail
+            slug={selectedCalc || ''}
+            onBack={() => navigate('calculator')}
+            onOpen={openCalculator}
+            onNavigate={navigate}
+          />
+        )}
 
-      {currentPage === 'privacy' && (
-        <Privacy />
-      )}
+        {currentPage === 'glossary' && (
+          <Glossary />
+        )}
 
-      {currentPage === 'terms' && (
-        <Terms />
-      )}
+        {currentPage === 'journal' && (
+          user && (user.role === 'admin' || user.plan !== 'FREE') ? (
+            <Journal user={user} onSignIn={openAuth} />
+          ) : (
+            <PlanGate
+              requiredPlan="PREMIUM"
+              currentPlan={user?.plan || 'FREE'}
+              onUpgrade={() => navigate('pricing')}
+              onSignIn={openAuth}
+            />
+          )
+        )}
 
-      {currentPage === 'disclaimer' && (
-        <Disclaimer />
-      )}
+        {currentPage === 'liquidation' && (
+          <Liquidation />
+        )}
+        {currentPage === 'market' && (
+          <MarketOverview />
+        )}
 
-      {currentPage === 'not-found' && (
-        <NotFound onNavigate={navigate} />
-      )}
+        {currentPage === 'certificates' && (
+          user && (user.role === 'admin' || user.plan !== 'FREE') ? (
+            <Certificates enrolledCourses={enrolledCourses} userName={user?.name} />
+          ) : (
+            <PlanGate
+              requiredPlan="PREMIUM"
+              currentPlan={user?.plan || 'FREE'}
+              onUpgrade={() => navigate('pricing')}
+              onSignIn={openAuth}
+            />
+          )
+        )}
+
+        {currentPage === 'pricing' && (
+          <Pricing
+            currentPlan={user?.plan || 'FREE'}
+            user={user}
+            onBack={() => navigate('dashboard')}
+            onSubscribe={(plan) => {
+              setSelectedPlan(plan)
+              navigate('subscribe')
+            }}
+          />
+        )}
+
+        {currentPage === 'subscribe' && (
+          <Subscribe user={user} onBack={() => navigate('pricing')} selectedPlan={selectedPlan} />
+        )}
+
+        {currentPage === 'admin' && (
+          <AdminPanel onBack={() => navigate('landing')} user={user} onSessionExpired={handleSessionExpired} />
+        )}
+
+        {currentPage === 'about' && (
+          <About onNavigate={(p) => navigate(p as Page)} />
+        )}
+
+        {currentPage === 'roadmap' && (
+          <Roadmap onNavigate={navigate} />
+        )}
+
+        {currentPage === 'contact' && (
+          <Contact />
+        )}
+
+        {currentPage === 'hire' && (
+          <HireMe onNavigate={navigate} />
+        )}
+
+        {currentPage === 'privacy' && (
+          <Privacy />
+        )}
+
+        {currentPage === 'terms' && (
+          <Terms />
+        )}
+
+        {currentPage === 'disclaimer' && (
+          <Disclaimer />
+        )}
+
+        {currentPage === 'not-found' && (
+          <NotFound onNavigate={navigate} />
+        )}
       </Suspense>
 
       <Footer onNavigate={navigate} />
