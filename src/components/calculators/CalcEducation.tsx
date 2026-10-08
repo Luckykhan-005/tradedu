@@ -34,6 +34,20 @@ export function CalcEducation({ def, onBack, onOpen, onNavigate }: CalcEducation
         </div>
 
         <div className="mt-8 rounded-xl border border-border bg-background p-5">
+          <h3 className="mb-3 text-lg font-semibold">Calculator Kaise Use Karein?</h3>
+          <ol className="space-y-3">
+            {def.howTo.map((step, i) => (
+              <li key={i} className="flex gap-3 text-muted-foreground">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
+                  {i + 1}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="mt-6 rounded-xl border border-border bg-background p-5">
           <h3 className="mb-3 text-lg font-semibold">Formula</h3>
           <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-foreground">
             {def.formula}

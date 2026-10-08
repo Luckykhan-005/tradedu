@@ -20,6 +20,7 @@ export interface CalculatorDef {
   intro: string[]
   formula: string
   example: string
+  howTo: string[]
 }
 
 export const calculators: CalculatorDef[] = [
@@ -37,9 +38,16 @@ export const calculators: CalculatorDef[] = [
       'Account balance, trade size, leverage, entry, TP aur SL daalein — calculator position value, quantity, liquidation price, net profit (fees aur funding ke baad) aur risk-reward ratio foran dikha dega. Stop loss liquidation ke peeche ho to warning bhi milegi.',
     ],
     formula:
-      'Position Value = Trade Size × Leverage\nQuantity = Position Value ÷ Entry\nLiquidation (Long) = Entry × (1 − 1 ÷ Leverage)',
+      'Position Value = Trade Size × Leverage\nQuantity = Position Value ÷ Entry\nLiquidation (Long) = Entry × (1 − 1 ÷ Leverage)\nLiquidation (Short) = Entry × (1 + 1 ÷ Leverage)\nNet P&L = (Exit − Entry) × Quantity − Fees − Funding\nR:R = |Profit at TP| ÷ |Loss at SL|',
     example:
       'Example: Account $1000, trade size $100, leverage 10x → position value $1000. Entry $100 par quantity 10 coin. Long liquidation price $90 hogi. TP $110 par gross profit (110−100) × 10 = $100 — lekin fees aur funding ke baad net thora kam.',
+    howTo: [
+      'Upar Long ya Short select karein — aap trade kis taraf khol rahe hain.',
+      'Account Balance, Trade Size (margin USDT), Leverage aur Entry Price bharein.',
+      'Take Profit aur Stop Loss ke prices daalein; chahen to Fees & Slippage section mein maker/taker fee, slippage aur funding rate adjust karein.',
+      'Calculate dabayein — position value, quantity, liquidation price, TP/SL par net P&L, R:R, fees aur account risk ek saath mil jayenge.',
+      'Red warning dikhe to aapka SL liquidation price ke peeche hai — SL ko liquidation ke idhar taraf move karein.',
+    ],
   },
   {
     slug: 'position-size',
@@ -58,6 +66,12 @@ export const calculators: CalculatorDef[] = [
       'Risk Amount = Balance × Risk %\nQuantity = Risk Amount ÷ |Entry − Stop Loss|\nPosition Size = Quantity × Entry',
     example:
       'Example: Balance $1000, risk 1%, entry $100, stop loss $95. Risk Amount = $10. Distance $5 hai → quantity 2 coin, position size $200. Agar stop loss hit hua, sirf $10 (1%) gaya — baaki capital safe.',
+    howTo: [
+      'Account Balance (apna total capital) bharein.',
+      'Risk Per Trade % set karein — professional traders har trade par 1% se zyada nahi lete.',
+      'Entry Price aur Stop Loss Price daalein.',
+      'Calculator foran trade size, quantity aur har trade par kitna amount risk par hai wo dikha dega.',
+    ],
   },
   {
     slug: 'risk-reward',
@@ -76,6 +90,11 @@ export const calculators: CalculatorDef[] = [
       'R:R = |TP − Entry| ÷ |Entry − SL|\nRequired Win % = 1 ÷ (1 + R:R) × 100',
     example:
       'Example: Entry $100, SL $95 (risk $5), TP $110 (reward $10) → R:R 1:2. Break-even win rate = 1 ÷ 3 = 33.3% — teen mein se ek trade bhi sahi ho to account barh raha hai.',
+    howTo: [
+      'Entry Price, Stop Loss aur Take Profit ke prices bharein.',
+      'R:R ratio aur break-even win rate foran nikal jayega.',
+      'Har trade par 1:2 ya us se behtar ratio rakhein aur required win % check karte rahein.',
+    ],
   },
   {
     slug: 'leverage',
@@ -94,6 +113,11 @@ export const calculators: CalculatorDef[] = [
       'Buying Power = Capital × Leverage\nMargin = Position Size ÷ Leverage\nLiq Distance ≈ 1 ÷ Leverage × 100 %',
     example:
       'Example: Capital $500, leverage 20x → buying power $10,000. $2000 ke position par margin sirf $100. Lekin liquidation distance ~5% — 5% ulti move par poora margin ja sakta hai. Isi liye kam leverage + stop loss zaroori.',
+    howTo: [
+      'Apna Capital / Balance bharein.',
+      'Leverage (x) aur Position Size (notional USDT) daalein.',
+      'Buying power, margin requirement aur liquidation distance mil jayega — leverage badhane se pehle liquidation distance zaroor check karein.',
+    ],
   },
   {
     slug: 'profit-loss',
@@ -112,6 +136,12 @@ export const calculators: CalculatorDef[] = [
       'Long P&L = (Exit − Entry) × Quantity\nShort P&L = (Entry − Exit) × Quantity\nROI = P&L ÷ Capital × 100',
     example:
       'Example: Long 5 BTC, entry $60,000, exit $62,000 → P&L = 2000 × 5 = $10,000. Capital $20,000 tha → ROI 50%. Wahi move agar short hoti to loss $10,000 hota — direction ka faisle par asar padta hai.',
+    howTo: [
+      'Long ya Short direction select karein.',
+      'Entry Price, Exit Price aur Quantity bharein.',
+      'ROI nikalne ke liye Capital Deployed (USDT) bhi daal dein.',
+      'P&L, ROI % aur position value foran mil jayenge — yeh gross P&L hai, fees alag se kaat lein.',
+    ],
   },
   {
     slug: 'futures-pnl',
@@ -130,6 +160,12 @@ export const calculators: CalculatorDef[] = [
       'Net PnL = (Exit − Entry) × Qty − Fees (Long)\nMargin = Position Value ÷ Leverage\nEntry ≈ Exit − (Desired PnL + Fees) ÷ Qty (Long)',
     example:
       'Example (Normal): Long 0.1 BTC, entry $65,000, exit $68,000, leverage 10x, fee 0.04% → net PnL ~$294, ROI ~45%. Example (Reverse): $50 desired profit, exit $68,000, 0.1 qty → entry ~$67,446 par kholna hoga.',
+    howTo: [
+      'Upar Normal PnL ya Open Price (Reverse) tab choose karein.',
+      'Long/Short, quantity ya position size (USDT), leverage aur fee rate bharein.',
+      'Normal tab mein entry + exit daalein — Net PnL, ROI, margin aur fees nikal jayenge.',
+      'Reverse tab mein desired PnL + exit price daalein — required entry price mil jayegi jahan trade kholni chahiye.',
+    ],
   },
   {
     slug: 'compounding',
@@ -147,6 +183,10 @@ export const calculators: CalculatorDef[] = [
     formula: 'Balanceₙ = (Balanceₙ₋₁ + Monthly Deposit) × (1 + Annual Return ÷ 12)',
     example:
       'Example: $500 shuruat, $100 har mahina, 20% saalana return, 5 saal → kareeb $14,000+ final balance, jismein total deposit sirf $6,500 hoga. Fark compounding ka hai.',
+    howTo: [
+      'Initial Deposit, Monthly Deposit, Annual Return (%) aur Years bharein.',
+      'Saal ba saal growth breakdown ke sath final balance nikal aayega — compounding ka asar saaf nazar aayega.',
+    ],
   },
 ]
 
