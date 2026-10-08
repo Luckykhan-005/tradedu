@@ -9,6 +9,7 @@ import { PositionSizeTool } from './calculators/PositionSizeTool'
 import { RiskRewardTool } from './calculators/RiskRewardTool'
 import { LeverageTool } from './calculators/LeverageTool'
 import { ProfitLossTool } from './calculators/ProfitLossTool'
+import { FuturesPnlTool } from './calculators/FuturesPnlTool'
 import { CompoundingTool } from './calculators/CompoundingTool'
 
 const tools: Record<string, ComponentType> = {
@@ -17,6 +18,7 @@ const tools: Record<string, ComponentType> = {
   'risk-reward': RiskRewardTool,
   leverage: LeverageTool,
   'profit-loss': ProfitLossTool,
+  'futures-pnl': FuturesPnlTool,
   compounding: CompoundingTool,
 }
 

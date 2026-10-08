@@ -1,4 +1,5 @@
 import {
+  ArrowLeftRight,
   Gauge,
   Layers,
   PiggyBank,
@@ -111,6 +112,24 @@ export const calculators: CalculatorDef[] = [
       'Long P&L = (Exit − Entry) × Quantity\nShort P&L = (Entry − Exit) × Quantity\nROI = P&L ÷ Capital × 100',
     example:
       'Example: Long 5 BTC, entry $60,000, exit $62,000 → P&L = 2000 × 5 = $10,000. Capital $20,000 tha → ROI 50%. Wahi move agar short hoti to loss $10,000 hota — direction ka faisle par asar padta hai.',
+  },
+  {
+    slug: 'futures-pnl',
+    title: 'Futures PnL & Open Price Calculator',
+    shortDesc: 'Trade ka net PnL — ya reverse mein desired profit se entry price',
+    icon: ArrowLeftRight,
+    seoTitle: 'Futures PnL & Open Price Calculator — Reverse Entry | TradeEd',
+    seoDesc:
+      'Free futures PnL calculator with reverse open-price mode: entry, exit, quantity, leverage aur fees se net profit/ROI — ya desired profit se required entry price nikalein.',
+    whatH2: 'Futures PnL Aur Open Price Calculator Kya Hai?',
+    intro: [
+      'Normal mode mein entry, exit, quantity, leverage aur fee rate daalte hi net PnL, ROI %, initial margin, position value aur total fees foran nikal aate hain — long aur short dono ke liye, fees adjust karke.',
+      'Open Price (reverse) mode ulta kaam karta hai: aap desired profit, exit price aur position size batate hain — calculator fees adjust karke nikalta hai ke position kis entry price par kholni chahiye. Trade plan banate waqt entry pehle se fix karne ke liye zabardast tool.',
+    ],
+    formula:
+      'Net PnL = (Exit − Entry) × Qty − Fees (Long)\nMargin = Position Value ÷ Leverage\nEntry ≈ Exit − (Desired PnL + Fees) ÷ Qty (Long)',
+    example:
+      'Example (Normal): Long 0.1 BTC, entry $65,000, exit $68,000, leverage 10x, fee 0.04% → net PnL ~$294, ROI ~45%. Example (Reverse): $50 desired profit, exit $68,000, 0.1 qty → entry ~$67,446 par kholna hoga.',
   },
   {
     slug: 'compounding',
