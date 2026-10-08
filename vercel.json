@@ -6,6 +6,16 @@
   },
   "redirects": [
     {
+      "source": "/master-course",
+      "destination": "/courses/master-crypto-trading",
+      "permanent": true
+    },
+    {
+      "source": "/master-course/",
+      "destination": "/courses/master-crypto-trading",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
