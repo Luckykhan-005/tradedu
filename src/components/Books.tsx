@@ -803,7 +803,7 @@ export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
           </div>
         ) : (
           <iframe
-            src={mode === 'preview' ? previewHref : book.href}
+            src={(mode === 'preview' ? previewHref : book.href) + '?embed=1'}
             title={book.title}
             className="min-h-[calc(100vh-57px)] w-full flex-1 border-0"
           />
