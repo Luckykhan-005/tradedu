@@ -30,6 +30,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { BookKhulasa } from '@/components/BookKhulasa'
 
 export interface BookItem {
   id: string
@@ -731,6 +732,7 @@ export function Books({ onBack, user, onUpgrade, onSignIn }: BooksProps) {
               {mode === 'preview' && (
                 <Badge variant="secondary" className="text-xs">Free Preview · Chapter 1</Badge>
               )}
+              {mode === 'full' && <BookKhulasa href={book.href} title={book.title} />}
             </div>
             <Button variant="ghost" size="sm" onClick={onBack} className="gap-2">
               <X className="h-4 w-4" />
