@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { BookOpen, Loader2, Send, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -50,6 +51,15 @@ export function BookKhulasa({ href, title }: { href: string; title: string }) {
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight
   }, [messages, loading, asking])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   async function callApi(question?: string): Promise<string> {
     if (!bookTextRef.current) {
@@ -108,9 +118,15 @@ export function BookKhulasa({ href, title }: { href: string; title: string }) {
         <span className="hidden md:inline">Khulasa</span>
       </Button>
 
-      {open && (
-        <div className="fixed inset-0 z-[60] flex items-end justify-center bg-black/55 backdrop-blur-sm sm:items-center sm:p-6">
-          <div className="flex max-h-[88vh] w-full max-w-2xl flex-col rounded-t-2xl border bg-background shadow-2xl sm:max-h-[80vh] sm:rounded-2xl">
+      {open &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[60] flex items-end justify-center bg-black/55 backdrop-blur-sm sm:items-center sm:p-6"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setOpen(false)
+            }}
+          >
+            <div className="flex max-h-[88vh] w-full max-w-2xl flex-col rounded-t-2xl border bg-background shadow-2xl sm:max-h-[80vh] sm:rounded-2xl">
             <div className="flex items-center justify-between border-b px-4 py-3">
               <div className="flex min-w-0 items-center gap-2">
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
@@ -172,8 +188,9 @@ export function BookKhulasa({ href, title }: { href: string; title: string }) {
               </Button>
             </div>
           </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   )
 }
