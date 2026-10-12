@@ -48,7 +48,9 @@ const Mentor = lazy(() => import('./components/Mentor').then((m) => ({ default: 
 const SearchOverlay = lazy(() => import('./components/SearchOverlay').then((m) => ({ default: m.SearchOverlay })))
 
 const PageFallback = (
-  <div className="flex min-h-[50vh] items-center justify-center">
+  // Viewport-se-lamba fallback: lazy route load hone tak footer fold ke
+  // neeche rehti hai — content swap par footer visibly shift na ho (CLS).
+  <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center">
     <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
   </div>
 )
@@ -697,12 +699,18 @@ export default function App() {
       />
 
       <Suspense fallback={PageFallback}>
-        <SearchOverlay
-          open={searchOpen}
-          onClose={() => setSearchOpen(false)}
-          onNavigate={navigate}
-          onOpenBlog={openBlogPost}
-        />
+        {/* SearchOverlay sirf tab mount ho jab search khule — pehle paint par
+            poori Suspense boundary suspend hona (spinner → content swap = CLS) band. */}
+        {searchOpen && (
+          <Suspense fallback={null}>
+            <SearchOverlay
+              open={searchOpen}
+              onClose={() => setSearchOpen(false)}
+              onNavigate={navigate}
+              onOpenBlog={openBlogPost}
+            />
+          </Suspense>
+        )}
 
         {currentPage === 'landing' && (
           <Landing

@@ -73,13 +73,17 @@ export function CryptoTicker() {
     }
   }, [])
 
-  if (status !== 'live') return null
-
   const items = [...coins, ...coins]
 
+  // Bar pehle se rendered (reserved height) — data aane par layout shift zero.
+  // Failure par bhi empty bar rehta hai, content neeche push nahi hota.
   return (
-    <div className="border-b border-border bg-background" aria-label="Live crypto prices">
-      <div className="relative overflow-hidden">
+    <div
+      className="min-h-[37px] border-b border-border bg-background"
+      aria-label="Live crypto prices"
+    >
+      {status === 'live' && (
+        <div className="relative overflow-hidden">
         <div className="flex w-max animate-[ticker_40s_linear_infinite] gap-8 py-2 whitespace-nowrap hover:[animation-play-state:paused]">
           {items.map((coin, i) => (
             <span key={`${coin.id}-${i}`} className="flex items-center gap-2 text-sm">
@@ -107,7 +111,8 @@ export function CryptoTicker() {
             100% { transform: translateX(-50%); }
           }
         `}</style>
-      </div>
+        </div>
+      )}
     </div>
   )
 }
