@@ -111,23 +111,11 @@
           }
         });
     </script>
-    <!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ys0bro2pyz");
-</script>
 <!-- data-theme-init -->
 <script>
 (function(){try{var t=localStorage.getItem('tradeed-theme');var d=t?t==='dark':true;var h=document.documentElement;h.classList.toggle('dark',d);var dt=h.getAttribute('data-theme');if(!dt||/^(dark|light)$/.test(dt))h.setAttribute('data-theme',d?'dark':'light');if(!h.getAttribute('data-mode'))h.setAttribute('data-mode',d?'dark':'light');window.addEventListener('storage',function(e){if(e.key==='tradeed-theme'){var d2=e.newValue?e.newValue==='dark':true;h.classList.toggle('dark',d2);var dt2=h.getAttribute('data-theme');if(!dt2||/^(dark|light)$/.test(dt2))h.setAttribute('data-theme',d2?'dark':'light');}});}catch(e){}})();
 </script>
-<script>
-(function(){try{if(new URLSearchParams(location.search).has('embed'))return;var l=document.createElement('link');l.rel='stylesheet';l.href='https://chatzy-kb-store.s3.amazonaws.com/icons/5ab07987-b5db-477c-82ff-1287e0883acb';document.head.appendChild(l);var s=document.createElement('script');s.src='https://chatzy-kb-store.s3.amazonaws.com/icons/56706cc4-b3ba-4eba-9610-f2fb07008a5c';s.id='6f0a8bc9-0650-4747-a8f7-ebb501e8396f';s.className='chatzy_widget_script';s.defer=true;document.head.appendChild(s);}catch(e){}})();
-</script>
-
-  </head>
+</head>
 <body>
     <header>
         <a class="brand" href="/">TradeEd</a>
@@ -277,5 +265,7 @@
         <p style="margin-top:12px">Educational purposes ke liye — trading mein risk involved hai.</p>
         <p style="margin-top:6px">© M. Aslam Khan | TradeEd — All Rights Reserved</p>
     </footer>
+<a id="ai-mentor-fab" href="/mentor" aria-label="AI Trading Mentor" style="position:fixed;right:16px;bottom:16px;z-index:9990;display:inline-flex;align-items:center;gap:7px;padding:10px 15px;border-radius:999px;background:#15803d;color:#fff;font-family:system-ui,-apple-system,sans-serif;font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .15s ease,filter .15s ease" onmouseover="this.style.transform='translateY(-2px)';this.style.filter='brightness(1.15)'" onmouseout="this.style.transform='';this.style.filter=''"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>AI Mentor</a>
+<script>(function(){var b=document.getElementById('ai-mentor-fab');if(!b)return;function u(){var p=(location.pathname||'/').replace(/\/$/,'')||'/';var e=new URLSearchParams(location.search).has('embed');b.style.display=(p==='/mentor'||e)?'none':'inline-flex';}try{var of=history.pushState;history.pushState=function(){of.apply(history,arguments);u();};window.addEventListener('popstate',u);}catch(e){}u();})();</script>
 </body>
 </html>
