@@ -35,6 +35,7 @@ export const terms: Term[] = [
   { term: 'ATH', definition: 'All-Time High — the highest price an asset has ever reached.', urdu: 'آل ٹائم ہائی — کسی اثاثے کی اب تک کی سب سے زیادہ قیمت۔', category: 'basic' },
   { term: 'ATL', definition: 'All-Time Low — the lowest price an asset has ever reached.', urdu: 'آل ٹائم لو — کسی اثاثے کی اب تک کی سب سے کم قیمت۔', category: 'basic' },
   { term: 'Altcoin', definition: 'Any cryptocurrency other than Bitcoin (ETH, SOL, BNB, etc.).', urdu: 'الٹ کوائن — بٹ کوائن کے علاوہ کوئی بھی کریپٹو کرنسی (ایتھریم، سولانا، بی این بی وغیرہ)۔', category: 'basic' },
+  { term: 'Bitcoin', definition: 'Bitcoin (BTC) — the first decentralised digital currency, running on its own blockchain with a fixed 21 million supply.', urdu: 'بٹ کوائن — پہلی غیر مرکزی ڈیجیٹل کرنسی، جو اپنی بلاک چین پر چلتی ہے اور کل سپلائی21 ملین ٹوکنز تک محدود ہے۔', category: 'basic' },
   { term: 'Stablecoin', definition: 'A coin pegged to a stable asset like the US dollar (USDT, USDC).', urdu: 'سٹیبل کوائن — وہ کوائن جو مستحکم اثاثے جیسے ڈالر سے جڑا ہو (یو ایس ڈی ٹی، یو ایس ڈی سی)۔', category: 'basic' },
   { term: 'HODL', definition: 'Hold On for Dear Life — holding coins long-term instead of selling.', urdu: 'ہوڈل — کوائنز کو لمبی مدت تک رکھنا، بیچنا نہیں۔', category: 'basic' },
   { term: 'DYOR', definition: 'Do Your Own Research — always research before investing.', urdu: 'ڈی وائی او آر — اپنی تحقیق خود کریں، سرمایہ کاری سے پہلے ہمیشہ تحقیق کریں۔', category: 'basic' },

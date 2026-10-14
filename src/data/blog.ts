@@ -23,6 +23,155 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'emotional-trading-kaise-rokein',
+    title: 'Emotional Trading Kaise Rokein — FOMO, Greed aur Loss Se Control (2026 Guide)',
+    excerpt: 'Emotional trading kaise rokein: FOMO, revenge aur greed ke 5 warning signs, 6 practical rules, 60-minute loss rule aur journal workflow — Roman Urdu guide 2026.',
+    category: 'Psychology',
+    tags: ['Trading Psychology', 'Emotional Trading', 'FOMO', 'Discipline', 'Risk Management'],
+    date: '2026-10-14',
+    readingTime: '7 min read',
+    hero: '/blog/emotional-trading-kaise-rokein.webp',
+    heroAlt: 'Emotional Trading Kaise Rokein — FOMO, Greed aur Loss Se Control (2026 Guide)',
+    html: `<p class="lead">Emotional trading kaise rokein — yehi sab se aam sawal hai un traders ka jo hafte bhar plan banate hain aur phir ek hi trade mein sab kuch uchhal dete hain. Asal masla strategy nahi hota, masla <b>trigger</b> hota hai: FOMO, jaldi mein loss wapas lena, aur jeet ki latt. Ye guide batati hai ke emotions trade mein andar kaise aate hain, unke 5 warning signs kaise pehchanein, aur wo 6 rules jo emotional trading ko control mein rakhti hain — Roman Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Plan pehle, trade baad mein:</b> Size, stop aur target trade se pehle tay hon — plan ho to emotion ka mauka hi nahi: <a href="/calculator/position-size"><b>Position Size Calculator</b></a>.</li>
+<li><b>1% rule:</b> Har trade ka risk account ka 1% se zyada nahi: <a href="/glossary/risk-management/">Risk Management</a>.</li>
+<li><b>60-minute rule:</b> Loss ke baad 60 minute screen se door — revenge trade sab se mehnga padta hai.</li>
+<li><b>Do bade dushman:</b> <a href="/glossary/fomo/">FOMO</a> aur revenge trading — dono ka poora tareeqa: <a href="/blog/fomo-revenge-trading-psychology">FOMO aur Revenge Trading</a>.</li>
+</ul></div>
+
+<h2>1. Emotional trading hoti kya hai — pehle cycle samjhein</h2>
+<p><b>Emotional trading</b> wo trade hai jo plan ki jagah jazbay se li jati hai — setup ka intezar nahi, risk ka hisaab nahi, sirf "abhi hoga" ki jaldi. Ye hamesha ek hi cycle chalti hai: <b>Trigger → Urge → Trade → Regret → Naya trigger</b>. Trigger koi bhi ho sakta hai — aaj ka loss, kisi ka profit dikhana, ya sirf bore hona. Urge aati hai ke "ek trade se sab wapas aa jayega", aur wo trade bina setup ke chali jati hai. Result loss hota hai, phir wohi loss wapas lene ki zid — aur cycle dobara. isi tarah ka ek chhota loss aahista aahista bade drawdown mein badalta hai: <a href="/blog/drawdown-recovery-psychology-account">Drawdown se recovery ki guide</a>.</p>
+<p>Baaz dafa market ne kuch nahi kiya hota — aap ke <a href="/glossary/discipline/">discipline</a> mein jo khali thi usay emotion ne bhar diya. Isi liye pehla qadam hamesha yehi hota hai: emotion ko pehchanna aur us se pehle plan likh lena.</p>
+
+<h2>2. Ye 5 warning signs batate hain ke aap emotional ho rahe hain</h2>
+<p>Ye signs trade ke dauran ya us se pehle nazar aate hain — ek bhi nazar aaye to order button se pehle ruk jayein:</p>
+<div class="scroll"><table>
+<thead><tr><th>Warning sign</th><th>Kya ho raha hai</th><th>Foran kya karein</th></tr></thead>
+<tbody>
+<tr><td>Har minute P&amp;L refresh</td><td>Result, setup se zyada dikhta hai</td><td>Chart par wapas jayein, target ek baar set kar ke band karein</td></tr>
+<tr><td>Loss ke foran baad naya trade</td><td>Revenge — wapas lene ki zid</td><td>60-minute rule: screen se door</td></tr>
+<tr><td>Size barhana (pehle 1%, ab 5%)</td><td>Greed ya loss cover karne ki jaldi</td><td>Size wapas 1%: <a href="/calculator/position-size">Position Size Calculator</a></td></tr>
+<tr><td>Setup ka intezar nahi — "chalta hai"</td><td>Plan bhool kar sirf hilne ki chah</td><td>Checklist kholen, jawab nahi to trade skip</td></tr>
+<tr><td>Har kisi se tips maangna</td><td>Confidence gaya, bahir se validation chahiye</td><td>Journal kholen — aap ka apna data behtar hai</td></tr>
+</tbody></table></div>
+
+<h2>3. Emotional trading kaise rokein — 6 rules jo kaam karti hain</h2>
+<p><b>Rule 1 — Trade se pehle plan likho:</b> Kharidna/bechna kyun, kitna size, stop kahan, target kahan — ye teen sawal pehle. Plan likha hua ho to emotion kehti hai "ye plan mein nahi tha", aur bas. Hisaab aasan banao: <a href="/calculator/position-size">Position Size Calculator</a> aur <a href="/calculator/risk-reward">Risk-Reward Calculator</a>.</p>
+<p><b>Rule 2 — Risk cap ek percent:</b> Har trade risk account ka 1% se zyada nahi, aur ek din ke 2 se zyada losses ke baad din band. Jab risk fixed ho, loss darawna nahi lagta — psychology apne aap theek ho jati hai: <a href="/glossary/risk-management/">Risk Management ki bunyad</a>.</p>
+<p><b>Rule 3 — Loss ke baad 60 minute:</b> Loss hua? Position band, chart band, kamre se bahar. Ghussay mein li gayi doosri trade aksar pehli se bari hoti hai. Gulabi phase (revenge) ka poora mechanism: <a href="/blog/fomo-revenge-trading-psychology">FOMO aur Revenge Trading</a>.</p>
+<p><b>Rule 4 — Har trade journal mein:</b> Screenshot, reason, emotion (trade se pehle kya mehsoos tha) — 3 line kaafi hain. Hafte ke end par journal dikhata hai ke paise strategy ne nahi, kis emotion ne khaye. Bunyad: <a href="/blog/trading-journal-kyun-zaroori">Trading Journal Kyun Zaroori Hai</a>.</p>
+<p><b>Rule 5 — Ek hi setup, ek hi timeframe:</b> Naye traders5 setups ek saath chalate hain aur har kaam adhoora. Ek setup choose karein aur usi par 50 trade ka data banao — confusion kam, confidence zyada.</p>
+<p><b>Rule 6 — Screen time fixed:</b> Market hamesha maujood rahegi. Din ka waqt pehle tay karein (session ke mutabiq: <a href="/blog/forex-best-time-karachi-sessions">Karachi time mein sessions</a>), waqt khatam to band — "ek nazar" wali aadat hi asal emotional trading hai.</p>
+
+<h2>4. FOMO aur revenge — do sabse bade dushman</h2>
+<p><b>FOMO</b> (darr ke chuk jayenge) aap ko top par kharidwata hai; <b>revenge</b> (darr ke wapas nahi lena) aap ko bottom par bech deta hai. Dono ek hi cheez ka nuqsaan hain: plan se hat kar trade lena. Ye do aksar saath saath aate hain — ek loss ke baad FOMO dusre coin ko dekh kar, revenge usi loss ko cover karne ke liye. Dono ka ilaj ek hi hai: fixed risk + fixed setup + waqt khatam hone par band. Detail: <a href="/glossary/fomo/">FOMO kya hai</a>, <a href="/glossary/overtrading/">Overtrading</a> aur <a href="/blog/fomo-revenge-trading-psychology">FOMO aur Revenge Trading ki poori guide</a>.</p>
+
+<h2>5. Ek hafta ka emotional detox plan</h2>
+<ul>
+<li><b>Din1-2:</b> Sirf journal — trade lo ya na lo, sirf apne emotions likho.</li>
+<li><b>Din3-4:</b> Demo ya micro size par wohi ek setup practice karein — paisa kam, pressure kam.</li>
+<li><b>Din5:</b> Purana journal parh ke3 ghaltiyan nikaal lein (har likha hua rule todne wali).</li>
+<li><b>Din6:</b> Rule likhein —1% risk,2 losses, screen time. Kisi ko padh ke sunayein (shame accountability ka kam karta hai).</li>
+<li><b>Din7:</b> Wapas live — sirf plan wali trade, size chhota. Jeet ho ya haar, plan follow hona chahiye — result is hafte ka maqsad nahi.</li>
+</ul>
+<p>Emotion ko akela control karna mushkil hota hai — system ko control banana asan hota hai. Jazbon ko janne ka theoretical hissa: <a href="/blog/trading-psychology-mechanism">Trading Psychology Guide</a>.</p>
+
+<p>Isi cheez ka structured form course ke pehle module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Trading Course — Beginner</b></a> (risk, trading plan aur psychology — pehla module free hai). Bunyad yahan se parhein: <a href="/glossary/risk-management/">Risk Management pillar</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Kya koi bina emotion ke trade kar sakta hai?</b>
+Bilkul nahi — emotion band karna maqsad nahi. Maqsad ye hai ke emotion aur decision ke darmiyan ek plan khada ho, taake emotion sirf feel kare, order na de.
+<b>Loss ke baad foran kya karna chahiye?</b>
+Position ki haalat dekhein (stop laga hai ya nahi), phir screen band.60 minute ke baad journal entry likhein — aur agli trade sirf naye setup par.
+<b>Din mein kitne trades karne chahiye?</b>
+Shuruaat mein1-2 kaafi hain. Zyada trades ka matlab nahi zyada profit — zyada mauke zyada galtiyan bhi dete hain. Quality &gt; quantity.
+<b>Journal se emotional trading kaise theek hoti hai?</b>
+Pattern nazar aata hai: "mera sab se bara loss hamesha X ke baad hota hai". Jab pattern pata ho to trigger pakadna asan ho jata hai — aur trigger par plan lagta hai.
+<b>FOMO tab hota hai jab market tez chad raha ho — tab trade na karun?</b>
+FOMO wali candle sab se zyada khatarnak hoti hai. Plan mein entry nahi to koi trade nahi — market kal bhi hai. Pehle candle padhna seekhein: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Aaj se apne journal mein sirf ek column add karein: <i>"Trade se pehle kya mehsoos kar raha tha"</i> — hafte ke end par jawab khud mil jayega. Emotional trading ki do sabse bari rastein ye hain: <a href="/blog/fomo-revenge-trading-psychology">FOMO aur Revenge Trading</a> aur <a href="/blog/drawdown-recovery-psychology-account">Drawdown se recovery</a>. Plan banane ki bunyad: <a href="/blog/trading-journal-kyun-zaroori">Trading Journal</a> + <a href="/calculator/position-size">Position Size Calculator</a>. Book format chahiye to <a href="/trading-psychology/index.html">Trading Psychology Book</a> aur poora dekhein: <a href="/books">Books page</a>. Practical class chahiye to <a href="/courses/forex-trading-course-beginner">Forex Beginner Course</a> ka psychology module.</p>`
+  },
+  {
+    slug: 'bitcoin-kya-hai-urdu',
+    title: 'Bitcoin Kya Hai — Urdu Mein Puri Wazahat: Blockchain, Mining se Halving Tak (2026)',
+    excerpt: 'Bitcoin kya hai: blockchain, mining, 21 million cap aur halving kaise kaam karta hai, Pakistan mein kaise khareedein aur asal risk kya hain — Roman Urdu guide 2026.',
+    category: 'Crypto Basics',
+    tags: ['Bitcoin', 'Crypto Basics', 'Blockchain', 'BTC', 'Crypto Regulation'],
+    date: '2026-10-14',
+    readingTime: '8 min read',
+    hero: '/blog/bitcoin-kya-hai-urdu.webp',
+    heroAlt: 'Bitcoin Kya Hai — Urdu Mein Puri Wazahat (2026 Guide)',
+    html: `<p class="lead">Bitcoin kya hai — agar ye pehla sawal hai jo aap ke dimaag mein aaya hai to ye guide bilkul shuruaat se batati hai: Bitcoin asal mein kya hai, blockchain kis tarah kaam karta hai, mining kyun zaroori hai, 21 million cap kya cheez hai, aur Pakistan mein ise kaise khareeda jata hai. Koi technical lafz bina samjhaya gaya hai, Roman Urdu mein — 2026 ke halat ke sath.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Bitcoin = pehli decentralised digital currency</b> (2009, "Satoshi Nakamoto") — kisi bank ya hukumat ke baghair chalti hai. Term ki tafseel: <a href="/glossary/bitcoin/">Bitcoin kya hai — Glossary</a>.</li>
+<li><b>Sirf 21 million</b> ban sakte hain — is liye ise "digital sona" kaha jata hai; har ~4 saal mein <b>halving</b> hoti hai: <a href="/blog/bitcoin-halving">Bitcoin Halving — price par asar</a>.</li>
+<li><b>Kharidna ho to</b> sab se aasan tareeqa P2P hai: <a href="/blog/binance-p2p-guide-urdu">Binance P2P guide</a>. Bunyad pehle: <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai (pillar guide)</a>.</li>
+<li><b>Risk:</b> Volatility asli hai — hamesha size sochein: <a href="/calculator/position-size">Position Size Calculator</a>, aur entry-exit ka hisaab: <a href="/calculator/profit-loss">P&amp;L Calculator</a>.</li>
+</ul></div>
+
+<h2>1. Bitcoin kya hai — ek nazar mein</h2>
+<p>Bitcoin ek aisi digital currency hai jo internet par chalti hai aur har transaction ek <b>khuli kitab</b> mein likhi jati hai jise <b>blockchain</b> kehte hain. Iski khaas baat ye hai ke koi bank beech mein nahi khada — aap seedha doosre bande ko paisa bhejte hain, aur duniya bhar ke computers us record ko apne paas rakh kar confirm karte hain. Isay <b>decentralised</b> kehte hain: koi ek company, koi ek mulk, koi ek CEO iska malik nahi hai.</p>
+<p>Ye2009 mein "Satoshi Nakamoto" naam (anonymous developer/developers) se shuru hua. Ek bitcoin (<b>1 BTC</b>) ko chhote hisson mein bhi rakha jata hai —1 BTC =10 crore <b>satoshi</b>, is liye zaroori nahi ke poora BTC khareedein; agar chahein to sirf500 rupees se bhi shuruaat hoti hai. Poora ek nazar mein: <a href="/glossary/bitcoin/">Bitcoin — Glossary entry</a>, aur crypto ki poori bunyad: <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai pillar</a>.</p>
+
+<h2>2. Blockchain kya hai — Bitcoin ki khuli kitab</h2>
+<p>Sochiye ek aisi copy jise poori duniya dekh sakti hai lekin koi mita nahi sakta. Har transaction ek <b>block</b> mein jama hota hai, aur blocks ek doosre se jude hote hain — is liye naam <b>blockchain</b> (blockon ki zanjeer). Har nayay block mein pichhle block ka fingerprint (hash) hota hai: agar koi ek block ke andar kuch badal de to aage ke sab blocks ka fingerprint toot jata hai — chori pakri jati hai.</p>
+<p>Isi khuli ledger ki wajah se "kya Bitcoin jaaal hai" ka jawab milta hai: har coin ka asal hona blockchain par sabit hota hai. Aam zindagi mein ise samajhne ka tareeqa: transaction confirm hone par wo refund/chargeback wala scene nahi — paisa ek baar gaya to gaya, is liye galat bande ko bhejne se pehle address dobara check karein. Ye sara hissa tab hi smooth chalta hai jab <a href="/glossary/wallet/">sahi wallet</a> ho.</p>
+
+<h2>3. Mining kya hai — naye blocks kaise bante hain</h2>
+<p>Har block mein transactions ki list hoti hai, lekin kaun sa block lagayega ye decide kaise hota hai? <b>Miners</b> kehte hain — ye khaas computers hain jo ek puzzle solve karte hain (isi mechanism ko <b>proof-of-work</b> kehte hain). Jo pehle solve kare, uska block chain mein jud jata hai aur usay <b>block reward</b> milta hai — abhi (2024 halving ke baad) ye reward <b>3.125 BTC</b> hai, jo har ~4 saal mein aadha ho jata hai.</p>
+<p>Ye "free money machine" jaisa lagta hai lekin asal mein: mazeed bijli, machines aur competition ki wajah se aam laptop par mining ab faida nahi deti. Miners ki asal kamli ye hai ke wo network ki security chalate hain — un ke faide ke liye sahi kaam karna hi unhe honest rakhta hai. Mining ke baad jo sab se bara sawal aata hai wo supply ka hai — uski tafseel: <a href="/blog/bitcoin-halving">Bitcoin Halving guide</a>.</p>
+
+<h2>4. 21 million cap aur halving — scarcity ka asal</h2>
+<p>Bitcoin ka code is tarah likha gaya hai ke <b>kabhi bhi21 million se zyada</b> nahi ban sakte — ye rule code mein likhi hai, koi committee ye number nahi badal sakti. Har ~4 saal (jab2.1 laakh blocks jud jate hain) naye blocks ka <b>reward aadha</b> ho jata hai — is amal ko <b>halving</b> kehte hain. Matlab: market mein naye bitcoin ki aana aahista hota jata hai, jabke demand barhi rahe to kam supply = history mein price par bara asar raha hai — poori tareekh: <a href="/blog/bitcoin-halving">Bitcoin Halving — tareekh kya batati hai</a>.</p>
+<p>Bitcoin ko "digital sona" is liye kaha jata hai kyunki iska bhi limited supply model hai — sona ki tarah munasib nahi lekin scarcity ki wajah se. Kitni qeemat hai (market cap) aur is ka kya matlab: <a href="/glossary/market-cap/">Market Cap kya hai</a>. Yaad rakhein: scarcity profit ki guarantee nahi — volatility hamesha rahegi: <a href="/glossary/volatility/">Volatility</a>.</p>
+
+<h2>5. Pakistan mein Bitcoin kaise khareedein</h2>
+<p>Practical route ye hai:</p>
+<ul>
+<li><b>Step1 — Exchange account:</b> Binance jaisi platform par account banayein aur <a href="/glossary/kyc/">KYC</a> complete karein (CNIC chahiye hoti hai). Exchange ka matlab: <a href="/glossary/exchange/">Exchange kya hai</a>.</li>
+<li><b>Step2 — P2P se PKR:</b> Bank/easypaisa/jazzcash se seedha khareedna mushkil hota hai — is liye <a href="/glossary/p2p/">P2P</a> trading use hoti hai jahan verified trader se aap PKR dete hain aur BTC milta hai. Poora tareeqa, screenshots aur scam se bachne ke tareeqe: <a href="/blog/binance-p2p-guide-urdu">Binance P2P complete guide</a>.</li>
+<li><b>Step3 — Wallet mein shift:</b> Bade amount exchange par na chhorein — apne <a href="/glossary/wallet/">wallet</a> mein le jayein ("not your keys, not your coins").</li>
+<li><b>Step4 — Tax/hokey dein:</b> Pakistan mein virtual assets ka nizam badal raha hai: <a href="/blog/pakistan-crypto-tax-2026">Pakistan Crypto Tax2026</a>.</li>
+</ul>
+
+<h2>6. Bitcoin ke risks — shuru se pehle</h2>
+<p>Bitcoin ne lambi race mein zabardast result diye hain, lekin raaste mein60-80% girawatein aam hain. Teen asal khatraat:</p>
+<ul>
+<li><b>Volatility:</b> Hafton mein bara uchhal/phas — is liye jo paisa6 mahine mein chahiye wo yahan nahi. Size hamesha apne hisaab se: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Security:</b> Private key kisi ko na dein, seed phrase screenshot mat rakhein — ye hi asal amanat hai.</li>
+<li><b>Scam:</b> "Double your BTC" jaisi koi scheme nahi hoti. Altcoins ke chakkar mein aayein to checklist: <a href="/blog/altcoin-checklist">Altcoin Checklist</a>.</li>
+</ul>
+<p>Entry-exit ka hisaab lagana ho (kharida, becha, kitna farq): <a href="/calculator/profit-loss"><b>P&amp;L Calculator</b></a>. Ek baar mein poora nahi — thora thora karke (mahana/mahana) karne se average theek banta hai, aur risk chhota rehta hai.</p>
+
+<p>Systematic seekhne ka tareeqa course ka pehla module hai: <a href="/courses/crypto-trading-course-beginner"><b>Crypto Trading Course — Beginner</b></a> (crypto ki bunyad, wallet, exchange aur risk — pehla module free). Crypto ki poori bunyad: <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai pillar guide</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Bitcoin kya hai — ek jumle mein?</b>
+Ek aisi digital currency jo kisi bank ke baghair chalti hai, jiski tadaad limited (21 million) hai, aur har transaction ek khuli public ledger (blockchain) par likhi jati hai.
+<b>Poora ek bitcoin hi khareedna parega?</b>
+Nahi. Ek BTC10 crore satoshi mein toota hai —500 rupees se bhi shuruaat ho sakti hai. Exchange aap ko jitna chahiye utna khareedne dete hain.
+<b>Pakistan mein bitcoin legal hai?</b>
+Halaat badal rahe hain — abhi taxation ke zariye regulation aa raha hai, poori wazahat: <a href="/blog/pakistan-crypto-tax-2026">Pakistan Crypto Tax2026</a>. Hamesha FBR/GSC ki taaza khabrein check karein.
+<b>Bitcoin aur altcoin mein farq kya hai?</b>
+Bitcoin sab se purana aur sab se bara network hai; baqi sab (ethereum, solana waghera) <b>altcoin</b> hain jin mein naye features hote hain lekin zyada khatraat bhi. Comparison: <a href="/blog/ethereum-vs-solana">Ethereum vs Solana</a>.
+<b>Bitcoin safe investment hai?</b>
+"Safe" ka koi guarantee nahi — price volatility, security aur regulation teenon khatraat hain. Sirf utna lagayein jitna bardasht ho sake khone ka: <a href="/glossary/risk-management/">Risk Management</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Abhi sirf itna karein: <a href="/knowledge-base/crypto-kya-hai">Crypto Kya Hai pillar</a> parh lein, phir <a href="/blog/bitcoin-halving">Bitcoin Halving</a> tareekh parhein ke supply ka asal kis tarah kaam karta hai. P2P se pehli khareedari: <a href="/blog/binance-p2p-guide-urdu">Binance P2P guide</a>. Book format chahiye to <a href="/crypto-beginner/index.html">Crypto Beginner Book</a> aur <a href="/binance-complete/index.html">Binance Complete Training</a> — poori library: <a href="/books">Books page</a>. Structured class: <a href="/courses/crypto-trading-course-beginner">Crypto Beginner Course</a>.</p>`
+  },
+  {
     slug: 'support-resistance-kaise-banayein',
     title: 'Support aur Resistance Kaise Banayein — Sahi Levels Chart Par (Urdu)',
     excerpt: 'Support aur resistance kaise banayein: swing points se zones chhanna, strong level ki 5 nishaniyan, false breakout aur retest ka fayda, 4 aam galtiyan aur practical chart workflow...',

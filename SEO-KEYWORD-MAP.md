@@ -28,7 +28,7 @@ Pillar pages (already live):
 | # | Target query | Intent | URL | Internal links |
 |---|---|---|---|---|
 | 7 | crypto trading kaise shuru karein pakistan | Informational | ~~`/blog/crypto-trading-shuru-karein-pakistan`~~ **DONE 2026-10-06** | pillar crypto, `/blog/binance-p2p-guide-urdu` |
-| 8 | bitcoin kya hai urdu mein | Informational | `/blog/bitcoin-kya-hai-urdu` | `/glossary/bitcoin/`, pillar crypto, `/blog/bitcoin-halving` |
+| 8 | bitcoin kya hai urdu mein | Informational | ~~`/blog/bitcoin-kya-hai-urdu`~~ **DONE 2026-10-14** (+ `/glossary/bitcoin/` naya) | `/glossary/bitcoin/`, pillar crypto, `/blog/bitcoin-halving` |
 | 9 | stablecoin usdt kya hai | Informational | `/blog/stablecoin-usdt-kya-hai` | pillar crypto, `/blog/pakistan-crypto-tax-2026` |
 | 10 | crypto wallet kaise banayein (trust wallet) | Informational | `/blog/crypto-wallet-kaise-banayein` | pillar crypto, `/blog/binance-p2p-guide-urdu` |
 | 11 | dca strategy kya hai crypto | Informational | `/blog/dca-strategy-kya-hai` | `/glossary/dollar-cost-averaging/` (naya glossary term), pillar crypto |
@@ -52,7 +52,7 @@ Pillar pages (already live):
 | 19 | position sizing kya hai | Informational | ~~`/blog/position-sizing-kya-hai`~~ **DONE 2026-10-06** | `/calculator/position-size`, `/glossary/risk-management/` |
 | 20 | risk reward ratio kaise calculate karein | Informational | `/blog/risk-reward-ratio-guide` | `/calculator/risk-reward`, `/glossary/risk-management/` |
 | 21 | trading plan kaise banayein | Informational | `/blog/trading-plan-kaise-banayein` | `/blog/trading-journal-kyun-zaroori`, `/glossary/risk-management/` |
-| 22 | emotional trading kaise rokein | Informational | `/blog/emotional-trading-kaise-rokein` | `/glossary/fomo/`, `/blog/fomo-revenge-trading-psychology` |
+| 22 | emotional trading kaise rokein | Informational | ~~`/blog/emotional-trading-kaise-rokein`~~ **DONE 2026-10-14** | `/glossary/fomo/`, `/blog/fomo-revenge-trading-psychology` |
 | 23 | demo account pe practice kaise karein | Informational | `/blog/demo-account-practice-guide` | pillar forex, `/blog/forex-beginners` |
 | 24 | overconfidence trading psychology | Informational | `/blog/overconfidence-trading-psychology` | `/glossary/fomo/`, `/blog/drawdown-recovery-psychology-account` |
 
@@ -75,8 +75,8 @@ Pillar pages (already live):
 2. #7 crypto kaise shuru (same pattern, P2P post se strong link) — **DONE 2026-10-06**
 3. #19 position sizing (calculator se convert hota hai, tool page ko boost) — **DONE 2026-10-06**
 4. #13 support resistance (TA pillar ka core missing piece) — **DONE 2026-10-06**
-5. #22 emotional trading (glossary + purane psychology posts se deep cluster)
-6. #8 bitcoin kya hai (glossary term ka flagship — fresh term banao)
+5. #22 emotional trading (glossary + purane psychology posts se deep cluster) — **DONE 2026-10-14**
+6. #8 bitcoin kya hai (glossary term ka flagship — fresh term banao) — **DONE 2026-10-14** (glossary ban gayi)
 7. #4 forex scam ( Pakistan-specific, kam competition, share-worthy)
 8. #25 chatgpt strategy (AI pillar, trending query)
 
