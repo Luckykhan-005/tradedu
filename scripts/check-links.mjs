@@ -13,8 +13,18 @@ if (!existsSync(join(dist, 'index.html'))) {
   process.exit(1)
 }
 
-const src = readFileSync(join(root, 'src', 'data', 'blog.ts'), 'utf8')
+// blog content ab blog-content.ts mein hai (entry-chunk split) — dono padho,
+// warna link gate khaali ho jayega. JSON.stringify html mein quotes \" hote hain.
+const src = (
+  readFileSync(join(root, 'src', 'data', 'blog.ts'), 'utf8') +
+  readFileSync(join(root, 'src', 'data', 'blog-content.ts'), 'utf8')
+).replace(/\\"/g, '"')
 const hrefs = [...new Set([...src.matchAll(/href="(\/[^"]*)"/g)].map((m) => m[1]))]
+
+if (hrefs.length === 0) {
+  console.error('koi internal link nahi mila — blog files check karo (blog.ts/blog-content.ts)')
+  process.exit(1)
+}
 
 const exists = (p) => {
   const clean = p.split(/[?#]/)[0].replace(/\/+$/, '') || '/'

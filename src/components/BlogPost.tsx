@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import type { BlogPost as BlogPostType } from '@/data/blog'
 import { blogPosts } from '@/data/blog'
+import { blogContent } from '@/data/blog-content'
 import type { Page } from '@/components/Navigation'
 
 interface BlogPostPageProps {
@@ -58,6 +59,7 @@ export function BlogPost({ post, onBack, onOpenBlog, onNavigate }: BlogPostPageP
     )
     .slice(0, 3)
   const hub = CATEGORY_HUB[post.category]
+  const content = blogContent[post.slug]
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -106,10 +108,10 @@ export function BlogPost({ post, onBack, onOpenBlog, onNavigate }: BlogPostPageP
             />
           </figure>
         )}
-        {post.html ? (
-          <div className="blog-html" dangerouslySetInnerHTML={{ __html: post.html }} />
+        {content?.html ? (
+          <div className="blog-html" dangerouslySetInnerHTML={{ __html: content.html }} />
         ) : (
-          (post.sections || []).map((section, i) => (
+          (content?.sections || []).map((section, i) => (
           <section key={i}>
             {section.heading && (
               <h2 className="mb-3 text-2xl font-bold tracking-tight">{section.heading}</h2>
