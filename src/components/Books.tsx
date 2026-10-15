@@ -57,6 +57,21 @@ interface BooksProps {
 
 export const books: BookItem[] = [
   {
+    id: 'machine-learning',
+    title: 'Machine Learning — Mukammal Course',
+    titleUrdu: 'مشین لرننگ — مکمل کورس',
+    description:
+      'Machine Learning ki complete Roman Urdu course — ML types, supervised/unsupervised algorithms, neural networks, model evaluation, feature engineering aur practical Python code. 12 chapters ke saath, bilkul muft.',
+    chapters: 12,
+    pages: '12 chapters · quiz',
+    icon: Layers,
+    color: 'text-indigo-600',
+    bgColor: 'bg-indigo-50',
+    href: '/machine-learning/index.html',
+    tags: ['Roman Urdu', 'Machine Learning', '12 Chapters'],
+    cover: '/covers/machine-learning.webp',
+  },
+  {
     id: 'ai-kaise-seekhain',
     title: 'AI Kaise Seekhain — Complete Roadmap',
     titleUrdu: 'AI کیسے سیکھیں — مکمل رودمیپ',

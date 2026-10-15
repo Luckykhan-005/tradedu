@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FYKWDY5ND"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6FYKWDY5ND');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Mukammal Course (Roman Urdu) | TradeEd</title>
+    <meta name="description" content="Machine Learning ki complete Roman Urdu course — 12 chapters: ML ki aqsaam, supervised & unsupervised algorithms, neural networks, model evaluation, feature engineering aur Python code examples. Bilkul muft.">
+    <link rel="canonical" href="https://tradeed.online/machine-learning/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <meta property="og:type" content="book">
+    <meta property="og:title" content="Machine Learning Mukammal Course (Roman Urdu) | TradeEd">
+    <meta property="og:description" content="12 chapters mein Machine Learning — concepts se lekar Python code tak, Roman Urdu mein. Muft padhein.">
+    <meta property="og:url" content="https://tradeed.online/machine-learning/">
+    <meta property="og:image" content="https://tradeed.online/covers/machine-learning.webp">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border: #e2e8f0;
+            --code-bg: #1e293b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --border: #334155;
+            --code-bg: #020617;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .toc h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-list li a {
+            display: block;
+            padding: 10px 15px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .toc-list li a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .chapter {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .chapter:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+        }
+
+        .chapter-header {
+            padding: 20px 25px;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            user-select: none;
+        }
+
+        .chapter-header:hover {
+            background: var(--bg-color);
+        }
+
+        .chapter-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        .chapter-content.active {
+            padding: 25px;
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 1rem;
+        }
+
+        .arrow.active {
+            transform: rotate(180deg);
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin: 25px 0 12px 0;
+            font-size: 1.3rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        h4 {
+            color: var(--primary);
+            margin: 18px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        p, li {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+            padding: 15px 20px;
+            border-left: 4px solid var(--primary);
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .example {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 15px 20px;
+            border-left: 4px solid var(--accent);
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 15px 20px;
+            border-left: 4px solid var(--warning);
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .svg-container {
+            text-align: center;
+            margin: 25px 0;
+            background: var(--bg-color);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px dashed var(--border);
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .workflow-box {
+            fill: var(--primary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .workflow-box:hover {
+            fill: var(--secondary);
+            filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.2));
+        }
+
+        .workflow-text {
+            fill: white;
+            font-size: 14px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .workflow-arrow {
+            stroke: var(--text-color);
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        /* Code Block Styles */
+        .code-block {
+            background: var(--code-bg);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: "Python";
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .code-keyword { color: #c084fc; }
+        .code-string { color: #86efac; }
+        .code-comment { color: #94a3b8; font-style: italic; }
+        .code-function { color: #60a5fa; }
+        .code-number { color: #fbbf24; }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: var(--bg-color);
+        }
+
+        /* Quiz Styles */
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 18px;
+            margin: 10px 0;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .quiz-options button:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateX(5px);
+        }
+
+        .quiz-options button.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent);
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .quiz-options button.wrong {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            font-weight: bold;
+            display: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .score-board {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .theme-toggle { top: 10px; right: 10px; padding: 8px 12px; font-size: 0.8rem; }
+            .chapter-header { font-size: 1rem; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+        <h1>🤖 Machine Learning</h1>
+        <p>Mukammal Course - Roman Urdu Mein (12 Chapters)</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>📚 Fehrist-e-Mazameen (Table of Contents)</h2>
+            <ul class="toc-list">
+                <li><a href="#ch1">1. Ta'aruf (Introduction)</a></li>
+                <li><a href="#ch2">2. ML ki Aqsaam (Types)</a></li>
+                <li><a href="#ch3">3. ML Workflow</a></li>
+                <li><a href="#ch4">4. Supervised Algorithms</a></li>
+                <li><a href="#ch5">5. Unsupervised Algorithms</a></li>
+                <li><a href="#ch6">6. Neural Networks & Deep Learning</a></li>
+                <li><a href="#ch7">7. Model Evaluation</a></li>
+                <li><a href="#ch8">8. Overfitting vs Underfitting</a></li>
+                <li><a href="#ch9">9. Feature Engineering</a></li>
+                <li><a href="#ch10">10. Python Code Examples</a></li>
+                <li><a href="#ch11">11. Real-World Applications</a></li>
+                <li><a href="#ch12">12. Final Quiz & Resources</a></li>
+            </ul>
+        </div>
+
+        <!-- Chapter 1: Introduction -->
+        <div class="chapter" id="ch1">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📘 Bab 1: Machine Learning Kya Hai? (Ta'aruf)</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Machine Learning (ML) Artificial Intelligence (AI) ki ek aisi shakh hai jis mein computers ko wazeh taur par (explicitly) program kiye baghair, data se seekhne ki salahiyat di jati hai. Yeh field 1959 mein Arthur Samuel ne introduce ki thi.</p>
+                
+                <div class="highlight">
+                    <strong>Aasan Alfaz Mein:</strong> Jis tarah ek bacha kutte aur billi ki tasveeren dekh kar khud unki pehchan seekh leta hai, ML mein hum computer ko hazaron tasveeren dikha kar usay khud pattern pehchanna sikhate hain.
+                </div>
+
+                <h3>AI, ML, aur Deep Learning ka Farq</h3>
+                <ul>
+                    <li><strong>AI (Artificial Intelligence):</strong> Yeh ek wasee concept hai jis ka maqsad machines ko insanon ki tarah sochne qabil banana hai.</li>
+                    <li><strong>Machine Learning:</strong> Yeh AI ka ek hissa hai jo data aur algorithms ka istemal kar ke seekhta hai.</li>
+                    <li><strong>Deep Learning:</strong> Yeh ML ka hi ek advanced hissa hai jo Insani Dimagh (Neural Networks) ki naqal karta hai.</li>
+                </ul>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="250" cy="150" r="140" fill="var(--primary)" opacity="0.2" stroke="var(--primary)" stroke-width="2"/>
+                        <circle cx="250" cy="180" r="100" fill="var(--secondary)" opacity="0.3" stroke="var(--secondary)" stroke-width="2"/>
+                        <circle cx="250" cy="210" r="60" fill="var(--accent)" opacity="0.4" stroke="var(--accent)" stroke-width="2"/>
+                        
+                        <text x="250" y="50" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="18">Artificial Intelligence</text>
+                        <text x="250" y="120" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="16">Machine Learning</text>
+                        <text x="250" y="215" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">Deep Learning</text>
+                    </svg>
+                </div>
+
+                <h3>Machine Learning Kyun Zaroori Hai?</h3>
+                <ul>
+                    <li><strong>Automation:</strong> Baray baray tasks ko automate karna (jaise email filtering).</li>
+                    <li><strong>Predictions:</strong> Future events ki peshangoi karna (jaise stock market, mausam).</li>
+                    <li><strong>Pattern Recognition:</strong> Images, speech, aur text ko samajhna.</li>
+                    <li><strong>Decision Making:</strong> Data ki bunyad par behtar faislay karna.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Chapter 2: Types of ML -->
+        <div class="chapter" id="ch2">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📗 Bab 2: ML ki Aqsaam (Types of Machine Learning)</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Machine Learning ko bunyadi taur par 3 hisson mein taqseem kiya jata hai:</p>
+
+                <h3>1. Supervised Learning (Nigrani Wala Seekhna)</h3>
+                <p>Is mein hum computer ko data ke sath-sath uska sahi jawab (labels) bhi dete hain. Computer in labels ko dekh kar pattern seekhta hai.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Hum computer ko hazaron billi aur kutte ki tasveeren dete hain aur batate hain ke "Yeh billi hai" aur "Yeh kutta hai". Phir computer nayi tasveer dekh kar khud bata deta hai ke us mein kya hai.
+                </div>
+                <p><strong>Applications:</strong> Spam detection, Image recognition, Medical diagnosis, House price prediction.</p>
+
+                <h3>2. Unsupervised Learning (Bina Nigrani Ke Seekhna)</h3>
+                <p>Is mein data ko koi label nahi diya jata. Computer khud data mein chhupe huwe patterns aur groups (clusters) dhundhta hai.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Ek supermarket ka data jismein customers ki khareedari ki list hai. ML algorithm khud customers ko unki pasand ke hisaab se mukhtalif groups (jaise: health conscious, junk food lovers) mein taqseem kar deta hai.
+                </div>
+                <p><strong>Applications:</strong> Customer segmentation, Anomaly detection, Market research, Data compression.</p>
+
+                <h3>3. Reinforcement Learning (Inam aur Saza)</h3>
+                <p>Is mein ek "Agent" ko mahol (environment) mein rakha jata hai. Agar wo sahi kaam kare to usay Inam (Reward) milta hai, aur ghalat kare to Saza (Penalty). Wo trial-and-error se seekhta hai.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Video games khelna ya Self-driving cars ko drive karna sikhana. Agar car lane mein rahe to reward, line cross kare to penalty.
+                </div>
+                <p><strong>Applications:</strong> Robotics, Game playing (Chess, Go), Autonomous vehicles, Trading systems.</p>
+
+                <h3>Comparison Table</h3>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Supervised</th>
+                        <th>Unsupervised</th>
+                        <th>Reinforcement</th>
+                    </tr>
+                    <tr>
+                        <td>Data Type</td>
+                        <td>Labeled</td>
+                        <td>Unlabeled</td>
+                        <td>Environment Feedback</td>
+                    </tr>
+                    <tr>
+                        <td>Goal</td>
+                        <td>Predict output</td>
+                        <td>Find patterns</td>
+                        <td>Maximize reward</td>
+                    </tr>
+                    <tr>
+                        <td>Complexity</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>High</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Chapter 3: Workflow -->
+        <div class="chapter" id="ch3">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📙 Bab 3: ML Workflow (Kaam Karne Ka Tareeqa)</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Kisi bhi Machine Learning project ko mukammal karne ke liye ek khas tarteeb (workflow) follow ki jati hai:</p>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--text-color)" />
+                            </marker>
+                        </defs>
+                        
+                        <g>
+                            <rect class="workflow-box" x="20" y="90" width="120" height="60" rx="10" />
+                            <text class="workflow-text" x="80" y="115" text-anchor="middle">1. Data</text>
+                            <text class="workflow-text" x="80" y="135" text-anchor="middle">Collection</text>
+                        </g>
+                        <path class="workflow-arrow" d="M 140 120 L 170 120" />
+
+                        <g>
+                            <rect class="workflow-box" x="180" y="90" width="120" height="60" rx="10" />
+                            <text class="workflow-text" x="240" y="115" text-anchor="middle">2. Data</text>
+                            <text class="workflow-text" x="240" y="135" text-anchor="middle">Preprocessing</text>
+                        </g>
+                        <path class="workflow-arrow" d="M 300 120 L 330 120" />
+
+                        <g>
+                            <rect class="workflow-box" x="340" y="90" width="120" height="60" rx="10" />
+                            <text class="workflow-text" x="400" y="115" text-anchor="middle">3. Model</text>
+                            <text class="workflow-text" x="400" y="135" text-anchor="middle">Selection</text>
+                        </g>
+                        <path class="workflow-arrow" d="M 460 120 L 490 120" />
+
+                        <g>
+                            <rect class="workflow-box" x="500" y="90" width="120" height="60" rx="10" />
+                            <text class="workflow-text" x="560" y="115" text-anchor="middle">4. Training</text>
+                            <text class="workflow-text" x="560" y="135" text-anchor="middle">& Testing</text>
+                        </g>
+                        <path class="workflow-arrow" d="M 620 120 L 650 120" />
+
+                        <g>
+                            <rect class="workflow-box" x="660" y="90" width="120" height="60" rx="10" />
+                            <text class="workflow-text" x="720" y="115" text-anchor="middle">5. Deployment</text>
+                            <text class="workflow-text" x="720" y="135" text-anchor="middle">& Monitoring</text>
+                        </g>
+                        
+                        <path class="workflow-arrow" d="M 720 150 L 720 200 L 80 200 L 80 150" stroke-dasharray="5,5" />
+                        <text x="400" y="220" text-anchor="middle" fill="var(--text-color)" font-size="12" font-style="italic">Continuous Improvement (Feedback Loop)</text>
+                    </svg>
+                </div>
+
+                <h3>Tafseeli Sharh:</h3>
+                <ol>
+                    <li><strong>Data Collection:</strong> Databases, APIs, sensors, ya web scraping se data jama karna.</li>
+                    <li><strong>Data Preprocessing:</strong> Missing values handle karna, outliers remove karna, normalization, aur feature scaling.</li>
+                    <li><strong>Model Selection:</strong> Problem ke hisaab se algorithm chunna (Regression, Classification, Clustering, etc.).</li>
+                    <li><strong>Training & Testing:</strong> Data ko 80/20 ya 70/30 ratio mein divide kar ke model train aur test karna.</li>
+                    <li><strong>Deployment:</strong> Model ko production environment mein launch karna aur uski performance monitor karna.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Chapter 4: Supervised Algorithms -->
+        <div class="chapter" id="ch4">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📕 Bab 4: Supervised Learning Algorithms</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Supervised Learning mein 2 main categories hoti hain:</p>
+                <ul>
+                    <li><strong>Regression:</strong> Continuous values predict karna (jaise price, temperature).</li>
+                    <li><strong>Classification:</strong> Categories predict karna (jaise spam/not spam, cat/dog).</li>
+                </ul>
+
+                <h3>1. Linear Regression</h3>
+                <p>Yeh algorithm data points ke darmiyan ek "best fit line" draw karta hai taakay future values predict ki ja sakein.</p>
+                <div class="highlight">
+                    <strong>Formula:</strong> y = mx + b<br>
+                    Yahan <em>m</em> slope hai aur <em>b</em> y-intercept hai.
+                </div>
+                <div class="example">
+                    <strong>Misaal:</strong> Ghar ke size (x) aur uski qeemat (y) ke darmiyan taluq dekh kar naye ghar ki qeemat predict karna.
+                </div>
+
+                <h3>2. Logistic Regression</h3>
+                <p>Yeh classification ke liye istemal hota hai. Yeh probability calculate karta hai ke koi data point kis category mein aata hai (0 ya 1).</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Email spam hai ya nahi (1 = spam, 0 = not spam).
+                </div>
+
+                <h3>3. Decision Trees</h3>
+                <p>Yeh algorithm data ko sawalon ki shakhl mein divide karta hai, bilkul darakht (tree) ki tarah.</p>
+                <div class="svg-container">
+                    <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Root -->
+                        <circle cx="300" cy="50" r="35" fill="var(--primary)" />
+                        <text x="300" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Age &lt; 30?</text>
+                        
+                        <!-- Level 1 -->
+                        <line x1="275" y1="80" x2="150" y2="150" stroke="var(--text-color)" stroke-width="2" />
+                        <line x1="325" y1="80" x2="450" y2="150" stroke="var(--text-color)" stroke-width="2" />
+                        
+                        <circle cx="150" cy="170" r="35" fill="var(--secondary)" />
+                        <text x="150" y="175" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Income?</text>
+                        
+                        <circle cx="450" cy="170" r="35" fill="var(--accent)" />
+                        <text x="450" y="165" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Buy: YES</text>
+                        <text x="450" y="180" text-anchor="middle" fill="white" font-size="10">(High)</text>
+                        
+                        <!-- Level 2 -->
+                        <line x1="125" y1="200" x2="70" y2="270" stroke="var(--text-color)" stroke-width="2" />
+                        <line x1="175" y1="200" x2="230" y2="270" stroke="var(--text-color)" stroke-width="2" />
+                        
+                        <circle cx="70" cy="290" r="30" fill="var(--warning)" />
+                        <text x="70" y="285" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Buy:</text>
+                        <text x="70" y="300" text-anchor="middle" fill="white" font-size="11" font-weight="bold">NO</text>
+                        
+                        <circle cx="230" cy="290" r="30" fill="var(--accent)" />
+                        <text x="230" y="285" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Buy:</text>
+                        <text x="230" y="300" text-anchor="middle" fill="white" font-size="11" font-weight="bold">YES</text>
+                        
+                        <!-- Labels -->
+                        <text x="200" y="110" fill="var(--text-color)" font-size="12">Yes</text>
+                        <text x="380" y="110" fill="var(--text-color)" font-size="12">No</text>
+                        <text x="85" y="230" fill="var(--text-color)" font-size="12">Low</text>
+                        <text x="210" y="230" fill="var(--text-color)" font-size="12">High</text>
+                    </svg>
+                </div>
+
+                <h3>4. Support Vector Machines (SVM)</h3>
+                <p>SVM data points ko mukhtalif classes mein divide karne ke liye ek "hyperplane" (line/plane) dhundhta hai jo dono classes ke darmiyan maximum margin rakhe.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Images mein cat aur dog ko alag karna.
+                </div>
+
+                <h3>5. K-Nearest Neighbors (KNN)</h3>
+                <p>Yeh algorithm naye data point ko uske qareebi (nearest) neighbors ki bunyad par classify karta hai. "K" ka matlab hai kitne neighbors dekhne hain.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Agar 5 qareebi neighbors mein se 3 billi hain aur 2 kutte, to naya point billi classify hoga.
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 5: Unsupervised Algorithms -->
+        <div class="chapter" id="ch5">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📔 Bab 5: Unsupervised Learning Algorithms</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Unsupervised Learning mein labels nahi hote, algorithm khud patterns dhundhta hai.</p>
+
+                <h3>1. K-Means Clustering</h3>
+                <p>Yeh algorithm data ko 'K' groups (clusters) mein taqseem karta hai. Har cluster ka ek center (centroid) hota hai.</p>
+                
+                <h4>Algorithm ke Steps:</h4>
+                <ol>
+                    <li>K ka intikhab karein (kitne clusters chahiye).</li>
+                    <li>Random centroids initialize karein.</li>
+                    <li>Har data point ko qareebi centroid se assign karein.</li>
+                    <li>Centroids ko update karein (average calculate kar ke).</li>
+                    <li>Step 3-4 ko repeat karein jab tak centroids change na hon.</li>
+                </ol>
+
+                <div class="svg-container">
+                    <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cluster 1 (Red) -->
+                        <circle cx="100" cy="80" r="8" fill="var(--danger)" />
+                        <circle cx="120" cy="100" r="8" fill="var(--danger)" />
+                        <circle cx="90" cy="110" r="8" fill="var(--danger)" />
+                        <circle cx="110" cy="70" r="8" fill="var(--danger)" />
+                        <circle cx="105" cy="90" r="12" fill="none" stroke="var(--danger)" stroke-width="2" stroke-dasharray="3,3" />
+                        <text x="105" y="95" text-anchor="middle" fill="var(--danger)" font-size="14" font-weight="bold">C1</text>
+                        
+                        <!-- Cluster 2 (Blue) -->
+                        <circle cx="250" cy="200" r="8" fill="var(--primary)" />
+                        <circle cx="270" cy="180" r="8" fill="var(--primary)" />
+                        <circle cx="240" cy="220" r="8" fill="var(--primary)" />
+                        <circle cx="260" cy="210" r="8" fill="var(--primary)" />
+                        <circle cx="255" cy="200" r="12" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="3,3" />
+                        <text x="255" y="205" text-anchor="middle" fill="var(--primary)" font-size="14" font-weight="bold">C2</text>
+                        
+                        <!-- Cluster 3 (Green) -->
+                        <circle cx="400" cy="100" r="8" fill="var(--accent)" />
+                        <circle cx="380" cy="120" r="8" fill="var(--accent)" />
+                        <circle cx="410" cy="130" r="8" fill="var(--accent)" />
+                        <circle cx="390" cy="90" r="8" fill="var(--accent)" />
+                        <circle cx="395" cy="110" r="12" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3,3" />
+                        <text x="395" y="115" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="bold">C3</text>
+                        
+                        <text x="250" y="280" text-anchor="middle" fill="var(--text-color)" font-size="14" font-weight="bold">K-Means: 3 Clusters</text>
+                    </svg>
+                </div>
+
+                <h3>2. Hierarchical Clustering</h3>
+                <p>Yeh algorithm data points ko ek darakht (tree) ki shakhl mein jorta hai. Do qisam ke hain:</p>
+                <ul>
+                    <li><strong>Agglomerative (Bottom-Up):</strong> Har point ko alag cluster maan kar shuru karta hai, phir qareebi clusters ko merge karta hai.</li>
+                    <li><strong>Divisive (Top-Down):</strong> Sab points ko ek cluster maan kar shuru karta hai, phir divide karta hai.</li>
+                </ul>
+
+                <h3>3. Principal Component Analysis (PCA)</h3>
+                <p>PCA data ki dimensions (features) ko kam karta hai taakay data ko visualize aur analyze karna asaan ho jaye, lekin important information zaya na ho.</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Agar 100 features hon, to PCA unhe 2 ya 3 main components mein convert kar deta hai.
+                </div>
+
+                <h3>4. DBSCAN (Density-Based Clustering)</h3>
+                <p>Yeh algorithm data ki density (ghat'ta) ki bunyad par clusters banata hai. Yeh arbitrary shapes ke clusters bhi identify kar sakta hai aur outliers ko detect kar sakta hai.</p>
+            </div>
+        </div>
+
+        <!-- Chapter 6: Neural Networks -->
+        <div class="chapter" id="ch6">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>🧠 Bab 6: Neural Networks & Deep Learning</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Neural Networks insani dimagh ke neurons ki naqal karte hain. Har neuron inputs leta hai, un par calculations karta hai, aur output deta hai.</p>
+
+                <h3>Neuron ka Structure</h3>
+                <div class="highlight">
+                    <strong>Formula:</strong> output = activation_function(Σ(weight × input) + bias)
+                </div>
+
+                <h3>Neural Network Architecture</h3>
+                <div class="svg-container">
+                    <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Connections -->
+                        <line x1="100" y1="80" x2="300" y2="60" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="100" y1="80" x2="300" y2="150" stroke="var(--primary)" stroke-width="2" />
+                        <line x1="100" y1="80" x2="300" y2="240" stroke="var(--border)" stroke-width="1.5" />
+                        
+                        <line x1="100" y1="175" x2="300" y2="60" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="100" y1="175" x2="300" y2="150" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="100" y1="175" x2="300" y2="240" stroke="var(--primary)" stroke-width="2" />
+
+                        <line x1="100" y1="270" x2="300" y2="60" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="100" y1="270" x2="300" y2="150" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="100" y1="270" x2="300" y2="240" stroke="var(--border)" stroke-width="1.5" />
+
+                        <line x1="300" y1="60" x2="500" y2="130" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="300" y1="60" x2="500" y2="220" stroke="var(--border)" stroke-width="1.5" />
+                        
+                        <line x1="300" y1="150" x2="500" y2="130" stroke="var(--primary)" stroke-width="2" />
+                        <line x1="300" y1="150" x2="500" y2="220" stroke="var(--border)" stroke-width="1.5" />
+
+                        <line x1="300" y1="240" x2="500" y2="130" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="300" y1="240" x2="500" y2="220" stroke="var(--primary)" stroke-width="2" />
+
+                        <!-- Input Layer -->
+                        <circle cx="100" cy="80" r="22" fill="var(--accent)" />
+                        <circle cx="100" cy="175" r="22" fill="var(--accent)" />
+                        <circle cx="100" cy="270" r="22" fill="var(--accent)" />
+                        <text x="40" y="180" fill="var(--text-color)" font-weight="bold" font-size="14">Input</text>
+                        <text x="40" y="195" fill="var(--text-color)" font-size="11">Layer</text>
+
+                        <!-- Hidden Layer -->
+                        <circle cx="300" cy="60" r="22" fill="var(--secondary)" />
+                        <circle cx="300" cy="150" r="22" fill="var(--secondary)" />
+                        <circle cx="300" cy="240" r="22" fill="var(--secondary)" />
+                        <text x="265" y="320" fill="var(--text-color)" font-weight="bold" font-size="14">Hidden Layer</text>
+
+                        <!-- Output Layer -->
+                        <circle cx="500" cy="130" r="22" fill="var(--primary)" />
+                        <circle cx="500" cy="220" r="22" fill="var(--primary)" />
+                        <text x="530" y="180" fill="var(--text-color)" font-weight="bold" font-size="14">Output</text>
+                        <text x="530" y="195" fill="var(--text-color)" font-size="11">Layer</text>
+                    </svg>
+                </div>
+
+                <h3>Activation Functions</h3>
+                <p>Yeh functions decide karte hain ke neuron fire hoga ya nahi:</p>
+                <ul>
+                    <li><strong>Sigmoid:</strong> Output 0 aur 1 ke darmiyan (probability ke liye).</li>
+                    <li><strong>ReLU (Rectified Linear Unit):</strong> Sab se zyada istemal hota hai, fast hai.</li>
+                    <li><strong>Tanh:</strong> Output -1 aur 1 ke darmiyan.</li>
+                    <li><strong>Softmax:</strong> Multi-class classification ke liye.</li>
+                </ul>
+
+                <h3>Deep Learning Architectures</h3>
+                <ul>
+                    <li><strong>CNN (Convolutional Neural Networks):</strong> Image recognition ke liye (jaise face detection).</li>
+                    <li><strong>RNN (Recurrent Neural Networks):</strong> Sequence data ke liye (jaise text, time series).</li>
+                    <li><strong>Transformers:</strong> Modern NLP models (jaise GPT, BERT).</li>
+                    <li><strong>GANs (Generative Adversarial Networks):</strong> Nayi images generate karne ke liye.</li>
+                </ul>
+
+                <h3>Training Process</h3>
+                <ol>
+                    <li><strong>Forward Propagation:</strong> Input se output tak calculations.</li>
+                    <li><strong>Loss Calculation:</strong> Prediction aur actual value ka farq.</li>
+                    <li><strong>Backpropagation:</strong> Error ko peeche bhej kar weights update karna.</li>
+                    <li><strong>Gradient Descent:</strong> Weights ko optimize karna taakay loss kam ho.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Chapter 7: Model Evaluation -->
+        <div class="chapter" id="ch7">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>📊 Bab 7: Model Evaluation Metrics</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Model ki performance napne ke liye mukhtalif metrics istemal hoti hain:</p>
+
+                <h3>1. Confusion Matrix</h3>
+                <p>Yeh matrix classification model ki performance dikhata hai:</p>
+                
+                <div class="svg-container">
+                    <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Headers -->
+                        <text x="250" y="30" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="16">Predicted</text>
+                        <text x="150" y="70" text-anchor="middle" fill="var(--text-color)" font-size="14">Positive</text>
+                        <text x="350" y="70" text-anchor="middle" fill="var(--text-color)" font-size="14">Negative</text>
+                        
+                        <text x="50" y="160" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14" transform="rotate(-90 50 160)">Actual</text>
+                        <text x="80" y="150" text-anchor="middle" fill="var(--text-color)" font-size="14">Positive</text>
+                        <text x="80" y="250" text-anchor="middle" fill="var(--text-color)" font-size="14">Negative</text>
+                        
+                        <!-- Matrix Cells -->
+                        <rect x="100" y="100" width="100" height="80" fill="var(--accent)" opacity="0.3" stroke="var(--accent)" stroke-width="2" />
+                        <text x="150" y="135" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">True</text>
+                        <text x="150" y="155" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">Positive</text>
+                        <text x="150" y="175" text-anchor="middle" fill="var(--text-color)" font-size="12">(TP)</text>
+                        
+                        <rect x="200" y="100" width="100" height="80" fill="var(--danger)" opacity="0.3" stroke="var(--danger)" stroke-width="2" />
+                        <text x="250" y="135" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">False</text>
+                        <text x="250" y="155" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">Negative</text>
+                        <text x="250" y="175" text-anchor="middle" fill="var(--text-color)" font-size="12">(FN)</text>
+                        
+                        <rect x="100" y="200" width="100" height="80" fill="var(--warning)" opacity="0.3" stroke="var(--warning)" stroke-width="2" />
+                        <text x="150" y="235" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">False</text>
+                        <text x="150" y="255" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">Positive</text>
+                        <text x="150" y="275" text-anchor="middle" fill="var(--text-color)" font-size="12">(FP)</text>
+                        
+                        <rect x="200" y="200" width="100" height="80" fill="var(--accent)" opacity="0.3" stroke="var(--accent)" stroke-width="2" />
+                        <text x="250" y="235" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">True</text>
+                        <text x="250" y="255" text-anchor="middle" fill="var(--text-color)" font-weight="bold" font-size="14">Negative</text>
+                        <text x="250" y="275" text-anchor="middle" fill="var(--text-color)" font-size="12">(TN)</text>
+                        
+                        <!-- Extended boxes -->
+                        <rect x="300" y="100" width="100" height="80" fill="var(--border)" opacity="0.3" stroke="var(--border)" stroke-width="2" />
+                        <rect x="300" y="200" width="100" height="80" fill="var(--border)" opacity="0.3" stroke="var(--border)" stroke-width="2" />
+                    </svg>
+                </div>
+
+                <h3>2. Evaluation Metrics</h3>
+                <ul>
+                    <li><strong>Accuracy:</strong> (TP + TN) / Total = Sahi predictions ka percentage.</li>
+                    <li><strong>Precision:</strong> TP / (TP + FP) = Jab model positive predict kare, to kitni baar sahi hota hai.</li>
+                    <li><strong>Recall (Sensitivity):</strong> TP / (TP + FN) = Actual positives mein se kitne identify kiye.</li>
+                    <li><strong>F1-Score:</strong> Precision aur Recall ka harmonic mean (jab dono important hon).</li>
+                </ul>
+
+                <h3>3. Regression Metrics</h3>
+                <ul>
+                    <li><strong>MAE (Mean Absolute Error):</strong> Average absolute difference.</li>
+                    <li><strong>MSE (Mean Squared Error):</strong> Average squared difference (badi errors ko zyada weight deta hai).</li>
+                    <li><strong>RMSE (Root Mean Squared Error):</strong> MSE ka square root.</li>
+                    <li><strong>R² Score:</strong> Model kitna variance explain karta hai (1 = perfect, 0 = random).</li>
+                </ul>
+
+                <h3>4. Cross-Validation</h3>
+                <p>K-Fold Cross-Validation mein data ko K parts mein divide kiya jata hai. Har baar ek part test ke liye aur baqi K-1 parts training ke liye istemal hote hain. Yeh process K baar repeat hota hai.</p>
+            </div>
+        </div>
+
+        <!-- Chapter 8: Overfitting vs Underfitting -->
+        <div class="chapter" id="ch8">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>⚖️ Bab 8: Overfitting vs Underfitting</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Model training mein do baray maslay aa sakte hain:</p>
+
+                <h3>1. Underfitting (Kam Seekhna)</h3>
+                <p>Jab model itna simple ho ke wo training data ke patterns bhi na seekh sake.</p>
+                <div class="warning">
+                    <strong>Alamaat:</strong> Training aur testing dono par kharab performance.
+                </div>
+                <p><strong>Wajuhaat:</strong>
+                <ul>
+                    <li>Model bohot simple hai.</li>
+                    <li>Features kaafi nahi hain.</li>
+                    <li>Training time kam hai.</li>
+                </ul>
+                </p>
+                <p><strong>Hal:</strong>
+                <ul>
+                    <li>Complex model use karein.</li>
+                    <li>Mazeed features add karein.</li>
+                    <li>Zyada der tak train karein.</li>
+                </ul>
+                </p>
+
+                <h3>2. Overfitting (Zyada Yaad Karna)</h3>
+                <p>Jab model training data ko "yaad" kar le (noise samait) lekin naye data par kharab perform kare.</p>
+                <div class="warning">
+                    <strong>Alamaat:</strong> Training par bohot acha, testing par kharab performance.
+                </div>
+                <p><strong>Wajuhaat:</strong>
+                <ul>
+                    <li>Model bohot complex hai.</li>
+                    <li>Training data kam hai.</li>
+                    <li>Zyada der tak train kiya (too many epochs).</li>
+                </ul>
+                </p>
+                <p><strong>Hal:</strong>
+                <ul>
+                    <li><strong>Regularization:</strong> L1 (Lasso), L2 (Ridge) add karein.</li>
+                    <li><strong>Dropout:</strong> Neural networks mein kuch neurons ko randomly disable karein.</li>
+                    <li><strong>Early Stopping:</strong> Training ko waqt se pehle rok dein jab validation loss barhne lage.</li>
+                    <li><strong>More Data:</strong> Training data barhayein.</li>
+                    <li><strong>Cross-Validation:</strong> Model ki generalization check karein.</li>
+                </ul>
+                </p>
+
+                <h3>Bias-Variance Tradeoff</h3>
+                <div class="highlight">
+                    <strong>Bias:</strong> Model ki assumptions ki waja se errors (Underfitting).<br>
+                    <strong>Variance:</strong> Training data mein tabdeeli se model mein tabdeeli (Overfitting).<br>
+                    <strong>Goal:</strong> Dono ko balance karna taakay total error kam ho.
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 9: Feature Engineering -->
+        <div class="chapter" id="ch9">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>🔧 Bab 9: Feature Engineering & Data Preprocessing</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Feature Engineering ka matlab hai data ko aisi shakhl dena ke model us se behtar seekh sake. Yeh ML project ka sab se important hissa hai!</p>
+
+                <h3>1. Handling Missing Data</h3>
+                <ul>
+                    <li><strong>Remove:</strong> Rows/columns jin mein zyada missing values hon.</li>
+                    <li><strong>Imputation:</strong> Missing values ko fill karna (mean, median, mode, ya ML model se).</li>
+                </ul>
+
+                <h3>2. Encoding Categorical Variables</h3>
+                <p>ML models sirf numbers samajhte hain, is liye text data ko numbers mein convert karna parta hai:</p>
+                <ul>
+                    <li><strong>Label Encoding:</strong> Har category ko ek number dena (Red=0, Green=1, Blue=2).</li>
+                    <li><strong>One-Hot Encoding:</strong> Har category ke liye alag column banana (0 ya 1).</li>
+                </ul>
+
+                <h3>3. Feature Scaling</h3>
+                <p>Different features ki ranges mukhtalif ho sakti hain (jaise age: 0-100, salary: 20000-200000). Inhe ek scale par lana zaroori hai:</p>
+                <ul>
+                    <li><strong>Normalization (Min-Max Scaling):</strong> Values ko 0 aur 1 ke darmiyan lana.</li>
+                    <li><strong>Standardization (Z-score):</strong> Mean = 0, Standard Deviation = 1 karna.</li>
+                </ul>
+
+                <h3>4. Feature Selection</h3>
+                <p>Zaroori features ko chunna aur ghair-zaroori ko remove karna:</p>
+                <ul>
+                    <li><strong>Filter Methods:</strong> Correlation, Chi-square test.</li>
+                    <li><strong>Wrapper Methods:</strong> Forward selection, Backward elimination.</li>
+                    <li><strong>Embedded Methods:</strong> Lasso regression, Random Forest feature importance.</li>
+                </ul>
+
+                <h3>5. Feature Creation</h3>
+                <p>Naye features banana existing features se:</p>
+                <div class="example">
+                    <strong>Misaal:</strong> Agar "Birth Date" hai, to us se "Age" calculate kar ke naya feature banana.<br>
+                    <strong>Misaal:</strong> "Length" aur "Width" se "Area" calculate karna.
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 10: Python Code Examples -->
+        <div class="chapter" id="ch10">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>💻 Bab 10: Python Code Examples</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Chaliye kuch practical Python code examples dekhte hain using popular libraries:</p>
+
+                <h3>1. Linear Regression with Scikit-Learn</h3>
+                <div class="code-block">
+<span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
+<span class="code-keyword">from</span> sklearn.linear_model <span class="code-keyword">import</span> LinearRegression
+<span class="code-keyword">from</span> sklearn.model_selection <span class="code-keyword">import</span> train_test_split
+<span class="code-keyword">from</span> sklearn.metrics <span class="code-keyword">import</span> mean_squared_error
+
+<span class="code-comment"># Sample data</span>
+X = np.array([[<span class="code-number">1</span>], [<span class="code-number">2</span>], [<span class="code-number">3</span>], [<span class="code-number">4</span>], [<span class="code-number">5</span>]])  <span class="code-comment"># Features (e.g., house size)</span>
+y = np.array([<span class="code-number">10</span>, <span class="code-number">20</span>, <span class="code-number">30</span>, <span class="code-number">40</span>, <span class="code-number">50</span>])       <span class="code-comment"># Target (e.g., price)</span>
+
+<span class="code-comment"># Split data</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="code-number">0.2</span>)
+
+<span class="code-comment"># Create and train model</span>
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+<span class="code-comment"># Predict</span>
+predictions = model.predict(X_test)
+
+<span class="code-comment"># Evaluate</span>
+mse = mean_squared_error(y_test, predictions)
+<span class="code-function">print</span>(<span class="code-string">f"MSE: {mse}"</span>)
+                </div>
+
+                <h3>2. Classification with Decision Tree</h3>
+                <div class="code-block">
+<span class="code-keyword">from</span> sklearn.tree <span class="code-keyword">import</span> DecisionTreeClassifier
+<span class="code-keyword">from</span> sklearn.metrics <span class="code-keyword">import</span> accuracy_score, classification_report
+
+<span class="code-comment"># Sample data</span>
+X = [[<span class="code-number">25</span>, <span class="code-number">40000</span>], [<span class="code-number">45</span>, <span class="code-number">80000</span>], [<span class="code-number">35</span>, <span class="code-number">60000</span>], [<span class="code-number">22</span>, <span class="code-number">30000</span>]]
+y = [<span class="code-number">0</span>, <span class="code-number">1</span>, <span class="code-number">1</span>, <span class="code-number">0</span>]  <span class="code-comment"># 0 = No, 1 = Yes (buy product)</span>
+
+<span class="code-comment"># Create model</span>
+clf = DecisionTreeClassifier(max_depth=<span class="code-number">3</span>)
+clf.fit(X, y)
+
+<span class="code-comment"># Predict new data</span>
+new_data = [[<span class="code-number">30</span>, <span class="code-number">50000</span>]]
+prediction = clf.predict(new_data)
+<span class="code-function">print</span>(<span class="code-string">f"Prediction: {prediction}"</span>)
+                </div>
+
+                <h3>3. K-Means Clustering</h3>
+                <div class="code-block">
+<span class="code-keyword">from</span> sklearn.cluster <span class="code-keyword">import</span> KMeans
+<span class="code-keyword">import</span> matplotlib.pyplot <span class="code-keyword">as</span> plt
+
+<span class="code-comment"># Sample data</span>
+X = [[<span class="code-number">1</span>, <span class="code-number">2</span>], [<span class="code-number">1</span>, <span class="code-number">4</span>], [<span class="code-number">1</span>, <span class="code-number">0</span>],
+     [<span class="code-number">10</span>, <span class="code-number">2</span>], [<span class="code-number">10</span>, <span class="code-number">4</span>], [<span class="code-number">10</span>, <span class="code-number">0</span>]]
+
+<span class="code-comment"># Apply K-Means</span>
+kmeans = KMeans(n_clusters=<span class="code-number">2</span>, random_state=<span class="code-number">42</span>)
+kmeans.fit(X)
+
+<span class="code-comment"># Get results</span>
+labels = kmeans.labels_
+centroids = kmeans.cluster_centers_
+<span class="code-function">print</span>(<span class="code-string">f"Labels: {labels}"</span>)
+<span class="code-function">print</span>(<span class="code-string">f"Centroids: {centroids}"</span>)
+                </div>
+
+                <h3>4. Neural Network with TensorFlow/Keras</h3>
+                <div class="code-block">
+<span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf
+<span class="code-keyword">from</span> tensorflow.keras <span class="code-keyword">import</span> layers, models
+
+<span class="code-comment"># Create model</span>
+model = models.Sequential([
+    layers.Dense(<span class="code-number">64</span>, activation=<span class="code-string">'relu'</span>, input_shape=(<span class="code-number">10</span>,)),
+    layers.Dense(<span class="code-number">32</span>, activation=<span class="code-string">'relu'</span>),
+    layers.Dropout(<span class="code-number">0.3</span>),  <span class="code-comment"># Prevent overfitting</span>
+    layers.Dense(<span class="code-number">1</span>, activation=<span class="code-string">'sigmoid'</span>)  <span class="code-comment"># Binary classification</span>
+])
+
+<span class="code-comment"># Compile model</span>
+model.compile(optimizer=<span class="code-string">'adam'</span>,
+              loss=<span class="code-string">'binary_crossentropy'</span>,
+              metrics=[<span class="code-string">'accuracy'</span>])
+
+<span class="code-comment"># Train model</span>
+history = model.fit(X_train, y_train, 
+                    epochs=<span class="code-number">50</span>, 
+                    batch_size=<span class="code-number">32</span>,
+                    validation_split=<span class="code-number">0.2</span>)
+                </div>
+
+                <h3>5. Data Preprocessing Pipeline</h3>
+                <div class="code-block">
+<span class="code-keyword">from</span> sklearn.preprocessing <span class="code-keyword">import</span> StandardScaler, OneHotEncoder
+<span class="code-keyword">from</span> sklearn.compose <span class="code-keyword">import</span> ColumnTransformer
+<span class="code-keyword">from</span> sklearn.impute <span class="code-keyword">import</span> SimpleImputer
+<span class="code-keyword">from</span> sklearn.pipeline <span class="code-keyword">import</span> Pipeline
+
+<span class="code-comment"># Numeric features</span>
+numeric_features = [<span class="code-string">'age'</span>, <span class="code-string">'salary'</span>]
+numeric_transformer = Pipeline(steps=[
+    (<span class="code-string">'imputer'</span>, SimpleImputer(strategy=<span class="code-string">'median'</span>)),
+    (<span class="code-string">'scaler'</span>, StandardScaler())
+])
+
+<span class="code-comment"># Categorical features</span>
+categorical_features = [<span class="code-string">'gender'</span>, <span class="code-string">'city'</span>]
+categorical_transformer = Pipeline(steps=[
+    (<span class="code-string">'imputer'</span>, SimpleImputer(strategy=<span class="code-string">'constant'</span>, fill_value=<span class="code-string">'missing'</span>)),
+    (<span class="code-string">'onehot'</span>, OneHotEncoder(handle_unknown=<span class="code-string">'ignore'</span>))
+])
+
+<span class="code-comment"># Combine</span>
+preprocessor = ColumnTransformer(
+    transformers=[
+        (<span class="code-string">'num'</span>, numeric_transformer, numeric_features),
+        (<span class="code-string">'cat'</span>, categorical_transformer, categorical_features)
+    ])
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 11: Real-World Applications -->
+        <div class="chapter" id="ch11">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>🌍 Bab 11: Real-World Applications</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Machine Learning aaj kal har field mein istemal ho raha hai. Kuch mashhoor applications:</p>
+
+                <h3>1. Healthcare (Sehat)</h3>
+                <ul>
+                    <li><strong>Disease Prediction:</strong> Cancer, diabetes, heart disease ki peshangoi.</li>
+                    <li><strong>Medical Imaging:</strong> X-rays, MRIs se tumors detect karna.</li>
+                    <li><strong>Drug Discovery:</strong> Nayi adwiyaat tez dhundhna.</li>
+                    <li><strong>Personalized Medicine:</strong> Har mareez ke liye khas ilaj.</li>
+                </ul>
+
+                <h3>2. Finance (Maaliyat)</h3>
+                <ul>
+                    <li><strong>Fraud Detection:</strong> Credit card fraud pakarna.</li>
+                    <li><strong>Stock Market Prediction:</strong> Share prices ki peshangoi.</li>
+                    <li><strong>Risk Assessment:</strong> Loan approval ke liye risk analyze karna.</li>
+                    <li><strong>Algorithmic Trading:</strong> Automatic trading systems.</li>
+                </ul>
+
+                <h3>3. E-Commerce</h3>
+                <ul>
+                    <li><strong>Recommendation Systems:</strong> Amazon, Netflix jaise platforms par products/movies suggest karna.</li>
+                    <li><strong>Customer Segmentation:</strong> Customers ko groups mein divide karna.</li>
+                    <li><strong>Price Optimization:</strong> Dynamic pricing.</li>
+                    <li><strong>Inventory Management:</strong> Demand predict karna.</li>
+                </ul>
+
+                <h3>4. Transportation</h3>
+                <ul>
+                    <li><strong>Self-Driving Cars:</strong> Tesla, Waymo ki autonomous vehicles.</li>
+                    <li><strong>Traffic Prediction:</strong> Google Maps mein traffic conditions.</li>
+                    <li><strong>Route Optimization:</strong> Delivery companies ke liye best routes.</li>
+                </ul>
+
+                <h3>5. Natural Language Processing (NLP)</h3>
+                <ul>
+                    <li><strong>Virtual Assistants:</strong> Siri, Alexa, Google Assistant.</li>
+                    <li><strong>Translation:</strong> Google Translate.</li>
+                    <li><strong>Sentiment Analysis:</strong> Social media par opinions analyze karna.</li>
+                    <li><strong>Chatbots:</strong> Customer service automation.</li>
+                </ul>
+
+                <h3>6. Entertainment</h3>
+                <ul>
+                    <li><strong>Content Recommendation:</strong> Spotify, YouTube algorithms.</li>
+                    <li><strong>Image/Video Generation:</strong> AI art (DALL-E, Midjourney).</li>
+                    <li><strong>Game AI:</strong> Video games mein intelligent opponents.</li>
+                </ul>
+
+                <h3>7. Agriculture (Ziraat)</h3>
+                <ul>
+                    <li><strong>Crop Prediction:</strong> Kitni paidawar hogi.</li>
+                    <li><strong>Disease Detection:</strong> Paudon ki bemariyan pehchanna.</li>
+                    <li><strong>Precision Farming:</strong> Water aur fertilizer ka behtar istemal.</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>Mustaqbil (Future):</strong> AI aur ML har field ko transform kar rahe hain. Jo log in skills ko seekhte hain, un ke liye career ke bohot mazeed mauqay hain!
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 12: Final Quiz -->
+        <div class="chapter" id="ch12">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>🎓 Bab 12: Final Assessment & Resources</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="chapter-content">
+                <p>Ab waqt hai ke aap apni samajh ko azmayen! Neeche 10 sawalon ka quiz hai:</p>
+
+                <div class="quiz-question">
+                    <p><strong>1. Machine Learning ka bunyadi maqsad kya hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Computers ko tez banana</button>
+                        <button onclick="checkAnswer(this, true)">Data se seekhna aur predictions karna</button>
+                        <button onclick="checkAnswer(this, false)">Internet ko behtar banana</button>
+                        <button onclick="checkAnswer(this, false)">Hardware develop karna</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>2. Agar data mein labels na hon, to konsa learning type istemal hoga?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Supervised Learning</button>
+                        <button onclick="checkAnswer(this, true)">Unsupervised Learning</button>
+                        <button onclick="checkAnswer(this, false)">Reinforcement Learning</button>
+                        <button onclick="checkAnswer(this, false)">Deep Learning</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>3. K-Means kis qisam ka algorithm hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Classification</button>
+                        <button onclick="checkAnswer(this, false)">Regression</button>
+                        <button onclick="checkAnswer(this, true)">Clustering</button>
+                        <button onclick="checkAnswer(this, false)">Reinforcement</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>4. Overfitting ka matlab kya hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Model training data ko nahi samajh pa raha</button>
+                        <button onclick="checkAnswer(this, true)">Model training data ko yaad kar liya hai lekin naye data par kharab hai</button>
+                        <button onclick="checkAnswer(this, false)">Model bohot slow hai</button>
+                        <button onclick="checkAnswer(this, false)">Model mein bohot kam features hain</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>5. Confusion Matrix mein "True Positive" ka matlab kya hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Model ne negative predict kiya aur wo negative tha</button>
+                        <button onclick="checkAnswer(this, true)">Model ne positive predict kiya aur wo positive tha</button>
+                        <button onclick="checkAnswer(this, false)">Model ne positive predict kiya lekin wo negative tha</button>
+                        <button onclick="checkAnswer(this, false)">Model ne negative predict kiya lekin wo positive tha</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>6. Neural Networks mein "Backpropagation" ka kya kaam hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Data ko preprocess karna</button>
+                        <button onclick="checkAnswer(this, false)">Features select karna</button>
+                        <button onclick="checkAnswer(this, true)">Error ko peeche bhej kar weights update karna</button>
+                        <button onclick="checkAnswer(this, false)">Data ko visualize karna</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>7. Feature Scaling kyun zaroori hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Data ko khubsurat banane ke liye</button>
+                        <button onclick="checkAnswer(this, true)">Taa ke sab features ek scale par hon aur model behtar seekhe</button>
+                        <button onclick="checkAnswer(this, false)">Data ko delete karne ke liye</button>
+                        <button onclick="checkAnswer(this, false)">Sirf visualization ke liye</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>8. CNN (Convolutional Neural Network) kis kaam ke liye behtar hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Text processing</button>
+                        <button onclick="checkAnswer(this, true)">Image recognition</button>
+                        <button onclick="checkAnswer(this, false)">Time series prediction</button>
+                        <button onclick="checkAnswer(this, false)">Clustering</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>9. Cross-Validation ka faida kya hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Model ko tez banana</button>
+                        <button onclick="checkAnswer(this, false)">Data ko delete karna</button>
+                        <button onclick="checkAnswer(this, true)">Model ki generalization ability check karna</button>
+                        <button onclick="checkAnswer(this, false)">Features add karna</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>10. Reinforcement Learning mein "Agent" kya karta hai?</strong></p>
+                    <div class="quiz-options">
+                        <button onclick="checkAnswer(this, false)">Sirf data collect karta hai</button>
+                        <button onclick="checkAnswer(this, false)">Sirf labels deta hai</button>
+                        <button onclick="checkAnswer(this, true)">Environment mein actions leta hai aur rewards/penalties se seekhta hai</button>
+                        <button onclick="checkAnswer(this, false)">Sirf model evaluate karta hai</button>
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+
+                <div class="score-board" id="scoreBoard">
+                    <h3>🎉 Quiz Mukammal!</h3>
+                    <p id="scoreText"></p>
+                </div>
+
+                <h3 style="margin-top: 40px;">📚 Mazeed Seekhne Ke Liye Resources</h3>
+                <ul>
+                    <li><strong>Online Courses:</strong> Coursera (Andrew Ng's ML Course), Udemy, edX</li>
+                    <li><strong>Books:</strong> "Hands-On Machine Learning" by Aurélien Géron, "Pattern Recognition and Machine Learning" by Christopher Bishop</li>
+                    <li><strong>Practice Platforms:</strong> Kaggle, Google Colab, HackerRank</li>
+                    <li><strong>YouTube Channels:</strong> 3Blue1Brown, StatQuest, sentdex</li>
+                    <li><strong>Documentation:</strong> Scikit-learn, TensorFlow, PyTorch official docs</li>
+                    <li><strong>Communities:</strong> Reddit (r/MachineLearning), Stack Overflow, GitHub</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>Yaad Rakhein:</strong> Machine Learning seekhna ek safar hai, manzil nahi. Rozana practice karein, projects banayein, aur community ke sath share karein. Kamyabi zaroor milegi! 🚀
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <footer>
+        <p>📘 Yeh kitab Machine Learning ke students ke liye tayar ki gayi hai.</p>
+        <p>Seekhte rahein, aagay barhte rahein! 🚀</p>
+        <p style="margin-top: 15px; font-size: 0.9rem;">© 2026 ML Course - Roman Urdu Edition</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerHTML = '🌙 Dark Mode';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerHTML = '☀️ Light Mode';
+            }
+        }
+
+        // FIXED: Accordion Toggle with proper height calculation
+        function toggleChapter(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            
+            if (content.classList.contains('active')) {
+                // Close
+                content.style.maxHeight = '0px';
+                content.classList.remove('active');
+                arrow.classList.remove('active');
+            } else {
+                // Open - use scrollHeight for dynamic height
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                arrow.classList.add('active');
+            }
+        }
+
+        // Quiz Logic with Score Tracking
+        let totalQuestions = 10;
+        let correctAnswers = 0;
+        let answeredQuestions = 0;
+
+        function checkAnswer(button, isCorrect) {
+            const options = button.parentElement;
+            const buttons = options.querySelectorAll('button');
+            const feedback = options.nextElementSibling;
+
+            // Prevent multiple clicks
+            if (button.disabled) return;
+
+            // Disable all buttons
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.cursor = 'not-allowed';
+            });
+
+            answeredQuestions++;
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedback.textContent = "✅ Bilkul Sahi! Aap ne durust jawab diya.";
+                feedback.style.color = "var(--accent)";
+                feedback.style.background = "rgba(16, 185, 129, 0.1)";
+                correctAnswers++;
+            } else {
+                button.classList.add('wrong');
+                feedback.textContent = "❌ Ghalat Jawab. Sahi option green mein highlight hai.";
+                feedback.style.color = "var(--danger)";
+                feedback.style.background = "rgba(239, 68, 68, 0.1)";
+                // Highlight correct answer
+                buttons.forEach(btn => {
+                    if (btn.getAttribute('onclick').includes('true')) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+            feedback.style.display = 'block';
+
+            // Show final score when all questions answered
+            if (answeredQuestions === totalQuestions) {
+                showFinalScore();
+            }
+        }
+
+        function showFinalScore() {
+            const scoreBoard = document.getElementById('scoreBoard');
+            const scoreText = document.getElementById('scoreText');
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            let message = '';
+            if (percentage === 100) {
+                message = '🏆 Zabardast! Aap ne perfect score hasil kiya!';
+            } else if (percentage >= 80) {
+                message = '🌟 Bohat Acha! Aap ka concept wazeh hai!';
+            } else if (percentage >= 60) {
+                message = '👍 Acha! Thori aur practice ki zaroorat hai.';
+            } else if (percentage >= 40) {
+                message = '📚 Chapters dobara parhein aur phir try karein.';
+            } else {
+                message = '💪 Himmat na haarein! Shuru se parhein aur practice karein.';
+            }
+            
+            scoreText.innerHTML = `Aap ne ${correctAnswers} out of ${totalQuestions} sawalon ke sahi jawab diye!<br>Score: ${percentage.toFixed(0)}%<br><br>${message}`;
+            scoreBoard.style.display = 'block';
+            scoreBoard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetChapter = document.getElementById(targetId);
+                
+                if (targetChapter) {
+                    targetChapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Auto-open the chapter
+                    setTimeout(() => {
+                        const header = targetChapter.querySelector('.chapter-header');
+                        if (!header.nextElementSibling.classList.contains('active')) {
+                            toggleChapter(header);
+                        }
+                    }, 500);
+                }
+            });
+        });
+
+        // Auto-open first chapter on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstHeader = document.querySelector('.chapter-header');
+            if (firstHeader) {
+                toggleChapter(firstHeader);
+            }
+        });
+    </script>
+</body>
+</html>

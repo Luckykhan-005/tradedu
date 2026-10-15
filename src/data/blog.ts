@@ -23,6 +23,3160 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'burst-candle-kya-hai',
+    title: 'Burst Candle کیا ہوتی ہے؟ — کہاں، کب اور کیسے ٹریڈ کریں (مکمل گائیڈ)',
+    excerpt: 'Burst Candle (Displacement Candle) kya hoti hai — asal tareef, pehchan, kahan aur kab banti hai, bullish/bearish workflow aur XAU/USD example — Urdu guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '6 min read',
+    hero: '/blog/burst-candle-kya-hai.webp',
+    heroAlt: 'Burst Candle کیا ہوتی ہے؟ — کہاں، کب اور کیسے ٹریڈ کریں (مکمل گائیڈ)',
+    html: `<p class="lead">Burst Candle — jise <b>Displacement Candle</b> ya <b>Institutional Burst Candle</b> bhi kehte hain — ICT aur Smart Money Concepts ka wo candle hai jo market mein jama hua pressure achanak release karti hai. Ye guide batati hai ke ye candle asal mein kya hai, kahan aur kab banti hai, bullish aur bearish dono setups kaise pehchanein, aur trade karne ka mukammal 5-step workflow kaisa hota hai — sab Urdu mein, research ke sath.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Kya hai:</b> Compression (chhoti, tang candles) ke baad jo bara momentum candle achanak aaye aur pressure release kare — wahi Burst Candle. Tafseel: <a href="/blog/candlestick-patterns-shuruaat"><b>Candlestick kya hai — shuruaati guide</b></a>.</li>
+<li><b>Kahan banti hai:</b> Equal highs/lows, session highs/lows aur purane swing levels jahan retail ke stop clusters hon — wahan liquidity ke paas.</li>
+<li><b>Workflow:</b> Compression pehchano → Burst candle confirm → uske baad FVG mark karo → retest ka intezar → entry. Size hamesha 1% rule ke sath: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Milta-julta:</b> Trap ke sath atha to <a href="/blog/ot-candle-kya-hai">OT Candle (Trap &amp; Burst)</a>, liquidity sweep sath ho to <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a>, institutional funding wali candle: <a href="/blog/ifc-candle-kya-hai">IFC Candle</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #fbbf24;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #f59e0b;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #fcd34d;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #78350f, #451a03);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #b45309;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #f59e0b;
+         }
+.uc .step-number { 
+            background: #f59e0b;
+            color: #0f172a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #fcd34d;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: Burst Candle کیا ہے؟</h2>
+            <p>
+                <strong>Burst Candle</strong> ICT اور Smart Money Concepts (SMC) کا اہم کنسپٹ ہے۔ اسے <strong>Displacement Candle</strong> یا <strong>Institutional Burst Candle</strong> بھی کہا جاتا ہے۔
+            </p>
+            <p>
+                <strong>نوٹ:</strong> بہت سے ہندی/اردو ٹریڈرز اسے "Brust Candle" لکھتے/بولتے ہیں، لیکن درست انگریزی لفظ <strong>Burst Candle</strong> ہے۔ اس آرٹیکل میں ہم درست لفظ استعمال کریں گے۔
+            </p>
+            <p>
+                سادہ زبان میں: Burst Candle وہ بڑی اور مضبوط کینڈل ہے جو مارکیٹ میں جمع ہونے والے پریشر (Pressure) کو اچانک ریلیز کرتی ہے۔ جب مارکیٹ طویل عرصے تک چھوٹی، تنگ کینڈلز بناتی رہتی ہے (Compression)، تو ایک لمحہ ایسا آتا ہے جب تمام پریشر ایک ہی کینڈل میں پھٹ پڑتا ہے — یہی Burst Candle ہے۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> Burst Candle اداروں کی مضبوط آرڈر فلو کی نشانی ہے۔ یہ ظاہر کرتی ہے کہ سمارٹ منی نے ایک سمت میں فیصلہ کن طریقے سے پوزیشنز کھول لی ہیں اور مارکیٹ کو زور سے ایک طرف دھکیل دیا ہے۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. Burst Candle کی درست تعریف</h2>
+            <p>
+                Burst Candle کی شناخت درج ذیل خصوصیات سے ہوتی ہے:
+            </p>
+            <ul>
+                <li><strong>سائز:</strong> کینڈل کا باڈی حالیہ اوسط کینڈلز سے <strong>٢ سے ٣ گنا</strong> بڑا ہوتا ہے۔</li>
+                <li><strong>وکس (Wicks):</strong> تقریباً صفر یا بہت چھوٹے وکس ہوتے ہیں — اس کا مطلب ہے کہ سمت ١٠٠٪ فیصلہ شدہ ہے۔</li>
+                <li><strong>پہلے کی کینڈلز:</strong> Burst سے پہلے کینڈلز تنگ، سست اور Compressed ہوتی ہیں (Price Consolidation)۔</li>
+                <li><strong>Displacement:</strong> یہ Fair Value Gap (FVG) یا Imbalance چھوڑتی ہے، جو بعد میں اہم زون بن جاتا ہے۔</li>
+            </ul>
+            
+            <p>
+                ICT کی زبان میں اسے <strong>Displacement</strong> کہا جاتا ہے — یعنی قیمت کا تیز اور فیصلہ کن حرکت جو مارکیٹ سٹرکچر کو توڑ دیتی ہے۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. Burst Candle کہاں بنتی ہے؟</h2>
+            <p>
+                Burst Candle مخصوص مقامات پر زیادہ طاقتور ہوتی ہے:
+            </p>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Consolidation / Range کے بعد</strong></td>
+                        <td>جب قیمت طویل عرصے تک تنگ رینج میں رہتی ہے</td>
+                        <td>سب سے عام اور طاقتور جگہ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Block / FVG کے قریب</strong></td>
+                        <td>اداروں کے پچھلے انٹری زونز پر</td>
+                        <td>Confirmation کے لیے بہترین</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liquidity Sweep کے فوراً بعد</strong></td>
+                        <td>IFC یا Sweep کے بعد</td>
+                        <td>ریورسل یا کنٹینیو ایشن کی نشانی</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Break of Structure (BOS) کے وقت</strong></td>
+                        <td>جب اہم Swing High/Low ٹوٹتا ہے</td>
+                        <td>ٹرینڈ کنٹینیو ایشن کی تصدیق</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session Opens (لندن / نیویارک)</strong></td>
+                        <td>اہم سیشنز کے شروع میں</td>
+                        <td>بڑی وولیوم کے ساتھ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. Burst Candle کب بنتی ہے؟</h2>
+            <p>
+                Burst Candle مخصوص مارکیٹ کنڈیشنز میں بنتی ہے:
+            </p>
+            <ol>
+                <li><strong>Pressure Build-up کے بعد:</strong> جب مارکیٹ طویل Consolidation میں رہتی ہے اور خریدار/فروخت کنندہ دونوں پریشر بنا رہے ہوتے ہیں۔</li>
+                <li><strong>Accumulation یا Manipulation کے اختتام پر:</strong> AMD ماڈل کے Distribution مرحلے کی شروعات۔</li>
+                <li><strong>مضبوط نیوز یا ڈیٹا کے وقت:</strong> کبھی کبھار ہائی امپیکٹ نیوز کے دوران بھی بنتی ہے۔</li>
+                <li><strong>مارکیٹ سٹرکچر کے اہم موڑ پر:</strong> جب ادارے فیصلہ کن موومنٹ شروع کرتے ہیں۔</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> Burst Candle تنہا کافی نہیں۔ اس سے پہلے Compression (تنگ کینڈلز) ہونا ضروری ہے۔ بغیر Compression کے بڑی کینڈل صرف عام Momentum ہو سکتی ہے، Burst نہیں۔
+            </div>
+            
+            <!-- Bullish vs Bearish -->
+            <h2>٥. Bullish اور Bearish Burst Candle</h2>
+            
+            <h3 class="bullish">Bullish Burst Candle (خریدنے والی)</h3>
+            <p>
+                جب Consolidation کے بعد ایک بڑی سبز کینڈل بنتی ہے جس کا باڈی بہت بڑا اور وکس تقریباً صفر ہوتے ہیں۔ اس کا مطلب ہے کہ اداروں نے زور سے خرید لیا ہے اور قیمت اوپر کی طرف Displacement کر رہی ہے۔
+            </p>
+            
+            <h3 class="bearish">Bearish Burst Candle (بیچنے والی)</h3>
+            <p>
+                جب Consolidation کے بعد ایک بڑی سرخ کینڈل بنتی ہے جس کا باڈی بہت بڑا اور وکس تقریباً صفر ہوتے ہیں۔ اس کا مطلب ہے کہ اداروں نے زور سے بیچ دیا ہے اور قیمت نیچے کی طرف Displacement کر رہی ہے۔
+            </p>
+            
+            <!-- SVG Diagram 1: Bullish Burst -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: Bullish Burst Candle کی ساخت</div>
+                <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Base line -->
+                    <line x1="40" y1="300" x2="580" y2="300" stroke="#475569" stroke-width="1"/>
+                    
+                    <!-- Compression candles (small) -->
+                    <rect x="60" y="180" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="95" y="190" width="22" height="30" fill="#94a3b8" rx="2"/>
+                    <rect x="130" y="175" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    <rect x="165" y="185" width="22" height="35" fill="#94a3b8" rx="2"/>
+                    <rect x="200" y="170" width="22" height="50" fill="#94a3b8" rx="2"/>
+                    <rect x="235" y="180" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="270" y="175" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    
+                    <!-- Label for compression -->
+                    <text x="165" y="250" fill="#94a3b8" font-size="13" font-family="Arial">Compression (تنگ کینڈلز)</text>
+                    <line x1="60" y1="260" x2="290" y2="260" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+                    
+                    <!-- Burst Candle -->
+                    <rect x="320" y="80" width="40" height="140" fill="#22c55e" rx="3"/>
+                    <!-- Almost no wicks -->
+                    <line x1="340" y1="70" x2="340" y2="80" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="340" y1="220" x2="340" y2="230" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <!-- Label -->
+                    <text x="340" y="55" fill="#4ade80" font-size="15" font-weight="bold" text-anchor="middle" font-family="Arial">BURST</text>
+                    <text x="340" y="280" fill="#22c55e" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">Bullish Burst Candle</text>
+                    
+                    <!-- Follow-up candles -->
+                    <rect x="380" y="60" width="28" height="80" fill="#22c55e" rx="2"/>
+                    <rect x="420" y="45" width="28" height="70" fill="#22c55e" rx="2"/>
+                    <rect x="460" y="40" width="28" height="60" fill="#22c55e" rx="2"/>
+                    
+                    <!-- FVG -->
+                    <rect x="320" y="160" width="100" height="30" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="350" y="180" fill="#4ade80" font-size="12" font-family="Arial">FVG / Imbalance</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M290 200 L315 150" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowY)"/>
+                    <text x="250" y="160" fill="#fbbf24" font-size="12" font-family="Arial">Pressure Release</text>
+                    
+                    <defs>
+                        <marker id="arrowY" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2: Bearish Burst -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish Burst Candle کی ساخت</div>
+                <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="40" y1="300" x2="580" y2="300" stroke="#475569" stroke-width="1"/>
+                    
+                    <!-- Compression candles -->
+                    <rect x="60" y="140" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="95" y="150" width="22" height="30" fill="#94a3b8" rx="2"/>
+                    <rect x="130" y="135" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    <rect x="165" y="145" width="22" height="35" fill="#94a3b8" rx="2"/>
+                    <rect x="200" y="130" width="22" height="50" fill="#94a3b8" rx="2"/>
+                    <rect x="235" y="140" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="270" y="135" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    
+                    <text x="165" y="110" fill="#94a3b8" font-size="13" font-family="Arial">Compression (تنگ کینڈلز)</text>
+                    <line x1="60" y1="100" x2="290" y2="100" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+                    
+                    <!-- Burst Candle -->
+                    <rect x="320" y="140" width="40" height="140" fill="#ef4444" rx="3"/>
+                    <line x1="340" y1="130" x2="340" y2="140" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="340" y1="280" x2="340" y2="290" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <text x="340" y="120" fill="#f87171" font-size="15" font-weight="bold" text-anchor="middle" font-family="Arial">BURST</text>
+                    <text x="340" y="320" fill="#ef4444" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">Bearish Burst Candle</text>
+                    
+                    <!-- Follow-up -->
+                    <rect x="380" y="200" width="28" height="70" fill="#ef4444" rx="2"/>
+                    <rect x="420" y="220" width="28" height="60" fill="#ef4444" rx="2"/>
+                    <rect x="460" y="235" width="28" height="50" fill="#ef4444" rx="2"/>
+                    
+                    <!-- FVG -->
+                    <rect x="320" y="160" width="100" height="30" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="350" y="180" fill="#f87171" font-size="12" font-family="Arial">FVG / Imbalance</text>
+                    
+                    <path d="M290 160 L315 200" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowY2)"/>
+                    <text x="230" y="150" fill="#fbbf24" font-size="12" font-family="Arial">Pressure Release</text>
+                    
+                    <defs>
+                        <marker id="arrowY2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. Burst Candle کی پہچان کیسے کریں؟</h2>
+            <p>صحیح Burst Candle کی تین واضح نشانیاں ہیں:</p>
+            <ul>
+                <li><strong>سائز کا فرق:</strong> کینڈل حالیہ اوسط سے واضح طور پر ٢-٣ گنا بڑی ہو۔</li>
+                <li><strong>وکس کی کمی:</strong> اوپر اور نیچے کے وکس بہت چھوٹے یا تقریباً نہ ہوں۔</li>
+                <li><strong>Compression سے پہلے:</strong> اس سے پہلے کم از کم ٥-١٠ چھوٹی تنگ کینڈلز کا سلسلہ ہو۔</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <strong>اضافی تصدیق:</strong> اگر Burst Candle کے ساتھ Fair Value Gap بھی بنے اور Volume اوسط سے زیادہ ہو، تو یہ اور بھی مضبوط سگنل ہوتا ہے۔
+            </div>
+            
+            <!-- Workflow -->
+            <h2>٧. Burst Candle کے ساتھ ٹریڈ کرنے کا مکمل ورک فلو</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Compression تلاش کریں</strong><br>
+                    چارٹ پر ایسا علاقہ تلاش کریں جہاں قیمت تنگ رینج میں رہ رہی ہو اور کینڈلز چھوٹی بن رہی ہوں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Burst Candle کا انتظار کریں</strong><br>
+                    جب بڑی، تقریباً بغیر وک والی کینڈل بنے جو رینج کو توڑ دے، تو اسے Burst سمجھیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Fair Value Gap مارک کریں</strong><br>
+                    Burst کے بعد بننے والے FVG کو نشان زد کریں — یہ بعد میں ریٹیسٹ کا زون ہوگا۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>ریٹیسٹ پر انٹری لیں</strong><br>
+                    قیمت جب FVG یا Burst Candle کے ٥٠٪ پر واپس آئے تو Lower Timeframe پر Confirmation لے کر انٹری لیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Stop Loss اور Target</strong><br>
+                    SL Burst Candle کے extremum کے باہر رکھیں اور Target اگلی لیکویڈیٹی یا مخالف سائیڈ رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: Burst Candle ٹریڈنگ ورک فلو</div>
+                <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="250" y="15" width="200" height="48" rx="10" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="350" y="45" fill="white" font-size="14" text-anchor="middle" font-family="Arial">Compression تلاش کریں</text>
+                    
+                    <path d="M350 63 L350 85" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="85" width="200" height="48" rx="10" fill="#c2410c" stroke="#fb923c" stroke-width="2"/>
+                    <text x="350" y="115" fill="white" font-size="14" text-anchor="middle" font-family="Arial">Burst Candle بنے</text>
+                    
+                    <path d="M350 133 L350 155" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="155" width="200" height="48" rx="10" fill="#9a3412" stroke="#f97316" stroke-width="2"/>
+                    <text x="350" y="185" fill="white" font-size="14" text-anchor="middle" font-family="Arial">FVG / Imbalance مارک</text>
+                    
+                    <path d="M350 203 L350 225" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="225" width="200" height="48" rx="10" fill="#7c2d12" stroke="#ea580c" stroke-width="2"/>
+                    <text x="350" y="255" fill="white" font-size="14" text-anchor="middle" font-family="Arial">ریٹیسٹ + LTF Confirmation</text>
+                    
+                    <path d="M350 273 L350 295" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="295" width="200" height="48" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="325" fill="white" font-size="14" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                    
+                    <!-- Side notes -->
+                    <rect x="20" y="85" width="180" height="48" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                    <text x="110" y="105" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">چھوٹی تنگ کینڈلز</text>
+                    <text x="110" y="120" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">Range / Consolidation</text>
+                    
+                    <rect x="500" y="155" width="180" height="48" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                    <text x="590" y="175" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">Displacement Gap</text>
+                    <text x="590" y="190" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">اہم انٹری زون</text>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال</h2>
+            
+            <div class="example-card">
+                <h3>مثال: XAU/USD (گولڈ) پر Bullish Burst</h3>
+                <p>
+                    فرض کریں 1H چارٹ پر گولڈ 2350-2360 کی تنگ رینج میں ١٢-١٥ کینڈلز سے پھنسا ہوا ہے۔ اچانک ایک بڑی سبز کینڈل بنتی ہے جو 2385 تک جاتی ہے، وکس تقریباً نہیں، اور ایک واضح Fair Value Gap چھوڑتی ہے۔
+                </p>
+                <p>
+                    اب 15 منٹ پر جائیں اور انتظار کریں کہ قیمت اس FVG پر واپس آئے۔ جب FVG پر Rejection یا CHoCH نظر آئے تو بائی انٹری لیں۔ Stop Loss Burst Candle کے لو کے نیچے رکھیں اور Target اگلا Swing High یا لیکویڈیٹی پول رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>ہر بڑی کینڈل کو Burst سمجھ لینا — Compression کا ہونا ضروری ہے۔</li>
+                    <li>بغیر ریٹیسٹ کے فوراً انٹری لینا (FOMO)۔</li>
+                    <li>Lower Timeframe Confirmation نظر انداز کرنا۔</li>
+                    <li>Burst کو تنہا سگنل سمجھنا بغیر سٹرکچر اور لیکویڈیٹی کے سیاق و سباق کے۔</li>
+                    <li>Risk Management بھول جانا۔</li>
+                </ul>
+            </div>
+            
+            <!-- Difference with IFC -->
+            <h2>١٠. Burst Candle اور IFC میں فرق</h2>
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>پہلو</th>
+                        <th>Burst Candle</th>
+                        <th>IFC Candle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>مقصد</td>
+                        <td>Pressure Release / Displacement</td>
+                        <td>Liquidity Sweep / Manipulation</td>
+                    </tr>
+                    <tr>
+                        <td>شکل</td>
+                        <td>بڑا باڈی، چھوٹے وکس</td>
+                        <td>اکثر لمبا وک (Sweep)</td>
+                    </tr>
+                    <tr>
+                        <td>پہلے کی حالت</td>
+                        <td>Compression / Range</td>
+                        <td>Key Structure Level</td>
+                    </tr>
+                    <tr>
+                        <td>استعمال</td>
+                        <td>Continuation یا Breakout Confirmation</td>
+                        <td>Reversal یا Induction</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- Summary -->
+            <h2>١١. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>Burst Candle</strong> مارکیٹ میں جمع شدہ پریشر کی اچانک ریلیز ہے۔ یہ Consolidation کے بعد بنتی ہے، بڑے باڈی اور چھوٹے وکس والی ہوتی ہے، اور اداروں کی فیصلہ کن حرکت کی نشانی ہے۔
+                </p>
+                <p>
+                    کامیاب استعمال کے لیے:
+                </p>
+                <ul>
+                    <li>پہلے Compression کی شناخت کریں</li>
+                    <li>Burst کے بعد FVG مارک کریں</li>
+                    <li>ریٹیسٹ اور Lower Timeframe Confirmation کا انتظار کریں</li>
+                    <li>ہمیشہ مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل صرف تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>Is workflow ka practical form course ke price action module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Trading Course — Beginner</b></a> (pehla module free). Aur candle ki bunyad se start karein: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns Shuruaat</a> + <a href="/price-action-mastery/index.html"><b>Price Action Mastery book</b></a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Brust candle kya hoti hai — kya ye alag cheez hai?</b>
+Nahi — "Brust" sirf aam ghalti hai. Sahi lafz <b>Burst Candle</b> hai (displacement). Dono ek hi cheez ko kehte hain.
+<b>Burst candle ke baad foran trade lena chahiye?</b>
+Seedha nahi. Pehle close ka intezar, phir retest ya lower timeframe confirmation — bina confirmation ke sirf wick ka risk hota hai. Workflow mein har step zaroori hai.
+<b>Burst candle kis timeframe par best chalti hai?</b>
+Structure ke liye H1/H4 sab se zyada reliable, entry ke liye M15/M5 confirmation. Har timeframe par liquidity aur compression ka nizam wahi hota hai.
+<b>Burst candle aur koi simple big candle mein farq kya hai?</b>
+Burst ke peeche compression hona zaroori hai — market pehle tang hoti hai, phir pressure release hota hai. Baghair compression ke bara candle sirf volatility hai, setup nahi.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Agla qadam: <a href="/blog/ot-candle-kya-hai">OT Candle</a> (trap + burst ka combination), <a href="/blog/ifc-candle-kya-hai">IFC Candle</a> (institutional funding) aur <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a> (liquidity hunt) parh lein — ye teenon isi family ke setups hain. Chart padhne ki bunyad: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>. Aur candle ki poori foundation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>.</p>`,
+  },
+
+  {
+    slug: 'bundle-sweep-candle-kya-hai',
+    title: 'Bundle & Sweep Candle کیا ہوتی ہے؟ — Liquidity Hunt کا مکمل گائیڈ',
+    excerpt: 'Bundle & Sweep Candle kya hoti hai — bundle kab banta hai, sweep candle ki pehchan, bullish/bearish structure, workflow aur EUR/USD example — Urdu guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '5 min read',
+    hero: '/blog/bundle-sweep-candle-kya-hai.webp',
+    heroAlt: 'Bundle & Sweep Candle کیا ہوتی ہے؟ — Liquidity Hunt کا مکمل گائیڈ',
+    html: `<p class="lead"><b>Bundle</b> liquidity ka wo group hai jahan equal highs/lows par retail ke orders ek jagah jama ho jate hain, aur <b>Sweep Candle</b> ek lambi wick ke sath us bundle ko tod kar liquidity leti hai. Ye Price Action aur Smart Money Concepts ka ek chaka-chak setup hai: pehle liquidity jama karo (bundle), phir hunt karo (sweep), phir asal side mein movement — poori guide Urdu mein, diagrams aur workflow ke sath.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Bundle</b> = qareeb-qareeb candles ki range jahan stop losses aur pending orders cluster ho jate hain. <b>Sweep</b> = us level ko wick se touch kar ke wapas andar band hone wali candle.</li>
+<li><b>Pehchan:</b> Lambi wick + chhota body + level ke bahar ja kar foran wapas. Sweep ke baad close ki direction hi asal intent batati hai.</li>
+<li><b>Workflow:</b> Bundle pehchano → sweep ka close dekho → confirmation candle → entry retest par. Risk 1% se zyada nahi: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Milta-julta:</b> Trap wala version: <a href="/blog/ot-candle-kya-hai">OT Candle</a>, bara momentum candle: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, foundation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick kya hai</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #2dd4bf;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #14b8a6;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #5eead4;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #134e4a, #042f2e);
+            border: 1px solid #14b8a6;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #0f766e;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #14b8a6;
+         }
+.uc .step-number { 
+            background: #14b8a6;
+            color: #0f172a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #5eead4;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: Bundle & Sweep Candle کیا ہے؟</h2>
+            <p>
+                <strong>Bundle & Sweep Candle</strong> Price Action اور Smart Money Concepts کا ایک طاقتور سیٹ اپ ہے۔ اس میں دو حصے ہوتے ہیں:
+            </p>
+            <ul>
+                <li><strong>Bundle Candle / Bundle:</strong> کئی چھوٹی کینڈلز کا گروپ جو ایک جگہ پر لیکویڈیٹی اور آرڈرز کو جمع (Bundle) کرتی ہیں۔</li>
+                <li><strong>Sweep Candle:</strong> وہ کینڈل جو اس جمع شدہ لیکویڈیٹی کو صاف (Sweep) کرتی ہے — عام طور پر لمبے وک کے ساتھ۔</li>
+            </ul>
+            <p>
+                یہ سیٹ اپ اداروں کی کلاسیکی حکمت عملی کو ظاہر کرتا ہے: پہلے لیکویڈیٹی جمع کرو (Bundle)، پھر اسے ہنٹ کرو (Sweep)، اور آخر میں اصل سمت میں حرکت کرو۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> Bundle & Sweep تنہا ایک کینڈل نہیں بلکہ ایک <strong>ترتیب</strong> ہے۔ پہلے Bundle بنتا ہے، پھر Sweep ہوتا ہے، اور اس کے بعد اکثر Burst یا Displacement نظر آتا ہے۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. Bundle اور Sweep کی درست تعریف</h2>
+            
+            <h3>Bundle کیا ہے؟</h3>
+            <p>
+                Bundle اس وقت بنتا ہے جب قیمت ایک محدود رینج میں کئی کینڈلز بناتی ہے جو ایک دوسرے کے قریب رہتی ہیں۔ یہ کینڈلز ریٹیل آرڈرز، سٹاپ لاسز اور پینڈنگ آرڈرز کو ایک جگہ پر جمع کر دیتی ہیں۔ ادارے بعد میں اسی Bundle کو نشانہ بناتے ہیں۔
+            </p>
+            
+            <h3>Sweep Candle کیا ہے؟</h3>
+            <p>
+                Sweep Candle وہ کینڈل ہے جو Bundle یا کسی اہم لیول (Swing High/Low) سے باہر جا کر لیکویڈیٹی لیتی ہے اور پھر واپس اندر بند ہو جاتی ہے۔ اس کی سب سے بڑی نشانی <strong>لمبا وک</strong> اور نسبتاً چھوٹا باڈی ہوتا ہے۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. Bundle & Sweep کہاں بنتی ہے؟</h2>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Equal Highs / Equal Lows</strong></td>
+                        <td>دو یا زیادہ برابر پوائنٹس</td>
+                        <td>سب سے مضبوط Bundle بنتا ہے</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Previous Swing High / Low</strong></td>
+                        <td>واضح سٹرکچر لیول</td>
+                        <td>لیکویڈیٹی کا بڑا پول</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session High / Low</strong></td>
+                        <td>لندن یا نیویارک سیشن</td>
+                        <td>روزانہ کی لیکویڈیٹی</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consolidation Zone</strong></td>
+                        <td>طویل رینج باؤنڈ علاقہ</td>
+                        <td>Bundle کا بہترین مقام</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Block کے قریب</strong></td>
+                        <td>پچھلے اداروں کے زونز</td>
+                        <td>اعلیٰ احتمال والا سیٹ اپ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. Bundle & Sweep کب بنتی ہے؟</h2>
+            <ol>
+                <li><strong>Manipulation Phase میں:</strong> جب ادارے لیکویڈیٹی جمع کرنا چاہتے ہوں</li>
+                <li><strong>رینج کے اختتام پر:</strong> جب Consolidation لمبا ہو چکا ہو</li>
+                <li><strong>اہم سیشنز کے دوران:</strong> لندن اوپن یا نیویارک اوپن کے قریب</li>
+                <li><strong>لیکویڈیٹی کی موجودگی پر:</strong> جب واضح Bundle نظر آ رہا ہو</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> Sweep تب ہی معتبر ہوتا ہے جب اس سے پہلے واضح Bundle موجود ہو۔ بغیر Bundle کے صرف Sweep کمزور سگنل ہو سکتا ہے۔
+            </div>
+            
+            <!-- Anatomy -->
+            <h2>٥. Bundle & Sweep کی ساخت</h2>
+            
+            <h3 class="bullish">Bullish Bundle & Sweep</h3>
+            <p>
+                نیچے کی طرف Equal Lows یا Swing Low پر Bundle بنتا ہے۔ پھر ایک کینڈل نیچے جا کر لیکویڈیٹی Sweep کرتی ہے (لمبا لوئر وک) اور اوپر بند ہو جاتی ہے۔ اس کے بعد اکثر اوپر کی طرف Burst ہوتا ہے۔
+            </p>
+            
+            <h3 class="bearish">Bearish Bundle & Sweep</h3>
+            <p>
+                اوپر کی طرف Equal Highs یا Swing High پر Bundle بنتا ہے۔ پھر ایک کینڈل اوپر جا کر لیکویڈیٹی Sweep کرتی ہے (لمبا اپر وک) اور نیچے بند ہو جاتی ہے۔ اس کے بعد اکثر نیچے کی طرف Burst ہوتا ہے۔
+            </p>
+            
+            <!-- SVG Diagram 1 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: Bullish Bundle & Sweep</div>
+                <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bundle candles -->
+                    <rect x="50" y="160" width="20" height="40" fill="#64748b" rx="2"/>
+                    <rect x="80" y="150" width="20" height="50" fill="#64748b" rx="2"/>
+                    <rect x="110" y="155" width="20" height="45" fill="#64748b" rx="2"/>
+                    <rect x="140" y="145" width="20" height="55" fill="#64748b" rx="2"/>
+                    <rect x="170" y="160" width="20" height="40" fill="#64748b" rx="2"/>
+                    <rect x="200" y="150" width="20" height="50" fill="#64748b" rx="2"/>
+                    
+                    <!-- Bundle label -->
+                    <rect x="50" y="220" width="170" height="30" fill="#0f766e" fill-opacity="0.3" stroke="#14b8a6" stroke-width="1" stroke-dasharray="4,2" rx="4"/>
+                    <text x="135" y="240" fill="#5eead4" font-size="13" text-anchor="middle" font-family="Arial">BUNDLE (Liquidity جمع)</text>
+                    
+                    <!-- Sweep Candle -->
+                    <rect x="250" y="140" width="32" height="55" fill="#22c55e" rx="2"/>
+                    <line x1="266" y1="100" x2="266" y2="140" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="266" y1="195" x2="266" y2="270" stroke="#22c55e" stroke-width="3"/>
+                    <text x="266" y="290" fill="#4ade80" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">SWEEP</text>
+                    <text x="266" y="310" fill="#86efac" font-size="11" text-anchor="middle" font-family="Arial">Liquidity Grab</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="310" y="90" width="26" height="80" fill="#22c55e" rx="2"/>
+                    <rect x="350" y="70" width="26" height="70" fill="#22c55e" rx="2"/>
+                    <rect x="390" y="55" width="26" height="65" fill="#22c55e" rx="2"/>
+                    
+                    <!-- Arrow -->
+                    <path d="M230 200 L248 170" stroke="#fbbf24" stroke-width="2" marker-end="url(#arr1)"/>
+                    <text x="200" y="180" fill="#fbbf24" font-size="12" font-family="Arial">Sweep</text>
+                    
+                    <defs>
+                        <marker id="arr1" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish Bundle & Sweep</div>
+                <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bundle candles -->
+                    <rect x="50" y="130" width="20" height="40" fill="#64748b" rx="2"/>
+                    <rect x="80" y="120" width="20" height="50" fill="#64748b" rx="2"/>
+                    <rect x="110" y="125" width="20" height="45" fill="#64748b" rx="2"/>
+                    <rect x="140" y="115" width="20" height="55" fill="#64748b" rx="2"/>
+                    <rect x="170" y="130" width="20" height="40" fill="#64748b" rx="2"/>
+                    <rect x="200" y="120" width="20" height="50" fill="#64748b" rx="2"/>
+                    
+                    <rect x="50" y="90" width="170" height="30" fill="#0f766e" fill-opacity="0.3" stroke="#14b8a6" stroke-width="1" stroke-dasharray="4,2" rx="4"/>
+                    <text x="135" y="110" fill="#5eead4" font-size="13" text-anchor="middle" font-family="Arial">BUNDLE (Liquidity جمع)</text>
+                    
+                    <!-- Sweep Candle -->
+                    <rect x="250" y="150" width="32" height="55" fill="#ef4444" rx="2"/>
+                    <line x1="266" y1="70" x2="266" y2="150" stroke="#ef4444" stroke-width="3"/>
+                    <line x1="266" y1="205" x2="266" y2="220" stroke="#ef4444" stroke-width="2"/>
+                    <text x="266" y="250" fill="#f87171" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">SWEEP</text>
+                    <text x="266" y="270" fill="#fca5a5" font-size="11" text-anchor="middle" font-family="Arial">Liquidity Grab</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="310" y="190" width="26" height="70" fill="#ef4444" rx="2"/>
+                    <rect x="350" y="210" width="26" height="60" fill="#ef4444" rx="2"/>
+                    <rect x="390" y="225" width="26" height="50" fill="#ef4444" rx="2"/>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. Bundle & Sweep کی پہچان</h2>
+            <ul>
+                <li><strong>Bundle:</strong> کم از کم ٣-٦ چھوٹی کینڈلز ایک محدود رینج میں</li>
+                <li><strong>Sweep:</strong> Bundle کے extremum سے باہر لمبا وک</li>
+                <li><strong>Close Back:</strong> Sweep کینڈل واپس Bundle کی رینج میں بند ہو</li>
+                <li><strong>Location:</strong> اہم لیکویڈیٹی لیول پر ہو</li>
+                <li><strong>Follow-through:</strong> Sweep کے بعد Displacement یا Rejection نظر آئے</li>
+            </ul>
+            
+            <!-- Workflow -->
+            <h2>٧. Bundle & Sweep کے ساتھ ٹریڈ کرنے کا ورک فلو</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>لیکویڈیٹی لیولز تلاش کریں</strong><br>
+                    Equal Highs/Lows، Swing Points اور Session Extremes مارک کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Bundle کی تشکیل دیکھیں</strong><br>
+                    قیمت جب ان لیولز کے قریب تنگ کینڈلز بنائے تو Bundle کی نشاندہی کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Sweep Candle کا انتظار</strong><br>
+                    Bundle سے باہر وک بننے اور کینڈل کے بند ہونے کا انتظار کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Confirmation لیں</strong><br>
+                    Lower Timeframe پر CHoCH، Rejection یا Burst کی تصدیق کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Entry لیں</strong><br>
+                    FVG یا Order Block پر ریٹیسٹ پر انٹری۔ SL Sweep کے extremum کے باہر رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: Bundle & Sweep ورک فلو</div>
+                <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="250" y="15" width="200" height="45" rx="10" fill="#0f766e" stroke="#14b8a6" stroke-width="2"/>
+                    <text x="350" y="43" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Liquidity Levels مارک</text>
+                    
+                    <path d="M350 60 L350 80" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="80" width="200" height="45" rx="10" fill="#0d9488" stroke="#2dd4bf" stroke-width="2"/>
+                    <text x="350" y="108" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Bundle تشکیل دیکھیں</text>
+                    
+                    <path d="M350 125 L350 145" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="145" width="200" height="45" rx="10" fill="#14b8a6" stroke="#5eead4" stroke-width="2"/>
+                    <text x="350" y="173" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Sweep Candle بنے</text>
+                    
+                    <path d="M350 190 L350 210" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="210" width="200" height="45" rx="10" fill="#2dd4bf" stroke="#99f6e4" stroke-width="2"/>
+                    <text x="350" y="238" fill="#0f172a" font-size="13" text-anchor="middle" font-family="Arial">LTF Confirmation</text>
+                    
+                    <path d="M350 255 L350 275" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="275" width="200" height="45" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="303" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال</h2>
+            
+            <div class="example-card">
+                <h3>مثال: EUR/USD پر Bullish Bundle & Sweep</h3>
+                <p>
+                    15 منٹ چارٹ پر EUR/USD ایک واضح Swing Low کے قریب ٥-٦ چھوٹی کینڈلز بنا رہا ہے (Bundle)۔ اچانک ایک کینڈل نیچے جا کر لیکویڈیٹی Sweep کرتی ہے اور لمبے وک کے ساتھ اوپر بند ہو جاتی ہے۔ اس کے بعد قیمت اوپر کی طرف حرکت کرتی ہے اور FVG بناتا ہے۔
+                </p>
+                <p>
+                    5 منٹ پر جائیں، FVG کے ریٹیسٹ کا انتظار کریں، Rejection دیکھیں اور بائی انٹری لیں۔ Stop Loss Sweep کے لو کے نیچے رکھیں اور Target اگلا Swing High رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>بغیر Bundle کے ہر Sweep کو سگنل سمجھنا</li>
+                    <li>Sweep کے بند ہونے سے پہلے انٹری لینا</li>
+                    <li>Lower Timeframe Confirmation نظر انداز کرنا</li>
+                    <li>اہم لیکویڈیٹی لیول کے بغیر سیٹ اپ لینا</li>
+                    <li>Risk Management بھول جانا</li>
+                </ul>
+            </div>
+            
+            <!-- Comparison -->
+            <h2>١٠. پچھلے کنسپٹس سے موازنہ</h2>
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>کنسپٹ</th>
+                        <th>مرکزی خیال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IFC Candle</strong></td>
+                        <td>Institutional Funding / Liquidity Grab</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burst Candle</strong></td>
+                        <td>Pressure Release / Displacement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OT Candle</strong></td>
+                        <td>Trap + Burst مکمل سیٹ اپ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bundle & Sweep</strong></td>
+                        <td>Liquidity جمع + Sweep</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- Summary -->
+            <h2>١١. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>Bundle & Sweep Candle</strong> اداروں کی لیکویڈیٹی جمع کرنے اور اسے ہنٹ کرنے کی کلاسیکی حکمت عملی ہے۔ پہلے Bundle بنتا ہے، پھر Sweep ہوتا ہے، اور اس کے بعد اصل حرکت شروع ہوتی ہے۔
+                </p>
+                <p>
+                    کامیاب استعمال کے لیے:
+                </p>
+                <ul>
+                    <li>Bundle کی صحیح شناخت کریں</li>
+                    <li>Sweep کے بند ہونے کا انتظار کریں</li>
+                    <li>Lower Timeframe Confirmation لیں</li>
+                    <li>مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل صرف تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>Bundle &amp; Sweep ko order flow ke sath samajhna ho to course ka price action aur liquidity module dekhein: <a href="/courses/forex-trading-course-beginner"><b>Forex Beginner Course</b></a> — aur structure ki bunyad: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Bundle aur Sweep ek hi cheez hain?</b>
+Nahi. <b>Bundle</b> orders ka cluster hai (jagah), <b>Sweep</b> us cluster ko lootne wali candle (action). Dono saath aate hain to hi setup banta hai.
+<b>Sweep ke baad kis side trade karna chahiye?</b>
+Sweep direction nahi batati — sweep ke baad jo close aaye uske opposite retail trap hota hai. Hamesha confirmation candle ka intezar karein.
+<b>Sweep aur fake breakout mein farq?</b>
+Fake breakout mein price bahar reh jati hai; sweep mein wick level ko touch kar ke foran wapas andar band ho jati hai — wapas andar aana hi asal pehchan hai.
+<b>Ye setup intraday par kaam karta hai?</b>
+Haan — sessions ke highs/lows (London, New York) sab se ache bundles banate hain. Karachi time ke sessions: <a href="/knowledge-base/chart-kaise-padhein">chart padhna seekhein</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Series continue karein: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, <a href="/blog/ifc-candle-kya-hai">IFC Candle</a>, <a href="/blog/inside-candle-kya-hai">Inside Candle</a> aur <a href="/blog/ot-candle-kya-hai">OT Candle</a>. Bunyadi patterns: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>; entry-exit ka hisaab: <a href="/calculator/position-size">Position Size Calculator</a>.</p>`,
+  },
+
+  {
+    slug: 'ifc-candle-kya-hai',
+    title: 'IFC Candle کیا ہوتی ہے؟ — Institutional Funding Candle (SMC/ICT مکمل گائیڈ)',
+    excerpt: 'IFC Candle (Institutional Funding Candle) kya hoti hai — tareef, kahan aur kab banti hai, bullish/bearish pehchan, workflow aur EUR/USD example — Urdu guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '6 min read',
+    hero: '/blog/ifc-candle-kya-hai.webp',
+    heroAlt: 'IFC Candle کیا ہوتی ہے؟ — Institutional Funding Candle (SMC/ICT مکمل گائیڈ)',
+    html: `<p class="lead"><b>IFC</b> ka poora naam <b>Institutional Funding Candle</b> (ya Institutional Funded Candle) hai — Smart Money Concepts aur ICT ke sab se aham concepts mein se ek. Ye wo candle ya candleon ka silsila hai jo bade idaron (banks, hedge funds) liquidity collect karne ke liye banate hain: retail ke stop losses hunt kiye jate hain, phir market usi sath mein mod di jati hai jise smart money chahti hai — poori tafseel Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Asal tareef:</b> Sweep kar ke palatne wali candle/candleon ka combination — kabhi ek candle, kabhi do-teen ka set — condition ke sweep + reversal hona zaroori hai.</li>
+<li><b>Kahan:</b> Liquidity pools ke paas — equal highs/lows, purane swing levels, session extremes.</li>
+<li><b>Kab:</b> Stop hunt ke turant baad; IFC close ke baad confirmation candle entry deti hai, khud IFC par andha-andha trade nahi.</li>
+<li><b>Milta-julta:</b> Trap + burst: <a href="/blog/ot-candle-kya-hai">OT Candle</a>, momentum: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, liquidity grouping: <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #38bdf8;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #0ea5e9;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #a5b4fc;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #0c4a6e, #1e3a5f);
+            border: 1px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #1e40af;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #6366f1;
+         }
+.uc .step-number { 
+            background: #6366f1;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #7dd3fc;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: IFC Candle کیا ہے؟</h2>
+            <p>
+                <strong>IFC</strong> کا پورا نام <strong>Institutional Funding Candle</strong> (یا Institutional Funded Candle) ہے۔ یہ Smart Money Concepts (SMC) اور ICT (Inner Circle Trader) کے سب سے اہم کنسپٹس میں سے ایک ہے۔
+            </p>
+            <p>
+                سادہ زبان میں: IFC وہ کینڈل (یا کینڈلز کا سلسلہ) ہے جو <strong>بڑے اداروں (Banks, Hedge Funds, Institutions)</strong> کے ذریعے مارکیٹ میں لیکویڈیٹی جمع کرنے کے لیے بنائی جاتی ہے۔ یہ کینڈل ریٹیل ٹریڈرز کے سٹاپ لاسز کو ہنٹ کرتی ہے، پھر مارکیٹ کو اس سمت میں موڑ دیتی ہے جسے سمارٹ منی چاہتی ہے۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> IFC دراصل <strong>Manipulation Phase</strong> کی نشانی ہے۔ یہ AMD ماڈل (Accumulation → Manipulation → Distribution) کا درمیانی مرحلہ ہے۔ ادارے پہلے لیکویڈیٹی جمع کرتے ہیں، پھر IFC کے ذریعے اس کو صاف کرتے ہیں، اور آخر میں اپنا اصل موومنٹ شروع کرتے ہیں۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. IFC Candle کی درست تعریف</h2>
+            <p>
+                مختلف ٹیچرز کے مطابق IFC کی تعریف کچھ یوں ہے:
+            </p>
+            <ul>
+                <li>وہ کینڈل جو <strong>Major Swing High</strong> یا <strong>Major Swing Low</strong> کی لیکویڈیٹی Sweep کرتی ہے۔</li>
+                <li>اس کے بعد مارکیٹ تیزی سے الٹی سمت میں حرکت کرتی ہے (Displacement)۔</li>
+                <li>یہ اکثر <strong>Order Block</strong> یا <strong>Point of Interest (POI)</strong> بن جاتی ہے، کیونکہ ادارے یہاں سے پوزیشنز کھولتے یا بند کرتے ہیں۔</li>
+                <li>کئی بار اس کے ساتھ <strong>Fair Value Gap (FVG)</strong> بھی بنتا ہے، جو بعد میں ریٹیسٹ کا بہترین زون ہوتا ہے۔</li>
+            </ul>
+            
+            <p>
+                IFC صرف ایک کینڈل تک محدود نہیں۔ کبھی ایک کینڈل، کبھی دو تین کینڈلز کا کمبینیشن بھی IFC کہلا سکتا ہے، بشرطیکہ وہ لیکویڈیٹی Sweep کر کے الٹ جائے۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. IFC Candle کہاں بنتی ہے؟</h2>
+            <p>
+                IFC ہر جگہ نہیں بنتی۔ یہ مخصوص مقامات پر ہی بنتی ہے جہاں لیکویڈیٹی موجود ہو:
+            </p>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Major Swing High / Low</strong></td>
+                        <td>چارٹ پر واضح طور پر نظر آنے والے بڑے اونچے یا نیچے پوائنٹس</td>
+                        <td>سب سے زیادہ لیکویڈیٹی یہاں ہوتی ہے</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session High / Low</strong></td>
+                        <td>لندن، نیویارک، ایشیا سیشن کے ہائی/لو</td>
+                        <td>روزانہ کی لیکویڈیٹی پولز</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Equal Highs / Equal Lows</strong></td>
+                        <td>دو یا زیادہ برابر اونچے یا نیچے پوائنٹس</td>
+                        <td>ریٹیل ٹریڈرز یہاں سٹاپ لاسز لگاتے ہیں</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Previous Day High / Low</strong></td>
+                        <td>گزشتہ دن کا ہائی یا لو</td>
+                        <td>اہم لیکویڈیٹی زون</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supply / Demand Zones</strong></td>
+                        <td>مضبوط سپلائی یا ڈیمانڈ ایریاز</td>
+                        <td>ریورسل کے امکانات زیادہ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. IFC Candle کب بنتی ہے؟</h2>
+            <p>
+                IFC مخصوص مارکیٹ کنڈیشنز میں بنتی ہے:
+            </p>
+            <ol>
+                <li><strong>Manipulation Phase کے دوران:</strong> جب ادارے ریٹیل لیکویڈیٹی ہنٹ کرنا چاہتے ہیں۔</li>
+                <li><strong>مضبوط ٹرینڈ سے پہلے:</strong> بڑے موومنٹ سے پہلے آخری مخالف کینڈل۔</li>
+                <li><strong>مارکیٹ سٹرکچر کے اہم موڑ پر:</strong> جب ٹرینڈ تبدیل ہونے والی ہو یا کنٹینیو ہونے والی ہو۔</li>
+                <li><strong>ہائی امپیکٹ نیوز سے پہلے یا بعد:</strong> کبھی کبھار نیوز کے ارد گرد بھی IFC بنتی ہے۔</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> IFC بننے کے بعد عام طور پر <strong>Displacement</strong> ہوتا ہے — یعنی مارکیٹ تیزی سے ایک سمت میں چلتی ہے اور Fair Value Gap چھوڑتی ہے۔ یہی اس کی سب سے بڑی نشانی ہے۔
+            </div>
+            
+            <!-- Bullish vs Bearish -->
+            <h2>٥. Bullish اور Bearish IFC</h2>
+            
+            <h3 class="bullish">Bullish IFC (خریدنے والی)</h3>
+            <p>
+                جب مارکیٹ <strong>Swing Low</strong> کے نیچے جا کر لیکویڈیٹی Sweep کرتی ہے، پھر کینڈل اوپر بند ہوتی ہے یا تیزی سے اوپر جاتی ہے۔ اس کا مطلب ہے کہ ادارے سیلرز کی لیکویڈیٹی لے کر اب خرید رہے ہیں۔
+            </p>
+            
+            <h3 class="bearish">Bearish IFC (بیچنے والی)</h3>
+            <p>
+                جب مارکیٹ <strong>Swing High</strong> کے اوپر جا کر لیکویڈیٹی Sweep کرتی ہے، پھر کینڈل نیچے بند ہوتی ہے یا تیزی سے نیچے جاتی ہے۔ اس کا مطلب ہے کہ ادارے بائرز کی لیکویڈیٹی لے کر اب بیچ رہے ہیں۔
+            </p>
+            
+            <!-- SVG Diagram 1: Bullish IFC -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: Bullish IFC Candle کی ساخت</div>
+                <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Grid lines -->
+                    <line x1="50" y1="280" x2="550" y2="280" stroke="#475569" stroke-width="1"/>
+                    <line x1="50" y1="40" x2="50" y2="280" stroke="#475569" stroke-width="1"/>
+                    
+                    <!-- Previous candles -->
+                    <rect x="80" y="120" width="28" height="80" fill="#ef4444" rx="2"/>
+                    <line x1="94" y1="100" x2="94" y2="120" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="94" y1="200" x2="94" y2="220" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <rect x="130" y="140" width="28" height="60" fill="#ef4444" rx="2"/>
+                    <line x1="144" y1="125" x2="144" y2="140" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="144" y1="200" x2="144" y2="215" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <rect x="180" y="150" width="28" height="50" fill="#22c55e" rx="2"/>
+                    <line x1="194" y1="140" x2="194" y2="150" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="194" y1="200" x2="194" y2="210" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <!-- Swing Low line -->
+                    <line x1="70" y1="220" x2="280" y2="220" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,4"/>
+                    <text x="290" y="225" fill="#fbbf24" font-size="13" font-family="Arial">Swing Low (Liquidity)</text>
+                    
+                    <!-- IFC Candle - Bullish with long lower wick -->
+                    <rect x="250" y="130" width="32" height="70" fill="#22c55e" rx="2"/>
+                    <line x1="266" y1="100" x2="266" y2="130" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="266" y1="200" x2="266" y2="250" stroke="#22c55e" stroke-width="3"/> <!-- Long lower wick -->
+                    
+                    <!-- Arrow showing sweep -->
+                    <path d="M266 250 L266 260" stroke="#f87171" stroke-width="2"/>
+                    <text x="275" y="265" fill="#f87171" font-size="12" font-family="Arial">Liquidity Sweep</text>
+                    
+                    <!-- Displacement candles -->
+                    <rect x="310" y="90" width="28" height="90" fill="#22c55e" rx="2"/>
+                    <line x1="324" y1="70" x2="324" y2="90" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <rect x="360" y="60" width="28" height="80" fill="#22c55e" rx="2"/>
+                    <line x1="374" y1="45" x2="374" y2="60" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <rect x="410" y="50" width="28" height="70" fill="#22c55e" rx="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="240" y="295" fill="#22c55e" font-size="14" font-weight="bold" font-family="Arial">IFC</text>
+                    <text x="340" y="30" fill="#94a3b8" font-size="13" font-family="Arial">Displacement (اوپر کی طرف)</text>
+                    
+                    <!-- FVG box -->
+                    <rect x="310" y="160" width="100" height="25" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="330" y="177" fill="#4ade80" font-size="11" font-family="Arial">FVG Zone</text>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2: Bearish IFC -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish IFC Candle کی ساخت</div>
+                <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="280" x2="550" y2="280" stroke="#475569" stroke-width="1"/>
+                    <line x1="50" y1="40" x2="50" y2="280" stroke="#475569" stroke-width="1"/>
+                    
+                    <!-- Previous candles going up -->
+                    <rect x="80" y="160" width="28" height="60" fill="#22c55e" rx="2"/>
+                    <line x1="94" y1="145" x2="94" y2="160" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="94" y1="220" x2="94" y2="235" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <rect x="130" y="130" width="28" height="70" fill="#22c55e" rx="2"/>
+                    <line x1="144" y1="110" x2="144" y2="130" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="144" y1="200" x2="144" y2="215" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <rect x="180" y="110" width="28" height="60" fill="#ef4444" rx="2"/>
+                    <line x1="194" y1="95" x2="194" y2="110" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="194" y1="170" x2="194" y2="185" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <!-- Swing High line -->
+                    <line x1="70" y1="95" x2="280" y2="95" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,4"/>
+                    <text x="290" y="100" fill="#fbbf24" font-size="13" font-family="Arial">Swing High (Liquidity)</text>
+                    
+                    <!-- IFC Candle - Bearish with long upper wick -->
+                    <rect x="250" y="120" width="32" height="70" fill="#ef4444" rx="2"/>
+                    <line x1="266" y1="55" x2="266" y2="120" stroke="#ef4444" stroke-width="3"/> <!-- Long upper wick -->
+                    <line x1="266" y1="190" x2="266" y2="210" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <!-- Arrow showing sweep -->
+                    <text x="275" y="50" fill="#f87171" font-size="12" font-family="Arial">Liquidity Sweep</text>
+                    
+                    <!-- Displacement candles down -->
+                    <rect x="310" y="150" width="28" height="80" fill="#ef4444" rx="2"/>
+                    <line x1="324" y1="230" x2="324" y2="250" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <rect x="360" y="180" width="28" height="70" fill="#ef4444" rx="2"/>
+                    <line x1="374" y1="250" x2="374" y2="265" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <rect x="410" y="200" width="28" height="55" fill="#ef4444" rx="2"/>
+                    
+                    <text x="240" y="295" fill="#ef4444" font-size="14" font-weight="bold" font-family="Arial">IFC</text>
+                    <text x="340" y="300" fill="#94a3b8" font-size="13" font-family="Arial">Displacement (نیچے کی طرف)</text>
+                    
+                    <!-- FVG box -->
+                    <rect x="310" y="130" width="100" height="25" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="330" y="147" fill="#f87171" font-size="11" font-family="Arial">FVG Zone</text>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. IFC Candle کی پہچان کیسے کریں؟ (Characteristics)</h2>
+            <p>IFC کو پہچاننے کے لیے درج ذیل نشانیاں دیکھیے:</p>
+            <ul>
+                <li><strong>Liquidity Sweep:</strong> کینڈل کا وک (wick) پچھلے Swing High/Low کو صاف طور پر توڑے۔</li>
+                <li><strong>Rejection / Reversal:</strong> Sweep کے بعد کینڈل الٹی سمت میں بند ہو یا اگلی کینڈلز تیزی سے الٹی سمت میں جائیں۔</li>
+                <li><strong>Displacement:</strong> اس کے بعد مضبوط موومنٹ ہو اور Fair Value Gap بنے۔</li>
+                <li><strong>Body vs Wick:</strong> کبھی بڑا باڈی ہوتا ہے، کبھی لمبا وک (جیسے Pin Bar)۔ رنگ (سبز/سرخ) اتنا اہم نہیں جتنا کہ لیکویڈیٹی Sweep۔</li>
+                <li><strong>Location:</strong> یہ اہم سٹرکچر لیول پر بنے۔</li>
+            </ul>
+            
+            <!-- Workflow -->
+            <h2>٧. IFC Candle کے ساتھ ٹریڈ کرنے کا مکمل ورک فلو</h2>
+            <p>نیچے دیا گیا ورک فلو عملی طور پر استعمال کیا جا سکتا ہے:</p>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Higher Timeframe پر سٹرکچر دیکھیں</strong><br>
+                    4H یا Daily پر Major Swing Highs اور Lows کو مارک کریں۔ یہی لیکویڈیٹی پولز ہیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>IFC کی تلاش کریں</strong><br>
+                    ان لیولز پر ایسی کینڈل تلاش کریں جو لیکویڈیٹی Sweep کر کے الٹ رہی ہو۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Lower Timeframe پر Confirmation لیں</strong><br>
+                    15m یا 5m پر جائیں اور CHoCH (Change of Character)، MSS، یا Order Block کی تصدیق کا انتظار کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Entry لیں</strong><br>
+                    IFC کے FVG یا Order Block پر ریٹیسٹ پر انٹری لیں۔ Stop Loss IFC کے extremum کے باہر رکھیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Target سیٹ کریں</strong><br>
+                    اگلی لیکویڈیٹی پول یا مخالف سائیڈ کا Swing High/Low ٹارگٹ رکھیں۔ Risk:Reward کم از کم 1:2 رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: IFC ٹریڈنگ ورک فلو (Flowchart)</div>
+                <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Step boxes -->
+                    <rect x="250" y="20" width="200" height="50" rx="10" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="350" y="50" fill="white" font-size="14" text-anchor="middle" font-family="Arial">HTF Structure Mark کریں</text>
+                    
+                    <path d="M350 70 L350 95" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+                    
+                    <rect x="250" y="95" width="200" height="50" rx="10" fill="#0e7490" stroke="#06b6d4" stroke-width="2"/>
+                    <text x="350" y="125" fill="white" font-size="14" text-anchor="middle" font-family="Arial">Liquidity Levels شناخت</text>
+                    
+                    <path d="M350 145 L350 170" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="170" width="200" height="50" rx="10" fill="#7c3aed" stroke="#a78bfa" stroke-width="2"/>
+                    <text x="350" y="200" fill="white" font-size="14" text-anchor="middle" font-family="Arial">IFC Candle تلاش کریں</text>
+                    
+                    <path d="M350 220 L350 245" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="245" width="200" height="50" rx="10" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="350" y="275" fill="white" font-size="14" text-anchor="middle" font-family="Arial">LTF Confirmation (CHoCH)</text>
+                    
+                    <path d="M350 295 L350 320" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="320" width="200" height="50" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="350" fill="white" font-size="14" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                    
+                    <!-- Side notes -->
+                    <rect x="20" y="170" width="180" height="50" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                    <text x="110" y="190" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">Swing High/Low</text>
+                    <text x="110" y="205" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">Session High/Low</text>
+                    
+                    <rect x="500" y="245" width="180" height="50" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                    <text x="590" y="265" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">FVG / Order Block</text>
+                    <text x="590" y="280" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="Arial">پر ریٹیسٹ</text>
+                    
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال (Conceptual Example)</h2>
+            
+            <div class="example-card">
+                <h3>مثال: EUR/USD پر Bullish IFC</h3>
+                <p>
+                    فرض کریں Daily چارٹ پر ایک واضح Swing Low 1.0800 پر موجود ہے۔ مارکیٹ نیچے آ کر 1.0785 تک جاتی ہے (Liquidity Sweep)، پھر ایک مضبوط سبز کینڈل بنتی ہے جو 1.0830 پر بند ہوتی ہے۔ اس کینڈل کے ساتھ ایک Fair Value Gap بھی بنتا ہے۔
+                </p>
+                <p>
+                    اب 15 منٹ کے ٹائم فریم پر جائیں اور CHoCH کی تصدیق کا انتظار کریں۔ جب پرائس IFC کے FVG پر ریٹیسٹ کرے اور بائی سگنل دے، تو انٹری لیں۔ Stop Loss 1.0780 کے نیچے رکھیں اور ٹارگٹ اگلا Swing High رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں جو بچنا چاہیے</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>ہر لمبی وک والی کینڈل کو IFC سمجھ لینا — لیکویڈیٹی Sweep اور Location ضروری ہے۔</li>
+                    <li>Lower Timeframe Confirmation کے بغیر انٹری لینا۔</li>
+                    <li>IFC کو Order Block سمجھ کر بغیر کسی تصدیق کے ٹریڈ کرنا۔</li>
+                    <li>صرف ایک ٹائم فریم پر انحصار کرنا۔</li>
+                    <li>Risk Management نظر انداز کرنا۔</li>
+                </ul>
+            </div>
+            
+            <!-- Summary -->
+            <h2>١٠. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>IFC Candle</strong> اداروں کی فنڈنگ کینڈل ہے جو لیکویڈیٹی Sweep کرتی ہے اور پھر مارکیٹ کو مطلوبہ سمت میں لے جاتی ہے۔ یہ Major Swing Levels، Session Highs/Lows پر بنتی ہے اور Manipulation Phase کی نمائندگی کرتی ہے۔
+                </p>
+                <p>
+                    اس کو کامیابی سے استعمال کرنے کے لیے:
+                </p>
+                <ul>
+                    <li>پہلے Higher Timeframe پر سٹرکچر سمجھیں</li>
+                    <li>Liquidity Levels مارک کریں</li>
+                    <li>IFC کی درست پہچان کریں</li>
+                    <li>Lower Timeframe پر Confirmation لیں</li>
+                    <li>مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>SMC/ICT ki poori bunyad course ke intermediate module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Beginner Course</b></a> se start karein — aur structure parhna ho to <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>IFC ka full form kya hai?</b>
+<b>Institutional Funding Candle</b> (kuch jagah Institutional Funded Candle) — dono ka matlab ek hai: institutions ki taraf se liquidity collect karne wali candle.
+<b>IFC ek hi candle hoti hai?</b>
+Zaroori nahi. Ek candle bhi IFC ho sakti hai, ya do-teen candleon ka combination — bas sweep kar ke reversal hona chahiye.
+<b>IFC aur sweep candle mein farq?</b>
+Sweep sirf level todta hai. IFC mein sweep ke baad reversal bhi hota hai — ye dono mil kar IFC setup banate hain.
+<b>IFC ke baad entry kahan?</b>
+IFC close ke baad aane wali confirmation candle par, retest ho to behtar — retest ke waqt size calculate karein: <a href="/calculator/position-size">Position Size Calculator</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Aage parhein: <a href="/blog/ot-candle-kya-hai">OT Candle</a> (IFC se milta-julta trap setup), <a href="/blog/burst-candle-kya-hai">Burst Candle</a> (displacement) aur <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a> (liquidity grouping). Foundation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a> aur <a href="/price-action-mastery/index.html">Price Action Mastery book</a>.</p>`,
+  },
+
+  {
+    slug: 'inside-candle-kya-hai',
+    title: 'Inside Candle کیا ہوتی ہے؟ — اقسام، پہچان اور مکمل ٹریڈنگ ورک فلو',
+    excerpt: 'Inside Candle (Inside Bar) kya hoti hai — mother-daughter pattern, single/multiple/fakeout types, pehchan, workflow aur GBP/USD example — Urdu guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '5 min read',
+    hero: '/blog/inside-candle-kya-hai.webp',
+    heroAlt: 'Inside Candle کیا ہوتی ہے؟ — اقسام، پہچان اور مکمل ٹریڈنگ ورک فلو',
+    html: `<p class="lead"><b>Inside Candle</b> (ya Inside Bar) classical Price Action ka sab se aham pattern hai: maujooda candle ki high aur low pichli candle ke high aur low ke bilkul andar band ho jayein. Ye indecision ya compression ki nishani hai — Mother-Daughter pattern ke naam se bhi jana jata hai, aur breakout se pehle ka sab se saaf signal mana jata hai — poori guide Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Tareef:</b> Inside candle pichli (Mother) candle ke pure range ke andar close hoti hai — yani market ruk kar soch rahi hai.</li>
+<li><b>3 qisamein:</b> Single inside, multiple inside candles (range mein series) aur Inside + Outside (fakeout wala combination).</li>
+<li><b>Workflow:</b> Mother pehchano → inside consolidation ka intezar → break out par direction follow → stop mother ke dusre taraf. Risk fixed: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Milta-julta:</b> Compression se burst: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, indecision ke baad trap: <a href="/blog/ot-candle-kya-hai">OT Candle</a>, bunyad: <a href="/blog/candlestick-patterns-shuruaat">Candlestick guide</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #34d399;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #10b981;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #6ee7b7;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #064e3b, #022c22);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #047857;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #10b981;
+         }
+.uc .step-number { 
+            background: #10b981;
+            color: #0f172a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #6ee7b7;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: Inside Candle کیا ہے؟</h2>
+            <p>
+                <strong>Inside Candle</strong> (یا Inside Bar) کلاسیکی Price Action کا سب سے اہم پیٹرن ہے۔ یہ اس وقت بنتی ہے جب موجودہ کینڈل کی ہائی اور لو پچھلی کینڈل کی ہائی اور لو کے <strong>بالکل اندر</strong> ہوتی ہے۔
+            </p>
+            <p>
+                سادہ الفاظ میں: Inside Candle پچھلی کینڈل کے رینج کے اندر مکمل طور پر بند ہوتی ہے۔ یہ مارکیٹ میں <strong>Indecision</strong> (غیر فیصلہ کنی) یا <strong>Compression</strong> (دباؤ کا جمع ہونا) کی نشانی ہے۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> Inside Candle خود کوئی سمت نہیں بتاتی۔ یہ صرف بتاتی ہے کہ مارکیٹ عارضی طور پر رکی ہوئی ہے اور جلد ہی بڑا موومنٹ (Burst یا Momentum) آ سکتا ہے۔ اس لیے اسے ہمیشہ Breakout کے ساتھ ٹریڈ کیا جاتا ہے۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. Inside Candle کی درست تعریف</h2>
+            <p>
+                Inside Candle تبھی معتبر ہوتی ہے جب:
+            </p>
+            <ul>
+                <li>موجودہ کینڈل کی <strong>High</strong> پچھلی کینڈل کی High سے کم ہو</li>
+                <li>موجودہ کینڈل کی <strong>Low</strong> پچھلی کینڈل کی Low سے زیادہ ہو</li>
+                <li>یعنی پوری کینڈل پچھلی کینڈل کے رینج کے اندر ہو</li>
+            </ul>
+            <p>
+                اسے Mother-Daughter بھی کہتے ہیں — پچھلی کینڈل Mother ہوتی ہے اور Inside Candle Daughter۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. Inside Candle کہاں بنتی ہے؟</h2>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ٹرینڈ کے درمیان</strong></td>
+                        <td>مضبوط ٹرینڈ میں عارضی وقفہ</td>
+                        <td>Continuation کا امکان زیادہ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Support / Resistance پر</strong></td>
+                        <td>اہم لیولز کے قریب</td>
+                        <td>ریورسل یا بریک آؤٹ دونوں ممکن</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consolidation کے اندر</strong></td>
+                        <td>رینج باؤنڈ مارکیٹ</td>
+                        <td>بڑے بریک آؤٹ سے پہلے</td>
+                    </tr>
+                    <tr>
+                        <td><strong>لیکویڈیٹی لیولز کے قریب</strong></td>
+                        <td>Equal Highs/Lows کے ارد گرد</td>
+                        <td>Trap یا Sweep سے پہلے</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session High / Low کے قریب</strong></td>
+                        <td>اہم سیشنز کے انتہا پر</td>
+                        <td>اعلیٰ احتمال والا سیٹ اپ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. Inside Candle کب بنتی ہے؟</h2>
+            <ol>
+                <li><strong>Compression کے دوران:</strong> جب مارکیٹ دباؤ جمع کر رہی ہو</li>
+                <li><strong>بڑے موومنٹ سے پہلے:</strong> Burst یا Momentum سے قبل</li>
+                <li><strong>غیر یقینی صورتحال میں:</strong> نیوز سے پہلے یا مارکیٹ کے رکنے پر</li>
+                <li><strong>ٹرینڈ کے Rest مرحلے میں:</strong> جب ٹرینڈ عارضی طور پر رک جائے</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> Inside Candle جتنی تنگ ہوگی (Mother Candle کے مقابلے میں)، اتنی ہی زیادہ Energy جمع ہوتی ہے اور بعد میں بریک آؤٹ اتنا ہی مضبوط ہو سکتا ہے۔
+            </div>
+            
+            <!-- Types -->
+            <h2>٥. Inside Candle کی اقسام</h2>
+            
+            <h3>Single Inside Candle</h3>
+            <p>
+                صرف ایک کینڈل Mother کے اندر ہو۔ سب سے عام شکل۔
+            </p>
+            
+            <h3>Multiple Inside Candles</h3>
+            <p>
+                دو یا دو سے زیادہ Inside Candles لگاتار بنیں۔ اسے <strong>Inside Bar Cluster</strong> بھی کہتے ہیں اور یہ زیادہ مضبوط Compression کی نشانی ہے۔
+            </p>
+            
+            <h3>Inside + Outside (Fakeout)</h3>
+            <p>
+                کبھی Inside کے بعد فوراً Outside Bar بن جاتی ہے جو Trap کا اشارہ دے سکتی ہے۔
+            </p>
+            
+            <!-- SVG Diagram 1 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: Bullish Inside Candle Setup</div>
+                <svg viewBox="0 0 650 340" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Mother Candle -->
+                    <rect x="80" y="80" width="50" height="160" fill="#22c55e" rx="3"/>
+                    <line x1="105" y1="60" x2="105" y2="80" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="105" y1="240" x2="105" y2="260" stroke="#22c55e" stroke-width="2"/>
+                    <text x="105" y="290" fill="#4ade80" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Mother</text>
+                    
+                    <!-- Inside Candle -->
+                    <rect x="180" y="120" width="40" height="80" fill="#94a3b8" rx="2"/>
+                    <line x1="200" y1="110" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+                    <line x1="200" y1="200" x2="200" y2="210" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="200" y="250" fill="#94a3b8" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Inside</text>
+                    
+                    <!-- Breakout Candle -->
+                    <rect x="270" y="50" width="40" height="140" fill="#22c55e" rx="3"/>
+                    <line x1="290" y1="40" x2="290" y2="50" stroke="#22c55e" stroke-width="2"/>
+                    <text x="290" y="220" fill="#4ade80" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Breakout</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="340" y="40" width="30" height="100" fill="#22c55e" rx="2"/>
+                    <rect x="390" y="30" width="30" height="90" fill="#22c55e" rx="2"/>
+                    
+                    <!-- Labels -->
+                    <text x="500" y="100" fill="#6ee7b7" font-size="14" font-family="Arial">1. Mother Candle</text>
+                    <text x="500" y="130" fill="#6ee7b7" font-size="14" font-family="Arial">2. Inside Candle</text>
+                    <text x="500" y="160" fill="#6ee7b7" font-size="14" font-family="Arial">3. Breakout (اوپر)</text>
+                    
+                    <!-- Range lines -->
+                    <line x1="70" y1="80" x2="230" y2="80" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="70" y1="240" x2="230" y2="240" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish Inside Candle Setup</div>
+                <svg viewBox="0 0 650 340" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Mother Candle -->
+                    <rect x="80" y="80" width="50" height="160" fill="#ef4444" rx="3"/>
+                    <line x1="105" y1="60" x2="105" y2="80" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="105" y1="240" x2="105" y2="260" stroke="#ef4444" stroke-width="2"/>
+                    <text x="105" y="290" fill="#f87171" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Mother</text>
+                    
+                    <!-- Inside Candle -->
+                    <rect x="180" y="120" width="40" height="80" fill="#94a3b8" rx="2"/>
+                    <line x1="200" y1="110" x2="200" y2="120" stroke="#94a3b8" stroke-width="2"/>
+                    <line x1="200" y1="200" x2="200" y2="210" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="200" y="250" fill="#94a3b8" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Inside</text>
+                    
+                    <!-- Breakout Candle -->
+                    <rect x="270" y="160" width="40" height="120" fill="#ef4444" rx="3"/>
+                    <line x1="290" y1="280" x2="290" y2="300" stroke="#ef4444" stroke-width="2"/>
+                    <text x="290" y="140" fill="#f87171" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">Breakout</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="340" y="200" width="30" height="80" fill="#ef4444" rx="2"/>
+                    <rect x="390" y="220" width="30" height="70" fill="#ef4444" rx="2"/>
+                    
+                    <text x="500" y="100" fill="#fca5a5" font-size="14" font-family="Arial">1. Mother Candle</text>
+                    <text x="500" y="130" fill="#fca5a5" font-size="14" font-family="Arial">2. Inside Candle</text>
+                    <text x="500" y="160" fill="#fca5a5" font-size="14" font-family="Arial">3. Breakout (نیچے)</text>
+                    
+                    <line x1="70" y1="80" x2="230" y2="80" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="70" y1="240" x2="230" y2="240" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3"/>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. Inside Candle کی پہچان</h2>
+            <ul>
+                <li>موجودہ کینڈل کی High پچھلی سے کم ہو</li>
+                <li>موجودہ کینڈل کی Low پچھلی سے زیادہ ہو</li>
+                <li>جتنی تنگ Inside ہو، اتنی زیادہ Energy</li>
+                <li>Multiple Inside Candles زیادہ طاقتور Compression دیتی ہیں</li>
+                <li>Mother Candle جتنی بڑی ہو، سیٹ اپ اتنا مضبوط</li>
+            </ul>
+            
+            <!-- Workflow -->
+            <h2>٧. Inside Candle کے ساتھ ٹریڈ کرنے کا ورک فلو</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Mother Candle تلاش کریں</strong><br>
+                    بڑی کینڈل جو واضح رینج بنا رہی ہو۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Inside Candle کی تصدیق</strong><br>
+                    اگلی کینڈل مکمل طور پر Mother کے اندر ہو۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Higher Timeframe Bias دیکھیں</strong><br>
+                    ٹرینڈ کی سمت طے کریں تاکہ بریک آؤٹ کی سمت کا اندازہ ہو۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Breakout کا انتظار</strong><br>
+                    Mother کی High یا Low کے بریک کا انتظار کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Entry + Stop Loss</strong><br>
+                    بریک آؤٹ کینڈل کے بند ہونے پر انٹری۔ SL Inside یا Mother کے مخالف extremum پر رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: Inside Candle ورک فلو</div>
+                <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="250" y="15" width="200" height="45" rx="10" fill="#047857" stroke="#10b981" stroke-width="2"/>
+                    <text x="350" y="43" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Mother Candle تلاش</text>
+                    
+                    <path d="M350 60 L350 80" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="80" width="200" height="45" rx="10" fill="#059669" stroke="#34d399" stroke-width="2"/>
+                    <text x="350" y="108" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Inside Candle تصدیق</text>
+                    
+                    <path d="M350 125 L350 145" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="145" width="200" height="45" rx="10" fill="#10b981" stroke="#6ee7b7" stroke-width="2"/>
+                    <text x="350" y="173" fill="white" font-size="13" text-anchor="middle" font-family="Arial">HTF Bias چیک کریں</text>
+                    
+                    <path d="M350 190 L350 210" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="210" width="200" height="45" rx="10" fill="#34d399" stroke="#a7f3d0" stroke-width="2"/>
+                    <text x="350" y="238" fill="#0f172a" font-size="13" text-anchor="middle" font-family="Arial">Breakout کا انتظار</text>
+                    
+                    <path d="M350 255 L350 275" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="275" width="200" height="45" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="303" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال</h2>
+            
+            <div class="example-card">
+                <h3>مثال: GBP/USD پر Inside Candle Breakout</h3>
+                <p>
+                    1H چارٹ پر GBP/USD ایک بڑی سبز Mother Candle بناتا ہے۔ اگلی کینڈل مکمل طور پر اس کے اندر بند ہوتی ہے (Inside Candle)۔ Higher Timeframe پر اپ ٹرینڈ ہے۔
+                </p>
+                <p>
+                    اب انتظار کریں کہ قیمت Mother کی High کو توڑے۔ جب بریک آؤٹ کینڈل بند ہو جائے تو بائی انٹری لیں۔ Stop Loss Inside Candle کے لو یا Mother کے لو کے نیچے رکھیں اور Target اگلا Swing High رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>Inside Candle کو خود سگنل سمجھ کر انٹری لینا (بریک آؤٹ کا انتظار ضروری ہے)</li>
+                    <li>چھوٹی Mother Candle پر سیٹ اپ لینا</li>
+                    <li>Higher Timeframe Bias نظر انداز کرنا</li>
+                    <li>False Breakout میں پھنس جانا (Confirmation کا انتظار کریں)</li>
+                    <li>Risk Management بھول جانا</li>
+                </ul>
+            </div>
+            
+            <!-- Comparison -->
+            <h2>١٠. پچھلے کنسپٹس سے موازنہ</h2>
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>کنسپٹ</th>
+                        <th>مرکزی خیال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IFC Candle</strong></td>
+                        <td>Liquidity Funding / Sweep</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burst Candle</strong></td>
+                        <td>Compression کے بعد Pressure Release</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OT Candle</strong></td>
+                        <td>Trap + Burst</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bundle & Sweep</strong></td>
+                        <td>Liquidity جمع + Sweep</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Momentum Candle</strong></td>
+                        <td>High Conviction / Strong Body</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inside Candle</strong></td>
+                        <td>Compression / Indecision → Breakout</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- Summary -->
+            <h2>١١. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>Inside Candle</strong> مارکیٹ میں Compression اور Indecision کی نشانی ہے۔ یہ خود سمت نہیں بتاتی بلکہ بڑے موومنٹ سے پہلے کی تیاری کو ظاہر کرتی ہے۔
+                </p>
+                <p>
+                    کامیاب استعمال کے لیے:
+                </p>
+                <ul>
+                    <li>Mother + Inside کی صحیح شناخت کریں</li>
+                    <li>Higher Timeframe Bias کے ساتھ بریک آؤٹ کی سمت طے کریں</li>
+                    <li>بریک آؤٹ کی Confirmation کا انتظار کریں</li>
+                    <li>مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل صرف تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>Breakout trading ka practical form course ke price action module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Beginner Course</b></a> — aur pattern ki foundation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a> + <a href="/price-action-mastery/index.html">Price Action Mastery</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Inside candle ko kya kehte hain?</b>
+<b>Mother-Daughter</b> pattern bhi — pichli candle Mother, andar wali Daughter. Inside Bar bhi common naam hai.
+<b>Inside candle ke baad side kaise pata chale?</b>
+Pata nahi chalta — inside candle sirf batati hai ke market compress ho rahi hai. Direction ke liye break ka intezar: jo side break ho, wahi direction.
+<b>Kitni inside candles valid hain?</b>
+Ek se teen tak — jitni lambi series, utna bara compression aur breakout ka potential zyada. 4+ ke baad fatigue bhi aata hai.
+<b>Inside candle kis timeframe par best?</b>
+H4 aur D1 par sab se reliable (camouflage kam hota hai); entry M15/M30 par confirmation ke sath.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Series: <a href="/blog/momentum-candle-kya-hai">Momentum Candle</a> (breakout wali bara candle), <a href="/blog/burst-candle-kya-hai">Burst Candle</a> (compression release), <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a> aur <a href="/blog/ot-candle-kya-hai">OT Candle</a>. Bunyad: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a> aur <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>.</p>`,
+  },
+
+  {
+    slug: 'momentum-candle-kya-hai',
+    title: 'Momentum Candle کیا ہوتی ہے؟ — پہچان اور مکمل ٹریڈنگ ورک فلو',
+    excerpt: 'Momentum Candle kya hoti hai — bara body, chhoti wick, Marubozu, bullish/bearish pehchan, workflow aur XAU/USD example — Urdu mein complete guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '5 min read',
+    hero: '/blog/momentum-candle-kya-hai.webp',
+    heroAlt: 'Momentum Candle کیا ہوتی ہے؟ — پہچان اور مکمل ٹریڈنگ ورک فلو',
+    html: `<p class="lead"><b>Momentum Candle</b> wo candle hai jo market mein achanak aur faisla-kun kharid ya farokht ke dabav ko zahir karti hai: body pichli candles se clearly barhi, wicks chhoti ya taqreeban zero. Ye institutions ki conviction ki nishani hai — classical misal <b>Marubozu</b> hai, baghair wick wali poori body wali candle — poori pehchan aur workflow Urdu mein.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Pehchan:</b> Body pichli candles se zyada, chhoti ya zero wick, range clear expansion — Marubozu sab se pure form.</li>
+<li><b>Kya zahir karti hai:</b> Ek taraf ka mukammal dabav — buyers ya sellers mein se ek ne doosre ko kuchal diya. Conviction (niyat) strong hai.</li>
+<li><b>Workflow:</b> Momentum candle close → retest ya follow-through ka intezar → direction hi filter. Risk 1%: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Milta-julta:</b> Compression ke baad momentum: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, consolidation se breakout: <a href="/blog/inside-candle-kya-hai">Inside Candle</a>, trap wala version: <a href="/blog/ot-candle-kya-hai">OT Candle</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #60a5fa;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #3b82f6;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #93c5fd;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #1e3a8a, #172554);
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #1d4ed8;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #3b82f6;
+         }
+.uc .step-number { 
+            background: #3b82f6;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #93c5fd;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: Momentum Candle کیا ہے؟</h2>
+            <p>
+                <strong>Momentum Candle</strong> وہ کینڈل ہے جو مارکیٹ میں اچانک اور فیصلہ کن خرید یا فروخت کے دباؤ کو ظاہر کرتی ہے۔ اس کا باڈی حالیہ کینڈلز سے واضح طور پر بڑا ہوتا ہے اور وکس بہت چھوٹے یا تقریباً صفر ہوتے ہیں۔
+            </p>
+            <p>
+                یہ کینڈل اداروں کی مضبوط نیت (Conviction) کی نشانی ہے۔ جب ایک طرف (خریدار یا فروخت کنندہ) مکمل طور پر دوسری طرف کو دبا دیتا ہے تو Momentum Candle بنتی ہے۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> Momentum Candle Burst Candle سے ملتی جلتی ہے، لیکن زیادہ عمومی ہے۔ ہر بڑی باڈی والی کینڈل Momentum ہو سکتی ہے، جبکہ Burst خاص طور پر Compression کے بعد کی Pressure Release کو کہتے ہیں۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. Momentum Candle کی درست تعریف</h2>
+            <p>
+                Momentum Candle کی شناخت درج ذیل خصوصیات سے ہوتی ہے:
+            </p>
+            <ul>
+                <li><strong>بڑا باڈی:</strong> حالیہ ٣-٥ کینڈلز کے اوسط باڈی سے کم از کم ٢ گنا بڑا</li>
+                <li><strong>چھوٹے وکس:</strong> کل رینج کا ٣٠٪ سے کم وکس (بہترین صورت میں تقریباً صفر)</li>
+                <li><strong>فیصلہ کن کلوز:</strong> کینڈل اپنے انتہائی قریب بند ہو (Bullish کے لیے ہائی کے قریب، Bearish کے لیے لو کے قریب)</li>
+                <li><strong>حجم (اگر دستیاب ہو):</strong> اوسط سے زیادہ Volume</li>
+            </ul>
+            
+            <p>
+                کلاسیکی مثال <strong>Marubozu</strong> ہے — بغیر کسی وک کی مکمل باڈی والی کینڈل، جو سب سے خالص Momentum کی نمائندگی کرتی ہے۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. Momentum Candle کہاں بنتی ہے؟</h2>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Breakout کے وقت</strong></td>
+                        <td>رینج یا Consolidation کے باہر</td>
+                        <td>سب سے عام اور طاقتور</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Support / Resistance پر</strong></td>
+                        <td>اہم لیولز کے ریجیکشن یا بریک پر</td>
+                        <td>Confirmation کے لیے بہترین</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Block / FVG کے بعد</strong></td>
+                        <td>اداروں کے زونز سے باہر نکلتے وقت</td>
+                        <td>اعلیٰ احتمال</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ٹرینڈ کے اندر</strong></td>
+                        <td>Pullback کے بعد Continuation</td>
+                        <td>ٹرینڈ کی تصدیق</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session Opens</strong></td>
+                        <td>لندن یا نیویارک اوپن کے قریب</td>
+                        <td>بڑی وولیوم کے ساتھ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. Momentum Candle کب بنتی ہے؟</h2>
+            <ol>
+                <li><strong>Compression کے بعد:</strong> جب مارکیٹ طویل عرصے تک تنگ رہی ہو</li>
+                <li><strong>لیکویڈیٹی Sweep کے بعد:</strong> Trap یا Sweep کے فوراً بعد</li>
+                <li><strong>نیوز یا ڈیٹا کے وقت:</strong> ہائی امپیکٹ ایونٹس کے دوران</li>
+                <li><strong>ٹرینڈ کے مضبوط مرحلے میں:</strong> جب ایک طرف مکمل کنٹرول میں ہو</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> Momentum Candle تنہا انٹری کا سگنل نہیں۔ اسے ہمیشہ Higher Timeframe Bias، Structure اور Liquidity کے ساتھ ملا کر استعمال کریں۔
+            </div>
+            
+            <!-- Bullish vs Bearish -->
+            <h2>٥. Bullish اور Bearish Momentum Candle</h2>
+            
+            <h3 class="bullish">Bullish Momentum Candle</h3>
+            <p>
+                بڑی سبز باڈی، چھوٹے یا نہ کے برابر وکس۔ کینڈل اپنے ہائی کے قریب بند ہوتی ہے۔ اس کا مطلب ہے کہ خریداروں نے مکمل کنٹرول حاصل کر لیا ہے۔
+            </p>
+            
+            <h3 class="bearish">Bearish Momentum Candle</h3>
+            <p>
+                بڑی سرخ باڈی، چھوٹے یا نہ کے برابر وکس۔ کینڈل اپنے لو کے قریب بند ہوتی ہے۔ اس کا مطلب ہے کہ فروخت کنندگان نے مکمل کنٹرول حاصل کر لیا ہے۔
+            </p>
+            
+            <!-- SVG Diagram 1 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: Bullish Momentum Candle</div>
+                <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Previous small candles -->
+                    <rect x="60" y="180" width="22" height="35" fill="#94a3b8" rx="2"/>
+                    <rect x="95" y="190" width="22" height="25" fill="#94a3b8" rx="2"/>
+                    <rect x="130" y="175" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="165" y="185" width="22" height="30" fill="#94a3b8" rx="2"/>
+                    <rect x="200" y="170" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    
+                    <text x="130" y="250" fill="#94a3b8" font-size="13" text-anchor="middle" font-family="Arial">Normal Candles</text>
+                    
+                    <!-- Momentum Candle -->
+                    <rect x="260" y="70" width="40" height="150" fill="#22c55e" rx="3"/>
+                    <line x1="280" y1="60" x2="280" y2="70" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="280" y1="220" x2="280" y2="230" stroke="#22c55e" stroke-width="2"/>
+                    
+                    <text x="280" y="50" fill="#4ade80" font-size="15" font-weight="bold" text-anchor="middle" font-family="Arial">MOMENTUM</text>
+                    <text x="280" y="280" fill="#22c55e" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">Bullish Momentum</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="330" y="55" width="28" height="90" fill="#22c55e" rx="2"/>
+                    <rect x="370" y="45" width="28" height="80" fill="#22c55e" rx="2"/>
+                    <rect x="410" y="40" width="28" height="70" fill="#22c55e" rx="2"/>
+                    
+                    <!-- Note -->
+                    <text x="480" y="120" fill="#93c5fd" font-size="13" font-family="Arial">بڑا باڈی</text>
+                    <text x="480" y="145" fill="#93c5fd" font-size="13" font-family="Arial">چھوٹے وکس</text>
+                    <text x="480" y="170" fill="#93c5fd" font-size="13" font-family="Arial">فیصلہ کن کلوز</text>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2 -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish Momentum Candle</div>
+                <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="60" y="130" width="22" height="35" fill="#94a3b8" rx="2"/>
+                    <rect x="95" y="140" width="22" height="25" fill="#94a3b8" rx="2"/>
+                    <rect x="130" y="125" width="22" height="40" fill="#94a3b8" rx="2"/>
+                    <rect x="165" y="135" width="22" height="30" fill="#94a3b8" rx="2"/>
+                    <rect x="200" y="120" width="22" height="45" fill="#94a3b8" rx="2"/>
+                    
+                    <text x="130" y="100" fill="#94a3b8" font-size="13" text-anchor="middle" font-family="Arial">Normal Candles</text>
+                    
+                    <rect x="260" y="140" width="40" height="150" fill="#ef4444" rx="3"/>
+                    <line x1="280" y1="130" x2="280" y2="140" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="280" y1="290" x2="280" y2="300" stroke="#ef4444" stroke-width="2"/>
+                    
+                    <text x="280" y="120" fill="#f87171" font-size="15" font-weight="bold" text-anchor="middle" font-family="Arial">MOMENTUM</text>
+                    <text x="280" y="330" fill="#ef4444" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">Bearish Momentum</text>
+                    
+                    <rect x="330" y="200" width="28" height="80" fill="#ef4444" rx="2"/>
+                    <rect x="370" y="220" width="28" height="70" fill="#ef4444" rx="2"/>
+                    <rect x="410" y="235" width="28" height="60" fill="#ef4444" rx="2"/>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. Momentum Candle کی پہچان</h2>
+            <ul>
+                <li>باڈی حالیہ اوسط سے واضح طور پر بڑا ہو (٢x یا زیادہ)</li>
+                <li>وکس کل رینج کا ٣٠٪ سے کم ہوں</li>
+                <li>کینڈل اپنے انتہائی قریب بند ہو</li>
+                <li>اگر Volume دستیاب ہو تو اوسط سے زیادہ ہو</li>
+                <li>اہم لیول یا Breakout کے ساتھ ہو تو زیادہ طاقتور</li>
+            </ul>
+            
+            <!-- Workflow -->
+            <h2>٧. Momentum Candle کے ساتھ ٹریڈ کرنے کا ورک فلو</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Higher Timeframe Bias طے کریں</strong><br>
+                    Daily یا 4H پر ٹرینڈ اور اہم لیولز دیکھیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Momentum Candle تلاش کریں</strong><br>
+                    بڑی باڈی اور چھوٹے وکس والی کینڈل کی تلاش کریں جو Bias کے مطابق ہو۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Context چیک کریں</strong><br>
+                    کیا یہ Breakout، Rejection یا Continuation ہے؟ Liquidity اور Structure دیکھیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>ریٹیسٹ کا انتظار (اختیاری)</strong><br>
+                    کئی ٹریڈرز Momentum کے FVG یا ٥٠٪ پر ریٹیسٹ کا انتظار کرتے ہیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Entry + Risk Management</strong><br>
+                    Confirmation کے بعد انٹری لیں۔ SL Momentum Candle کے extremum کے باہر رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: Momentum Candle ورک فلو</div>
+                <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="250" y="15" width="200" height="45" rx="10" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="350" y="43" fill="white" font-size="13" text-anchor="middle" font-family="Arial">HTF Bias طے کریں</text>
+                    
+                    <path d="M350 60 L350 80" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="80" width="200" height="45" rx="10" fill="#2563eb" stroke="#60a5fa" stroke-width="2"/>
+                    <text x="350" y="108" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Momentum Candle تلاش</text>
+                    
+                    <path d="M350 125 L350 145" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="145" width="200" height="45" rx="10" fill="#3b82f6" stroke="#93c5fd" stroke-width="2"/>
+                    <text x="350" y="173" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Context + Structure چیک</text>
+                    
+                    <path d="M350 190 L350 210" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="210" width="200" height="45" rx="10" fill="#60a5fa" stroke="#bfdbfe" stroke-width="2"/>
+                    <text x="350" y="238" fill="#0f172a" font-size="13" text-anchor="middle" font-family="Arial">ریٹیسٹ / Confirmation</text>
+                    
+                    <path d="M350 255 L350 275" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="275" width="200" height="45" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="303" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال</h2>
+            
+            <div class="example-card">
+                <h3>مثال: XAU/USD پر Bullish Momentum</h3>
+                <p>
+                    15 منٹ چارٹ پر گولڈ ایک رینج میں پھنسا ہوا ہے۔ اچانک ایک بڑی سبز کینڈل بنتی ہے جو رینج کے ہائی کو توڑتی ہے، باڈی بہت بڑی ہے اور وکس تقریباً نہیں۔ یہ Momentum Candle ہے۔
+                </p>
+                <p>
+                    اب آپ دو طریقے اپنا سکتے ہیں: (١) فوراً بائی انٹری لیں اور SL کینڈل کے لو کے نیچے رکھیں، یا (٢) اس کے FVG یا ٥٠٪ پر ریٹیسٹ کا انتظار کریں اور پھر انٹری لیں۔ Target اگلا Swing High یا لیکویڈیٹی پول رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>ہر بڑی کینڈل کو Momentum سمجھ لینا (وکس اور Context دیکھیں)</li>
+                    <li>Higher Timeframe Bias کے خلاف Momentum پر ٹریڈ کرنا</li>
+                    <li>بغیر Confirmation کے FOMO میں انٹری لینا</li>
+                    <li>Risk Management نظر انداز کرنا</li>
+                    <li>رینج کے اندر Momentum کو Breakout سمجھنا</li>
+                </ul>
+            </div>
+            
+            <!-- Comparison -->
+            <h2>١٠. پچھلے کنسپٹس سے موازنہ</h2>
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>کنسپٹ</th>
+                        <th>مرکزی خیال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IFC Candle</strong></td>
+                        <td>Liquidity Funding / Sweep</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burst Candle</strong></td>
+                        <td>Compression کے بعد Pressure Release</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OT Candle</strong></td>
+                        <td>Trap + Burst مکمل سیٹ اپ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bundle & Sweep</strong></td>
+                        <td>Liquidity جمع + Sweep</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Momentum Candle</strong></td>
+                        <td>High Conviction / Strong Body</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- Summary -->
+            <h2>١١. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>Momentum Candle</strong> مارکیٹ میں فیصلہ کن خرید یا فروخت کے دباؤ کی نشانی ہے۔ بڑی باڈی، چھوٹے وکس اور اہم مقام پر بننا اس کی طاقت بڑھاتا ہے۔
+                </p>
+                <p>
+                    کامیاب استعمال کے لیے:
+                </p>
+                <ul>
+                    <li>Higher Timeframe Bias کے ساتھ ملا کر استعمال کریں</li>
+                    <li>Context (Breakout، Continuation، Rejection) سمجھیں</li>
+                    <li>ریٹیسٹ یا Confirmation کا انتظار کریں</li>
+                    <li>ہمیشہ مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل صرف تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>Momentum ko structure ke sath parhne ka tareeqa course ke price action module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Beginner Course</b></a> — aur candle ki foundation: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>, <a href="/price-action-mastery/index.html">Price Action Mastery book</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>Momentum candle aur burst candle ek hi hain?</b>
+Milte hain par same nahi. Momentum candle sirf body ki taqat batati hai; Burst candle ke peeche compression ka poora setup hota hai — release ka context.
+<b>Marubozu kya hoti hai?</b>
+Baghair kisi wick (ya bariq wick) wali lambi body wali candle — momentum ka sab se pure form. Isi ko log "power candle" bhi kehte hain.
+<b>Momentum candle ke baad trade foran lein?</b>
+Nahi — close ke baad retest best entry deta hai. Aksar pehli candle full move nahi deti, doosri leg banta hai.
+<b>Badi body wali candle hamesha strong signal hai?</b>
+Baghair context (level, trend, session) ke nahi. News ke waqt bani badi candle aksar liquidity grab hoti hai — context pehle, candle baad mein.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Aage: <a href="/blog/burst-candle-kya-hai">Burst Candle</a> (compression + release), <a href="/blog/inside-candle-kya-hai">Inside Candle</a> (compression se pehle), <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a> (liquidity) aur <a href="/blog/ifc-candle-kya-hai">IFC Candle</a> (institutions). Foundation: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a> + <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>.</p>`,
+  },
+
+  {
+    slug: 'ot-candle-kya-hai',
+    title: 'OT Candle (Trap & Burst) کیا ہوتی ہے؟ — Operator Trap کا مکمل گائیڈ',
+    excerpt: 'OT Candle (Trap & Burst Candle) kya hoti hai — trap ka stage, burst ka stage, pehchan, workflow, aur IFC/Burst se comparison — Urdu guide.',
+    category: 'Technical Analysis',
+    tags: ['Candlestick', 'SMC', 'ICT', 'Technical Analysis'],
+    date: '2026-10-15',
+    readingTime: '6 min read',
+    hero: '/blog/ot-candle-kya-hai.webp',
+    heroAlt: 'OT Candle (Trap & Burst) کیا ہوتی ہے؟ — Operator Trap کا مکمل گائیڈ',
+    html: `<p class="lead"><b>OT Candle</b> asal mein <b>Trap &amp; Burst Candle</b> ka combination hai — do stage ka poora setup: pehle retail ko trap kiya jata hai, phir burst ke zariye asal movement shuru hoti hai. Bahut se local traders ise <b>Operator Trap Candle</b> bhi kehte hain. Ye guide batati hai ke dono stages kaise kaam karti hain, pehchan kaisi hoti hai, aur IFC/Burst se iska farq kya hai — Urdu mein, diagrams ke sath.</p>
+
+<div class="note"><b>Jaldi ka jawab:</b>
+<ul>
+<li><b>Do stages:</b> Stage 1 = Trap (retail ko ulti side mein phansaya jata hai), Stage 2 = Burst (usi direction mein asal move). Dono mil kar OT setup banate hain.</li>
+<li><b>Pehchan:</b> Pehle wick/sweep se trap, phir bara body wala burst candle — ye do-step pattern hi OT hai.</li>
+<li><b>Workflow:</b> Trap identify → burst close ka intezar → confirmation → entry. Risk 1% se zyada nahi: <a href="/calculator/position-size">Position Size Calculator</a>.</li>
+<li><b>Milta-julta:</b> Sirf displacement: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, sirf liquidity hunt: <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a>, institutional reversal: <a href="/blog/ifc-candle-kya-hai">IFC Candle</a>.</li>
+</ul></div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+.uc 700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+.uc { 
+            font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 2.2;
+            font-size: 18px;
+            padding: 20px;
+         }
+.uc .content { 
+            padding: 40px 35px;
+         }
+.uc h2 { 
+            color: #c084fc;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-right: 5px solid #a855f7;
+            padding-right: 15px;
+         }
+.uc h3 { 
+            color: #e879f9;
+            font-size: 1.3rem;
+            margin: 28px 0 14px;
+         }
+.uc p { 
+            margin-bottom: 18px;
+            text-align: justify;
+         }
+.uc .highlight-box { 
+            background: linear-gradient(135deg, #4c1d95, #2e1065);
+            border: 1px solid #a855f7;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .warning-box { 
+            background: linear-gradient(135deg, #7f1d1d, #450a0a);
+            border: 1px solid #f87171;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc .success-box { 
+            background: linear-gradient(135deg, #14532d, #052e16);
+            border: 1px solid #4ade80;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+         }
+.uc ul, .uc ol { 
+            margin: 15px 0 20px 0;
+            padding-right: 30px;
+         }
+.uc li { 
+            margin-bottom: 10px;
+         }
+.uc .diagram-container { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #334155;
+         }
+.uc .diagram-title { 
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+         }
+.uc svg { 
+            max-width: 100%;
+            height: auto;
+         }
+.uc table { 
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            overflow: hidden;
+         }
+.uc th, .uc td { 
+            padding: 14px 18px;
+            text-align: right;
+            border-bottom: 1px solid #334155;
+         }
+.uc th { 
+            background: #6b21a8;
+            color: white;
+            font-weight: 700;
+         }
+.uc tr:hover { 
+            background: #1e293b;
+         }
+.uc .workflow-step { 
+            display: flex;
+            align-items: flex-start;
+            margin: 18px 0;
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 18px;
+            border-right: 4px solid #a855f7;
+         }
+.uc .step-number { 
+            background: #a855f7;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+         }
+.uc .example-card { 
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #475569;
+         }
+.uc strong { 
+            color: #e879f9;
+         }
+.uc .bullish {  color: #4ade80;  }
+.uc .bearish {  color: #f87171;  }
+.uc { border-radius: 16px; margin: 0; padding: 30px 28px; }
+</style>
+<div class="uc" dir="rtl" lang="ur">
+            
+            <!-- تعارف -->
+            <h2>١. تعارف: OT Candle کیا ہے؟</h2>
+            <p>
+                <strong>OT Candle</strong> اصل میں <strong>Trap & Burst Candle</strong> کا کمبینیشن ہے۔ یہ Smart Money Concepts میں ایک مکمل سیٹ اپ ہے جس میں دو مراحل ہوتے ہیں:
+            </p>
+            <ul>
+                <li><strong>Trap Phase:</strong> ادارے ریٹیل ٹریڈرز کو جال میں پھانستے ہیں (Liquidity Sweep / False Breakout)</li>
+                <li><strong>Burst Phase:</strong> اس کے فوراً بعد مضبوط Displacement (Burst) ہوتا ہے جس میں اصل سمت کا فیصلہ ہوتا ہے</li>
+            </ul>
+            <p>
+                بہت سے مقامی ٹریڈرز اسے <strong>Operator Trap Candle</strong> یا صرف <strong>OT Candle</strong> کہتے ہیں۔ اس کا جوہر یہ ہے کہ پہلے ریٹیل کو Trap کیا جاتا ہے، پھر Burst کے ذریعے اصل حرکت شروع ہوتی ہے۔
+            </p>
+            
+            <div class="highlight-box">
+                <strong>اہم نکتہ:</strong> OT Candle تنہا ایک کینڈل نہیں بلکہ ایک <strong>تین مرحلہ والی ترتیب</strong> ہے — Compression → Trap → Burst۔ یہ IFC اور Burst Candle دونوں سے زیادہ مکمل سیٹ اپ فراہم کرتی ہے۔
+            </div>
+            
+            <!-- تعریف -->
+            <h2>٢. OT Candle کی درست تعریف</h2>
+            <p>
+                OT Candle اس وقت مکمل ہوتی ہے جب:
+            </p>
+            <ol>
+                <li>مارکیٹ پہلے تنگ رینج یا Consolidation میں ہو (Compression)</li>
+                <li>پھر ایک کینڈل لیکویڈیٹی Sweep کرے اور ریٹیل کو Trap کرے (Trap Candle)</li>
+                <li>اس کے فوراً بعد ایک مضبوط بڑی کینڈل بنے جو اصل سمت میں Displacement کرے (Burst Candle)</li>
+            </ol>
+            <p>
+                اس پوری ترتیب کو مل کر <strong>OT Candle Setup</strong> کہا جاتا ہے۔
+            </p>
+            
+            <!-- کہاں بنتی ہے -->
+            <h2>٣. OT Candle کہاں بنتی ہے؟</h2>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>مقام</th>
+                        <th>تفصیل</th>
+                        <th>اہمیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Major Swing High / Low</strong></td>
+                        <td>واضح سٹرکچر لیولز پر</td>
+                        <td>سب سے زیادہ لیکویڈیٹی</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Equal Highs / Equal Lows</strong></td>
+                        <td>دو یا زیادہ برابر پوائنٹس</td>
+                        <td>ریٹیل سٹاپ لاسز کا جال</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Session High / Low</strong></td>
+                        <td>لندن یا نیویارک سیشن</td>
+                        <td>روزانہ کی لیکویڈیٹی پولز</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Previous Day High / Low</strong></td>
+                        <td>گزشتہ دن کا انتہا</td>
+                        <td>مضبوط Trap کے امکانات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Block / FVG کے قریب</strong></td>
+                        <td>پچھلے اداروں کے زونز</td>
+                        <td>اعلیٰ احتمال والا سیٹ اپ</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- کب بنتی ہے -->
+            <h2>٤. OT Candle کب بنتی ہے؟</h2>
+            <ol>
+                <li><strong>Manipulation Phase کے دوران:</strong> AMD ماڈل کا درمیانی مرحلہ</li>
+                <li><strong>Compression کے بعد:</strong> جب مارکیٹ طویل عرصے تک تنگ رہی ہو</li>
+                <li><strong>اہم سیشنز میں:</strong> لندن اوپن یا نیویارک اوپن کے قریب</li>
+                <li><strong>لیکویڈیٹی کی موجودگی پر:</strong> جب واضح لیکویڈیٹی پول موجود ہو</li>
+            </ol>
+            
+            <div class="success-box">
+                <strong>یاد رکھیں:</strong> OT Candle تب ہی معتبر ہوتی ہے جب Trap کے بعد واضح Burst (Displacement) نظر آئے۔ صرف Trap کافی نہیں، Burst کی تصدیق ضروری ہے۔
+            </div>
+            
+            <!-- Trap vs Burst -->
+            <h2>٥. Trap اور Burst کا فرق</h2>
+            
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>پہلو</th>
+                        <th>Trap Candle</th>
+                        <th>Burst Candle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>مقصد</td>
+                        <td>ریٹیل کو جال میں پھانسنا</td>
+                        <td>اصل سمت کا فیصلہ</td>
+                    </tr>
+                    <tr>
+                        <td>شکل</td>
+                        <td>اکثر لمبا وک + چھوٹا باڈی</td>
+                        <td>بڑا باڈی + چھوٹے وکس</td>
+                    </tr>
+                    <tr>
+                        <td>لیکویڈیٹی</td>
+                        <td>Sweep کرتی ہے</td>
+                        <td>Displacement کرتی ہے</td>
+                    </tr>
+                    <tr>
+                        <td>نتیجہ</td>
+                        <td>ریٹیل سٹاپ لاسز ہٹتے ہیں</td>
+                        <td>FVG بنتا ہے اور ٹرینڈ شروع ہوتا ہے</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- SVG Diagram 1: Full OT Sequence -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ١: OT Candle کی مکمل ترتیب (Trap + Burst)</div>
+                <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Compression -->
+                    <rect x="40" y="160" width="18" height="35" fill="#64748b" rx="2"/>
+                    <rect x="65" y="170" width="18" height="25" fill="#64748b" rx="2"/>
+                    <rect x="90" y="155" width="18" height="40" fill="#64748b" rx="2"/>
+                    <rect x="115" y="165" width="18" height="30" fill="#64748b" rx="2"/>
+                    <rect x="140" y="150" width="18" height="45" fill="#64748b" rx="2"/>
+                    <text x="90" y="230" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="Arial">Compression</text>
+                    
+                    <!-- Trap Candle (long lower wick) -->
+                    <rect x="190" y="140" width="28" height="50" fill="#f97316" rx="2"/>
+                    <line x1="204" y1="100" x2="204" y2="140" stroke="#f97316" stroke-width="2"/>
+                    <line x1="204" y1="190" x2="204" y2="260" stroke="#f97316" stroke-width="3"/>
+                    <text x="204" y="280" fill="#fb923c" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">TRAP</text>
+                    <text x="204" y="295" fill="#fdba74" font-size="11" text-anchor="middle" font-family="Arial">Liquidity Sweep</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M240 170 L270 120" stroke="#a855f7" stroke-width="2" marker-end="url(#arr)"/>
+                    
+                    <!-- Burst Candle -->
+                    <rect x="280" y="60" width="36" height="130" fill="#22c55e" rx="3"/>
+                    <line x1="298" y1="50" x2="298" y2="60" stroke="#22c55e" stroke-width="2"/>
+                    <line x1="298" y1="190" x2="298" y2="200" stroke="#22c55e" stroke-width="2"/>
+                    <text x="298" y="40" fill="#4ade80" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">BURST</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="340" y="50" width="24" height="70" fill="#22c55e" rx="2"/>
+                    <rect x="375" y="40" width="24" height="60" fill="#22c55e" rx="2"/>
+                    <rect x="410" y="35" width="24" height="55" fill="#22c55e" rx="2"/>
+                    
+                    <!-- FVG -->
+                    <rect x="280" y="140" width="90" height="25" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="310" y="157" fill="#4ade80" font-size="11" font-family="Arial">FVG Zone</text>
+                    
+                    <!-- Labels -->
+                    <text x="500" y="100" fill="#c084fc" font-size="14" font-family="Arial">OT Setup = Trap + Burst</text>
+                    <text x="500" y="125" fill="#94a3b8" font-size="12" font-family="Arial">1. Compression</text>
+                    <text x="500" y="145" fill="#94a3b8" font-size="12" font-family="Arial">2. Trap (Liquidity Grab)</text>
+                    <text x="500" y="165" fill="#94a3b8" font-size="12" font-family="Arial">3. Burst (Displacement)</text>
+                    
+                    <defs>
+                        <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#a855f7"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            
+            <!-- SVG Diagram 2: Bearish OT -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٢: Bearish OT Candle (Trap + Burst)</div>
+                <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Compression -->
+                    <rect x="40" y="140" width="18" height="35" fill="#64748b" rx="2"/>
+                    <rect x="65" y="150" width="18" height="25" fill="#64748b" rx="2"/>
+                    <rect x="90" y="135" width="18" height="40" fill="#64748b" rx="2"/>
+                    <rect x="115" y="145" width="18" height="30" fill="#64748b" rx="2"/>
+                    <rect x="140" y="130" width="18" height="45" fill="#64748b" rx="2"/>
+                    <text x="90" y="100" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="Arial">Compression</text>
+                    
+                    <!-- Trap Candle (long upper wick) -->
+                    <rect x="190" y="150" width="28" height="50" fill="#f97316" rx="2"/>
+                    <line x1="204" y1="80" x2="204" y2="150" stroke="#f97316" stroke-width="3"/>
+                    <line x1="204" y1="200" x2="204" y2="220" stroke="#f97316" stroke-width="2"/>
+                    <text x="204" y="250" fill="#fb923c" font-size="13" font-weight="bold" text-anchor="middle" font-family="Arial">TRAP</text>
+                    <text x="204" y="265" fill="#fdba74" font-size="11" text-anchor="middle" font-family="Arial">Liquidity Sweep</text>
+                    
+                    <!-- Burst Candle down -->
+                    <rect x="280" y="170" width="36" height="130" fill="#ef4444" rx="3"/>
+                    <line x1="298" y1="160" x2="298" y2="170" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="298" y1="300" x2="298" y2="310" stroke="#ef4444" stroke-width="2"/>
+                    <text x="298" y="340" fill="#f87171" font-size="14" font-weight="bold" text-anchor="middle" font-family="Arial">BURST</text>
+                    
+                    <!-- Follow through -->
+                    <rect x="340" y="220" width="24" height="70" fill="#ef4444" rx="2"/>
+                    <rect x="375" y="240" width="24" height="60" fill="#ef4444" rx="2"/>
+                    <rect x="410" y="255" width="24" height="50" fill="#ef4444" rx="2"/>
+                    
+                    <!-- FVG -->
+                    <rect x="280" y="180" width="90" height="25" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="310" y="197" fill="#f87171" font-size="11" font-family="Arial">FVG Zone</text>
+                </svg>
+            </div>
+            
+            <!-- Characteristics -->
+            <h2>٦. OT Candle کی پہچان کیسے کریں؟</h2>
+            <ul>
+                <li><strong>Compression موجود ہو:</strong> Trap سے پہلے تنگ کینڈلز کا سلسلہ</li>
+                <li><strong>Trap واضح ہو:</strong> لیکویڈیٹی Sweep کے ساتھ لمبا وک</li>
+                <li><strong>Burst فوری ہو:</strong> Trap کے بعد جلد ہی بڑی Displacement کینڈل</li>
+                <li><strong>FVG بنے:</strong> Burst کے بعد Imbalance نظر آئے</li>
+                <li><strong>سٹرکچر تبدیل ہو:</strong> CHoCH یا BOS کی تصدیق</li>
+            </ul>
+            
+            <!-- Workflow -->
+            <h2>٧. OT Candle کے ساتھ ٹریڈ کرنے کا مکمل ورک فلو</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>لیکویڈیٹی لیولز مارک کریں</strong><br>
+                    Higher Timeframe پر Swing Highs/Lows، Equal Highs/Lows اور Session Extremes نشان زد کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Compression کا انتظار کریں</strong><br>
+                    قیمت جب ان لیولز کے قریب تنگ رینج بنائے تو تیار رہیں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Trap Candle کی تصدیق</strong><br>
+                    لیکویڈیٹی Sweep ہونے اور کینڈل کے بند ہونے کا انتظار کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Burst Candle کا انتظار</strong><br>
+                    Trap کے بعد مضبوط Displacement کینڈل بننے دیں۔ FVG مارک کریں۔
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>ریٹیسٹ پر انٹری</strong><br>
+                    FVG یا Order Block پر Lower Timeframe Confirmation لے کر انٹری لیں۔ SL Trap کے extremum کے باہر رکھیں۔
+                </div>
+            </div>
+            
+            <!-- SVG Workflow -->
+            <div class="diagram-container">
+                <div class="diagram-title">ڈایاگرام ٣: OT Candle ٹریڈنگ ورک فلو</div>
+                <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="250" y="15" width="200" height="45" rx="10" fill="#6b21a8" stroke="#a855f7" stroke-width="2"/>
+                    <text x="350" y="43" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Liquidity Levels مارک</text>
+                    
+                    <path d="M350 60 L350 80" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="80" width="200" height="45" rx="10" fill="#7e22ce" stroke="#c084fc" stroke-width="2"/>
+                    <text x="350" y="108" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Compression دیکھیں</text>
+                    
+                    <path d="M350 125 L350 145" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="145" width="200" height="45" rx="10" fill="#a21caf" stroke="#e879f9" stroke-width="2"/>
+                    <text x="350" y="173" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Trap Candle (Sweep)</text>
+                    
+                    <path d="M350 190 L350 210" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="210" width="200" height="45" rx="10" fill="#be185d" stroke="#f472b6" stroke-width="2"/>
+                    <text x="350" y="238" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Burst Candle + FVG</text>
+                    
+                    <path d="M350 255 L350 275" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="275" width="200" height="45" rx="10" fill="#9d174d" stroke="#fb7185" stroke-width="2"/>
+                    <text x="350" y="303" fill="white" font-size="13" text-anchor="middle" font-family="Arial">LTF Confirmation</text>
+                    
+                    <path d="M350 320 L350 340" stroke="#94a3b8" stroke-width="2"/>
+                    
+                    <rect x="250" y="340" width="200" height="45" rx="10" fill="#15803d" stroke="#22c55e" stroke-width="2"/>
+                    <text x="350" y="368" fill="white" font-size="13" text-anchor="middle" font-family="Arial">Entry + SL + Target</text>
+                </svg>
+            </div>
+            
+            <!-- Practical Example -->
+            <h2>٨. عملی مثال</h2>
+            
+            <div class="example-card">
+                <h3>مثال: GBP/USD پر Bullish OT Setup</h3>
+                <p>
+                    1H چارٹ پر GBP/USD ایک واضح Swing Low کے قریب تنگ رینج بنا رہا ہے۔ اچانک ایک کینڈل نیچے جا کر لیکویڈیٹی Sweep کرتی ہے (Trap) اور بند ہوتی ہے۔ اس کے فوراً بعد ایک بڑی سبز کینڈل بنتی ہے جو اوپر کی طرف Displacement کرتی ہے اور FVG چھوڑتی ہے (Burst)۔
+                </p>
+                <p>
+                    اب 5m یا 15m پر جائیں، FVG کے ریٹیسٹ کا انتظار کریں، CHoCH کی تصدیق لیں اور بائی انٹری لیں۔ Stop Loss Trap Candle کے لو کے نیچے رکھیں اور Target اگلا Swing High رکھیں۔
+                </p>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <h2>٩. عام غلطیاں</h2>
+            <div class="warning-box">
+                <ul>
+                    <li>صرف Trap دیکھ کر انٹری لینا (Burst کا انتظار نہ کرنا)</li>
+                    <li>Compression کے بغیر سیٹ اپ کو OT سمجھنا</li>
+                    <li>Lower Timeframe Confirmation نظر انداز کرنا</li>
+                    <li>ہر Sweep کو OT سمجھ لینا</li>
+                    <li>Risk Management بھول جانا</li>
+                </ul>
+            </div>
+            
+            <!-- Comparison -->
+            <h2>١٠. OT، IFC اور Burst کا موازنہ</h2>
+            <div class="scroll"><table>
+                <thead>
+                    <tr>
+                        <th>کنسپٹ</th>
+                        <th>مرکزی خیال</th>
+                        <th>بہترین استعمال</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IFC Candle</strong></td>
+                        <td>Liquidity Funding / Sweep</td>
+                        <td>Manipulation کی شناخت</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Burst Candle</strong></td>
+                        <td>Pressure Release / Displacement</td>
+                        <td>Continuation Confirmation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OT Candle</strong></td>
+                        <td>Trap + Burst مکمل سیٹ اپ</td>
+                        <td>اعلیٰ احتمال والا مکمل ماڈل</td>
+                    </tr>
+                </tbody>
+            </table></div>
+            
+            <!-- Summary -->
+            <h2>١١. خلاصہ</h2>
+            <div class="highlight-box">
+                <p>
+                    <strong>OT Candle (Trap & Burst)</strong> ایک مکمل Smart Money سیٹ اپ ہے جس میں پہلے ریٹیل کو Trap کیا جاتا ہے اور پھر Burst کے ذریعے اصل سمت کا فیصلہ ہوتا ہے۔
+                </p>
+                <p>
+                    کامیاب استعمال کے لیے:
+                </p>
+                <ul>
+                    <li>Compression → Trap → Burst کی ترتیب کو پہچانیں</li>
+                    <li>Burst کے بعد بننے والے FVG کو مارک کریں</li>
+                    <li>ریٹیسٹ اور Lower Timeframe Confirmation کا انتظار کریں</li>
+                    <li>ہمیشہ مناسب Risk:Reward کے ساتھ ٹریڈ کریں</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; text-align: center; color: #94a3b8;">
+                یہ آرٹیکل صرف تعلیمی مقاصد کے لیے ہے۔ ٹریڈنگ میں ہمیشہ اپنے ریسرچ اور Risk Management پر انحصار کریں۔
+            </p>
+            
+        </div>
+        
+        </div>
+
+<p>Trap-based entries ka practical form course ke price action module mein hai: <a href="/courses/forex-trading-course-beginner"><b>Forex Beginner Course</b></a> — aur comparison ki bunyad: <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a> + <a href="/price-action-mastery/index.html">Price Action Mastery book</a>.</p>
+
+<h2>Aksar pooche jane wale sawal</h2>
+<div class="faq">
+<b>OT candle ka full form?</b>
+<b>Operator Trap Candle</b> — log ise Trap &amp; Burst Candle ke naam se bhi jaante hain, kyunki setup ke do hisse hain: trap aur burst.
+<b>Trap aur burst mein farq?</b>
+Trap = phansane wali movement (chhoti, wick wali), burst = asal movement (bari body). Sequence hamesha trap → burst hota hai — isi order se pehchana jata hai.
+<b>OT aur IFC mein kya farq?</b>
+Dono mein sweep hota hai, lekin IFC institutional funding candle (reversal) hai; OT mein trap ke baad continuation burst ata hai. Comparison table is guide ke section 10 mein hai.
+<b>OT setup mein stop kahan lagayein?</b>
+Trap wali candle ke us extreme par jahan retail phansa gaya tha — wahi invalidation hai. Size ke liye: <a href="/calculator/position-size">Position Size Calculator</a>.
+</div>
+
+<h2>Aage kya karein</h2>
+<p>Series mukammal karein: <a href="/blog/burst-candle-kya-hai">Burst Candle</a>, <a href="/blog/ifc-candle-kya-hai">IFC Candle</a>, <a href="/blog/bundle-sweep-candle-kya-hai">Bundle &amp; Sweep</a>, <a href="/blog/inside-candle-kya-hai">Inside Candle</a> aur <a href="/blog/momentum-candle-kya-hai">Momentum Candle</a>. Foundation: <a href="/knowledge-base/chart-kaise-padhein">Chart Kaise Padhein</a>, <a href="/blog/candlestick-patterns-shuruaat">Candlestick Patterns — Shuruaat</a>, <a href="/books">sari books</a>.</p>`,
+  },
+  {
     slug: 'emotional-trading-kaise-rokein',
     title: 'Emotional Trading Kaise Rokein — FOMO, Greed aur Loss Se Control (2026 Guide)',
     excerpt: 'Emotional trading kaise rokein: FOMO, revenge aur greed ke 5 warning signs, 6 practical rules, 60-minute loss rule aur journal workflow — Roman Urdu guide 2026.',
